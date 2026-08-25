@@ -1,0 +1,229 @@
+[
+  {
+    "id": 1,
+    "enemyClass": 0,
+    "baseHealth": 30,
+    "appearanceName": "aircraft/enemy/battleEnemyScout",
+    "displaySize": {
+      "x": 99,
+      "y": 150
+    },
+    "hitSize": {
+      "x": 60,
+      "y": 105
+    },
+    "moveSpeed": 187.5,
+    "fireInterval": 1.61,
+    "fireType": 0,
+    "bulletId": 1,
+    "score": 100,
+    "poolCapacity": 5,
+    "aircraft": {
+      "appearanceName": "aircraft/enemy/battleEnemyScout",
+      "collisionShapes": [
+        {
+          "$type": "RectangleShape",
+          "rect": {
+            "x": 60,
+            "y": 105
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "health": 30,
+      "moveSpeed": 187.5,
+      "bulletLaunchers": [],
+      "deathExplosions": [],
+      "removeAfterDeathPresentation": false
+    }
+  },
+  {
+    "id": 2,
+    "enemyClass": 0,
+    "baseHealth": 30,
+    "appearanceName": "aircraft/enemy/battleEnemyInterceptor",
+    "displaySize": {
+      "x": 135,
+      "y": 120
+    },
+    "hitSize": {
+      "x": 100,
+      "y": 80
+    },
+    "moveSpeed": 150,
+    "fireInterval": 1.2,
+    "fireType": 1,
+    "bulletId": 1,
+    "score": 100,
+    "poolCapacity": 5,
+    "aircraft": {
+      "appearanceName": "aircraft/enemy/battleEnemyInterceptor",
+      "collisionShapes": [
+        {
+          "$type": "RectangleShape",
+          "rect": {
+            "x": 100,
+            "y": 80
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "health": 30,
+      "moveSpeed": 150,
+      "bulletLaunchers": [],
+      "deathExplosions": [],
+      "removeAfterDeathPresentation": false
+    }
+  },
+  {
+    "id": 3,
+    "enemyClass": 0,
+    "baseHealth": 48,
+    "appearanceName": "aircraft/enemy/battleEnemyBomber",
+    "displaySize": {
+      "x": 140,
+      "y": 130
+    },
+    "hitSize": {
+      "x": 110,
+      "y": 90
+    },
+    "moveSpeed": 108,
+    "fireInterval": 1.96,
+    "fireType": 2,
+    "bulletId": 1,
+    "score": 100,
+    "poolCapacity": 5,
+    "aircraft": {
+      "appearanceName": "aircraft/enemy/battleEnemyBomber",
+      "collisionShapes": [
+        {
+          "$type": "RectangleShape",
+          "rect": {
+            "x": 110,
+            "y": 90
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "health": 48,
+      "moveSpeed": 108,
+      "bulletLaunchers": [],
+      "deathExplosions": [],
+      "removeAfterDeathPresentation": false
+    }
+  },
+  {
+    "id": 4,
+    "enemyClass": 1,
+    "baseHealth": 1600,
+    "appearanceName": "aircraft/enemy/battleEliteInterceptor",
+    "displaySize": {
+      "x": 193,
+      "y": 180
+    },
+    "hitSize": {
+      "x": 150,
+      "y": 130
+    },
+    "moveSpeed": 90,
+    "fireInterval": 1.4,
+    "fireType": 0,
+    "bulletId": 1,
+    "score": 1000,
+    "poolCapacity": 2,
+    "aircraft": {
+      "appearanceName": "aircraft/enemy/battleEliteInterceptor",
+      "collisionShapes": [
+        {
+          "$type": "RectangleShape",
+          "rect": {
+            "x": 150,
+            "y": 130
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "health": 1600,
+      "moveSpeed": 90,
+      "bulletLaunchers": [],
+      "deathExplosions": [],
+      "removeAfterDeathPresentation": false
+    }
+  },
+  {
+    "id": 5,
+    "enemyClass": 2,
+    "baseHealth": 6000,
+    "appearanceName": "aircraft/enemy/battleBossStage01",
+    "displaySize": {
+      "x": 362,
+      "y": 330
+    },
+    "hitSize": {
+      "x": 290,
+      "y": 250
+    },
+    "moveSpeed": 70,
+    "fireInterval": 1.4,
+    "fireType": 0,
+    "bulletId": 1,
+    "score": 3000,
+    "poolCapacity": 1,
+    "aircraft": {
+      "appearanceName": "aircraft/enemy/battleBossStage01",
+      "collisionShapes": [
+        {
+          "$type": "RectangleShape",
+          "rect": {
+            "x": 90,
+            "y": 180
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.305556
+          }
+        },
+        {
+          "$type": "RectangleShape",
+          "rect": {
+            "x": 105,
+            "y": 90
+          },
+          "pivot": {
+            "x": 1.5,
+            "y": -0.111111
+          }
+        },
+        {
+          "$type": "RectangleShape",
+          "rect": {
+            "x": 105,
+            "y": 90
+          },
+          "pivot": {
+            "x": -0.5,
+            "y": -0.111111
+          }
+        }
+      ],
+      "health": 6000,
+      "moveSpeed": 70,
+      "bulletLaunchers": [],
+      "deathExplosions": [],
+      "removeAfterDeathPresentation": false
+    }
+  }
+]

@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: opening
+  m_EditorClassIdentifier: 
+  m_GroupName: opening
+  m_Data:
+    m_SerializedData: []
+  m_GUID: f25c8586af234b34e8bf57826fa1c62c
+  m_SerializeEntries:
+  - m_GUID: 203643be0ff32cd41a24ac6e916fd4e9
+    m_Address: Assets/Prefab/opening/OpeningPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 469ae2f09a4701549ad9622d4d00349f
+    m_Address: Assets/Art/frameAnimation/opening/box_open.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d31fb03420cc2a9448774ec01dc543aa
+    m_Address: Assets/Art/audio/opening/Cmaj Victory Scale.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d46572e4eb7f9ed4f9c1cceb9fd9578f
+    m_Address: Assets/Art/frameAnimation/opening/box_open.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e44b7641cfda38d4ab1733ed2991ca67
+    m_Address: Assets/Art/unpack/opening/opening/studioPrint.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e76cc5f3fc7943a4c82579adbd882b2f
+    m_Address: Assets/Art/audio/opening/A Painful Mistake.ogg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: b1a0955dcd22fb34c834009bf4768d90, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 61638986fc0c8a84cafc5cc353f703f4, type: 2}
+    - {fileID: 11400000, guid: e89fa8d74a2b82845bcc088aa1af48b6, type: 2}

@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "code": "bullet_hit_common",
+    "type": 0,
+    "res": "bullet_common"
+  },
+  {
+    "id": 2,
+    "code": "missile_hit_common",
+    "type": 0,
+    "res": "missile_common"
+  },
+  {
+    "id": 3,
+    "code": "beam_hit_01",
+    "type": 0,
+    "res": "beam_hit01"
+  },
+  {
+    "id": 4,
+    "code": "beam_hit_02",
+    "type": 0,
+    "res": "beam_hit02"
+  },
+  {
+    "id": 5,
+    "code": "beam_hit_04",
+    "type": 0,
+    "res": "beam_hit04"
+  },
+  {
+    "id": 6,
+    "code": "beam_hit_05",
+    "type": 0,
+    "res": "beam_hit05"
+  },
+  {
+    "id": 7,
+    "code": "bullet_hit_common_02",
+    "type": 0,
+    "res": "bullet_common2"
+  },
+  {
+    "id": 8,
+    "code": "missile_hit_01",
+    "type": 0,
+    "res": "missile_hit01"
+  },
+  {
+    "id": 1001,
+    "code": "aircraft_explosion_dust_01",
+    "type": 1,
+    "res": "dust_01"
+  },
+  {
+    "id": 1002,
+    "code": "aircraft_explosion_common",
+    "type": 1,
+    "res": "explosion_common"
+  },
+  {
+    "id": 1003,
+    "code": "aircraft_explosion_smoke_01",
+    "type": 1,
+    "res": "smoke_01"
+  },
+  {
+    "id": 10001,
+    "code": "aircraft_levelup_01",
+    "type": 2,
+    "res": "levelup_01"
+  },
+  {
+    "id": 10002,
+    "code": "aircraft_levelup_02",
+    "type": 2,
+    "res": "levelup_02"
+  },
+  {
+    "id": 10003,
+    "code": "aircraft_levelup_03",
+    "type": 2,
+    "res": "levelup_03"
+  },
+  {
+    "id": 11001,
+    "code": "boss_born_01",
+    "type": 2,
+    "res": "bossBorn_1"
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "appearanceName": "battleEnemyBullet",
+    "displaySize": {
+      "x": 22,
+      "y": 22
+    },
+    "hitSize": {
+      "x": 14,
+      "y": 14
+    },
+    "speed": 420,
+    "damage": 12,
+    "poolCapacity": 24
+  }
+]

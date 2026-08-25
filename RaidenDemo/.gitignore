@@ -1,0 +1,47 @@
+# Unity — regenerable local folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+sysinfo.txt
+
+# Unity — IDE / solution files
+*.csproj
+*.unityproj
+*.sln
+*.booproj
+*.pidb
+*.svd
+*.mdb
+*.opendb
+*.VC.db
+
+# Addressables / player build output
+**/ServerData/
+**/AssetBundles/
+[Aa]ssets/StreamingAssets/aa/*
+![Aa]ssets/StreamingAssets/aa.meta
+![Aa]ssets/StreamingAssets/aa/*
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.DotSettings.user
+*.sln.iml
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Misc
+*.tmp
+*.bak
+*.swp
+*~

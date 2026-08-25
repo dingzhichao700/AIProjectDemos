@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: title
+  m_EditorClassIdentifier: 
+  m_GroupName: title
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 6d2c545a885403549acf812cf0e01844
+  m_SerializeEntries:
+  - m_GUID: 0474fe58d10cba94da6955102dfb9e95
+    m_Address: Assets/ConfigBin/cfgobj_settingoptionobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1170a9c9630a4edc9d3b7646b264a777
+    m_Address: Assets/ConfigBin/cfgobj_playeraircraftobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1db677583dd051a44bd46caa09bbc7ba
+    m_Address: Assets/ConfigBin/cfgobj_bulletobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2281bad0741b4fedae4c8757c375b888
+    m_Address: Assets/ConfigBin/cfgobj_playeraircraftlevelobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 240a1d1404072a843883f02017283a0c
+    m_Address: Assets/Art/atlas/title/title.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24a0570f79a517c4099bb118f5c1acd2
+    m_Address: Assets/Art/unpack/title/title/bg_option.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 29b6f9ad5dc358b42ace9b7faa53ede9
+    m_Address: Assets/Prefab/title/title/TitlePanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d3b1d954752bbc42bc951e4b3a064c6
+    m_Address: Assets/Art/frameAnimation/title/loadingFire.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34b56d739f563f94883831bb3cfc8f07
+    m_Address: Assets/Prefab/title/setting/SettingPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3fddb986df5afe34cbb542eaeae9845a
+    m_Address: Assets/Art/audio/title/The Visible and the Hidden.ogg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 654c6cc5e93bdfb4c85b85865b5ed40c
+    m_Address: Assets/ConfigBin/cfgobj_stageobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b3dc890b24ca5445936fbd1ef7a7a57
+    m_Address: Assets/Art/audio/title/Peaceful Days.ogg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b5efe4f6c9b4a1794b56227021c2956
+    m_Address: Assets/ConfigBin/cfgobj_enemybulletobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6fd1c38fad5ebad48a0045d5b095c118
+    m_Address: Assets/Art/frameAnimation/title/title_open.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75c7983f4f8ad8b4f963c5070dbf2998
+    m_Address: Assets/Prefab/title/option/OptionPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 762c22c16320f7d4585dc12bd19b8d53
+    m_Address: Assets/Prefab/title/keyHint/KeyHintView.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 78a286eab832f0749a435ec64adde5e7
+    m_Address: Assets/Prefab/title/setting/PerformanceMonitorView.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7de4be21924cba24a950e21ac7da5f91
+    m_Address: Assets/Art/frameAnimation/title/title_loop.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8cdd7251cd4e5e14d8f4298e43af64ad
+    m_Address: Assets/Prefab/title/setting/SettingOptionItem.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9844b540314d4f959a9c6b33d5de369c
+    m_Address: Assets/ConfigBin/cfgobj_enemyobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: baf9b0e32a9501444b226ce9f33581da
+    m_Address: Assets/Art/frameAnimation/title/title_loop.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bbc461230ddc2814396cf0c5b37506d5
+    m_Address: Assets/Prefab/title/warning/WarningPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c29e350f184442719612c2938a9b48a0
+    m_Address: Assets/ConfigBin/cfgobj_stagewaveobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de3f7505731d4e51885acb7ce94a88c2
+    m_Address: Assets/ConfigBin/cfgobj_effectobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f31a1a88cbede754bae5410d6d164d21
+    m_Address: Assets/ConfigBin/cfgobj_gmobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f95018d40bb2efa4fb6ee83be5bf7591
+    m_Address: Assets/Art/frameAnimation/title/title_open.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe2fe0c1338ad704facf861f43d95759
+    m_Address: Assets/Art/frameAnimation/title/loadingFire.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: b1a0955dcd22fb34c834009bf4768d90, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 17aa65d92d5e0f34f8f11ae33bbd7f3d, type: 2}
+    - {fileID: 11400000, guid: ae5387298fc8c9842af19fbed990daba, type: 2}

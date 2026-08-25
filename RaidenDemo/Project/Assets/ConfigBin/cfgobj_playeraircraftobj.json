@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "code": "player_aircraft_assault_001",
+    "displayName": "突击型战机",
+    "maxLevel": 3,
+    "defaultUnlocked": true,
+    "unlockStarCost": 0
+  },
+  {
+    "id": 2,
+    "code": "player_aircraft_heavy_001",
+    "displayName": "重装型战机",
+    "maxLevel": 3,
+    "defaultUnlocked": false,
+    "unlockStarCost": 3
+  },
+  {
+    "id": 3,
+    "code": "player_aircraft_swift_001",
+    "displayName": "迅捷型战机",
+    "maxLevel": 4,
+    "defaultUnlocked": false,
+    "unlockStarCost": 4
+  },
+  {
+    "id": 4,
+    "code": "player_aircraft_spread_001",
+    "displayName": "散射型战机",
+    "maxLevel": 4,
+    "defaultUnlocked": false,
+    "unlockStarCost": 5
+  },
+  {
+    "id": 5,
+    "code": "player_aircraft_beam_001",
+    "displayName": "聚能型战机",
+    "maxLevel": 4,
+    "defaultUnlocked": false,
+    "unlockStarCost": 6
+  }
+]

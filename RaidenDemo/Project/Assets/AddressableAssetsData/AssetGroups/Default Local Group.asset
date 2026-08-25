@@ -1,0 +1,460 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 94cf66f1d78353f4d9db978ed4aa4477
+  m_SerializeEntries:
+  - m_GUID: 0544002d5d434ebba7991d476ca4d5a4
+    m_Address: Assets/Art/unpack/default/raiden/bullet/self/bullet_tracking_torpedo_deep_sea.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 059eb2f86f54bd94bbb964df529ba55e
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_assault_001_lv01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11ca5445962806b41be8e23bfa4d01be
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_beam_001_lv02.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1572e9197642ddc46a25af8c02e16a35
+    m_Address: Assets/Art/frameAnimation/default/other/levelup_01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 26c1040e84184924b7fd2aedd29d907f
+    m_Address: Assets/Art/unpack/default/raiden/bullet/self/bullet_tracking_missile_standard.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2757be9a879cc3e48936f656b5802fbb
+    m_Address: Assets/Art/frameAnimation/default/bulletHit/beam_hit01.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a10d88f692e03040a70444b9bdd6146
+    m_Address: Assets/Art/frameAnimation/default/bulletHit/beam_hit02.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b46a75e116819643ab1bdd2f0033e5d
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/enemy/battleEliteInterceptor.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e5f2b64acaab7c4ab76960a2e9155be
+    m_Address: Assets/Art/frameAnimation/default/bulletHit/beam_hit05.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 356ee9c4bdcc96b4ebe0b1585b32022a
+    m_Address: Assets/Prefab/default/raiden/StageSelectPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35afe0cc0cdcb3340950ea99be65244b
+    m_Address: Assets/Art/frameAnimation/default/bulletHit/missile_hit01.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 373422e22410bee4e9a980776cff0c52
+    m_Address: Assets/Art/frameAnimation/default/other/levelup_01.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f2ed0a2adf42044bab938167b719b8e
+    m_Address: Assets/Art/frameAnimation/default/bulletHit/beam_hit04.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 423e0e93f97ca4640a8faebaa9e50a11
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_swift_001_lv01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e15d3730ab307e43a7dc94d9cc3091e
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_spread_001_lv03.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52109bfdeaf89284fb223b29cc774f91
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/dust_01.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52c38957860de314bb4350277e5bb5cd
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/smoke_01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52f31cc08a164e7db81168265c2a0e39
+    m_Address: Assets/Art/unpack/default/raiden/bullet/self/bullet_straight_light_long_shuttle.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5620992e038e6f849ba2800ddd4962a4
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/dust_01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58caafccc8a74744b80cd3fde1acfdf9
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/enemy/battleEnemyInterceptor.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5bf31df2300538e46ba335aee8ab5ce8
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_heavy_001_lv02.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c19660d08ef30d4fa6008a00e07001e
+    m_Address: Assets/Art/unpack/default/raiden/loadingBackground.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f5659a429fef2c46aeaca0dc1d115aa
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_heavy_001_lv01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fdedb3adf136ba458b415b59b7799a4
+    m_Address: Assets/Art/frameAnimation/default/other/bossBorn_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fe342527861afe4a9174357a4c88a3f
+    m_Address: Assets/Art/frameAnimation/default/bulletHit/bullet_common2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61802f69c9f660b498e164046b0e07b1
+    m_Address: Assets/Prefab/default/raiden/BattlePanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63e5174b3a9f457b8a8b6df5b28a5cf1
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_common.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 648a65727e384bc4ea92de659b650648
+    m_Address: Assets/Art/atlas/default/common.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66cab147241c9264db72a758c016cf79
+    m_Address: Assets/Art/frameAnimation/default/other/levelup_02.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68f7ae34ee46ce048a040c1b1b950f7f
+    m_Address: Assets/Art/frameAnimation/default/bulletHit/bullet_common2.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b2bcbfba8cc5a345ab7414365827c4e
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_spread_001_lv04.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6bd116ec72cc412cbd6a011a25f09e81
+    m_Address: Assets/Art/unpack/default/raiden/bullet/self/bullet_straight_light_diamond.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6bf78b842524b664f8d867bf25009d2c
+    m_Address: Assets/Art/frameAnimation/default/bulletHit/beam_hit04.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d1326ec11e617e40a582c4cdce6441a
+    m_Address: Assets/Art/unpack/default/raiden/stageBg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f6d9e2509913f340a09ba1e8f74e1ba
+    m_Address: Assets/Prefab/default/raiden/BattlePausePanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 70d9dfe81e91c7a4c9cd8ce9cb2e8610
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_assault_001_lv02.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 730fc0e05ce6470e9899865b78324c17
+    m_Address: Assets/Art/unpack/default/raiden/bullet/self/bullet_straight_light_heavy_beam.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7623a9b778b373a44baf985d45f3e96b
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/enemy/battleBossStage01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c23d5e9811c7bb4bbab0f544172aebf
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_beam_001_lv03.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7deaf867d93a46b4a5cedd3c0242f1c0
+    m_Address: Assets/Art/frameAnimation/default/bulletHit/missile_common.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7df22b22b13bdd445ae322460f9282ff
+    m_Address: Assets/Art/frameAnimation/default/other/levelup_03.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8aab8deb4dcda3548ab3a295ac0fcdd6
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_beam_001_lv04.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ad83b5d16bf417784da6cc288724b84
+    m_Address: Assets/Art/frameAnimation/default/bulletHit/bullet_common.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 987e93902ed457b41b6ec5d90f9cf003
+    m_Address: Assets/Art/atlas/default/raiden.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d22d8f3bd6b8c446be1f683cac63a96
+    m_Address: Assets/Art/unpack/default/raiden/homeBg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a111812b550bbcd4eb22d245790b3bad
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_swift_001_lv04.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2e60e4bc2fd9104a91ff8e6107a6b70
+    m_Address: Assets/Art/unpack/default/raiden/battleHealthDrop.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a49f5b590d157cd48a0a8944e174d1cd
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/enemy/battleEnemyBomber.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a627cab1d210b6c4c931e827ed5035f7
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_swift_001_lv02.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: abc6a558c3494871a1fb465a852e4add
+    m_Address: Assets/Art/unpack/default/raiden/bullet/self/bullet_tracking_micro.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aca4c4dea5c64e348a337b41c92b406f
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_common.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6a50a223944284418169fb181362773
+    m_Address: Assets/Art/unpack/default/raiden/battleUpgradeDrop.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6bd7399c88054446899b7c26a8fbb21
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_spread_001_lv01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8e9e77e790116842b2bf0fac8638be9
+    m_Address: Assets/Art/frameAnimation/default/other/levelup_02.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba183f1f91db96e428c187055f429edb
+    m_Address: Assets/Art/frameAnimation/default/bulletHit/beam_hit02.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba2308d634af31e4cbae0904db75589e
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_heavy_001_lv03.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba7ae778d1cc61140812719130d0a403
+    m_Address: Assets/Prefab/default/raiden/HangarPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf629f2c0e34d0042bcce11458d68633
+    m_Address: Assets/Art/frameAnimation/default/other/bossBorn_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4fec769a9c341ca83931777d4c8803a
+    m_Address: Assets/Art/frameAnimation/default/bulletHit/bullet_common.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c59d84742f4b435d9c8875458c50e88a
+    m_Address: Assets/Art/unpack/default/raiden/bullet/self/bullet_straight_light_short_shuttle.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c616a7666f00a2045b4c3a4be0bfc093
+    m_Address: Assets/Art/atlas/default/loading.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cac42fc6441448d787d290d7b5b63df4
+    m_Address: Assets/Art/unpack/default/raiden/bullet/self/bullet_tracking_dart.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc81e98d8851b1846a47f5d6d0e205d3
+    m_Address: Assets/Art/frameAnimation/default/bulletHit/beam_hit05.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cdecfd52c80ffd94998048568d967e8f
+    m_Address: Assets/Art/frameAnimation/default/bulletHit/missile_hit01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce545344912ebf843ba273af6045f803
+    m_Address: Assets/Prefab/default/raiden/HomePanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d068f14bcfea45d793d1a7c135081962
+    m_Address: Assets/Art/unpack/default/raiden/bullet/self/bullet_tracking_torpedo_heavy.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2b2856f20884fac815cd2c755241c2f
+    m_Address: Assets/Art/unpack/default/raiden/bullet/self/bullet_straight_light_needle.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d383d3e9bae1465fa804b0ad7d87fde5
+    m_Address: Assets/Art/frameAnimation/default/bulletHit/missile_common.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d39cd24dafb245e439db32233461e991
+    m_Address: Assets/Art/unpack/default/raiden/bullet/self/battlePlayerLaser.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9375c1618e56984f88178bfbf5c28fc
+    m_Address: Assets/Art/unpack/default/raiden/wingman/self/battleWingman.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dab191c1413d05640b6bc136e00b02a9
+    m_Address: Assets/Art/frameAnimation/default/other/levelup_03.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dadd60531fe593c478dddbbde0dc2665
+    m_Address: Assets/Prefab/default/loading/LoadingPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dafcab368fdc51d46846000755f9bb7c
+    m_Address: Assets/Art/unpack/default/raiden/battleLifeDrop.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db0af8afee552f74885900f4314136bb
+    m_Address: Assets/Art/unpack/default/raiden/hangarBg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dfacaa78abc4fba4f9d967cd2fc64d3d
+    m_Address: Assets/Art/unpack/default/raiden/bullet/enemy/battleEnemyBullet.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e07fb6e2d785c7f4d8eb887f3acc296b
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_swift_001_lv03.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0d4d8c83814af646a5576f1fd8b6f55
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/enemy/battleEnemyScout.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2f064082b7ec214cb7d4a2dbd14806c
+    m_Address: Assets/Prefab/default/common/GameButton.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e411be6f27df43079510fa0de87cb038
+    m_Address: Assets/Art/unpack/default/raiden/battleWingmanUpgradeDrop.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea2d1a20e7e5ad144aa7f3aef81a2ff7
+    m_Address: Assets/Art/unpack/default/raiden/battleBackground.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee87d955c23a8ba4184da86c13ff659b
+    m_Address: Assets/Art/frameAnimation/default/bulletHit/beam_hit01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f3a163125118d5140b0eaccabdb53905
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/smoke_01.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f960d7b256693fd4b919e8f7b15c9e88
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_beam_001_lv01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa4370899c88e6347896eb6b7eefcfb9
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_spread_001_lv02.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb126e9e5a9239f4593ac0571f796640
+    m_Address: Assets/Prefab/default/raiden/BattleResultPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc59300c68824783a26a36b26f42fe56
+    m_Address: Assets/Art/unpack/default/raiden/bullet/self/bullet_straight_light_twin_core.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff93e95381ebebd4c8b81f2e3a02e075
+    m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_assault_001_lv03.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: b1a0955dcd22fb34c834009bf4768d90, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 2d7d4b87c92156740af6ecdcc659a68b, type: 2}
+    - {fileID: 11400000, guid: a4dfa1ccaa36be84c82f0402accf62f5, type: 2}

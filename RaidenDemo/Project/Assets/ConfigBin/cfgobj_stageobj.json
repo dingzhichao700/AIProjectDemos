@@ -1,0 +1,214 @@
+[
+  {
+    "id": 1,
+    "selectPosition": {
+      "x": 55,
+      "y": 925
+    },
+    "waveIds": [
+      101,
+      102,
+      103,
+      104,
+      101,
+      102,
+      103,
+      104
+    ],
+    "twoStarScore": 402,
+    "threeStarScore": 1002
+  },
+  {
+    "id": 2,
+    "selectPosition": {
+      "x": 275,
+      "y": 805
+    },
+    "waveIds": [
+      201,
+      202,
+      203,
+      201,
+      202,
+      203
+    ],
+    "twoStarScore": 602,
+    "threeStarScore": 1402
+  },
+  {
+    "id": 3,
+    "selectPosition": {
+      "x": 500,
+      "y": 920
+    },
+    "waveIds": [
+      301,
+      302,
+      303,
+      304,
+      301,
+      302,
+      303,
+      304
+    ],
+    "twoStarScore": 802,
+    "threeStarScore": 1602
+  },
+  {
+    "id": 4,
+    "selectPosition": {
+      "x": 485,
+      "y": 670
+    },
+    "waveIds": [
+      401,
+      402,
+      403,
+      404,
+      401,
+      402,
+      403,
+      404
+    ],
+    "twoStarScore": 1002,
+    "threeStarScore": 1802
+  },
+  {
+    "id": 5,
+    "selectPosition": {
+      "x": 250,
+      "y": 640
+    },
+    "waveIds": [
+      501,
+      502,
+      503,
+      504,
+      505,
+      501,
+      502,
+      503,
+      504,
+      505
+    ],
+    "twoStarScore": 1202,
+    "threeStarScore": 2002
+  },
+  {
+    "id": 6,
+    "selectPosition": {
+      "x": 55,
+      "y": 505
+    },
+    "waveIds": [
+      601,
+      602,
+      603,
+      604,
+      605,
+      601,
+      602,
+      603,
+      604,
+      605
+    ],
+    "twoStarScore": 1402,
+    "threeStarScore": 2402
+  },
+  {
+    "id": 7,
+    "selectPosition": {
+      "x": 300,
+      "y": 410
+    },
+    "waveIds": [
+      701,
+      702,
+      703,
+      704,
+      705,
+      706,
+      701,
+      702,
+      703,
+      704,
+      705,
+      706
+    ],
+    "twoStarScore": 1602,
+    "threeStarScore": 2802
+  },
+  {
+    "id": 8,
+    "selectPosition": {
+      "x": 500,
+      "y": 280
+    },
+    "waveIds": [
+      801,
+      802,
+      803,
+      804,
+      805,
+      806,
+      801,
+      802,
+      803,
+      804,
+      805,
+      806
+    ],
+    "twoStarScore": 1802,
+    "threeStarScore": 3202
+  },
+  {
+    "id": 9,
+    "selectPosition": {
+      "x": 275,
+      "y": 145
+    },
+    "waveIds": [
+      901,
+      902,
+      903,
+      904,
+      905,
+      906,
+      907,
+      901,
+      902,
+      903,
+      904,
+      905,
+      906,
+      907
+    ],
+    "twoStarScore": 2002,
+    "threeStarScore": 3602
+  },
+  {
+    "id": 10,
+    "selectPosition": {
+      "x": 55,
+      "y": 235
+    },
+    "waveIds": [
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007
+    ],
+    "twoStarScore": 2402,
+    "threeStarScore": 4002
+  }
+]

@@ -1,0 +1,57 @@
+# Task-local generation and review artifacts
+**/art-generation/
+**/work/
+**/*.inspect.ndjson
+
+# Unity regenerable directories
+**/[Ll]ibrary/
+**/[Tt]emp/
+**/[Oo]bj/
+**/[Ll]ogs/
+**/[Uu]ser[Ss]ettings/
+**/[Mm]emoryCaptures/
+**/[Rr]ecordings/
+**/[Bb]uild/
+**/[Bb]uilds/
+**/sysinfo.txt
+
+# Unity generated IDE files
+**/*.csproj
+**/*.unityproj
+**/*.sln
+**/*.suo
+**/*.user
+**/*.userprefs
+**/*.booproj
+**/*.pidb
+**/*.svd
+**/*.mdb
+**/*.opendb
+**/*.VC.db
+
+# Addressables and player build output
+**/ServerData/
+**/AssetBundles/
+**/[Aa]ssets/StreamingAssets/aa/**
+!**/[Aa]ssets/StreamingAssets/aa.meta
+
+# IDE and editor-local settings
+**/.vs/
+**/.vscode/
+**/.idea/
+**/*.DotSettings.user
+**/*.sln.iml
+
+# OS and temporary files
+**/.DS_Store
+**/Thumbs.db
+**/Desktop.ini
+**/*.tmp
+**/*.bak
+**/*.swp
+**/*~
+
+# Crash dumps and profiler captures
+**/*.stackdump
+**/*.dmp
+**/*.snap

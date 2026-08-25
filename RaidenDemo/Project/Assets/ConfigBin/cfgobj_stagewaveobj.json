@@ -1,0 +1,665 @@
+[
+  {
+    "id": 101,
+    "enemyId": 1,
+    "motionType": 0,
+    "formationType": 0,
+    "enemyCount": 5,
+    "spawnCenter": {
+      "x": 360,
+      "y": 90
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 102,
+    "enemyId": 2,
+    "motionType": 1,
+    "formationType": 1,
+    "enemyCount": 6,
+    "spawnCenter": {
+      "x": 180,
+      "y": 80
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 103,
+    "enemyId": 2,
+    "motionType": 2,
+    "formationType": 0,
+    "enemyCount": 7,
+    "spawnCenter": {
+      "x": 360,
+      "y": 70
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 104,
+    "enemyId": 3,
+    "motionType": 3,
+    "formationType": 0,
+    "enemyCount": 8,
+    "spawnCenter": {
+      "x": 360,
+      "y": 100
+    },
+    "spacing": 180,
+    "motionDirection": -1
+  },
+  {
+    "id": 201,
+    "enemyId": 1,
+    "motionType": 0,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 90
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 202,
+    "enemyId": 2,
+    "motionType": 1,
+    "formationType": 1,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 180,
+      "y": 80
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 203,
+    "enemyId": 2,
+    "motionType": 2,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 70
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 301,
+    "enemyId": 1,
+    "motionType": 0,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 90
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 302,
+    "enemyId": 2,
+    "motionType": 1,
+    "formationType": 1,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 180,
+      "y": 80
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 303,
+    "enemyId": 2,
+    "motionType": 2,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 70
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 304,
+    "enemyId": 3,
+    "motionType": 3,
+    "formationType": 0,
+    "enemyCount": 2,
+    "spawnCenter": {
+      "x": 360,
+      "y": 100
+    },
+    "spacing": 180,
+    "motionDirection": -1
+  },
+  {
+    "id": 401,
+    "enemyId": 1,
+    "motionType": 0,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 90
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 402,
+    "enemyId": 2,
+    "motionType": 1,
+    "formationType": 1,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 180,
+      "y": 80
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 403,
+    "enemyId": 2,
+    "motionType": 2,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 70
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 404,
+    "enemyId": 3,
+    "motionType": 3,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 100
+    },
+    "spacing": 180,
+    "motionDirection": -1
+  },
+  {
+    "id": 501,
+    "enemyId": 1,
+    "motionType": 0,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 90
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 502,
+    "enemyId": 2,
+    "motionType": 1,
+    "formationType": 1,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 180,
+      "y": 80
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 503,
+    "enemyId": 2,
+    "motionType": 2,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 70
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 504,
+    "enemyId": 3,
+    "motionType": 3,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 100
+    },
+    "spacing": 180,
+    "motionDirection": -1
+  },
+  {
+    "id": 505,
+    "enemyId": 1,
+    "motionType": 0,
+    "formationType": 0,
+    "enemyCount": 2,
+    "spawnCenter": {
+      "x": 360,
+      "y": 90
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 601,
+    "enemyId": 1,
+    "motionType": 0,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 90
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 602,
+    "enemyId": 2,
+    "motionType": 1,
+    "formationType": 1,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 180,
+      "y": 80
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 603,
+    "enemyId": 2,
+    "motionType": 2,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 70
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 604,
+    "enemyId": 3,
+    "motionType": 3,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 100
+    },
+    "spacing": 180,
+    "motionDirection": -1
+  },
+  {
+    "id": 605,
+    "enemyId": 1,
+    "motionType": 0,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 90
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 701,
+    "enemyId": 1,
+    "motionType": 0,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 90
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 702,
+    "enemyId": 2,
+    "motionType": 1,
+    "formationType": 1,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 180,
+      "y": 80
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 703,
+    "enemyId": 2,
+    "motionType": 2,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 70
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 704,
+    "enemyId": 3,
+    "motionType": 3,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 100
+    },
+    "spacing": 180,
+    "motionDirection": -1
+  },
+  {
+    "id": 705,
+    "enemyId": 1,
+    "motionType": 0,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 90
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 706,
+    "enemyId": 2,
+    "motionType": 1,
+    "formationType": 1,
+    "enemyCount": 2,
+    "spawnCenter": {
+      "x": 180,
+      "y": 80
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 801,
+    "enemyId": 1,
+    "motionType": 0,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 90
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 802,
+    "enemyId": 2,
+    "motionType": 1,
+    "formationType": 1,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 180,
+      "y": 80
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 803,
+    "enemyId": 2,
+    "motionType": 2,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 70
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 804,
+    "enemyId": 3,
+    "motionType": 3,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 100
+    },
+    "spacing": 180,
+    "motionDirection": -1
+  },
+  {
+    "id": 805,
+    "enemyId": 1,
+    "motionType": 0,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 90
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 806,
+    "enemyId": 2,
+    "motionType": 1,
+    "formationType": 1,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 180,
+      "y": 80
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 901,
+    "enemyId": 1,
+    "motionType": 0,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 90
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 902,
+    "enemyId": 2,
+    "motionType": 1,
+    "formationType": 1,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 180,
+      "y": 80
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 903,
+    "enemyId": 2,
+    "motionType": 2,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 70
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 904,
+    "enemyId": 3,
+    "motionType": 3,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 100
+    },
+    "spacing": 180,
+    "motionDirection": -1
+  },
+  {
+    "id": 905,
+    "enemyId": 1,
+    "motionType": 0,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 90
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 906,
+    "enemyId": 2,
+    "motionType": 1,
+    "formationType": 1,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 180,
+      "y": 80
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 907,
+    "enemyId": 2,
+    "motionType": 2,
+    "formationType": 0,
+    "enemyCount": 2,
+    "spawnCenter": {
+      "x": 360,
+      "y": 70
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 1001,
+    "enemyId": 1,
+    "motionType": 0,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 90
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 1002,
+    "enemyId": 2,
+    "motionType": 1,
+    "formationType": 1,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 180,
+      "y": 80
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 1003,
+    "enemyId": 2,
+    "motionType": 2,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 70
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 1004,
+    "enemyId": 3,
+    "motionType": 3,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 100
+    },
+    "spacing": 180,
+    "motionDirection": -1
+  },
+  {
+    "id": 1005,
+    "enemyId": 1,
+    "motionType": 0,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 90
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 1006,
+    "enemyId": 2,
+    "motionType": 1,
+    "formationType": 1,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 180,
+      "y": 80
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  },
+  {
+    "id": 1007,
+    "enemyId": 2,
+    "motionType": 2,
+    "formationType": 0,
+    "enemyCount": 3,
+    "spawnCenter": {
+      "x": 360,
+      "y": 70
+    },
+    "spacing": 165,
+    "motionDirection": 1
+  }
+]

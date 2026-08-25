@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 94cf66f1d78353f4d9db978ed4aa4477
+  m_SerializeEntries:
+  - m_GUID: 2f4e4e1636f928f43a9476216aae7463
+    m_Address: default/tetris/GameResultPanel
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 371b794d92ce3d945ae6621761f092cd
+    m_Address: Assets/Prefab/default/tetris/TetrisGamePanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63aca40807b22944291e1f79c7ba9a6d
+    m_Address: Assets/Art/atlas/default/tetris.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 648a65727e384bc4ea92de659b650648
+    m_Address: Assets/Art/atlas/default/common.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e17028b78b765344a9cc148161f4dfc
+    m_Address: default/tetris/PausePanel
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd3dedc5cbf819f4c89b0cd1f1abb96d
+    m_Address: default/tetris/PausePanel
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2f064082b7ec214cb7d4a2dbd14806c
+    m_Address: Assets/Prefab/default/common/GameButton.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: b1a0955dcd22fb34c834009bf4768d90, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 2d7d4b87c92156740af6ecdcc659a68b, type: 2}
+    - {fileID: 11400000, guid: a4dfa1ccaa36be84c82f0402accf62f5, type: 2}

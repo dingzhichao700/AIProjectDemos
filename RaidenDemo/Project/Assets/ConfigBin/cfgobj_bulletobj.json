@@ -1,0 +1,387 @@
+[
+  {
+    "id": 1,
+    "code": "enemy_small",
+    "bullet": {
+      "appearanceType": 0,
+      "appearancePath": "bullet/enemy/battleEnemyBullet",
+      "shape": {
+        "$type": "RectangleShape",
+        "rect": {
+          "x": 14,
+          "y": 14
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      "motionType": 0,
+      "rotate": false,
+      "rotationSpeed": 0,
+      "speed": 420,
+      "damage": 12,
+      "hitEffectId": 1,
+      "trackingDelayMs": 0,
+      "trackingTurnSpeed": 0
+    },
+    "poolCapacity": 24
+  },
+  {
+    "id": 2,
+    "code": "player_vertical_line",
+    "bullet": {
+      "appearanceType": 0,
+      "appearancePath": "bullet/self/battlePlayerLaser",
+      "shape": {
+        "$type": "RectangleShape",
+        "rect": {
+          "x": 14,
+          "y": 120
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      "motionType": 0,
+      "rotate": false,
+      "rotationSpeed": 0,
+      "speed": 1050,
+      "damage": 10,
+      "hitEffectId": 1,
+      "trackingDelayMs": 0,
+      "trackingTurnSpeed": 0
+    },
+    "poolCapacity": 12
+  },
+  {
+    "id": 3,
+    "code": "player_tracking",
+    "bullet": {
+      "appearanceType": 0,
+      "appearancePath": "bullet/self/bullet_tracking_dart",
+      "shape": {
+        "$type": "RectangleShape",
+        "rect": {
+          "x": 29,
+          "y": 27
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0
+        }
+      },
+      "motionType": 1,
+      "rotate": false,
+      "rotationSpeed": 0,
+      "speed": 520,
+      "damage": 10,
+      "hitEffectId": 2,
+      "trackingDelayMs": 300,
+      "trackingTurnSpeed": 180
+    },
+    "poolCapacity": 12
+  },
+  {
+    "id": 4,
+    "code": "player_straight_diamond",
+    "bullet": {
+      "appearanceType": 0,
+      "appearancePath": "bullet/self/bullet_straight_light_diamond",
+      "shape": {
+        "$type": "RectangleShape",
+        "rect": {
+          "x": 12,
+          "y": 40
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      "motionType": 0,
+      "rotate": false,
+      "rotationSpeed": 0,
+      "speed": 900,
+      "damage": 10,
+      "hitEffectId": 4,
+      "trackingDelayMs": 0,
+      "trackingTurnSpeed": 0
+    },
+    "poolCapacity": 12
+  },
+  {
+    "id": 5,
+    "code": "player_straight_heavy_beam",
+    "bullet": {
+      "appearanceType": 0,
+      "appearancePath": "bullet/self/bullet_straight_light_heavy_beam",
+      "shape": {
+        "$type": "RectangleShape",
+        "rect": {
+          "x": 14,
+          "y": 72
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      "motionType": 0,
+      "rotate": false,
+      "rotationSpeed": 0,
+      "speed": 800,
+      "damage": 18,
+      "hitEffectId": 1,
+      "trackingDelayMs": 0,
+      "trackingTurnSpeed": 0
+    },
+    "poolCapacity": 10
+  },
+  {
+    "id": 6,
+    "code": "player_straight_long_shuttle",
+    "bullet": {
+      "appearanceType": 0,
+      "appearancePath": "bullet/self/bullet_straight_light_long_shuttle",
+      "shape": {
+        "$type": "RectangleShape",
+        "rect": {
+          "x": 18,
+          "y": 50
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      "motionType": 0,
+      "rotate": false,
+      "rotationSpeed": 0,
+      "speed": 900,
+      "damage": 14,
+      "hitEffectId": 4,
+      "trackingDelayMs": 0,
+      "trackingTurnSpeed": 0
+    },
+    "poolCapacity": 12
+  },
+  {
+    "id": 7,
+    "code": "player_straight_needle",
+    "bullet": {
+      "appearanceType": 0,
+      "appearancePath": "bullet/self/bullet_straight_light_needle",
+      "shape": {
+        "$type": "RectangleShape",
+        "rect": {
+          "x": 8,
+          "y": 28
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      "motionType": 0,
+      "rotate": false,
+      "rotationSpeed": 0,
+      "speed": 1150,
+      "damage": 8,
+      "hitEffectId": 1,
+      "trackingDelayMs": 0,
+      "trackingTurnSpeed": 0
+    },
+    "poolCapacity": 16
+  },
+  {
+    "id": 8,
+    "code": "player_straight_short_shuttle",
+    "bullet": {
+      "appearanceType": 0,
+      "appearancePath": "bullet/self/bullet_straight_light_short_shuttle",
+      "shape": {
+        "$type": "RectangleShape",
+        "rect": {
+          "x": 14,
+          "y": 36
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      "motionType": 0,
+      "rotate": false,
+      "rotationSpeed": 0,
+      "speed": 1000,
+      "damage": 10,
+      "hitEffectId": 1,
+      "trackingDelayMs": 0,
+      "trackingTurnSpeed": 0
+    },
+    "poolCapacity": 14
+  },
+  {
+    "id": 9,
+    "code": "player_straight_twin_core",
+    "bullet": {
+      "appearanceType": 0,
+      "appearancePath": "bullet/self/bullet_straight_light_twin_core",
+      "shape": {
+        "$type": "RectangleShape",
+        "rect": {
+          "x": 14,
+          "y": 42
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      "motionType": 0,
+      "rotate": false,
+      "rotationSpeed": 0,
+      "speed": 950,
+      "damage": 12,
+      "hitEffectId": 1,
+      "trackingDelayMs": 0,
+      "trackingTurnSpeed": 0
+    },
+    "poolCapacity": 12
+  },
+  {
+    "id": 10,
+    "code": "player_tracking_dart",
+    "bullet": {
+      "appearanceType": 0,
+      "appearancePath": "bullet/self/bullet_tracking_dart",
+      "shape": {
+        "$type": "RectangleShape",
+        "rect": {
+          "x": 29,
+          "y": 27
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0
+        }
+      },
+      "motionType": 1,
+      "rotate": false,
+      "rotationSpeed": 0,
+      "speed": 560,
+      "damage": 14,
+      "hitEffectId": 2,
+      "trackingDelayMs": 300,
+      "trackingTurnSpeed": 180
+    },
+    "poolCapacity": 12
+  },
+  {
+    "id": 11,
+    "code": "player_tracking_micro",
+    "bullet": {
+      "appearanceType": 0,
+      "appearancePath": "bullet/self/bullet_tracking_micro",
+      "shape": {
+        "$type": "RectangleShape",
+        "rect": {
+          "x": 7,
+          "y": 16
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0
+        }
+      },
+      "motionType": 1,
+      "rotate": false,
+      "rotationSpeed": 0,
+      "speed": 650,
+      "damage": 8,
+      "hitEffectId": 2,
+      "trackingDelayMs": 250,
+      "trackingTurnSpeed": 240
+    },
+    "poolCapacity": 16
+  },
+  {
+    "id": 12,
+    "code": "player_tracking_missile_standard",
+    "bullet": {
+      "appearanceType": 0,
+      "appearancePath": "bullet/self/bullet_tracking_missile_standard",
+      "shape": {
+        "$type": "RectangleShape",
+        "rect": {
+          "x": 17,
+          "y": 34
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0
+        }
+      },
+      "motionType": 1,
+      "rotate": false,
+      "rotationSpeed": 0,
+      "speed": 520,
+      "damage": 16,
+      "hitEffectId": 2,
+      "trackingDelayMs": 300,
+      "trackingTurnSpeed": 180
+    },
+    "poolCapacity": 12
+  },
+  {
+    "id": 13,
+    "code": "player_tracking_torpedo_deep_sea",
+    "bullet": {
+      "appearanceType": 0,
+      "appearancePath": "bullet/self/bullet_tracking_torpedo_deep_sea",
+      "shape": {
+        "$type": "CircleShape",
+        "radius": 24
+      },
+      "motionType": 1,
+      "rotate": false,
+      "rotationSpeed": 0,
+      "speed": 360,
+      "damage": 28,
+      "hitEffectId": 2,
+      "trackingDelayMs": 450,
+      "trackingTurnSpeed": 90
+    },
+    "poolCapacity": 8
+  },
+  {
+    "id": 14,
+    "code": "player_tracking_torpedo_heavy",
+    "bullet": {
+      "appearanceType": 0,
+      "appearancePath": "bullet/self/bullet_tracking_torpedo_heavy",
+      "shape": {
+        "$type": "RectangleShape",
+        "rect": {
+          "x": 20,
+          "y": 47
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0
+        }
+      },
+      "motionType": 1,
+      "rotate": false,
+      "rotationSpeed": 0,
+      "speed": 420,
+      "damage": 24,
+      "hitEffectId": 2,
+      "trackingDelayMs": 400,
+      "trackingTurnSpeed": 120
+    },
+    "poolCapacity": 8
+  }
+]

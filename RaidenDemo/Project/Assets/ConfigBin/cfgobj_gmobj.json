@@ -1,0 +1,91 @@
+[
+  {
+    "id": 1,
+    "desc": "打开测试界面",
+    "content": "openTest",
+    "paramFormat": [],
+    "paramIntro": []
+  },
+  {
+    "id": 2,
+    "desc": "打开测试补间界面",
+    "content": "openTestTween",
+    "paramFormat": [],
+    "paramIntro": []
+  },
+  {
+    "id": 3,
+    "desc": "增加道具",
+    "content": "addItem",
+    "paramFormat": [
+      "1001",
+      "1"
+    ],
+    "paramIntro": [
+      "道具id",
+      "道具数量"
+    ]
+  },
+  {
+    "id": 4,
+    "desc": "清空背包",
+    "content": "clearBag",
+    "paramFormat": [
+      "1"
+    ],
+    "paramIntro": [
+      "道具类型"
+    ]
+  },
+  {
+    "id": 5,
+    "desc": "打开测试界面",
+    "content": "openTest",
+    "paramFormat": [],
+    "paramIntro": []
+  },
+  {
+    "id": 12,
+    "desc": "区域编辑器",
+    "content": "regionEditor",
+    "paramFormat": [
+      "1"
+    ],
+    "paramIntro": [
+      "区域id"
+    ]
+  },
+  {
+    "id": 13,
+    "desc": "场景编辑器",
+    "content": "sceneEditor",
+    "paramFormat": [
+      "1"
+    ],
+    "paramIntro": [
+      "场景id"
+    ]
+  },
+  {
+    "id": 14,
+    "desc": "前往场景",
+    "content": "gotoScene",
+    "paramFormat": [
+      "1"
+    ],
+    "paramIntro": [
+      "场景id"
+    ]
+  },
+  {
+    "id": 15,
+    "desc": "场景调试",
+    "content": "sceneTest",
+    "paramFormat": [
+      "1"
+    ],
+    "paramIntro": [
+      "是否开启调试"
+    ]
+  }
+]

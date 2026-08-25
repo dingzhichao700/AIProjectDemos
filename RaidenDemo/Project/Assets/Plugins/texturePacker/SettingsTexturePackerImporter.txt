@@ -1,0 +1,14 @@
+version: 2
+tpsheetFileNames:
+- Assets/image/atlas/atlasTest.tpsheet
+- Assets/image/atlas/common.tpsheet
+- Assets/Resources/Image/atlas/common.tpsheet
+textureFileNames:
+- Assets/image/atlas/atlasTest.png
+- Assets/image/atlas/common.png
+- Assets/Resources/Image/atlas/common.png
+normalmapFileNames:
+- 
+- 
+- 
+enableDebugOutput: 0
