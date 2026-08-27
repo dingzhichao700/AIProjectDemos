@@ -9,14 +9,12 @@
       101,
       102,
       103,
-      104,
-      101,
-      102,
-      103,
       104
     ],
     "twoStarScore": 402,
-    "threeStarScore": 1002
+    "threeStarScore": 1002,
+    "bossWaveId": 1101,
+    "sceneId": 2
   },
   {
     "id": 2,
@@ -27,13 +25,12 @@
     "waveIds": [
       201,
       202,
-      203,
-      201,
-      202,
       203
     ],
     "twoStarScore": 602,
-    "threeStarScore": 1402
+    "threeStarScore": 1402,
+    "bossWaveId": 1101,
+    "sceneId": 1
   },
   {
     "id": 3,
@@ -45,14 +42,12 @@
       301,
       302,
       303,
-      304,
-      301,
-      302,
-      303,
       304
     ],
     "twoStarScore": 802,
-    "threeStarScore": 1602
+    "threeStarScore": 1602,
+    "bossWaveId": 1101,
+    "sceneId": 1
   },
   {
     "id": 4,
@@ -64,14 +59,12 @@
       401,
       402,
       403,
-      404,
-      401,
-      402,
-      403,
       404
     ],
     "twoStarScore": 1002,
-    "threeStarScore": 1802
+    "threeStarScore": 1802,
+    "bossWaveId": 1101,
+    "sceneId": 1
   },
   {
     "id": 5,
@@ -84,15 +77,12 @@
       502,
       503,
       504,
-      505,
-      501,
-      502,
-      503,
-      504,
       505
     ],
     "twoStarScore": 1202,
-    "threeStarScore": 2002
+    "threeStarScore": 2002,
+    "bossWaveId": 1101,
+    "sceneId": 1
   },
   {
     "id": 6,
@@ -105,15 +95,12 @@
       602,
       603,
       604,
-      605,
-      601,
-      602,
-      603,
-      604,
       605
     ],
     "twoStarScore": 1402,
-    "threeStarScore": 2402
+    "threeStarScore": 2402,
+    "bossWaveId": 1101,
+    "sceneId": 1
   },
   {
     "id": 7,
@@ -127,16 +114,12 @@
       703,
       704,
       705,
-      706,
-      701,
-      702,
-      703,
-      704,
-      705,
       706
     ],
     "twoStarScore": 1602,
-    "threeStarScore": 2802
+    "threeStarScore": 2802,
+    "bossWaveId": 1101,
+    "sceneId": 1
   },
   {
     "id": 8,
@@ -150,16 +133,12 @@
       803,
       804,
       805,
-      806,
-      801,
-      802,
-      803,
-      804,
-      805,
       806
     ],
     "twoStarScore": 1802,
-    "threeStarScore": 3202
+    "threeStarScore": 3202,
+    "bossWaveId": 1101,
+    "sceneId": 1
   },
   {
     "id": 9,
@@ -174,17 +153,12 @@
       904,
       905,
       906,
-      907,
-      901,
-      902,
-      903,
-      904,
-      905,
-      906,
       907
     ],
     "twoStarScore": 2002,
-    "threeStarScore": 3602
+    "threeStarScore": 3602,
+    "bossWaveId": 1101,
+    "sceneId": 1
   },
   {
     "id": 10,
@@ -199,16 +173,11 @@
       1004,
       1005,
       1006,
-      1007,
-      1001,
-      1002,
-      1003,
-      1004,
-      1005,
-      1006,
       1007
     ],
     "twoStarScore": 2402,
-    "threeStarScore": 4002
+    "threeStarScore": 4002,
+    "bossWaveId": 1101,
+    "sceneId": 1
   }
 ]

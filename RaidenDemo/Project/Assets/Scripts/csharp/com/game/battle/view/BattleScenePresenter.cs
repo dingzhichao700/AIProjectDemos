@@ -117,6 +117,7 @@ internal sealed class BattleScenePresenter {
             projectile.displaySize, projectile.position, projectile.resPath, 0f, true);
         views.BindPlayerProjectile(projectile.id, view);
         SyncProjectileRotation(projectile, view);
+        PlayBulletLaunch(projectile);
     }
 
     private void OnPlayerProjectileRemoved(long id) {
@@ -124,8 +125,7 @@ internal sealed class BattleScenePresenter {
     }
 
     private void OnEnemySpawned(AircraftVO enemy) {
-        RectTransform view = visualPool.Create(enemy.semanticName, entityLayer,
-            enemy.size, enemy.position, enemy.appearancePath);
+        RectTransform view = visualPool.Create(enemy.semanticName, entityLayer, enemy.size, enemy.position, enemy.appearancePath, BattleConst.EnemyAircraftVisualRotation);
         views.BindEnemy(enemy.id, view);
         if (enemy.isBoss) {
             bossHealthBar.gameObject.SetActive(true);
@@ -136,14 +136,14 @@ internal sealed class BattleScenePresenter {
 
     private void OnEnemyRemoved(AircraftVO enemy, bool defeated) {
         RectTransform root = views.GetEnemy(enemy.id);
-        RectTransform visual = root != null
-            ? root.Find("imgVisual") as RectTransform
-            : null;
         views.RemoveEnemy(enemy.id);
-        if (defeated && visual != null) {
-            effects.PlayEnemyDefeat(root, visual, enemy.position);
+        if (defeated && root != null) {
+            effects.PlayAircraftDeath(root, enemy, false, enemy.isBoss ? model.NotifyBossDeathPresentationCompleted : null);
         } else {
             visualPool.Recycle(root);
+            if (defeated && enemy.isBoss) {
+                model.NotifyBossDeathPresentationCompleted();
+            }
         }
         if (enemy.isBoss) {
             bossHealthBar.gameObject.SetActive(false);
@@ -157,14 +157,25 @@ internal sealed class BattleScenePresenter {
     }
 
     private void OnEnemyProjectileSpawned(BulletVO projectile,
-        EnemyBulletConfigVO config) {
+        BulletConfigVO config) {
         RectTransform view = visualPool.Create("enemyBullet", projectileLayer,
-            config.displaySize, projectile.position, config.appearancePath);
+            config.displaySize, projectile.position, config.appearancePath, 0f, true);
         views.BindEnemyProjectile(projectile.id, view);
+        PlayBulletLaunch(projectile);
     }
 
     private void OnEnemyProjectileRemoved(long id) {
         visualPool.Recycle(views.RemoveEnemyProjectile(id));
+    }
+
+    /**将发射特效绑定到子弹所属飞机的发射点。*/
+    private void PlayBulletLaunch(BulletVO projectile) {
+        if (projectile == null || projectile.owner == null) {
+            return;
+        }
+        RectTransform aircraftRoot = projectile.owner.faction == SceneElementFaction.PLAYER ? views.GetUnit(projectile.owner.id) : views.GetEnemy(projectile.owner.id);
+        Vector2 launcherOffset = projectile.position - projectile.owner.position;
+        effects.PlayBulletLaunch(projectile.launchEffectId, aircraftRoot, launcherOffset, projectile.launchRotation, projectile.timerType);
     }
 
     private void OnRewardSpawned(RewardVO reward) {

@@ -23,7 +23,8 @@
       "damage": 12,
       "hitEffectId": 1,
       "trackingDelayMs": 0,
-      "trackingTurnSpeed": 0
+      "trackingTurnSpeed": 0,
+      "launchEffectId": 101
     },
     "poolCapacity": 24
   },
@@ -47,11 +48,12 @@
       "motionType": 0,
       "rotate": false,
       "rotationSpeed": 0,
-      "speed": 1050,
+      "speed": 3150,
       "damage": 10,
       "hitEffectId": 1,
       "trackingDelayMs": 0,
-      "trackingTurnSpeed": 0
+      "trackingTurnSpeed": 0,
+      "launchEffectId": 101
     },
     "poolCapacity": 12
   },
@@ -75,11 +77,12 @@
       "motionType": 1,
       "rotate": false,
       "rotationSpeed": 0,
-      "speed": 520,
+      "speed": 624,
       "damage": 10,
       "hitEffectId": 2,
       "trackingDelayMs": 300,
-      "trackingTurnSpeed": 180
+      "trackingTurnSpeed": 180,
+      "launchEffectId": 101
     },
     "poolCapacity": 12
   },
@@ -103,11 +106,12 @@
       "motionType": 0,
       "rotate": false,
       "rotationSpeed": 0,
-      "speed": 900,
+      "speed": 1350,
       "damage": 10,
       "hitEffectId": 4,
       "trackingDelayMs": 0,
-      "trackingTurnSpeed": 0
+      "trackingTurnSpeed": 0,
+      "launchEffectId": 101
     },
     "poolCapacity": 12
   },
@@ -131,11 +135,12 @@
       "motionType": 0,
       "rotate": false,
       "rotationSpeed": 0,
-      "speed": 800,
+      "speed": 1200,
       "damage": 18,
       "hitEffectId": 1,
       "trackingDelayMs": 0,
-      "trackingTurnSpeed": 0
+      "trackingTurnSpeed": 0,
+      "launchEffectId": 101
     },
     "poolCapacity": 10
   },
@@ -159,11 +164,12 @@
       "motionType": 0,
       "rotate": false,
       "rotationSpeed": 0,
-      "speed": 900,
+      "speed": 2700,
       "damage": 14,
       "hitEffectId": 4,
       "trackingDelayMs": 0,
-      "trackingTurnSpeed": 0
+      "trackingTurnSpeed": 0,
+      "launchEffectId": 101
     },
     "poolCapacity": 12
   },
@@ -187,11 +193,12 @@
       "motionType": 0,
       "rotate": false,
       "rotationSpeed": 0,
-      "speed": 1150,
+      "speed": 1725,
       "damage": 8,
       "hitEffectId": 1,
       "trackingDelayMs": 0,
-      "trackingTurnSpeed": 0
+      "trackingTurnSpeed": 0,
+      "launchEffectId": 101
     },
     "poolCapacity": 16
   },
@@ -215,11 +222,12 @@
       "motionType": 0,
       "rotate": false,
       "rotationSpeed": 0,
-      "speed": 1000,
+      "speed": 1500,
       "damage": 10,
       "hitEffectId": 1,
       "trackingDelayMs": 0,
-      "trackingTurnSpeed": 0
+      "trackingTurnSpeed": 0,
+      "launchEffectId": 101
     },
     "poolCapacity": 14
   },
@@ -243,11 +251,12 @@
       "motionType": 0,
       "rotate": false,
       "rotationSpeed": 0,
-      "speed": 950,
+      "speed": 1425,
       "damage": 12,
       "hitEffectId": 1,
       "trackingDelayMs": 0,
-      "trackingTurnSpeed": 0
+      "trackingTurnSpeed": 0,
+      "launchEffectId": 101
     },
     "poolCapacity": 12
   },
@@ -275,7 +284,8 @@
       "damage": 14,
       "hitEffectId": 2,
       "trackingDelayMs": 300,
-      "trackingTurnSpeed": 180
+      "trackingTurnSpeed": 180,
+      "launchEffectId": 101
     },
     "poolCapacity": 12
   },
@@ -303,7 +313,8 @@
       "damage": 8,
       "hitEffectId": 2,
       "trackingDelayMs": 250,
-      "trackingTurnSpeed": 240
+      "trackingTurnSpeed": 240,
+      "launchEffectId": 101
     },
     "poolCapacity": 16
   },
@@ -331,7 +342,8 @@
       "damage": 16,
       "hitEffectId": 2,
       "trackingDelayMs": 300,
-      "trackingTurnSpeed": 180
+      "trackingTurnSpeed": 180,
+      "launchEffectId": 101
     },
     "poolCapacity": 12
   },
@@ -352,7 +364,8 @@
       "damage": 28,
       "hitEffectId": 2,
       "trackingDelayMs": 450,
-      "trackingTurnSpeed": 90
+      "trackingTurnSpeed": 90,
+      "launchEffectId": 101
     },
     "poolCapacity": 8
   },
@@ -380,7 +393,8 @@
       "damage": 24,
       "hitEffectId": 2,
       "trackingDelayMs": 400,
-      "trackingTurnSpeed": 120
+      "trackingTurnSpeed": 120,
+      "launchEffectId": 101
     },
     "poolCapacity": 8
   }

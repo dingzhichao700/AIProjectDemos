@@ -1,4 +1,5 @@
 using cfg;
+using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
 /// 敌机运行配置数据
@@ -19,9 +20,11 @@ public sealed class EnemyConfigVO {
     public readonly EnemyFireType fireType;
     public readonly int score;
     public readonly int poolCapacity;
-    public readonly EnemyBulletConfigVO bullet;
+    public readonly BulletConfigVO bullet;
+    public readonly IReadOnlyList<ExplosionEffect> deathExplosions;
+    public readonly bool removeAfterDeathPresentation;
 
-    public EnemyConfigVO(int id, EnemyClass enemyClass, int baseHealth, string appearancePath, Vector2 displaySize, AircraftCollisionVO collision, float moveSpeed, float fireInterval, EnemyFireType fireType, int score, int poolCapacity, EnemyBulletConfigVO bullet) {
+    public EnemyConfigVO(int id, EnemyClass enemyClass, int baseHealth, string appearancePath, Vector2 displaySize, AircraftCollisionVO collision, float moveSpeed, float fireInterval, EnemyFireType fireType, int score, int poolCapacity, BulletConfigVO bullet, IReadOnlyList<ExplosionEffect> deathExplosions, bool removeAfterDeathPresentation) {
         this.id = id;
         this.enemyClass = enemyClass;
         this.baseHealth = baseHealth;
@@ -34,6 +37,8 @@ public sealed class EnemyConfigVO {
         this.score = score;
         this.poolCapacity = poolCapacity;
         this.bullet = bullet;
+        this.deathExplosions = deathExplosions;
+        this.removeAfterDeathPresentation = removeAfterDeathPresentation;
     }
 
 }

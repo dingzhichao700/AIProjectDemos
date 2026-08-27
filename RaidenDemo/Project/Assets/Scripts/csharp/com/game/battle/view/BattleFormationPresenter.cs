@@ -50,6 +50,7 @@ internal sealed class BattleFormationPresenter {
         }
         Image image = visual != null ? visual.GetComponent<Image>() : null;
         if (image != null) {
+            BattlePreloadCollector.RequireUnpackImagePreloaded(config.appearancePath);
             UITools.SetImage(image, config.appearancePath, true);
         }
     }

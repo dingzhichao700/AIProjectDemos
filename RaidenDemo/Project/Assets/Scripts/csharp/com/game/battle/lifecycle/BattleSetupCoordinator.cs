@@ -29,9 +29,9 @@ internal sealed class BattleSetupCoordinator {
     public StageConfigVO Initialize(int stageId) {
         StageConfigVO stage = configProvider.GetStage(stageId);
         model.InitializeStage(stage, stageId);
-        model.ConfigureEnemyContent(configProvider.GetEliteEnemy(), configProvider.GetBossEnemy(), configProvider.GetDefaultEnemyBullet());
+        model.ConfigureEnemyContent(configProvider.GetEliteEnemy(), configProvider.GetDefaultEnemyBullet());
         playerConfig.Initialize();
-        backgroundPresenter.Initialize();
+        backgroundPresenter.Initialize(configProvider.GetSceneBackground(stage.sceneId));
         AircraftVO player = formationPresenter.CreatePlayer(playerConfig.current);
         playerConfig.ApplyBattleStats(model, player);
         formationPresenter.ApplyPlayerVisual(playerConfig.current);

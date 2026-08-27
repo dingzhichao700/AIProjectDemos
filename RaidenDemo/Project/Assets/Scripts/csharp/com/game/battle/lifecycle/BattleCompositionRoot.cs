@@ -22,8 +22,8 @@ internal sealed class BattleCompositionRoot {
         effectPresenter = new BattleEffectPresenter(effectLayer, visualPool);
         hudPresenter = new BattleHudPresenter(progressFill, lifeText, scoreText, bossHealthRoot, bossHealthFill, bossHealthText);
         formationPresenter = new BattleFormationPresenter(entityLayer, model, visualPool, entityViews);
-        playerPresenter = new BattlePlayerPresenter(formationPresenter.GetVisual, formationPresenter.SyncUnit, () => formationPresenter.leftWingman, () => formationPresenter.rightWingman, applyPlayerLevel, model.SetPlayerUpgradeBlocked);
-        inputPresenter = new BattlePlayerInputPresenter(entityLayer, () => playerConfig.current?.collision, setPlayerPosition);
+        playerPresenter = new BattlePlayerPresenter(formationPresenter.GetView, formationPresenter.GetVisual, formationPresenter.SyncUnit, () => formationPresenter.leftWingman, () => formationPresenter.rightWingman, applyPlayerLevel, model.SetPlayerUpgradeBlocked, model.SetPlayerFiringEnabled, effectPresenter);
+        inputPresenter = new BattlePlayerInputPresenter(entityLayer, setPlayerPosition);
         navigationCoordinator = new BattleNavigationCoordinator(model, timerPauseController);
         scenePresenter = new BattleScenePresenter(entityLayer, projectileLayer, effectLayer, bossHealthRoot, bossHealthFill, visualPool, entityViews, effectPresenter, hudPresenter);
         backgroundPresenter = new BattleBackgroundPresenter(backgroundLayer);

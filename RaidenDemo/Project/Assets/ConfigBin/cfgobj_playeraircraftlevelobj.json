@@ -3,17 +3,11 @@
     "id": 101,
     "aircraftId": 1,
     "level": 1,
-    "appearanceName": "aircraft/self/player_aircraft_assault_001_lv01",
     "displaySize": {
       "x": 256,
       "y": 256
     },
-    "hitSize": {
-      "x": 100,
-      "y": 145
-    },
-    "baseHealth": 100,
-    "baseBulletCount": 2,
+    "baseBulletCount": 1,
     "basePower": 1000,
     "aircraft": {
       "appearanceName": "aircraft/self/player_aircraft_assault_001_lv01",
@@ -21,12 +15,12 @@
         {
           "$type": "RectangleShape",
           "rect": {
-            "x": 100,
-            "y": 145
+            "x": 48,
+            "y": 105
           },
           "pivot": {
             "x": 0.5,
-            "y": 0.5
+            "y": 0.68
           }
         }
       ],
@@ -35,21 +29,8 @@
       "bulletLaunchers": [
         {
           "offset": {
-            "x": -32,
-            "y": 64
-          },
-          "bulletId": 6,
-          "bulletCount": 1,
-          "fireIntervalMs": 300,
-          "bulletIntervalMs": 0,
-          "direction": 90,
-          "spreadType": 0,
-          "spreadAngle": 0
-        },
-        {
-          "offset": {
-            "x": 32,
-            "y": 64
+            "x": 0,
+            "y": 98
           },
           "bulletId": 6,
           "bulletCount": 1,
@@ -60,24 +41,27 @@
           "spreadAngle": 0
         }
       ],
-      "deathExplosions": [],
-      "removeAfterDeathPresentation": false
+      "deathExplosions": [
+        {
+          "delayMs": 0,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "effectId": 1002
+        }
+      ],
+      "removeAfterDeathPresentation": true
     }
   },
   {
     "id": 102,
     "aircraftId": 1,
     "level": 2,
-    "appearanceName": "aircraft/self/player_aircraft_assault_001_lv02",
     "displaySize": {
       "x": 256,
       "y": 256
     },
-    "hitSize": {
-      "x": 110,
-      "y": 165
-    },
-    "baseHealth": 120,
     "baseBulletCount": 4,
     "basePower": 1250,
     "aircraft": {
@@ -86,12 +70,12 @@
         {
           "$type": "RectangleShape",
           "rect": {
-            "x": 110,
-            "y": 165
+            "x": 50,
+            "y": 120
           },
           "pivot": {
             "x": 0.5,
-            "y": 0.5
+            "y": 0.63
           }
         }
       ],
@@ -100,8 +84,8 @@
       "bulletLaunchers": [
         {
           "offset": {
-            "x": -32,
-            "y": 64
+            "x": -66,
+            "y": -12
           },
           "bulletId": 6,
           "bulletCount": 2,
@@ -113,8 +97,8 @@
         },
         {
           "offset": {
-            "x": 32,
-            "y": 64
+            "x": 66,
+            "y": -12
           },
           "bulletId": 6,
           "bulletCount": 2,
@@ -125,24 +109,27 @@
           "spreadAngle": 1
         }
       ],
-      "deathExplosions": [],
-      "removeAfterDeathPresentation": false
+      "deathExplosions": [
+        {
+          "delayMs": 0,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "effectId": 1002
+        }
+      ],
+      "removeAfterDeathPresentation": true
     }
   },
   {
     "id": 103,
     "aircraftId": 1,
     "level": 3,
-    "appearanceName": "aircraft/self/player_aircraft_assault_001_lv03",
     "displaySize": {
       "x": 256,
       "y": 256
     },
-    "hitSize": {
-      "x": 100,
-      "y": 185
-    },
-    "baseHealth": 150,
     "baseBulletCount": 6,
     "basePower": 1550,
     "aircraft": {
@@ -151,12 +138,12 @@
         {
           "$type": "RectangleShape",
           "rect": {
-            "x": 100,
-            "y": 185
+            "x": 54,
+            "y": 130
           },
           "pivot": {
             "x": 0.5,
-            "y": 0.5
+            "y": 0.62
           }
         }
       ],
@@ -165,8 +152,8 @@
       "bulletLaunchers": [
         {
           "offset": {
-            "x": -32,
-            "y": 64
+            "x": -60,
+            "y": -14
           },
           "bulletId": 6,
           "bulletCount": 3,
@@ -178,8 +165,8 @@
         },
         {
           "offset": {
-            "x": 32,
-            "y": 64
+            "x": 60,
+            "y": -14
           },
           "bulletId": 6,
           "bulletCount": 3,
@@ -191,8 +178,8 @@
         },
         {
           "offset": {
-            "x": -32,
-            "y": 64
+            "x": -44,
+            "y": 13
           },
           "bulletId": 3,
           "bulletCount": 1,
@@ -204,8 +191,8 @@
         },
         {
           "offset": {
-            "x": 32,
-            "y": 64
+            "x": 44,
+            "y": 13
           },
           "bulletId": 3,
           "bulletCount": 1,
@@ -216,24 +203,27 @@
           "spreadAngle": 3
         }
       ],
-      "deathExplosions": [],
-      "removeAfterDeathPresentation": false
+      "deathExplosions": [
+        {
+          "delayMs": 0,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "effectId": 1002
+        }
+      ],
+      "removeAfterDeathPresentation": true
     }
   },
   {
     "id": 201,
     "aircraftId": 2,
     "level": 1,
-    "appearanceName": "aircraft/self/player_aircraft_heavy_001_lv01",
     "displaySize": {
       "x": 256,
       "y": 256
     },
-    "hitSize": {
-      "x": 135,
-      "y": 160
-    },
-    "baseHealth": 150,
     "baseBulletCount": 1,
     "basePower": 1250,
     "aircraft": {
@@ -268,24 +258,27 @@
           "spreadAngle": 0
         }
       ],
-      "deathExplosions": [],
-      "removeAfterDeathPresentation": false
+      "deathExplosions": [
+        {
+          "delayMs": 0,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "effectId": 1002
+        }
+      ],
+      "removeAfterDeathPresentation": true
     }
   },
   {
     "id": 202,
     "aircraftId": 2,
     "level": 2,
-    "appearanceName": "aircraft/self/player_aircraft_heavy_001_lv02",
     "displaySize": {
       "x": 256,
       "y": 256
     },
-    "hitSize": {
-      "x": 175,
-      "y": 170
-    },
-    "baseHealth": 190,
     "baseBulletCount": 2,
     "basePower": 1550,
     "aircraft": {
@@ -320,24 +313,27 @@
           "spreadAngle": 24
         }
       ],
-      "deathExplosions": [],
-      "removeAfterDeathPresentation": false
+      "deathExplosions": [
+        {
+          "delayMs": 0,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "effectId": 1002
+        }
+      ],
+      "removeAfterDeathPresentation": true
     }
   },
   {
     "id": 203,
     "aircraftId": 2,
     "level": 3,
-    "appearanceName": "aircraft/self/player_aircraft_heavy_001_lv03",
     "displaySize": {
       "x": 256,
       "y": 256
     },
-    "hitSize": {
-      "x": 185,
-      "y": 165
-    },
-    "baseHealth": 240,
     "baseBulletCount": 3,
     "basePower": 1900,
     "aircraft": {
@@ -372,24 +368,27 @@
           "spreadAngle": 24
         }
       ],
-      "deathExplosions": [],
-      "removeAfterDeathPresentation": false
+      "deathExplosions": [
+        {
+          "delayMs": 0,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "effectId": 1002
+        }
+      ],
+      "removeAfterDeathPresentation": true
     }
   },
   {
     "id": 301,
     "aircraftId": 3,
     "level": 1,
-    "appearanceName": "aircraft/self/player_aircraft_swift_001_lv01",
     "displaySize": {
       "x": 256,
       "y": 256
     },
-    "hitSize": {
-      "x": 95,
-      "y": 150
-    },
-    "baseHealth": 80,
     "baseBulletCount": 2,
     "basePower": 900,
     "aircraft": {
@@ -424,24 +423,27 @@
           "spreadAngle": 24
         }
       ],
-      "deathExplosions": [],
-      "removeAfterDeathPresentation": false
+      "deathExplosions": [
+        {
+          "delayMs": 0,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "effectId": 1002
+        }
+      ],
+      "removeAfterDeathPresentation": true
     }
   },
   {
     "id": 302,
     "aircraftId": 3,
     "level": 2,
-    "appearanceName": "aircraft/self/player_aircraft_swift_001_lv02",
     "displaySize": {
       "x": 256,
       "y": 256
     },
-    "hitSize": {
-      "x": 100,
-      "y": 150
-    },
-    "baseHealth": 95,
     "baseBulletCount": 3,
     "basePower": 1100,
     "aircraft": {
@@ -476,24 +478,27 @@
           "spreadAngle": 24
         }
       ],
-      "deathExplosions": [],
-      "removeAfterDeathPresentation": false
+      "deathExplosions": [
+        {
+          "delayMs": 0,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "effectId": 1002
+        }
+      ],
+      "removeAfterDeathPresentation": true
     }
   },
   {
     "id": 303,
     "aircraftId": 3,
     "level": 3,
-    "appearanceName": "aircraft/self/player_aircraft_swift_001_lv03",
     "displaySize": {
       "x": 256,
       "y": 256
     },
-    "hitSize": {
-      "x": 130,
-      "y": 160
-    },
-    "baseHealth": 115,
     "baseBulletCount": 4,
     "basePower": 1350,
     "aircraft": {
@@ -528,24 +533,27 @@
           "spreadAngle": 24
         }
       ],
-      "deathExplosions": [],
-      "removeAfterDeathPresentation": false
+      "deathExplosions": [
+        {
+          "delayMs": 0,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "effectId": 1002
+        }
+      ],
+      "removeAfterDeathPresentation": true
     }
   },
   {
     "id": 304,
     "aircraftId": 3,
     "level": 4,
-    "appearanceName": "aircraft/self/player_aircraft_swift_001_lv04",
     "displaySize": {
       "x": 256,
       "y": 256
     },
-    "hitSize": {
-      "x": 135,
-      "y": 155
-    },
-    "baseHealth": 140,
     "baseBulletCount": 5,
     "basePower": 1650,
     "aircraft": {
@@ -580,24 +588,27 @@
           "spreadAngle": 24
         }
       ],
-      "deathExplosions": [],
-      "removeAfterDeathPresentation": false
+      "deathExplosions": [
+        {
+          "delayMs": 0,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "effectId": 1002
+        }
+      ],
+      "removeAfterDeathPresentation": true
     }
   },
   {
     "id": 401,
     "aircraftId": 4,
     "level": 1,
-    "appearanceName": "aircraft/self/player_aircraft_spread_001_lv01",
     "displaySize": {
       "x": 256,
       "y": 256
     },
-    "hitSize": {
-      "x": 120,
-      "y": 135
-    },
-    "baseHealth": 90,
     "baseBulletCount": 3,
     "basePower": 1100,
     "aircraft": {
@@ -632,24 +643,27 @@
           "spreadAngle": 24
         }
       ],
-      "deathExplosions": [],
-      "removeAfterDeathPresentation": false
+      "deathExplosions": [
+        {
+          "delayMs": 0,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "effectId": 1002
+        }
+      ],
+      "removeAfterDeathPresentation": true
     }
   },
   {
     "id": 402,
     "aircraftId": 4,
     "level": 2,
-    "appearanceName": "aircraft/self/player_aircraft_spread_001_lv02",
     "displaySize": {
       "x": 256,
       "y": 256
     },
-    "hitSize": {
-      "x": 105,
-      "y": 130
-    },
-    "baseHealth": 110,
     "baseBulletCount": 5,
     "basePower": 1350,
     "aircraft": {
@@ -684,24 +698,27 @@
           "spreadAngle": 24
         }
       ],
-      "deathExplosions": [],
-      "removeAfterDeathPresentation": false
+      "deathExplosions": [
+        {
+          "delayMs": 0,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "effectId": 1002
+        }
+      ],
+      "removeAfterDeathPresentation": true
     }
   },
   {
     "id": 403,
     "aircraftId": 4,
     "level": 3,
-    "appearanceName": "aircraft/self/player_aircraft_spread_001_lv03",
     "displaySize": {
       "x": 256,
       "y": 256
     },
-    "hitSize": {
-      "x": 115,
-      "y": 160
-    },
-    "baseHealth": 135,
     "baseBulletCount": 7,
     "basePower": 1650,
     "aircraft": {
@@ -736,24 +753,27 @@
           "spreadAngle": 24
         }
       ],
-      "deathExplosions": [],
-      "removeAfterDeathPresentation": false
+      "deathExplosions": [
+        {
+          "delayMs": 0,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "effectId": 1002
+        }
+      ],
+      "removeAfterDeathPresentation": true
     }
   },
   {
     "id": 404,
     "aircraftId": 4,
     "level": 4,
-    "appearanceName": "aircraft/self/player_aircraft_spread_001_lv04",
     "displaySize": {
       "x": 256,
       "y": 256
     },
-    "hitSize": {
-      "x": 110,
-      "y": 180
-    },
-    "baseHealth": 165,
     "baseBulletCount": 9,
     "basePower": 2000,
     "aircraft": {
@@ -788,24 +808,27 @@
           "spreadAngle": 24
         }
       ],
-      "deathExplosions": [],
-      "removeAfterDeathPresentation": false
+      "deathExplosions": [
+        {
+          "delayMs": 0,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "effectId": 1002
+        }
+      ],
+      "removeAfterDeathPresentation": true
     }
   },
   {
     "id": 501,
     "aircraftId": 5,
     "level": 1,
-    "appearanceName": "aircraft/self/player_aircraft_beam_001_lv01",
     "displaySize": {
       "x": 256,
       "y": 256
     },
-    "hitSize": {
-      "x": 100,
-      "y": 115
-    },
-    "baseHealth": 95,
     "baseBulletCount": 1,
     "basePower": 1350,
     "aircraft": {
@@ -840,24 +863,27 @@
           "spreadAngle": 0
         }
       ],
-      "deathExplosions": [],
-      "removeAfterDeathPresentation": false
+      "deathExplosions": [
+        {
+          "delayMs": 0,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "effectId": 1002
+        }
+      ],
+      "removeAfterDeathPresentation": true
     }
   },
   {
     "id": 502,
     "aircraftId": 5,
     "level": 2,
-    "appearanceName": "aircraft/self/player_aircraft_beam_001_lv02",
     "displaySize": {
       "x": 256,
       "y": 256
     },
-    "hitSize": {
-      "x": 95,
-      "y": 145
-    },
-    "baseHealth": 115,
     "baseBulletCount": 1,
     "basePower": 1650,
     "aircraft": {
@@ -892,24 +918,27 @@
           "spreadAngle": 0
         }
       ],
-      "deathExplosions": [],
-      "removeAfterDeathPresentation": false
+      "deathExplosions": [
+        {
+          "delayMs": 0,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "effectId": 1002
+        }
+      ],
+      "removeAfterDeathPresentation": true
     }
   },
   {
     "id": 503,
     "aircraftId": 5,
     "level": 3,
-    "appearanceName": "aircraft/self/player_aircraft_beam_001_lv03",
     "displaySize": {
       "x": 256,
       "y": 256
     },
-    "hitSize": {
-      "x": 95,
-      "y": 180
-    },
-    "baseHealth": 145,
     "baseBulletCount": 2,
     "basePower": 2000,
     "aircraft": {
@@ -944,24 +973,27 @@
           "spreadAngle": 24
         }
       ],
-      "deathExplosions": [],
-      "removeAfterDeathPresentation": false
+      "deathExplosions": [
+        {
+          "delayMs": 0,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "effectId": 1002
+        }
+      ],
+      "removeAfterDeathPresentation": true
     }
   },
   {
     "id": 504,
     "aircraftId": 5,
     "level": 4,
-    "appearanceName": "aircraft/self/player_aircraft_beam_001_lv04",
     "displaySize": {
       "x": 256,
       "y": 256
     },
-    "hitSize": {
-      "x": 95,
-      "y": 175
-    },
-    "baseHealth": 180,
     "baseBulletCount": 2,
     "basePower": 2400,
     "aircraft": {
@@ -996,8 +1028,17 @@
           "spreadAngle": 24
         }
       ],
-      "deathExplosions": [],
-      "removeAfterDeathPresentation": false
+      "deathExplosions": [
+        {
+          "delayMs": 0,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "effectId": 1002
+        }
+      ],
+      "removeAfterDeathPresentation": true
     }
   }
 ]

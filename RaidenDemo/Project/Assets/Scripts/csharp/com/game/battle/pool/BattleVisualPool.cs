@@ -98,6 +98,7 @@ internal sealed class BattleVisualPool {
 
     private static RectTransform CreateImage(string name, RectTransform parent,
         Vector2 size, Vector2 position, string imagePath, Vector2 pivot, Vector2 anchor) {
+        BattlePreloadCollector.RequireUnpackImagePreloaded(imagePath);
         GameObject imageObject = new GameObject(name, typeof(RectTransform),
             typeof(CanvasRenderer), typeof(Image));
         RectTransform rect = imageObject.GetComponent<RectTransform>();

@@ -106,10 +106,24 @@ public class BattlePanel : BasePanel {
 
     private void AddLis() {
         OnClick(btnPause.gameObject, OnPause);
+        KeyBoardControl.ins.OnKeyDown(KeyCode.Minus, SlowDownSceneTimers);
+        KeyBoardControl.ins.OnKeyDown(KeyCode.Equals, SpeedUpSceneTimers);
     }
 
     private void RemoveLis() {
         OffClick(btnPause.gameObject, OnPause);
+        KeyBoardControl.ins.OffKeyDown(KeyCode.Minus, SlowDownSceneTimers);
+        KeyBoardControl.ins.OffKeyDown(KeyCode.Equals, SpeedUpSceneTimers);
+    }
+
+    /**降低场景、玩家和敌方 Timer 倍率。*/
+    private void SlowDownSceneTimers() {
+        timerPauseController.AdjustScale(-BattleConst.SceneTimerScaleStep);
+    }
+
+    /**提高场景、玩家和敌方 Timer 倍率。*/
+    private void SpeedUpSceneTimers() {
+        timerPauseController.AdjustScale(BattleConst.SceneTimerScaleStep);
     }
 
 

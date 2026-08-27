@@ -35,10 +35,6 @@ public partial class Tables
     /// </summary>
     public cfgObj.EnemyObj EnemyObj {get; }
     /// <summary>
-    /// 敌机子弹配置表
-    /// </summary>
-    public cfgObj.EnemyBulletObj EnemyBulletObj {get; }
-    /// <summary>
     /// 玩家飞机类型配置表
     /// </summary>
     public cfgObj.PlayerAircraftObj PlayerAircraftObj {get; }
@@ -54,6 +50,10 @@ public partial class Tables
     /// 通用特效配置表
     /// </summary>
     public cfgObj.EffectObj EffectObj {get; }
+    /// <summary>
+    /// 场景背景配置表
+    /// </summary>
+    public cfgObj.SceneBgObj SceneBgObj {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
@@ -62,11 +62,11 @@ public partial class Tables
         StageObj = new cfgObj.StageObj(loader("cfgobj_stageobj"));
         StageWaveObj = new cfgObj.StageWaveObj(loader("cfgobj_stagewaveobj"));
         EnemyObj = new cfgObj.EnemyObj(loader("cfgobj_enemyobj"));
-        EnemyBulletObj = new cfgObj.EnemyBulletObj(loader("cfgobj_enemybulletobj"));
         PlayerAircraftObj = new cfgObj.PlayerAircraftObj(loader("cfgobj_playeraircraftobj"));
         PlayerAircraftLevelObj = new cfgObj.PlayerAircraftLevelObj(loader("cfgobj_playeraircraftlevelobj"));
         BulletObj = new cfgObj.BulletObj(loader("cfgobj_bulletobj"));
         EffectObj = new cfgObj.EffectObj(loader("cfgobj_effectobj"));
+        SceneBgObj = new cfgObj.SceneBgObj(loader("cfgobj_scenebgobj"));
         ResolveRef();
     }
     
@@ -77,11 +77,11 @@ public partial class Tables
         StageObj.ResolveRef(this);
         StageWaveObj.ResolveRef(this);
         EnemyObj.ResolveRef(this);
-        EnemyBulletObj.ResolveRef(this);
         PlayerAircraftObj.ResolveRef(this);
         PlayerAircraftLevelObj.ResolveRef(this);
         BulletObj.ResolveRef(this);
         EffectObj.ResolveRef(this);
+        SceneBgObj.ResolveRef(this);
     }
 }
 

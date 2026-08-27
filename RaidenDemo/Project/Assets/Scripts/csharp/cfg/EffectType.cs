@@ -25,6 +25,10 @@ namespace cfg
         /// </summary>
         AIRCRAFT_EXPLOSION = 1,
         /// <summary>
+        /// 子弹实际创建时播放的发射特效
+        /// </summary>
+        BULLET_LAUNCH = 3,
+        /// <summary>
         /// 通用或暂未独立分类的演出特效
         /// </summary>
         OTHER = 2,

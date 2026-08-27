@@ -44,7 +44,6 @@ Luban 运行时加载链路已经接入：OpeningPanel 预加载配置 JSON 后�
 - `StageResource.xlsx`
 - `StageWaveResource.xlsx`
 - `EnemyResource.xlsx`
-- `EnemyBulletResource.xlsx`
 - `PlayerAircraftResource.xlsx`
 - `PlayerAircraftLevelResource.xlsx`
 

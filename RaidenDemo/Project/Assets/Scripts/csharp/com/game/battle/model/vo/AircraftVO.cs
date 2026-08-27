@@ -21,10 +21,12 @@ internal sealed class AircraftVO : SceneElementVO {
     public readonly float moveSpeed;
     public readonly float fireInterval;
     public readonly EnemyFireType fireType;
-    public readonly EnemyBulletConfigVO bulletConfig;
+    public readonly BulletConfigVO bulletConfig;
     public readonly int scoreValue;
     public readonly int formationIndex;
     public readonly int formationCount;
+    public IReadOnlyList<ExplosionEffect> deathExplosions { get; private set; }
+    public bool removeAfterDeathPresentation { get; private set; }
     public int persistentLevel { get; private set; } = 1;
     public int stageBonusLevel { get; private set; }
     public int effectiveLevel => Mathf.Max(1, persistentLevel + stageBonusLevel);
@@ -39,8 +41,8 @@ internal sealed class AircraftVO : SceneElementVO {
     private Vector2 followOffset;
     private float followSpeed;
     private Func<Vector2> targetPositionProvider;
-    private Action<Vector2, Vector2, EnemyBulletConfigVO> projectileRequested;
-    private EnemyBulletConfigVO defaultBullet;
+    private Action<AircraftVO, Vector2, Vector2, BulletConfigVO> projectileRequested;
+    private BulletConfigVO defaultBullet;
     private Action<AircraftVO, PlayerBulletLauncherVO, int> playerProjectileRequested;
     private bool firingEnabled;
     private Action playerDefeatPresentationCompleted;
@@ -65,7 +67,7 @@ internal sealed class AircraftVO : SceneElementVO {
         EnemyMotionType motionType = EnemyMotionType.STRAIGHT, float moveSpeed = 0f,
         float fireInterval = 0f, EnemyFireType fireType = EnemyFireType.SINGLE,
         int scoreValue = 0, int formationIndex = 0, int formationCount = 1,
-        float motionDirection = 1f, EnemyBulletConfigVO bulletConfig = null,
+        float motionDirection = 1f, BulletConfigVO bulletConfig = null,
         string appearancePath = null, string semanticName = null)
         : base(id, SceneElementFaction.ENEMY, TimerType.ENEMY, position) {
         this.semanticName = semanticName ?? $"enemyEntity{id}";
@@ -98,9 +100,7 @@ internal sealed class AircraftVO : SceneElementVO {
     public void ConfigureFollow(AircraftVO target, Vector2 offset, float speed) {
         followTarget = target; followOffset = offset; followSpeed = Mathf.Max(0f, speed);
     }
-    public void ConfigureEnemyBehavior(Func<Vector2> targetProvider,
-        Action<Vector2, Vector2, EnemyBulletConfigVO> projectileHandler,
-        EnemyBulletConfigVO fallbackBullet) {
+    public void ConfigureEnemyBehavior(Func<Vector2> targetProvider, Action<AircraftVO, Vector2, Vector2, BulletConfigVO> projectileHandler, BulletConfigVO fallbackBullet) {
         targetPositionProvider = targetProvider;
         projectileRequested = projectileHandler;
         defaultBullet = fallbackBullet;
@@ -155,6 +155,10 @@ internal sealed class AircraftVO : SceneElementVO {
         int previous = maxHealth; maxHealth = Mathf.Max(1, configuredMaxHealth);
         health = previous <= 0 ? maxHealth : Mathf.Clamp(health + maxHealth - previous, 0, maxHealth);
     }
+    public void ConfigureDeathPresentation(IReadOnlyList<ExplosionEffect> explosions, bool removeAfterPresentation) {
+        deathExplosions = explosions;
+        removeAfterDeathPresentation = removeAfterPresentation;
+    }
     public bool TakeDamage(int value) { health = Mathf.Max(0, health - Mathf.Max(0, value)); return health <= 0; }
     public int Heal(int value) { int previous = health; health = Mathf.Min(maxHealth, health + Mathf.Max(0, value)); return health - previous; }
     public void RestoreFullHealth() => health = maxHealth;
@@ -206,7 +210,7 @@ internal sealed class AircraftVO : SceneElementVO {
         if (fireCooldown <= 0f) { fireCooldown += fireInterval; FireNormal(); }
     }
     private void FireNormal() {
-        EnemyBulletConfigVO bullet = bulletConfig ?? defaultBullet;
+        BulletConfigVO bullet = bulletConfig ?? defaultBullet;
         if (bullet == null || projectileRequested == null) return;
         Vector2 origin = position - new Vector2(0f, size.y * 0.5f); float speed = bullet.speed;
         if (fireType == EnemyFireType.TWIN) {
@@ -238,7 +242,7 @@ internal sealed class AircraftVO : SceneElementVO {
         fireCooldown += BattleConst.EnemyFireInterval * 0.85f; Vector2 origin = next - new Vector2(0f, size.y * 0.42f);
         for (int i = -2; i <= 2; i++) Request(origin, new Vector2(i * 115f, -defaultBullet.speed), defaultBullet);
     }
-    private void Request(Vector2 origin, Vector2 velocity, EnemyBulletConfigVO bullet) => projectileRequested?.Invoke(origin, velocity, bullet);
+    private void Request(Vector2 origin, Vector2 velocity, BulletConfigVO bullet) => projectileRequested?.Invoke(this, origin, velocity, bullet);
     private void UpdateLaunchers(float dt) {
         if (!firingEnabled || playerProjectileRequested == null) return;
         foreach (BulletLauncherVO launcher in bulletLaunchers) {

@@ -143,7 +143,17 @@ public class FrameAnimationManager : MonoBehaviour {
         data.durations = new int[frames.Count];
         data.totalDuration = 0;
         JSONNode pivot = json["pivot"];
-        data.pivot = new Vector2(float.Parse(pivot["x"]), float.Parse(pivot["y"]));
+        if (pivot == null || pivot["x"] == null || pivot["y"] == null)
+        {
+            throw new InvalidOperationException($"帧动画资源缺少 pivot 配置：{animationName}");
+        }
+
+        if (!float.TryParse(pivot["x"], out float pivotX) || !float.TryParse(pivot["y"], out float pivotY))
+        {
+            throw new InvalidOperationException($"帧动画资源 pivot 格式错误：{animationName}");
+        }
+
+        data.pivot = new Vector2(pivotX, pivotY);
 
         List<Task> tasks = new List<Task>();
 
@@ -155,7 +165,12 @@ public class FrameAnimationManager : MonoBehaviour {
                 JSONNode singleFrame = frames[index];
                 JSONNode frame = singleFrame["frame"];
                 JSONNode spriteSourceSize = singleFrame["spriteSourceSize"];
-                data.durations[index] = singleFrame["duration"];
+                JSONNode duration = singleFrame["duration"];
+                if (duration == null || !int.TryParse(duration, out int frameDuration) || frameDuration <= 0)
+                {
+                    throw new InvalidOperationException($"帧动画资源 duration 缺失或格式错误：{animationName}，frame={index}");
+                }
+                data.durations[index] = frameDuration;
                 data.totalDuration += data.durations[index];
 
                 int originTexWidht = singleFrame["sourceSize"]["w"];

@@ -22,6 +22,8 @@ public sealed partial class StageResource : Luban.BeanBase
         { var __json0 = _buf["waveIds"]; if(!__json0.IsArray) { throw new SerializationException(); } WaveIds = new System.Collections.Generic.List<int>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { int __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0; }  WaveIds.Add(__v0); }   }
         { if(!_buf["twoStarScore"].IsNumber) { throw new SerializationException(); }  TwoStarScore = _buf["twoStarScore"]; }
         { if(!_buf["threeStarScore"].IsNumber) { throw new SerializationException(); }  ThreeStarScore = _buf["threeStarScore"]; }
+        { if(!_buf["bossWaveId"].IsNumber) { throw new SerializationException(); }  BossWaveId = _buf["bossWaveId"]; }
+        { if(!_buf["sceneId"].IsNumber) { throw new SerializationException(); }  SceneId = _buf["sceneId"]; }
     }
 
     public static StageResource DeserializeStageResource(JSONNode _buf)
@@ -49,6 +51,14 @@ public sealed partial class StageResource : Luban.BeanBase
     /// 三星最低分数
     /// </summary>
     public readonly int ThreeStarScore;
+    /// <summary>
+    /// Boss波次ID
+    /// </summary>
+    public readonly int BossWaveId;
+    /// <summary>
+    /// 场景背景ID
+    /// </summary>
+    public readonly int SceneId;
    
     public const int __ID__ = 357763884;
     public override int GetTypeId() => __ID__;
@@ -65,6 +75,8 @@ public sealed partial class StageResource : Luban.BeanBase
         + "waveIds:" + Luban.StringUtil.CollectionToString(WaveIds) + ","
         + "twoStarScore:" + TwoStarScore + ","
         + "threeStarScore:" + ThreeStarScore + ","
+        + "bossWaveId:" + BossWaveId + ","
+        + "sceneId:" + SceneId + ","
         + "}";
     }
 }

@@ -19,11 +19,7 @@ public sealed partial class EnemyResource : Luban.BeanBase
     {
         { if(!_buf["id"].IsNumber) { throw new SerializationException(); }  Id = _buf["id"]; }
         { if(!_buf["enemyClass"].IsNumber) { throw new SerializationException(); }  EnemyClass = (EnemyClass)_buf["enemyClass"].AsInt; }
-        { if(!_buf["baseHealth"].IsNumber) { throw new SerializationException(); }  BaseHealth = _buf["baseHealth"]; }
-        { if(!_buf["appearanceName"].IsString) { throw new SerializationException(); }  AppearanceName = _buf["appearanceName"]; }
         { if(!_buf["displaySize"].IsObject) { throw new SerializationException(); }  DisplaySize = global::cfg.vector2.Deserializevector2(_buf["displaySize"]);  }
-        { if(!_buf["hitSize"].IsObject) { throw new SerializationException(); }  HitSize = global::cfg.vector2.Deserializevector2(_buf["hitSize"]);  }
-        { if(!_buf["moveSpeed"].IsNumber) { throw new SerializationException(); }  MoveSpeed = _buf["moveSpeed"]; }
         { if(!_buf["fireInterval"].IsNumber) { throw new SerializationException(); }  FireInterval = _buf["fireInterval"]; }
         { if(!_buf["fireType"].IsNumber) { throw new SerializationException(); }  FireType = (EnemyFireType)_buf["fireType"].AsInt; }
         { if(!_buf["bulletId"].IsNumber) { throw new SerializationException(); }  BulletId = _buf["bulletId"]; }
@@ -46,25 +42,9 @@ public sealed partial class EnemyResource : Luban.BeanBase
     /// </summary>
     public readonly EnemyClass EnemyClass;
     /// <summary>
-    /// 基础血量
-    /// </summary>
-    public readonly int BaseHealth;
-    /// <summary>
-    /// 外观资源名
-    /// </summary>
-    public readonly string AppearanceName;
-    /// <summary>
     /// 显示尺寸
     /// </summary>
     public readonly vector2 DisplaySize;
-    /// <summary>
-    /// 碰撞尺寸
-    /// </summary>
-    public readonly vector2 HitSize;
-    /// <summary>
-    /// 移动速度
-    /// </summary>
-    public readonly float MoveSpeed;
     /// <summary>
     /// 开火间隔
     /// </summary>
@@ -103,11 +83,7 @@ public sealed partial class EnemyResource : Luban.BeanBase
         return "{ "
         + "id:" + Id + ","
         + "enemyClass:" + EnemyClass + ","
-        + "baseHealth:" + BaseHealth + ","
-        + "appearanceName:" + AppearanceName + ","
         + "displaySize:" + DisplaySize + ","
-        + "hitSize:" + HitSize + ","
-        + "moveSpeed:" + MoveSpeed + ","
         + "fireInterval:" + FireInterval + ","
         + "fireType:" + FireType + ","
         + "bulletId:" + BulletId + ","

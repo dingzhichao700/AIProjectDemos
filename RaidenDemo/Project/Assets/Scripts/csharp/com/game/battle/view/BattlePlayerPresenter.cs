@@ -10,27 +10,42 @@ using UnityEngine.UI;
 /// </remarks>
 internal sealed class BattlePlayerPresenter {
 
+    private enum UpgradePhase {
+        None,
+        Charging,
+        Flashing,
+        Transforming,
+        Completing
+    }
+
+    private readonly Func<AircraftVO, RectTransform> getView;
     private readonly Func<AircraftVO, RectTransform> getVisual;
     private readonly Action<AircraftVO> syncUnitView;
     private readonly Func<AircraftVO> getLeftWingman;
     private readonly Func<AircraftVO> getRightWingman;
     private readonly Action<int> applyAircraftLevel;
     private readonly Action<bool> setUpgradeBlocked;
+    private readonly Action<bool> setFiringEnabled;
+    private readonly BattleEffectPresenter effectPresenter;
     private Color baseColor = Color.white;
     private float baseRotation;
-    private float upgradeRemaining;
+    private UpgradePhase upgradePhase;
+    private float upgradePhaseRemaining;
     private int pendingLevel;
+    private float completionElapsed;
+    private int nextCompletionEffectIndex;
+    private FrameAnimationView loopingUpgradeEffect;
 
-    public BattlePlayerPresenter(Func<AircraftVO, RectTransform> getVisual,
-        Action<AircraftVO> syncUnitView, Func<AircraftVO> getLeftWingman,
-        Func<AircraftVO> getRightWingman, Action<int> applyAircraftLevel,
-        Action<bool> setUpgradeBlocked) {
+    public BattlePlayerPresenter(Func<AircraftVO, RectTransform> getView, Func<AircraftVO, RectTransform> getVisual, Action<AircraftVO> syncUnitView, Func<AircraftVO> getLeftWingman, Func<AircraftVO> getRightWingman, Action<int> applyAircraftLevel, Action<bool> setUpgradeBlocked, Action<bool> setFiringEnabled, BattleEffectPresenter effectPresenter) {
+        this.getView = getView;
         this.getVisual = getVisual;
         this.syncUnitView = syncUnitView;
         this.getLeftWingman = getLeftWingman;
         this.getRightWingman = getRightWingman;
         this.applyAircraftLevel = applyAircraftLevel;
         this.setUpgradeBlocked = setUpgradeBlocked;
+        this.setFiringEnabled = setFiringEnabled;
+        this.effectPresenter = effectPresenter;
     }
 
     /**记录玩家飞机表现的原始颜色和角度。*/
@@ -39,8 +54,11 @@ internal sealed class BattlePlayerPresenter {
         Image image = visual != null ? visual.GetComponent<Image>() : null;
         baseColor = image != null ? image.color : Color.white;
         baseRotation = visual != null ? visual.localEulerAngles.z : 0f;
-        upgradeRemaining = 0f;
+        upgradePhase = UpgradePhase.None;
+        upgradePhaseRemaining = 0f;
         pendingLevel = 0;
+        completionElapsed = 0f;
+        nextCompletionEffectIndex = 0;
     }
 
     /**推进玩家生命周期、受击和升级表现。*/
@@ -50,12 +68,16 @@ internal sealed class BattlePlayerPresenter {
         UpdateUpgrade(player, deltaTime);
     }
 
-    /**开始升级闪动并在演出期间赋予无敌。*/
+    /**开始玩家飞机升级的蓄能、换装和完成表现。*/
     public void BeginUpgrade(AircraftVO player, int targetLevel) {
         pendingLevel = targetLevel;
-        upgradeRemaining = BattleConst.PlayerUpgradePresentationDuration;
+        completionElapsed = 0f;
+        nextCompletionEffectIndex = 0;
+        upgradePhase = UpgradePhase.Charging;
+        upgradePhaseRemaining = BattleConst.PlayerUpgradeChargeDuration;
         setUpgradeBlocked(true);
-        player.GrantInvincibility(upgradeRemaining);
+        setFiringEnabled(false);
+        loopingUpgradeEffect = effectPresenter.PlayPlayerUpgrade(BattleConst.PlayerUpgradeChargeEffectId, getView(player), true, default, BattleConst.PlayerUpgradeMainEffectScale);
         RefreshHitFeedback(player);
     }
 
@@ -93,6 +115,10 @@ internal sealed class BattlePlayerPresenter {
         if (visual == null) {
             return;
         }
+        if (player != null && (player.lifecycleState == PlayerLifecycleState.Alive || player.lifecycleState == PlayerLifecycleState.Respawning)) {
+            int visibilityPhase = Mathf.FloorToInt(player.invincibleRemaining / BattleConst.PlayerFlashInterval);
+            visual.gameObject.SetActive(player.invincibleRemaining <= 0f || visibilityPhase % 2 != 0);
+        }
         float shakeProgress = BattleConst.PlayerHitShakeDuration <= 0f || player == null
             ? 1f
             : 1f - player.hitShakeRemaining / BattleConst.PlayerHitShakeDuration;
@@ -105,18 +131,17 @@ internal sealed class BattlePlayerPresenter {
             return;
         }
         Color color = baseColor;
-        if (player != null && player.invincibleRemaining > 0f) {
-            int phase = Mathf.FloorToInt(player.invincibleRemaining /
-                BattleConst.PlayerFlashInterval);
-            color.a *= phase % 2 == 0 ? 0.25f : 1f;
-        }
         image.color = color;
     }
 
     /**清除尚未完成的升级表现状态。*/
     public void Clear() {
-        upgradeRemaining = 0f;
+        StopLoopingUpgradeEffect();
+        upgradePhase = UpgradePhase.None;
+        upgradePhaseRemaining = 0f;
         pendingLevel = 0;
+        completionElapsed = 0f;
+        nextCompletionEffectIndex = 0;
         baseColor = Color.white;
         baseRotation = 0f;
         setUpgradeBlocked(false);
@@ -126,56 +151,73 @@ internal sealed class BattlePlayerPresenter {
         if (player == null) {
             return;
         }
-        if (player.lifecycleState == PlayerLifecycleState.Dying) {
-            RectTransform visual = getVisual(player);
-            if (visual == null) {
-                return;
-            }
-            float duration = BattleConst.PlayerDefeatPresentationDuration;
-            float progress = duration <= 0f
-                ? 1f
-                : 1f - player.lifecycleRemaining / duration;
-            visual.localEulerAngles = new Vector3(0f, 0f,
-                baseRotation + progress * 540f);
-            visual.localScale = Vector3.one * Mathf.Max(0.05f, 1f - progress);
-            Image image = visual.GetComponent<Image>();
-            if (image != null) {
-                Color color = baseColor;
-                color.a *= 1f - progress;
-                image.color = color;
-            }
-        } else if (player.lifecycleState == PlayerLifecycleState.Respawning) {
+        if (player.lifecycleState == PlayerLifecycleState.Respawning) {
             syncUnitView(player);
         }
     }
 
     private void UpdateUpgrade(AircraftVO player, float deltaTime) {
-        RectTransform visual = getVisual(player);
-        if (upgradeRemaining <= 0f || visual == null) {
+        if (upgradePhase == UpgradePhase.None || player == null) {
             return;
         }
-        upgradeRemaining = Mathf.Max(0f, upgradeRemaining - deltaTime);
-        float duration = BattleConst.PlayerUpgradePresentationDuration;
-        float progress = duration <= 0f ? 1f : 1f - upgradeRemaining / duration;
-        visual.localScale = Vector3.one *
-            (1f + Mathf.Sin(progress * Mathf.PI * 8f) * 0.06f);
-        Image image = visual.GetComponent<Image>();
-        if (image != null) {
-            Color current = image.color;
-            Color tint = Color.Lerp(baseColor,
-                new Color(0.45f, 1f, 1f, baseColor.a), 0.45f);
-            tint.a = current.a;
-            image.color = tint;
-        }
-        if (upgradeRemaining > 0f) {
+        if (upgradePhase == UpgradePhase.Completing) {
+            UpdateCompletionEffects(player, deltaTime);
             return;
         }
-        int targetLevel = pendingLevel;
+        upgradePhaseRemaining = Mathf.Max(0f, upgradePhaseRemaining - deltaTime);
+        if (upgradePhaseRemaining > 0f) {
+            return;
+        }
+        if (upgradePhase == UpgradePhase.Charging) {
+            StopLoopingUpgradeEffect();
+            effectPresenter.PlayPlayerUpgrade(BattleConst.PlayerUpgradeFlashEffectId, getView(player), false, default, BattleConst.PlayerUpgradeMainEffectScale);
+            upgradePhase = UpgradePhase.Flashing;
+            upgradePhaseRemaining = BattleConst.PlayerUpgradeFlashDuration;
+            return;
+        }
+        if (upgradePhase == UpgradePhase.Flashing) {
+            applyAircraftLevel(pendingLevel);
+            setFiringEnabled(true);
+            player.GrantInvincibility(BattleConst.PlayerUpgradeInvincibleDuration);
+            effectPresenter.PlayPlayerUpgrade(BattleConst.PlayerUpgradeTransformEffectId, getView(player), false, default, BattleConst.PlayerUpgradeMainEffectScale);
+            upgradePhase = UpgradePhase.Transforming;
+            upgradePhaseRemaining = BattleConst.PlayerUpgradeTransformDuration;
+            return;
+        }
+        BeginCompletionEffects(player);
+    }
+
+    /**开始错时播放升级完成粒子并解除升级保护。*/
+    private void BeginCompletionEffects(AircraftVO player) {
+        upgradePhase = UpgradePhase.Completing;
+        completionElapsed = 0f;
+        nextCompletionEffectIndex = 0;
         pendingLevel = 0;
         setUpgradeBlocked(false);
-        visual.localScale = Vector3.one;
-        applyAircraftLevel(targetLevel);
         RefreshHitFeedback(player);
+        UpdateCompletionEffects(player, 0f);
+    }
+
+    /**按配置好的时间差和局部偏移依次播放完成粒子。*/
+    private void UpdateCompletionEffects(AircraftVO player, float deltaTime) {
+        completionElapsed += deltaTime;
+        while (nextCompletionEffectIndex < BattleConst.PlayerUpgradeCompleteEffectDelays.Count && completionElapsed * 1000f >= BattleConst.PlayerUpgradeCompleteEffectDelays[nextCompletionEffectIndex]) {
+            Vector2 offset = BattleConst.PlayerUpgradeCompleteEffectOffsets[nextCompletionEffectIndex];
+            effectPresenter.PlayPlayerUpgrade(BattleConst.PlayerUpgradeCompleteEffectId, getView(player), false, offset);
+            nextCompletionEffectIndex++;
+        }
+        if (nextCompletionEffectIndex >= BattleConst.PlayerUpgradeCompleteEffectDelays.Count) {
+            upgradePhase = UpgradePhase.None;
+            completionElapsed = 0f;
+        }
+    }
+
+    private void StopLoopingUpgradeEffect() {
+        if (loopingUpgradeEffect == null) {
+            return;
+        }
+        loopingUpgradeEffect.Destroy();
+        loopingUpgradeEffect = null;
     }
 
     private void SetFormationVisible(AircraftVO player, bool playerVisible,

@@ -23,13 +23,14 @@ public sealed class PlayerBulletLauncherVO {
     public readonly float speed;
     public readonly int damage;
     public readonly int hitEffectId;
+    public readonly int launchEffectId;
     public readonly BulletMotionType motionType;
     public readonly bool rotate;
     public readonly float rotationSpeed;
     public readonly int trackingDelayMs;
     public readonly float trackingTurnSpeed;
 
-    public PlayerBulletLauncherVO(Vector2 offset, int bulletCount, float fireInterval, int bulletIntervalMs, float direction, BulletSpreadType spreadType, float spreadAngle, string projectilePath, Vector2 projectileSize, Vector2 hitSize, Vector2 hitPivot, float speed, int damage, int hitEffectId, BulletMotionType motionType, bool rotate, float rotationSpeed, int trackingDelayMs, float trackingTurnSpeed) {
+    public PlayerBulletLauncherVO(Vector2 offset, int bulletCount, float fireInterval, int bulletIntervalMs, float direction, BulletSpreadType spreadType, float spreadAngle, string projectilePath, Vector2 projectileSize, Vector2 hitSize, Vector2 hitPivot, float speed, int damage, int hitEffectId, int launchEffectId, BulletMotionType motionType, bool rotate, float rotationSpeed, int trackingDelayMs, float trackingTurnSpeed) {
         this.offset = offset;
         this.bulletCount = bulletCount;
         this.fireInterval = fireInterval;
@@ -44,6 +45,7 @@ public sealed class PlayerBulletLauncherVO {
         this.speed = speed;
         this.damage = damage;
         this.hitEffectId = hitEffectId;
+        this.launchEffectId = launchEffectId;
         this.motionType = motionType;
         this.rotate = rotate;
         this.rotationSpeed = rotationSpeed;

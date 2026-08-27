@@ -24,8 +24,52 @@ public static class BattlePreloadCollector {
             selectedAircraft.maxLevel);
         List<ResLoadInfo> preload = new List<ResLoadInfo>();
         HashSet<string> resourceKeys = new HashSet<string>();
-        AddPreloadResource(preload, resourceKeys, BattleConst.BackgroundPath,
-            ResType.UnpackImage);
+        StageResource stage = CfgManager.tables.StageObj.GetOrDefault(stageId);
+        if (stage == null) {
+            throw new InvalidOperationException($"关卡 {stageId} 不存在，无法收集预加载资源");
+        }
+        AddFixedStageResources(preload, resourceKeys);
+        AddSceneBackgroundResources(preload, resourceKeys, stage.SceneId);
+
+        foreach (PlayerAircraftLevelResource levelConfig in
+            CfgManager.tables.PlayerAircraftLevelObj.DataList) {
+            if (levelConfig.AircraftId != selectedAircraft.id ||
+                levelConfig.Level < initialLevel || levelConfig.Level > selectedAircraft.maxLevel) {
+                continue;
+            }
+            AddAircraftResources(preload, resourceKeys, levelConfig.Aircraft);
+        }
+
+        HashSet<int> enemyIds = new HashSet<int> { 4 };
+        foreach (int waveId in stage.WaveIds) {
+            StageWaveResource wave = CfgManager.tables.StageWaveObj.GetOrDefault(waveId);
+            if (wave == null) {
+                throw new InvalidOperationException($"关卡 {stageId} 引用了不存在的波次 {waveId}");
+            }
+            enemyIds.Add(wave.EnemyId);
+        }
+        StageWaveResource bossWave = CfgManager.tables.StageWaveObj.GetOrDefault(stage.BossWaveId);
+        if (bossWave == null) {
+            throw new InvalidOperationException($"关卡 {stageId} 引用了不存在的 Boss 波次 {stage.BossWaveId}");
+        }
+        EnemyResource bossEnemy = CfgManager.tables.EnemyObj.GetOrDefault(bossWave.EnemyId);
+        if (bossEnemy == null || bossEnemy.EnemyClass != EnemyClass.BOSS || bossWave.EnemyCount != 1) {
+            throw new InvalidOperationException($"关卡 {stageId} 的 Boss 波次 {stage.BossWaveId} 配置无效");
+        }
+        enemyIds.Add(bossWave.EnemyId);
+        foreach (int enemyId in enemyIds) {
+            EnemyResource enemy = CfgManager.tables.EnemyObj.GetOrDefault(enemyId);
+            if (enemy == null) {
+                throw new InvalidOperationException($"关卡 {stageId} 引用了不存在的敌机 {enemyId}");
+            }
+            AddAircraftResources(preload, resourceKeys, enemy.Aircraft);
+            AddBulletResources(preload, resourceKeys, enemy.BulletId);
+        }
+        return preload;
+    }
+
+    /**收集关卡流程必然可能使用、但不由实体配置直接引用的固定资源。*/
+    private static void AddFixedStageResources(List<ResLoadInfo> preload, HashSet<string> resourceKeys) {
         AddPreloadResource(preload, resourceKeys, BattleConst.WingmanPath,
             ResType.UnpackImage);
         AddPreloadResource(preload, resourceKeys, BattleConst.HealthDropPath,
@@ -36,37 +80,31 @@ public static class BattlePreloadCollector {
             ResType.UnpackImage);
         AddPreloadResource(preload, resourceKeys, BattleConst.LifeDropPath,
             ResType.UnpackImage);
-    
-        foreach (PlayerAircraftLevelResource levelConfig in
-            CfgManager.tables.PlayerAircraftLevelObj.DataList) {
-            if (levelConfig.AircraftId != selectedAircraft.id ||
-                levelConfig.Level < initialLevel || levelConfig.Level > selectedAircraft.maxLevel) {
-                continue;
-            }
-            AddAircraftResources(preload, resourceKeys, levelConfig.Aircraft);
+        foreach (int effectId in BattleConst.FixedStageEffectIds) {
+            AddEffectResource(preload, resourceKeys, effectId);
         }
-    
-        StageResource stage = CfgManager.tables.StageObj.GetOrDefault(stageId);
-        if (stage == null) {
-            throw new InvalidOperationException($"关卡 {stageId} 不存在，无法收集预加载资源");
+    }
+
+    /**收集关卡配置引用的全部视差背景资源。*/
+    private static void AddSceneBackgroundResources(List<ResLoadInfo> preload, HashSet<string> resourceKeys, int sceneId) {
+        SceneBgResource scene = CfgManager.tables.SceneBgObj.GetOrDefault(sceneId);
+        if (scene == null) {
+            throw new InvalidOperationException($"场景背景 {sceneId} 不存在，无法收集预加载资源");
         }
-        HashSet<int> enemyIds = new HashSet<int> { 4, 5 };
-        foreach (int waveId in stage.WaveIds) {
-            StageWaveResource wave = CfgManager.tables.StageWaveObj.GetOrDefault(waveId);
-            if (wave == null) {
-                throw new InvalidOperationException($"关卡 {stageId} 引用了不存在的波次 {waveId}");
-            }
-            enemyIds.Add(wave.EnemyId);
+        if (string.IsNullOrWhiteSpace(scene.BackgroundRes)) {
+            throw new InvalidOperationException($"场景背景 {sceneId} 未配置远景地表资源");
         }
-        foreach (int enemyId in enemyIds) {
-            EnemyResource enemy = CfgManager.tables.EnemyObj.GetOrDefault(enemyId);
-            if (enemy == null) {
-                throw new InvalidOperationException($"关卡 {stageId} 引用了不存在的敌机 {enemyId}");
-            }
-            AddAircraftResources(preload, resourceKeys, enemy.Aircraft);
-            AddBulletResources(preload, resourceKeys, enemy.BulletId);
+        AddSceneBackgroundResource(preload, resourceKeys, scene.BackgroundRes);
+        AddSceneBackgroundResource(preload, resourceKeys, scene.LowRes);
+        AddSceneBackgroundResource(preload, resourceKeys, scene.MiddleRes);
+        AddSceneBackgroundResource(preload, resourceKeys, scene.HighRes);
+    }
+
+    /**按固定目录拼装并收集单层场景背景。*/
+    private static void AddSceneBackgroundResource(List<ResLoadInfo> preload, HashSet<string> resourceKeys, string resourceName) {
+        if (!string.IsNullOrWhiteSpace(resourceName)) {
+            AddPreloadResource(preload, resourceKeys, BattleConst.GetSceneBackgroundImagePath(resourceName), ResType.UnpackImage);
         }
-        return preload;
     }
     
     /**收集飞行物外观、子弹和死亡特效资源*/
@@ -86,7 +124,7 @@ public static class BattlePreloadCollector {
         }
     }
     
-    /**收集子弹外观及命中特效资源*/
+    /**收集子弹外观、命中特效及发射特效资源*/
     private static void AddBulletResources(List<ResLoadInfo> preload,
         HashSet<string> resourceKeys, int bulletId) {
         BulletResource bulletConfig = CfgManager.tables.BulletObj.GetOrDefault(bulletId);
@@ -95,26 +133,30 @@ public static class BattlePreloadCollector {
         }
         Bullet bullet = bulletConfig.Bullet;
         if (bullet.AppearanceType == BulletAppearanceType.FRAME_ANIMATION) {
+            RequireResourcePrefix(bullet.AppearancePath, BattleConst.BulletBodyEffectPrefix, $"子弹 {bulletId} 帧动画外观");
             AddPreloadResource(preload, resourceKeys,
-                ResourceConst.GetFrameAnimationPath("default/raiden/" + bullet.AppearancePath),
+                ResourceConst.GetFrameAnimationPath(BattleConst.BulletFrameAnimationDirectory + bullet.AppearancePath),
                 ResType.FrameAnim);
         } else {
             AddPreloadResource(preload, resourceKeys,
                 BattleConst.GetRaidenUnpackImagePath(bullet.AppearancePath),
                 ResType.UnpackImage);
         }
-        AddEffectResource(preload, resourceKeys, bullet.HitEffectId);
+        AddEffectResource(preload, resourceKeys, bullet.HitEffectId, EffectType.BULLET_HIT);
+        AddEffectResource(preload, resourceKeys, bullet.LaunchEffectId, EffectType.BULLET_LAUNCH);
     }
     
     /**按特效配置收集帧动画资源*/
-    private static void AddEffectResource(List<ResLoadInfo> preload,
-        HashSet<string> resourceKeys, int effectId) {
+    private static void AddEffectResource(List<ResLoadInfo> preload, HashSet<string> resourceKeys, int effectId, EffectType? expectedType = null) {
         if (effectId <= 0) {
             return;
         }
         EffectResource effect = CfgManager.tables.EffectObj.GetOrDefault(effectId);
         if (effect == null) {
             throw new InvalidOperationException($"特效配置 {effectId} 不存在");
+        }
+        if (expectedType.HasValue && effect.Type != expectedType.Value) {
+            throw new InvalidOperationException($"特效配置 {effectId} 类型错误，应为 {expectedType.Value}，实际为 {effect.Type}");
         }
         string path = GetEffectResourcePath(effect);
         AddPreloadResource(preload, resourceKeys, path, ResType.FrameAnim);
@@ -125,7 +167,12 @@ public static class BattlePreloadCollector {
         string typeDirectory;
         switch (effect.Type) {
             case EffectType.BULLET_HIT:
-                typeDirectory = "bulletHit";
+                RequireResourcePrefix(effect.Res, BattleConst.BulletHitEffectPrefix, $"子弹命中特效 {effect.Id}");
+                typeDirectory = "bullet";
+                break;
+            case EffectType.BULLET_LAUNCH:
+                RequireResourcePrefix(effect.Res, BattleConst.BulletLaunchEffectPrefix, $"子弹发射特效 {effect.Id}");
+                typeDirectory = "bullet";
                 break;
             case EffectType.AIRCRAFT_EXPLOSION:
                 typeDirectory = "aircraftExplosion";
@@ -138,6 +185,13 @@ public static class BattlePreloadCollector {
         }
         return ResourceConst.GetFrameAnimationPath(
             $"default/{typeDirectory}/{effect.Res}");
+    }
+
+    /**校验资源名是否遵循所属业务分类的前缀约定*/
+    private static void RequireResourcePrefix(string resourceName, string prefix, string resourceLabel) {
+        if (string.IsNullOrWhiteSpace(resourceName) || !resourceName.StartsWith(prefix, StringComparison.Ordinal)) {
+            throw new InvalidOperationException($"{resourceLabel} 资源名必须使用 {prefix} 前缀：{resourceName}");
+        }
     }
     
     /**按资源类型和路径去重后加入预加载列表*/
@@ -152,6 +206,20 @@ public static class BattlePreloadCollector {
     /**不打开加载界面，仅执行当前关卡资源预加载*/
     public static Task PreloadStageAssetsAsync(int stageId) {
         return ResourceLoader.LoadListAsync(GetStagePreloadList(stageId));
+    }
+
+    /**确认战斗散图已在进入关卡前加载完成。*/
+    public static void RequireUnpackImagePreloaded(string path) {
+        if (!ResourceManager.HasLoadedUnpackImage(path)) {
+            throw new InvalidOperationException($"战斗散图资源尚未预加载：{path}");
+        }
+    }
+
+    /**确认战斗帧动画已在进入关卡前解析完成。*/
+    public static void RequireFrameAnimationPreloaded(string path) {
+        if (!FrameAnimationManager.HasLoad(path)) {
+            throw new InvalidOperationException($"战斗帧动画资源尚未预加载：{path}");
+        }
     }
     
     

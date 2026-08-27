@@ -63,6 +63,7 @@ internal sealed class BattlePlayerConfigCoordinator {
         }
         model.SetPlayerCollision(current.collision);
         player.ApplyPlayerAircraftStats(current.baseHealth);
+        player.ConfigureDeathPresentation(current.deathExplosions, current.removeAfterDeathPresentation);
         model.ConfigurePlayerLaunchers(current.bulletLaunchers);
     }
 

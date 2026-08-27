@@ -5,8 +5,7 @@ using UnityEngine;
 internal static class BattlePrewarmService {
     public static void Prewarm(StageConfigVO stage, BattleVisualPool pool,
         RectTransform layer) {
-        pool.Prewarm(BattleConst.PlayerLaserPath, BattleConst.PlayerLaserSize,
-            BattleConst.PlayerProjectilePoolCapacity, layer);
+        PrewarmPlayerProjectiles(pool, layer);
         HashSet<int> enemyIds = new HashSet<int>();
         HashSet<int> bulletIds = new HashSet<int>();
         foreach (EnemyWaveVO wave in stage.enemyWaves) {
@@ -14,8 +13,7 @@ internal static class BattlePrewarmService {
         }
         PrewarmEnemy(RaidenControl.ins.model.GetEnemyConfig(4), enemyIds, bulletIds,
             pool, layer);
-        PrewarmEnemy(RaidenControl.ins.model.GetEnemyConfig(5), enemyIds, bulletIds,
-            pool, layer);
+        PrewarmEnemy(stage.bossWave.enemy, enemyIds, bulletIds, pool, layer);
         pool.Prewarm(BattleConst.HealthDropPath, BattleConst.UpgradeDropSize,
             BattleConst.UpgradeDropPoolCapacity, layer);
         pool.Prewarm(BattleConst.UpgradeDropPath, BattleConst.UpgradeDropSize,
@@ -24,10 +22,26 @@ internal static class BattlePrewarmService {
             BattleConst.UpgradeDropPoolCapacity, layer);
         pool.Prewarm(BattleConst.LifeDropPath, BattleConst.UpgradeDropSize,
             BattleConst.UpgradeDropPoolCapacity, layer);
-        pool.Prewarm(BattleConst.EliteInterceptorPath, BattleConst.EliteInterceptorSize,
-            BattleConst.ElitePoolCapacity, layer);
-        pool.Prewarm(BattleConst.BossStage01Path, BattleConst.BossStage01Size,
-            BattleConst.BossPoolCapacity, layer);
+    }
+
+    /**按当前出战机型的全部可用等级预热玩家子弹。*/
+    private static void PrewarmPlayerProjectiles(BattleVisualPool pool, RectTransform layer) {
+        PlayerAircraftVO aircraft = RaidenControl.ins.GetSelectedPlayerAircraft();
+        if (aircraft == null) {
+            return;
+        }
+        HashSet<string> projectilePaths = new HashSet<string>();
+        for (int level = RaidenControl.ins.defaultAircraftLevel; level <= aircraft.maxLevel; level++) {
+            PlayerAircraftBattleLevelVO config = RaidenControl.ins.GetPlayerAircraftBattleLevel(aircraft.id, level);
+            if (config == null) {
+                continue;
+            }
+            foreach (PlayerBulletLauncherVO launcher in config.bulletLaunchers) {
+                if (projectilePaths.Add(launcher.projectilePath)) {
+                    pool.Prewarm(launcher.projectilePath, launcher.projectileSize, BattleConst.PlayerProjectilePoolCapacity, layer);
+                }
+            }
+        }
     }
 
     private static void PrewarmEnemy(EnemyConfigVO enemy, HashSet<int> enemyIds,

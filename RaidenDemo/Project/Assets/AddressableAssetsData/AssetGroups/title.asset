@@ -77,11 +77,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6b5efe4f6c9b4a1794b56227021c2956
-    m_Address: Assets/ConfigBin/cfgobj_enemybulletobj.json
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6fd1c38fad5ebad48a0045d5b095c118
     m_Address: Assets/Art/frameAnimation/title/title_open.json
     m_ReadOnly: 0

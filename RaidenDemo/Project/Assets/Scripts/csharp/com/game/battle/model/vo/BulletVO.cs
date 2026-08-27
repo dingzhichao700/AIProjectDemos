@@ -14,6 +14,8 @@ internal sealed class BulletVO : SceneElementVO {
     public readonly int weaponLevel;
     public readonly int damage;
     public readonly int hitEffectId;
+    public readonly int launchEffectId;
+    public readonly float launchRotation;
     public readonly string resPath;
     public readonly Vector2 displaySize;
     public readonly Vector2 hitSize;
@@ -38,6 +40,7 @@ internal sealed class BulletVO : SceneElementVO {
         weaponLevel = owner.effectiveLevel;
         damage = launcher.damage;
         hitEffectId = launcher.hitEffectId;
+        launchEffectId = launcher.launchEffectId;
         resPath = launcher.projectilePath;
         displaySize = launcher.projectileSize;
         hitSize = launcher.hitSize;
@@ -51,21 +54,24 @@ internal sealed class BulletVO : SceneElementVO {
         float radians = direction * Mathf.Deg2Rad;
         velocity = new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)) * speed;
         previousPosition = position;
-        rotation = rotate ? 0f : direction - 90f;
+        launchRotation = direction - 90f;
+        rotation = rotate ? 0f : launchRotation;
     }
 
-    public BulletVO(long id, Vector2 position, Vector2 velocity,
-        Vector2 hitSize, int damage, int hitEffectId)
+    public BulletVO(long id, Vector2 position, AircraftVO owner, Vector2 velocity, Vector2 hitSize, int damage, int hitEffectId, int launchEffectId)
         : base(id, SceneElementFaction.ENEMY, TimerType.ENEMY, position) {
+        this.owner = owner;
         this.velocity = velocity;
         this.hitSize = hitSize;
         this.damage = damage;
         this.hitEffectId = hitEffectId;
+        this.launchEffectId = launchEffectId;
         hitPivot = new Vector2(0.5f, 0.5f);
         speed = velocity.magnitude;
         motionType = BulletMotionType.STRAIGHT;
         previousPosition = position;
-        rotation = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg - 90f;
+        launchRotation = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg - 90f;
+        rotation = launchRotation;
     }
 
     public override void OnTimeUpdate(float deltaTime) {

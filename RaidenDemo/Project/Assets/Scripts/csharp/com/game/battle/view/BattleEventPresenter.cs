@@ -96,7 +96,6 @@ internal sealed class BattleEventPresenter {
         backgroundPresenter.Update(deltaTime);
         scenePresenter.SyncSceneViews();
         UpdateHealthFeedback(deltaTime);
-        effectPresenter.Update(deltaTime);
     }
 
     private void OnPlayerTimeUpdate(float deltaTime) {
@@ -107,21 +106,23 @@ internal sealed class BattleEventPresenter {
         formationPresenter.Sync();
         playerPresenter.Update(formationPresenter.player, deltaTime);
         scenePresenter.SyncPlayerViews();
+        effectPresenter.Update(deltaTime, TimerType.PLAYER);
     }
 
     private void OnEnemyTimeUpdate(float deltaTime) {
         if (model.isPlaying) {
             scenePresenter.SyncEnemyViews();
+            effectPresenter.Update(deltaTime, TimerType.ENEMY);
         }
     }
 
     private void OnPlayerProjectileHitEnemy(BulletVO projectile,
         AircraftVO enemy, Vector2 contactPoint) {
-        effectPresenter.PlayBulletHit(projectile.hitEffectId, contactPoint);
+        effectPresenter.PlayBulletHit(projectile.hitEffectId, contactPoint, TimerType.ENEMY);
     }
 
     private void OnEnemyProjectileHitPlayer(BulletVO projectile) {
-        effectPresenter.PlayBulletHit(projectile.hitEffectId, projectile.position);
+        effectPresenter.PlayBulletHit(projectile.hitEffectId, projectile.position, TimerType.PLAYER);
     }
 
     private void OnRewardCollected(RewardVO reward, int healed) {
@@ -155,6 +156,7 @@ internal sealed class BattleEventPresenter {
 
     private void OnPlayerDefeatStarted() {
         playerPresenter.OnDefeatStarted(formationPresenter.player);
+        effectPresenter.PlayAircraftDeath(formationPresenter.GetView(formationPresenter.player), formationPresenter.player, true);
     }
 
     private void OnPlayerDefaultLevelRequested() {

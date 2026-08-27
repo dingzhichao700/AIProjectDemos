@@ -57,7 +57,11 @@ public sealed class RaidenModel {
         if (config == null) {
             return null;
         }
-        return new StageConfigVO(config.Id, new Vector2(config.SelectPosition.X, config.SelectPosition.Y), CreateWaves(config.WaveIds), config.TwoStarScore, config.ThreeStarScore);
+        EnemyWaveVO bossWave = CreateWave(config.BossWaveId);
+        if (bossWave.enemyClass != EnemyClass.BOSS || bossWave.count != 1) {
+            throw new InvalidOperationException($"关卡 {config.Id} 的 Boss 波次 {config.BossWaveId} 必须只配置一架 Boss 敌机");
+        }
+        return new StageConfigVO(config.Id, new Vector2(config.SelectPosition.X, config.SelectPosition.Y), CreateWaves(config.WaveIds), bossWave, config.SceneId, config.TwoStarScore, config.ThreeStarScore);
     }
 
     /**获取并转换普通敌机配置*/
@@ -66,29 +70,21 @@ public sealed class RaidenModel {
         if (enemy == null) {
             return null;
         }
-        EnemyBulletConfigVO bullet = GetEnemyBulletConfig(enemy.BulletId);
+        BulletConfigVO bullet = GetBulletConfig(enemy.BulletId);
         if (bullet == null) {
             throw new InvalidOperationException($"敌机 {enemyId} 引用了不存在的子弹配置：{enemy.BulletId}");
         }
-        return new EnemyConfigVO(enemy.Id, enemy.EnemyClass, enemy.BaseHealth, BattleConst.GetRaidenUnpackImagePath(enemy.AppearanceName), new Vector2(enemy.DisplaySize.X, enemy.DisplaySize.Y), AircraftCollisionVO.Create(enemy.Aircraft.CollisionShapes), enemy.MoveSpeed, enemy.FireInterval, enemy.FireType, enemy.Score, enemy.PoolCapacity, bullet);
+        return new EnemyConfigVO(enemy.Id, enemy.EnemyClass, enemy.Aircraft.Health, BattleConst.GetRaidenUnpackImagePath(enemy.Aircraft.AppearanceName), new Vector2(enemy.DisplaySize.X, enemy.DisplaySize.Y), AircraftCollisionVO.Create(enemy.Aircraft.CollisionShapes), enemy.Aircraft.MoveSpeed, enemy.FireInterval, enemy.FireType, enemy.Score, enemy.PoolCapacity, bullet, enemy.Aircraft.DeathExplosions, enemy.Aircraft.RemoveAfterDeathPresentation);
     }
 
     /**获取并转换敌机子弹配置*/
-    public EnemyBulletConfigVO GetEnemyBulletConfig(int bulletId) {
-        EnemyBulletResource bullet = CfgManager.tables.EnemyBulletObj.GetOrDefault(bulletId);
+    public BulletConfigVO GetBulletConfig(int bulletId) {
+        BulletResource bullet = CfgManager.tables.BulletObj.GetOrDefault(bulletId);
         if (bullet == null) {
             return null;
         }
-        BulletResource commonBullet = CfgManager.tables.BulletObj.GetOrDefault(bulletId);
-        string appearanceName = commonBullet != null
-            ? commonBullet.Bullet.AppearancePath
-            : bullet.AppearanceName;
-        return new EnemyBulletConfigVO(bullet.Id,
-            BattleConst.GetRaidenUnpackImagePath(appearanceName),
-            new Vector2(bullet.DisplaySize.X, bullet.DisplaySize.Y),
-            new Vector2(bullet.HitSize.X, bullet.HitSize.Y), bullet.Speed, bullet.Damage,
-            commonBullet?.Bullet.HitEffectId ?? 0,
-            bullet.PoolCapacity);
+        Vector2 shapeSize = GetBulletShapeSize(bullet.Bullet.Shape);
+        return new BulletConfigVO(bullet.Id, BattleConst.GetRaidenUnpackImagePath(bullet.Bullet.AppearancePath), shapeSize, shapeSize, GetBulletShapePivot(bullet.Bullet.Shape), bullet.Bullet.Speed, bullet.Bullet.Damage, bullet.Bullet.HitEffectId, bullet.Bullet.LaunchEffectId, bullet.PoolCapacity);
     }
 
     /**获取全部玩家飞机类型*/
@@ -118,11 +114,7 @@ public sealed class RaidenModel {
         foreach (PlayerAircraftLevelResource candidate in CfgManager.tables.PlayerAircraftLevelObj.DataList) {
             if (candidate.AircraftId == aircraftId && candidate.Level == level) {
                 List<PlayerBulletLauncherVO> launchers = CreatePlayerBulletLaunchers(candidate);
-                return new PlayerAircraftBattleLevelVO(candidate.AircraftId, candidate.Level,
-                    BattleConst.GetRaidenUnpackImagePath(candidate.AppearanceName),
-                    new Vector2(candidate.DisplaySize.X, candidate.DisplaySize.Y),
-                    AircraftCollisionVO.Create(candidate.Aircraft.CollisionShapes),
-                    candidate.BaseHealth, candidate.BaseBulletCount, launchers);
+                return new PlayerAircraftBattleLevelVO(candidate.AircraftId, candidate.Level, BattleConst.GetRaidenUnpackImagePath(candidate.Aircraft.AppearanceName), new Vector2(candidate.DisplaySize.X, candidate.DisplaySize.Y), AircraftCollisionVO.Create(candidate.Aircraft.CollisionShapes), candidate.Aircraft.Health, candidate.BaseBulletCount, launchers, candidate.Aircraft.DeathExplosions, candidate.Aircraft.RemoveAfterDeathPresentation);
             }
         }
         throw new InvalidOperationException($"玩家飞机 {aircraftId} 缺少等级 {level} 配置");
@@ -145,7 +137,7 @@ public sealed class RaidenModel {
                 launcher.Direction, launcher.SpreadType, Mathf.Max(0f, launcher.SpreadAngle),
                 BattleConst.GetRaidenUnpackImagePath(bullet.Bullet.AppearancePath),
                 size, size, pivot, bullet.Bullet.Speed, bullet.Bullet.Damage,
-                bullet.Bullet.HitEffectId,
+                bullet.Bullet.HitEffectId, bullet.Bullet.LaunchEffectId,
                 bullet.Bullet.MotionType, bullet.Bullet.Rotate,
                 bullet.Bullet.RotationSpeed, Mathf.Max(0, bullet.Bullet.TrackingDelayMs),
                 Mathf.Max(0f, bullet.Bullet.TrackingTurnSpeed)));
@@ -247,24 +239,33 @@ public sealed class RaidenModel {
         if (levelConfig == null) {
             throw new InvalidOperationException($"玩家飞机 {aircraft.Id} 缺少等级 {previewLevel} 配置");
         }
-        return new PlayerAircraftVO(aircraft.Id, aircraft.Code, aircraft.DisplayName, aircraft.MaxLevel, previewLevel, aircraft.DefaultUnlocked, aircraft.UnlockStarCost, levelConfig.BasePower, BattleConst.GetRaidenUnpackImagePath(levelConfig.AppearanceName), new Vector2(levelConfig.DisplaySize.X, levelConfig.DisplaySize.Y));
+        return new PlayerAircraftVO(aircraft.Id, aircraft.Code, aircraft.DisplayName, aircraft.MaxLevel, previewLevel, aircraft.DefaultUnlocked, aircraft.UnlockStarCost, levelConfig.BasePower, BattleConst.GetRaidenUnpackImagePath(levelConfig.Aircraft.AppearanceName), new Vector2(levelConfig.DisplaySize.X, levelConfig.DisplaySize.Y));
     }
 
     /**将关卡引用的 Luban 波次配置转换为运行时业务数据*/
     private EnemyWaveVO[] CreateWaves(IReadOnlyList<int> waveIds) {
         EnemyWaveVO[] waves = new EnemyWaveVO[waveIds.Count];
         for (int index = 0; index < waveIds.Count; index++) {
-            StageWaveResource wave = CfgManager.tables.StageWaveObj.GetOrDefault(waveIds[index]);
-            if (wave == null) {
-                throw new InvalidOperationException($"关卡引用了不存在的波次配置：{waveIds[index]}");
+            EnemyWaveVO wave = CreateWave(waveIds[index]);
+            if (wave.enemyClass == EnemyClass.BOSS) {
+                throw new InvalidOperationException($"普通波次列表不允许引用 Boss 波次：{waveIds[index]}");
             }
-            EnemyConfigVO enemy = GetEnemyConfig(wave.EnemyId);
-            if (enemy == null) {
-                throw new InvalidOperationException($"波次 {wave.Id} 引用了不存在的敌机配置：{wave.EnemyId}");
-            }
-            waves[index] = new EnemyWaveVO(enemy, wave.MotionType, wave.FormationType, wave.EnemyCount, new Vector2(wave.SpawnCenter.X, wave.SpawnCenter.Y), wave.Spacing, wave.MotionDirection);
+            waves[index] = wave;
         }
         return waves;
+    }
+
+    /**将单条 Luban 波次配置转换为运行时业务数据。*/
+    private EnemyWaveVO CreateWave(int waveId) {
+        StageWaveResource wave = CfgManager.tables.StageWaveObj.GetOrDefault(waveId);
+        if (wave == null) {
+            throw new InvalidOperationException($"关卡引用了不存在的波次配置：{waveId}");
+        }
+        EnemyConfigVO enemy = GetEnemyConfig(wave.EnemyId);
+        if (enemy == null) {
+            throw new InvalidOperationException($"波次 {wave.Id} 引用了不存在的敌机配置：{wave.EnemyId}");
+        }
+        return new EnemyWaveVO(enemy, wave.MotionType, wave.FormationType, wave.EnemyCount, new Vector2(wave.SpawnCenter.X, wave.SpawnCenter.Y), wave.Spacing, wave.MotionDirection);
     }
 
 }

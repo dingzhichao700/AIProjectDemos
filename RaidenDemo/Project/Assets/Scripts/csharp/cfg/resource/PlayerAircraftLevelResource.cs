@@ -20,10 +20,7 @@ public sealed partial class PlayerAircraftLevelResource : Luban.BeanBase
         { if(!_buf["id"].IsNumber) { throw new SerializationException(); }  Id = _buf["id"]; }
         { if(!_buf["aircraftId"].IsNumber) { throw new SerializationException(); }  AircraftId = _buf["aircraftId"]; }
         { if(!_buf["level"].IsNumber) { throw new SerializationException(); }  Level = _buf["level"]; }
-        { if(!_buf["appearanceName"].IsString) { throw new SerializationException(); }  AppearanceName = _buf["appearanceName"]; }
         { if(!_buf["displaySize"].IsObject) { throw new SerializationException(); }  DisplaySize = global::cfg.vector2.Deserializevector2(_buf["displaySize"]);  }
-        { if(!_buf["hitSize"].IsObject) { throw new SerializationException(); }  HitSize = global::cfg.vector2.Deserializevector2(_buf["hitSize"]);  }
-        { if(!_buf["baseHealth"].IsNumber) { throw new SerializationException(); }  BaseHealth = _buf["baseHealth"]; }
         { if(!_buf["baseBulletCount"].IsNumber) { throw new SerializationException(); }  BaseBulletCount = _buf["baseBulletCount"]; }
         { if(!_buf["basePower"].IsNumber) { throw new SerializationException(); }  BasePower = _buf["basePower"]; }
         { if(!_buf["aircraft"].IsObject) { throw new SerializationException(); }  Aircraft = global::cfg.Aircraft.DeserializeAircraft(_buf["aircraft"]);  }
@@ -47,21 +44,9 @@ public sealed partial class PlayerAircraftLevelResource : Luban.BeanBase
     /// </summary>
     public readonly int Level;
     /// <summary>
-    /// 外观资源名
-    /// </summary>
-    public readonly string AppearanceName;
-    /// <summary>
     /// 显示尺寸
     /// </summary>
     public readonly vector2 DisplaySize;
-    /// <summary>
-    /// 碰撞尺寸
-    /// </summary>
-    public readonly vector2 HitSize;
-    /// <summary>
-    /// 基础血量
-    /// </summary>
-    public readonly int BaseHealth;
     /// <summary>
     /// 基础发射数量
     /// </summary>
@@ -89,10 +74,7 @@ public sealed partial class PlayerAircraftLevelResource : Luban.BeanBase
         + "id:" + Id + ","
         + "aircraftId:" + AircraftId + ","
         + "level:" + Level + ","
-        + "appearanceName:" + AppearanceName + ","
         + "displaySize:" + DisplaySize + ","
-        + "hitSize:" + HitSize + ","
-        + "baseHealth:" + BaseHealth + ","
         + "baseBulletCount:" + BaseBulletCount + ","
         + "basePower:" + BasePower + ","
         + "aircraft:" + Aircraft + ","

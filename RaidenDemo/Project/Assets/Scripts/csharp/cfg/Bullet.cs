@@ -31,6 +31,7 @@ public sealed partial class Bullet : Luban.BeanBase
         { if(!_buf["hitEffectId"].IsNumber) { throw new SerializationException(); }  HitEffectId = _buf["hitEffectId"]; }
         { if(!_buf["trackingDelayMs"].IsNumber) { throw new SerializationException(); }  TrackingDelayMs = _buf["trackingDelayMs"]; }
         { if(!_buf["trackingTurnSpeed"].IsNumber) { throw new SerializationException(); }  TrackingTurnSpeed = _buf["trackingTurnSpeed"]; }
+        { if(!_buf["launchEffectId"].IsNumber) { throw new SerializationException(); }  LaunchEffectId = _buf["launchEffectId"]; }
     }
 
     public static Bullet DeserializeBullet(JSONNode _buf)
@@ -82,6 +83,10 @@ public sealed partial class Bullet : Luban.BeanBase
     /// 跟踪转向速度，单位度/秒；仅跟踪型生效
     /// </summary>
     public readonly float TrackingTurnSpeed;
+    /// <summary>
+    /// 引用特效表中的发射特效ID；未配置时不播放
+    /// </summary>
+    public readonly int LaunchEffectId;
    
     public const int __ID__ = 2000900386;
     public override int GetTypeId() => __ID__;
@@ -105,6 +110,7 @@ public sealed partial class Bullet : Luban.BeanBase
         + "hitEffectId:" + HitEffectId + ","
         + "trackingDelayMs:" + TrackingDelayMs + ","
         + "trackingTurnSpeed:" + TrackingTurnSpeed + ","
+        + "launchEffectId:" + LaunchEffectId + ","
         + "}";
     }
 }

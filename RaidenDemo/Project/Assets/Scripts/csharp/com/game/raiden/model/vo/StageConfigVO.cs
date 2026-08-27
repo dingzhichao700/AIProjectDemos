@@ -14,6 +14,12 @@ public sealed class StageConfigVO {
     /**普通敌机编队配置*/
     public readonly EnemyWaveVO[] enemyWaves;
 
+    /**本关必须执行的 Boss 波次*/
+    public readonly EnemyWaveVO bossWave;
+
+    /**关卡场景背景编号*/
+    public readonly int sceneId;
+
     /**达到二星所需的最低得分*/
     public readonly int twoStarScore;
 
@@ -32,10 +38,12 @@ public sealed class StageConfigVO {
     /// <summary>
     /// 从 Luban 关卡配置创建运行时数据
     /// </summary>
-    public StageConfigVO(int stageId, Vector2 selectPosition, EnemyWaveVO[] enemyWaves, int twoStarScore, int threeStarScore) {
+    public StageConfigVO(int stageId, Vector2 selectPosition, EnemyWaveVO[] enemyWaves, EnemyWaveVO bossWave, int sceneId, int twoStarScore, int threeStarScore) {
         this.stageId = stageId;
         this.selectPosition = selectPosition;
         this.enemyWaves = enemyWaves;
+        this.bossWave = bossWave;
+        this.sceneId = sceneId;
         this.twoStarScore = twoStarScore;
         this.threeStarScore = threeStarScore;
     }

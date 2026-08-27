@@ -12,16 +12,21 @@ internal sealed class BattleConfigProvider {
         return RaidenControl.ins.GetStageConfig(stageId) ?? RaidenControl.ins.GetStageConfig(1);
     }
 
+    /**读取关卡引用的视差背景配置。*/
+    public BattleSceneBackgroundVO GetSceneBackground(int sceneId) {
+        cfg.resource.SceneBgResource config = CfgManager.tables.SceneBgObj.GetOrDefault(sceneId);
+        if (config == null) {
+            throw new System.InvalidOperationException($"场景背景 {sceneId} 不存在");
+        }
+        return new BattleSceneBackgroundVO(config.BackgroundRes, config.BackgroundScrollSpeed, config.LowRes, config.LowScrollSpeed, config.MiddleRes, config.MiddleScrollSpeed, config.HighRes, config.HighScrollSpeed);
+    }
+
     public EnemyConfigVO GetEliteEnemy() {
         return RaidenControl.ins.model.GetEnemyConfig(4);
     }
 
-    public EnemyConfigVO GetBossEnemy() {
-        return RaidenControl.ins.model.GetEnemyConfig(5);
-    }
-
-    public EnemyBulletConfigVO GetDefaultEnemyBullet() {
-        return RaidenControl.ins.model.GetEnemyBulletConfig(1);
+    public BulletConfigVO GetDefaultEnemyBullet() {
+        return RaidenControl.ins.model.GetBulletConfig(1);
     }
 
     public PlayerAircraftVO GetSelectedPlayerAircraft() {

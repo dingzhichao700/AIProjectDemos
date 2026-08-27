@@ -47,6 +47,12 @@ public sealed class BattleModel {
     /**本局累计分数*/
     private int battleScore;
 
+    /**Boss 死亡表现结束后等待结算的剩余时间；负数表示尚未开始等待*/
+    private float bossVictoryDelayRemaining = -1f;
+
+    /**Boss 已被击毁，正在等待其死亡表现完成*/
+    private bool waitingForBossDeathPresentation;
+
     /**本局流程状态与关卡进度*/
     public BattleFlowState flowState => flowModel.state;
     public float missionProgress => flowModel.missionProgress;
@@ -112,7 +118,7 @@ public sealed class BattleModel {
     /**生命耗尽后请求失败结算*/
     internal event Action defeatRequested;
 
-    internal event Action<BulletVO, EnemyBulletConfigVO> enemyProjectileSpawned;
+    internal event Action<BulletVO, BulletConfigVO> enemyProjectileSpawned;
 
     /**敌方 Timer 的逐帧更新时间*/
     public event Action<float> enemyTimeUpdated;
@@ -144,6 +150,8 @@ public sealed class BattleModel {
         stageModel.Initialize(config);
         rewardModel.Initialize(currentStageId);
         battleScore = 0;
+        bossVictoryDelayRemaining = -1f;
+        waitingForBossDeathPresentation = false;
         formationModel.Initialize();
         flowModel.Initialize();
     }
@@ -232,9 +240,8 @@ public sealed class BattleModel {
     }
 
     /**配置本关特殊敌机和公共敌弹内容*/
-    internal void ConfigureEnemyContent(EnemyConfigVO elite, EnemyConfigVO boss,
-        EnemyBulletConfigVO defaultBullet) {
-        stageModel.Configure(elite, boss, defaultBullet);
+    internal void ConfigureEnemyContent(EnemyConfigVO elite, BulletConfigVO defaultBullet) {
+        stageModel.Configure(elite, defaultBullet);
     }
 
     /**更新玩家输入产生的权威逻辑坐标*/
@@ -298,6 +305,9 @@ public sealed class BattleModel {
         }
         Vector2 position = enemy.position;
         RemoveElement(enemy.id);
+        if (defeated && enemy.isBoss) {
+            waitingForBossDeathPresentation = true;
+        }
         enemyRemoved?.Invoke(enemy, defeated);
         if (enemy.showsSharedHealth) {
             ResolveSpecialEnemy(enemy, defeated);
@@ -311,6 +321,15 @@ public sealed class BattleModel {
             SpawnReward(position, BattleRewardModel.GetWaveRewardType(completedWaveIndex));
         }
         return true;
+    }
+
+    /**收到 Boss 死亡表现完成通知后，开始结算前延迟。*/
+    internal void NotifyBossDeathPresentationCompleted() {
+        if (!waitingForBossDeathPresentation || bossVictoryDelayRemaining >= 0f) {
+            return;
+        }
+        waitingForBossDeathPresentation = false;
+        bossVictoryDelayRemaining = BattleConst.BossVictoryDelayAfterDeathPresentation;
     }
 
     /**登记一个由关卡逻辑生成的奖励道具*/
@@ -396,6 +415,7 @@ public sealed class BattleModel {
         stageModel.Update(deltaTime, enemies.Count, SpawnNormalEnemy, SpawnSpecialEnemy);
         UpdateNaturalSupply(deltaTime);
         UpdateRewards();
+        UpdateBossVictoryDelay(deltaTime);
         sceneTimeUpdated?.Invoke(deltaTime);
     }
 
@@ -455,6 +475,7 @@ public sealed class BattleModel {
             config.displaySize, config.collision, config.baseHealth, motionType,
             moveSpeed, fireInterval, fireType, scoreValue, formationIndex,
             formationCount, motionDirection, config.bullet, config.appearancePath);
+        enemy.ConfigureDeathPresentation(config.deathExplosions, config.removeAfterDeathPresentation);
         enemy.ConfigureEnemyBehavior(
             () => playerUnit != null ? playerUnit.position : Vector2.zero,
             CreateEnemyProjectile, stageModel.defaultEnemyBullet);
@@ -478,10 +499,8 @@ public sealed class BattleModel {
         playerProjectileSpawned?.Invoke(projectile);
     }
 
-    private void CreateEnemyProjectile(Vector2 position, Vector2 velocity,
-        EnemyBulletConfigVO config) {
-        BulletVO projectile = new BulletVO(CreateElementId(), position, velocity,
-            config.hitSize, config.damage, config.hitEffectId);
+    private void CreateEnemyProjectile(AircraftVO owner, Vector2 position, Vector2 velocity, BulletConfigVO config) {
+        BulletVO projectile = new BulletVO(CreateElementId(), position, owner, velocity, config.hitSize, config.damage, config.hitEffectId, config.launchEffectId);
         enemyProjectiles.Add(projectile);
         AddElement(projectile);
         enemyProjectileSpawned?.Invoke(projectile, config);
@@ -583,10 +602,22 @@ public sealed class BattleModel {
             }
         }
         if (enemy.isBoss) {
-            victoryRequested?.Invoke();
             return;
         }
         stageModel.TryRequestBoss(enemies.Count, SpawnSpecialEnemy);
+    }
+
+    /**使用 sceneTimer 推进 Boss 死亡表现结束后的结算延迟。*/
+    private void UpdateBossVictoryDelay(float deltaTime) {
+        if (bossVictoryDelayRemaining < 0f) {
+            return;
+        }
+        bossVictoryDelayRemaining -= deltaTime;
+        if (bossVictoryDelayRemaining > 0f) {
+            return;
+        }
+        bossVictoryDelayRemaining = -1f;
+        victoryRequested?.Invoke();
     }
 
     /**累加并广播权威战斗分数*/

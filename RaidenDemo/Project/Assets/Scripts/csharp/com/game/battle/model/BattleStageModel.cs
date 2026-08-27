@@ -20,8 +20,7 @@ internal sealed class BattleStageModel {
 
     public bool bossSpawned { get; private set; }
     public EnemyConfigVO eliteConfig { get; private set; }
-    public EnemyConfigVO bossConfig { get; private set; }
-    public EnemyBulletConfigVO defaultEnemyBullet { get; private set; }
+    public BulletConfigVO defaultEnemyBullet { get; private set; }
 
     /**重置当前关卡的全部波次推进状态。*/
     public void Initialize(StageConfigVO config) {
@@ -36,10 +35,9 @@ internal sealed class BattleStageModel {
         bossSpawned = false;
     }
 
-    /**设置精英、Boss 和公共敌弹配置。*/
-    public void Configure(EnemyConfigVO elite, EnemyConfigVO boss, EnemyBulletConfigVO defaultBullet) {
+    /**设置精英和公共敌弹配置。*/
+    public void Configure(EnemyConfigVO elite, BulletConfigVO defaultBullet) {
         eliteConfig = elite;
-        bossConfig = boss;
         defaultEnemyBullet = defaultBullet;
     }
 
@@ -101,8 +99,8 @@ internal sealed class BattleStageModel {
             return;
         }
         bossSpawned = true;
-        if (bossConfig != null) {
-            spawnSpecial(bossConfig, new Vector2(360f, 120f));
+        if (stageConfig.bossWave != null) {
+            spawnSpecial(stageConfig.bossWave.enemy, stageConfig.bossWave.spawnCenter);
         }
     }
 
@@ -118,7 +116,6 @@ internal sealed class BattleStageModel {
 
     public void Clear() {
         eliteConfig = null;
-        bossConfig = null;
         defaultEnemyBullet = null;
         Initialize(null);
     }
