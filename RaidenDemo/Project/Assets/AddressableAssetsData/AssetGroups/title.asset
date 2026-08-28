@@ -147,6 +147,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9fc1cbbb15c51745a5c6bbb8a971d62
+    m_Address: Assets/ConfigBin/cfgobj_stageitemobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b1a0955dcd22fb34c834009bf4768d90, type: 2}
   m_SchemaSet:

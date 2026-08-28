@@ -100,6 +100,8 @@ internal sealed class BattleScenePresenter {
             if (view != null) {
                 view.anchoredPosition = enemy.position;
             }
+            EliteEnemyHealthBarView healthBar = views.GetEliteHealthBar(enemy.id);
+            healthBar?.SetPosition(enemy.position, enemy.size.y);
         }
         for (int i = model.enemyProjectiles.Count - 1; i >= 0; i--) {
             BulletVO projectile = model.enemyProjectiles[i];
@@ -127,6 +129,12 @@ internal sealed class BattleScenePresenter {
     private void OnEnemySpawned(AircraftVO enemy) {
         RectTransform view = visualPool.Create(enemy.semanticName, entityLayer, enemy.size, enemy.position, enemy.appearancePath, BattleConst.EnemyAircraftVisualRotation);
         views.BindEnemy(enemy.id, view);
+        if (enemy.enemyClass == cfg.EnemyClass.ELITE) {
+            EliteEnemyHealthBarView healthBar = EliteEnemyHealthBarView.Create(entityLayer);
+            healthBar.SetPosition(enemy.position, enemy.size.y);
+            healthBar.SetHealth(enemy.health, enemy.maxHealth);
+            views.BindEliteHealthBar(enemy.id, healthBar);
+        }
         if (enemy.isBoss) {
             bossHealthBar.gameObject.SetActive(true);
             bossHealthFill.rectTransform.sizeDelta = BattleConst.BossHealthFillSize;
@@ -137,6 +145,7 @@ internal sealed class BattleScenePresenter {
     private void OnEnemyRemoved(AircraftVO enemy, bool defeated) {
         RectTransform root = views.GetEnemy(enemy.id);
         views.RemoveEnemy(enemy.id);
+        views.RemoveEliteHealthBar(enemy.id)?.Dispose();
         if (defeated && root != null) {
             effects.PlayAircraftDeath(root, enemy, false, enemy.isBoss ? model.NotifyBossDeathPresentationCompleted : null);
         } else {
@@ -154,6 +163,7 @@ internal sealed class BattleScenePresenter {
         if (enemy.isBoss) {
             hud.RefreshBoss(model.enemies);
         }
+        views.GetEliteHealthBar(enemy.id)?.SetHealth(enemy.health, enemy.maxHealth);
     }
 
     private void OnEnemyProjectileSpawned(BulletVO projectile,
@@ -179,12 +189,13 @@ internal sealed class BattleScenePresenter {
     }
 
     private void OnRewardSpawned(RewardVO reward) {
-        RectTransform view = visualPool.Create("rewardDrop", effectLayer,
-            BattleConst.UpgradeDropSize, reward.position, GetRewardPath(reward.type));
+        RectTransform view = visualPool.Create("rewardDrop", effectLayer, BattleConst.UpgradeDropSize, reward.position, reward.resPath);
         views.BindReward(reward.id, view);
+        views.BindRewardEffect(reward.id, effects.PlayRewardLoop(reward.effectId, view));
     }
 
     private void OnRewardRemoved(long id) {
+        views.RemoveRewardEffect(id)?.Destroy();
         visualPool.Recycle(views.RemoveReward(id));
     }
 
@@ -198,16 +209,4 @@ internal sealed class BattleScenePresenter {
         }
     }
 
-    private static string GetRewardPath(BattleRewardType type) {
-        switch (type) {
-            case BattleRewardType.Health:
-                return BattleConst.HealthDropPath;
-            case BattleRewardType.PlayerUpgrade:
-                return BattleConst.UpgradeDropPath;
-            case BattleRewardType.WingmanUpgrade:
-                return BattleConst.WingmanUpgradeDropPath;
-            default:
-                return BattleConst.LifeDropPath;
-        }
-    }
 }

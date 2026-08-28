@@ -130,6 +130,13 @@ public class FrameAnimationView : MonoBehaviour {
 
     /**加载并播放（如果未加载完成则会等待）*/
     private async Task LoadAndPlay(string path, int requestVersion) {
+        FrameAnimationRes loadedData = FrameAnimationManager.GetRes(path);
+        if (loadedData != null) {
+            if (this != null && requestVersion == loadVersion && _path == path) {
+                OnLoadComplete(loadedData);
+            }
+            return;
+        }
         await ResourceLoader.LoadListAsync(new List<ResLoadInfo> { new ResLoadInfo(path, ResType.FrameAnim) }, () => {
             if (this == null || requestVersion != loadVersion || _path != path) {
                 return;

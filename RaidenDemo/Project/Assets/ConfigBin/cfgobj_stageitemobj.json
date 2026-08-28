@@ -1,0 +1,94 @@
+[
+  {
+    "id": 1,
+    "type": 2,
+    "res": "battleHealthDrop",
+    "collisionShapes": [
+      {
+        "$type": "RectangleShape",
+        "rect": {
+          "x": 60,
+          "y": 60
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      }
+    ],
+    "moveSpeed": 120,
+    "effectValue": 30,
+    "effectId": 12001,
+    "swayAmplitude": 330,
+    "swayPeriodMs": 6000
+  },
+  {
+    "id": 2,
+    "type": 0,
+    "res": "battleUpgradeDrop",
+    "collisionShapes": [
+      {
+        "$type": "RectangleShape",
+        "rect": {
+          "x": 60,
+          "y": 60
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      }
+    ],
+    "moveSpeed": 120,
+    "effectValue": 0,
+    "effectId": 12001,
+    "swayAmplitude": 330,
+    "swayPeriodMs": 6000
+  },
+  {
+    "id": 3,
+    "type": 1,
+    "res": "battleWingmanUpgradeDrop",
+    "collisionShapes": [
+      {
+        "$type": "RectangleShape",
+        "rect": {
+          "x": 60,
+          "y": 60
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      }
+    ],
+    "moveSpeed": 120,
+    "effectValue": 0,
+    "effectId": 12001,
+    "swayAmplitude": 330,
+    "swayPeriodMs": 6000
+  },
+  {
+    "id": 4,
+    "type": 3,
+    "res": "battleLifeDrop",
+    "collisionShapes": [
+      {
+        "$type": "RectangleShape",
+        "rect": {
+          "x": 60,
+          "y": 60
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      }
+    ],
+    "moveSpeed": 120,
+    "effectValue": 1,
+    "effectId": 12001,
+    "swayAmplitude": 330,
+    "swayPeriodMs": 6000
+  }
+]

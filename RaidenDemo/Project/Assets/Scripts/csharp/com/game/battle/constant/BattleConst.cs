@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public static class BattleConst {
 
+    public const float BattleViewportWidth = 720f;
+
     /**飞机散图统一朝上，敌方阵营在战斗中整体旋转为朝下。*/
     public const float EnemyAircraftVisualRotation = 180f;
 
@@ -26,10 +28,6 @@ public static class BattleConst {
 
     public const int UpgradeDropPoolCapacity = 2;
 
-    public const int HealthDropHealAmount = 30;
-
-    public const int LifeDropAddCount = 1;
-
     public const int PlayerInitialLifeCount = 3;
 
     public const float WingmanFollowSpeed = 12f;
@@ -43,12 +41,6 @@ public static class BattleConst {
     public const float EnemyMoveSpeed = 150f;
 
     public const float EnemyFireInterval = 1.4f;
-
-    public const float UpgradeDropSpeed = 120f;
-
-    public const float RewardDropAttractRadius = 180f;
-
-    public const float RewardDropAttractSpeed = 720f;
 
     public const float NaturalSupplyFirstDelay = 12f;
 
@@ -122,7 +114,9 @@ public static class BattleConst {
 
     public static readonly Vector2 BossHealthFillSize = new Vector2(410, 18);
 
-    public static readonly Vector2 UpgradeDropHitSize = new Vector2(60, 60);
+    public static readonly Vector2 EliteHealthBarSize = new Vector2(144, 20);
+
+    public const float EliteHealthBarVerticalGap = 12f;
 
     public static readonly Vector2 PlayerStart = new Vector2(360, -1010);
 
@@ -136,13 +130,9 @@ public static class BattleConst {
 
     public const string WingmanPath = "Assets/Art/unpack/default/raiden/wingman/self/battleWingman.png";
 
-    public const string HealthDropPath = "Assets/Art/unpack/default/raiden/battleHealthDrop.png";
+    public const string EliteHealthBarBackgroundPath = "Assets/Art/unpack/default/raiden/hud/elite_health_bar_bg.png";
 
-    public const string UpgradeDropPath = "Assets/Art/unpack/default/raiden/battleUpgradeDrop.png";
-
-    public const string WingmanUpgradeDropPath = "Assets/Art/unpack/default/raiden/battleWingmanUpgradeDrop.png";
-
-    public const string LifeDropPath = "Assets/Art/unpack/default/raiden/battleLifeDrop.png";
+    public const string EliteHealthBarFillPath = "Assets/Art/unpack/default/raiden/hud/elite_health_bar_fill.png";
 
     /**根据雷电模块位图资源名生成 Addressables 资源路径*/
     public static string GetRaidenUnpackImagePath(string resourceName) {

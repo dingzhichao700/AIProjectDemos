@@ -54,6 +54,10 @@ public partial class Tables
     /// 场景背景配置表
     /// </summary>
     public cfgObj.SceneBgObj SceneBgObj {get; }
+    /// <summary>
+    /// 关卡道具配置表
+    /// </summary>
+    public cfgObj.StageItemObj StageItemObj {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
@@ -67,6 +71,7 @@ public partial class Tables
         BulletObj = new cfgObj.BulletObj(loader("cfgobj_bulletobj"));
         EffectObj = new cfgObj.EffectObj(loader("cfgobj_effectobj"));
         SceneBgObj = new cfgObj.SceneBgObj(loader("cfgobj_scenebgobj"));
+        StageItemObj = new cfgObj.StageItemObj(loader("cfgobj_stageitemobj"));
         ResolveRef();
     }
     
@@ -82,6 +87,7 @@ public partial class Tables
         BulletObj.ResolveRef(this);
         EffectObj.ResolveRef(this);
         SceneBgObj.ResolveRef(this);
+        StageItemObj.ResolveRef(this);
     }
 }
 

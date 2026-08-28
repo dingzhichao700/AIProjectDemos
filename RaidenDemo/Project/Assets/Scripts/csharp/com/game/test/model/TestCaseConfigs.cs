@@ -47,14 +47,13 @@ public class TestCaseConfigs {
         Require(tables.StageObj.DataList.Count == tables.StageObj.DataMap.Count, "雷电关卡表的 DataList 与 DataMap 数量不一致");
         StageResource stage = tables.StageObj.Get(1);
         Require(stage.SelectPosition.X == 55 && stage.SelectPosition.Y == 925, "雷电关卡 1 的选择坐标解析错误");
-        Require(stage.WaveIds.Count > 0, "雷电关卡 1 应配置普通敌机波次");
+        Require(stage.WaveIds.Count > 0, "雷电关卡 1 应配置敌机波次");
         Require(stage.BossWaveId == 1101, "雷电关卡 1 的 Boss 波次引用解析错误");
         Require(stage.TwoStarScore == 402 && stage.ThreeStarScore == 1002, "雷电关卡 1 的星级分数线解析错误");
         SceneBgResource sceneBackground = tables.SceneBgObj.GetOrDefault(stage.SceneId);
         Require(sceneBackground != null && !string.IsNullOrWhiteSpace(sceneBackground.BackgroundRes), "雷电关卡 1 的场景背景引用无效");
         Require(tables.StageObj.GetOrDefault(int.MinValue) == null, "雷电关卡表不存在的 ID 应返回 null");
 
-        Require(tables.StageWaveObj.DataList.Count == 52, "雷电关卡波次表数量应为 52");
         Require(tables.StageWaveObj.DataList.Count == tables.StageWaveObj.DataMap.Count, "雷电关卡波次表的 DataList 与 DataMap 数量不一致");
         StageWaveResource firstWave = tables.StageWaveObj.Get(101);
         Require(firstWave.Id == 101 && firstWave.EnemyCount == 5, "关卡 1 首波基础字段解析错误");

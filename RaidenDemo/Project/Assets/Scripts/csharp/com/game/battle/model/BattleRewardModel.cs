@@ -1,3 +1,5 @@
+using cfg;
+using cfg.resource;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,16 +26,16 @@ internal sealed class BattleRewardModel {
         playerUpgradeBlocked = false;
     }
 
-    public RewardVO Spawn(Vector2 position, BattleRewardType type, bool isNaturalSupply, AircraftVO player, Func<long> createId, Action<SceneElementVO> addElement, Action<RewardVO> onSpawned) {
-        RewardVO reward = new RewardVO(createId(), position, type, isNaturalSupply);
-        reward.target = player;
+    public RewardVO Spawn(Vector2 position, StageItemType type, bool isNaturalSupply, Func<long> createId, Action<SceneElementVO> addElement, Action<RewardVO> onSpawned) {
+        StageItemResource config = GetItemConfig(type);
+        RewardVO reward = new RewardVO(createId(), position, config, isNaturalSupply);
         rewards.Add(reward);
         addElement(reward);
         onSpawned?.Invoke(reward);
         return reward;
     }
 
-    public void UpdateNaturalSupply(float deltaTime, bool bossSpawned, Action<Vector2, BattleRewardType, bool> spawn) {
+    public void UpdateNaturalSupply(float deltaTime, bool bossSpawned, Action<Vector2, StageItemType, bool> spawn) {
         if (bossSpawned) {
             return;
         }
@@ -47,7 +49,7 @@ internal sealed class BattleRewardModel {
             }
         }
         naturalSupplyCooldown = BattleConst.NaturalSupplyInterval;
-        BattleRewardType type = stageId == 1 ? BattleRewardType.PlayerUpgrade : GetWaveRewardType(naturalSupplyCount);
+        StageItemType type = stageId == 1 ? StageItemType.PLAYER_UPGRADE : GetWaveRewardType(naturalSupplyCount);
         float margin = BattleConst.NaturalSupplySpawnMargin;
         Vector2 position = new Vector2(UnityEngine.Random.Range(margin, 720f - margin), -margin);
         spawn(position, type, true);
@@ -57,23 +59,22 @@ internal sealed class BattleRewardModel {
     public void Update(AircraftVO player, bool playerAlive, AircraftCollisionVO collision, Func<RewardVO, bool> remove, Action<int> addLife, Action playerChanged, Action<RewardVO, int> collected) {
         for (int i = rewards.Count - 1; i >= 0; i--) {
             RewardVO reward = rewards[i];
-            reward.target = playerAlive ? player : null;
             if (reward.position.y < -1340f) {
                 remove(reward);
                 continue;
             }
-            if (!playerAlive || reward.type == BattleRewardType.PlayerUpgrade && playerUpgradeBlocked) {
+            if (!playerAlive || reward.type == StageItemType.PLAYER_UPGRADE && playerUpgradeBlocked) {
                 continue;
             }
-            if (!BattleCollisionSystem.Overlaps(reward.position, BattleConst.UpgradeDropHitSize, player.position, collision)) {
+            if (!BattleCollisionSystem.Overlaps(reward.position, reward.collision, player.position, collision)) {
                 continue;
             }
             int healed = 0;
-            if (reward.type == BattleRewardType.Health) {
-                healed = player.Heal(BattleConst.HealthDropHealAmount);
+            if (reward.type == StageItemType.HEALTH) {
+                healed = player.Heal(reward.effectValue);
                 playerChanged?.Invoke();
-            } else if (reward.type == BattleRewardType.Life) {
-                addLife(BattleConst.LifeDropAddCount);
+            } else if (reward.type == StageItemType.LIFE) {
+                addLife(reward.effectValue);
             }
             remove(reward);
             collected?.Invoke(reward, healed);
@@ -89,16 +90,25 @@ internal sealed class BattleRewardModel {
         Initialize(0);
     }
 
-    public static BattleRewardType GetWaveRewardType(int waveIndex) {
+    public static StageItemType GetWaveRewardType(int waveIndex) {
         switch (waveIndex % 4) {
             case 0:
-                return BattleRewardType.Health;
+                return StageItemType.HEALTH;
             case 1:
-                return BattleRewardType.PlayerUpgrade;
+                return StageItemType.PLAYER_UPGRADE;
             case 2:
-                return BattleRewardType.WingmanUpgrade;
+                return StageItemType.WINGMAN_UPGRADE;
             default:
-                return BattleRewardType.Life;
+                return StageItemType.LIFE;
         }
+    }
+
+    private static StageItemResource GetItemConfig(StageItemType type) {
+        foreach (StageItemResource config in CfgManager.tables.StageItemObj.DataList) {
+            if (config.Type == type) {
+                return config;
+            }
+        }
+        throw new InvalidOperationException($"关卡道具类型 {type} 没有对应配置");
     }
 }

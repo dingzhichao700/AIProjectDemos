@@ -72,14 +72,12 @@ public static class BattlePreloadCollector {
     private static void AddFixedStageResources(List<ResLoadInfo> preload, HashSet<string> resourceKeys) {
         AddPreloadResource(preload, resourceKeys, BattleConst.WingmanPath,
             ResType.UnpackImage);
-        AddPreloadResource(preload, resourceKeys, BattleConst.HealthDropPath,
-            ResType.UnpackImage);
-        AddPreloadResource(preload, resourceKeys, BattleConst.UpgradeDropPath,
-            ResType.UnpackImage);
-        AddPreloadResource(preload, resourceKeys, BattleConst.WingmanUpgradeDropPath,
-            ResType.UnpackImage);
-        AddPreloadResource(preload, resourceKeys, BattleConst.LifeDropPath,
-            ResType.UnpackImage);
+        foreach (StageItemResource item in CfgManager.tables.StageItemObj.DataList) {
+            AddPreloadResource(preload, resourceKeys, BattleConst.GetRaidenUnpackImagePath(item.Res), ResType.UnpackImage);
+            AddEffectResource(preload, resourceKeys, item.EffectId, EffectType.OTHER);
+        }
+        AddPreloadResource(preload, resourceKeys, BattleConst.EliteHealthBarBackgroundPath, ResType.UnpackImage);
+        AddPreloadResource(preload, resourceKeys, BattleConst.EliteHealthBarFillPath, ResType.UnpackImage);
         foreach (int effectId in BattleConst.FixedStageEffectIds) {
             AddEffectResource(preload, resourceKeys, effectId);
         }

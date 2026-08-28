@@ -89,6 +89,29 @@ internal sealed class BattleEffectPresenter {
         return view;
     }
 
+    /**在奖励道具原点循环播放配置指定的叠加特效。*/
+    public FrameAnimationView PlayRewardLoop(int effectId, RectTransform rewardRoot) {
+        if (effectId <= 0 || rewardRoot == null) {
+            return null;
+        }
+        EffectResource effect = CfgManager.tables.EffectObj.GetOrDefault(effectId);
+        if (effect == null || effect.Type != EffectType.OTHER) {
+            Debug.LogError($"关卡奖励循环特效配置无效：{effectId}");
+            return null;
+        }
+        string path = BattlePreloadCollector.GetEffectResourcePath(effect);
+        BattlePreloadCollector.RequireFrameAnimationPreloaded(path);
+        FrameAnimationView view = FrameAnimationView.GetInstance();
+        RectTransform rect = view.trans;
+        rect.SetParent(rewardRoot, false);
+        rect.anchorMin = rect.anchorMax = new Vector2(0.5f, 0.5f);
+        rect.anchoredPosition = Vector2.zero;
+        rect.localScale = Vector3.one;
+        rect.localEulerAngles = Vector3.zero;
+        view.Play(path, true, null, false, 1f, 1, 1f, TimerType.SCENE);
+        return view;
+    }
+
     /**按飞机配置启动死亡前爆炸表现。*/
     public void PlayAircraftDeath(RectTransform root, AircraftVO aircraft, bool preserveRootForReuse, Action completed = null) {
         if (root == null || aircraft == null) {

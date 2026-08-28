@@ -48,10 +48,12 @@ public static class ResourceLoader {
             // 顺序加载可让界面准确反映离散资源完成比例。
             foreach (var item in list) {
                 if (item.resType == ResType.FrameAnim) {
-                    var texTask = ResourceManager.LoadAsync(new ResLoadInfo(item.path + ".png", ResType.UnpackImage));
-                    var jsonTask = ResourceManager.LoadAsync(new ResLoadInfo(item.path, ResType.Json));
-                    await Task.WhenAll(texTask, jsonTask);
-                    await FrameAnimationManager.OnLoadAnimResComplete(item.path);
+                    if (!FrameAnimationManager.HasLoad(item.path)) {
+                        var texTask = ResourceManager.LoadAsync(new ResLoadInfo(item.path + ".png", ResType.UnpackImage));
+                        var jsonTask = ResourceManager.LoadAsync(new ResLoadInfo(item.path, ResType.Json));
+                        await Task.WhenAll(texTask, jsonTask);
+                        await FrameAnimationManager.OnLoadAnimResComplete(item.path);
+                    }
                 } else {
                     await ResourceManager.LoadAsync(item);
                 }

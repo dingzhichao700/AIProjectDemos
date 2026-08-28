@@ -4,21 +4,21 @@
     "backgroundRes": "forest_far_base",
     "backgroundScrollSpeed": 120,
     "lowRes": "forest_cloud_low",
-    "lowScrollSpeed": 135,
+    "lowScrollSpeed": 180,
     "middleRes": "forest_cloud_mid",
-    "middleScrollSpeed": 165,
+    "middleScrollSpeed": 320,
     "highRes": "forest_cloud_high",
-    "highScrollSpeed": 210
+    "highScrollSpeed": 800
   },
   {
     "id": 2,
     "backgroundRes": "island_deep_sea_far",
     "backgroundScrollSpeed": 120,
     "lowRes": "island_deep_sea_cloud_low",
-    "lowScrollSpeed": 135,
+    "lowScrollSpeed": 180,
     "middleRes": "island_deep_sea_cloud_middle",
-    "middleScrollSpeed": 165,
+    "middleScrollSpeed": 320,
     "highRes": "island_deep_sea_cloud_high",
-    "highScrollSpeed": 210
+    "highScrollSpeed": 800
   }
 ]

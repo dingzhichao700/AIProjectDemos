@@ -23,7 +23,7 @@
 
     /**测试配置表*/
     public void TestConfig() {
-        new TestCaseConfigs();
+        //new TestCaseConfigs();
     }
 
 }

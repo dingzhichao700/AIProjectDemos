@@ -6,11 +6,11 @@
 
 发生冲突时依次以：用户本次明确指令 → 目标工程 `AGENTS.md` → 专项规范 → Skill 默认规则 → 示例与历史记录为准。
 
-- [`docs/目录与分包原则.md`](docs/目录与分包原则.md)：Assets、Group、图集和 UI Prefab 落位。
-- [`docs/模板与导出规范.md`](docs/模板与导出规范.md)：自包含模板、导出器、验证和外部依赖边界。
-- [`docs/UI功能逻辑规范.md`](docs/UI功能逻辑规范.md)：BasePanel 生命周期、监听命名和 C# 换行风格。
-- [`docs/游戏业务与配置规范.md`](docs/游戏业务与配置规范.md)：业务配置接入和 Luban 导表脚本约束。
-- [`docs/README.md`](docs/README.md)：专项文档索引。
+- [`文档/开发规范/目录与分包原则.md`](文档/开发规范/目录与分包原则.md)：Assets、Group、图集和 UI Prefab 落位。
+- [`文档/开发规范/模板与导出规范.md`](文档/开发规范/模板与导出规范.md)：自包含模板、导出器、验证和外部依赖边界。
+- [`文档/开发规范/UI功能逻辑规范.md`](文档/开发规范/UI功能逻辑规范.md)：BasePanel 生命周期、监听命名和 C# 换行风格。
+- [`文档/开发规范/游戏业务与配置规范.md`](文档/开发规范/游戏业务与配置规范.md)：业务配置接入和 Luban 导表脚本约束。
+- [`文档/开发规范/README.md`](文档/开发规范/README.md)：专项文档索引。
 
 专项细节只在对应文档维护，本文不复制完整路径表。
 
@@ -21,7 +21,8 @@ game-framework-toolchain/
 ├── SKILL.md
 ├── AGENTS.md
 ├── agents/
-├── docs/
+├── 文档/
+│   └── 开发规范/
 ├── Tools/
 └── Templates/GameFramework/
     └── ProjectFiles/          完整但不含生成缓存的 Unity 工程源文件
@@ -38,7 +39,7 @@ game-framework-toolchain/
 
 1. Unity 源文件写入 `Templates/GameFramework/ProjectFiles`。
 2. 导出流程写入 `Tools`。
-3. 规范写入 `AGENTS.md` 或对应 `docs` 专项文件。
+3. 规范写入 `AGENTS.md` 或对应 `文档/开发规范` 专项文件。
 4. Addressables 或运行时资源变化时，由下一次导出现场重新构建，不维护预构建缓存。
 5. 不迁入单次 Blueprint、实验 UI、美术参考图、日志、Library、Temp 或样例专属 Addressables entry。
 6. 保留无关的已有修改；未经要求不提交 Git。

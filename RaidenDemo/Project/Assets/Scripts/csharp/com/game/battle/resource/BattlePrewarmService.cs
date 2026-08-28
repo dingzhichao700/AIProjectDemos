@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using cfg.resource;
 using UnityEngine;
 
 /// <summary>集中预热本关可能使用的战斗视觉对象。</summary>
@@ -14,14 +15,9 @@ internal static class BattlePrewarmService {
         PrewarmEnemy(RaidenControl.ins.model.GetEnemyConfig(4), enemyIds, bulletIds,
             pool, layer);
         PrewarmEnemy(stage.bossWave.enemy, enemyIds, bulletIds, pool, layer);
-        pool.Prewarm(BattleConst.HealthDropPath, BattleConst.UpgradeDropSize,
-            BattleConst.UpgradeDropPoolCapacity, layer);
-        pool.Prewarm(BattleConst.UpgradeDropPath, BattleConst.UpgradeDropSize,
-            BattleConst.UpgradeDropPoolCapacity, layer);
-        pool.Prewarm(BattleConst.WingmanUpgradeDropPath, BattleConst.UpgradeDropSize,
-            BattleConst.UpgradeDropPoolCapacity, layer);
-        pool.Prewarm(BattleConst.LifeDropPath, BattleConst.UpgradeDropSize,
-            BattleConst.UpgradeDropPoolCapacity, layer);
+        foreach (StageItemResource item in CfgManager.tables.StageItemObj.DataList) {
+            pool.Prewarm(BattleConst.GetRaidenUnpackImagePath(item.Res), BattleConst.UpgradeDropSize, BattleConst.UpgradeDropPoolCapacity, layer);
+        }
     }
 
     /**按当前出战机型的全部可用等级预热玩家子弹。*/

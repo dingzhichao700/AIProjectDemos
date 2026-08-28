@@ -1,4 +1,5 @@
 using System;
+using cfg;
 using UnityEngine;
 
 /// <summary>
@@ -126,20 +127,20 @@ internal sealed class BattleEventPresenter {
     }
 
     private void OnRewardCollected(RewardVO reward, int healed) {
-        if (reward.type == BattleRewardType.Health) {
+        if (reward.type == StageItemType.HEALTH) {
             if (healed > 0 && hudPresenter.playerHealthText != null) {
                 hudPresenter.playerHealthText.color = new Color32(80, 255, 120, 255);
                 healthFeedbackRemaining = 0.65f;
             }
             return;
         }
-        if (reward.type == BattleRewardType.PlayerUpgrade) {
+        if (reward.type == StageItemType.PLAYER_UPGRADE) {
             if (playerConfig.TryGetUpgradeLevel(out int targetLevel)) {
                 playerPresenter.BeginUpgrade(formationPresenter.player, targetLevel);
             }
             return;
         }
-        if (reward.type == BattleRewardType.WingmanUpgrade) {
+        if (reward.type == StageItemType.WINGMAN_UPGRADE) {
             formationPresenter.ApplyWingmanReward();
             return;
         }

@@ -6,15 +6,12 @@
       "y": 925
     },
     "waveIds": [
-      101,
-      102,
-      103,
-      104
+      105
     ],
     "twoStarScore": 402,
     "threeStarScore": 1002,
     "bossWaveId": 1101,
-    "sceneId": 2
+    "sceneId": 1
   },
   {
     "id": 2,

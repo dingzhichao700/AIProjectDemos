@@ -11,21 +11,23 @@ internal sealed class BattleBackgroundPresenter {
     private const float BackgroundWidth = 720f;
     private const float BackgroundHeight = 2560f;
     private readonly RectTransform layer;
+    private readonly RectTransform highLayer;
     private readonly List<RectTransform[]> backgroundLayers = new List<RectTransform[]>();
     private readonly List<float> scrollSpeeds = new List<float>();
 
-    public BattleBackgroundPresenter(RectTransform layer) {
+    public BattleBackgroundPresenter(RectTransform layer, RectTransform highLayer) {
         this.layer = layer;
+        this.highLayer = highLayer;
     }
 
     /**按远近顺序创建四层循环背景。*/
     public void Initialize(BattleSceneBackgroundVO config) {
         backgroundLayers.Clear();
         scrollSpeeds.Clear();
-        AddLayer("Far", config.backgroundRes, config.backgroundScrollSpeed, true);
-        AddLayer("Low", config.lowRes, config.lowScrollSpeed, false);
-        AddLayer("Middle", config.middleRes, config.middleScrollSpeed, false);
-        AddLayer("High", config.highRes, config.highScrollSpeed, false);
+        AddLayer("Far", config.backgroundRes, config.backgroundScrollSpeed, true, layer);
+        AddLayer("Low", config.lowRes, config.lowScrollSpeed, false, layer);
+        AddLayer("Middle", config.middleRes, config.middleScrollSpeed, false, layer);
+        AddLayer("High", config.highRes, config.highScrollSpeed, false, highLayer);
     }
 
     /**使用场景计时器增量同步各层视差滚动。*/
@@ -48,10 +50,15 @@ internal sealed class BattleBackgroundPresenter {
     public void Clear() {
         backgroundLayers.Clear();
         scrollSpeeds.Clear();
+        for (int i = highLayer.childCount - 1; i >= 0; i--) {
+            GameObject child = highLayer.GetChild(i).gameObject;
+            child.SetActive(false);
+            Object.Destroy(child);
+        }
     }
 
     /**创建同一视差层首尾衔接的两张图片。*/
-    private void AddLayer(string layerName, string resourceName, float scrollSpeed, bool required) {
+    private void AddLayer(string layerName, string resourceName, float scrollSpeed, bool required, RectTransform targetLayer) {
         if (string.IsNullOrWhiteSpace(resourceName)) {
             if (required) {
                 throw new System.InvalidOperationException("场景背景必须配置远景地表资源");
@@ -60,9 +67,10 @@ internal sealed class BattleBackgroundPresenter {
         }
         string path = BattleConst.GetSceneBackgroundImagePath(resourceName);
         Vector2 size = new Vector2(BackgroundWidth, BackgroundHeight);
-        RectTransform first = BattleViewFactory.CreateImage($"imgBattleBackground{layerName}A", layer, size, Vector2.zero, path);
-        RectTransform second = BattleViewFactory.CreateImage($"imgBattleBackground{layerName}B", layer, size, new Vector2(0f, BackgroundHeight), path);
+        RectTransform first = BattleViewFactory.CreateImage($"imgBattleBackground{layerName}A", targetLayer, size, Vector2.zero, path);
+        RectTransform second = BattleViewFactory.CreateImage($"imgBattleBackground{layerName}B", targetLayer, size, new Vector2(0f, BackgroundHeight), path);
         backgroundLayers.Add(new[] { first, second });
         scrollSpeeds.Add(scrollSpeed);
     }
+
 }

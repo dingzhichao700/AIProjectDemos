@@ -18,7 +18,7 @@ internal sealed class BattleCompositionRoot {
     public BattleSetupCoordinator setupCoordinator { get; }
     public BattleLifecycleCoordinator lifecycleCoordinator { get; }
 
-    public BattleCompositionRoot(BattleModel model, BattleConfigProvider configProvider, BattlePlayerConfigCoordinator playerConfig, BattleTimerPauseController timerPauseController, BattleVisualPool visualPool, BattleEntityViewManager entityViews, RectTransform backgroundLayer, RectTransform entityLayer, RectTransform projectileLayer, RectTransform effectLayer, Image progressFill, TextMeshProUGUI lifeText, TextMeshProUGUI scoreText, RectTransform bossHealthRoot, Image bossHealthFill, TextMeshProUGUI bossHealthText, Action<Vector2> setPlayerPosition, Action<int> applyPlayerLevel, Action<bool> completeBattle) {
+    public BattleCompositionRoot(BattleModel model, BattleConfigProvider configProvider, BattlePlayerConfigCoordinator playerConfig, BattleTimerPauseController timerPauseController, BattleVisualPool visualPool, BattleEntityViewManager entityViews, RectTransform backgroundLayer, RectTransform backgroundHighLayer, RectTransform entityLayer, RectTransform projectileLayer, RectTransform effectLayer, Image progressFill, TextMeshProUGUI lifeText, TextMeshProUGUI scoreText, RectTransform bossHealthRoot, Image bossHealthFill, TextMeshProUGUI bossHealthText, Action<Vector2> setPlayerPosition, Action<int> applyPlayerLevel, Action<bool> completeBattle) {
         effectPresenter = new BattleEffectPresenter(effectLayer, visualPool);
         hudPresenter = new BattleHudPresenter(progressFill, lifeText, scoreText, bossHealthRoot, bossHealthFill, bossHealthText);
         formationPresenter = new BattleFormationPresenter(entityLayer, model, visualPool, entityViews);
@@ -26,7 +26,7 @@ internal sealed class BattleCompositionRoot {
         inputPresenter = new BattlePlayerInputPresenter(entityLayer, setPlayerPosition);
         navigationCoordinator = new BattleNavigationCoordinator(model, timerPauseController);
         scenePresenter = new BattleScenePresenter(entityLayer, projectileLayer, effectLayer, bossHealthRoot, bossHealthFill, visualPool, entityViews, effectPresenter, hudPresenter);
-        backgroundPresenter = new BattleBackgroundPresenter(backgroundLayer);
+        backgroundPresenter = new BattleBackgroundPresenter(backgroundLayer, backgroundHighLayer);
         eventPresenter = new BattleEventPresenter(model, scenePresenter, backgroundPresenter, effectPresenter, hudPresenter, playerPresenter, formationPresenter, inputPresenter, playerConfig, applyPlayerLevel, completeBattle);
         setupCoordinator = new BattleSetupCoordinator(model, configProvider, playerConfig, formationPresenter, playerPresenter, backgroundPresenter, hudPresenter, visualPool, effectLayer);
         lifecycleCoordinator = new BattleLifecycleCoordinator(model, scenePresenter, playerPresenter, backgroundPresenter, effectPresenter, entityViews, visualPool);

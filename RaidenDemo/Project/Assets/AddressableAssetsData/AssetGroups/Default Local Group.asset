@@ -517,6 +517,26 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f4d7f74503b4c4aa22c652ee88f3791
+    m_Address: Assets/Art/unpack/default/raiden/hud/elite_health_bar_bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99619d8e4ba94bbcae801034869f8c86
+    m_Address: Assets/Art/unpack/default/raiden/hud/elite_health_bar_fill.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f5e288e8b5f97e4a96d013887d4ec61
+    m_Address: Assets/Art/frameAnimation/default/other/reward_frame.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 399467ff586b525489fbb5dd83ac8ee9
+    m_Address: Assets/Art/frameAnimation/default/other/reward_frame.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b1a0955dcd22fb34c834009bf4768d90, type: 2}
   m_SchemaSet:

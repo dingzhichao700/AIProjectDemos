@@ -100,5 +100,11 @@
     "code": "boss_born_01",
     "type": 2,
     "res": "bossBorn_1"
+  },
+  {
+    "id": 12001,
+    "code": "stage_item_reward_frame",
+    "type": 2,
+    "res": "reward_frame"
   }
 ]

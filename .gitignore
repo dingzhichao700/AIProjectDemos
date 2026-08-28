@@ -1,6 +1,7 @@
 # 任务过程中的生成与核验产物
 **/art-generation/
 **/work/
+**/outputs/
 **/*.inspect.ndjson
 
 # Unity 可重新生成的目录

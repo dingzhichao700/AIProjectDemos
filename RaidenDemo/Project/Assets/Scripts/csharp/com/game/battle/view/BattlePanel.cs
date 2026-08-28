@@ -17,6 +17,7 @@ public class BattlePanel : BasePanel {
     public RectTransform entityLayer;
     public RectTransform projectileLayer;
     public RectTransform effectLayer;
+    public RectTransform backgroundHighLayer;
     public GameButton btnPause;
     public Image imgMissionProgressFill;
     public TextMeshProUGUI txtPlayerLife;
@@ -81,7 +82,7 @@ public class BattlePanel : BasePanel {
     /**初始化单局战斗并启动时间流*/
     public override void OnOpen() {
         playerConfigCoordinator ??= new BattlePlayerConfigCoordinator(configProvider);
-        composition ??= new BattleCompositionRoot(battleModel, configProvider, playerConfigCoordinator, timerPauseController, visualPool, entityViews, backgroundLayer, entityLayer, projectileLayer, effectLayer, imgMissionProgressFill, txtPlayerLife, txtScore, barBossHealth, imgBossHealthFill, txtBossHealth, SetPlayerPosition, ApplyPlayerAircraftLevel, CompleteBattle);
+        composition ??= new BattleCompositionRoot(battleModel, configProvider, playerConfigCoordinator, timerPauseController, visualPool, entityViews, backgroundLayer, backgroundHighLayer, entityLayer, projectileLayer, effectLayer, imgMissionProgressFill, txtPlayerLife, txtScore, barBossHealth, imgBossHealthFill, txtBossHealth, SetPlayerPosition, ApplyPlayerAircraftLevel, CompleteBattle);
         lifecycleCoordinator.ResetForOpen(eventPresenter.Unbind, RemoveLis, timerPauseController.Resume, ClearRuntimeLayers, ResetPanelReferences);
         stageId = ReadStageId();
         btnSkill.gameObject.SetActive(false);

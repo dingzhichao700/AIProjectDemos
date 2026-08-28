@@ -333,9 +333,8 @@ public sealed class BattleModel {
     }
 
     /**登记一个由关卡逻辑生成的奖励道具*/
-    internal RewardVO SpawnReward(Vector2 position, BattleRewardType type,
-        bool isNaturalSupply = false) {
-        return rewardModel.Spawn(position, type, isNaturalSupply, playerUnit, CreateElementId, AddElement, reward => rewardSpawned?.Invoke(reward));
+    internal RewardVO SpawnReward(Vector2 position, StageItemType type, bool isNaturalSupply = false) {
+        return rewardModel.Spawn(position, type, isNaturalSupply, CreateElementId, AddElement, reward => rewardSpawned?.Invoke(reward));
     }
 
     /**按关卡时间自然生成补给，同屏最多保留一个自然补给*/
@@ -343,7 +342,7 @@ public sealed class BattleModel {
         rewardModel.UpdateNaturalSupply(deltaTime, stageModel.bossSpawned, SpawnNaturalReward);
     }
 
-    private void SpawnNaturalReward(Vector2 position, BattleRewardType type, bool isNaturalSupply) {
+    private void SpawnNaturalReward(Vector2 position, StageItemType type, bool isNaturalSupply) {
         SpawnReward(position, type, isNaturalSupply);
     }
 
