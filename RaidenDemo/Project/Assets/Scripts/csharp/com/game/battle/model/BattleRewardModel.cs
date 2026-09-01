@@ -66,7 +66,7 @@ internal sealed class BattleRewardModel {
             if (!playerAlive || reward.type == StageItemType.PLAYER_UPGRADE && playerUpgradeBlocked) {
                 continue;
             }
-            if (!BattleCollisionSystem.Overlaps(reward.position, reward.collision, player.position, collision)) {
+            if (!BattleCollisionSystem.OverlapsCircle(reward.position, reward.collisionRadius, player.position, collision)) {
                 continue;
             }
             int healed = 0;

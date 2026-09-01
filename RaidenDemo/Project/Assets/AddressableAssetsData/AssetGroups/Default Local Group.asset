@@ -17,13 +17,28 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 94cf66f1d78353f4d9db978ed4aa4477
   m_SerializeEntries:
-  - m_GUID: 9f3e30ce870c424bbb8dd4ca07a15aba
-    m_Address: Assets/Art/frameAnimation/default/bullet/shoot_common.json
+  - m_GUID: 001be683a35beae42a1466af0f8ac6fa
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_small_3.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5e2c690b0b1a4fc4a77808d23bd05cc1
-    m_Address: Assets/Art/frameAnimation/default/bullet/shoot_common.png
+  - m_GUID: 0024aaa53cf53fc44ac4ca5a8d864308
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_middle_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 037b5e62ac251de46959e9f854030da5
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_13.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0447fa5d3f9c76146bf0efa7f03d0d3f
+    m_Address: Assets/Art/frameAnimation/default/other/circle_7.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0477b2c8141476c499b569620d44c60f
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_ball_2006.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -37,8 +52,63 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 066936ed957e571469138945e6827d0f
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_middle_5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 067ba0967c028954e915c6b62470d91f
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_8.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0754eb2c31a8f4b469bc999c39349c75
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_4.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 090bdf3e7751f1e4fb57176930403d47
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_ball_2003.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 098d622076be3f741869bab8fbb770e4
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_ball_2007.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 09cd386c346314245b4a65781489bf3d
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_middle_2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b167b2d986a512488aa047b93b82e91
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_purple_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d41df08afdb0cc46b7099ba7d75d26e
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_1006.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e6e0f837873b6d45a4fbb85952c21f6
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_5.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 11ca5445962806b41be8e23bfa4d01be
     m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_beam_001_lv02.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 121852f341a0f874195174d6bd45a6b3
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1474c8861da9dd24b9a72b49da044d6f
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_blue_1.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -47,18 +117,53 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 17609eaa8e0f2264c87e107d4437ef1f
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_2001.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a46768acebc47de8b627f291625ebad
+    m_Address: Assets/Art/unpack/default/raiden/sceneBg/forest_far_base.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b17b77385965de4599f0a6e8e75a8ee
+    m_Address: Assets/Art/frameAnimation/default/other/circle_4.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d1210557c555fd4ebf273b73e42c35b
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_2.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d6bd35d370ff7242be0f7a561a85ffc
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_12.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23a2e3c529b529244ad8037cf0f24704
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_common.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23a5e7ac19de5af448093217bfb77552
+    m_Address: Assets/Art/frameAnimation/default/other/circle_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 252f13d6ef9116445811182d822c2267
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_51.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 26c1040e84184924b7fd2aedd29d907f
     m_Address: Assets/Art/unpack/default/raiden/bullet/self/bullet_tracking_missile_standard.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2757be9a879cc3e48936f656b5802fbb
-    m_Address: Assets/Art/frameAnimation/default/bullet/hit_beam_hit01.json
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2a10d88f692e03040a70444b9bdd6146
-    m_Address: Assets/Art/frameAnimation/default/bullet/hit_beam_hit02.png
+  - m_GUID: 2ae24cbfb198f034b8a27b8a6a57c8dd
+    m_Address: Assets/Art/frameAnimation/default/other/circle_3.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -67,8 +172,38 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2e5f2b64acaab7c4ab76960a2e9155be
-    m_Address: Assets/Art/frameAnimation/default/bullet/hit_beam_hit05.json
+  - m_GUID: 2bb6d7118c5b41de91a2046ff8b0feea
+    m_Address: Assets/Art/unpack/default/raiden/sceneBg/forest_cloud_low.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d53ed1db470b064da9298b27a63e06f
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_13.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d6aac010121d1143859313d781d9dfc
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_ball_2002.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f4d7f74503b4c4aa22c652ee88f3791
+    m_Address: Assets/Art/unpack/default/raiden/hud/elite_health_bar_bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3003c229ab1b6704c949a64a84d10a8f
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_big_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30aa408b67b63b947874770844e07ab7
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_big_2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 350180a434b55a34699a48b5bf071637
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_2002.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -77,18 +212,48 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 35afe0cc0cdcb3340950ea99be65244b
-    m_Address: Assets/Art/frameAnimation/default/bullet/hit_missile_hit01.json
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 373422e22410bee4e9a980776cff0c52
     m_Address: Assets/Art/frameAnimation/default/other/levelup_01.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3f2ed0a2adf42044bab938167b719b8e
-    m_Address: Assets/Art/frameAnimation/default/bullet/hit_beam_hit04.png
+  - m_GUID: 38a6fa24ae35e8a4daa3b9bc781cf4e6
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_middle_4.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 399467ff586b525489fbb5dd83ac8ee9
+    m_Address: Assets/Art/frameAnimation/default/other/reward_frame.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ae43f837f481834994f5668f10cc480
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_huge_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b5feba56c434b842b816cb76f084dc4
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_middle_7.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c0af1965d264f76917b1bb3c6ddb807
+    m_Address: Assets/Art/unpack/default/raiden/sceneBg/forest_cloud_mid.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c3576754fd4aff418d0c6f8832bcb2a
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_blue_2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e4d41c762fa98149a60cc3996bbc5f7
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_5.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 404a2085d8dda7b40bb28858d3d4b233
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_1001.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -97,8 +262,43 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 410e1e3878a66d948b91cd22765f5406
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_common.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41e4c320a6d956847a89c173cacf7e74
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_common3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 423e0e93f97ca4640a8faebaa9e50a11
     m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_swift_001_lv01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 48bd638985fff324b969b42590a1ab82
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_middle_6.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49fbbcd1b5e07c3448ded15c44cf7f31
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_9.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d5e35fb3ccb4db46b4ca2af8818c537
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_ground_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d942c7757b4407f82fd6565dbe5a27d
+    m_Address: Assets/Art/unpack/default/raiden/sceneBg/forest_cloud_high.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e0dceb1c47f3284a81302767a3fac6e
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_4.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -107,13 +307,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 52109bfdeaf89284fb223b29cc774f91
-    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/dust_01.json
+  - m_GUID: 4e2e84348d4120e4d8b233c1a6f03884
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_ball_2003.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 52c38957860de314bb4350277e5bb5cd
-    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/smoke_01.png
+  - m_GUID: 51c4116f03f44b7e9748c5a4de982ef0
+    m_Address: Assets/Art/unpack/default/raiden/sceneBg/island_deep_sea_far.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52cc7c2a9e2bb84499b9d0d7a081f848
+    m_Address: Assets/Art/frameAnimation/default/other/circle_2.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -122,13 +327,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5620992e038e6f849ba2800ddd4962a4
-    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/dust_01.png
+  - m_GUID: 53390303bc8822e4ba365deba1f3079c
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_dir_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5883b68bf0c1c934788dd536c76557b1
+    m_Address: Assets/Art/frameAnimation/default/other/circle_2.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58caafccc8a74744b80cd3fde1acfdf9
     m_Address: Assets/Art/unpack/default/raiden/aircraft/enemy/battleEnemyInterceptor.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a1e361f8a0a16647a02ef0b2ecc9b7e
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_common3.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5adcb2f8335e8b147bf871a40c45861c
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_small_2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b40600e35092bb43ae06976224dbe36
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_11.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -142,6 +367,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5cb92f1f9515d544fa3d1eca8c69f1ea
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_big_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e2c690b0b1a4fc4a77808d23bd05cc1
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_common.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5eec0beb4cf97f04faff9f7f195aa7bb
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_ball_2001.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5f5659a429fef2c46aeaca0dc1d115aa
     m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_heavy_001_lv01.png
     m_ReadOnly: 0
@@ -152,8 +392,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5fe342527861afe4a9174357a4c88a3f
-    m_Address: Assets/Art/frameAnimation/default/bullet/hit_bullet_common2.png
+  - m_GUID: 616531a0d43a885499c323a728f5cbd6
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_12.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -162,8 +402,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 63e5174b3a9f457b8a8b6df5b28a5cf1
-    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_common.json
+  - m_GUID: 62d5227014054c8fa859d6b5efa93f01
+    m_Address: Assets/Art/unpack/default/raiden/sceneBg/island_deep_sea_cloud_low.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62f190eec97fe2143a2637ef861fe29a
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_ball_2006.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 633b5cc2394ef6442880a4b279635886
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_blue_2.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64014519c58686945b14c0ae27694ab9
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_huge_2.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -177,8 +432,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 68f7ae34ee46ce048a040c1b1b950f7f
-    m_Address: Assets/Art/frameAnimation/default/bullet/hit_bullet_common2.json
+  - m_GUID: 674a48fc2fc6946488df5d253e6f5af6
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_middle_7.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6afb2215edfb9194ca791d013f86a845
+    m_Address: Assets/Art/frameAnimation/default/other/circle_4.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -187,18 +447,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b3e71fa05deba44386e241b5b578da0
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_ball_2001.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6bd116ec72cc412cbd6a011a25f09e81
     m_Address: Assets/Art/unpack/default/raiden/bullet/self/bullet_straight_light_diamond.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6bf78b842524b664f8d867bf25009d2c
-    m_Address: Assets/Art/frameAnimation/default/bullet/hit_beam_hit04.json
+  - m_GUID: 6d1326ec11e617e40a582c4cdce6441a
+    m_Address: Assets/Art/unpack/default/raiden/stageBg.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6d1326ec11e617e40a582c4cdce6441a
-    m_Address: Assets/Art/unpack/default/raiden/stageBg.png
+  - m_GUID: 6f68c1b052d7190408e9cdfbe326874c
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_8.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -212,8 +477,28 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 728ace36488ea32459108688392ea157
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_huge_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 730fc0e05ce6470e9899865b78324c17
     m_Address: Assets/Art/unpack/default/raiden/bullet/self/bullet_straight_light_heavy_beam.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73e6338125164d90b96ae7c60fba4012
+    m_Address: Assets/Art/unpack/default/raiden/sceneBg/island_deep_sea_cloud_middle.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 752b2ec58615cb64e822f3cc8b3edc35
+    m_Address: Assets/Art/frameAnimation/default/other/smoke_01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75b6a6f1381e91443be4846b340efb3b
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_201.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -222,8 +507,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76c24e95ba2418442b4871ef96e7cd93
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_11.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79034bd7cde36b846807dbf9c163d55e
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_3.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 794a87324a10af6408f4c1325e3bd53c
     m_Address: Assets/Art/frameAnimation/default/other/levelup_04.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a42d53fe6354c44db7423e44fa0448e
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_ball_2004.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -232,8 +532,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7deaf867d93a46b4a5cedd3c0242f1c0
-    m_Address: Assets/Art/frameAnimation/default/bullet/hit_missile_common.png
+  - m_GUID: 7ccfbc9c7de383a4b902a806804a280b
+    m_Address: Assets/Art/frameAnimation/default/other/circle_6.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -242,13 +542,108 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e0a51e972bf4f643a60025904b20d65
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_ball_2007.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e5d285abae50414a836996a6d2b27d1
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_middle_3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e731ef7e48186f4985c52bcf92765c6
+    m_Address: Assets/Art/frameAnimation/default/other/dust_01.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f5e288e8b5f97e4a96d013887d4ec61
+    m_Address: Assets/Art/frameAnimation/default/other/reward_frame.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7fa808f585446f944ba55f94b41debe3
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_6.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 811151fc35466d44595d8cd6fb5b8c03
+    m_Address: Assets/Art/frameAnimation/default/other/circle_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84c0947fa04f04549936bf8d01a7a5e5
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_blue_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84f7449236274ea1ca7bf8d710cb5123
+    m_Address: Assets/Art/unpack/default/raiden/sceneBg/island_deep_sea_cloud_high.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8573330a15f3a244ab2251470433d3cd
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_2001.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8590ea069d0143444a09b16ffa5fa383
+    m_Address: Assets/Art/frameAnimation/default/other/circle_8.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 859d108c9f553fa4e84d0e18021385fe
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_fire_2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86df6ea3c720075439d6461fbe7c8038
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_middle_3.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a7d0e8efb6d36f428767aa6baea50e8
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_green_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8aab8deb4dcda3548ab3a295ac0fcdd6
     m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_beam_001_lv04.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8ad83b5d16bf417784da6cc288724b84
-    m_Address: Assets/Art/frameAnimation/default/bullet/hit_bullet_common.png
+  - m_GUID: 8d5265c30cea14441a02b0b8418d3e57
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_fire_2.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e051ed5eea24e948813d0d3c9c3b2d1
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_small_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f2c77115be402a41922f8f50eadeed7
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_7.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f4655247054c8742935b579f641be14
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_1001.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91399038f1bae9e439c44fc84b321982
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92b3ce1bf27aa4745bf58ab1c876af1a
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_1007.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 949080c56db74f941af052334c65a810
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_dir_1.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -257,8 +652,38 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98c040a6f9de656458ea7c34a926b4a2
+    m_Address: Assets/Art/frameAnimation/default/other/circle_8.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99619d8e4ba94bbcae801034869f8c86
+    m_Address: Assets/Art/unpack/default/raiden/hud/elite_health_bar_fill.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9bd5ab58902da314ab5740aff6cb23ac
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_8.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9d22d8f3bd6b8c446be1f683cac63a96
     m_Address: Assets/Art/unpack/default/raiden/homeBg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d5bf3f742fd68341af7c63528050596
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_golden_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9eb61d34e31f6904498aef488e94a6cb
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_51.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f3e30ce870c424bbb8dd4ca07a15aba
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_common.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -267,8 +692,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a1f1d4f333ef901468960721f28e7b46
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_6.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a2e60e4bc2fd9104a91ff8e6107a6b70
     m_Address: Assets/Art/unpack/default/raiden/battleHealthDrop.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2ebdddb2ec2b444eb34a828367bf673
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_201.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -282,13 +717,73 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a63820a02b2762b4e9d080ad751757b0
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_1002.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6cc7b381781c9e47adac22203a43c17
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_big_2.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a76109b6eab38404b9df17b665161647
+    m_Address: Assets/Art/frameAnimation/default/other/circle_3.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a965eb3737ff9bf4e9d683c3819d1285
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9e640d3e1dffff45b422199803915ac
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_2003.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: abc6a558c3494871a1fb465a852e4add
     m_Address: Assets/Art/unpack/default/raiden/bullet/self/bullet_tracking_micro.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: aca4c4dea5c64e348a337b41c92b406f
-    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_common.png
+  - m_GUID: ac3acebd0791f1348b955cd7398d9e48
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_1004.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ade2a510bcae3af4b8647965a833ca9d
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_golden_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0bec8aad6f19484abbfaa1e622dd4c6
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_middle_5.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0f9598d4f7c70043ab266029eb0a723
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_4.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0fa5678dda94dd4b9e175726c1860f5
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_middle_6.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b142c582582d33748820790e17056846
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_ball_2005.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1e4fb96e8be0ae40aad30abddd106d0
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b20b237f8f5ee114895a8cc788274ed1
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_small_3.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -307,8 +802,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ba183f1f91db96e428c187055f429edb
-    m_Address: Assets/Art/frameAnimation/default/bullet/hit_beam_hit02.json
+  - m_GUID: b8f202d18e1b371408240c0558d87983
+    m_Address: Assets/Art/frameAnimation/default/other/dust_01.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -322,13 +817,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bca54b15d5e492e499144fa67dd84185
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bcd082551c7643144aa46aeac50c1e21
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be150c5ac756af541a188e35a0c589a6
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_6.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf629f2c0e34d0042bcce11458d68633
     m_Address: Assets/Art/frameAnimation/default/other/bossBorn_1.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c4fec769a9c341ca83931777d4c8803a
-    m_Address: Assets/Art/frameAnimation/default/bullet/hit_bullet_common.json
+  - m_GUID: c335333e557345f4997215ff13457771
+    m_Address: Assets/Art/frameAnimation/default/other/circle_5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4ab056a243670945ba63e98256c2c40
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_fire_1.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -342,23 +857,73 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c627ea5ba19b30442a549581389c261c
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_purple_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7e58a45fac1fdb48b1ee435f334c8ff
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_golden_2.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c814dcb38b328134a92cdcb42d15ccfa
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_2003.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c846c91bb23e7e3439769d16038ecf15
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_green_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8a8b79ac1c0a69449db38c353a29323
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_1007.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9ff4520e2be46345888c89602a7cb43
+    m_Address: Assets/Art/frameAnimation/default/other/circle_7.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cac42fc6441448d787d290d7b5b63df4
     m_Address: Assets/Art/unpack/default/raiden/bullet/self/bullet_tracking_dart.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cc81e98d8851b1846a47f5d6d0e205d3
-    m_Address: Assets/Art/frameAnimation/default/bullet/hit_beam_hit05.png
+  - m_GUID: ccd1c77d7dc662d47bf2b9e5c3165f8c
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_ball_2002.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cdecfd52c80ffd94998048568d967e8f
-    m_Address: Assets/Art/frameAnimation/default/bullet/hit_missile_hit01.png
+  - m_GUID: cd9ae499c135ef442a376d7ceabd454e
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_ball_2005.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cdf950810f66e504aa3cb301e19f9e57
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_2.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ce545344912ebf843ba273af6045f803
     m_Address: Assets/Prefab/default/raiden/HomePanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf86ce9d9e0224e4393ff4d5ef0c5578
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_1006.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cff73dc033b7035439705e7d9160f430
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d05017509d594be4d99d9d5c88b1d862
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_1005.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -372,13 +937,38 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d383d3e9bae1465fa804b0ad7d87fde5
-    m_Address: Assets/Art/frameAnimation/default/bullet/hit_missile_common.json
+  - m_GUID: d34b79a505305cd49afd4c85619c7b48
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_10.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d38564418d50f8e4ba51a9da95d5e516
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_9.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d39cd24dafb245e439db32233461e991
     m_Address: Assets/Art/unpack/default/raiden/bullet/self/battlePlayerLaser.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d60216bad6c75fa4180f20508fb3d66d
+    m_Address: Assets/Art/frameAnimation/default/other/circle_6.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d60b95318e16123409d925f39203d40e
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_4.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8fa98f498373f3419676fd3e48307f9
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_6.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8fdfcf6fededfb4e888adfc7be1dd2a
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_middle_2.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -407,6 +997,26 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dcbcb22c67b8d2a4e9713a7a73c8e2c4
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_7.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dcdf7e756bc7b2c46ac87c434e21b96b
+    m_Address: Assets/Art/frameAnimation/default/other/circle_5.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd8e31fe71135634f8d3140e6fdd2577
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de8a37db4a46fac4b9f5c59718535f96
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_10.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dfacaa78abc4fba4f9d967cd2fc64d3d
     m_Address: Assets/Art/unpack/default/raiden/bullet/enemy/battleEnemyBullet.png
     m_ReadOnly: 0
@@ -422,6 +1032,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2774fdfcf4dd27499ec836b3a4889f4
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_middle_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e2f064082b7ec214cb7d4a2dbd14806c
     m_Address: Assets/Prefab/default/common/GameButton.prefab
     m_ReadOnly: 0
@@ -432,18 +1047,73 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e420debfc35d8264bab702055ebb5a4c
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_2002.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4ba089acd85a0f4496c0cfd82842c86
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e84d2d69620906e4185ea761b44ea0e2
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_small_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9bb42aa120db234e91769aa16669410
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_7.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ea2d1a20e7e5ad144aa7f3aef81a2ff7
     m_Address: Assets/Art/unpack/default/raiden/battleBackground.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ee87d955c23a8ba4184da86c13ff659b
-    m_Address: Assets/Art/frameAnimation/default/bullet/hit_beam_hit01.png
+  - m_GUID: ea3c1cdc844193a44a31baa8201087b0
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_small_2.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f3a163125118d5140b0eaccabdb53905
-    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/smoke_01.json
+  - m_GUID: eb6cbaf22263bbd409eb67cc2bf5eac2
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_ball_2004.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eded9b5f63933d34fb93b779a76adf42
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f08256d813cc35d4492e9071e99ac15f
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_8.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f351cfb529b505f43bb8bcccef8f2d1c
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_7.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f519a6f9f808c144db4e01de27b6e2ae
+    m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_3.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f582179ed6ab81f4b9ab63612ef6d571
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_1002.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f70880858df450f4bbfbe997e74d5e5a
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_huge_2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8b04ca95d6409a4dabb65cea4f4de67
+    m_Address: Assets/Art/frameAnimation/default/other/smoke_01.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -452,8 +1122,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9fe4d7a424c80d41aeb0d77a8f11e3d
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_1004.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fa4370899c88e6347896eb6b7eefcfb9
     m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_spread_001_lv02.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fae8c101735f7f4439e93391ba70c73e
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_golden_2.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -462,78 +1142,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc459e521e9691b4a9b50f918774ce12
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_ground_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc59300c68824783a26a36b26f42fe56
     m_Address: Assets/Art/unpack/default/raiden/bullet/self/bullet_straight_light_twin_core.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd1894bd5aa9ecd4b8a5aebe0cadc046
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_1005.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fecb8a56c05d3684f82446c0f894848b
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_fire_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff908605193bb094a9e095428e8b6662
+    m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_middle_4.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ff93e95381ebebd4c8b81f2e3a02e075
     m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_assault_001_lv03.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 66963c13a60f4256a3954b51a48fc11f
-    m_Address: Assets/ConfigBin/cfgobj_scenebgobj.json
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1a46768acebc47de8b627f291625ebad
-    m_Address: Assets/Art/unpack/default/raiden/sceneBg/forest_far_base.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2bb6d7118c5b41de91a2046ff8b0feea
-    m_Address: Assets/Art/unpack/default/raiden/sceneBg/forest_cloud_low.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3c0af1965d264f76917b1bb3c6ddb807
-    m_Address: Assets/Art/unpack/default/raiden/sceneBg/forest_cloud_mid.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4d942c7757b4407f82fd6565dbe5a27d
-    m_Address: Assets/Art/unpack/default/raiden/sceneBg/forest_cloud_high.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 51c4116f03f44b7e9748c5a4de982ef0
-    m_Address: Assets/Art/unpack/default/raiden/sceneBg/island_deep_sea_far.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 62d5227014054c8fa859d6b5efa93f01
-    m_Address: Assets/Art/unpack/default/raiden/sceneBg/island_deep_sea_cloud_low.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 73e6338125164d90b96ae7c60fba4012
-    m_Address: Assets/Art/unpack/default/raiden/sceneBg/island_deep_sea_cloud_middle.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 84f7449236274ea1ca7bf8d710cb5123
-    m_Address: Assets/Art/unpack/default/raiden/sceneBg/island_deep_sea_cloud_high.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2f4d7f74503b4c4aa22c652ee88f3791
-    m_Address: Assets/Art/unpack/default/raiden/hud/elite_health_bar_bg.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 99619d8e4ba94bbcae801034869f8c86
-    m_Address: Assets/Art/unpack/default/raiden/hud/elite_health_bar_fill.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7f5e288e8b5f97e4a96d013887d4ec61
-    m_Address: Assets/Art/frameAnimation/default/other/reward_frame.json
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 399467ff586b525489fbb5dd83ac8ee9
-    m_Address: Assets/Art/frameAnimation/default/other/reward_frame.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -72,6 +72,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66963c13a60f4256a3954b51a48fc11f
+    m_Address: Assets/ConfigBin/cfgobj_scenebgobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b3dc890b24ca5445936fbd1ef7a7a57
     m_Address: Assets/Art/audio/title/Peaceful Days.ogg
     m_ReadOnly: 0
@@ -127,6 +132,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9fc1cbbb15c51745a5c6bbb8a971d62
+    m_Address: Assets/ConfigBin/cfgobj_stageitemobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de3f7505731d4e51885acb7ce94a88c2
     m_Address: Assets/ConfigBin/cfgobj_effectobj.json
     m_ReadOnly: 0
@@ -144,11 +154,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fe2fe0c1338ad704facf861f43d95759
     m_Address: Assets/Art/frameAnimation/title/loadingFire.json
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c9fc1cbbb15c51745a5c6bbb8a971d62
-    m_Address: Assets/ConfigBin/cfgobj_stageitemobj.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

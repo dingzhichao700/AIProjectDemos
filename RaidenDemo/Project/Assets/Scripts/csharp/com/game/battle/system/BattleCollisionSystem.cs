@@ -166,6 +166,31 @@ internal static class BattleCollisionSystem {
     public static bool OverlapsProjectile(BulletVO projectile, Vector2 targetPosition, AircraftCollisionVO collision) {
         return TryGetProjectileContactPoint(projectile, targetPosition, collision, out _);
     }
+
+    /**检测圆形场景元素与飞行物组合形状是否重叠*/
+    public static bool OverlapsCircle(Vector2 circleCenter, float circleRadius, Vector2 aircraftPosition, AircraftCollisionVO collision) {
+        if (circleRadius <= 0f || collision == null) {
+            return false;
+        }
+        Vector2 boundsCenter = aircraftPosition + collision.boundsCenterOffset;
+        if (!OverlapsRectangleCircle(boundsCenter, collision.boundsSize, circleCenter, circleRadius)) {
+            return false;
+        }
+        foreach (AircraftCollisionShapeVO shape in collision.shapes) {
+            Vector2 shapeCenter = aircraftPosition + shape.centerOffset;
+            if (shape.isCircle) {
+                float radius = circleRadius + shape.radius;
+                if ((circleCenter - shapeCenter).sqrMagnitude <= radius * radius) {
+                    return true;
+                }
+                continue;
+            }
+            if (OverlapsRectangleCircle(shapeCenter, shape.size, circleCenter, circleRadius)) {
+                return true;
+            }
+        }
+        return false;
+    }
     
     /**计算移动线段进入矩形边界时的位置*/
     private static bool TryGetSegmentAabbEntry(Vector2 start, Vector2 end,

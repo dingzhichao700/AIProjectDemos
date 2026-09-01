@@ -14,7 +14,7 @@ public static class BattleConst {
 
     public const string RaidenUnpackImageDirectory = "Assets/Art/unpack/default/raiden/";
 
-    public const string BulletLaunchEffectPrefix = "shoot_";
+    public const string BulletLaunchEffectPrefix = "shootFire_";
 
     public const string BulletHitEffectPrefix = "hit_";
 

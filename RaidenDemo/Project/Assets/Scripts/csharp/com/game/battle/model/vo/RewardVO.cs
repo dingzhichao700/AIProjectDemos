@@ -12,7 +12,7 @@ internal sealed class RewardVO : SceneElementVO {
     public readonly int itemId;
     public readonly StageItemType type;
     public readonly string resPath;
-    public readonly AircraftCollisionVO collision;
+    public readonly float collisionRadius;
     public readonly int effectValue;
     public readonly int effectId;
     public readonly bool isNaturalSupply;
@@ -27,7 +27,7 @@ internal sealed class RewardVO : SceneElementVO {
         itemId = config.Id;
         type = config.Type;
         resPath = BattleConst.GetRaidenUnpackImagePath(config.Res);
-        collision = AircraftCollisionVO.Create(config.CollisionShapes);
+        collisionRadius = config.CollisionRadius;
         effectValue = config.EffectValue;
         effectId = config.EffectId;
         moveSpeed = config.MoveSpeed;

@@ -1,6 +1,6 @@
 # 雷电战机 Demo 开发交接
 
-更新日期：2026-08-20
+更新日期：2026-09-01
 
 ## 1. 工程入口与权威依据
 
@@ -33,7 +33,8 @@
 - BattlePanel 暂停、继续、重开和返回关卡选择。
 - 胜利后按分数计算 1～3 星，并更新当前运行期关卡进度。
 - Demo 暂不接入任何本地持久化；关卡进度、星数消费、飞机解锁和出战选择只存在于当前运行周期。
-- 测试阶段使用 Addressables `Use Asset Database`；除非用户明确进入真正打包或发布节点，否则不要主动提出 Player Content Build。
+- 关卡内可预知资源统一在进入关卡前递归收集并预加载，禁止使用时临时加载。
+- 2026-09-01 已执行一次 Addressables `Build All (Assign + Player Content)`，构建成功；输出位于 `Library/com.unity.addressables/aa/Windows/settings.json`。
 
 ## 3. Luban 配置管理现状
 
@@ -46,13 +47,20 @@ Luban 运行时加载链路已经接入：OpeningPanel 预加载配置 JSON 后�
 - `EnemyResource.xlsx`
 - `PlayerAircraftResource.xlsx`
 - `PlayerAircraftLevelResource.xlsx`
+- `BulletResource.xlsx`
+- `EffectResource.xlsx`
+- `SceneBgResource.xlsx`
+- `StageItemResource.xlsx`
 
 配置关系：
 
 - 关卡表管理关卡选择位置、波次引用和星级分数线。
 - 波次表管理敌机类型引用、数量、编队、生成位置与运动方式。
-- 敌机表管理敌机自身外观、基础血量、移动、射击和子弹引用。
-- 敌机子弹表管理子弹自身外观、速度、伤害和碰撞尺寸。
+- 玩家飞机和敌机统一通过 `Aircraft` 配置飞行物外观、血量、碰撞形状、发射器和死亡表现。
+- 子弹表通过 `type + level` 定位唯一子弹配置，管理外观、圆形碰撞半径、速度、伤害、运动方式、发射特效和命中特效。
+- 特效表统一管理子弹、飞机爆炸和其他帧动画特效；子弹发射特效资源名使用 `shootFire_` 前缀。
+- 场景背景表管理无限滚动视差背景；关卡只引用场景背景 ID。
+- 关卡道具表管理道具类型、资源、拾取圆形半径、移动参数、效果值和循环特效。
 - 玩家飞机类型表管理机型身份、名称、最高等级、默认解锁及解锁星数。
 - 玩家飞机等级表管理每个机型各等级的外观、血量、子弹、发射数量、战力和显示尺寸。
 
@@ -66,7 +74,7 @@ Luban 运行时加载链路已经接入：OpeningPanel 预加载配置 JSON 后�
 - `com/game/config/mgr` 只放确有二次索引、分类或聚合必要的 Luban 原始映射管理类。
 - 业务配置转换后的 VO 由对应玩法模块 Model 管理，不因数据来自配置表就放进 `config/mgr`。
 
-`TestCaseConfigs` 已覆盖配置加载、表数量、主要字段、枚举解析、引用关系及玩家飞机解锁/切换规则。测试会在自身流程中完成星数场景验证，不应为此长期保留额外初始星数。
+`TestCaseConfigs` 当前已由用户手动屏蔽。禁止重新增加依赖固定表数量、固定爆炸次数或其他配置内容的魔法数字断言；可从配置读取的数据不得再写死一份参与业务判断。
 
 ## 4. 敌机、波次与奖励现状
 
@@ -78,7 +86,9 @@ Luban 运行时加载链路已经接入：OpeningPanel 预加载配置 JSON 后�
 - 击败 Boss 才判定关卡胜利。
 - 完整消灭普通敌机编队后掉落奖励；有敌机逃离则该编队不掉落。
 - 已验收回血、玩家飞机升级、僚机升级、生命四类独立掉落图标及基本逻辑入口。
-- 奖励靠近玩家时会自动吸附，接触后触发获得效果。
+- 关卡道具统一使用单一圆形拾取碰撞，配置表仅保留 `collisionRadius`；当前四类道具半径均为 30。
+- 道具持续下落并横向摆动，不再吸附；玩家飞机碰撞形状与道具圆形直接接触后触发拾取。
+- 道具可叠加循环特效，当前统一使用 `reward_frame`。
 
 ## 5. 玩家飞机资产与配置
 
@@ -143,7 +153,7 @@ Luban 运行时加载链路已经接入：OpeningPanel 预加载配置 JSON 后�
 - `HangarPanel.cs`：机库预览、解锁、出战切换。
 - `HangarAircraftItem.cs`：机型列表项状态。
 
-## 7. 已确认但尚未实现的等级生命周期
+## 7. 已实现并验收的玩家飞机等级生命周期
 
 玩家飞机有关卡外默认等级与关卡内临时等级：
 
@@ -154,7 +164,7 @@ Luban 运行时加载链路已经接入：OpeningPanel 预加载配置 JSON 后�
 - 玩家飞机死亡并准备复活时，当前临时等级恢复为默认等级。
 - 重新开始关卡或进入新关卡时重新计算起始等级。
 
-当前 HomePanel/HangarPanel 已读取默认等级对应的外观和基础战力，但 BattlePanel 尚未完整使用“当前出战机型 + 等级配置”驱动玩家战斗实体，这是下一阶段的起点。
+BattlePanel 已使用机库当前选择的出战机型，并由等级配置驱动外观、血量、碰撞形状和多套子弹发射器。升级采用多阶段表现：升级期间控制发射器生效状态、播放固定升级特效、切换等级属性，并用 50ms 显隐闪烁表现短暂无敌。
 
 ## 8. 僚机设定（已对齐，当前隔离）
 
@@ -189,18 +199,13 @@ Luban 运行时加载链路已经接入：OpeningPanel 预加载配置 JSON 后�
 - 异步资源回调必须防止视图销毁后的陈旧回调访问；`FrameAnimationView.loadVersion` 用于使旧加载请求失效。
 - 对具有“语义对齐点”的锚点对齐资产，应按需要提示使用者确认其语义锚点；不能把所有普通图片都默认归为此类资产。
 
-## 11. 下一任务明确起点
+## 11. 当前开发起点
 
-下一阶段先继续玩家飞机，不实现僚机、不接存档：
-
-1. 让 BattlePanel 使用机库当前选择的 `selectedAircraftId` 创建玩家飞机。
-2. 从 `PlayerAircraftLevelResource` 读取默认等级对应的外观、血量、子弹类型、发射数量等战斗属性，清理相应硬编码。
-3. 建立关卡内 `currentAircraftLevel`，进入关卡时从 `defaultAircraftLevel` 初始化。
-4. 玩家飞机升级掉落只提升当前临时等级，并实时刷新等级相关战斗属性。
-5. 玩家死亡后、复活前，将当前临时等级恢复为默认等级，并刷新对应战斗属性。
-6. 验证切换不同机型后进入关卡，外观与基础属性确实来自所选机型配置。
-
-修改前先检查 BattlePanel 当前玩家实体创建、升级掉落和复活流程，给出小步实施方案；不要直接大规模重构。
+- 飞机、子弹、发射器、命中特效、死亡爆炸、关卡道具和视差背景的基础配置链路均已接通。
+- 本轮将关卡道具碰撞从 `collisionShapes` 简化为 `collisionRadius`，Luban 已导出，代码已编译并完成运行验证。
+- 子弹发射特效前缀已统一为 `shootFire_`；资源名、特效表配置和实际文件必须保持一致。
+- 后续继续业务前，应优先检查当前工作区尚未提交的配置、美术资源和 Addressables 变更，避免覆盖用户手工调整。
+- 僚机、科研中的“子弹附加等级”、子弹升级道具和主动技能仍未正式接入。
 
 ## 12. 新任务建议首条消息
 
@@ -208,14 +213,14 @@ Luban 运行时加载链路已经接入：OpeningPanel 预加载配置 JSON 后�
 
 ## 13. 场景与战斗模块重构基线
 
-已建立独立的 `com/game/battle` 战斗模块和 `com/game/scene` 场景逻辑模块，后续战斗代码不得重新放回 `raiden/view/BattlePanel.cs`。
+场景战斗逻辑已经统一收敛到 `com/game/battle` 模块；`raiden` 只保留雷电玩法入口、机库与配置转换等业务。后续战斗代码不得重新堆回 `raiden/view/BattlePanel.cs`。
 
 - 模块常量统一使用“模块名 + Const”命名；战斗常量类为 `BattleConst`。
 - `Timer` 支持逐帧更新时间监听，回调参数为经过该 Timer `scale` 处理后的秒数。
-- `SceneModel` 分别监听 `sceneTimer`、`playerTimer` 和 `enemyTimer`，按 Timer 类型分发逻辑时间。
+- `BattleSceneModel` 分别承接 `sceneTimer`、`playerTimer` 和 `enemyTimer` 的逻辑更新，并按 Timer 类型分发给场景元素。
 - `SceneElementVO` 是场景逻辑元素基类，只保存逻辑状态，不持有 `GameObject`、`RectTransform` 等视觉对象。
 - 玩家及其衍生物使用 `playerTimer`，敌方及其衍生物使用 `enemyTimer`，其他场景元素使用 `sceneTimer`；非场景内容默认使用通用 Timer。
-- 现有 BattlePanel 已取消直接读取 `Time.deltaTime`，玩家、敌方和场景更新分别由对应 Timer 消息驱动。
+- `BattleModel` 是单局战斗权威数据入口；`BattlePanel` 主要负责生命周期和表现层组装，不再承载敌机移动、发射、碰撞等场景元素业务。
 - 关卡预加载依赖收集由 `BattlePreloadCollector` 管理，碰撞和接触点计算由 `BattleCollisionSystem` 管理。
-- 当前运行对象类已从 BattlePanel 文件拆到 `battle/model/vo` 独立文件；下一轮继续把其中残留的视觉引用迁往表现层，使其正式接入 `SceneElementVO`。
+- 场景元素 VO 已从 BattlePanel 拆到 `battle/model/vo`，元素自身负责移动、发射及生命周期，不保留集中驱动敌机行为的 `BattleEnemyLogic` 或各种 Runtime 包装对象。
 - 场景单位原则上只能根据自身移速连续改变坐标，不允许通过直接改写坐标产生瞬移；只有明确设计为“瞬移”的技能或机制可以例外。

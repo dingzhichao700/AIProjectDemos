@@ -20,7 +20,7 @@ public sealed partial class StageItemResource : Luban.BeanBase
         { if(!_buf["id"].IsNumber) { throw new SerializationException(); }  Id = _buf["id"]; }
         { if(!_buf["type"].IsNumber) { throw new SerializationException(); }  Type = (StageItemType)_buf["type"].AsInt; }
         { if(!_buf["res"].IsString) { throw new SerializationException(); }  Res = _buf["res"]; }
-        { var __json0 = _buf["collisionShapes"]; if(!__json0.IsArray) { throw new SerializationException(); } CollisionShapes = new System.Collections.Generic.List<Shape>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { Shape __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = global::cfg.Shape.DeserializeShape(__e0);  }  CollisionShapes.Add(__v0); }   }
+        { if(!_buf["collisionRadius"].IsNumber) { throw new SerializationException(); }  CollisionRadius = _buf["collisionRadius"]; }
         { if(!_buf["moveSpeed"].IsNumber) { throw new SerializationException(); }  MoveSpeed = _buf["moveSpeed"]; }
         { if(!_buf["effectValue"].IsNumber) { throw new SerializationException(); }  EffectValue = _buf["effectValue"]; }
         { if(!_buf["effectId"].IsNumber) { throw new SerializationException(); }  EffectId = _buf["effectId"]; }
@@ -46,9 +46,9 @@ public sealed partial class StageItemResource : Luban.BeanBase
     /// </summary>
     public readonly string Res;
     /// <summary>
-    /// 拾取碰撞形状列表
+    /// 拾取碰撞半径
     /// </summary>
-    public readonly System.Collections.Generic.List<Shape> CollisionShapes;
+    public readonly float CollisionRadius;
     /// <summary>
     /// 飘落速度
     /// </summary>
@@ -75,7 +75,6 @@ public sealed partial class StageItemResource : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        foreach (var _e in CollisionShapes) { _e?.ResolveRef(tables); }
     }
 
     public override string ToString()
@@ -84,7 +83,7 @@ public sealed partial class StageItemResource : Luban.BeanBase
         + "id:" + Id + ","
         + "type:" + Type + ","
         + "res:" + Res + ","
-        + "collisionShapes:" + Luban.StringUtil.CollectionToString(CollisionShapes) + ","
+        + "collisionRadius:" + CollisionRadius + ","
         + "moveSpeed:" + MoveSpeed + ","
         + "effectValue:" + EffectValue + ","
         + "effectId:" + EffectId + ","
