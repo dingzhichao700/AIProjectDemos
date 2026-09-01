@@ -44,6 +44,21 @@ internal sealed class BattleVisualPool {
         return root;
     }
 
+    /**创建或复用一个用于承载帧动画的空场景节点。*/
+    public RectTransform CreateEmpty(string name, RectTransform parent, Vector2 size, Vector2 position, string poolKey) {
+        string key = $"effect:{poolKey}";
+        RectTransform root = Take(key);
+        if (root == null) {
+            root = new GameObject(name, typeof(RectTransform)).GetComponent<RectTransform>();
+            poolKeys[root] = key;
+        }
+        root.name = name;
+        root.gameObject.SetActive(true);
+        SetupRect(root, parent, size, position, new Vector2(0.5f, 0.5f));
+        root.localEulerAngles = Vector3.zero;
+        return root;
+    }
+
     /**预先创建指定数量的对象并放回池中*/
     public void Prewarm(string imagePath, Vector2 size, int capacity,
         RectTransform temporaryParent) {

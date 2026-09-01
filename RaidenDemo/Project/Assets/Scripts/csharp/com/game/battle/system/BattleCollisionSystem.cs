@@ -120,48 +120,37 @@ internal static class BattleCollisionSystem {
     }
     
     /**检测子弹命中并计算视觉接触点*/
-    public static bool TryGetProjectileContactPoint(BulletVO projectile,
-        Vector2 targetPosition, AircraftCollisionVO collision, out Vector2 contactPoint) {
+    public static bool TryGetProjectileContactPoint(BulletVO projectile, Vector2 targetPosition, AircraftCollisionVO collision, out Vector2 contactPoint) {
         contactPoint = Vector2.zero;
         if (projectile == null || collision == null) {
             return false;
         }
-        Vector2 projectileCenter = GetProjectileCollisionCenter(projectile);
-        Vector2 projectileHalfSize = GetProjectileCollisionHalfSize(projectile);
+        Vector2 projectileCenter = projectile.position;
+        float projectileRadius = projectile.collisionRadius;
         Vector2 boundsCenter = targetPosition + collision.boundsCenterOffset;
-        Vector2 delta = projectileCenter - boundsCenter;
-        Vector2 combinedHalfSize = projectileHalfSize + collision.boundsSize * 0.5f;
-        if (Mathf.Abs(delta.x) > combinedHalfSize.x ||
-            Mathf.Abs(delta.y) > combinedHalfSize.y) {
+        if (!OverlapsRectangleCircle(boundsCenter, collision.boundsSize, projectileCenter, projectileRadius)) {
             return false;
         }
         foreach (AircraftCollisionShapeVO shape in collision.shapes) {
             Vector2 shapeCenter = targetPosition + shape.centerOffset;
-            Vector2 shapeDelta = projectileCenter - shapeCenter;
-            Vector2 shapeCombinedHalf = projectileHalfSize + shape.size * 0.5f;
-            if (Mathf.Abs(shapeDelta.x) > shapeCombinedHalf.x ||
-                Mathf.Abs(shapeDelta.y) > shapeCombinedHalf.y) {
-                continue;
-            }
             if (shape.isCircle) {
-                Vector2 nearest = new Vector2(
-                    Mathf.Clamp(shapeCenter.x, projectileCenter.x - projectileHalfSize.x, projectileCenter.x + projectileHalfSize.x),
-                    Mathf.Clamp(shapeCenter.y, projectileCenter.y - projectileHalfSize.y, projectileCenter.y + projectileHalfSize.y));
-                Vector2 fromCenter = nearest - shapeCenter;
-                if (fromCenter.sqrMagnitude > shape.radius * shape.radius) {
+                Vector2 fromTarget = projectileCenter - shapeCenter;
+                float combinedRadius = projectileRadius + shape.radius;
+                if (fromTarget.sqrMagnitude > combinedRadius * combinedRadius) {
                     continue;
                 }
-                Vector2 direction = fromCenter.sqrMagnitude > 0.0001f ? fromCenter.normalized : -projectile.velocity.normalized;
+                Vector2 direction = fromTarget.sqrMagnitude > 0.0001f ? fromTarget.normalized : GetOppositeVelocityDirection(projectile);
                 contactPoint = shapeCenter + direction * shape.radius;
                 return true;
             }
-            Vector2 centerOffset = projectileCenter - projectile.position;
-            Vector2 previousCenter = projectile.previousPosition + centerOffset;
-            Vector2 expandedMin = shapeCenter - shapeCombinedHalf;
-            Vector2 expandedMax = shapeCenter + shapeCombinedHalf;
+            if (!OverlapsRectangleCircle(shapeCenter, shape.size, projectileCenter, projectileRadius)) {
+                continue;
+            }
+            Vector2 expandedHalf = shape.size * 0.5f + Vector2.one * projectileRadius;
+            Vector2 expandedMin = shapeCenter - expandedHalf;
+            Vector2 expandedMax = shapeCenter + expandedHalf;
             Vector2 entryCenter = projectileCenter;
-            if (TryGetSegmentAabbEntry(previousCenter, projectileCenter,
-                expandedMin, expandedMax, out Vector2 segmentEntry)) {
+            if (TryGetSegmentAabbEntry(projectile.previousPosition, projectileCenter, expandedMin, expandedMax, out Vector2 segmentEntry)) {
                 entryCenter = segmentEntry;
             }
             Vector2 half = shape.size * 0.5f;
@@ -172,15 +161,10 @@ internal static class BattleCollisionSystem {
         }
         return false;
     }
-    
-    private static Vector2 GetProjectileCollisionHalfSize(BulletVO projectile) {
-        float rotation = projectile.rotation;
-        float radians = rotation * Mathf.Deg2Rad;
-        float sin = Mathf.Abs(Mathf.Sin(radians));
-        float cos = Mathf.Abs(Mathf.Cos(radians));
-        return new Vector2(
-            (cos * projectile.hitSize.x + sin * projectile.hitSize.y) * 0.5f,
-            (sin * projectile.hitSize.x + cos * projectile.hitSize.y) * 0.5f);
+
+    /**检测圆形子弹与飞行物组合形状是否重叠*/
+    public static bool OverlapsProjectile(BulletVO projectile, Vector2 targetPosition, AircraftCollisionVO collision) {
+        return TryGetProjectileContactPoint(projectile, targetPosition, collision, out _);
     }
     
     /**计算移动线段进入矩形边界时的位置*/
@@ -216,18 +200,8 @@ internal static class BattleCollisionSystem {
         return true;
     }
     
-    private static Vector2 GetProjectileCollisionCenter(BulletVO projectile) {
-        float rotation = projectile.rotation;
-        float radians = rotation * Mathf.Deg2Rad;
-        float sin = Mathf.Sin(radians);
-        float cos = Mathf.Cos(radians);
-        Vector2 localCenter = new Vector2(
-            (0.5f - projectile.hitPivot.x) * projectile.hitSize.x,
-            (0.5f - projectile.hitPivot.y) * projectile.hitSize.y);
-        Vector2 rotatedCenter = new Vector2(
-            localCenter.x * cos - localCenter.y * sin,
-            localCenter.x * sin + localCenter.y * cos);
-        return projectile.position + rotatedCenter;
+    private static Vector2 GetOppositeVelocityDirection(BulletVO projectile) {
+        return projectile.velocity.sqrMagnitude > 0.0001f ? -projectile.velocity.normalized : Vector2.down;
     }
     
     

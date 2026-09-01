@@ -32,10 +32,11 @@
             "x": 0,
             "y": 98
           },
-          "bulletId": 6,
-          "bulletCount": 1,
-          "fireIntervalMs": 300,
-          "bulletIntervalMs": 0,
+          "bulletType": 1001,
+          "bulletLevel": 1,
+          "bulletCount": 3,
+          "fireIntervalMs": 250,
+          "bulletIntervalMs": 40,
           "direction": 90,
           "spreadType": 0,
           "spreadAngle": 0
@@ -87,10 +88,11 @@
             "x": -66,
             "y": -12
           },
-          "bulletId": 6,
-          "bulletCount": 2,
+          "bulletType": 1001,
+          "bulletLevel": 1,
+          "bulletCount": 3,
           "fireIntervalMs": 220,
-          "bulletIntervalMs": 50,
+          "bulletIntervalMs": 40,
           "direction": 90,
           "spreadType": 1,
           "spreadAngle": 1
@@ -100,10 +102,11 @@
             "x": 66,
             "y": -12
           },
-          "bulletId": 6,
-          "bulletCount": 2,
+          "bulletType": 1001,
+          "bulletLevel": 1,
+          "bulletCount": 3,
           "fireIntervalMs": 220,
-          "bulletIntervalMs": 50,
+          "bulletIntervalMs": 40,
           "direction": 90,
           "spreadType": 2,
           "spreadAngle": 1
@@ -155,9 +158,10 @@
             "x": -60,
             "y": -14
           },
-          "bulletId": 6,
-          "bulletCount": 3,
-          "fireIntervalMs": 160,
+          "bulletType": 1001,
+          "bulletLevel": 1,
+          "bulletCount": 4,
+          "fireIntervalMs": 180,
           "bulletIntervalMs": 40,
           "direction": 90,
           "spreadType": 1,
@@ -168,9 +172,10 @@
             "x": 60,
             "y": -14
           },
-          "bulletId": 6,
-          "bulletCount": 3,
-          "fireIntervalMs": 160,
+          "bulletType": 1001,
+          "bulletLevel": 1,
+          "bulletCount": 4,
+          "fireIntervalMs": 180,
           "bulletIntervalMs": 40,
           "direction": 90,
           "spreadType": 2,
@@ -178,28 +183,16 @@
         },
         {
           "offset": {
-            "x": -44,
-            "y": 13
+            "x": 0,
+            "y": 20
           },
-          "bulletId": 3,
+          "bulletType": 1003,
+          "bulletLevel": 1,
           "bulletCount": 1,
           "fireIntervalMs": 900,
-          "bulletIntervalMs": 100,
+          "bulletIntervalMs": 0,
           "direction": 135,
           "spreadType": 1,
-          "spreadAngle": 3
-        },
-        {
-          "offset": {
-            "x": 44,
-            "y": 13
-          },
-          "bulletId": 3,
-          "bulletCount": 1,
-          "fireIntervalMs": 900,
-          "bulletIntervalMs": 100,
-          "direction": 45,
-          "spreadType": 2,
           "spreadAngle": 3
         }
       ],
@@ -249,7 +242,8 @@
             "x": 0,
             "y": 64
           },
-          "bulletId": 2,
+          "bulletType": 1001,
+          "bulletLevel": 1,
           "bulletCount": 1,
           "fireIntervalMs": 240,
           "bulletIntervalMs": 0,
@@ -304,7 +298,8 @@
             "x": 0,
             "y": 64
           },
-          "bulletId": 2,
+          "bulletType": 1001,
+          "bulletLevel": 1,
           "bulletCount": 2,
           "fireIntervalMs": 240,
           "bulletIntervalMs": 0,
@@ -359,7 +354,8 @@
             "x": 0,
             "y": 64
           },
-          "bulletId": 2,
+          "bulletType": 1001,
+          "bulletLevel": 1,
           "bulletCount": 3,
           "fireIntervalMs": 240,
           "bulletIntervalMs": 0,
@@ -414,7 +410,8 @@
             "x": 0,
             "y": 64
           },
-          "bulletId": 2,
+          "bulletType": 1001,
+          "bulletLevel": 1,
           "bulletCount": 2,
           "fireIntervalMs": 240,
           "bulletIntervalMs": 0,
@@ -469,7 +466,8 @@
             "x": 0,
             "y": 64
           },
-          "bulletId": 2,
+          "bulletType": 1001,
+          "bulletLevel": 1,
           "bulletCount": 3,
           "fireIntervalMs": 240,
           "bulletIntervalMs": 0,
@@ -524,7 +522,8 @@
             "x": 0,
             "y": 64
           },
-          "bulletId": 2,
+          "bulletType": 1001,
+          "bulletLevel": 1,
           "bulletCount": 4,
           "fireIntervalMs": 240,
           "bulletIntervalMs": 0,
@@ -579,7 +578,8 @@
             "x": 0,
             "y": 64
           },
-          "bulletId": 2,
+          "bulletType": 1001,
+          "bulletLevel": 1,
           "bulletCount": 5,
           "fireIntervalMs": 240,
           "bulletIntervalMs": 0,
@@ -634,7 +634,8 @@
             "x": 0,
             "y": 64
           },
-          "bulletId": 2,
+          "bulletType": 1001,
+          "bulletLevel": 1,
           "bulletCount": 3,
           "fireIntervalMs": 240,
           "bulletIntervalMs": 0,
@@ -689,7 +690,8 @@
             "x": 0,
             "y": 64
           },
-          "bulletId": 2,
+          "bulletType": 1001,
+          "bulletLevel": 1,
           "bulletCount": 5,
           "fireIntervalMs": 240,
           "bulletIntervalMs": 0,
@@ -744,7 +746,8 @@
             "x": 0,
             "y": 64
           },
-          "bulletId": 2,
+          "bulletType": 1001,
+          "bulletLevel": 1,
           "bulletCount": 7,
           "fireIntervalMs": 240,
           "bulletIntervalMs": 0,
@@ -799,7 +802,8 @@
             "x": 0,
             "y": 64
           },
-          "bulletId": 2,
+          "bulletType": 1001,
+          "bulletLevel": 1,
           "bulletCount": 9,
           "fireIntervalMs": 240,
           "bulletIntervalMs": 0,
@@ -854,7 +858,8 @@
             "x": 0,
             "y": 64
           },
-          "bulletId": 2,
+          "bulletType": 1001,
+          "bulletLevel": 1,
           "bulletCount": 1,
           "fireIntervalMs": 240,
           "bulletIntervalMs": 0,
@@ -909,7 +914,8 @@
             "x": 0,
             "y": 64
           },
-          "bulletId": 2,
+          "bulletType": 1001,
+          "bulletLevel": 1,
           "bulletCount": 1,
           "fireIntervalMs": 240,
           "bulletIntervalMs": 0,
@@ -964,7 +970,8 @@
             "x": 0,
             "y": 64
           },
-          "bulletId": 2,
+          "bulletType": 1001,
+          "bulletLevel": 1,
           "bulletCount": 2,
           "fireIntervalMs": 240,
           "bulletIntervalMs": 0,
@@ -1019,7 +1026,8 @@
             "x": 0,
             "y": 64
           },
-          "bulletId": 2,
+          "bulletType": 1001,
+          "bulletLevel": 1,
           "bulletCount": 2,
           "fireIntervalMs": 240,
           "bulletIntervalMs": 0,

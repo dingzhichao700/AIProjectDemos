@@ -1,110 +1,482 @@
 [
   {
     "id": 1,
-    "code": "bullet_hit_common",
-    "type": 0,
-    "res": "hit_bullet_common"
-  },
-  {
-    "id": 2,
-    "code": "missile_hit_common",
-    "type": 0,
-    "res": "hit_missile_common"
-  },
-  {
-    "id": 3,
-    "code": "beam_hit_01",
-    "type": 0,
-    "res": "hit_beam_hit01"
-  },
-  {
-    "id": 4,
-    "code": "beam_hit_02",
-    "type": 0,
-    "res": "hit_beam_hit02"
-  },
-  {
-    "id": 5,
-    "code": "beam_hit_04",
-    "type": 0,
-    "res": "hit_beam_hit04"
-  },
-  {
-    "id": 6,
-    "code": "beam_hit_05",
-    "type": 0,
-    "res": "hit_beam_hit05"
-  },
-  {
-    "id": 7,
-    "code": "bullet_hit_common_02",
-    "type": 0,
-    "res": "hit_bullet_common2"
-  },
-  {
-    "id": 8,
-    "code": "missile_hit_01",
-    "type": 0,
-    "res": "hit_missile_hit01"
-  },
-  {
-    "id": 101,
     "code": "bullet_shoot_common",
-    "type": 3,
+    "type": 1,
     "res": "shoot_common"
   },
   {
-    "id": 1001,
-    "code": "aircraft_explosion_dust_01",
+    "id": 2,
+    "code": "shootFire_1001",
     "type": 1,
-    "res": "dust_01"
+    "res": "shootFire_1001"
+  },
+  {
+    "id": 3,
+    "code": "shootFire_1002",
+    "type": 1,
+    "res": "shootFire_1002"
+  },
+  {
+    "id": 4,
+    "code": "shootFire_1003",
+    "type": 1,
+    "res": "shootFire_1003"
+  },
+  {
+    "id": 5,
+    "code": "shootFire_1004",
+    "type": 1,
+    "res": "shootFire_1004"
+  },
+  {
+    "id": 6,
+    "code": "shootFire_1005",
+    "type": 1,
+    "res": "shootFire_1005"
+  },
+  {
+    "id": 7,
+    "code": "shootFire_1006",
+    "type": 1,
+    "res": "shootFire_1006"
+  },
+  {
+    "id": 8,
+    "code": "shootFire_1007",
+    "type": 1,
+    "res": "shootFire_1007"
+  },
+  {
+    "id": 9,
+    "code": "shootFire_2001",
+    "type": 1,
+    "res": "shootFire_2001"
+  },
+  {
+    "id": 10,
+    "code": "shootFire_2002",
+    "type": 1,
+    "res": "shootFire_2002"
+  },
+  {
+    "id": 11,
+    "code": "shootFire_2003",
+    "type": 1,
+    "res": "shootFire_2003"
+  },
+  {
+    "id": 1001,
+    "code": "bullet_line_1",
+    "type": 2,
+    "res": "bullet_line_1"
   },
   {
     "id": 1002,
-    "code": "aircraft_explosion_common",
-    "type": 1,
-    "res": "explosion_common"
+    "code": "bullet_line_2",
+    "type": 2,
+    "res": "bullet_line_2"
   },
   {
     "id": 1003,
-    "code": "aircraft_explosion_smoke_01",
-    "type": 1,
-    "res": "smoke_01"
+    "code": "bullet_line_3",
+    "type": 2,
+    "res": "bullet_line_3"
+  },
+  {
+    "id": 1004,
+    "code": "bullet_line_4",
+    "type": 2,
+    "res": "bullet_line_4"
+  },
+  {
+    "id": 1005,
+    "code": "bullet_line_5",
+    "type": 2,
+    "res": "bullet_line_5"
+  },
+  {
+    "id": 1006,
+    "code": "bullet_line_6",
+    "type": 2,
+    "res": "bullet_line_6"
+  },
+  {
+    "id": 1007,
+    "code": "bullet_line_7",
+    "type": 2,
+    "res": "bullet_line_7"
+  },
+  {
+    "id": 1008,
+    "code": "bullet_line_8",
+    "type": 2,
+    "res": "bullet_line_8"
+  },
+  {
+    "id": 1051,
+    "code": "bullet_line_51",
+    "type": 2,
+    "res": "bullet_line_51"
+  },
+  {
+    "id": 1201,
+    "code": "bullet_line_201",
+    "type": 2,
+    "res": "bullet_line_201"
+  },
+  {
+    "id": 1801,
+    "code": "bullet_ball_2001",
+    "type": 2,
+    "res": "bullet_ball_2001"
+  },
+  {
+    "id": 1802,
+    "code": "bullet_ball_2002",
+    "type": 2,
+    "res": "bullet_ball_2002"
+  },
+  {
+    "id": 1803,
+    "code": "bullet_ball_2003",
+    "type": 2,
+    "res": "bullet_ball_2003"
+  },
+  {
+    "id": 1804,
+    "code": "bullet_ball_2004",
+    "type": 2,
+    "res": "bullet_ball_2004"
+  },
+  {
+    "id": 1805,
+    "code": "bullet_ball_2005",
+    "type": 2,
+    "res": "bullet_ball_2005"
+  },
+  {
+    "id": 1806,
+    "code": "bullet_ball_2006",
+    "type": 2,
+    "res": "bullet_ball_2006"
+  },
+  {
+    "id": 1807,
+    "code": "bullet_ball_2007",
+    "type": 2,
+    "res": "bullet_ball_2007"
+  },
+  {
+    "id": 2001,
+    "code": "hit_1",
+    "type": 3,
+    "res": "hit_1"
+  },
+  {
+    "id": 2002,
+    "code": "hit_2",
+    "type": 3,
+    "res": "hit_2"
+  },
+  {
+    "id": 2003,
+    "code": "hit_3",
+    "type": 3,
+    "res": "hit_3"
+  },
+  {
+    "id": 2004,
+    "code": "hit_4",
+    "type": 3,
+    "res": "hit_4"
+  },
+  {
+    "id": 2005,
+    "code": "hit_5",
+    "type": 3,
+    "res": "hit_5"
+  },
+  {
+    "id": 2006,
+    "code": "hit_6",
+    "type": 3,
+    "res": "hit_6"
+  },
+  {
+    "id": 2007,
+    "code": "hit_7",
+    "type": 3,
+    "res": "hit_7"
+  },
+  {
+    "id": 2008,
+    "code": "hit_8",
+    "type": 3,
+    "res": "hit_8"
+  },
+  {
+    "id": 2009,
+    "code": "hit_9",
+    "type": 3,
+    "res": "hit_9"
+  },
+  {
+    "id": 2010,
+    "code": "hit_10",
+    "type": 3,
+    "res": "hit_10"
+  },
+  {
+    "id": 2011,
+    "code": "hit_11",
+    "type": 3,
+    "res": "hit_11"
+  },
+  {
+    "id": 2012,
+    "code": "hit_12",
+    "type": 3,
+    "res": "hit_12"
+  },
+  {
+    "id": 5001,
+    "code": "explosion_small_1",
+    "type": 4,
+    "res": "explosion_small_1"
+  },
+  {
+    "id": 5002,
+    "code": "explosion_small_2",
+    "type": 4,
+    "res": "explosion_small_2"
+  },
+  {
+    "id": 5003,
+    "code": "explosion_small_3",
+    "type": 4,
+    "res": "explosion_small_3"
+  },
+  {
+    "id": 5101,
+    "code": "explosion_middle_1",
+    "type": 4,
+    "res": "explosion_middle_1"
+  },
+  {
+    "id": 5102,
+    "code": "explosion_middle_2",
+    "type": 4,
+    "res": "explosion_middle_2"
+  },
+  {
+    "id": 5103,
+    "code": "explosion_middle_3",
+    "type": 4,
+    "res": "explosion_middle_3"
+  },
+  {
+    "id": 5104,
+    "code": "explosion_middle_4",
+    "type": 4,
+    "res": "explosion_middle_4"
+  },
+  {
+    "id": 5105,
+    "code": "explosion_middle_5",
+    "type": 4,
+    "res": "explosion_middle_5"
+  },
+  {
+    "id": 5106,
+    "code": "explosion_middle_6",
+    "type": 4,
+    "res": "explosion_middle_6"
+  },
+  {
+    "id": 5107,
+    "code": "explosion_middle_7",
+    "type": 4,
+    "res": "explosion_middle_7"
+  },
+  {
+    "id": 5201,
+    "code": "explosion_big_1",
+    "type": 4,
+    "res": "explosion_big_1"
+  },
+  {
+    "id": 5202,
+    "code": "explosion_big_2",
+    "type": 4,
+    "res": "explosion_big_2"
+  },
+  {
+    "id": 5301,
+    "code": "explosion_huge_1",
+    "type": 4,
+    "res": "explosion_huge_1"
+  },
+  {
+    "id": 5302,
+    "code": "explosion_huge_2",
+    "type": 4,
+    "res": "explosion_huge_2"
+  },
+  {
+    "id": 5501,
+    "code": "explosion_fire_1",
+    "type": 4,
+    "res": "explosion_fire_1"
+  },
+  {
+    "id": 5502,
+    "code": "explosion_fire_2",
+    "type": 4,
+    "res": "explosion_fire_2"
+  },
+  {
+    "id": 5503,
+    "code": "explosion_golden_1",
+    "type": 4,
+    "res": "explosion_golden_1"
+  },
+  {
+    "id": 5504,
+    "code": "explosion_golden_2",
+    "type": 4,
+    "res": "explosion_golden_2"
+  },
+  {
+    "id": 5505,
+    "code": "explosion_green_1",
+    "type": 4,
+    "res": "explosion_green_1"
+  },
+  {
+    "id": 5506,
+    "code": "explosion_ground_1",
+    "type": 4,
+    "res": "explosion_ground_1"
+  },
+  {
+    "id": 5507,
+    "code": "explosion_blue_1",
+    "type": 4,
+    "res": "explosion_blue_1"
+  },
+  {
+    "id": 5508,
+    "code": "explosion_blue_2",
+    "type": 4,
+    "res": "explosion_blue_2"
+  },
+  {
+    "id": 5509,
+    "code": "explosion_purple_1",
+    "type": 4,
+    "res": "explosion_purple_1"
+  },
+  {
+    "id": 5510,
+    "code": "explosion_dir_1",
+    "type": 4,
+    "res": "explosion_dir_1"
   },
   {
     "id": 10001,
     "code": "aircraft_levelup_01",
-    "type": 2,
+    "type": 0,
     "res": "levelup_01"
   },
   {
     "id": 10002,
     "code": "aircraft_levelup_02",
-    "type": 2,
+    "type": 0,
     "res": "levelup_02"
   },
   {
     "id": 10003,
     "code": "aircraft_levelup_03",
-    "type": 2,
+    "type": 0,
     "res": "levelup_03"
   },
   {
     "id": 10004,
     "code": "aircraft_levelup_04",
-    "type": 2,
+    "type": 0,
     "res": "levelup_04"
   },
   {
     "id": 11001,
     "code": "boss_born_01",
-    "type": 2,
+    "type": 0,
     "res": "bossBorn_1"
   },
   {
     "id": 12001,
     "code": "stage_item_reward_frame",
-    "type": 2,
+    "type": 0,
     "res": "reward_frame"
+  },
+  {
+    "id": 20001,
+    "code": "circle_1",
+    "type": 0,
+    "res": "circle_1"
+  },
+  {
+    "id": 20002,
+    "code": "circle_2",
+    "type": 0,
+    "res": "circle_2"
+  },
+  {
+    "id": 20003,
+    "code": "circle_3",
+    "type": 0,
+    "res": "circle_3"
+  },
+  {
+    "id": 20004,
+    "code": "circle_4",
+    "type": 0,
+    "res": "circle_4"
+  },
+  {
+    "id": 20005,
+    "code": "circle_5",
+    "type": 0,
+    "res": "circle_5"
+  },
+  {
+    "id": 20006,
+    "code": "circle_6",
+    "type": 0,
+    "res": "circle_6"
+  },
+  {
+    "id": 20007,
+    "code": "circle_7",
+    "type": 0,
+    "res": "circle_7"
+  },
+  {
+    "id": 20008,
+    "code": "circle_8",
+    "type": 0,
+    "res": "circle_8"
+  },
+  {
+    "id": 30001,
+    "code": "dust_01",
+    "type": 0,
+    "res": "dust_01"
+  },
+  {
+    "id": 30005,
+    "code": "smoke_01",
+    "type": 0,
+    "res": "smoke_01"
   }
 ]

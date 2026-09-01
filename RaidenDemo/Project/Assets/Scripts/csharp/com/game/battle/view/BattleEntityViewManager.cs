@@ -16,6 +16,7 @@ internal sealed class BattleEntityViewManager {
     private readonly Dictionary<long, RectTransform> enemyProjectiles = new Dictionary<long, RectTransform>();
     private readonly Dictionary<long, RectTransform> rewards = new Dictionary<long, RectTransform>();
     private readonly Dictionary<long, FrameAnimationView> rewardEffects = new Dictionary<long, FrameAnimationView>();
+    private readonly Dictionary<long, FrameAnimationView> projectileEffects = new Dictionary<long, FrameAnimationView>();
 
     public void BindUnit(long id, RectTransform view) => units.Add(id, view);
     public void BindPlayerProjectile(long id, RectTransform view) => playerProjectiles.Add(id, view);
@@ -27,6 +28,9 @@ internal sealed class BattleEntityViewManager {
         if (view != null) {
             rewardEffects.Add(id, view);
         }
+    }
+    public void BindProjectileEffect(long id, FrameAnimationView view) {
+        if (view != null) projectileEffects.Add(id, view);
     }
 
     public RectTransform GetUnit(long id) => Get(units, id);
@@ -42,6 +46,7 @@ internal sealed class BattleEntityViewManager {
     public RectTransform RemoveEnemyProjectile(long id) => Remove(enemyProjectiles, id);
     public RectTransform RemoveReward(long id) => Remove(rewards, id);
     public FrameAnimationView RemoveRewardEffect(long id) => Remove(rewardEffects, id);
+    public FrameAnimationView RemoveProjectileEffect(long id) => Remove(projectileEffects, id);
 
     public void Clear() {
         units.Clear();
@@ -54,6 +59,8 @@ internal sealed class BattleEntityViewManager {
             effect?.Destroy();
         }
         rewardEffects.Clear();
+        foreach (FrameAnimationView effect in projectileEffects.Values) effect?.Destroy();
+        projectileEffects.Clear();
         rewards.Clear();
     }
 

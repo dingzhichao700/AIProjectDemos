@@ -17,21 +17,25 @@ namespace cfg
     public enum EffectType
     {
         /// <summary>
-        /// 子弹命中特效
-        /// </summary>
-        BULLET_HIT = 0,
-        /// <summary>
-        /// 飞机爆炸特效
-        /// </summary>
-        AIRCRAFT_EXPLOSION = 1,
-        /// <summary>
-        /// 子弹实际创建时播放的发射特效
-        /// </summary>
-        BULLET_LAUNCH = 3,
-        /// <summary>
         /// 通用或暂未独立分类的演出特效
         /// </summary>
-        OTHER = 2,
+        OTHER = 0,
+        /// <summary>
+        /// 子弹发射
+        /// </summary>
+        BULLET_LAUNCH = 1,
+        /// <summary>
+        /// 子弹
+        /// </summary>
+        BULLET = 2,
+        /// <summary>
+        /// 子弹命中
+        /// </summary>
+        BULLET_HIT = 3,
+        /// <summary>
+        /// 爆炸
+        /// </summary>
+        AIRCRAFT_EXPLOSION = 4,
     }
 
 } 

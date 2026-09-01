@@ -14,10 +14,6 @@ public static class BattleConst {
 
     public const string RaidenUnpackImageDirectory = "Assets/Art/unpack/default/raiden/";
 
-    public const string BulletFrameAnimationDirectory = "default/bullet/";
-
-    public const string BulletBodyEffectPrefix = "body_";
-
     public const string BulletLaunchEffectPrefix = "shoot_";
 
     public const string BulletHitEffectPrefix = "hit_";
@@ -32,7 +28,6 @@ public static class BattleConst {
 
     public const float WingmanFollowSpeed = 12f;
 
-    public const float FireInterval = 0.24f;
 
     public const float EnemySpawnInterval = 0.4f;
 
@@ -40,7 +35,6 @@ public static class BattleConst {
 
     public const float EnemyMoveSpeed = 150f;
 
-    public const float EnemyFireInterval = 1.4f;
 
     public const float NaturalSupplyFirstDelay = 12f;
 

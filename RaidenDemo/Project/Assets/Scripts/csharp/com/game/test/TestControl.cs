@@ -21,9 +21,4 @@
         //new TestCaseLoad();
     }
 
-    /**测试配置表*/
-    public void TestConfig() {
-        //new TestCaseConfigs();
-    }
-
 }

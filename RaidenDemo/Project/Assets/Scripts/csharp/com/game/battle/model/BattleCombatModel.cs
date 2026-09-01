@@ -11,7 +11,7 @@ using UnityEngine;
 /// </remarks>
 internal sealed class BattleCombatModel {
 
-    public void Resolve(AircraftVO player, AircraftCollisionVO playerCollision, List<BulletVO> playerProjectiles, List<AircraftVO> enemies, List<BulletVO> enemyProjectiles, Func<BulletVO, bool> removePlayerProjectile, Func<AircraftVO, bool, bool> resolveEnemy, Action<AircraftVO> enemyHealthChanged, Action<BulletVO, AircraftVO, Vector2> playerProjectileHitEnemy, Func<BulletVO, bool> removeEnemyProjectile, Action<BulletVO> enemyProjectileHitPlayer, Action playerStatusChanged, Action playerDefeatStarted) {
+    public void Resolve(AircraftVO player, AircraftCollisionVO playerCollision, List<BulletVO> playerProjectiles, List<AircraftVO> enemies, List<BulletVO> enemyProjectiles, Func<BulletVO, bool> removePlayerProjectile, Func<AircraftVO, bool, bool> resolveEnemy, Action<AircraftVO> enemyHealthChanged, Action<BulletVO, AircraftVO, Vector2> playerProjectileHitEnemy, Func<BulletVO, bool> removeEnemyProjectile, Action<BulletVO, Vector2> enemyProjectileHitPlayer, Action playerStatusChanged, Action playerDefeatStarted) {
         if (player == null || playerCollision == null) {
             return;
         }
@@ -40,15 +40,15 @@ internal sealed class BattleCombatModel {
         }
     }
 
-    private static void ResolveEnemyProjectiles(AircraftVO player, AircraftCollisionVO playerCollision, List<BulletVO> projectiles, Func<BulletVO, bool> removeProjectile, Action<BulletVO> hitPlayer, Action playerChanged, Action defeatStarted) {
+    private static void ResolveEnemyProjectiles(AircraftVO player, AircraftCollisionVO playerCollision, List<BulletVO> projectiles, Func<BulletVO, bool> removeProjectile, Action<BulletVO, Vector2> hitPlayer, Action playerChanged, Action defeatStarted) {
         for (int i = projectiles.Count - 1; i >= 0; i--) {
             BulletVO projectile = projectiles[i];
-            if (!BattleCollisionSystem.Overlaps(projectile.position, projectile.hitSize, player.position, playerCollision)) {
+            if (!BattleCollisionSystem.TryGetProjectileContactPoint(projectile, player.position, playerCollision, out Vector2 contactPoint)) {
                 continue;
             }
             if (player.TryTakePlayerDamage(projectile.damage)) {
                 removeProjectile(projectile);
-                hitPlayer?.Invoke(projectile);
+                hitPlayer?.Invoke(projectile, contactPoint);
                 NotifyAcceptedDamage(player, playerChanged, defeatStarted);
             }
         }

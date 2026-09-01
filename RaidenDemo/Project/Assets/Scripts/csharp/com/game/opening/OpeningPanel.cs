@@ -76,7 +76,6 @@ public class OpeningPanel : BasePanel
         CfgManager.Init();
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
         TestControl.ins.TestNormal();
-        TestControl.ins.TestConfig();
 #endif
         preloadComplete = true;
         TryPlayClose();

@@ -110,19 +110,20 @@ internal sealed class BattleScenePresenter {
                 model.RemoveEnemyProjectile(projectile);
                 continue;
             }
+            SyncProjectileRotation(projectile, view);
             view.anchoredPosition = projectile.position;
         }
     }
 
     private void OnPlayerProjectileSpawned(BulletVO projectile) {
-        RectTransform view = visualPool.Create("playerLaser", projectileLayer,
-            projectile.displaySize, projectile.position, projectile.resPath, 0f, true);
+        RectTransform view = CreateProjectileView(projectile, "playerLaser");
         views.BindPlayerProjectile(projectile.id, view);
         SyncProjectileRotation(projectile, view);
         PlayBulletLaunch(projectile);
     }
 
     private void OnPlayerProjectileRemoved(long id) {
+        views.RemoveProjectileEffect(id)?.Destroy();
         visualPool.Recycle(views.RemovePlayerProjectile(id));
     }
 
@@ -166,16 +167,24 @@ internal sealed class BattleScenePresenter {
         views.GetEliteHealthBar(enemy.id)?.SetHealth(enemy.health, enemy.maxHealth);
     }
 
-    private void OnEnemyProjectileSpawned(BulletVO projectile,
-        BulletConfigVO config) {
-        RectTransform view = visualPool.Create("enemyBullet", projectileLayer,
-            config.displaySize, projectile.position, config.appearancePath, 0f, true);
+    private void OnEnemyProjectileSpawned(BulletVO projectile) {
+        RectTransform view = CreateProjectileView(projectile, "enemyBullet");
         views.BindEnemyProjectile(projectile.id, view);
+        SyncProjectileRotation(projectile, view);
         PlayBulletLaunch(projectile);
     }
 
     private void OnEnemyProjectileRemoved(long id) {
+        views.RemoveProjectileEffect(id)?.Destroy();
         visualPool.Recycle(views.RemoveEnemyProjectile(id));
+    }
+
+    /**根据子弹配置创建静态图片或循环特效弹体。*/
+    private RectTransform CreateProjectileView(BulletVO projectile, string name) {
+        if (projectile.appearanceEffectId <= 0) return visualPool.Create(name, projectileLayer, projectile.displaySize, projectile.position, projectile.resPath, 0f, true);
+        RectTransform root = visualPool.CreateEmpty(name, projectileLayer, projectile.displaySize, projectile.position, projectile.appearanceEffectId.ToString());
+        views.BindProjectileEffect(projectile.id, effects.PlayBulletBody(projectile.appearanceEffectId, root, projectile.timerType));
+        return root;
     }
 
     /**将发射特效绑定到子弹所属飞机的发射点。*/
@@ -201,12 +210,9 @@ internal sealed class BattleScenePresenter {
 
     private static void SyncProjectileRotation(BulletVO projectile,
         RectTransform projectileView) {
-        RectTransform visual = projectileView != null
-            ? projectileView.Find("imgVisual") as RectTransform
-            : null;
-        if (visual != null) {
-            visual.localEulerAngles = new Vector3(0f, 0f, projectile.rotation);
-        }
+        if (projectileView == null) return;
+        RectTransform visual = projectileView.Find("imgVisual") as RectTransform;
+        (visual ?? projectileView).localEulerAngles = new Vector3(0f, 0f, projectile.rotation);
     }
 
 }

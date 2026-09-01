@@ -15,14 +15,13 @@ internal sealed class BulletVO : SceneElementVO {
     public readonly int damage;
     public readonly int hitEffectId;
     public readonly int launchEffectId;
+    public readonly int appearanceEffectId;
     public readonly float launchRotation;
     public readonly string resPath;
     public readonly Vector2 displaySize;
-    public readonly Vector2 hitSize;
-    public readonly Vector2 hitPivot;
+    public readonly float collisionRadius;
     public readonly float speed;
     public readonly BulletMotionType motionType;
-    public readonly bool rotate;
     public readonly float rotationSpeed;
     public Vector2 velocity;
     public Vector2 previousPosition;
@@ -34,49 +33,32 @@ internal sealed class BulletVO : SceneElementVO {
     private Predicate<AircraftVO> targetValidator;
 
     public BulletVO(long id, Vector2 position, AircraftVO owner,
-        PlayerBulletLauncherVO launcher, float direction)
+        PlayerBulletLauncherVO launcher, BulletConfigVO bullet, float direction)
         : base(id, owner.faction, owner.timerType, position) {
         this.owner = owner;
         weaponLevel = owner.effectiveLevel;
-        damage = launcher.damage;
-        hitEffectId = launcher.hitEffectId;
-        launchEffectId = launcher.launchEffectId;
-        resPath = launcher.projectilePath;
-        displaySize = launcher.projectileSize;
-        hitSize = launcher.hitSize;
-        hitPivot = launcher.hitPivot;
-        speed = launcher.speed;
-        motionType = launcher.motionType;
-        rotate = launcher.rotate;
-        rotationSpeed = launcher.rotationSpeed;
-        trackingDelayRemaining = launcher.trackingDelayMs / 1000f;
-        trackingTurnSpeed = launcher.trackingTurnSpeed;
+        damage = bullet.damage;
+        hitEffectId = bullet.hitEffectId;
+        launchEffectId = bullet.launchEffectId;
+        appearanceEffectId = bullet.appearanceEffectId;
+        resPath = bullet.appearancePath;
+        displaySize = bullet.displaySize;
+        collisionRadius = bullet.collisionRadius;
+        speed = bullet.speed;
+        motionType = bullet.motionType;
+        rotationSpeed = bullet.rotationSpeed;
+        trackingDelayRemaining = bullet.trackingDelayMs / 1000f;
+        trackingTurnSpeed = bullet.trackingTurnSpeed;
         float radians = direction * Mathf.Deg2Rad;
         velocity = new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)) * speed;
         previousPosition = position;
         launchRotation = direction - 90f;
-        rotation = rotate ? 0f : launchRotation;
-    }
-
-    public BulletVO(long id, Vector2 position, AircraftVO owner, Vector2 velocity, Vector2 hitSize, int damage, int hitEffectId, int launchEffectId)
-        : base(id, SceneElementFaction.ENEMY, TimerType.ENEMY, position) {
-        this.owner = owner;
-        this.velocity = velocity;
-        this.hitSize = hitSize;
-        this.damage = damage;
-        this.hitEffectId = hitEffectId;
-        this.launchEffectId = launchEffectId;
-        hitPivot = new Vector2(0.5f, 0.5f);
-        speed = velocity.magnitude;
-        motionType = BulletMotionType.STRAIGHT;
-        previousPosition = position;
-        launchRotation = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg - 90f;
-        rotation = launchRotation;
+        rotation = rotationSpeed != 0f ? 0f : launchRotation;
     }
 
     public override void OnTimeUpdate(float deltaTime) {
         UpdateTracking(deltaTime);
-        if (rotate) {
+        if (rotationSpeed != 0f) {
             rotation += rotationSpeed * deltaTime;
         } else if (velocity.sqrMagnitude > 0.0001f) {
             rotation = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg - 90f;

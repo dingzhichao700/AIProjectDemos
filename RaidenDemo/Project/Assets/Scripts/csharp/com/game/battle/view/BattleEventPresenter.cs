@@ -122,8 +122,8 @@ internal sealed class BattleEventPresenter {
         effectPresenter.PlayBulletHit(projectile.hitEffectId, contactPoint, TimerType.ENEMY);
     }
 
-    private void OnEnemyProjectileHitPlayer(BulletVO projectile) {
-        effectPresenter.PlayBulletHit(projectile.hitEffectId, projectile.position, TimerType.PLAYER);
+    private void OnEnemyProjectileHitPlayer(BulletVO projectile, Vector2 contactPoint) {
+        effectPresenter.PlayBulletHit(projectile.hitEffectId, contactPoint, TimerType.PLAYER);
     }
 
     private void OnRewardCollected(RewardVO reward, int healed) {

@@ -70,21 +70,29 @@ public sealed class RaidenModel {
         if (enemy == null) {
             return null;
         }
-        BulletConfigVO bullet = GetBulletConfig(enemy.BulletId);
-        if (bullet == null) {
-            throw new InvalidOperationException($"敌机 {enemyId} 引用了不存在的子弹配置：{enemy.BulletId}");
-        }
-        return new EnemyConfigVO(enemy.Id, enemy.EnemyClass, enemy.Aircraft.Health, BattleConst.GetRaidenUnpackImagePath(enemy.Aircraft.AppearanceName), new Vector2(enemy.DisplaySize.X, enemy.DisplaySize.Y), AircraftCollisionVO.Create(enemy.Aircraft.CollisionShapes), enemy.Aircraft.MoveSpeed, enemy.FireInterval, enemy.FireType, enemy.Score, enemy.PoolCapacity, bullet, enemy.Aircraft.DeathExplosions, enemy.Aircraft.RemoveAfterDeathPresentation);
+        List<PlayerBulletLauncherVO> launchers = CreateBulletLaunchers(enemy.Aircraft.BulletLaunchers, $"敌机 {enemyId}");
+        return new EnemyConfigVO(enemy.Id, enemy.EnemyClass, enemy.Aircraft.Health, BattleConst.GetRaidenUnpackImagePath(enemy.Aircraft.AppearanceName), new Vector2(enemy.DisplaySize.X, enemy.DisplaySize.Y), AircraftCollisionVO.Create(enemy.Aircraft.CollisionShapes), enemy.Aircraft.MoveSpeed, enemy.Score, enemy.PoolCapacity, launchers, enemy.Aircraft.DeathExplosions, enemy.Aircraft.RemoveAfterDeathPresentation);
     }
 
     /**获取并转换敌机子弹配置*/
-    public BulletConfigVO GetBulletConfig(int bulletId) {
-        BulletResource bullet = CfgManager.tables.BulletObj.GetOrDefault(bulletId);
+    public BulletConfigVO GetBulletConfig(int bulletType, int bulletLevel, int additionalLevel = 0) {
+        int requestedLevel = Mathf.Max(1, bulletLevel + additionalLevel);
+        BulletResource bullet = null;
+        foreach (BulletResource candidate in CfgManager.tables.BulletObj.DataList) {
+            if (candidate.Type != bulletType || candidate.Level > requestedLevel) {
+                continue;
+            }
+            if (bullet == null || candidate.Level > bullet.Level) {
+                bullet = candidate;
+            }
+        }
         if (bullet == null) {
             return null;
         }
-        Vector2 shapeSize = GetBulletShapeSize(bullet.Bullet.Shape);
-        return new BulletConfigVO(bullet.Id, BattleConst.GetRaidenUnpackImagePath(bullet.Bullet.AppearancePath), shapeSize, shapeSize, GetBulletShapePivot(bullet.Bullet.Shape), bullet.Bullet.Speed, bullet.Bullet.Damage, bullet.Bullet.HitEffectId, bullet.Bullet.LaunchEffectId, bullet.PoolCapacity);
+        int collisionRadius = GetBulletCollisionRadius(bullet);
+        Vector2 collisionSize = Vector2.one * collisionRadius * 2f;
+        string appearancePath = bullet.EffectId > 0 ? null : BattleConst.GetRaidenUnpackImagePath(bullet.AppearancePath);
+        return new BulletConfigVO(bullet.Id, bullet.Type, bullet.Level, appearancePath, bullet.EffectId, collisionSize, collisionRadius, bullet.Speed, bullet.Damage, bullet.HitEffectId, bullet.LaunchEffectId, bullet.MotionType, bullet.RotationSpeed, bullet.TrackingDelayMs, bullet.TrackingTurnSpeed);
     }
 
     /**获取全部玩家飞机类型*/
@@ -113,57 +121,35 @@ public sealed class RaidenModel {
         }
         foreach (PlayerAircraftLevelResource candidate in CfgManager.tables.PlayerAircraftLevelObj.DataList) {
             if (candidate.AircraftId == aircraftId && candidate.Level == level) {
-                List<PlayerBulletLauncherVO> launchers = CreatePlayerBulletLaunchers(candidate);
+                List<PlayerBulletLauncherVO> launchers = CreateBulletLaunchers(candidate.Aircraft.BulletLaunchers, $"玩家飞机等级 {candidate.Id}");
                 return new PlayerAircraftBattleLevelVO(candidate.AircraftId, candidate.Level, BattleConst.GetRaidenUnpackImagePath(candidate.Aircraft.AppearanceName), new Vector2(candidate.DisplaySize.X, candidate.DisplaySize.Y), AircraftCollisionVO.Create(candidate.Aircraft.CollisionShapes), candidate.Aircraft.Health, candidate.BaseBulletCount, launchers, candidate.Aircraft.DeathExplosions, candidate.Aircraft.RemoveAfterDeathPresentation);
             }
         }
         throw new InvalidOperationException($"玩家飞机 {aircraftId} 缺少等级 {level} 配置");
     }
 
-    private static List<PlayerBulletLauncherVO> CreatePlayerBulletLaunchers(PlayerAircraftLevelResource level) {
+    private static List<PlayerBulletLauncherVO> CreateBulletLaunchers(IReadOnlyList<BulletLauncher> configs, string ownerName) {
         List<PlayerBulletLauncherVO> result = new List<PlayerBulletLauncherVO>();
-        foreach (BulletLauncher launcher in level.Aircraft.BulletLaunchers) {
-            BulletResource bullet = CfgManager.tables.BulletObj.GetOrDefault(launcher.BulletId);
-            if (bullet == null) {
-                throw new InvalidOperationException($"玩家飞机等级 {level.Id} 引用了不存在的子弹配置：{launcher.BulletId}");
+        foreach (BulletLauncher launcher in configs) {
+            BulletResource bullet = null;
+            foreach (BulletResource candidate in CfgManager.tables.BulletObj.DataList) {
+                if (candidate.Type == launcher.BulletType && candidate.Level <= launcher.BulletLevel && (bullet == null || candidate.Level > bullet.Level)) {
+                    bullet = candidate;
+                }
             }
-            Vector2 size = GetBulletShapeSize(bullet.Bullet.Shape);
-            Vector2 pivot = GetBulletShapePivot(bullet.Bullet.Shape);
-            result.Add(new PlayerBulletLauncherVO(
-                new Vector2(launcher.Offset.X, launcher.Offset.Y),
-                Mathf.Max(1, launcher.BulletCount),
-                Mathf.Max(0.001f, launcher.FireIntervalMs / 1000f),
-                Mathf.Max(0, launcher.BulletIntervalMs),
-                launcher.Direction, launcher.SpreadType, Mathf.Max(0f, launcher.SpreadAngle),
-                BattleConst.GetRaidenUnpackImagePath(bullet.Bullet.AppearancePath),
-                size, size, pivot, bullet.Bullet.Speed, bullet.Bullet.Damage,
-                bullet.Bullet.HitEffectId, bullet.Bullet.LaunchEffectId,
-                bullet.Bullet.MotionType, bullet.Bullet.Rotate,
-                bullet.Bullet.RotationSpeed, Mathf.Max(0, bullet.Bullet.TrackingDelayMs),
-                Mathf.Max(0f, bullet.Bullet.TrackingTurnSpeed)));
+            if (bullet == null) {
+                throw new InvalidOperationException($"{ownerName} 引用了不存在的子弹：type={launcher.BulletType}, level={launcher.BulletLevel}");
+            }
+            result.Add(new PlayerBulletLauncherVO(new Vector2(launcher.Offset.X, launcher.Offset.Y), launcher.BulletType, launcher.BulletLevel, Mathf.Max(1, launcher.BulletCount), Mathf.Max(0.001f, launcher.FireIntervalMs / 1000f), Mathf.Max(0, launcher.BulletIntervalMs), launcher.Direction, launcher.SpreadType, Mathf.Max(0f, launcher.SpreadAngle)));
         }
         return result;
     }
 
-    private static Vector2 GetBulletShapeSize(Shape shape) {
-        if (shape is RectangleShape rectangle) {
-            return new Vector2(rectangle.Rect.X, rectangle.Rect.Y);
+    private static int GetBulletCollisionRadius(BulletResource bullet) {
+        if (bullet.CollisionRadius <= 0) {
+            throw new InvalidOperationException($"子弹 {bullet.Id} 缺少有效碰撞半径");
         }
-        if (shape is CircleShape circle) {
-            float diameter = circle.Radius * 2f;
-            return new Vector2(diameter, diameter);
-        }
-        throw new InvalidOperationException("子弹配置缺少有效形状");
-    }
-
-    private static Vector2 GetBulletShapePivot(Shape shape) {
-        if (shape is RectangleShape rectangle) {
-            return new Vector2(rectangle.Pivot.X, rectangle.Pivot.Y);
-        }
-        if (shape is CircleShape) {
-            return new Vector2(0.5f, 0.5f);
-        }
-        throw new InvalidOperationException("子弹配置缺少有效形状");
+        return bullet.CollisionRadius;
     }
 
     /**判断玩家飞机是否已经解锁*/

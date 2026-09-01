@@ -16,15 +16,13 @@ public sealed class EnemyConfigVO {
     public readonly Vector2 displaySize;
     public readonly AircraftCollisionVO collision;
     public readonly float moveSpeed;
-    public readonly float fireInterval;
-    public readonly EnemyFireType fireType;
     public readonly int score;
     public readonly int poolCapacity;
-    public readonly BulletConfigVO bullet;
+    public readonly IReadOnlyList<PlayerBulletLauncherVO> bulletLaunchers;
     public readonly IReadOnlyList<ExplosionEffect> deathExplosions;
     public readonly bool removeAfterDeathPresentation;
 
-    public EnemyConfigVO(int id, EnemyClass enemyClass, int baseHealth, string appearancePath, Vector2 displaySize, AircraftCollisionVO collision, float moveSpeed, float fireInterval, EnemyFireType fireType, int score, int poolCapacity, BulletConfigVO bullet, IReadOnlyList<ExplosionEffect> deathExplosions, bool removeAfterDeathPresentation) {
+    public EnemyConfigVO(int id, EnemyClass enemyClass, int baseHealth, string appearancePath, Vector2 displaySize, AircraftCollisionVO collision, float moveSpeed, int score, int poolCapacity, IReadOnlyList<PlayerBulletLauncherVO> bulletLaunchers, IReadOnlyList<ExplosionEffect> deathExplosions, bool removeAfterDeathPresentation) {
         this.id = id;
         this.enemyClass = enemyClass;
         this.baseHealth = baseHealth;
@@ -32,11 +30,9 @@ public sealed class EnemyConfigVO {
         this.displaySize = displaySize;
         this.collision = collision;
         this.moveSpeed = moveSpeed;
-        this.fireInterval = fireInterval;
-        this.fireType = fireType;
         this.score = score;
         this.poolCapacity = poolCapacity;
-        this.bullet = bullet;
+        this.bulletLaunchers = bulletLaunchers;
         this.deathExplosions = deathExplosions;
         this.removeAfterDeathPresentation = removeAfterDeathPresentation;
     }

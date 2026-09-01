@@ -20,9 +20,6 @@ public sealed partial class EnemyResource : Luban.BeanBase
         { if(!_buf["id"].IsNumber) { throw new SerializationException(); }  Id = _buf["id"]; }
         { if(!_buf["enemyClass"].IsNumber) { throw new SerializationException(); }  EnemyClass = (EnemyClass)_buf["enemyClass"].AsInt; }
         { if(!_buf["displaySize"].IsObject) { throw new SerializationException(); }  DisplaySize = global::cfg.vector2.Deserializevector2(_buf["displaySize"]);  }
-        { if(!_buf["fireInterval"].IsNumber) { throw new SerializationException(); }  FireInterval = _buf["fireInterval"]; }
-        { if(!_buf["fireType"].IsNumber) { throw new SerializationException(); }  FireType = (EnemyFireType)_buf["fireType"].AsInt; }
-        { if(!_buf["bulletId"].IsNumber) { throw new SerializationException(); }  BulletId = _buf["bulletId"]; }
         { if(!_buf["score"].IsNumber) { throw new SerializationException(); }  Score = _buf["score"]; }
         { if(!_buf["poolCapacity"].IsNumber) { throw new SerializationException(); }  PoolCapacity = _buf["poolCapacity"]; }
         { if(!_buf["aircraft"].IsObject) { throw new SerializationException(); }  Aircraft = global::cfg.Aircraft.DeserializeAircraft(_buf["aircraft"]);  }
@@ -45,18 +42,6 @@ public sealed partial class EnemyResource : Luban.BeanBase
     /// 显示尺寸
     /// </summary>
     public readonly vector2 DisplaySize;
-    /// <summary>
-    /// 开火间隔
-    /// </summary>
-    public readonly float FireInterval;
-    /// <summary>
-    /// 射击模式
-    /// </summary>
-    public readonly EnemyFireType FireType;
-    /// <summary>
-    /// 子弹ID
-    /// </summary>
-    public readonly int BulletId;
     /// <summary>
     /// 击毁分数
     /// </summary>
@@ -84,9 +69,6 @@ public sealed partial class EnemyResource : Luban.BeanBase
         + "id:" + Id + ","
         + "enemyClass:" + EnemyClass + ","
         + "displaySize:" + DisplaySize + ","
-        + "fireInterval:" + FireInterval + ","
-        + "fireType:" + FireType + ","
-        + "bulletId:" + BulletId + ","
         + "score:" + Score + ","
         + "poolCapacity:" + PoolCapacity + ","
         + "aircraft:" + Aircraft + ","

@@ -66,6 +66,27 @@ internal sealed class BattleEffectPresenter {
         view.Play(path, false, null, true, 1f, 1, 1f, timerType);
     }
 
+    /**在子弹节点上循环播放作为弹体外观的特效。*/
+    public FrameAnimationView PlayBulletBody(int effectId, RectTransform projectileRoot, TimerType timerType) {
+        if (effectId <= 0 || projectileRoot == null) return null;
+        EffectResource effect = CfgManager.tables.EffectObj.GetOrDefault(effectId);
+        if (effect == null || effect.Type != EffectType.BULLET) {
+            Debug.LogError($"子弹弹体特效配置无效：{effectId}");
+            return null;
+        }
+        string path = BattlePreloadCollector.GetEffectResourcePath(effect);
+        BattlePreloadCollector.RequireFrameAnimationPreloaded(path);
+        FrameAnimationView view = FrameAnimationView.GetInstance();
+        RectTransform rect = view.trans;
+        rect.SetParent(projectileRoot, false);
+        rect.anchorMin = rect.anchorMax = new Vector2(0.5f, 0.5f);
+        rect.anchoredPosition = Vector2.zero;
+        rect.localScale = Vector3.one;
+        rect.localEulerAngles = Vector3.zero;
+        view.Play(path, true, null, false, 1f, 1, 1f, timerType);
+        return view;
+    }
+
     /**在玩家飞机原点播放升级特效。*/
     public FrameAnimationView PlayPlayerUpgrade(int effectId, RectTransform playerRoot, bool loop, Vector2 offset = default, float scale = 1f) {
         if (playerRoot == null) {

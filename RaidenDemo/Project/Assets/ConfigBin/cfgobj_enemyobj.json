@@ -6,9 +6,6 @@
       "x": 99,
       "y": 150
     },
-    "fireInterval": 1.61,
-    "fireType": 0,
-    "bulletId": 1,
     "score": 100,
     "poolCapacity": 5,
     "aircraft": {
@@ -28,7 +25,22 @@
       ],
       "health": 30,
       "moveSpeed": 187.5,
-      "bulletLaunchers": [],
+      "bulletLaunchers": [
+        {
+          "offset": {
+            "x": 0,
+            "y": -75
+          },
+          "bulletType": 11001,
+          "bulletLevel": 1,
+          "bulletCount": 1,
+          "fireIntervalMs": 1610,
+          "bulletIntervalMs": 0,
+          "direction": -90,
+          "spreadType": 0,
+          "spreadAngle": 0
+        }
+      ],
       "deathExplosions": [
         {
           "delayMs": 0,
@@ -36,7 +48,7 @@
             "x": 0,
             "y": 0
           },
-          "effectId": 1002
+          "effectId": 5001
         }
       ],
       "removeAfterDeathPresentation": true
@@ -49,9 +61,6 @@
       "x": 135,
       "y": 120
     },
-    "fireInterval": 1.2,
-    "fireType": 1,
-    "bulletId": 1,
     "score": 100,
     "poolCapacity": 5,
     "aircraft": {
@@ -71,7 +80,36 @@
       ],
       "health": 30,
       "moveSpeed": 150,
-      "bulletLaunchers": [],
+      "bulletLaunchers": [
+        {
+          "offset": {
+            "x": -24,
+            "y": -60
+          },
+          "bulletType": 11001,
+          "bulletLevel": 1,
+          "bulletCount": 1,
+          "fireIntervalMs": 1200,
+          "bulletIntervalMs": 0,
+          "direction": -90,
+          "spreadType": 0,
+          "spreadAngle": 0
+        },
+        {
+          "offset": {
+            "x": 24,
+            "y": -60
+          },
+          "bulletType": 11001,
+          "bulletLevel": 1,
+          "bulletCount": 1,
+          "fireIntervalMs": 1200,
+          "bulletIntervalMs": 0,
+          "direction": -90,
+          "spreadType": 0,
+          "spreadAngle": 0
+        }
+      ],
       "deathExplosions": [
         {
           "delayMs": 0,
@@ -79,7 +117,7 @@
             "x": 0,
             "y": 0
           },
-          "effectId": 1002
+          "effectId": 5001
         }
       ],
       "removeAfterDeathPresentation": true
@@ -92,9 +130,6 @@
       "x": 140,
       "y": 130
     },
-    "fireInterval": 1.96,
-    "fireType": 2,
-    "bulletId": 1,
     "score": 100,
     "poolCapacity": 5,
     "aircraft": {
@@ -114,7 +149,22 @@
       ],
       "health": 48,
       "moveSpeed": 108,
-      "bulletLaunchers": [],
+      "bulletLaunchers": [
+        {
+          "offset": {
+            "x": 0,
+            "y": -65
+          },
+          "bulletType": 11001,
+          "bulletLevel": 1,
+          "bulletCount": 3,
+          "fireIntervalMs": 1960,
+          "bulletIntervalMs": 0,
+          "direction": -90,
+          "spreadType": 0,
+          "spreadAngle": 34
+        }
+      ],
       "deathExplosions": [
         {
           "delayMs": 0,
@@ -122,7 +172,7 @@
             "x": 0,
             "y": 0
           },
-          "effectId": 1002
+          "effectId": 5001
         }
       ],
       "removeAfterDeathPresentation": true
@@ -135,9 +185,6 @@
       "x": 193,
       "y": 180
     },
-    "fireInterval": 1.4,
-    "fireType": 0,
-    "bulletId": 1,
     "score": 1000,
     "poolCapacity": 2,
     "aircraft": {
@@ -157,7 +204,22 @@
       ],
       "health": 1600,
       "moveSpeed": 90,
-      "bulletLaunchers": [],
+      "bulletLaunchers": [
+        {
+          "offset": {
+            "x": 0,
+            "y": -81
+          },
+          "bulletType": 11001,
+          "bulletLevel": 1,
+          "bulletCount": 3,
+          "fireIntervalMs": 910,
+          "bulletIntervalMs": 0,
+          "direction": -90,
+          "spreadType": 0,
+          "spreadAngle": 39
+        }
+      ],
       "deathExplosions": [
         {
           "delayMs": 0,
@@ -165,7 +227,7 @@
             "x": 0,
             "y": 0
           },
-          "effectId": 1002
+          "effectId": 5001
         }
       ],
       "removeAfterDeathPresentation": true
@@ -178,9 +240,6 @@
       "x": 362,
       "y": 330
     },
-    "fireInterval": 1.4,
-    "fireType": 0,
-    "bulletId": 1,
     "score": 3000,
     "poolCapacity": 1,
     "aircraft": {
@@ -220,9 +279,24 @@
           }
         }
       ],
-      "health": 500,
+      "health": 10000,
       "moveSpeed": 70,
-      "bulletLaunchers": [],
+      "bulletLaunchers": [
+        {
+          "offset": {
+            "x": 0,
+            "y": -139
+          },
+          "bulletType": 11001,
+          "bulletLevel": 1,
+          "bulletCount": 5,
+          "fireIntervalMs": 1190,
+          "bulletIntervalMs": 0,
+          "direction": -90,
+          "spreadType": 0,
+          "spreadAngle": 57
+        }
+      ],
       "deathExplosions": [
         {
           "delayMs": 0,
@@ -230,7 +304,7 @@
             "x": 0,
             "y": 40
           },
-          "effectId": 1002
+          "effectId": 5001
         },
         {
           "delayMs": 140,
@@ -238,7 +312,7 @@
             "x": -85,
             "y": 0
           },
-          "effectId": 1002
+          "effectId": 5001
         },
         {
           "delayMs": 280,
@@ -246,7 +320,7 @@
             "x": 80,
             "y": -20
           },
-          "effectId": 1002
+          "effectId": 5001
         },
         {
           "delayMs": 420,
@@ -254,7 +328,7 @@
             "x": -45,
             "y": -90
           },
-          "effectId": 1002
+          "effectId": 5001
         },
         {
           "delayMs": 560,
@@ -262,7 +336,7 @@
             "x": 55,
             "y": -110
           },
-          "effectId": 1002
+          "effectId": 5001
         }
       ],
       "removeAfterDeathPresentation": false

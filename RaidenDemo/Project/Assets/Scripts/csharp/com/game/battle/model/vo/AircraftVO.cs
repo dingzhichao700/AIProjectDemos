@@ -19,9 +19,6 @@ internal sealed class AircraftVO : SceneElementVO {
     public readonly AircraftCollisionVO collision;
     public readonly EnemyMotionType motionType;
     public readonly float moveSpeed;
-    public readonly float fireInterval;
-    public readonly EnemyFireType fireType;
-    public readonly BulletConfigVO bulletConfig;
     public readonly int scoreValue;
     public readonly int formationIndex;
     public readonly int formationCount;
@@ -32,7 +29,6 @@ internal sealed class AircraftVO : SceneElementVO {
     public int effectiveLevel => Mathf.Max(1, persistentLevel + stageBonusLevel);
     public int maxHealth { get; private set; }
     public int health { get; private set; }
-    public float fireCooldown;
     public float horizontalDirection = 1f;
     public float motionTime;
     public float originX;
@@ -40,10 +36,7 @@ internal sealed class AircraftVO : SceneElementVO {
     private AircraftVO followTarget;
     private Vector2 followOffset;
     private float followSpeed;
-    private Func<Vector2> targetPositionProvider;
-    private Action<AircraftVO, Vector2, Vector2, BulletConfigVO> projectileRequested;
-    private BulletConfigVO defaultBullet;
-    private Action<AircraftVO, PlayerBulletLauncherVO, int> playerProjectileRequested;
+    private Action<AircraftVO, PlayerBulletLauncherVO, int> projectileRequested;
     private bool firingEnabled;
     private Action playerDefeatPresentationCompleted;
     private Action playerRespawnCompleted;
@@ -65,9 +58,8 @@ internal sealed class AircraftVO : SceneElementVO {
     public AircraftVO(long id, Vector2 position, EnemyClass enemyClass,
         Vector2 size, AircraftCollisionVO collision, int maxHealth,
         EnemyMotionType motionType = EnemyMotionType.STRAIGHT, float moveSpeed = 0f,
-        float fireInterval = 0f, EnemyFireType fireType = EnemyFireType.SINGLE,
         int scoreValue = 0, int formationIndex = 0, int formationCount = 1,
-        float motionDirection = 1f, BulletConfigVO bulletConfig = null,
+        float motionDirection = 1f,
         string appearancePath = null, string semanticName = null)
         : base(id, SceneElementFaction.ENEMY, TimerType.ENEMY, position) {
         this.semanticName = semanticName ?? $"enemyEntity{id}";
@@ -75,17 +67,16 @@ internal sealed class AircraftVO : SceneElementVO {
         this.enemyClass = enemyClass; this.size = size; this.collision = collision;
         this.maxHealth = maxHealth; this.motionType = motionType;
         this.moveSpeed = moveSpeed > 0f ? moveSpeed : BattleConst.EnemyMoveSpeed;
-        this.fireInterval = fireInterval > 0f ? fireInterval : BattleConst.EnemyFireInterval;
-        this.fireType = fireType; this.bulletConfig = bulletConfig;
         this.scoreValue = scoreValue > 0 ? scoreValue : BattleConst.EnemyScore;
         this.formationIndex = formationIndex; this.formationCount = formationCount;
         this.motionDirection = Mathf.Sign(motionDirection);
-        health = maxHealth; fireCooldown = this.fireInterval; originX = position.x;
+        health = maxHealth; originX = position.x; firingEnabled = true;
     }
 
     public override void OnTimeUpdate(float deltaTime) {
         if (faction == SceneElementFaction.ENEMY) {
             UpdateEnemy(deltaTime);
+            UpdateLaunchers(deltaTime);
             return;
         }
         if (followTarget != null && !followTarget.destroyed) {
@@ -100,13 +91,8 @@ internal sealed class AircraftVO : SceneElementVO {
     public void ConfigureFollow(AircraftVO target, Vector2 offset, float speed) {
         followTarget = target; followOffset = offset; followSpeed = Mathf.Max(0f, speed);
     }
-    public void ConfigureEnemyBehavior(Func<Vector2> targetProvider, Action<AircraftVO, Vector2, Vector2, BulletConfigVO> projectileHandler, BulletConfigVO fallbackBullet) {
-        targetPositionProvider = targetProvider;
-        projectileRequested = projectileHandler;
-        defaultBullet = fallbackBullet;
-    }
-    public void ConfigurePlayerFiring(Action<AircraftVO, PlayerBulletLauncherVO, int> handler) {
-        playerProjectileRequested = handler;
+    public void ConfigureFiring(Action<AircraftVO, PlayerBulletLauncherVO, int> handler) {
+        projectileRequested = handler;
     }
     public void SetFiringEnabled(bool enabled) => firingEnabled = enabled;
     public void ConfigurePlayerLifecycle(Action defeatCompleted, Action respawnCompleted) {
@@ -206,45 +192,23 @@ internal sealed class AircraftVO : SceneElementVO {
             float progress = Mathf.Clamp01(motionTime / 2.6f);
             next.x = originX + motionDirection * Mathf.Sin(progress * Mathf.PI) * (130f + Mathf.Abs(member) * 18f);
         } else next.y -= distance;
-        position = next; fireCooldown -= dt;
-        if (fireCooldown <= 0f) { fireCooldown += fireInterval; FireNormal(); }
-    }
-    private void FireNormal() {
-        BulletConfigVO bullet = bulletConfig ?? defaultBullet;
-        if (bullet == null || projectileRequested == null) return;
-        Vector2 origin = position - new Vector2(0f, size.y * 0.5f); float speed = bullet.speed;
-        if (fireType == EnemyFireType.TWIN) {
-            Request(origin + Vector2.left * 24f, new Vector2(0f, -speed), bullet);
-            Request(origin + Vector2.right * 24f, new Vector2(0f, -speed), bullet);
-        } else if (fireType == EnemyFireType.SPREAD) {
-            Request(origin, new Vector2(-130f, -speed), bullet); Request(origin, new Vector2(0f, -speed), bullet); Request(origin, new Vector2(130f, -speed), bullet);
-        } else if (fireType == EnemyFireType.AIMED) {
-            Vector2 direction = (targetPositionProvider?.Invoke() ?? Vector2.zero) - origin;
-            Request(origin, direction.sqrMagnitude > 0f ? direction.normalized * speed : new Vector2(0f, -speed), bullet);
-        } else Request(origin, new Vector2(0f, -speed), bullet);
+        position = next;
     }
     private void UpdateElite(float dt) {
         Vector2 next = position;
         if (next.y > -300f) next += Vector2.down * (BattleConst.EnemyMoveSpeed * dt);
         else { next.x += horizontalDirection * BattleConst.EliteMoveSpeed * dt;
             if (next.x <= size.x * 0.5f || next.x >= 720f - size.x * 0.5f) { horizontalDirection *= -1f; next.x = Mathf.Clamp(next.x, size.x * 0.5f, 720f - size.x * 0.5f); } }
-        position = next; fireCooldown -= dt;
-        if (fireCooldown > 0f || defaultBullet == null) return;
-        fireCooldown += BattleConst.EnemyFireInterval * 0.65f; Vector2 origin = next - new Vector2(0f, size.y * 0.45f);
-        Request(origin, new Vector2(-150f, -defaultBullet.speed), defaultBullet); Request(origin, new Vector2(0f, -defaultBullet.speed), defaultBullet); Request(origin, new Vector2(150f, -defaultBullet.speed), defaultBullet);
+        position = next;
     }
     private void UpdateBoss(float dt) {
         Vector2 next = position;
         if (next.y > -260f) { next.y = Mathf.Max(-260f, next.y - BattleConst.BossMoveSpeed * dt); if (next.y <= -260f) motionTime = 0f; }
         else { motionTime += dt; next.x = originX + Mathf.Sin(motionTime * 0.85f) * 150f; }
-        position = next; fireCooldown -= dt;
-        if (fireCooldown > 0f || defaultBullet == null) return;
-        fireCooldown += BattleConst.EnemyFireInterval * 0.85f; Vector2 origin = next - new Vector2(0f, size.y * 0.42f);
-        for (int i = -2; i <= 2; i++) Request(origin, new Vector2(i * 115f, -defaultBullet.speed), defaultBullet);
+        position = next;
     }
-    private void Request(Vector2 origin, Vector2 velocity, BulletConfigVO bullet) => projectileRequested?.Invoke(this, origin, velocity, bullet);
     private void UpdateLaunchers(float dt) {
-        if (!firingEnabled || playerProjectileRequested == null) return;
+        if (!firingEnabled || projectileRequested == null) return;
         foreach (BulletLauncherVO launcher in bulletLaunchers) {
             launcher.fireCooldown -= dt; UpdatePending(launcher, dt);
             if (launcher.fireCooldown > 0f || launcher.pendingProjectileCount > 0) continue;
@@ -257,7 +221,7 @@ internal sealed class AircraftVO : SceneElementVO {
         if (launcher.pendingProjectileCount <= 0) return;
         launcher.bulletCooldown -= dt; float interval = launcher.config.bulletIntervalMs / 1000f;
         while (launcher.pendingProjectileCount > 0 && launcher.bulletCooldown <= 0f) {
-            playerProjectileRequested(this, launcher.config, launcher.nextProjectileIndex++);
+            projectileRequested(this, launcher.config, launcher.nextProjectileIndex++);
             launcher.pendingProjectileCount--;
             if (interval > 0f) launcher.bulletCooldown += interval;
         }

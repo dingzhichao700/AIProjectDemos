@@ -8,13 +8,11 @@ internal static class BattlePrewarmService {
         RectTransform layer) {
         PrewarmPlayerProjectiles(pool, layer);
         HashSet<int> enemyIds = new HashSet<int>();
-        HashSet<int> bulletIds = new HashSet<int>();
+        HashSet<string> bulletKeys = new HashSet<string>();
         foreach (EnemyWaveVO wave in stage.enemyWaves) {
-            PrewarmEnemy(wave.enemy, enemyIds, bulletIds, pool, layer);
+            PrewarmEnemy(wave.enemy, enemyIds, bulletKeys, pool, layer);
         }
-        PrewarmEnemy(RaidenControl.ins.model.GetEnemyConfig(4), enemyIds, bulletIds,
-            pool, layer);
-        PrewarmEnemy(stage.bossWave.enemy, enemyIds, bulletIds, pool, layer);
+        PrewarmEnemy(stage.bossWave.enemy, enemyIds, bulletKeys, pool, layer);
         foreach (StageItemResource item in CfgManager.tables.StageItemObj.DataList) {
             pool.Prewarm(BattleConst.GetRaidenUnpackImagePath(item.Res), BattleConst.UpgradeDropSize, BattleConst.UpgradeDropPoolCapacity, layer);
         }
@@ -33,22 +31,29 @@ internal static class BattlePrewarmService {
                 continue;
             }
             foreach (PlayerBulletLauncherVO launcher in config.bulletLaunchers) {
-                if (projectilePaths.Add(launcher.projectilePath)) {
-                    pool.Prewarm(launcher.projectilePath, launcher.projectileSize, BattleConst.PlayerProjectilePoolCapacity, layer);
-                }
+                PrewarmBulletType(launcher, projectilePaths, pool, layer);
             }
         }
     }
 
     private static void PrewarmEnemy(EnemyConfigVO enemy, HashSet<int> enemyIds,
-        HashSet<int> bulletIds, BattleVisualPool pool, RectTransform layer) {
+        HashSet<string> bulletKeys, BattleVisualPool pool, RectTransform layer) {
         if (enemy == null || !enemyIds.Add(enemy.id)) {
             return;
         }
         pool.Prewarm(enemy.appearancePath, enemy.displaySize, enemy.poolCapacity, layer);
-        if (bulletIds.Add(enemy.bullet.id)) {
-            pool.Prewarm(enemy.bullet.appearancePath, enemy.bullet.displaySize,
-                enemy.bullet.poolCapacity, layer);
+        foreach (PlayerBulletLauncherVO launcher in enemy.bulletLaunchers) {
+            string key = $"{launcher.bulletType}:{launcher.bulletLevel}";
+            if (bulletKeys.Add(key)) PrewarmBulletType(launcher, bulletKeys, pool, layer);
+        }
+    }
+
+    /**预热同类型从基础等级起的全部静态图片弹体。*/
+    private static void PrewarmBulletType(PlayerBulletLauncherVO launcher, HashSet<string> paths, BattleVisualPool pool, RectTransform layer) {
+        foreach (BulletResource candidate in CfgManager.tables.BulletObj.DataList) {
+            if (candidate.Type != launcher.bulletType || candidate.Level < launcher.bulletLevel || candidate.EffectId > 0) continue;
+            string path = BattleConst.GetRaidenUnpackImagePath(candidate.AppearancePath);
+            if (paths.Add(path)) pool.Prewarm(path, Vector2.one * candidate.CollisionRadius * 2f, BattleConst.PlayerProjectilePoolCapacity, layer);
         }
     }
 }

@@ -1,401 +1,393 @@
 [
   {
-    "id": 1,
-    "code": "enemy_small",
-    "bullet": {
-      "appearanceType": 0,
-      "appearancePath": "bullet/enemy/battleEnemyBullet",
-      "shape": {
-        "$type": "RectangleShape",
-        "rect": {
-          "x": 14,
-          "y": 14
-        },
-        "pivot": {
-          "x": 0.5,
-          "y": 0.5
-        }
-      },
-      "motionType": 0,
-      "rotate": false,
-      "rotationSpeed": 0,
-      "speed": 420,
-      "damage": 12,
-      "hitEffectId": 1,
-      "trackingDelayMs": 0,
-      "trackingTurnSpeed": 0,
-      "launchEffectId": 101
-    },
-    "poolCapacity": 24
+    "id": 1001,
+    "code": "",
+    "type": 1001,
+    "level": 1,
+    "appearancePath": "",
+    "effectId": 1001,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 5,
+    "motionType": 0,
+    "rotationSpeed": 0,
+    "speed": 3150,
+    "damage": 10,
+    "trackingDelayMs": 0,
+    "trackingTurnSpeed": 0
   },
   {
-    "id": 2,
-    "code": "player_vertical_line",
-    "bullet": {
-      "appearanceType": 0,
-      "appearancePath": "bullet/self/battlePlayerLaser",
-      "shape": {
-        "$type": "RectangleShape",
-        "rect": {
-          "x": 14,
-          "y": 120
-        },
-        "pivot": {
-          "x": 0.5,
-          "y": 0.5
-        }
-      },
-      "motionType": 0,
-      "rotate": false,
-      "rotationSpeed": 0,
-      "speed": 3150,
-      "damage": 10,
-      "hitEffectId": 1,
-      "trackingDelayMs": 0,
-      "trackingTurnSpeed": 0,
-      "launchEffectId": 101
-    },
-    "poolCapacity": 12
+    "id": 1002,
+    "code": "",
+    "type": 1001,
+    "level": 2,
+    "appearancePath": "",
+    "effectId": 1002,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 5,
+    "motionType": 0,
+    "rotationSpeed": 0,
+    "speed": 3150,
+    "damage": 10,
+    "trackingDelayMs": 0,
+    "trackingTurnSpeed": 0
   },
   {
-    "id": 3,
-    "code": "player_tracking",
-    "bullet": {
-      "appearanceType": 0,
-      "appearancePath": "bullet/self/bullet_tracking_dart",
-      "shape": {
-        "$type": "RectangleShape",
-        "rect": {
-          "x": 29,
-          "y": 27
-        },
-        "pivot": {
-          "x": 0.5,
-          "y": 0
-        }
-      },
-      "motionType": 1,
-      "rotate": false,
-      "rotationSpeed": 0,
-      "speed": 624,
-      "damage": 10,
-      "hitEffectId": 2,
-      "trackingDelayMs": 300,
-      "trackingTurnSpeed": 180,
-      "launchEffectId": 101
-    },
-    "poolCapacity": 12
+    "id": 1003,
+    "code": "",
+    "type": 1003,
+    "level": 1,
+    "appearancePath": "",
+    "effectId": 1003,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 5,
+    "motionType": 0,
+    "rotationSpeed": 0,
+    "speed": 3150,
+    "damage": 10,
+    "trackingDelayMs": 0,
+    "trackingTurnSpeed": 0
   },
   {
-    "id": 4,
-    "code": "player_straight_diamond",
-    "bullet": {
-      "appearanceType": 0,
-      "appearancePath": "bullet/self/bullet_straight_light_diamond",
-      "shape": {
-        "$type": "RectangleShape",
-        "rect": {
-          "x": 12,
-          "y": 40
-        },
-        "pivot": {
-          "x": 0.5,
-          "y": 0.5
-        }
-      },
-      "motionType": 0,
-      "rotate": false,
-      "rotationSpeed": 0,
-      "speed": 1350,
-      "damage": 10,
-      "hitEffectId": 4,
-      "trackingDelayMs": 0,
-      "trackingTurnSpeed": 0,
-      "launchEffectId": 101
-    },
-    "poolCapacity": 12
+    "id": 1004,
+    "code": "",
+    "type": 1003,
+    "level": 2,
+    "appearancePath": "",
+    "effectId": 1004,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 5,
+    "motionType": 0,
+    "rotationSpeed": 0,
+    "speed": 3150,
+    "damage": 10,
+    "trackingDelayMs": 0,
+    "trackingTurnSpeed": 0
   },
   {
-    "id": 5,
-    "code": "player_straight_heavy_beam",
-    "bullet": {
-      "appearanceType": 0,
-      "appearancePath": "bullet/self/bullet_straight_light_heavy_beam",
-      "shape": {
-        "$type": "RectangleShape",
-        "rect": {
-          "x": 14,
-          "y": 72
-        },
-        "pivot": {
-          "x": 0.5,
-          "y": 0.5
-        }
-      },
-      "motionType": 0,
-      "rotate": false,
-      "rotationSpeed": 0,
-      "speed": 1200,
-      "damage": 18,
-      "hitEffectId": 1,
-      "trackingDelayMs": 0,
-      "trackingTurnSpeed": 0,
-      "launchEffectId": 101
-    },
-    "poolCapacity": 10
+    "id": 1005,
+    "code": "",
+    "type": 1005,
+    "level": 1,
+    "appearancePath": "",
+    "effectId": 1005,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 5,
+    "motionType": 0,
+    "rotationSpeed": 0,
+    "speed": 3150,
+    "damage": 10,
+    "trackingDelayMs": 0,
+    "trackingTurnSpeed": 0
   },
   {
-    "id": 6,
-    "code": "player_straight_long_shuttle",
-    "bullet": {
-      "appearanceType": 0,
-      "appearancePath": "bullet/self/bullet_straight_light_long_shuttle",
-      "shape": {
-        "$type": "RectangleShape",
-        "rect": {
-          "x": 18,
-          "y": 50
-        },
-        "pivot": {
-          "x": 0.5,
-          "y": 0.5
-        }
-      },
-      "motionType": 0,
-      "rotate": false,
-      "rotationSpeed": 0,
-      "speed": 2700,
-      "damage": 14,
-      "hitEffectId": 4,
-      "trackingDelayMs": 0,
-      "trackingTurnSpeed": 0,
-      "launchEffectId": 101
-    },
-    "poolCapacity": 12
+    "id": 1006,
+    "code": "",
+    "type": 1005,
+    "level": 2,
+    "appearancePath": "",
+    "effectId": 1006,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 5,
+    "motionType": 0,
+    "rotationSpeed": 0,
+    "speed": 3150,
+    "damage": 10,
+    "trackingDelayMs": 0,
+    "trackingTurnSpeed": 0
   },
   {
-    "id": 7,
-    "code": "player_straight_needle",
-    "bullet": {
-      "appearanceType": 0,
-      "appearancePath": "bullet/self/bullet_straight_light_needle",
-      "shape": {
-        "$type": "RectangleShape",
-        "rect": {
-          "x": 8,
-          "y": 28
-        },
-        "pivot": {
-          "x": 0.5,
-          "y": 0.5
-        }
-      },
-      "motionType": 0,
-      "rotate": false,
-      "rotationSpeed": 0,
-      "speed": 1725,
-      "damage": 8,
-      "hitEffectId": 1,
-      "trackingDelayMs": 0,
-      "trackingTurnSpeed": 0,
-      "launchEffectId": 101
-    },
-    "poolCapacity": 16
+    "id": 1007,
+    "code": "",
+    "type": 1007,
+    "level": 1,
+    "appearancePath": "",
+    "effectId": 1007,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 5,
+    "motionType": 0,
+    "rotationSpeed": 0,
+    "speed": 3150,
+    "damage": 10,
+    "trackingDelayMs": 0,
+    "trackingTurnSpeed": 0
   },
   {
-    "id": 8,
-    "code": "player_straight_short_shuttle",
-    "bullet": {
-      "appearanceType": 0,
-      "appearancePath": "bullet/self/bullet_straight_light_short_shuttle",
-      "shape": {
-        "$type": "RectangleShape",
-        "rect": {
-          "x": 14,
-          "y": 36
-        },
-        "pivot": {
-          "x": 0.5,
-          "y": 0.5
-        }
-      },
-      "motionType": 0,
-      "rotate": false,
-      "rotationSpeed": 0,
-      "speed": 1500,
-      "damage": 10,
-      "hitEffectId": 1,
-      "trackingDelayMs": 0,
-      "trackingTurnSpeed": 0,
-      "launchEffectId": 101
-    },
-    "poolCapacity": 14
+    "id": 1008,
+    "code": "",
+    "type": 1007,
+    "level": 2,
+    "appearancePath": "",
+    "effectId": 1008,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 5,
+    "motionType": 0,
+    "rotationSpeed": 0,
+    "speed": 3150,
+    "damage": 10,
+    "trackingDelayMs": 0,
+    "trackingTurnSpeed": 0
   },
   {
-    "id": 9,
-    "code": "player_straight_twin_core",
-    "bullet": {
-      "appearanceType": 0,
-      "appearancePath": "bullet/self/bullet_straight_light_twin_core",
-      "shape": {
-        "$type": "RectangleShape",
-        "rect": {
-          "x": 14,
-          "y": 42
-        },
-        "pivot": {
-          "x": 0.5,
-          "y": 0.5
-        }
-      },
-      "motionType": 0,
-      "rotate": false,
-      "rotationSpeed": 0,
-      "speed": 1425,
-      "damage": 12,
-      "hitEffectId": 1,
-      "trackingDelayMs": 0,
-      "trackingTurnSpeed": 0,
-      "launchEffectId": 101
-    },
-    "poolCapacity": 12
+    "id": 1051,
+    "code": "",
+    "type": 1051,
+    "level": 1,
+    "appearancePath": "",
+    "effectId": 1051,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 5,
+    "motionType": 0,
+    "rotationSpeed": 0,
+    "speed": 3150,
+    "damage": 10,
+    "trackingDelayMs": 0,
+    "trackingTurnSpeed": 0
   },
   {
-    "id": 10,
+    "id": 1201,
+    "code": "",
+    "type": 1201,
+    "level": 1,
+    "appearancePath": "",
+    "effectId": 1201,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 5,
+    "motionType": 0,
+    "rotationSpeed": 0,
+    "speed": 3150,
+    "damage": 10,
+    "trackingDelayMs": 0,
+    "trackingTurnSpeed": 0
+  },
+  {
+    "id": 2001,
     "code": "player_tracking_dart",
-    "bullet": {
-      "appearanceType": 0,
-      "appearancePath": "bullet/self/bullet_tracking_dart",
-      "shape": {
-        "$type": "RectangleShape",
-        "rect": {
-          "x": 29,
-          "y": 27
-        },
-        "pivot": {
-          "x": 0.5,
-          "y": 0
-        }
-      },
-      "motionType": 1,
-      "rotate": false,
-      "rotationSpeed": 0,
-      "speed": 560,
-      "damage": 14,
-      "hitEffectId": 2,
-      "trackingDelayMs": 300,
-      "trackingTurnSpeed": 180,
-      "launchEffectId": 101
-    },
-    "poolCapacity": 12
+    "type": 2001,
+    "level": 1,
+    "appearancePath": "bullet/self/bullet_tracking_dart",
+    "effectId": 0,
+    "launchEffectId": 1,
+    "hitEffectId": 2003,
+    "collisionRadius": 14,
+    "motionType": 1,
+    "rotationSpeed": 0,
+    "speed": 560,
+    "damage": 14,
+    "trackingDelayMs": 300,
+    "trackingTurnSpeed": 180
   },
   {
-    "id": 11,
+    "id": 2002,
     "code": "player_tracking_micro",
-    "bullet": {
-      "appearanceType": 0,
-      "appearancePath": "bullet/self/bullet_tracking_micro",
-      "shape": {
-        "$type": "RectangleShape",
-        "rect": {
-          "x": 7,
-          "y": 16
-        },
-        "pivot": {
-          "x": 0.5,
-          "y": 0
-        }
-      },
-      "motionType": 1,
-      "rotate": false,
-      "rotationSpeed": 0,
-      "speed": 650,
-      "damage": 8,
-      "hitEffectId": 2,
-      "trackingDelayMs": 250,
-      "trackingTurnSpeed": 240,
-      "launchEffectId": 101
-    },
-    "poolCapacity": 16
+    "type": 2002,
+    "level": 1,
+    "appearancePath": "bullet/self/bullet_tracking_micro",
+    "effectId": 0,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 3,
+    "motionType": 1,
+    "rotationSpeed": 0,
+    "speed": 650,
+    "damage": 8,
+    "trackingDelayMs": 250,
+    "trackingTurnSpeed": 240
   },
   {
-    "id": 12,
+    "id": 2003,
     "code": "player_tracking_missile_standard",
-    "bullet": {
-      "appearanceType": 0,
-      "appearancePath": "bullet/self/bullet_tracking_missile_standard",
-      "shape": {
-        "$type": "RectangleShape",
-        "rect": {
-          "x": 17,
-          "y": 34
-        },
-        "pivot": {
-          "x": 0.5,
-          "y": 0
-        }
-      },
-      "motionType": 1,
-      "rotate": false,
-      "rotationSpeed": 0,
-      "speed": 520,
-      "damage": 16,
-      "hitEffectId": 2,
-      "trackingDelayMs": 300,
-      "trackingTurnSpeed": 180,
-      "launchEffectId": 101
-    },
-    "poolCapacity": 12
+    "type": 2003,
+    "level": 1,
+    "appearancePath": "bullet/self/bullet_tracking_missile_standard",
+    "effectId": 0,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 8,
+    "motionType": 1,
+    "rotationSpeed": 0,
+    "speed": 520,
+    "damage": 16,
+    "trackingDelayMs": 300,
+    "trackingTurnSpeed": 180
   },
   {
-    "id": 13,
+    "id": 2004,
     "code": "player_tracking_torpedo_deep_sea",
-    "bullet": {
-      "appearanceType": 0,
-      "appearancePath": "bullet/self/bullet_tracking_torpedo_deep_sea",
-      "shape": {
-        "$type": "CircleShape",
-        "radius": 24
-      },
-      "motionType": 1,
-      "rotate": false,
-      "rotationSpeed": 0,
-      "speed": 360,
-      "damage": 28,
-      "hitEffectId": 2,
-      "trackingDelayMs": 450,
-      "trackingTurnSpeed": 90,
-      "launchEffectId": 101
-    },
-    "poolCapacity": 8
+    "type": 2004,
+    "level": 1,
+    "appearancePath": "bullet/self/bullet_tracking_torpedo_deep_sea",
+    "effectId": 0,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 24,
+    "motionType": 1,
+    "rotationSpeed": 0,
+    "speed": 360,
+    "damage": 28,
+    "trackingDelayMs": 450,
+    "trackingTurnSpeed": 90
   },
   {
-    "id": 14,
+    "id": 2005,
     "code": "player_tracking_torpedo_heavy",
-    "bullet": {
-      "appearanceType": 0,
-      "appearancePath": "bullet/self/bullet_tracking_torpedo_heavy",
-      "shape": {
-        "$type": "RectangleShape",
-        "rect": {
-          "x": 20,
-          "y": 47
-        },
-        "pivot": {
-          "x": 0.5,
-          "y": 0
-        }
-      },
-      "motionType": 1,
-      "rotate": false,
-      "rotationSpeed": 0,
-      "speed": 420,
-      "damage": 24,
-      "hitEffectId": 2,
-      "trackingDelayMs": 400,
-      "trackingTurnSpeed": 120,
-      "launchEffectId": 101
-    },
-    "poolCapacity": 8
+    "type": 2005,
+    "level": 1,
+    "appearancePath": "bullet/self/bullet_tracking_torpedo_heavy",
+    "effectId": 0,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 10,
+    "motionType": 1,
+    "rotationSpeed": 10,
+    "speed": 420,
+    "damage": 24,
+    "trackingDelayMs": 400,
+    "trackingTurnSpeed": 120
+  },
+  {
+    "id": 11001,
+    "code": "",
+    "type": 11001,
+    "level": 1,
+    "appearancePath": "bullet/enemy/battleEnemyBullet",
+    "effectId": 0,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 5,
+    "motionType": 0,
+    "rotationSpeed": 0,
+    "speed": 420,
+    "damage": 12,
+    "trackingDelayMs": 0,
+    "trackingTurnSpeed": 0
+  },
+  {
+    "id": 12001,
+    "code": "",
+    "type": 12001,
+    "level": 1,
+    "appearancePath": "",
+    "effectId": 1801,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 10,
+    "motionType": 0,
+    "rotationSpeed": 0,
+    "speed": 420,
+    "damage": 10,
+    "trackingDelayMs": 0,
+    "trackingTurnSpeed": 0
+  },
+  {
+    "id": 12002,
+    "code": "",
+    "type": 12002,
+    "level": 1,
+    "appearancePath": "",
+    "effectId": 1802,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 10,
+    "motionType": 0,
+    "rotationSpeed": 0,
+    "speed": 420,
+    "damage": 10,
+    "trackingDelayMs": 0,
+    "trackingTurnSpeed": 0
+  },
+  {
+    "id": 12003,
+    "code": "",
+    "type": 12003,
+    "level": 1,
+    "appearancePath": "",
+    "effectId": 1803,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 10,
+    "motionType": 0,
+    "rotationSpeed": 0,
+    "speed": 420,
+    "damage": 10,
+    "trackingDelayMs": 0,
+    "trackingTurnSpeed": 0
+  },
+  {
+    "id": 12004,
+    "code": "",
+    "type": 12004,
+    "level": 1,
+    "appearancePath": "",
+    "effectId": 1804,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 10,
+    "motionType": 0,
+    "rotationSpeed": 0,
+    "speed": 420,
+    "damage": 10,
+    "trackingDelayMs": 0,
+    "trackingTurnSpeed": 0
+  },
+  {
+    "id": 12005,
+    "code": "",
+    "type": 12005,
+    "level": 1,
+    "appearancePath": "",
+    "effectId": 1805,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 10,
+    "motionType": 0,
+    "rotationSpeed": 0,
+    "speed": 420,
+    "damage": 10,
+    "trackingDelayMs": 0,
+    "trackingTurnSpeed": 0
+  },
+  {
+    "id": 12006,
+    "code": "",
+    "type": 12006,
+    "level": 1,
+    "appearancePath": "",
+    "effectId": 1806,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 20,
+    "motionType": 0,
+    "rotationSpeed": 0,
+    "speed": 320,
+    "damage": 10,
+    "trackingDelayMs": 0,
+    "trackingTurnSpeed": 0
+  },
+  {
+    "id": 12007,
+    "code": "",
+    "type": 12007,
+    "level": 1,
+    "appearancePath": "",
+    "effectId": 1807,
+    "launchEffectId": 1,
+    "hitEffectId": 2007,
+    "collisionRadius": 10,
+    "motionType": 0,
+    "rotationSpeed": 0,
+    "speed": 420,
+    "damage": 10,
+    "trackingDelayMs": 0,
+    "trackingTurnSpeed": 0
   }
 ]

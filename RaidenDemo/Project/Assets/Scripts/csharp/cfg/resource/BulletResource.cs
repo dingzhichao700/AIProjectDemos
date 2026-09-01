@@ -19,8 +19,19 @@ public sealed partial class BulletResource : Luban.BeanBase
     {
         { if(!_buf["id"].IsNumber) { throw new SerializationException(); }  Id = _buf["id"]; }
         { if(!_buf["code"].IsString) { throw new SerializationException(); }  Code = _buf["code"]; }
-        { if(!_buf["bullet"].IsObject) { throw new SerializationException(); }  Bullet = global::cfg.Bullet.DeserializeBullet(_buf["bullet"]);  }
-        { if(!_buf["poolCapacity"].IsNumber) { throw new SerializationException(); }  PoolCapacity = _buf["poolCapacity"]; }
+        { if(!_buf["type"].IsNumber) { throw new SerializationException(); }  Type = _buf["type"]; }
+        { if(!_buf["level"].IsNumber) { throw new SerializationException(); }  Level = _buf["level"]; }
+        { if(!_buf["appearancePath"].IsString) { throw new SerializationException(); }  AppearancePath = _buf["appearancePath"]; }
+        { if(!_buf["effectId"].IsNumber) { throw new SerializationException(); }  EffectId = _buf["effectId"]; }
+        { if(!_buf["launchEffectId"].IsNumber) { throw new SerializationException(); }  LaunchEffectId = _buf["launchEffectId"]; }
+        { if(!_buf["hitEffectId"].IsNumber) { throw new SerializationException(); }  HitEffectId = _buf["hitEffectId"]; }
+        { if(!_buf["collisionRadius"].IsNumber) { throw new SerializationException(); }  CollisionRadius = _buf["collisionRadius"]; }
+        { if(!_buf["motionType"].IsNumber) { throw new SerializationException(); }  MotionType = (BulletMotionType)_buf["motionType"].AsInt; }
+        { if(!_buf["rotationSpeed"].IsNumber) { throw new SerializationException(); }  RotationSpeed = _buf["rotationSpeed"]; }
+        { if(!_buf["speed"].IsNumber) { throw new SerializationException(); }  Speed = _buf["speed"]; }
+        { if(!_buf["damage"].IsNumber) { throw new SerializationException(); }  Damage = _buf["damage"]; }
+        { if(!_buf["trackingDelayMs"].IsNumber) { throw new SerializationException(); }  TrackingDelayMs = _buf["trackingDelayMs"]; }
+        { if(!_buf["trackingTurnSpeed"].IsNumber) { throw new SerializationException(); }  TrackingTurnSpeed = _buf["trackingTurnSpeed"]; }
     }
 
     public static BulletResource DeserializeBulletResource(JSONNode _buf)
@@ -37,20 +48,63 @@ public sealed partial class BulletResource : Luban.BeanBase
     /// </summary>
     public readonly string Code;
     /// <summary>
-    /// 子弹本体
+    /// 子弹类型
     /// </summary>
-    public readonly Bullet Bullet;
+    public readonly int Type;
     /// <summary>
-    /// 对象池容量
+    /// 子弹等级
     /// </summary>
-    public readonly int PoolCapacity;
+    public readonly int Level;
+    /// <summary>
+    /// 图片外观资源相对路径
+    /// </summary>
+    public readonly string AppearancePath;
+    /// <summary>
+    /// 弹体特效ID
+    /// </summary>
+    public readonly int EffectId;
+    /// <summary>
+    /// 发射特效ID
+    /// </summary>
+    public readonly int LaunchEffectId;
+    /// <summary>
+    /// 命中特效ID
+    /// </summary>
+    public readonly int HitEffectId;
+    /// <summary>
+    /// 碰撞半径
+    /// </summary>
+    public readonly int CollisionRadius;
+    /// <summary>
+    /// 行动方式
+    /// </summary>
+    public readonly BulletMotionType MotionType;
+    /// <summary>
+    /// 自转速度
+    /// </summary>
+    public readonly int RotationSpeed;
+    /// <summary>
+    /// 飞行速度
+    /// </summary>
+    public readonly int Speed;
+    /// <summary>
+    /// 伤害
+    /// </summary>
+    public readonly int Damage;
+    /// <summary>
+    /// 跟踪锁定延迟（毫秒）
+    /// </summary>
+    public readonly int TrackingDelayMs;
+    /// <summary>
+    /// 跟踪转向速度（度/秒）
+    /// </summary>
+    public readonly int TrackingTurnSpeed;
    
     public const int __ID__ = -566612688;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        Bullet?.ResolveRef(tables);
     }
 
     public override string ToString()
@@ -58,8 +112,19 @@ public sealed partial class BulletResource : Luban.BeanBase
         return "{ "
         + "id:" + Id + ","
         + "code:" + Code + ","
-        + "bullet:" + Bullet + ","
-        + "poolCapacity:" + PoolCapacity + ","
+        + "type:" + Type + ","
+        + "level:" + Level + ","
+        + "appearancePath:" + AppearancePath + ","
+        + "effectId:" + EffectId + ","
+        + "launchEffectId:" + LaunchEffectId + ","
+        + "hitEffectId:" + HitEffectId + ","
+        + "collisionRadius:" + CollisionRadius + ","
+        + "motionType:" + MotionType + ","
+        + "rotationSpeed:" + RotationSpeed + ","
+        + "speed:" + Speed + ","
+        + "damage:" + Damage + ","
+        + "trackingDelayMs:" + TrackingDelayMs + ","
+        + "trackingTurnSpeed:" + TrackingTurnSpeed + ","
         + "}";
     }
 }

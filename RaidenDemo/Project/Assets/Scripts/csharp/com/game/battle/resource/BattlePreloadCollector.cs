@@ -40,7 +40,7 @@ public static class BattlePreloadCollector {
             AddAircraftResources(preload, resourceKeys, levelConfig.Aircraft);
         }
 
-        HashSet<int> enemyIds = new HashSet<int> { 4 };
+        HashSet<int> enemyIds = new HashSet<int>();
         foreach (int waveId in stage.WaveIds) {
             StageWaveResource wave = CfgManager.tables.StageWaveObj.GetOrDefault(waveId);
             if (wave == null) {
@@ -63,7 +63,6 @@ public static class BattlePreloadCollector {
                 throw new InvalidOperationException($"关卡 {stageId} 引用了不存在的敌机 {enemyId}");
             }
             AddAircraftResources(preload, resourceKeys, enemy.Aircraft);
-            AddBulletResources(preload, resourceKeys, enemy.BulletId);
         }
         return preload;
     }
@@ -115,33 +114,51 @@ public static class BattlePreloadCollector {
             BattleConst.GetRaidenUnpackImagePath(aircraft.AppearanceName),
             ResType.UnpackImage);
         foreach (BulletLauncher launcher in aircraft.BulletLaunchers) {
-            AddBulletResources(preload, resourceKeys, launcher.BulletId);
+            AddBulletTypeResources(preload, resourceKeys, launcher.BulletType, launcher.BulletLevel);
         }
         foreach (ExplosionEffect explosion in aircraft.DeathExplosions) {
             AddEffectResource(preload, resourceKeys, explosion.EffectId);
         }
     }
+
+    /**收集同类型从基础等级起可能被动态升级使用的全部子弹资源。*/
+    private static void AddBulletTypeResources(List<ResLoadInfo> preload, HashSet<string> resourceKeys, int bulletType, int baseLevel) {
+        bool found = false;
+        foreach (BulletResource candidate in CfgManager.tables.BulletObj.DataList) {
+            if (candidate.Type != bulletType || candidate.Level < baseLevel) continue;
+            found = true;
+            AddBulletResources(preload, resourceKeys, candidate.Type, candidate.Level);
+        }
+        if (!found) throw new InvalidOperationException($"子弹配置 type={bulletType}, level>={baseLevel} 不存在");
+    }
     
     /**收集子弹外观、命中特效及发射特效资源*/
     private static void AddBulletResources(List<ResLoadInfo> preload,
-        HashSet<string> resourceKeys, int bulletId) {
-        BulletResource bulletConfig = CfgManager.tables.BulletObj.GetOrDefault(bulletId);
+        HashSet<string> resourceKeys, int bulletType, int bulletLevel) {
+        BulletResource bulletConfig = ResolveBullet(bulletType, bulletLevel);
         if (bulletConfig == null) {
-            throw new InvalidOperationException($"子弹配置 {bulletId} 不存在");
+            throw new InvalidOperationException($"子弹配置 type={bulletType}, level={bulletLevel} 不存在");
         }
-        Bullet bullet = bulletConfig.Bullet;
-        if (bullet.AppearanceType == BulletAppearanceType.FRAME_ANIMATION) {
-            RequireResourcePrefix(bullet.AppearancePath, BattleConst.BulletBodyEffectPrefix, $"子弹 {bulletId} 帧动画外观");
-            AddPreloadResource(preload, resourceKeys,
-                ResourceConst.GetFrameAnimationPath(BattleConst.BulletFrameAnimationDirectory + bullet.AppearancePath),
-                ResType.FrameAnim);
+        if (bulletConfig.EffectId > 0) {
+            AddEffectResource(preload, resourceKeys, bulletConfig.EffectId, EffectType.BULLET);
         } else {
             AddPreloadResource(preload, resourceKeys,
-                BattleConst.GetRaidenUnpackImagePath(bullet.AppearancePath),
+                BattleConst.GetRaidenUnpackImagePath(bulletConfig.AppearancePath),
                 ResType.UnpackImage);
         }
-        AddEffectResource(preload, resourceKeys, bullet.HitEffectId, EffectType.BULLET_HIT);
-        AddEffectResource(preload, resourceKeys, bullet.LaunchEffectId, EffectType.BULLET_LAUNCH);
+        AddEffectResource(preload, resourceKeys, bulletConfig.HitEffectId, EffectType.BULLET_HIT);
+        AddEffectResource(preload, resourceKeys, bulletConfig.LaunchEffectId, EffectType.BULLET_LAUNCH);
+    }
+
+    /**按类型与等级读取同类型中不高于请求等级的最高配置。*/
+    private static BulletResource ResolveBullet(int bulletType, int bulletLevel) {
+        BulletResource result = null;
+        foreach (BulletResource candidate in CfgManager.tables.BulletObj.DataList) {
+            if (candidate.Type == bulletType && candidate.Level <= bulletLevel && (result == null || candidate.Level > result.Level)) {
+                result = candidate;
+            }
+        }
+        return result;
     }
     
     /**按特效配置收集帧动画资源*/
@@ -170,6 +187,9 @@ public static class BattlePreloadCollector {
                 break;
             case EffectType.BULLET_LAUNCH:
                 RequireResourcePrefix(effect.Res, BattleConst.BulletLaunchEffectPrefix, $"子弹发射特效 {effect.Id}");
+                typeDirectory = "bullet";
+                break;
+            case EffectType.BULLET:
                 typeDirectory = "bullet";
                 break;
             case EffectType.AIRCRAFT_EXPLOSION:

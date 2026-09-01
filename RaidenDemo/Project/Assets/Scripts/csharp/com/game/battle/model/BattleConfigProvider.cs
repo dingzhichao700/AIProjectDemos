@@ -21,14 +21,6 @@ internal sealed class BattleConfigProvider {
         return new BattleSceneBackgroundVO(config.BackgroundRes, config.BackgroundScrollSpeed, config.LowRes, config.LowScrollSpeed, config.MiddleRes, config.MiddleScrollSpeed, config.HighRes, config.HighScrollSpeed);
     }
 
-    public EnemyConfigVO GetEliteEnemy() {
-        return RaidenControl.ins.model.GetEnemyConfig(4);
-    }
-
-    public BulletConfigVO GetDefaultEnemyBullet() {
-        return RaidenControl.ins.model.GetBulletConfig(1);
-    }
-
     public PlayerAircraftVO GetSelectedPlayerAircraft() {
         return RaidenControl.ins.GetSelectedPlayerAircraft();
     }

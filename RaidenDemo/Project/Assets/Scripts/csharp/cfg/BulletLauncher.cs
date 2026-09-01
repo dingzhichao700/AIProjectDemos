@@ -21,7 +21,8 @@ public sealed partial class BulletLauncher : Luban.BeanBase
     public BulletLauncher(JSONNode _buf) 
     {
         { if(!_buf["offset"].IsObject) { throw new SerializationException(); }  Offset = global::cfg.vector2.Deserializevector2(_buf["offset"]);  }
-        { if(!_buf["bulletId"].IsNumber) { throw new SerializationException(); }  BulletId = _buf["bulletId"]; }
+        { if(!_buf["bulletType"].IsNumber) { throw new SerializationException(); }  BulletType = _buf["bulletType"]; }
+        { if(!_buf["bulletLevel"].IsNumber) { throw new SerializationException(); }  BulletLevel = _buf["bulletLevel"]; }
         { if(!_buf["bulletCount"].IsNumber) { throw new SerializationException(); }  BulletCount = _buf["bulletCount"]; }
         { if(!_buf["fireIntervalMs"].IsNumber) { throw new SerializationException(); }  FireIntervalMs = _buf["fireIntervalMs"]; }
         { if(!_buf["bulletIntervalMs"].IsNumber) { throw new SerializationException(); }  BulletIntervalMs = _buf["bulletIntervalMs"]; }
@@ -40,9 +41,13 @@ public sealed partial class BulletLauncher : Luban.BeanBase
     /// </summary>
     public readonly vector2 Offset;
     /// <summary>
-    /// 生成的子弹类型ID
+    /// 生成子弹的类型
     /// </summary>
-    public readonly int BulletId;
+    public readonly int BulletType;
+    /// <summary>
+    /// 生成子弹的基础等级
+    /// </summary>
+    public readonly int BulletLevel;
     /// <summary>
     /// 每轮发射生成的子弹数量
     /// </summary>
@@ -79,7 +84,8 @@ public sealed partial class BulletLauncher : Luban.BeanBase
     {
         return "{ "
         + "offset:" + Offset + ","
-        + "bulletId:" + BulletId + ","
+        + "bulletType:" + BulletType + ","
+        + "bulletLevel:" + BulletLevel + ","
         + "bulletCount:" + BulletCount + ","
         + "fireIntervalMs:" + FireIntervalMs + ","
         + "bulletIntervalMs:" + BulletIntervalMs + ","
