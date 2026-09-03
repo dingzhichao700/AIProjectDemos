@@ -87,6 +87,7 @@ internal sealed class BattleEventPresenter {
 
     public void Clear() {
         healthFeedbackRemaining = 0f;
+        hudPresenter.ClearFloatingTexts();
         hudPresenter.ResetFeedbackColors();
     }
 
@@ -96,6 +97,7 @@ internal sealed class BattleEventPresenter {
         }
         backgroundPresenter.Update(deltaTime);
         scenePresenter.SyncSceneViews();
+        hudPresenter.UpdateFloatingTexts(deltaTime);
         UpdateHealthFeedback(deltaTime);
     }
 
@@ -127,20 +129,23 @@ internal sealed class BattleEventPresenter {
     }
 
     private void OnRewardCollected(RewardVO reward, int healed) {
-        if (reward.type == StageItemType.HEALTH) {
+        scenePresenter.PlayRewardPickup(reward, () => model.RemoveReward(reward));
+        Vector2 floatingTextPosition = formationPresenter.player != null ? formationPresenter.player.position + BattleConst.RewardFloatingTextPlayerOffset : reward.position;
+        hudPresenter.PlayFloatingText(floatingTextPosition, reward.pickupText);
+        if (reward.type == StageItemEffectType.HEALTH) {
             if (healed > 0 && hudPresenter.playerHealthText != null) {
                 hudPresenter.playerHealthText.color = new Color32(80, 255, 120, 255);
                 healthFeedbackRemaining = 0.65f;
             }
             return;
         }
-        if (reward.type == StageItemType.PLAYER_UPGRADE) {
+        if (reward.type == StageItemEffectType.PLAYER_UPGRADE) {
             if (playerConfig.TryGetUpgradeLevel(out int targetLevel)) {
                 playerPresenter.BeginUpgrade(formationPresenter.player, targetLevel);
             }
             return;
         }
-        if (reward.type == StageItemType.WINGMAN_UPGRADE) {
+        if (reward.type == StageItemEffectType.ADD_WINGMAN) {
             formationPresenter.ApplyWingmanReward();
             return;
         }

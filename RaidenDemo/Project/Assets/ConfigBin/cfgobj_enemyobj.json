@@ -202,7 +202,7 @@
           }
         }
       ],
-      "health": 1600,
+      "health": 1000,
       "moveSpeed": 90,
       "bulletLaunchers": [
         {
@@ -224,10 +224,34 @@
         {
           "delayMs": 0,
           "position": {
+            "x": -45,
+            "y": 25
+          },
+          "effectId": 5001
+        },
+        {
+          "delayMs": 120,
+          "position": {
+            "x": 40,
+            "y": -10
+          },
+          "effectId": 5001
+        },
+        {
+          "delayMs": 240,
+          "position": {
+            "x": -20,
+            "y": -45
+          },
+          "effectId": 5001
+        },
+        {
+          "delayMs": 750,
+          "position": {
             "x": 0,
             "y": 0
           },
-          "effectId": 5001
+          "effectId": 5101
         }
       ],
       "removeAfterDeathPresentation": true
@@ -279,7 +303,7 @@
           }
         }
       ],
-      "health": 10000,
+      "health": 2000,
       "moveSpeed": 70,
       "bulletLaunchers": [
         {
@@ -304,39 +328,47 @@
             "x": 0,
             "y": 40
           },
-          "effectId": 5001
+          "effectId": 5101
         },
         {
-          "delayMs": 140,
+          "delayMs": 150,
           "position": {
             "x": -85,
             "y": 0
           },
-          "effectId": 5001
+          "effectId": 5101
         },
         {
-          "delayMs": 280,
+          "delayMs": 300,
           "position": {
             "x": 80,
             "y": -20
           },
-          "effectId": 5001
+          "effectId": 5101
         },
         {
-          "delayMs": 420,
+          "delayMs": 450,
           "position": {
             "x": -45,
             "y": -90
           },
-          "effectId": 5001
+          "effectId": 5101
         },
         {
-          "delayMs": 560,
+          "delayMs": 600,
           "position": {
             "x": 55,
             "y": -110
           },
-          "effectId": 5001
+          "effectId": 5101
+        },
+        {
+          "delayMs": 1100,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "effectId": 5301
         }
       ],
       "removeAfterDeathPresentation": false

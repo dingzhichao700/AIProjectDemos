@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -76,6 +77,18 @@ internal sealed class BattleScenePresenter {
                 continue;
             }
             view.anchoredPosition = reward.position;
+            RectTransform icon = view.Find("imgVisual") as RectTransform;
+            RectTransform visual = icon != null ? icon : view;
+            visual.gameObject.SetActive(!reward.isCollected);
+            if (reward.isCollected) {
+                continue;
+            }
+            Image image = visual.GetComponent<Image>();
+            if (image != null) {
+                Color color = image.color;
+                color.a = reward.iconAlpha;
+                image.color = color;
+            }
         }
     }
 
@@ -148,7 +161,7 @@ internal sealed class BattleScenePresenter {
         views.RemoveEnemy(enemy.id);
         views.RemoveEliteHealthBar(enemy.id)?.Dispose();
         if (defeated && root != null) {
-            effects.PlayAircraftDeath(root, enemy, false, enemy.isBoss ? model.NotifyBossDeathPresentationCompleted : null);
+            effects.PlayAircraftDeath(root, enemy, false, () => model.StopEnemyDeathMovement(enemy), enemy.isBoss ? model.NotifyBossDeathPresentationCompleted : null);
         } else {
             visualPool.Recycle(root);
             if (defeated && enemy.isBoss) {
@@ -201,6 +214,19 @@ internal sealed class BattleScenePresenter {
         RectTransform view = visualPool.Create("rewardDrop", effectLayer, BattleConst.UpgradeDropSize, reward.position, reward.resPath);
         views.BindReward(reward.id, view);
         views.BindRewardEffect(reward.id, effects.PlayRewardLoop(reward.effectId, view));
+    }
+
+    /**隐藏已拾取道具图标，并让拾取特效跟随道具继续移动。*/
+    public void PlayRewardPickup(RewardVO reward, Action completed) {
+        RectTransform view = views.GetReward(reward.id);
+        if (view == null) {
+            completed?.Invoke();
+            return;
+        }
+        RectTransform icon = view.Find("imgVisual") as RectTransform;
+        (icon != null ? icon.gameObject : view.gameObject).SetActive(false);
+        views.RemoveRewardEffect(reward.id)?.Destroy();
+        effects.PlayRewardPickup(view, completed);
     }
 
     private void OnRewardRemoved(long id) {

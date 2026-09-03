@@ -30,6 +30,7 @@ internal sealed class BattleVisualPool {
         root.gameObject.SetActive(true);
         SetupRect(root, parent, size, position, new Vector2(0.5f, 0.5f));
         RectTransform visualRect = root.Find("imgVisual") as RectTransform;
+        visualRect.gameObject.SetActive(true);
         SetupRect(visualRect, root, size, Vector2.zero,
             new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f));
         visualRect.localScale = Vector3.one;

@@ -22,7 +22,7 @@ public sealed class RaidenModel {
     public int selectedAircraftId { get; private set; }
 
     /**关卡外飞机默认等级，后续由永久强化系统提升*/
-    public int defaultAircraftLevel { get; private set; } = 1;
+    public int defaultAircraftLevel { get; private set; } = 3;
 
     /**关卡配置总数*/
     public int stageCount => CfgManager.tables.StageObj.DataList.Count;
@@ -196,7 +196,7 @@ public sealed class RaidenModel {
             });
         }
         spentStarCount = 0;
-        defaultAircraftLevel = 1;
+        defaultAircraftLevel = 3;
         unlockedAircraftIds.Clear();
         selectedAircraftId = 0;
         foreach (PlayerAircraftResource aircraft in CfgManager.tables.PlayerAircraftObj.DataList) {

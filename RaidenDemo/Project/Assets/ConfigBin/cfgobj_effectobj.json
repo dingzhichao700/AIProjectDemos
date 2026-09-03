@@ -49,18 +49,30 @@
   },
   {
     "id": 9,
+    "code": "shootFire_1008",
+    "type": 1,
+    "res": "shootFire_1008"
+  },
+  {
+    "id": 10,
+    "code": "shootFire_1009",
+    "type": 1,
+    "res": "shootFire_1009"
+  },
+  {
+    "id": 201,
     "code": "shootFire_2001",
     "type": 1,
     "res": "shootFire_2001"
   },
   {
-    "id": 10,
+    "id": 202,
     "code": "shootFire_2002",
     "type": 1,
     "res": "shootFire_2002"
   },
   {
-    "id": 11,
+    "id": 203,
     "code": "shootFire_2003",
     "type": 1,
     "res": "shootFire_2003"
@@ -250,6 +262,12 @@
     "code": "hit_13",
     "type": 3,
     "res": "hit_13"
+  },
+  {
+    "id": 2015,
+    "code": "hit_14",
+    "type": 3,
+    "res": "hit_14"
   },
   {
     "id": 5001,

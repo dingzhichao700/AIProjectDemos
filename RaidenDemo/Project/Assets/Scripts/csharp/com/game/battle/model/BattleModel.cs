@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using cfg;
+using cfg.resource;
 using UnityEngine;
 
 /// <summary>
@@ -149,7 +150,7 @@ public sealed class BattleModel {
     /**初始化关卡波次运行状态*/
     public void InitializeStage(StageConfigVO config, int currentStageId = 0) {
         stageModel.Initialize(config);
-        rewardModel.Initialize(currentStageId);
+        rewardModel.Initialize();
         battleScore = 0;
         bulletAdditionalLevel = 0;
         bossVictoryDelayRemaining = -1f;
@@ -251,6 +252,11 @@ public sealed class BattleModel {
         playerUnit?.SetPosition(position);
     }
 
+    /**读取玩家飞机当前权威逻辑坐标。*/
+    internal Vector2 GetPlayerPosition() {
+        return playerUnit != null ? playerUnit.position : Vector2.zero;
+    }
+
     /**更新当前玩家飞机用于逻辑碰撞的组合形状*/
     internal void SetPlayerCollision(AircraftCollisionVO collision) {
         formationModel.SetCollision(collision);
@@ -306,7 +312,11 @@ public sealed class BattleModel {
             return false;
         }
         Vector2 position = enemy.position;
-        RemoveElement(enemy.id);
+        if (defeated) {
+            enemy.BeginEnemyDeathPresentation();
+        } else {
+            RemoveElement(enemy.id);
+        }
         if (defeated && enemy.isBoss) {
             waitingForBossDeathPresentation = true;
         }
@@ -325,6 +335,13 @@ public sealed class BattleModel {
         return true;
     }
 
+    /**最后一次死亡爆炸开始时结束敌机移动逻辑。*/
+    internal void StopEnemyDeathMovement(AircraftVO enemy) {
+        if (enemy != null) {
+            RemoveElement(enemy.id);
+        }
+    }
+
     /**收到 Boss 死亡表现完成通知后，开始结算前延迟。*/
     internal void NotifyBossDeathPresentationCompleted() {
         if (!waitingForBossDeathPresentation || bossVictoryDelayRemaining >= 0f) {
@@ -335,17 +352,17 @@ public sealed class BattleModel {
     }
 
     /**登记一个由关卡逻辑生成的奖励道具*/
-    internal RewardVO SpawnReward(Vector2 position, StageItemType type, bool isNaturalSupply = false) {
+    internal RewardVO SpawnReward(Vector2 position, StageItemEffectType type, bool isNaturalSupply = false) {
         return rewardModel.Spawn(position, type, isNaturalSupply, CreateElementId, AddElement, reward => rewardSpawned?.Invoke(reward));
     }
 
-    /**按关卡时间自然生成补给，同屏最多保留一个自然补给*/
+    /**按关卡时间自然生成补给*/
     private void UpdateNaturalSupply(float deltaTime) {
         rewardModel.UpdateNaturalSupply(deltaTime, stageModel.bossSpawned, SpawnNaturalReward);
     }
 
-    private void SpawnNaturalReward(Vector2 position, StageItemType type, bool isNaturalSupply) {
-        SpawnReward(position, type, isNaturalSupply);
+    private void SpawnNaturalReward(Vector2 position, StageItemResource config, bool isNaturalSupply) {
+        rewardModel.Spawn(position, config, isNaturalSupply, CreateElementId, AddElement, reward => rewardSpawned?.Invoke(reward));
     }
 
     /**同步奖励目标、清理越界奖励并结算拾取*/

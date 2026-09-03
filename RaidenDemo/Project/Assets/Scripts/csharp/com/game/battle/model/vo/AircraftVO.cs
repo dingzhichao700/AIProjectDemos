@@ -95,6 +95,11 @@ internal sealed class AircraftVO : SceneElementVO {
         projectileRequested = handler;
     }
     public void SetFiringEnabled(bool enabled) => firingEnabled = enabled;
+    public void BeginEnemyDeathPresentation() {
+        if (faction == SceneElementFaction.ENEMY) {
+            firingEnabled = false;
+        }
+    }
     public void ConfigurePlayerLifecycle(Action defeatCompleted, Action respawnCompleted) {
         playerDefeatPresentationCompleted = defeatCompleted;
         playerRespawnCompleted = respawnCompleted;

@@ -12,22 +12,23 @@ using UnityEngine;
 /// </remarks>
 internal sealed class BattleRewardModel {
 
-    private int stageId;
     private float naturalSupplyCooldown;
     private int naturalSupplyCount;
     private bool playerUpgradeBlocked;
 
     public readonly List<RewardVO> rewards = new List<RewardVO>();
 
-    public void Initialize(int currentStageId) {
-        stageId = currentStageId;
+    public void Initialize() {
         naturalSupplyCooldown = BattleConst.NaturalSupplyFirstDelay;
         naturalSupplyCount = 0;
         playerUpgradeBlocked = false;
     }
 
-    public RewardVO Spawn(Vector2 position, StageItemType type, bool isNaturalSupply, Func<long> createId, Action<SceneElementVO> addElement, Action<RewardVO> onSpawned) {
-        StageItemResource config = GetItemConfig(type);
+    public RewardVO Spawn(Vector2 position, StageItemEffectType type, bool isNaturalSupply, Func<long> createId, Action<SceneElementVO> addElement, Action<RewardVO> onSpawned) {
+        return Spawn(position, GetItemConfig(type), isNaturalSupply, createId, addElement, onSpawned);
+    }
+
+    public RewardVO Spawn(Vector2 position, StageItemResource config, bool isNaturalSupply, Func<long> createId, Action<SceneElementVO> addElement, Action<RewardVO> onSpawned) {
         RewardVO reward = new RewardVO(createId(), position, config, isNaturalSupply);
         rewards.Add(reward);
         addElement(reward);
@@ -35,7 +36,7 @@ internal sealed class BattleRewardModel {
         return reward;
     }
 
-    public void UpdateNaturalSupply(float deltaTime, bool bossSpawned, Action<Vector2, StageItemType, bool> spawn) {
+    public void UpdateNaturalSupply(float deltaTime, bool bossSpawned, Action<Vector2, StageItemResource, bool> spawn) {
         if (bossSpawned) {
             return;
         }
@@ -43,40 +44,42 @@ internal sealed class BattleRewardModel {
         if (naturalSupplyCooldown > 0f) {
             return;
         }
-        foreach (RewardVO reward in rewards) {
-            if (reward.isNaturalSupply) {
-                return;
-            }
-        }
         naturalSupplyCooldown = BattleConst.NaturalSupplyInterval;
-        StageItemType type = stageId == 1 ? StageItemType.PLAYER_UPGRADE : GetWaveRewardType(naturalSupplyCount);
+        IReadOnlyList<StageItemResource> itemConfigs = CfgManager.tables.StageItemObj.DataList;
+        if (itemConfigs.Count == 0) {
+            return;
+        }
+        StageItemResource config = itemConfigs[naturalSupplyCount % itemConfigs.Count];
         float margin = BattleConst.NaturalSupplySpawnMargin;
         Vector2 position = new Vector2(UnityEngine.Random.Range(margin, 720f - margin), -margin);
-        spawn(position, type, true);
+        spawn(position, config, true);
         naturalSupplyCount++;
     }
 
     public void Update(AircraftVO player, bool playerAlive, AircraftCollisionVO collision, Func<RewardVO, bool> remove, Action<int> addLife, Action playerChanged, Action<RewardVO, int> collected) {
         for (int i = rewards.Count - 1; i >= 0; i--) {
             RewardVO reward = rewards[i];
-            if (reward.position.y < -1340f) {
+            if (!reward.isCollected && reward.IsOutsideViewport()) {
                 remove(reward);
                 continue;
             }
-            if (!playerAlive || reward.type == StageItemType.PLAYER_UPGRADE && playerUpgradeBlocked) {
+            if (reward.isCollected) {
+                continue;
+            }
+            if (!playerAlive || reward.type == StageItemEffectType.PLAYER_UPGRADE && playerUpgradeBlocked) {
                 continue;
             }
             if (!BattleCollisionSystem.OverlapsCircle(reward.position, reward.collisionRadius, player.position, collision)) {
                 continue;
             }
             int healed = 0;
-            if (reward.type == StageItemType.HEALTH) {
+            if (reward.type == StageItemEffectType.HEALTH) {
                 healed = player.Heal(reward.effectValue);
                 playerChanged?.Invoke();
-            } else if (reward.type == StageItemType.LIFE) {
+            } else if (reward.type == StageItemEffectType.LIFE) {
                 addLife(reward.effectValue);
             }
-            remove(reward);
+            reward.MarkCollected();
             collected?.Invoke(reward, healed);
         }
     }
@@ -87,25 +90,25 @@ internal sealed class BattleRewardModel {
 
     public void Clear() {
         rewards.Clear();
-        Initialize(0);
+        Initialize();
     }
 
-    public static StageItemType GetWaveRewardType(int waveIndex) {
+    public static StageItemEffectType GetWaveRewardType(int waveIndex) {
         switch (waveIndex % 4) {
             case 0:
-                return StageItemType.HEALTH;
+                return StageItemEffectType.HEALTH;
             case 1:
-                return StageItemType.PLAYER_UPGRADE;
+                return StageItemEffectType.PLAYER_UPGRADE;
             case 2:
-                return StageItemType.WINGMAN_UPGRADE;
+                return StageItemEffectType.ADD_WINGMAN;
             default:
-                return StageItemType.LIFE;
+                return StageItemEffectType.LIFE;
         }
     }
 
-    private static StageItemResource GetItemConfig(StageItemType type) {
+    private static StageItemResource GetItemConfig(StageItemEffectType type) {
         foreach (StageItemResource config in CfgManager.tables.StageItemObj.DataList) {
-            if (config.Type == type) {
+            if (config.EffectType == type) {
                 return config;
             }
         }

@@ -82,6 +82,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a5ad918ebb6b5c408ec562ca1a5c373
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_1009.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0b167b2d986a512488aa047b93b82e91
     m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_purple_1.png
     m_ReadOnly: 0
@@ -127,6 +132,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1acdbda8fe01d584d80b1145e0153b16
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_1008.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1b17b77385965de4599f0a6e8e75a8ee
     m_Address: Assets/Art/frameAnimation/default/other/circle_4.json
     m_ReadOnly: 0
@@ -139,6 +149,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1d6bd35d370ff7242be0f7a561a85ffc
     m_Address: Assets/Art/frameAnimation/default/bullet/hit_12.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1fe8452df7154dccb68ed414801698af
+    m_Address: Assets/Art/unpack/default/raiden/battleEnergyFragmentSmallDrop.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -268,7 +283,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 41e4c320a6d956847a89c173cacf7e74
-    m_Address: Assets/Art/frameAnimation/default/bullet/hit_common3.png
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_14.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -343,7 +358,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5a1e361f8a0a16647a02ef0b2ecc9b7e
-    m_Address: Assets/Art/frameAnimation/default/bullet/hit_common3.json
+    m_Address: Assets/Art/frameAnimation/default/bullet/hit_14.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -612,6 +627,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b0f2c7d4a8e4e18bd1d56b1f7c198e2
+    m_Address: Assets/Art/unpack/default/raiden/battleAmmoSupplyDrop.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8d5265c30cea14441a02b0b8418d3e57
     m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_fire_2.json
     m_ReadOnly: 0
@@ -644,6 +664,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 949080c56db74f941af052334c65a810
     m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_dir_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 973c40eef5717ae4b97621426d078d35
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_1009.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -694,6 +719,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a1f1d4f333ef901468960721f28e7b46
     m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_6.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a28a9b1c5ac18e1419b6dc5dd898e754
+    m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_1008.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -807,6 +837,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b99895faf80f32c43b4c022021446cb9
+    m_Address: Assets/Art/font/materialPreset/fontBodyCommon_OutlineShadow.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ba2308d634af31e4cbae0904db75589e
     m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_heavy_001_lv03.png
     m_ReadOnly: 0
@@ -859,6 +894,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c627ea5ba19b30442a549581389c261c
     m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_purple_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7ab20e562e54c5b901bb70c3038c3ef
+    m_Address: Assets/Art/unpack/default/raiden/battleEnergyFragmentLargeDrop.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -9,6 +9,8 @@ public static class BattleConst {
 
     public const float BattleViewportWidth = 720f;
 
+    public const float BattleViewportHeight = 1280f;
+
     /**飞机散图统一朝上，敌方阵营在战斗中整体旋转为朝下。*/
     public const float EnemyAircraftVisualRotation = 180f;
 
@@ -36,11 +38,35 @@ public static class BattleConst {
     public const float EnemyMoveSpeed = 150f;
 
 
-    public const float NaturalSupplyFirstDelay = 12f;
+    /**临时测试：自然补给首次生成延迟。*/
+    public const float NaturalSupplyFirstDelay = 0.2f;
 
-    public const float NaturalSupplyInterval = 15f;
+    /**临时测试：自然补给生成间隔。*/
+    public const float NaturalSupplyInterval = 0.4f;
 
     public const float NaturalSupplySpawnMargin = 90f;
+
+    public const float RewardPickupWarningDuration = 8f;
+
+    public const float RewardPickupWarningFadeHalfCycleDuration = 0.2f;
+
+    public const float RewardPickupWarningMinAlpha = 0.2f;
+
+    public const float RewardLoopEffectScale = 1.25f;
+
+    public const int RewardPickupEffectId = 12008;
+
+    public const float RewardFloatingTextDuration = 0.9f;
+
+    public const float RewardFloatingTextDistance = 80f;
+
+    public const float RewardFloatingTextFadeStartProgress = 0.4f;
+
+    public const string RewardFloatingTextMaterialPath = "Assets/Art/font/materialPreset/fontBodyCommon_OutlineShadow";
+
+    public const float RewardCollectedMoveSpeed = 100f;
+
+    public static readonly Vector2 RewardFloatingTextPlayerOffset = new Vector2(0f, 120f);
 
     public const float EliteMoveSpeed = 90f;
 
@@ -86,7 +112,7 @@ public static class BattleConst {
 
     public const int PlayerUpgradeCompleteEffectId = 10004;
 
-    public static readonly IReadOnlyList<int> FixedStageEffectIds = Array.AsReadOnly(new[] { PlayerUpgradeChargeEffectId, PlayerUpgradeFlashEffectId, PlayerUpgradeTransformEffectId, PlayerUpgradeCompleteEffectId });
+    public static readonly IReadOnlyList<int> FixedStageEffectIds = Array.AsReadOnly(new[] { PlayerUpgradeChargeEffectId, PlayerUpgradeFlashEffectId, PlayerUpgradeTransformEffectId, PlayerUpgradeCompleteEffectId, RewardPickupEffectId });
 
     public static readonly IReadOnlyList<int> PlayerUpgradeCompleteEffectDelays = Array.AsReadOnly(new[] { 0, 40, 75, 110, 150 });
 

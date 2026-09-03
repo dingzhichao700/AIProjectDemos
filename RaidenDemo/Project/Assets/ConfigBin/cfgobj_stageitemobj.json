@@ -1,46 +1,79 @@
 [
   {
     "id": 1,
-    "type": 2,
+    "effectType": 2,
     "res": "battleHealthDrop",
     "collisionRadius": 30,
-    "moveSpeed": 120,
+    "moveSpeed": 250,
     "effectValue": 30,
-    "effectId": 12002,
-    "swayAmplitude": 330,
-    "swayPeriodMs": 6000
+    "effectId": 12004,
+    "bounceDurationMs": 25000,
+    "pickupText": "恢复血量×30"
   },
   {
     "id": 2,
-    "type": 0,
+    "effectType": 0,
     "res": "battleUpgradeDrop",
     "collisionRadius": 30,
-    "moveSpeed": 120,
+    "moveSpeed": 250,
     "effectValue": 0,
-    "effectId": 12002,
-    "swayAmplitude": 330,
-    "swayPeriodMs": 6000
+    "effectId": 12007,
+    "bounceDurationMs": 25000,
+    "pickupText": "获取强化核心"
   },
   {
     "id": 3,
-    "type": 1,
+    "effectType": 1,
     "res": "battleWingmanUpgradeDrop",
     "collisionRadius": 30,
-    "moveSpeed": 120,
-    "effectValue": 0,
-    "effectId": 12002,
-    "swayAmplitude": 330,
-    "swayPeriodMs": 6000
+    "moveSpeed": 250,
+    "effectValue": 1,
+    "effectId": 12005,
+    "bounceDurationMs": 25000,
+    "pickupText": "获取僚机"
   },
   {
     "id": 4,
-    "type": 3,
+    "effectType": 3,
     "res": "battleLifeDrop",
     "collisionRadius": 30,
-    "moveSpeed": 120,
+    "moveSpeed": 250,
     "effectValue": 1,
+    "effectId": 12006,
+    "bounceDurationMs": 25000,
+    "pickupText": "增加生命×1"
+  },
+  {
+    "id": 5,
+    "effectType": 4,
+    "res": "battleAmmoSupplyDrop",
+    "collisionRadius": 30,
+    "moveSpeed": 250,
+    "effectValue": 50,
+    "effectId": 12001,
+    "bounceDurationMs": 25000,
+    "pickupText": "获取弹药补给"
+  },
+  {
+    "id": 6,
+    "effectType": 5,
+    "res": "battleEnergyFragmentSmallDrop",
+    "collisionRadius": 30,
+    "moveSpeed": 250,
+    "effectValue": 40,
+    "effectId": 12003,
+    "bounceDurationMs": 25000,
+    "pickupText": "获取能量碎片×40"
+  },
+  {
+    "id": 7,
+    "effectType": 5,
+    "res": "battleEnergyFragmentLargeDrop",
+    "collisionRadius": 30,
+    "moveSpeed": 250,
+    "effectValue": 100,
     "effectId": 12002,
-    "swayAmplitude": 330,
-    "swayPeriodMs": 6000
+    "bounceDurationMs": 25000,
+    "pickupText": "获取能量碎片×100"
   }
 ]

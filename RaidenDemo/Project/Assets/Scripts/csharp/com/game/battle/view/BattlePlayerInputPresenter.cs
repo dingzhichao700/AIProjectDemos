@@ -11,22 +11,25 @@ using UnityEngine.EventSystems;
 internal sealed class BattlePlayerInputPresenter {
 
     private readonly RectTransform inputLayer;
+    private readonly Func<Vector2> getPosition;
     private readonly Action<Vector2> setPosition;
     private bool dragging;
+    private Vector2 lastPointerPosition;
 
-    public BattlePlayerInputPresenter(RectTransform inputLayer, Action<Vector2> setPosition) {
+    public BattlePlayerInputPresenter(RectTransform inputLayer, Func<Vector2> getPosition, Action<Vector2> setPosition) {
         this.inputLayer = inputLayer;
+        this.getPosition = getPosition;
         this.setPosition = setPosition;
     }
 
-    /**读取当前拖动位置，并约束在玩家可行动区域内。*/
+    /**将鼠标按住后的相对移动量同步给玩家飞机。*/
     public void Update(bool playerAlive) {
         if (!playerAlive) {
             dragging = false;
             return;
         }
         if (Input.GetMouseButtonDown(0)) {
-            dragging = EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject();
+            dragging = (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()) && TryGetPointerPosition(out lastPointerPosition);
         }
         if (Input.GetMouseButtonUp(0)) {
             dragging = false;
@@ -34,17 +37,22 @@ internal sealed class BattlePlayerInputPresenter {
         if (!dragging || !Input.GetMouseButton(0)) {
             return;
         }
-        Canvas canvas = inputLayer.GetComponentInParent<Canvas>();
-        Camera camera = canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay
-            ? canvas.worldCamera
-            : null;
-        if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            inputLayer, Input.mousePosition, camera, out Vector2 localPoint)) {
+        if (!TryGetPointerPosition(out Vector2 pointerPosition)) {
             return;
         }
+        Vector2 pointerDelta = pointerPosition - lastPointerPosition;
+        lastPointerPosition = pointerPosition;
+        Vector2 nextPosition = getPosition() + pointerDelta;
         Rect viewport = inputLayer.rect;
-        localPoint.x = Mathf.Clamp(localPoint.x, viewport.xMin, viewport.xMax);
-        localPoint.y = Mathf.Clamp(localPoint.y, viewport.yMin, viewport.yMax);
-        setPosition(new Vector2(Mathf.Round(localPoint.x), Mathf.Round(localPoint.y)));
+        nextPosition.x = Mathf.Clamp(nextPosition.x, viewport.xMin, viewport.xMax);
+        nextPosition.y = Mathf.Clamp(nextPosition.y, viewport.yMin, viewport.yMax);
+        setPosition(new Vector2(Mathf.Round(nextPosition.x), Mathf.Round(nextPosition.y)));
+    }
+
+    /**将屏幕鼠标坐标转换为战斗视窗本地坐标。*/
+    private bool TryGetPointerPosition(out Vector2 pointerPosition) {
+        Canvas canvas = inputLayer.GetComponentInParent<Canvas>();
+        Camera camera = canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay ? canvas.worldCamera : null;
+        return RectTransformUtility.ScreenPointToLocalPointInRectangle(inputLayer, Input.mousePosition, camera, out pointerPosition);
     }
 }

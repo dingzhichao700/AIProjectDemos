@@ -18,6 +18,8 @@ internal sealed class BattleHudPresenter {
     private readonly Image bossHealthFill;
     private readonly TextMeshProUGUI bossHealthText;
     private readonly float progressMaxWidth;
+    private readonly RectTransform hudLayer;
+    private readonly List<BattleFloatingTextView> floatingTexts = new List<BattleFloatingTextView>();
 
     public TextMeshProUGUI playerHealthText { get; private set; }
 
@@ -30,6 +32,7 @@ internal sealed class BattleHudPresenter {
         this.bossHealthRoot = bossHealthRoot;
         this.bossHealthFill = bossHealthFill;
         this.bossHealthText = bossHealthText;
+        hudLayer = scoreText.rectTransform.parent as RectTransform;
         progressMaxWidth = BattleConst.PlayerHealthFillMaxWidth;
     }
 
@@ -86,6 +89,33 @@ internal sealed class BattleHudPresenter {
     public void ResetFeedbackColors() {
         if (playerHealthText != null) playerHealthText.color = Color.white;
         if (lifeText != null) lifeText.color = Color.white;
+    }
+
+    /**在 HUD 指定坐标播放统一飘字。*/
+    public void PlayFloatingText(Vector2 position, string content) {
+        if (hudLayer == null || string.IsNullOrWhiteSpace(content)) {
+            return;
+        }
+        floatingTexts.Add(new BattleFloatingTextView(hudLayer, scoreText, position, content));
+    }
+
+    /**按场景 Timer 推进并回收飘字。*/
+    public void UpdateFloatingTexts(float deltaTime) {
+        for (int i = floatingTexts.Count - 1; i >= 0; i--) {
+            if (floatingTexts[i].Update(deltaTime)) {
+                continue;
+            }
+            floatingTexts[i].Dispose();
+            floatingTexts.RemoveAt(i);
+        }
+    }
+
+    /**清理尚未播放完成的飘字。*/
+    public void ClearFloatingTexts() {
+        foreach (BattleFloatingTextView floatingText in floatingTexts) {
+            floatingText.Dispose();
+        }
+        floatingTexts.Clear();
     }
 
     private void EnsurePlayerHealthText() {

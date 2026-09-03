@@ -18,14 +18,14 @@ public sealed partial class StageItemResource : Luban.BeanBase
     public StageItemResource(JSONNode _buf) 
     {
         { if(!_buf["id"].IsNumber) { throw new SerializationException(); }  Id = _buf["id"]; }
-        { if(!_buf["type"].IsNumber) { throw new SerializationException(); }  Type = (StageItemType)_buf["type"].AsInt; }
+        { if(!_buf["effectType"].IsNumber) { throw new SerializationException(); }  EffectType = (StageItemEffectType)_buf["effectType"].AsInt; }
         { if(!_buf["res"].IsString) { throw new SerializationException(); }  Res = _buf["res"]; }
         { if(!_buf["collisionRadius"].IsNumber) { throw new SerializationException(); }  CollisionRadius = _buf["collisionRadius"]; }
         { if(!_buf["moveSpeed"].IsNumber) { throw new SerializationException(); }  MoveSpeed = _buf["moveSpeed"]; }
         { if(!_buf["effectValue"].IsNumber) { throw new SerializationException(); }  EffectValue = _buf["effectValue"]; }
         { if(!_buf["effectId"].IsNumber) { throw new SerializationException(); }  EffectId = _buf["effectId"]; }
-        { if(!_buf["swayAmplitude"].IsNumber) { throw new SerializationException(); }  SwayAmplitude = _buf["swayAmplitude"]; }
-        { if(!_buf["swayPeriodMs"].IsNumber) { throw new SerializationException(); }  SwayPeriodMs = _buf["swayPeriodMs"]; }
+        { if(!_buf["bounceDurationMs"].IsNumber) { throw new SerializationException(); }  BounceDurationMs = _buf["bounceDurationMs"]; }
+        { if(!_buf["pickupText"].IsString) { throw new SerializationException(); }  PickupText = _buf["pickupText"]; }
     }
 
     public static StageItemResource DeserializeStageItemResource(JSONNode _buf)
@@ -38,9 +38,9 @@ public sealed partial class StageItemResource : Luban.BeanBase
     /// </summary>
     public readonly int Id;
     /// <summary>
-    /// 道具类型
+    /// 拾取效果类型
     /// </summary>
-    public readonly StageItemType Type;
+    public readonly StageItemEffectType EffectType;
     /// <summary>
     /// 外观资源名
     /// </summary>
@@ -62,13 +62,13 @@ public sealed partial class StageItemResource : Luban.BeanBase
     /// </summary>
     public readonly int EffectId;
     /// <summary>
-    /// 水平摆动幅度
+    /// 边缘反弹持续时间（毫秒）
     /// </summary>
-    public readonly float SwayAmplitude;
+    public readonly int BounceDurationMs;
     /// <summary>
-    /// 水平摆动周期（毫秒）
+    /// 拾取飘字内容
     /// </summary>
-    public readonly int SwayPeriodMs;
+    public readonly string PickupText;
    
     public const int __ID__ = -109877153;
     public override int GetTypeId() => __ID__;
@@ -81,14 +81,14 @@ public sealed partial class StageItemResource : Luban.BeanBase
     {
         return "{ "
         + "id:" + Id + ","
-        + "type:" + Type + ","
+        + "effectType:" + EffectType + ","
         + "res:" + Res + ","
         + "collisionRadius:" + CollisionRadius + ","
         + "moveSpeed:" + MoveSpeed + ","
         + "effectValue:" + EffectValue + ","
         + "effectId:" + EffectId + ","
-        + "swayAmplitude:" + SwayAmplitude + ","
-        + "swayPeriodMs:" + SwayPeriodMs + ","
+        + "bounceDurationMs:" + BounceDurationMs + ","
+        + "pickupText:" + PickupText + ","
         + "}";
     }
 }

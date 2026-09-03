@@ -12,24 +12,27 @@ using UnityEngine;
 internal sealed class AircraftDeathPresentationViewState {
 
     public readonly RectTransform root;
-    public readonly Vector2 position;
+    public readonly AircraftVO aircraft;
     public readonly IReadOnlyList<ExplosionEffect> explosions;
     public readonly bool removeAfterCompletion;
     public readonly bool preserveRootForReuse;
     public readonly TimerType timerType;
+    public readonly Action lastExplosionStarted;
     public readonly Action completed;
     public float elapsed;
     public int nextExplosionIndex;
     public int activeExplosionCount;
     public bool aircraftVisualRemoved;
+    public bool movementStopped;
 
-    public AircraftDeathPresentationViewState(RectTransform root, Vector2 position, IReadOnlyList<ExplosionEffect> explosions, bool removeAfterCompletion, bool preserveRootForReuse, TimerType timerType, Action completed) {
+    public AircraftDeathPresentationViewState(RectTransform root, AircraftVO aircraft, IReadOnlyList<ExplosionEffect> explosions, bool removeAfterCompletion, bool preserveRootForReuse, TimerType timerType, Action lastExplosionStarted, Action completed) {
         this.root = root;
-        this.position = position;
+        this.aircraft = aircraft;
         this.explosions = explosions;
         this.removeAfterCompletion = removeAfterCompletion;
         this.preserveRootForReuse = preserveRootForReuse;
         this.timerType = timerType;
+        this.lastExplosionStarted = lastExplosionStarted;
         this.completed = completed;
     }
 }

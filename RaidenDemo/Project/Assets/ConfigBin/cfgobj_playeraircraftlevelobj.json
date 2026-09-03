@@ -32,10 +32,10 @@
             "x": 0,
             "y": 98
           },
-          "bulletType": 1001,
+          "bulletType": 1003,
           "bulletLevel": 1,
           "bulletCount": 3,
-          "fireIntervalMs": 250,
+          "fireIntervalMs": 500,
           "bulletIntervalMs": 40,
           "direction": 90,
           "spreadType": 0,
@@ -88,10 +88,10 @@
             "x": -66,
             "y": -12
           },
-          "bulletType": 1001,
+          "bulletType": 1003,
           "bulletLevel": 1,
           "bulletCount": 3,
-          "fireIntervalMs": 220,
+          "fireIntervalMs": 450,
           "bulletIntervalMs": 40,
           "direction": 90,
           "spreadType": 1,
@@ -102,10 +102,10 @@
             "x": 66,
             "y": -12
           },
-          "bulletType": 1001,
+          "bulletType": 1003,
           "bulletLevel": 1,
           "bulletCount": 3,
-          "fireIntervalMs": 220,
+          "fireIntervalMs": 450,
           "bulletIntervalMs": 40,
           "direction": 90,
           "spreadType": 2,
@@ -158,10 +158,10 @@
             "x": -60,
             "y": -14
           },
-          "bulletType": 1001,
+          "bulletType": 1003,
           "bulletLevel": 1,
           "bulletCount": 4,
-          "fireIntervalMs": 180,
+          "fireIntervalMs": 400,
           "bulletIntervalMs": 40,
           "direction": 90,
           "spreadType": 1,
@@ -172,10 +172,10 @@
             "x": 60,
             "y": -14
           },
-          "bulletType": 1001,
+          "bulletType": 1003,
           "bulletLevel": 1,
           "bulletCount": 4,
-          "fireIntervalMs": 180,
+          "fireIntervalMs": 400,
           "bulletIntervalMs": 40,
           "direction": 90,
           "spreadType": 2,
@@ -184,16 +184,16 @@
         {
           "offset": {
             "x": 0,
-            "y": 20
+            "y": 110
           },
-          "bulletType": 1003,
+          "bulletType": 1001,
           "bulletLevel": 1,
           "bulletCount": 1,
-          "fireIntervalMs": 900,
+          "fireIntervalMs": 350,
           "bulletIntervalMs": 0,
-          "direction": 135,
-          "spreadType": 1,
-          "spreadAngle": 3
+          "direction": 90,
+          "spreadType": 0,
+          "spreadAngle": 0
         }
       ],
       "deathExplosions": [

@@ -129,12 +129,37 @@ internal sealed class BattleEffectPresenter {
         rect.anchoredPosition = Vector2.zero;
         rect.localScale = Vector3.one;
         rect.localEulerAngles = Vector3.zero;
-        view.Play(path, true, null, false, 1f, 1, 1f, TimerType.SCENE);
+        view.Play(path, true, null, false, BattleConst.RewardLoopEffectScale, 1, 1f, TimerType.SCENE);
         return view;
     }
 
+    /**在道具拾取位置播放一次统一拾取特效。*/
+    public void PlayRewardPickup(RectTransform rewardRoot, Action completed) {
+        if (rewardRoot == null) {
+            completed?.Invoke();
+            return;
+        }
+        EffectResource effect = CfgManager.tables.EffectObj.GetOrDefault(BattleConst.RewardPickupEffectId);
+        if (effect == null) {
+            Debug.LogError($"关卡奖励拾取特效配置无效：{BattleConst.RewardPickupEffectId}");
+            completed?.Invoke();
+            return;
+        }
+        string path = BattlePreloadCollector.GetEffectResourcePath(effect);
+        BattlePreloadCollector.RequireFrameAnimationPreloaded(path);
+        FrameAnimationView view = FrameAnimationView.GetInstance();
+        RectTransform rect = view.trans;
+        rect.SetParent(rewardRoot, false);
+        rect.anchorMin = rect.anchorMax = new Vector2(0.5f, 0.5f);
+        rect.anchoredPosition = Vector2.zero;
+        rect.localScale = Vector3.one;
+        rect.localEulerAngles = Vector3.zero;
+        Handler handler = completed != null ? Handler.Create(this, completed) : null;
+        view.Play(path, false, handler, true, 1f, 1, 1f, TimerType.SCENE);
+    }
+
     /**按飞机配置启动死亡前爆炸表现。*/
-    public void PlayAircraftDeath(RectTransform root, AircraftVO aircraft, bool preserveRootForReuse, Action completed = null) {
+    public void PlayAircraftDeath(RectTransform root, AircraftVO aircraft, bool preserveRootForReuse, Action lastExplosionStarted = null, Action completed = null) {
         if (root == null || aircraft == null) {
             completed?.Invoke();
             return;
@@ -145,7 +170,7 @@ internal sealed class BattleEffectPresenter {
             root.pivot = new Vector2(0.5f, 0.5f);
             root.anchoredPosition = aircraft.position;
         }
-        AircraftDeathPresentationViewState state = new AircraftDeathPresentationViewState(root, aircraft.position, aircraft.deathExplosions, aircraft.removeAfterDeathPresentation, preserveRootForReuse, aircraft.timerType, completed);
+        AircraftDeathPresentationViewState state = new AircraftDeathPresentationViewState(root, aircraft, aircraft.deathExplosions, aircraft.removeAfterDeathPresentation, preserveRootForReuse, aircraft.timerType, lastExplosionStarted, completed);
         deathPresentations.Add(state);
         UpdateDeathPresentation(state, 0f);
     }
@@ -175,8 +200,14 @@ internal sealed class BattleEffectPresenter {
 
     private void UpdateDeathPresentation(AircraftDeathPresentationViewState state, float deltaTime) {
         state.elapsed += deltaTime;
+        if (!state.movementStopped && state.aircraft != null) {
+            state.root.anchoredPosition = state.aircraft.position;
+        }
         while (state.explosions != null && state.nextExplosionIndex < state.explosions.Count && state.elapsed * 1000f >= state.explosions[state.nextExplosionIndex].DelayMs) {
             PlayExplosion(state, state.explosions[state.nextExplosionIndex++]);
+        }
+        if ((state.explosions == null || state.explosions.Count == 0) && !state.movementStopped) {
+            StopDeathMovement(state);
         }
         if ((state.explosions == null || state.nextExplosionIndex >= state.explosions.Count) && state.activeExplosionCount <= 0) {
             CompleteDeathPresentation(state);
@@ -195,14 +226,26 @@ internal sealed class BattleEffectPresenter {
         RectTransform rect = view.trans;
         rect.SetParent(effectLayer, false);
         rect.anchorMin = rect.anchorMax = new Vector2(0f, 1f);
-        rect.anchoredPosition = state.position + new Vector2(explosion.Position.X, explosion.Position.Y);
+        rect.anchoredPosition = state.aircraft.position + new Vector2(explosion.Position.X, explosion.Position.Y);
         rect.localScale = Vector3.one;
         rect.localEulerAngles = Vector3.zero;
         state.activeExplosionCount++;
         view.Play(path, false, Handler.Create(this, OnExplosionCompleted, state), true, 1f, 1, 1f, state.timerType);
-        if (state.removeAfterCompletion && state.nextExplosionIndex >= state.explosions.Count) {
-            RemoveAircraftVisual(state);
+        if (state.nextExplosionIndex >= state.explosions.Count) {
+            StopDeathMovement(state);
+            if (state.removeAfterCompletion) {
+                RemoveAircraftVisual(state);
+            }
         }
+    }
+
+    /**最后一次爆炸开始时通知逻辑层停止敌机移动。*/
+    private static void StopDeathMovement(AircraftDeathPresentationViewState state) {
+        if (state.movementStopped) {
+            return;
+        }
+        state.movementStopped = true;
+        state.lastExplosionStarted?.Invoke();
     }
 
     private void OnExplosionCompleted(AircraftDeathPresentationViewState state) {

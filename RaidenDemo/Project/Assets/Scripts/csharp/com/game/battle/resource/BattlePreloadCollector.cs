@@ -69,6 +69,7 @@ public static class BattlePreloadCollector {
 
     /**收集关卡流程必然可能使用、但不由实体配置直接引用的固定资源。*/
     private static void AddFixedStageResources(List<ResLoadInfo> preload, HashSet<string> resourceKeys) {
+        AddPreloadResource(preload, resourceKeys, BattleConst.RewardFloatingTextMaterialPath, ResType.Material);
         AddPreloadResource(preload, resourceKeys, BattleConst.WingmanPath,
             ResType.UnpackImage);
         foreach (StageItemResource item in CfgManager.tables.StageItemObj.DataList) {
