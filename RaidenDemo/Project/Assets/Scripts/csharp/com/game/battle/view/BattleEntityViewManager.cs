@@ -47,6 +47,7 @@ internal sealed class BattleEntityViewManager {
     public RectTransform RemoveReward(long id) => Remove(rewards, id);
     public FrameAnimationView RemoveRewardEffect(long id) => Remove(rewardEffects, id);
     public FrameAnimationView RemoveProjectileEffect(long id) => Remove(projectileEffects, id);
+    public RectTransform RemoveUnit(long id) => Remove(units, id);
 
     public void Clear() {
         units.Clear();

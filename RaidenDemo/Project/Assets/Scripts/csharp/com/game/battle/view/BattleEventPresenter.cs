@@ -162,7 +162,8 @@ internal sealed class BattleEventPresenter {
 
     private void OnPlayerDefeatStarted() {
         playerPresenter.OnDefeatStarted(formationPresenter.player);
-        effectPresenter.PlayAircraftDeath(formationPresenter.GetView(formationPresenter.player), formationPresenter.player, true);
+        formationPresenter.ClearWingmen();
+        effectPresenter.PlayAircraftDeath(formationPresenter.GetView(formationPresenter.player), formationPresenter.player, true, null, model.NotifyPlayerDeathPresentationCompleted);
     }
 
     private void OnPlayerDefaultLevelRequested() {

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,8 +22,7 @@ internal sealed class BattlePlayerPresenter {
     private readonly Func<AircraftVO, RectTransform> getView;
     private readonly Func<AircraftVO, RectTransform> getVisual;
     private readonly Action<AircraftVO> syncUnitView;
-    private readonly Func<AircraftVO> getLeftWingman;
-    private readonly Func<AircraftVO> getRightWingman;
+    private readonly Func<IReadOnlyList<AircraftVO>> getWingmen;
     private readonly Action<int> applyAircraftLevel;
     private readonly Action<bool> setUpgradeBlocked;
     private readonly Action<bool> setFiringEnabled;
@@ -36,12 +36,11 @@ internal sealed class BattlePlayerPresenter {
     private int nextCompletionEffectIndex;
     private FrameAnimationView loopingUpgradeEffect;
 
-    public BattlePlayerPresenter(Func<AircraftVO, RectTransform> getView, Func<AircraftVO, RectTransform> getVisual, Action<AircraftVO> syncUnitView, Func<AircraftVO> getLeftWingman, Func<AircraftVO> getRightWingman, Action<int> applyAircraftLevel, Action<bool> setUpgradeBlocked, Action<bool> setFiringEnabled, BattleEffectPresenter effectPresenter) {
+    public BattlePlayerPresenter(Func<AircraftVO, RectTransform> getView, Func<AircraftVO, RectTransform> getVisual, Action<AircraftVO> syncUnitView, Func<IReadOnlyList<AircraftVO>> getWingmen, Action<int> applyAircraftLevel, Action<bool> setUpgradeBlocked, Action<bool> setFiringEnabled, BattleEffectPresenter effectPresenter) {
         this.getView = getView;
         this.getVisual = getVisual;
         this.syncUnitView = syncUnitView;
-        this.getLeftWingman = getLeftWingman;
-        this.getRightWingman = getRightWingman;
+        this.getWingmen = getWingmen;
         this.applyAircraftLevel = applyAircraftLevel;
         this.setUpgradeBlocked = setUpgradeBlocked;
         this.setFiringEnabled = setFiringEnabled;
@@ -116,7 +115,7 @@ internal sealed class BattlePlayerPresenter {
             return;
         }
         if (player != null && (player.lifecycleState == PlayerLifecycleState.Alive || player.lifecycleState == PlayerLifecycleState.Respawning)) {
-            int visibilityPhase = Mathf.FloorToInt(player.invincibleRemaining / BattleConst.PlayerFlashInterval);
+            int visibilityPhase = Mathf.FloorToInt(player.invincibleRemaining / player.invincibleFlashInterval);
             visual.gameObject.SetActive(player.invincibleRemaining <= 0f || visibilityPhase % 2 != 0);
         }
         float shakeProgress = BattleConst.PlayerHitShakeDuration <= 0f || player == null
@@ -220,11 +219,11 @@ internal sealed class BattlePlayerPresenter {
         loopingUpgradeEffect = null;
     }
 
-    private void SetFormationVisible(AircraftVO player, bool playerVisible,
-        bool wingmenVisible) {
+    private void SetFormationVisible(AircraftVO player, bool playerVisible, bool wingmenVisible) {
         SetVisualVisible(player, playerVisible);
-        SetVisualVisible(getLeftWingman(), wingmenVisible);
-        SetVisualVisible(getRightWingman(), wingmenVisible);
+        IReadOnlyList<AircraftVO> wingmen = getWingmen?.Invoke();
+        if (wingmen == null) return;
+        foreach (AircraftVO wingman in wingmen) SetVisualVisible(wingman, wingmenVisible);
     }
 
     private void SetVisualVisible(AircraftVO unit, bool visible) {

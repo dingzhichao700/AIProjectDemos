@@ -26,6 +26,13 @@ public abstract class SceneElementVO {
     /**由所属 Timer 推进元素自身行为*/
     public abstract void OnTimeUpdate(float deltaTime);
 
+    /**补偿元素在当前帧内事件发生后已经经过的逻辑时间。*/
+    public void AdvanceFromInFrameEvent(float elapsedTime) {
+        if (!destroyed && elapsedTime > 0f) {
+            OnTimeUpdate(elapsedTime);
+        }
+    }
+
     public void Destroy() {
         destroyed = true;
     }

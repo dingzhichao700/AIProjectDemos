@@ -15,6 +15,7 @@ internal sealed class BattleStageModel {
     private int defeatedInWave;
     private float spawnCooldown;
     private float waveCooldown;
+    private EnemyFormationPathVO currentFormationPath;
 
     public bool bossSpawned { get; private set; }
 
@@ -26,14 +27,18 @@ internal sealed class BattleStageModel {
         defeatedInWave = 0;
         spawnCooldown = 0f;
         waveCooldown = 0f;
+        currentFormationPath = null;
         bossSpawned = false;
     }
 
     /**推进配置化普通波次，并在全部结束后请求创建 Boss。*/
-    public void Update(float deltaTime, int activeEnemyCount, Action<EnemyWaveVO, int> spawnNormal, Action<EnemyConfigVO, Vector2> spawnSpecial) {
+    public void Update(float deltaTime, int activeEnemyCount,
+        Action<EnemyWaveVO, int, EnemyFormationPathVO> spawnNormal,
+        Action<EnemyConfigVO, Vector2> spawnSpecial) {
         if (stageConfig == null) {
             return;
         }
+        currentFormationPath?.Update(deltaTime);
         if (currentWaveIndex >= stageConfig.enemyWaves.Length) {
             TryRequestBoss(activeEnemyCount, spawnSpecial);
             return;
@@ -51,6 +56,7 @@ internal sealed class BattleStageModel {
             spawnedInWave = 0;
             defeatedInWave = 0;
             spawnCooldown = 0f;
+            currentFormationPath = null;
             if (currentWaveIndex >= stageConfig.enemyWaves.Length) {
                 TryRequestBoss(activeEnemyCount, spawnSpecial);
                 return;
@@ -61,9 +67,12 @@ internal sealed class BattleStageModel {
         if (spawnCooldown > 0f) {
             return;
         }
-        spawnCooldown += BattleConst.EnemySpawnInterval;
-        int formationIndex = spawnedInWave++;
-        spawnNormal(wave, formationIndex);
+        currentFormationPath = new EnemyFormationPathVO(wave);
+        for (int formationIndex = 0; formationIndex < wave.count;
+             formationIndex++) {
+            spawnNormal(wave, formationIndex, currentFormationPath);
+        }
+        spawnedInWave = wave.count;
         if (spawnedInWave >= wave.count) {
             waveCooldown = BattleConst.EnemyWaveInterval;
         }

@@ -21,10 +21,25 @@ namespace TexturePackerImporter {
         const int LargeBackgroundMinHeight = 720;
         const int ProcessTimeoutMs = 120000;
 
+        const string TexturePackerExePathKey = "TexturePackerExePath";
+
         static readonly string AtlasSourceRoot = ResourceConst.PATH_ATLAS_SOURCE;
         static readonly string AtlasOutputRoot = ResourceConst.PATH_ATLAS;
-        static string TexturePackerExe => EditorPrefs.GetString("TexturePackerExePath",
-            "D:/DingWork/U3Dproj/TexturePakcer/bin/TexturePacker.exe");
+        static string TexturePackerExe => ResolveTexturePackerExe();
+
+        /**优先使用随工程部署的 TexturePacker；工程副本缺失时才读取人工配置路径。*/
+        static string ResolveTexturePackerExe() {
+            string projectToolPath = Path.GetFullPath(Path.Combine(Application.dataPath,
+                "../Tools/TexturePacker/win-x64/bin/TexturePacker.exe"));
+            if (File.Exists(projectToolPath))
+                return projectToolPath;
+
+            string overridePath = EditorPrefs.GetString(TexturePackerExePathKey, string.Empty);
+            if (!string.IsNullOrWhiteSpace(overridePath))
+                return Path.GetFullPath(overridePath);
+
+            return projectToolPath;
+        }
 
         public sealed class AtlasPackResult {
             public string atlasAssetPath;
@@ -83,7 +98,9 @@ namespace TexturePackerImporter {
             if (!Directory.Exists(sourceDir))
                 throw new DirectoryNotFoundException("图集源目录不存在：" + sourceDir);
             if (!File.Exists(TexturePackerExe))
-                throw new FileNotFoundException("TexturePacker 不存在，请配置 EditorPrefs.TexturePackerExePath", TexturePackerExe);
+                throw new FileNotFoundException(
+                    "TexturePacker 不存在。请恢复 Project/Tools/TexturePacker，或配置 EditorPrefs.TexturePackerExePath",
+                    TexturePackerExe);
 
             string finalFolder = relativePath.Substring(0, separatorIndex);
             string outputDir = (Application.dataPath + "/" + AtlasOutputRoot.Replace("Assets/", "") + finalFolder + "/")

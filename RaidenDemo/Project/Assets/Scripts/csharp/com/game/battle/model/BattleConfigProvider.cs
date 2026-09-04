@@ -25,6 +25,10 @@ internal sealed class BattleConfigProvider {
         return RaidenControl.ins.GetSelectedPlayerAircraft();
     }
 
+    public WingmanConfigVO GetSelectedWingman() {
+        return RaidenControl.ins.GetSelectedWingman();
+    }
+
     public PlayerAircraftBattleLevelVO GetPlayerAircraftLevel(int aircraftId, int level) {
         return RaidenControl.ins.GetPlayerAircraftBattleLevel(aircraftId, level);
     }

@@ -22,6 +22,8 @@ public sealed class RaidenControl {
 
     public int selectedAircraftId => model.selectedAircraftId;
 
+    public int selectedWingmanId => model.selectedWingmanId;
+
     public int defaultAircraftLevel => model.defaultAircraftLevel;
 
     /**初始化模块数据*/
@@ -40,6 +42,11 @@ public sealed class RaidenControl {
 
     public PlayerAircraftVO GetSelectedPlayerAircraft() {
         return model.GetPlayerAircraft(selectedAircraftId);
+    }
+
+    /**获取当前出战僚机配置。*/
+    public WingmanConfigVO GetSelectedWingman() {
+        return model.GetWingmanConfig(selectedWingmanId);
     }
 
     /**获取指定玩家飞机类型*/

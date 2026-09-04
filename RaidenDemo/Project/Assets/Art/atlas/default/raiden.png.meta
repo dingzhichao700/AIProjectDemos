@@ -111,7 +111,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01212679c845ddf489698854beb3ae3b
+      spriteID: 5deff6ddea3863d4e967f7dbf81e1d80
       internalID: -5564098489006757325
       vertices: []
       indices: 
@@ -132,7 +132,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c31d811c532b4ae4aaec0bc8d8c67753
+      spriteID: a933eabda5f73d74ab21f3e077a22f51
       internalID: 9174853371980816233
       vertices: []
       indices: 
@@ -153,7 +153,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0a3973ac06e82a43a7565ee5e7882de
+      spriteID: 0706956f300793844b66e3f0cd4e9679
       internalID: 6089606404578937078
       vertices: []
       indices: 
@@ -174,7 +174,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe6f3dde3e5bdd7449cb185aa145fbdc
+      spriteID: e6e13b7cf24849a439a1d23866631bbd
       internalID: -6171175764103132825
       vertices: []
       indices: 
@@ -195,7 +195,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4925cbc1654dabe4b8ba73423cbc1bb5
+      spriteID: 18b0f4b8ca0b56e41a83549b56f1d8d3
       internalID: 9057153152539931326
       vertices: []
       indices: 
@@ -216,7 +216,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60ce0a5f7975b2043bbb38a8c8917273
+      spriteID: 0ced2a30a8d24ab49bcaddb0681526de
       internalID: -4317554995942932582
       vertices: []
       indices: 
@@ -237,7 +237,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01922cf08bae8424593835b7adae2214
+      spriteID: 6fec446f899fa9e48b58a10870486c3e
       internalID: 170171575069276
       vertices: []
       indices: 
@@ -258,7 +258,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94f4503c04d98cd4782982c2a69f11e3
+      spriteID: c9b7850dd69c8e94f99eb81de3dbf96e
       internalID: -7302566929364001362
       vertices: []
       indices: 
@@ -279,7 +279,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da0f1374931a6b74297f73cfd32a2165
+      spriteID: 33a1ce972086a5040857353324fd45ce
       internalID: -1645343795196261964
       vertices: []
       indices: 
@@ -300,7 +300,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c98e013c0ae0c14e9e85c36d7593486
+      spriteID: c1ae25b8ddfc7f94fa2f343d0d392d1a
       internalID: -6379742641821213442
       vertices: []
       indices: 
@@ -321,7 +321,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc04d60893240ba4e8865cfed1b1fc1c
+      spriteID: 2eaae57e09f725c439512e8014bf6c61
       internalID: -3141781048658938350
       vertices: []
       indices: 
@@ -342,7 +342,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8575104d07c3c984f910b4e7f8bace92
+      spriteID: a0f424a2237a149469e85bb7200b0011
       internalID: 1513678137522931983
       vertices: []
       indices: 
@@ -363,7 +363,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9beb1548ab913dd4d98382623e8decf4
+      spriteID: f62f7192a47869e4280e0283401bb041
       internalID: -7274234253592653397
       vertices: []
       indices: 
@@ -384,7 +384,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 837948c2a7f2bb84eb42cb88b34b6145
+      spriteID: 67b2ca475936cf54abecd341971a3afd
       internalID: 3005073386828261950
       vertices: []
       indices: 
@@ -405,7 +405,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ce0efb87f07e7c449c4d3727c0da47c
+      spriteID: c2ddcb6bc84cb2e479bd305bba13838f
       internalID: -7049571194842878592
       vertices: []
       indices: 
@@ -426,7 +426,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2f302a82d252a04796ccaf998e3ac58
+      spriteID: 912eae83d94f9b94db08b5b6b6a2297e
       internalID: 8064590354547544828
       vertices: []
       indices: 
@@ -447,7 +447,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e094ff1105aaf94eb283a404fe87f1d
+      spriteID: 4a64f150a2c8d604d804cb1742111ccb
       internalID: 7332221880071752890
       vertices: []
       indices: 
@@ -468,7 +468,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20e9fffcd475a6643b75be0c6318a8a0
+      spriteID: c5f112753ea2e8148aad7da23b17918a
       internalID: 9178533063862134576
       vertices: []
       indices: 
@@ -489,7 +489,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9be8bdfcc290d24b9c5fe8a7166382d
+      spriteID: caa85d11db9519b4fbad0618a340b317
       internalID: -8736311616117209140
       vertices: []
       indices: 
@@ -510,7 +510,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6da99c1138998be4682782ed9c365de9
+      spriteID: db7480b1e70de38479cd142f05b84fc0
       internalID: 8324991466351950105
       vertices: []
       indices: 
@@ -531,8 +531,197 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b80dd1a9a25ba54a9e2e47a807cb9ed
+      spriteID: 5572e6eb64ee362429f907c695c112cb
       internalID: 2460269678360553346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hangarActionEquipped
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 1093
+        width: 410
+        height: 94
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19621fa6d6c89e14bafb5588eef4f518
+      internalID: -6388216362963648350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hangarButtonBack
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 509
+        width: 120
+        height: 54
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4315d9ba86c657642ba0b2b8934dde51
+      internalID: -5207731040311096414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hangarCardLocked
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 312
+        width: 118
+        height: 196
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1f736e9581a4d4498de40e3eb3b528b
+      internalID: -3800906267925525961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hangarCardNormal
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 115
+        width: 118
+        height: 196
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e04308169d3abe14a86c09054c4b1943
+      internalID: 7328615778284642147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hangarCardSelected
+      rect:
+        serializedVersion: 2
+        x: 1698
+        y: 420
+        width: 118
+        height: 196
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19c570cb8b704c74987c0ffadb41534a
+      internalID: -4355424391510327534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hangarPreviewPanel
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 644
+        height: 580
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b168ccee47b6e1541a67798937a75202
+      internalID: 9030600130257674692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hangarStarBalance
+      rect:
+        serializedVersion: 2
+        x: 1293
+        y: 474
+        width: 150
+        height: 52
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a653b390e6a2d5049b3a1384a6668db2
+      internalID: -7551186049837452357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hangarTabNormal
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 1235
+        width: 282
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29088968a7df3b8498fa77abbfd9c98b
+      internalID: 298612180151125729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hangarTabSelected
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 250
+        width: 282
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fb5aa65c6173ee40931ff9fa15224c6
+      internalID: -4883130134907846816
       vertices: []
       indices: 
       edges: []
@@ -552,7 +741,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 226522f14c52ad8479f801d7e15b623d
+      spriteID: afd2c11f6d4e0624ea430e84ec3a9f37
       internalID: -4432247167192538378
       vertices: []
       indices: 
@@ -573,7 +762,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e5f4825b87f058478b908dae75304ea
+      spriteID: 16ba222c47f4ae54a84a1cd15b9d431d
       internalID: -7654296216398118510
       vertices: []
       indices: 
@@ -594,7 +783,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d197f313c82c944fa6570b806a84eef
+      spriteID: 8a9683364e8a7ef4b801008425302f69
       internalID: 3503418631422027822
       vertices: []
       indices: 
@@ -615,7 +804,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27fb4718a5f80ec4fa9cf84235a33bb7
+      spriteID: 3ffad05660060ef4eaf8ac93daef481b
       internalID: -2822476703965371754
       vertices: []
       indices: 
@@ -636,7 +825,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a0a1d503b9f67449a10b88dd759442e
+      spriteID: 6cd206429915d7d42a21e1f942433ac1
       internalID: 8309709449191311249
       vertices: []
       indices: 
@@ -657,7 +846,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44c360eaae74ef14195b96429c7e26bd
+      spriteID: 1be5eca2760ce0b4cabccd2eacce62b6
       internalID: -8916906604822570299
       vertices: []
       indices: 
@@ -678,7 +867,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1a86e5b3279b98449a9107b4ffbdd60
+      spriteID: fb715ecf2d461c245b6928bdf6b5cfd7
       internalID: 4279596338240934682
       vertices: []
       indices: 
@@ -699,7 +888,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80fba1d93bf01ae42900a1a4b60a26a7
+      spriteID: 588c4e2a211ad464b82662d015d9bb86
       internalID: 8952059903431899271
       vertices: []
       indices: 
@@ -720,7 +909,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de96478f9aa231740865b392f4365dc0
+      spriteID: 817163ee25d178341832f01d00a5cac6
       internalID: 610829481665955111
       vertices: []
       indices: 
@@ -741,7 +930,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8ea6846f45d1c145af707edec5df3ca
+      spriteID: a33ef981b38503646872174270a67cc6
       internalID: 2487680714443490350
       vertices: []
       indices: 
@@ -762,7 +951,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4534566fc9ada664f9b79ebd7d91a020
+      spriteID: f213d755113541e41ae3bc733876b470
       internalID: 3227448587571309340
       vertices: []
       indices: 
@@ -783,7 +972,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff7a1dbe703dc8545bc633ac6a0a9d71
+      spriteID: 868ad456ede36304d9a4d76e76cc28cb
       internalID: -6244188081573824519
       vertices: []
       indices: 
@@ -804,7 +993,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c15064a7bd68d7647950cfc3c35b1d8a
+      spriteID: 6a866be27b9b52e43a9bef4d452e524d
       internalID: -8163504345335726025
       vertices: []
       indices: 
@@ -825,7 +1014,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f8e3b348bc5a4c4e8aae95db82dd6d5
+      spriteID: 84db27ec7b8904f46984ee50f98cf0c0
       internalID: 5670322664649544233
       vertices: []
       indices: 
@@ -846,7 +1035,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b03f9745f74b0354199f93446a51f538
+      spriteID: 8b885bf2cf60395489622749139b72b4
       internalID: -160283225716711329
       vertices: []
       indices: 
@@ -867,197 +1056,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfba94a9e0f0ad840b2de2802c20ef36
+      spriteID: b2b9c55cb856ccb4893f3c766b0a0b26
       internalID: 2387145470546560539
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hangarActionEquipped
-      rect:
-        serializedVersion: 2
-        x: 1410
-        y: 1093
-        width: 410
-        height: 94
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7aaf0ffdea599544da80b02df11c9816
-      internalID: -1067394733
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hangarButtonBack
-      rect:
-        serializedVersion: 2
-        x: 645
-        y: 509
-        width: 120
-        height: 54
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a6ccfe43fb4d1e94791b456866a347ce
-      internalID: 776227888
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hangarCardLocked
-      rect:
-        serializedVersion: 2
-        x: 645
-        y: 312
-        width: 118
-        height: 196
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 084b1cceb7f3af547ba6df241484f651
-      internalID: 831461033
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hangarCardNormal
-      rect:
-        serializedVersion: 2
-        x: 645
-        y: 115
-        width: 118
-        height: 196
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 137b56ec264c4044ab83a373489fea21
-      internalID: 904269329
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hangarCardSelected
-      rect:
-        serializedVersion: 2
-        x: 1698
-        y: 420
-        width: 118
-        height: 196
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ee722164834c464485f99f6fb6c9643
-      internalID: -567139845
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hangarPreviewPanel
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 3
-        width: 644
-        height: 580
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 29722605147c4e94780c71fe7e0b6760
-      internalID: 1496363759
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hangarStarBalance
-      rect:
-        serializedVersion: 2
-        x: 1293
-        y: 474
-        width: 150
-        height: 52
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 08b4ccc194f177c4690522603c73e582
-      internalID: -1353991036
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hangarTabNormal
-      rect:
-        serializedVersion: 2
-        x: 1042
-        y: 1235
-        width: 282
-        height: 72
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2f6b98426d8b9ee4eb977d571521d8d8
-      internalID: 1563300987
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hangarTabSelected
-      rect:
-        serializedVersion: 2
-        x: 1542
-        y: 250
-        width: 282
-        height: 72
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fdfb6b8039e745947bb8fc2b4fbfc0ad
-      internalID: -553281793
       vertices: []
       indices: 
       edges: []
@@ -1065,7 +1065,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 640dec9b85f0e76468fa256ac61dddf6
+    spriteID: 162fef01766eae84dbb58af4f3af817e
     internalID: 0
     vertices: []
     indices: 
@@ -1094,6 +1094,15 @@ TextureImporter:
       battleSkillButton: -8736311616117209140
       battleUpgradeButton: 8324991466351950105
       battleUpgradeIcon: 2460269678360553346
+      hangarActionEquipped: -6388216362963648350
+      hangarButtonBack: -5207731040311096414
+      hangarCardLocked: -3800906267925525961
+      hangarCardNormal: 7328615778284642147
+      hangarCardSelected: -4355424391510327534
+      hangarPreviewPanel: 9030600130257674692
+      hangarStarBalance: -7551186049837452357
+      hangarTabNormal: 298612180151125729
+      hangarTabSelected: -4883130134907846816
       homeButtonPrimary: -4432247167192538378
       homeButtonSecondary: -7654296216398118510
       homePlayerFighter: 3503418631422027822

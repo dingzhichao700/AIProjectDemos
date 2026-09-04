@@ -32,6 +32,7 @@ internal sealed class BattleSetupCoordinator {
         playerConfig.Initialize();
         backgroundPresenter.Initialize(configProvider.GetSceneBackground(stage.sceneId));
         AircraftVO player = formationPresenter.CreatePlayer(playerConfig.current);
+        formationPresenter.ConfigureWingman(configProvider.GetSelectedWingman());
         playerConfig.ApplyBattleStats(model, player);
         formationPresenter.ApplyPlayerVisual(playerConfig.current);
         playerPresenter.Initialize(player);

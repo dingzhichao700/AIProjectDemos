@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "code": "wingman_support_001",
+    "displayName": "基础僚机",
+    "displaySize": {
+      "x": 59,
+      "y": 136
+    },
+    "maxCount": 2,
+    "formationType": 0,
+    "formationOffsets": [
+      {
+        "x": -145,
+        "y": -10
+      },
+      {
+        "x": 145,
+        "y": -10
+      }
+    ],
+    "followSpeed": 12,
+    "unit": {
+      "appearanceName": "wingman/self/battleWingman",
+      "collisionShapes": [],
+      "health": 0,
+      "moveSpeed": 0,
+      "bulletLaunchers": [
+        {
+          "offset": {
+            "x": -9,
+            "y": 64
+          },
+          "bulletType": 1201,
+          "bulletLevel": 1,
+          "bulletCount": 5,
+          "fireIntervalMs": 250,
+          "bulletIntervalMs": 25,
+          "direction": 90,
+          "spreadType": 0,
+          "spreadAngle": 0
+        },
+        {
+          "offset": {
+            "x": 9,
+            "y": 64
+          },
+          "bulletType": 1201,
+          "bulletLevel": 1,
+          "bulletCount": 5,
+          "fireIntervalMs": 250,
+          "bulletIntervalMs": 25,
+          "direction": 90,
+          "spreadType": 0,
+          "spreadAngle": 0
+        }
+      ],
+      "deathExplosions": [],
+      "removeAfterDeathPresentation": false
+    }
+  }
+]

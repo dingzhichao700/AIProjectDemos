@@ -112,6 +112,7 @@ internal sealed class BattleScenePresenter {
             RectTransform view = views.GetEnemy(enemy.id);
             if (view != null) {
                 view.anchoredPosition = enemy.position;
+                SyncEnemyRotation(enemy, view);
             }
             EliteEnemyHealthBarView healthBar = views.GetEliteHealthBar(enemy.id);
             healthBar?.SetPosition(enemy.position, enemy.size.y);
@@ -141,7 +142,8 @@ internal sealed class BattleScenePresenter {
     }
 
     private void OnEnemySpawned(AircraftVO enemy) {
-        RectTransform view = visualPool.Create(enemy.semanticName, entityLayer, enemy.size, enemy.position, enemy.appearancePath, BattleConst.EnemyAircraftVisualRotation);
+        RectTransform view = visualPool.Create(enemy.semanticName, entityLayer,
+            enemy.size, enemy.position, enemy.appearancePath, enemy.rotation);
         views.BindEnemy(enemy.id, view);
         if (enemy.enemyClass == cfg.EnemyClass.ELITE) {
             EliteEnemyHealthBarView healthBar = EliteEnemyHealthBarView.Create(entityLayer);
@@ -206,8 +208,7 @@ internal sealed class BattleScenePresenter {
             return;
         }
         RectTransform aircraftRoot = projectile.owner.faction == SceneElementFaction.PLAYER ? views.GetUnit(projectile.owner.id) : views.GetEnemy(projectile.owner.id);
-        Vector2 launcherOffset = projectile.position - projectile.owner.position;
-        effects.PlayBulletLaunch(projectile.launchEffectId, aircraftRoot, launcherOffset, projectile.launchRotation, projectile.timerType);
+        effects.PlayBulletLaunch(projectile.launchEffectId, aircraftRoot, projectile.launcherOffset, projectile.launchRotation, projectile.timerType);
     }
 
     private void OnRewardSpawned(RewardVO reward) {
@@ -239,6 +240,14 @@ internal sealed class BattleScenePresenter {
         if (projectileView == null) return;
         RectTransform visual = projectileView.Find("imgVisual") as RectTransform;
         (visual ?? projectileView).localEulerAngles = new Vector3(0f, 0f, projectile.rotation);
+    }
+
+    /**只旋转敌机图像子节点，避免血条和逻辑根节点随飞机倾斜。*/
+    private static void SyncEnemyRotation(AircraftVO enemy, RectTransform enemyView) {
+        RectTransform visual = enemyView.Find("imgVisual") as RectTransform;
+        if (visual != null) {
+            visual.localEulerAngles = new Vector3(0f, 0f, enemy.rotation);
+        }
     }
 
 }

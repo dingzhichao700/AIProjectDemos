@@ -53,7 +53,7 @@ public sealed partial class BulletLauncher : Luban.BeanBase
     /// </summary>
     public readonly int BulletCount;
     /// <summary>
-    /// 两轮发射起点之间的间隔毫秒数
+    /// 本轮最后一颗子弹生成后到下一轮开始的等待毫秒数
     /// </summary>
     public readonly int FireIntervalMs;
     /// <summary>

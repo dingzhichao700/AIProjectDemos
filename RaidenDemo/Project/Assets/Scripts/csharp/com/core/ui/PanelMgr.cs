@@ -203,6 +203,11 @@ public class PanelMgr : EventDispatcher {
                 loadingPanelList.Remove(panelEnum);
 
                 BasePanel panelIns = UIFactory.GetUIInstance(panelEnum) as BasePanel;
+                if (panelIns == null) {
+                    Debug.LogError("打开窗口失败，Prefab 根节点缺少有效的 BasePanel/UIBinder：" + panelEnum +
+                                   "，资源路径：" + ResourceConst.GetUIPath(panelEnum));
+                    return;
+                }
                 panelIns.panelEnum = panelEnum;
                 OpenPanelInstance(panelIns, openParams, fromStageRect);
             });

@@ -58,6 +58,10 @@ public partial class Tables
     /// 关卡道具配置表
     /// </summary>
     public cfgObj.StageItemObj StageItemObj {get; }
+    /// <summary>
+    /// 僚机类型配置表
+    /// </summary>
+    public cfgObj.WingmanObj WingmanObj {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
@@ -72,6 +76,7 @@ public partial class Tables
         EffectObj = new cfgObj.EffectObj(loader("cfgobj_effectobj"));
         SceneBgObj = new cfgObj.SceneBgObj(loader("cfgobj_scenebgobj"));
         StageItemObj = new cfgObj.StageItemObj(loader("cfgobj_stageitemobj"));
+        WingmanObj = new cfgObj.WingmanObj(loader("cfgobj_wingmanobj"));
         ResolveRef();
     }
     
@@ -88,6 +93,7 @@ public partial class Tables
         EffectObj.ResolveRef(this);
         SceneBgObj.ResolveRef(this);
         StageItemObj.ResolveRef(this);
+        WingmanObj.ResolveRef(this);
     }
 }
 

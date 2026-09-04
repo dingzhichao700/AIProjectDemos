@@ -55,6 +55,9 @@ public sealed class BattleModel {
     /**Boss 已被击毁，正在等待其死亡表现完成*/
     private bool waitingForBossDeathPresentation;
 
+    /**玩家死亡表现结束后等待后续流程的剩余时间；负数表示尚未开始等待*/
+    private float playerDefeatDelayRemaining = -1f;
+
     /**本局流程状态与关卡进度*/
     public BattleFlowState flowState => flowModel.state;
     public float missionProgress => flowModel.missionProgress;
@@ -155,6 +158,7 @@ public sealed class BattleModel {
         bulletAdditionalLevel = 0;
         bossVictoryDelayRemaining = -1f;
         waitingForBossDeathPresentation = false;
+        playerDefeatDelayRemaining = -1f;
         formationModel.Initialize();
         flowModel.Initialize();
     }
@@ -162,6 +166,20 @@ public sealed class BattleModel {
     /**设置本局玩家子弹的动态附加等级。*/
     internal void SetBulletAdditionalLevel(int level) {
         bulletAdditionalLevel = Mathf.Max(0, level);
+        ApplyLauncherAdditionalLevel(playerUnit);
+        foreach (AircraftVO wingman in formationModel.wingmen) {
+            ApplyLauncherAdditionalLevel(wingman);
+        }
+    }
+
+    /**升级只在变更入口分发到具体发射器，生成子弹时不再按阵营修正规格*/
+    private void ApplyLauncherAdditionalLevel(AircraftVO unit) {
+        if (unit == null) {
+            return;
+        }
+        foreach (BulletLauncherVO launcher in unit.bulletLaunchers) {
+            launcher.SetAdditionalLevel(bulletAdditionalLevel);
+        }
     }
 
     /**设置战斗模拟是否继续推进*/
@@ -227,8 +245,7 @@ public sealed class BattleModel {
     internal void SetPlayerUnit(AircraftVO unit) {
         formationModel.SetPlayer(unit);
         playerUnit?.ConfigureFiring(CreateProjectile);
-        playerUnit?.ConfigurePlayerLifecycle(OnPlayerDefeatPresentationCompleted,
-            OnPlayerRespawnCompleted);
+        playerUnit?.ConfigurePlayerLifecycle(OnPlayerRespawnCompleted);
     }
 
     /**创建并登记玩家阵营飞机逻辑对象。*/
@@ -242,9 +259,13 @@ public sealed class BattleModel {
         return unit;
     }
 
-    /**结算一次僚机奖励：优先补齐槽位，否则升级较低等级僚机。*/
-    internal AircraftVO ApplyWingmanReward(out bool created, out bool isLeft) {
-        return formationModel.ApplyWingmanReward(CreatePlayerAircraft, out created, out isLeft);
+    /**结算一次僚机奖励：数量未满时创建下一槽位僚机。*/
+    internal AircraftVO ApplyWingmanReward(out bool created) {
+        return formationModel.ApplyWingmanReward(CreateWingman, out created);
+    }
+
+    internal void ConfigureWingman(WingmanConfigVO config) {
+        formationModel.ConfigureWingman(config);
     }
 
     /**更新玩家输入产生的权威逻辑坐标*/
@@ -263,37 +284,24 @@ public sealed class BattleModel {
     }
 
     /**按当前飞机等级重建全部玩家发射器*/
-    internal void ConfigurePlayerLaunchers(IReadOnlyList<PlayerBulletLauncherVO> configs) {
+    internal void ConfigurePlayerLaunchers(IReadOnlyList<BulletLauncherConfigVO> configs) {
         playerUnit?.bulletLaunchers.Clear();
-        if (configs == null) {
+        if (configs == null || playerUnit == null) {
             return;
         }
-        foreach (PlayerBulletLauncherVO config in configs) {
-            playerUnit.bulletLaunchers.Add(new BulletLauncherVO(config));
+        foreach (BulletLauncherConfigVO config in configs) {
+            playerUnit.bulletLaunchers.Add(new BulletLauncherVO(config, RaidenControl.ins.model.GetBulletConfig, bulletAdditionalLevel));
         }
     }
 
     /**重置玩家发射器的整轮与轮内发射状态*/
     internal void ResetPlayerLaunchers() {
-        playerUnit?.ResetLaunchers();
+        formationModel.ResetLaunchers();
     }
 
     /**控制玩家发射器是否参与 playerTimer 更新*/
     internal void SetPlayerFiringEnabled(bool enabled) {
-        playerUnit?.SetFiringEnabled(enabled);
-    }
-
-    /**应用玩家与僚机的局外养成等级。*/
-    internal void ApplyPersistentFormationLevels(int playerLevel, int wingmanLevel) {
-        formationModel.ApplyPersistentLevels(playerLevel, wingmanLevel);
-        playerStatusChanged?.Invoke();
-    }
-
-    /**应用玩家与现有僚机的本关临时等级。*/
-    internal void ApplyStageFormationBonus(int playerBonusLevel,
-        int wingmanBonusLevel) {
-        formationModel.ApplyStageBonus(playerBonusLevel, wingmanBonusLevel);
-        playerStatusChanged?.Invoke();
+        formationModel.SetFiringEnabled(enabled);
     }
 
     /**移除玩家子弹并通知表现层回收 View*/
@@ -348,21 +356,25 @@ public sealed class BattleModel {
             return;
         }
         waitingForBossDeathPresentation = false;
-        bossVictoryDelayRemaining = BattleConst.BossVictoryDelayAfterDeathPresentation;
+        bossVictoryDelayRemaining = BattleConst.BattleResultDelayAfterDeathPresentation;
+    }
+
+    /**玩家死亡表现完成后开始固定延迟。*/
+    internal void NotifyPlayerDeathPresentationCompleted() {
+        if (playerUnit == null || playerUnit.lifecycleState != PlayerLifecycleState.Dying || playerDefeatDelayRemaining >= 0f) {
+            return;
+        }
+        playerDefeatDelayRemaining = BattleConst.BattleResultDelayAfterDeathPresentation;
     }
 
     /**登记一个由关卡逻辑生成的奖励道具*/
-    internal RewardVO SpawnReward(Vector2 position, StageItemEffectType type, bool isNaturalSupply = false) {
-        return rewardModel.Spawn(position, type, isNaturalSupply, CreateElementId, AddElement, reward => rewardSpawned?.Invoke(reward));
+    internal RewardVO SpawnReward(Vector2 position, StageItemEffectType type) {
+        return rewardModel.Spawn(position, type, CreateElementId, AddElement, reward => rewardSpawned?.Invoke(reward));
     }
 
-    /**按关卡时间自然生成补给*/
-    private void UpdateNaturalSupply(float deltaTime) {
-        rewardModel.UpdateNaturalSupply(deltaTime, stageModel.bossSpawned, SpawnNaturalReward);
-    }
-
-    private void SpawnNaturalReward(Vector2 position, StageItemResource config, bool isNaturalSupply) {
-        rewardModel.Spawn(position, config, isNaturalSupply, CreateElementId, AddElement, reward => rewardSpawned?.Invoke(reward));
+    /**按自然补给选中的具体道具配置生成，不重新按效果类型映射*/
+    private void SpawnNaturalReward(Vector2 position, StageItemResource config) {
+        rewardModel.Spawn(position, config, CreateElementId, AddElement, reward => rewardSpawned?.Invoke(reward));
     }
 
     /**同步奖励目标、清理越界奖励并结算拾取*/
@@ -372,12 +384,6 @@ public sealed class BattleModel {
 
     private void AddPlayerLifeFromReward(int value) {
         AddPlayerLife(value);
-    }
-
-    /**覆盖本局分数，供既有调试入口使用*/
-    internal void SetScore(int value) {
-        battleScore = Mathf.Max(0, value);
-        scoreChanged?.Invoke(battleScore);
     }
 
     /**增加关卡内生命并返回最新数量*/
@@ -431,9 +437,10 @@ public sealed class BattleModel {
         }
         sceneModel.UpdateElements(TimerType.SCENE, deltaTime);
         stageModel.Update(deltaTime, enemies.Count, SpawnNormalEnemy, SpawnSpecialEnemy);
-        UpdateNaturalSupply(deltaTime);
+        rewardModel.UpdateNaturalSupply(deltaTime, stageModel.bossSpawned, SpawnNaturalReward);
         UpdateRewards();
         UpdateBossVictoryDelay(deltaTime);
+        UpdatePlayerDefeatDelay(deltaTime);
         sceneTimeUpdated?.Invoke(deltaTime);
     }
 
@@ -460,9 +467,12 @@ public sealed class BattleModel {
     }
 
     /**根据普通波次请求创建一架敌机。*/
-    private void SpawnNormalEnemy(EnemyWaveVO wave, int formationIndex) {
-        Vector2 spawnPosition = GetEnemySpawnPosition(wave, formationIndex);
-        CreateEnemy(wave.enemy, spawnPosition, wave.motionType, wave.enemy.moveSpeed, wave.enemy.score, formationIndex, wave.count, wave.direction);
+    private void SpawnNormalEnemy(EnemyWaveVO wave, int formationIndex,
+        EnemyFormationPathVO formationPath) {
+        Vector2 spawnPosition = formationPath.GetMemberPosition(formationIndex);
+        CreateEnemy(wave.enemy, spawnPosition, wave.motionType,
+            wave.enemy.moveSpeed, wave.enemy.score, formationIndex,
+            wave.count, wave.direction, formationPath);
     }
 
     /**根据特殊敌机请求创建精英或 Boss。*/
@@ -470,30 +480,17 @@ public sealed class BattleModel {
         CreateEnemy(config, position);
     }
 
-    /**按编队中心和成员间距计算普通敌机出生点*/
-    private static Vector2 GetEnemySpawnPosition(EnemyWaveVO wave, int enemyIndex) {
-        float centeredIndex = enemyIndex - (wave.count - 1) * 0.5f;
-        Vector2 position = wave.spawnCenter + new Vector2(centeredIndex * wave.spacing, 0f);
-        if (wave.formationType == EnemyFormationType.DIAGONAL) {
-            position.x = wave.direction > 0f
-                ? 80f + enemyIndex * wave.spacing
-                : 640f - enemyIndex * wave.spacing;
-            position.y -= enemyIndex * 55f;
-        }
-        return position;
-    }
-
     /**创建、登记并配置一架敌机逻辑对象*/
     private AircraftVO CreateEnemy(EnemyConfigVO config, Vector2 position,
         EnemyMotionType motionType = EnemyMotionType.STRAIGHT, float moveSpeed = 0f,
         int scoreValue = 0, int formationIndex = 0, int formationCount = 1,
-        float motionDirection = 1f) {
+        float motionDirection = 1f, EnemyFormationPathVO formationPath = null) {
         AircraftVO enemy = new AircraftVO(CreateElementId(), position, config.enemyClass,
             config.displaySize, config.collision, config.baseHealth, motionType,
             moveSpeed, scoreValue, formationIndex, formationCount, motionDirection,
-            config.appearancePath);
-        foreach (PlayerBulletLauncherVO launcher in config.bulletLaunchers) {
-            enemy.bulletLaunchers.Add(new BulletLauncherVO(launcher));
+            config.appearancePath, formationPath: formationPath);
+        foreach (BulletLauncherConfigVO launcher in config.bulletLaunchers) {
+            enemy.bulletLaunchers.Add(new BulletLauncherVO(launcher, RaidenControl.ins.model.GetBulletConfig));
         }
         enemy.ConfigureDeathPresentation(config.deathExplosions, config.removeAfterDeathPresentation);
         enemy.ConfigureFiring(CreateProjectile);
@@ -503,46 +500,32 @@ public sealed class BattleModel {
         return enemy;
     }
 
-    /**创建玩家子弹逻辑对象并通知表现层补充 View*/
-    private void CreateProjectile(AircraftVO owner, PlayerBulletLauncherVO launcher,
-        int projectileIndex) {
-        Vector2 spawnPosition = owner.position + launcher.offset;
-        float direction = GetProjectileDirection(launcher, projectileIndex);
-        int additionalLevel = owner.faction == SceneElementFaction.PLAYER ? bulletAdditionalLevel : 0;
-        BulletConfigVO bullet = RaidenControl.ins.model.GetBulletConfig(launcher.bulletType, launcher.bulletLevel, additionalLevel);
-        if (bullet == null) {
-            Debug.LogError($"无法创建子弹：type={launcher.bulletType}, level={launcher.bulletLevel}, additionalLevel={additionalLevel}");
-            return;
+    /**按当前僚机配置创建一个无碰撞的玩家阵营飞行单位。*/
+    private AircraftVO CreateWingman(WingmanConfigVO config, int slotIndex, Vector2 position) {
+        AircraftVO wingman = CreatePlayerAircraft($"wingmanEntity{slotIndex + 1}", false, position);
+        foreach (BulletLauncherConfigVO launcher in config.bulletLaunchers) {
+            wingman.bulletLaunchers.Add(new BulletLauncherVO(launcher, RaidenControl.ins.model.GetBulletConfig, bulletAdditionalLevel));
         }
-        BulletVO projectile = new BulletVO(CreateElementId(), spawnPosition, owner, launcher, bullet, direction);
-        if (owner.faction == SceneElementFaction.PLAYER) {
-            projectile.ConfigureTracking(FindNearestVisibleEnemy, target => enemies.Contains(target) && IsEnemyInsideBattleViewport(target));
+        wingman.ConfigureFiring(CreateProjectile);
+        return wingman;
+    }
+
+    /**执行发射器确定的生成请求；阵营仅用于目标关系与场景登记，不改变子弹规格*/
+    private void CreateProjectile(BulletLaunchVO launch) {
+        BulletVO projectile = new BulletVO(CreateElementId(), launch);
+        if (launch.owner.faction == SceneElementFaction.PLAYER) {
+            projectile.ConfigureTracking(FindNearestVisibleEnemy, IsEnemyTrackingTargetAvailable);
+            projectile.AdvanceFromInFrameEvent(launch.inFrameElapsed);
             playerProjectiles.Add(projectile);
             AddElement(projectile);
             playerProjectileSpawned?.Invoke(projectile);
             return;
         }
+        projectile.ConfigureTracking(FindVisiblePlayer, IsPlayerTrackingTargetAvailable);
+        projectile.AdvanceFromInFrameEvent(launch.inFrameElapsed);
         enemyProjectiles.Add(projectile);
         AddElement(projectile);
         enemyProjectileSpawned?.Invoke(projectile);
-    }
-
-    /**根据发射器散布策略计算当前子弹的初始飞行角度*/
-    private static float GetProjectileDirection(PlayerBulletLauncherVO launcher, int index) {
-        int count = launcher.bulletCount;
-        if (count <= 1 || launcher.spreadAngle <= 0f) {
-            return launcher.direction;
-        }
-        float ratio = index / (float)(count - 1);
-        switch (launcher.spreadType) {
-            case BulletSpreadType.LEFT:
-                return launcher.direction + launcher.spreadAngle * ratio;
-            case BulletSpreadType.RIGHT:
-                return launcher.direction - launcher.spreadAngle * ratio;
-            default:
-                return launcher.direction - launcher.spreadAngle * 0.5f +
-                    launcher.spreadAngle * ratio;
-        }
     }
 
     /**移除已经飞出战斗区域的玩家子弹*/
@@ -571,7 +554,23 @@ public sealed class BattleModel {
     private void RemoveOutOfBoundsEnemies() {
         for (int i = enemies.Count - 1; i >= 0; i--) {
             AircraftVO enemy = enemies[i];
-            if (enemy.enemyClass == EnemyClass.NORMAL && enemy.position.y < -1380f) {
+            if (enemy.enemyClass != EnemyClass.NORMAL ||
+                !enemy.hasEnteredViewport) {
+                continue;
+            }
+            float halfWidth = enemy.size.x * 0.5f;
+            bool horizontalExit = enemy.motionType == EnemyMotionType.SNAKE &&
+                                  (enemy.motionDirection > 0f
+                                      ? enemy.position.x - halfWidth >
+                                        BattleConst.BattleViewportWidth +
+                                        BattleConst.EnemyFormationViewportPadding
+                                      : enemy.position.x + halfWidth <
+                                        -BattleConst.EnemyFormationViewportPadding);
+            bool verticalExit = enemy.motionType != EnemyMotionType.SNAKE &&
+                                enemy.position.y + enemy.size.y * 0.5f <
+                                -BattleConst.BattleViewportHeight -
+                                BattleConst.EnemyFormationViewportPadding;
+            if (horizontalExit || verticalExit) {
                 ResolveEnemy(enemy, false);
             }
         }
@@ -582,7 +581,7 @@ public sealed class BattleModel {
         AircraftVO nearest = null;
         float nearestDistance = float.MaxValue;
         foreach (AircraftVO enemy in enemies) {
-            if (!IsEnemyInsideBattleViewport(enemy)) {
+            if (enemy.health <= 0 || !IsEnemyInsideBattleViewport(enemy)) {
                 continue;
             }
             float distance = (enemy.position - position).sqrMagnitude;
@@ -592,6 +591,21 @@ public sealed class BattleModel {
             }
         }
         return nearest;
+    }
+
+    /**追踪只接受仍存活且可见的敌方目标，死亡表现期间不再锁定*/
+    private bool IsEnemyTrackingTargetAvailable(AircraftVO target) {
+        return target != null && target.health > 0 && enemies.Contains(target) && IsEnemyInsideBattleViewport(target);
+    }
+
+    /**敌方追踪子弹查询可被攻击的玩家主机；僚机当前没有碰撞受击职责*/
+    private AircraftVO FindVisiblePlayer(Vector2 position) {
+        return IsPlayerTrackingTargetAvailable(playerUnit) ? playerUnit : null;
+    }
+
+    /**玩家死亡或重新入场时不作为有效追踪目标；无敌闪烁不改变目标归属*/
+    private bool IsPlayerTrackingTargetAvailable(AircraftVO target) {
+        return target != null && target == playerUnit && !target.destroyed && target.health > 0 && target.lifecycleState == PlayerLifecycleState.Alive && target.position.x >= 0f && target.position.x <= BattleConst.BattleViewportWidth && target.position.y <= 0f && target.position.y >= -BattleConst.BattleViewportHeight;
     }
 
     /**判断敌机形象范围是否仍与战斗视窗重叠*/
@@ -608,7 +622,13 @@ public sealed class BattleModel {
 
     /**集中检测三类战斗接触，并将命中结果通知表现协调层*/
     private void ResolveCombatContacts() {
-        combatModel.Resolve(playerUnit, playerCollision, playerProjectiles, enemies, enemyProjectiles, RemovePlayerProjectile, ResolveEnemy, enemy => enemyHealthChanged?.Invoke(enemy), (projectile, enemy, point) => playerProjectileHitEnemy?.Invoke(projectile, enemy, point), RemoveEnemyProjectile, (projectile, point) => enemyProjectileHitPlayer?.Invoke(projectile, point), () => playerStatusChanged?.Invoke(), () => playerDefeatStarted?.Invoke());
+        combatModel.Resolve(playerUnit, playerCollision, playerProjectiles, enemies, enemyProjectiles, RemovePlayerProjectile, ResolveEnemy, enemy => enemyHealthChanged?.Invoke(enemy), (projectile, enemy, point) => playerProjectileHitEnemy?.Invoke(projectile, enemy, point), RemoveEnemyProjectile, (projectile, point) => enemyProjectileHitPlayer?.Invoke(projectile, point), () => playerStatusChanged?.Invoke(), OnPlayerDefeatStarted);
+    }
+
+    /**玩家死亡时清空僚机逻辑对象，再通知表现层播放死亡流程。*/
+    private void OnPlayerDefeatStarted() {
+        formationModel.ClearWingmen(id => RemoveElement(id));
+        playerDefeatStarted?.Invoke();
     }
 
     /**结算精英或 Boss 的击毁结果*/
@@ -639,6 +659,19 @@ public sealed class BattleModel {
         }
         bossVictoryDelayRemaining = -1f;
         victoryRequested?.Invoke();
+    }
+
+    /**使用 sceneTimer 推进玩家死亡表现结束后的流程延迟。*/
+    private void UpdatePlayerDefeatDelay(float deltaTime) {
+        if (playerDefeatDelayRemaining < 0f) {
+            return;
+        }
+        playerDefeatDelayRemaining -= deltaTime;
+        if (playerDefeatDelayRemaining > 0f) {
+            return;
+        }
+        playerDefeatDelayRemaining = -1f;
+        OnPlayerDefeatPresentationCompleted();
     }
 
     /**累加并广播权威战斗分数*/

@@ -16,11 +16,11 @@ internal sealed class RewardVO : SceneElementVO {
     public readonly int effectValue;
     public readonly int effectId;
     public readonly string pickupText;
-    public readonly bool isNaturalSupply;
     private readonly float moveSpeed;
     private Vector2 moveDirection;
     private float bounceRemaining;
     private float warningElapsed;
+    private float collectedElapsed;
 
     public bool isCollected { get; private set; }
 
@@ -34,7 +34,7 @@ internal sealed class RewardVO : SceneElementVO {
         }
     }
 
-    public RewardVO(long id, Vector2 position, StageItemResource config, bool isNaturalSupply = false)
+    public RewardVO(long id, Vector2 position, StageItemResource config)
         : base(id, SceneElementFaction.NEUTRAL, TimerType.SCENE, position) {
         itemId = config.Id;
         type = config.EffectType;
@@ -46,11 +46,15 @@ internal sealed class RewardVO : SceneElementVO {
         moveSpeed = config.MoveSpeed;
         bounceRemaining = config.BounceDurationMs / 1000f;
         moveDirection = CreateInitialDirection();
-        this.isNaturalSupply = isNaturalSupply;
     }
 
     public override void OnTimeUpdate(float deltaTime) {
-        float currentMoveSpeed = isCollected ? BattleConst.RewardCollectedMoveSpeed : moveSpeed;
+        float currentMoveSpeed = moveSpeed;
+        if (isCollected) {
+            float progress = Mathf.Clamp01(collectedElapsed / BattleConst.RewardCollectedDecelerationDuration);
+            currentMoveSpeed = Mathf.Lerp(BattleConst.RewardCollectedMoveSpeed, 0f, progress);
+            collectedElapsed += deltaTime;
+        }
         position += moveDirection * currentMoveSpeed * deltaTime;
         if (isCollected) {
             return;
@@ -68,6 +72,7 @@ internal sealed class RewardVO : SceneElementVO {
     /**进入已拾取表现状态，保留移动但不再参与拾取碰撞。*/
     public void MarkCollected() {
         isCollected = true;
+        collectedElapsed = 0f;
     }
 
     /**判断道具的圆形范围是否已经完全离开战斗视窗。*/

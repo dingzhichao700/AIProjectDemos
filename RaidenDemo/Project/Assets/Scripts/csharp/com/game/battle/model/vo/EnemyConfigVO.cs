@@ -18,11 +18,11 @@ public sealed class EnemyConfigVO {
     public readonly float moveSpeed;
     public readonly int score;
     public readonly int poolCapacity;
-    public readonly IReadOnlyList<PlayerBulletLauncherVO> bulletLaunchers;
+    public readonly IReadOnlyList<BulletLauncherConfigVO> bulletLaunchers;
     public readonly IReadOnlyList<ExplosionEffect> deathExplosions;
     public readonly bool removeAfterDeathPresentation;
 
-    public EnemyConfigVO(int id, EnemyClass enemyClass, int baseHealth, string appearancePath, Vector2 displaySize, AircraftCollisionVO collision, float moveSpeed, int score, int poolCapacity, IReadOnlyList<PlayerBulletLauncherVO> bulletLaunchers, IReadOnlyList<ExplosionEffect> deathExplosions, bool removeAfterDeathPresentation) {
+    public EnemyConfigVO(int id, EnemyClass enemyClass, int baseHealth, string appearancePath, Vector2 displaySize, AircraftCollisionVO collision, float moveSpeed, int score, int poolCapacity, IReadOnlyList<BulletLauncherConfigVO> bulletLaunchers, IReadOnlyList<ExplosionEffect> deathExplosions, bool removeAfterDeathPresentation) {
         this.id = id;
         this.enemyClass = enemyClass;
         this.baseHealth = baseHealth;

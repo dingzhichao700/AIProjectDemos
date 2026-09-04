@@ -22,7 +22,7 @@ public sealed partial class EnemyResource : Luban.BeanBase
         { if(!_buf["displaySize"].IsObject) { throw new SerializationException(); }  DisplaySize = global::cfg.vector2.Deserializevector2(_buf["displaySize"]);  }
         { if(!_buf["score"].IsNumber) { throw new SerializationException(); }  Score = _buf["score"]; }
         { if(!_buf["poolCapacity"].IsNumber) { throw new SerializationException(); }  PoolCapacity = _buf["poolCapacity"]; }
-        { if(!_buf["aircraft"].IsObject) { throw new SerializationException(); }  Aircraft = global::cfg.Aircraft.DeserializeAircraft(_buf["aircraft"]);  }
+        { if(!_buf["unit"].IsObject) { throw new SerializationException(); }  Unit = global::cfg.FlyingUnit.DeserializeFlyingUnit(_buf["unit"]);  }
     }
 
     public static EnemyResource DeserializeEnemyResource(JSONNode _buf)
@@ -51,16 +51,16 @@ public sealed partial class EnemyResource : Luban.BeanBase
     /// </summary>
     public readonly int PoolCapacity;
     /// <summary>
-    /// 飞机实体
+    /// 飞行单位
     /// </summary>
-    public readonly Aircraft Aircraft;
+    public readonly FlyingUnit Unit;
    
     public const int __ID__ = 2124606902;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        Aircraft?.ResolveRef(tables);
+        Unit?.ResolveRef(tables);
     }
 
     public override string ToString()
@@ -71,7 +71,7 @@ public sealed partial class EnemyResource : Luban.BeanBase
         + "displaySize:" + DisplaySize + ","
         + "score:" + Score + ","
         + "poolCapacity:" + PoolCapacity + ","
-        + "aircraft:" + Aircraft + ","
+        + "unit:" + Unit + ","
         + "}";
     }
 }

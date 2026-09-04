@@ -23,7 +23,7 @@ public sealed partial class PlayerAircraftLevelResource : Luban.BeanBase
         { if(!_buf["displaySize"].IsObject) { throw new SerializationException(); }  DisplaySize = global::cfg.vector2.Deserializevector2(_buf["displaySize"]);  }
         { if(!_buf["baseBulletCount"].IsNumber) { throw new SerializationException(); }  BaseBulletCount = _buf["baseBulletCount"]; }
         { if(!_buf["basePower"].IsNumber) { throw new SerializationException(); }  BasePower = _buf["basePower"]; }
-        { if(!_buf["aircraft"].IsObject) { throw new SerializationException(); }  Aircraft = global::cfg.Aircraft.DeserializeAircraft(_buf["aircraft"]);  }
+        { if(!_buf["unit"].IsObject) { throw new SerializationException(); }  Unit = global::cfg.FlyingUnit.DeserializeFlyingUnit(_buf["unit"]);  }
     }
 
     public static PlayerAircraftLevelResource DeserializePlayerAircraftLevelResource(JSONNode _buf)
@@ -56,16 +56,16 @@ public sealed partial class PlayerAircraftLevelResource : Luban.BeanBase
     /// </summary>
     public readonly int BasePower;
     /// <summary>
-    /// 飞机实体
+    /// 飞行单位
     /// </summary>
-    public readonly Aircraft Aircraft;
+    public readonly FlyingUnit Unit;
    
     public const int __ID__ = -2141964837;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        Aircraft?.ResolveRef(tables);
+        Unit?.ResolveRef(tables);
     }
 
     public override string ToString()
@@ -77,7 +77,7 @@ public sealed partial class PlayerAircraftLevelResource : Luban.BeanBase
         + "displaySize:" + DisplaySize + ","
         + "baseBulletCount:" + BaseBulletCount + ","
         + "basePower:" + BasePower + ","
-        + "aircraft:" + Aircraft + ","
+        + "unit:" + Unit + ","
         + "}";
     }
 }

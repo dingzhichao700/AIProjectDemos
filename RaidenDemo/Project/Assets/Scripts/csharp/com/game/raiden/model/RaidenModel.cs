@@ -9,6 +9,9 @@ using UnityEngine;
 /// </summary>
 public sealed class RaidenModel {
 
+    /**新运行周期的玩家飞机初始等级*/
+    private const int InitialAircraftLevel = 1;
+
     /**当前运行周期内的关卡进度表*/
     private readonly Dictionary<int, StageProgressVO> stageProgressMap = new Dictionary<int, StageProgressVO>();
 
@@ -21,8 +24,11 @@ public sealed class RaidenModel {
     /**当前出战玩家飞机类型*/
     public int selectedAircraftId { get; private set; }
 
+    /**当前出战僚机类型*/
+    public int selectedWingmanId { get; private set; }
+
     /**关卡外飞机默认等级，后续由永久强化系统提升*/
-    public int defaultAircraftLevel { get; private set; } = 3;
+    public int defaultAircraftLevel { get; private set; } = InitialAircraftLevel;
 
     /**关卡配置总数*/
     public int stageCount => CfgManager.tables.StageObj.DataList.Count;
@@ -70,8 +76,8 @@ public sealed class RaidenModel {
         if (enemy == null) {
             return null;
         }
-        List<PlayerBulletLauncherVO> launchers = CreateBulletLaunchers(enemy.Aircraft.BulletLaunchers, $"敌机 {enemyId}");
-        return new EnemyConfigVO(enemy.Id, enemy.EnemyClass, enemy.Aircraft.Health, BattleConst.GetRaidenUnpackImagePath(enemy.Aircraft.AppearanceName), new Vector2(enemy.DisplaySize.X, enemy.DisplaySize.Y), AircraftCollisionVO.Create(enemy.Aircraft.CollisionShapes), enemy.Aircraft.MoveSpeed, enemy.Score, enemy.PoolCapacity, launchers, enemy.Aircraft.DeathExplosions, enemy.Aircraft.RemoveAfterDeathPresentation);
+        List<BulletLauncherConfigVO> launchers = CreateBulletLaunchers(enemy.Unit.BulletLaunchers, $"敌机 {enemyId}");
+        return new EnemyConfigVO(enemy.Id, enemy.EnemyClass, enemy.Unit.Health, BattleConst.GetRaidenUnpackImagePath(enemy.Unit.AppearanceName), new Vector2(enemy.DisplaySize.X, enemy.DisplaySize.Y), AircraftCollisionVO.Create(enemy.Unit.CollisionShapes), enemy.Unit.MoveSpeed, enemy.Score, enemy.PoolCapacity, launchers, enemy.Unit.DeathExplosions, enemy.Unit.RemoveAfterDeathPresentation);
     }
 
     /**获取并转换敌机子弹配置*/
@@ -121,15 +127,32 @@ public sealed class RaidenModel {
         }
         foreach (PlayerAircraftLevelResource candidate in CfgManager.tables.PlayerAircraftLevelObj.DataList) {
             if (candidate.AircraftId == aircraftId && candidate.Level == level) {
-                List<PlayerBulletLauncherVO> launchers = CreateBulletLaunchers(candidate.Aircraft.BulletLaunchers, $"玩家飞机等级 {candidate.Id}");
-                return new PlayerAircraftBattleLevelVO(candidate.AircraftId, candidate.Level, BattleConst.GetRaidenUnpackImagePath(candidate.Aircraft.AppearanceName), new Vector2(candidate.DisplaySize.X, candidate.DisplaySize.Y), AircraftCollisionVO.Create(candidate.Aircraft.CollisionShapes), candidate.Aircraft.Health, candidate.BaseBulletCount, launchers, candidate.Aircraft.DeathExplosions, candidate.Aircraft.RemoveAfterDeathPresentation);
+                List<BulletLauncherConfigVO> launchers = CreateBulletLaunchers(candidate.Unit.BulletLaunchers, $"玩家飞机等级 {candidate.Id}");
+                return new PlayerAircraftBattleLevelVO(candidate.AircraftId, candidate.Level, BattleConst.GetRaidenUnpackImagePath(candidate.Unit.AppearanceName), new Vector2(candidate.DisplaySize.X, candidate.DisplaySize.Y), AircraftCollisionVO.Create(candidate.Unit.CollisionShapes), candidate.Unit.Health, candidate.BaseBulletCount, launchers, candidate.Unit.DeathExplosions, candidate.Unit.RemoveAfterDeathPresentation);
             }
         }
         throw new InvalidOperationException($"玩家飞机 {aircraftId} 缺少等级 {level} 配置");
     }
 
-    private static List<PlayerBulletLauncherVO> CreateBulletLaunchers(IReadOnlyList<BulletLauncher> configs, string ownerName) {
-        List<PlayerBulletLauncherVO> result = new List<PlayerBulletLauncherVO>();
+    /**获取指定僚机类型的关卡内战斗配置。*/
+    public WingmanConfigVO GetWingmanConfig(int wingmanId) {
+        WingmanResource config = CfgManager.tables.WingmanObj.GetOrDefault(wingmanId);
+        if (config == null) {
+            return null;
+        }
+        List<Vector2> offsets = new List<Vector2>(config.FormationOffsets.Count);
+        foreach (cfg.vector2 offset in config.FormationOffsets) {
+            offsets.Add(new Vector2(offset.X, offset.Y));
+        }
+        if (config.MaxCount <= 0 || offsets.Count < config.MaxCount) {
+            throw new InvalidOperationException($"僚机 {config.Id} 的编队槽位少于数量上限");
+        }
+        List<BulletLauncherConfigVO> launchers = CreateBulletLaunchers(config.Unit.BulletLaunchers, $"僚机 {config.Id}");
+        return new WingmanConfigVO(config.Id, config.Code, config.DisplayName, new Vector2(config.DisplaySize.X, config.DisplaySize.Y), config.MaxCount, config.FormationType, offsets, Mathf.Max(0f, config.FollowSpeed), BattleConst.GetRaidenUnpackImagePath(config.Unit.AppearanceName), launchers);
+    }
+
+    private static List<BulletLauncherConfigVO> CreateBulletLaunchers(IReadOnlyList<BulletLauncher> configs, string ownerName) {
+        List<BulletLauncherConfigVO> result = new List<BulletLauncherConfigVO>();
         foreach (BulletLauncher launcher in configs) {
             BulletResource bullet = null;
             foreach (BulletResource candidate in CfgManager.tables.BulletObj.DataList) {
@@ -140,7 +163,7 @@ public sealed class RaidenModel {
             if (bullet == null) {
                 throw new InvalidOperationException($"{ownerName} 引用了不存在的子弹：type={launcher.BulletType}, level={launcher.BulletLevel}");
             }
-            result.Add(new PlayerBulletLauncherVO(new Vector2(launcher.Offset.X, launcher.Offset.Y), launcher.BulletType, launcher.BulletLevel, Mathf.Max(1, launcher.BulletCount), Mathf.Max(0.001f, launcher.FireIntervalMs / 1000f), Mathf.Max(0, launcher.BulletIntervalMs), launcher.Direction, launcher.SpreadType, Mathf.Max(0f, launcher.SpreadAngle)));
+            result.Add(new BulletLauncherConfigVO(new Vector2(launcher.Offset.X, launcher.Offset.Y), launcher.BulletType, launcher.BulletLevel, Mathf.Max(1, launcher.BulletCount), Mathf.Max(0.001f, launcher.FireIntervalMs / 1000f), Mathf.Max(0, launcher.BulletIntervalMs), launcher.Direction, launcher.SpreadType, Mathf.Max(0f, launcher.SpreadAngle)));
         }
         return result;
     }
@@ -196,9 +219,10 @@ public sealed class RaidenModel {
             });
         }
         spentStarCount = 0;
-        defaultAircraftLevel = 3;
+        defaultAircraftLevel = InitialAircraftLevel;
         unlockedAircraftIds.Clear();
         selectedAircraftId = 0;
+        selectedWingmanId = 0;
         foreach (PlayerAircraftResource aircraft in CfgManager.tables.PlayerAircraftObj.DataList) {
             if (aircraft.DefaultUnlocked) {
                 unlockedAircraftIds.Add(aircraft.Id);
@@ -209,6 +233,13 @@ public sealed class RaidenModel {
         }
         if (selectedAircraftId == 0) {
             throw new InvalidOperationException("玩家飞机配置中至少需要一种默认解锁机型");
+        }
+        foreach (WingmanResource wingman in CfgManager.tables.WingmanObj.DataList) {
+            selectedWingmanId = wingman.Id;
+            break;
+        }
+        if (selectedWingmanId == 0) {
+            throw new InvalidOperationException("僚机配置中至少需要一种可用类型");
         }
     }
 
@@ -225,7 +256,7 @@ public sealed class RaidenModel {
         if (levelConfig == null) {
             throw new InvalidOperationException($"玩家飞机 {aircraft.Id} 缺少等级 {previewLevel} 配置");
         }
-        return new PlayerAircraftVO(aircraft.Id, aircraft.Code, aircraft.DisplayName, aircraft.MaxLevel, previewLevel, aircraft.DefaultUnlocked, aircraft.UnlockStarCost, levelConfig.BasePower, BattleConst.GetRaidenUnpackImagePath(levelConfig.Aircraft.AppearanceName), new Vector2(levelConfig.DisplaySize.X, levelConfig.DisplaySize.Y));
+        return new PlayerAircraftVO(aircraft.Id, aircraft.Code, aircraft.DisplayName, aircraft.MaxLevel, previewLevel, aircraft.DefaultUnlocked, aircraft.UnlockStarCost, levelConfig.BasePower, BattleConst.GetRaidenUnpackImagePath(levelConfig.Unit.AppearanceName), new Vector2(levelConfig.DisplaySize.X, levelConfig.DisplaySize.Y));
     }
 
     /**将关卡引用的 Luban 波次配置转换为运行时业务数据*/

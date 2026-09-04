@@ -12,8 +12,12 @@ using UnityEngine;
 /// </remarks>
 internal sealed class BattleRewardModel {
 
+    /**自然补给计时由场景 Timer 驱动，暂停时不推进*/
     private float naturalSupplyCooldown;
+
+    /**按道具表顺序轮换，避免只生成一种补给*/
     private int naturalSupplyCount;
+
     private bool playerUpgradeBlocked;
 
     public readonly List<RewardVO> rewards = new List<RewardVO>();
@@ -24,20 +28,24 @@ internal sealed class BattleRewardModel {
         playerUpgradeBlocked = false;
     }
 
-    public RewardVO Spawn(Vector2 position, StageItemEffectType type, bool isNaturalSupply, Func<long> createId, Action<SceneElementVO> addElement, Action<RewardVO> onSpawned) {
-        return Spawn(position, GetItemConfig(type), isNaturalSupply, createId, addElement, onSpawned);
+    public RewardVO Spawn(Vector2 position, StageItemEffectType type, Func<long> createId, Action<SceneElementVO> addElement, Action<RewardVO> onSpawned) {
+        return Spawn(position, GetItemConfig(type), createId, addElement, onSpawned);
     }
 
-    public RewardVO Spawn(Vector2 position, StageItemResource config, bool isNaturalSupply, Func<long> createId, Action<SceneElementVO> addElement, Action<RewardVO> onSpawned) {
-        RewardVO reward = new RewardVO(createId(), position, config, isNaturalSupply);
+    /**自然补给和编队奖励共用当前道具创建、登记与表现通知链路*/
+    public RewardVO Spawn(Vector2 position, StageItemResource config, Func<long> createId, Action<SceneElementVO> addElement, Action<RewardVO> onSpawned) {
+        RewardVO reward = new RewardVO(createId(), position, config);
         rewards.Add(reward);
         addElement(reward);
         onSpawned?.Invoke(reward);
         return reward;
     }
 
-    public void UpdateNaturalSupply(float deltaTime, bool bossSpawned, Action<Vector2, StageItemResource, bool> spawn) {
-        if (bossSpawned) {
+    /// <summary>
+    /// 恢复定时自然补给：Boss 登场后停止新增，已有补给不受影响；卡帧不批量追补。
+    /// </summary>
+    public void UpdateNaturalSupply(float deltaTime, bool bossSpawned, Action<Vector2, StageItemResource> spawn) {
+        if (bossSpawned || deltaTime <= 0f) {
             return;
         }
         naturalSupplyCooldown -= deltaTime;
@@ -45,14 +53,14 @@ internal sealed class BattleRewardModel {
             return;
         }
         naturalSupplyCooldown = BattleConst.NaturalSupplyInterval;
-        IReadOnlyList<StageItemResource> itemConfigs = CfgManager.tables.StageItemObj.DataList;
-        if (itemConfigs.Count == 0) {
+        IReadOnlyList<StageItemResource> configs = CfgManager.tables.StageItemObj.DataList;
+        if (configs.Count == 0) {
             return;
         }
-        StageItemResource config = itemConfigs[naturalSupplyCount % itemConfigs.Count];
+        StageItemResource config = configs[naturalSupplyCount % configs.Count];
         float margin = BattleConst.NaturalSupplySpawnMargin;
-        Vector2 position = new Vector2(UnityEngine.Random.Range(margin, 720f - margin), -margin);
-        spawn(position, config, true);
+        Vector2 position = new Vector2(UnityEngine.Random.Range(margin, BattleConst.BattleViewportWidth - margin), -margin);
+        spawn(position, config);
         naturalSupplyCount++;
     }
 

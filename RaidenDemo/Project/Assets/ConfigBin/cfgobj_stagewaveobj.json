@@ -674,18 +674,5 @@
     },
     "spacing": 0,
     "motionDirection": 1
-  },
-  {
-    "id": 105,
-    "enemyId": 4,
-    "motionType": 0,
-    "formationType": 0,
-    "enemyCount": 1,
-    "spawnCenter": {
-      "x": 360,
-      "y": 80
-    },
-    "spacing": 0,
-    "motionDirection": 1
   }
 ]

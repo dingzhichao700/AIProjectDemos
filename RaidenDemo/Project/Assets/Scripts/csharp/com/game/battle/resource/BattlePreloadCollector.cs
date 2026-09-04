@@ -37,7 +37,7 @@ public static class BattlePreloadCollector {
                 levelConfig.Level < initialLevel || levelConfig.Level > selectedAircraft.maxLevel) {
                 continue;
             }
-            AddAircraftResources(preload, resourceKeys, levelConfig.Aircraft);
+            AddFlyingUnitResources(preload, resourceKeys, levelConfig.Unit);
         }
 
         HashSet<int> enemyIds = new HashSet<int>();
@@ -62,16 +62,19 @@ public static class BattlePreloadCollector {
             if (enemy == null) {
                 throw new InvalidOperationException($"关卡 {stageId} 引用了不存在的敌机 {enemyId}");
             }
-            AddAircraftResources(preload, resourceKeys, enemy.Aircraft);
+            AddFlyingUnitResources(preload, resourceKeys, enemy.Unit);
         }
+        WingmanResource wingman = CfgManager.tables.WingmanObj.GetOrDefault(RaidenControl.ins.selectedWingmanId);
+        if (wingman == null) {
+            throw new InvalidOperationException($"当前出战僚机 {RaidenControl.ins.selectedWingmanId} 不存在");
+        }
+        AddFlyingUnitResources(preload, resourceKeys, wingman.Unit);
         return preload;
     }
 
     /**收集关卡流程必然可能使用、但不由实体配置直接引用的固定资源。*/
     private static void AddFixedStageResources(List<ResLoadInfo> preload, HashSet<string> resourceKeys) {
         AddPreloadResource(preload, resourceKeys, BattleConst.RewardFloatingTextMaterialPath, ResType.Material);
-        AddPreloadResource(preload, resourceKeys, BattleConst.WingmanPath,
-            ResType.UnpackImage);
         foreach (StageItemResource item in CfgManager.tables.StageItemObj.DataList) {
             AddPreloadResource(preload, resourceKeys, BattleConst.GetRaidenUnpackImagePath(item.Res), ResType.UnpackImage);
             AddEffectResource(preload, resourceKeys, item.EffectId, EffectType.OTHER);
@@ -106,18 +109,18 @@ public static class BattlePreloadCollector {
     }
     
     /**收集飞行物外观、子弹和死亡特效资源*/
-    private static void AddAircraftResources(List<ResLoadInfo> preload,
-        HashSet<string> resourceKeys, Aircraft aircraft) {
-        if (aircraft == null) {
+    private static void AddFlyingUnitResources(List<ResLoadInfo> preload,
+        HashSet<string> resourceKeys, FlyingUnit unit) {
+        if (unit == null) {
             return;
         }
         AddPreloadResource(preload, resourceKeys,
-            BattleConst.GetRaidenUnpackImagePath(aircraft.AppearanceName),
+            BattleConst.GetRaidenUnpackImagePath(unit.AppearanceName),
             ResType.UnpackImage);
-        foreach (BulletLauncher launcher in aircraft.BulletLaunchers) {
+        foreach (BulletLauncher launcher in unit.BulletLaunchers) {
             AddBulletTypeResources(preload, resourceKeys, launcher.BulletType, launcher.BulletLevel);
         }
-        foreach (ExplosionEffect explosion in aircraft.DeathExplosions) {
+        foreach (ExplosionEffect explosion in unit.DeathExplosions) {
             AddEffectResource(preload, resourceKeys, explosion.EffectId);
         }
     }

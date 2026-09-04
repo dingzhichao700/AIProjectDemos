@@ -11,6 +11,15 @@ public static class BattleConst {
 
     public const float BattleViewportHeight = 1280f;
 
+    /**保留已确认版本的临时测试值：自然补给首次延迟，单位秒；后续由 Luban 配置替换*/
+    public const float NaturalSupplyFirstDelay = 0.2f;
+
+    /**自然补给生成间隔，单位秒；后续由 Luban 配置替换*/
+    public const float NaturalSupplyInterval = 10f;
+
+    /**自然补给在视窗上方区域生成时保留的边缘距离*/
+    public const float NaturalSupplySpawnMargin = 90f;
+
     /**飞机散图统一朝上，敌方阵营在战斗中整体旋转为朝下。*/
     public const float EnemyAircraftVisualRotation = 180f;
 
@@ -28,23 +37,54 @@ public static class BattleConst {
 
     public const int PlayerInitialLifeCount = 3;
 
-    public const float WingmanFollowSpeed = 12f;
-
-
     public const float EnemySpawnInterval = 0.4f;
 
     public const float EnemyWaveInterval = 1.5f;
 
     public const float EnemyMoveSpeed = 150f;
 
+    public const float EnemyFormationViewportPadding = 20f;
 
-    /**临时测试：自然补给首次生成延迟。*/
-    public const float NaturalSupplyFirstDelay = 0.2f;
+    public const int EnemyFormationMaxColumns = 5;
 
-    /**临时测试：自然补给生成间隔。*/
-    public const float NaturalSupplyInterval = 0.4f;
+    public const float EnemyFormationMemberGap = 20f;
 
-    public const float NaturalSupplySpawnMargin = 90f;
+    public const float EnemyFormationRowGap = 30f;
+
+    public const float EnemyDiagonalHorizontalRatio = 0.55f;
+
+    public const float EnemySnakeAmplitude = 105f;
+
+    public const float EnemySnakeFrequency = 3.2f;
+
+    public const float EnemyFormationTurnAmplitude = 150f;
+
+    public const float EnemyFormationTurnDuration = 2.6f;
+
+    public const float EnemyDiagonalFormationVerticalGap = 55f;
+
+    public const float EnemyStraightDriftAmplitude = 48f;
+
+    public const float EnemyStraightDriftDuration = 2.8f;
+
+    public const float EnemyStraightEntryAccelerationDuration = 1.2f;
+
+    public const float EnemyStraightEntrySpeedRatio = 0.65f;
+
+    public const float EnemyStraightCruiseSpeedRatio = 1.15f;
+
+    public const float EnemyHorizontalPassHeight = -320f;
+
+    public const float EnemyHorizontalPassVerticalAmplitude = 18f;
+
+    public const float EnemyHorizontalPassVerticalFrequency = 1.4f;
+
+    public const float EnemyVisualTurnSmoothness = 10f;
+
+    public const float EnemyVisualMaxBankAngle = 45f;
+
+    public const float EnemyHorizontalVisualMaxBankAngle = 90f;
+
 
     public const float RewardPickupWarningDuration = 8f;
 
@@ -66,21 +106,23 @@ public static class BattleConst {
 
     public const float RewardCollectedMoveSpeed = 100f;
 
+    public const float RewardCollectedDecelerationDuration = 1f;
+
     public static readonly Vector2 RewardFloatingTextPlayerOffset = new Vector2(0f, 120f);
 
     public const float EliteMoveSpeed = 90f;
 
     public const float BossMoveSpeed = 70f;
 
-    public const float PlayerHitShakeDuration = 0.18f;
+    public const float PlayerHitShakeDuration = 0.1f;
 
-    public const float PlayerHitShakeDistance = 14f;
+    public const float PlayerHitShakeDistance = 5f;
 
-    public const float PlayerInvincibleDuration = 2f;
+    public const float PlayerInvincibleDuration = 1f;
+
+    public const float PlayerHitFlashInterval = 0.2f;
 
     public const float PlayerRespawnInvincibleDuration = 2f;
-
-    public const float PlayerDefeatPresentationDuration = 2f;
 
     public const float PlayerRespawnEnterDuration = 0.8f;
 
@@ -94,15 +136,9 @@ public static class BattleConst {
 
     public const float PlayerUpgradeInvincibleDuration = 1f;
 
-    public const float BossVictoryDelayAfterDeathPresentation = 0.5f;
+    public const float BattleResultDelayAfterDeathPresentation = 1.5f;
 
     public const float PlayerUpgradeMainEffectScale = 1.5f;
-
-    public const float SceneTimerScaleMin = 0.1f;
-
-    public const float SceneTimerScaleMax = 2f;
-
-    public const float SceneTimerScaleStep = 0.1f;
 
     public const int PlayerUpgradeChargeEffectId = 10001;
 
@@ -128,8 +164,6 @@ public static class BattleConst {
 
     public const float PlayerHealthFillMaxWidth = 237f;
 
-    public static readonly Vector2 WingmanSize = new Vector2(59, 136);
-
     public static readonly Vector2 UpgradeDropSize = new Vector2(72, 72);
 
     public static readonly Vector2 BossHealthFillSize = new Vector2(410, 18);
@@ -142,13 +176,7 @@ public static class BattleConst {
 
     public static readonly Vector2 PlayerRespawnStart = new Vector2(360, -1420);
 
-    public static readonly Vector2 WingmanLeftOffset = new Vector2(-145, -10);
-
-    public static readonly Vector2 WingmanRightOffset = new Vector2(145, -10);
-
     public const string SceneBackgroundImageDirectory = "Assets/Art/unpack/default/raiden/sceneBg/";
-
-    public const string WingmanPath = "Assets/Art/unpack/default/raiden/wingman/self/battleWingman.png";
 
     public const string EliteHealthBarBackgroundPath = "Assets/Art/unpack/default/raiden/hud/elite_health_bar_bg.png";
 

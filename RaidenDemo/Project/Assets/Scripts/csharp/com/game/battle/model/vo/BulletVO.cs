@@ -17,6 +17,7 @@ internal sealed class BulletVO : SceneElementVO {
     public readonly int launchEffectId;
     public readonly int appearanceEffectId;
     public readonly float launchRotation;
+    public readonly Vector2 launcherOffset;
     public readonly string resPath;
     public readonly Vector2 displaySize;
     public readonly float collisionRadius;
@@ -32,15 +33,17 @@ internal sealed class BulletVO : SceneElementVO {
     private Func<Vector2, AircraftVO> targetFinder;
     private Predicate<AircraftVO> targetValidator;
 
-    public BulletVO(long id, Vector2 position, AircraftVO owner,
-        PlayerBulletLauncherVO launcher, BulletConfigVO bullet, float direction)
-        : base(id, owner.faction, owner.timerType, position) {
-        this.owner = owner;
-        weaponLevel = owner.effectiveLevel;
+    /**只应用发射快照，子弹等级不再从所属飞机等级推导*/
+    public BulletVO(long id, BulletLaunchVO launch) : base(id, launch.owner.faction, launch.owner.timerType, launch.position) {
+        owner = launch.owner;
+        BulletConfigVO bullet = launch.bullet;
+        float direction = launch.direction;
+        weaponLevel = bullet.level;
         damage = bullet.damage;
         hitEffectId = bullet.hitEffectId;
         launchEffectId = bullet.launchEffectId;
         appearanceEffectId = bullet.appearanceEffectId;
+        launcherOffset = launch.launcherOffset;
         resPath = bullet.appearancePath;
         displaySize = bullet.displaySize;
         collisionRadius = bullet.collisionRadius;

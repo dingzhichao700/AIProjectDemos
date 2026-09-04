@@ -9,7 +9,7 @@
     },
     "baseBulletCount": 1,
     "basePower": 1000,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/self/player_aircraft_assault_001_lv01",
       "collisionShapes": [
         {
@@ -34,9 +34,9 @@
           },
           "bulletType": 1003,
           "bulletLevel": 1,
-          "bulletCount": 3,
+          "bulletCount": 6,
           "fireIntervalMs": 500,
-          "bulletIntervalMs": 40,
+          "bulletIntervalMs": 50,
           "direction": 90,
           "spreadType": 0,
           "spreadAngle": 0
@@ -65,7 +65,7 @@
     },
     "baseBulletCount": 4,
     "basePower": 1250,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/self/player_aircraft_assault_001_lv02",
       "collisionShapes": [
         {
@@ -90,12 +90,12 @@
           },
           "bulletType": 1003,
           "bulletLevel": 1,
-          "bulletCount": 3,
-          "fireIntervalMs": 450,
-          "bulletIntervalMs": 40,
+          "bulletCount": 8,
+          "fireIntervalMs": 500,
+          "bulletIntervalMs": 45,
           "direction": 90,
           "spreadType": 1,
-          "spreadAngle": 1
+          "spreadAngle": 2
         },
         {
           "offset": {
@@ -104,12 +104,12 @@
           },
           "bulletType": 1003,
           "bulletLevel": 1,
-          "bulletCount": 3,
-          "fireIntervalMs": 450,
-          "bulletIntervalMs": 40,
+          "bulletCount": 8,
+          "fireIntervalMs": 500,
+          "bulletIntervalMs": 45,
           "direction": 90,
           "spreadType": 2,
-          "spreadAngle": 1
+          "spreadAngle": 2
         }
       ],
       "deathExplosions": [
@@ -135,7 +135,7 @@
     },
     "baseBulletCount": 6,
     "basePower": 1550,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/self/player_aircraft_assault_001_lv03",
       "collisionShapes": [
         {
@@ -160,8 +160,8 @@
           },
           "bulletType": 1003,
           "bulletLevel": 1,
-          "bulletCount": 4,
-          "fireIntervalMs": 400,
+          "bulletCount": 10,
+          "fireIntervalMs": 250,
           "bulletIntervalMs": 40,
           "direction": 90,
           "spreadType": 1,
@@ -174,8 +174,8 @@
           },
           "bulletType": 1003,
           "bulletLevel": 1,
-          "bulletCount": 4,
-          "fireIntervalMs": 400,
+          "bulletCount": 10,
+          "fireIntervalMs": 250,
           "bulletIntervalMs": 40,
           "direction": 90,
           "spreadType": 2,
@@ -188,9 +188,9 @@
           },
           "bulletType": 1001,
           "bulletLevel": 1,
-          "bulletCount": 1,
-          "fireIntervalMs": 350,
-          "bulletIntervalMs": 0,
+          "bulletCount": 3,
+          "fireIntervalMs": 190,
+          "bulletIntervalMs": 50,
           "direction": 90,
           "spreadType": 0,
           "spreadAngle": 0
@@ -219,7 +219,7 @@
     },
     "baseBulletCount": 1,
     "basePower": 1250,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/self/player_aircraft_heavy_001_lv01",
       "collisionShapes": [
         {
@@ -275,7 +275,7 @@
     },
     "baseBulletCount": 2,
     "basePower": 1550,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/self/player_aircraft_heavy_001_lv02",
       "collisionShapes": [
         {
@@ -331,7 +331,7 @@
     },
     "baseBulletCount": 3,
     "basePower": 1900,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/self/player_aircraft_heavy_001_lv03",
       "collisionShapes": [
         {
@@ -387,7 +387,7 @@
     },
     "baseBulletCount": 2,
     "basePower": 900,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/self/player_aircraft_swift_001_lv01",
       "collisionShapes": [
         {
@@ -443,7 +443,7 @@
     },
     "baseBulletCount": 3,
     "basePower": 1100,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/self/player_aircraft_swift_001_lv02",
       "collisionShapes": [
         {
@@ -499,7 +499,7 @@
     },
     "baseBulletCount": 4,
     "basePower": 1350,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/self/player_aircraft_swift_001_lv03",
       "collisionShapes": [
         {
@@ -555,7 +555,7 @@
     },
     "baseBulletCount": 5,
     "basePower": 1650,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/self/player_aircraft_swift_001_lv04",
       "collisionShapes": [
         {
@@ -611,7 +611,7 @@
     },
     "baseBulletCount": 3,
     "basePower": 1100,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/self/player_aircraft_spread_001_lv01",
       "collisionShapes": [
         {
@@ -667,7 +667,7 @@
     },
     "baseBulletCount": 5,
     "basePower": 1350,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/self/player_aircraft_spread_001_lv02",
       "collisionShapes": [
         {
@@ -723,7 +723,7 @@
     },
     "baseBulletCount": 7,
     "basePower": 1650,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/self/player_aircraft_spread_001_lv03",
       "collisionShapes": [
         {
@@ -779,7 +779,7 @@
     },
     "baseBulletCount": 9,
     "basePower": 2000,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/self/player_aircraft_spread_001_lv04",
       "collisionShapes": [
         {
@@ -835,7 +835,7 @@
     },
     "baseBulletCount": 1,
     "basePower": 1350,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/self/player_aircraft_beam_001_lv01",
       "collisionShapes": [
         {
@@ -891,7 +891,7 @@
     },
     "baseBulletCount": 1,
     "basePower": 1650,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/self/player_aircraft_beam_001_lv02",
       "collisionShapes": [
         {
@@ -947,7 +947,7 @@
     },
     "baseBulletCount": 2,
     "basePower": 2000,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/self/player_aircraft_beam_001_lv03",
       "collisionShapes": [
         {
@@ -1003,7 +1003,7 @@
     },
     "baseBulletCount": 2,
     "basePower": 2400,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/self/player_aircraft_beam_001_lv04",
       "collisionShapes": [
         {

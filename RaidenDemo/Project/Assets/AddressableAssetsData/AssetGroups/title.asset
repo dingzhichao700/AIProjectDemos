@@ -87,6 +87,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71e42303889ef2244ab89ca7bf73c85c
+    m_Address: Assets/ConfigBin/cfgobj_wingmanobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 75c7983f4f8ad8b4f963c5070dbf2998
     m_Address: Assets/Prefab/title/option/OptionPanel.prefab
     m_ReadOnly: 0

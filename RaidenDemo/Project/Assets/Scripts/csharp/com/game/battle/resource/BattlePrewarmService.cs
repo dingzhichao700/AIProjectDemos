@@ -7,6 +7,7 @@ internal static class BattlePrewarmService {
     public static void Prewarm(StageConfigVO stage, BattleVisualPool pool,
         RectTransform layer) {
         PrewarmPlayerProjectiles(pool, layer);
+        PrewarmWingman(pool, layer);
         HashSet<int> enemyIds = new HashSet<int>();
         HashSet<string> bulletKeys = new HashSet<string>();
         foreach (EnemyWaveVO wave in stage.enemyWaves) {
@@ -16,6 +17,15 @@ internal static class BattlePrewarmService {
         foreach (StageItemResource item in CfgManager.tables.StageItemObj.DataList) {
             pool.Prewarm(BattleConst.GetRaidenUnpackImagePath(item.Res), BattleConst.UpgradeDropSize, BattleConst.UpgradeDropPoolCapacity, layer);
         }
+    }
+
+    /**按当前出战配置预热僚机外观和子弹。*/
+    private static void PrewarmWingman(BattleVisualPool pool, RectTransform layer) {
+        WingmanConfigVO config = RaidenControl.ins.GetSelectedWingman();
+        if (config == null) return;
+        pool.Prewarm(config.appearancePath, config.displaySize, config.maxCount, layer);
+        HashSet<string> projectilePaths = new HashSet<string>();
+        foreach (BulletLauncherConfigVO launcher in config.bulletLaunchers) PrewarmBulletType(launcher, projectilePaths, pool, layer);
     }
 
     /**按当前出战机型的全部可用等级预热玩家子弹。*/
@@ -30,7 +40,7 @@ internal static class BattlePrewarmService {
             if (config == null) {
                 continue;
             }
-            foreach (PlayerBulletLauncherVO launcher in config.bulletLaunchers) {
+            foreach (BulletLauncherConfigVO launcher in config.bulletLaunchers) {
                 PrewarmBulletType(launcher, projectilePaths, pool, layer);
             }
         }
@@ -42,14 +52,14 @@ internal static class BattlePrewarmService {
             return;
         }
         pool.Prewarm(enemy.appearancePath, enemy.displaySize, enemy.poolCapacity, layer);
-        foreach (PlayerBulletLauncherVO launcher in enemy.bulletLaunchers) {
+        foreach (BulletLauncherConfigVO launcher in enemy.bulletLaunchers) {
             string key = $"{launcher.bulletType}:{launcher.bulletLevel}";
             if (bulletKeys.Add(key)) PrewarmBulletType(launcher, bulletKeys, pool, layer);
         }
     }
 
     /**预热同类型从基础等级起的全部静态图片弹体。*/
-    private static void PrewarmBulletType(PlayerBulletLauncherVO launcher, HashSet<string> paths, BattleVisualPool pool, RectTransform layer) {
+    private static void PrewarmBulletType(BulletLauncherConfigVO launcher, HashSet<string> paths, BattleVisualPool pool, RectTransform layer) {
         foreach (BulletResource candidate in CfgManager.tables.BulletObj.DataList) {
             if (candidate.Type != launcher.bulletType || candidate.Level < launcher.bulletLevel || candidate.EffectId > 0) continue;
             string path = BattleConst.GetRaidenUnpackImagePath(candidate.AppearancePath);

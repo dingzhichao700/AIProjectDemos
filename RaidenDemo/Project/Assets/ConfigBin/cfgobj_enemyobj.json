@@ -8,7 +8,7 @@
     },
     "score": 100,
     "poolCapacity": 5,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/enemy/battleEnemyScout",
       "collisionShapes": [
         {
@@ -63,7 +63,7 @@
     },
     "score": 100,
     "poolCapacity": 5,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/enemy/battleEnemyInterceptor",
       "collisionShapes": [
         {
@@ -132,7 +132,7 @@
     },
     "score": 100,
     "poolCapacity": 5,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/enemy/battleEnemyBomber",
       "collisionShapes": [
         {
@@ -187,7 +187,7 @@
     },
     "score": 1000,
     "poolCapacity": 2,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/enemy/battleEliteInterceptor",
       "collisionShapes": [
         {
@@ -266,7 +266,7 @@
     },
     "score": 3000,
     "poolCapacity": 1,
-    "aircraft": {
+    "unit": {
       "appearanceName": "aircraft/enemy/battleBossStage01",
       "collisionShapes": [
         {
