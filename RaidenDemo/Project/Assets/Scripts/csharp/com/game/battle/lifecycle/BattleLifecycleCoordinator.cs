@@ -7,20 +7,20 @@ internal sealed class BattleLifecycleCoordinator {
     private readonly BattleScenePresenter scenePresenter;
     private readonly BattlePlayerPresenter playerPresenter;
     private readonly BattleBackgroundPresenter backgroundPresenter;
-    private readonly BattleEffectPresenter effectPresenter;
+    private readonly BattleAircraftDeathPresenter aircraftDeaths;
     private readonly BattleEntityViewManager entityViews;
     private readonly BattleVisualPool visualPool;
 
     public BattleLifecycleCoordinator(BattleModel model,
         BattleScenePresenter scenePresenter, BattlePlayerPresenter playerPresenter,
         BattleBackgroundPresenter backgroundPresenter,
-        BattleEffectPresenter effectPresenter, BattleEntityViewManager entityViews,
+        BattleAircraftDeathPresenter aircraftDeaths, BattleEntityViewManager entityViews,
         BattleVisualPool visualPool) {
         this.model = model;
         this.scenePresenter = scenePresenter;
         this.playerPresenter = playerPresenter;
         this.backgroundPresenter = backgroundPresenter;
-        this.effectPresenter = effectPresenter;
+        this.aircraftDeaths = aircraftDeaths;
         this.entityViews = entityViews;
         this.visualPool = visualPool;
     }
@@ -60,7 +60,7 @@ internal sealed class BattleLifecycleCoordinator {
 
     private void ClearRuntime(Action clearVisualLayers, Action resetPanelReferences) {
         backgroundPresenter.Clear();
-        effectPresenter.Clear();
+        aircraftDeaths.Clear();
         playerPresenter.Clear();
         entityViews.Clear();
         visualPool.Clear();

@@ -62,6 +62,10 @@ public partial class Tables
     /// 僚机类型配置表
     /// </summary>
     public cfgObj.WingmanObj WingmanObj {get; }
+    /// <summary>
+    /// 通用常量配置表
+    /// </summary>
+    public cfgObj.ConfigValueObj ConfigValueObj {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
@@ -77,6 +81,7 @@ public partial class Tables
         SceneBgObj = new cfgObj.SceneBgObj(loader("cfgobj_scenebgobj"));
         StageItemObj = new cfgObj.StageItemObj(loader("cfgobj_stageitemobj"));
         WingmanObj = new cfgObj.WingmanObj(loader("cfgobj_wingmanobj"));
+        ConfigValueObj = new cfgObj.ConfigValueObj(loader("cfgobj_configvalueobj"));
         ResolveRef();
     }
     
@@ -94,6 +99,7 @@ public partial class Tables
         SceneBgObj.ResolveRef(this);
         StageItemObj.ResolveRef(this);
         WingmanObj.ResolveRef(this);
+        ConfigValueObj.ResolveRef(this);
     }
 }
 

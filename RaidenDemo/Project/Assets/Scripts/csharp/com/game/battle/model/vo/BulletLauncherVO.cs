@@ -30,6 +30,9 @@ internal sealed class BulletLauncherVO {
     /**当前轮尚未发射的数量*/
     private int pendingProjectileCount;
 
+    /**当前轮锁定的最终发射数量；本轮开始后不再改变*/
+    private int currentRoundProjectileCount;
+
     /**创建独立发射器并解析初始有效配置*/
     public BulletLauncherVO(BulletLauncherConfigVO config, System.Func<int, int, int, BulletConfigVO> resolveBullet, int additionalLevel = 0) {
         this.config = config ?? throw new System.ArgumentNullException(nameof(config));
@@ -62,14 +65,16 @@ internal sealed class BulletLauncherVO {
             remainingTime -= emissionCooldown;
             if (pendingProjectileCount == 0) {
                 nextProjectileIndex = 0;
-                pendingProjectileCount = UnityEngine.Mathf.Max(1, config.bulletCount);
+                currentRoundProjectileCount = UnityEngine.Mathf.Clamp(config.bulletCount,
+                    BattleConst.shotCountMin, BattleConst.shotCountMax);
+                pendingProjectileCount = currentRoundProjectileCount;
             }
-            float direction = GetProjectileDirection(nextProjectileIndex++);
+            float direction = GetProjectileDirection(nextProjectileIndex++, currentRoundProjectileCount);
             pendingProjectileCount--;
             // 只有最后一颗子弹生成后才进入轮后等待；剩余帧时间按顺序消耗，不跨阶段重复扣减。
             emissionCooldown = pendingProjectileCount == 0
-                ? System.Math.Max(0.001, config.fireInterval)
-                : System.Math.Max(0, config.bulletIntervalMs) / 1000.0;
+                ? System.Math.Max(BattleConst.fireCooldownMinMs / 1000.0, config.fireInterval)
+                : System.Math.Max(BattleConst.shotIntervalMinMs, config.bulletIntervalMs) / 1000.0;
             emit(new BulletLaunchVO(owner, owner.position + config.offset, config.offset, effectiveBullet, direction, (float)remainingTime));
         }
     }
@@ -77,11 +82,11 @@ internal sealed class BulletLauncherVO {
     /// <summary>
     /// 按发射器配置计算散射方向；现有配置的方向和偏移使用战场坐标，不隐式跟随机身旋转。
     /// </summary>
-    private float GetProjectileDirection(int index) {
-        if (config.bulletCount <= 1 || config.spreadAngle <= 0f) {
+    private float GetProjectileDirection(int index, int projectileCount) {
+        if (projectileCount <= 1 || config.spreadAngle <= 0f) {
             return config.direction;
         }
-        float ratio = index / (float)(config.bulletCount - 1);
+        float ratio = index / (float)(projectileCount - 1);
         switch (config.spreadType) {
             case cfg.BulletSpreadType.LEFT:
                 return config.direction + config.spreadAngle * ratio;
@@ -98,6 +103,7 @@ internal sealed class BulletLauncherVO {
         emissionCooldown = 0.0;
         nextProjectileIndex = 0;
         pendingProjectileCount = 0;
+        currentRoundProjectileCount = 0;
     }
 
 }

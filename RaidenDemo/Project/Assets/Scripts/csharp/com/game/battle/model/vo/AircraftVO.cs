@@ -24,9 +24,6 @@ internal sealed class AircraftVO : SceneElementVO {
     public readonly int formationCount;
     public IReadOnlyList<ExplosionEffect> deathExplosions { get; private set; }
     public bool removeAfterDeathPresentation { get; private set; }
-    public int persistentLevel { get; private set; } = 1;
-    public int stageBonusLevel { get; private set; }
-    public int effectiveLevel => Mathf.Max(1, persistentLevel + stageBonusLevel);
     public int maxHealth { get; private set; }
     public int health { get; private set; }
     public float horizontalDirection = 1f;
@@ -34,11 +31,15 @@ internal sealed class AircraftVO : SceneElementVO {
     public float originX;
     public float motionDirection;
     private readonly EnemyFormationPathVO formationPath;
+    private readonly EnemyWaveVO specialMotion;
     private AircraftVO followTarget;
     private Vector2 followOffset;
     private float followSpeed;
     private Action<BulletLaunchVO> projectileRequested;
     private bool firingEnabled;
+    public bool isDying { get; private set; }
+    public bool deathMovementActive { get; private set; }
+    private float enemyVisibleTime;
     private Action playerRespawnCompleted;
     public PlayerLifecycleState lifecycleState { get; private set; } =
         PlayerLifecycleState.Alive;
@@ -48,39 +49,47 @@ internal sealed class AircraftVO : SceneElementVO {
     public float hitShakeRemaining { get; private set; }
     public bool showsSharedHealth => faction == SceneElementFaction.ENEMY && enemyClass != EnemyClass.NORMAL;
     public bool isBoss => faction == SceneElementFaction.ENEMY && enemyClass == EnemyClass.BOSS;
-    public bool hasEnteredViewport { get; private set; }
+    public bool isLeavingFormation => formationPath != null && formationPath.isLeaving;
 
     public AircraftVO(long id, string semanticName, bool isPlayer, Vector2 position)
         : base(id, SceneElementFaction.PLAYER, TimerType.PLAYER, position) {
         this.semanticName = semanticName;
         this.isPlayer = isPlayer;
-        ApplyLevels(1, 0);
     }
 
     public AircraftVO(long id, Vector2 position, EnemyClass enemyClass,
         Vector2 size, AircraftCollisionVO collision, int maxHealth,
-        EnemyMotionType motionType = EnemyMotionType.STRAIGHT, float moveSpeed = 0f,
+        EnemyMotionType motionType = EnemyMotionType.STATIONARY, float moveSpeed = 0f,
         int scoreValue = 0, int formationIndex = 0, int formationCount = 1,
         float motionDirection = 1f,
         string appearancePath = null, string semanticName = null,
-        EnemyFormationPathVO formationPath = null)
+        EnemyFormationPathVO formationPath = null, EnemyWaveVO specialMotion = null)
         : base(id, SceneElementFaction.ENEMY, TimerType.ENEMY, position) {
         this.semanticName = semanticName ?? $"enemyEntity{id}";
         this.appearancePath = appearancePath;
-        this.enemyClass = enemyClass; this.size = size; this.collision = collision;
-        this.maxHealth = maxHealth; this.motionType = motionType;
-        this.moveSpeed = moveSpeed > 0f ? moveSpeed : BattleConst.EnemyMoveSpeed;
-        this.scoreValue = scoreValue > 0 ? scoreValue : BattleConst.EnemyScore;
-        this.formationIndex = formationIndex; this.formationCount = formationCount;
+        this.enemyClass = enemyClass;
+        this.size = size;
+        this.collision = collision;
+        this.maxHealth = maxHealth;
+        this.motionType = motionType;
+        this.moveSpeed = moveSpeed;
+        this.scoreValue = scoreValue;
+        this.formationIndex = formationIndex;
+        this.formationCount = formationCount;
         this.motionDirection = Mathf.Sign(motionDirection);
         this.formationPath = formationPath;
-        health = maxHealth; originX = position.x; firingEnabled = true;
+        this.specialMotion = specialMotion;
+        health = maxHealth;
+        originX = position.x;
+        firingEnabled = true;
         rotation = BattleConst.EnemyAircraftVisualRotation;
     }
 
     public override void OnTimeUpdate(float deltaTime) {
         if (faction == SceneElementFaction.ENEMY) {
-            UpdateEnemy(deltaTime);
+            if (!isDying || deathMovementActive) {
+                UpdateEnemy(deltaTime);
+            }
             UpdateLaunchers(deltaTime);
             return;
         }
@@ -94,7 +103,9 @@ internal sealed class AircraftVO : SceneElementVO {
         UpdateLaunchers(deltaTime);
     }
     public void ConfigureFollow(AircraftVO target, Vector2 offset, float speed) {
-        followTarget = target; followOffset = offset; followSpeed = Mathf.Max(0f, speed);
+        followTarget = target;
+        followOffset = offset;
+        followSpeed = Mathf.Max(0f, speed);
     }
     public void ConfigureFiring(Action<BulletLaunchVO> handler) {
         projectileRequested = handler;
@@ -103,7 +114,13 @@ internal sealed class AircraftVO : SceneElementVO {
     public void BeginEnemyDeathPresentation() {
         if (faction == SceneElementFaction.ENEMY) {
             firingEnabled = false;
+            isDying = true;
+            deathMovementActive = true;
         }
+    }
+    /**死亡行为由实体决定，表现层只报告最后一次爆炸已开始。*/
+    public void OnLastDeathExplosionStarted() {
+        deathMovementActive = isBoss && !removeAfterDeathPresentation;
     }
     public void ConfigurePlayerLifecycle(Action respawnCompleted) {
         playerRespawnCompleted = respawnCompleted;
@@ -142,13 +159,12 @@ internal sealed class AircraftVO : SceneElementVO {
         invincibleFlashInterval = BattleConst.PlayerFlashInterval;
         hitShakeRemaining = 0f;
     }
-    public void ResetLaunchers() { foreach (BulletLauncherVO launcher in bulletLaunchers) launcher.Reset(); }
-    public void SetPosition(Vector2 value) => position = value;
-    public void ApplyLevels(int persistent, int stageBonus) {
-        persistentLevel = Mathf.Max(1, persistent); stageBonusLevel = Mathf.Max(0, stageBonus);
-        int previous = maxHealth; maxHealth = BattleConst.GetMaxHealth(isPlayer, effectiveLevel);
-        health = previous <= 0 ? maxHealth : Mathf.Clamp(health + maxHealth - previous, 0, maxHealth);
+    public void ResetLaunchers() {
+        foreach (BulletLauncherVO launcher in bulletLaunchers) {
+            launcher.Reset();
+        }
     }
+    public void SetPosition(Vector2 value) => position = value;
     public void ApplyPlayerAircraftStats(int configuredMaxHealth) {
         int previous = maxHealth; maxHealth = Mathf.Max(1, configuredMaxHealth);
         health = previous <= 0 ? maxHealth : Mathf.Clamp(health + maxHealth - previous, 0, maxHealth);
@@ -188,45 +204,22 @@ internal sealed class AircraftVO : SceneElementVO {
     }
 
     private void UpdateEnemy(float deltaTime) {
-        if (isBoss) UpdateBoss(deltaTime);
-        else if (enemyClass == EnemyClass.ELITE) UpdateElite(deltaTime);
-        else UpdateNormal(deltaTime);
+        if (isBoss) {
+            UpdateBoss(deltaTime);
+        } else if (enemyClass == EnemyClass.ELITE) {
+            UpdateElite(deltaTime);
+        } else {
+            UpdateNormal(deltaTime);
+        }
     }
     private void UpdateNormal(float dt) {
         if (formationPath != null) {
             Vector2 previousFormationPosition = position;
             position = formationPath.GetMemberPosition(formationIndex);
-            RefreshEnemyViewportEntryState();
             UpdateEnemyVisualRotation(position - previousFormationPosition, dt);
             return;
         }
-        Vector2 previousIndependentPosition = position;
-        motionTime += dt; float distance = moveSpeed * dt; Vector2 next = position;
-        if (motionType == EnemyMotionType.DIAGONAL) next += new Vector2(motionDirection * distance * 0.7f, -distance);
-        else if (motionType == EnemyMotionType.SNAKE) { next.y -= distance; next.x = originX + Mathf.Sin(motionTime * 3.2f) * 105f; }
-        else if (motionType == EnemyMotionType.FORMATION_TURN) {
-            next.y -= distance; float member = formationIndex - (formationCount - 1) * 0.5f;
-            float progress = Mathf.Clamp01(motionTime / 2.6f);
-            next.x = originX + motionDirection * Mathf.Sin(progress * Mathf.PI) * (130f + Mathf.Abs(member) * 18f);
-        } else next.y -= distance;
-        position = next;
-        RefreshEnemyViewportEntryState();
-        UpdateEnemyVisualRotation(position - previousIndependentPosition, dt);
-    }
-
-    /**判断普通敌机是否已经实际进入过战斗视窗。*/
-    private void RefreshEnemyViewportEntryState() {
-        if (hasEnteredViewport) {
-            return;
-        }
-        float halfWidth = size.x * 0.5f;
-        float halfHeight = size.y * 0.5f;
-        hasEnteredViewport = position.x + halfWidth >= 0f &&
-                             position.x - halfWidth <=
-                             BattleConst.BattleViewportWidth &&
-                             position.y - halfHeight <= 0f &&
-                             position.y + halfHeight >=
-                             -BattleConst.BattleViewportHeight;
+        throw new InvalidOperationException("普通敌机必须使用编队路径。");
     }
 
     /**根据实际移动切线平滑调整敌机机身方向。*/
@@ -235,26 +228,47 @@ internal sealed class AircraftVO : SceneElementVO {
             return;
         }
         float rawRotation = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg - 90f;
-        float maxBankAngle = motionType == EnemyMotionType.SNAKE
-            ? BattleConst.EnemyHorizontalVisualMaxBankAngle
-            : BattleConst.EnemyVisualMaxBankAngle;
+        float maxBankAngle = BattleConst.EnemyFormationBankAngle;
         float bank = Mathf.Clamp(Mathf.DeltaAngle(BattleConst.EnemyAircraftVisualRotation,
             rawRotation), -maxBankAngle, maxBankAngle);
         float targetRotation = BattleConst.EnemyAircraftVisualRotation + bank;
         float smooth = 1f - Mathf.Exp(-BattleConst.EnemyVisualTurnSmoothness * deltaTime);
         rotation = Mathf.LerpAngle(rotation, targetRotation, smooth);
     }
+    private float GetSpecialStationY() {
+        return Mathf.Lerp(BattleConst.EnemyActivityBottom + size.y * 0.5f,
+            -BattleConst.EnemyFormationViewportPadding - size.y * 0.5f, specialMotion.stationHeightRatio);
+    }
     private void UpdateElite(float dt) {
+        float targetY = GetSpecialStationY();
         Vector2 next = position;
-        if (next.y > -300f) next += Vector2.down * (BattleConst.EnemyMoveSpeed * dt);
-        else { next.x += horizontalDirection * BattleConst.EliteMoveSpeed * dt;
-            if (next.x <= size.x * 0.5f || next.x >= 720f - size.x * 0.5f) { horizontalDirection *= -1f; next.x = Mathf.Clamp(next.x, size.x * 0.5f, 720f - size.x * 0.5f); } }
+        if (next.y > targetY) {
+            next.y = Mathf.MoveTowards(next.y, targetY, moveSpeed * dt);
+        } else {
+            float minX = size.x * 0.5f + BattleConst.EnemyFormationViewportPadding;
+            float maxX = BattleConst.BattleViewportWidth - minX;
+            float targetX = horizontalDirection > 0f ? maxX : minX;
+            next.x = Mathf.MoveTowards(next.x, targetX, moveSpeed * dt);
+            if (Mathf.Approximately(next.x, targetX)) {
+                horizontalDirection *= -1f;
+            }
+        }
         position = next;
     }
     private void UpdateBoss(float dt) {
+        float targetY = GetSpecialStationY();
         Vector2 next = position;
-        if (next.y > -260f) { next.y = Mathf.Max(-260f, next.y - BattleConst.BossMoveSpeed * dt); if (next.y <= -260f) motionTime = 0f; }
-        else { motionTime += dt; next.x = originX + Mathf.Sin(motionTime * 0.85f) * 150f; }
+        if (next.y > targetY) {
+            next.y = Mathf.MoveTowards(next.y, targetY, moveSpeed * dt);
+            motionTime = 0f;
+        } else {
+            motionTime += dt;
+            float margin = size.x * 0.5f + BattleConst.EnemyFormationViewportPadding;
+            float amplitude = Mathf.Max(0f, Mathf.Min(specialMotion.patrolAmplitude, Mathf.Min(originX - margin,
+                BattleConst.BattleViewportWidth - margin - originX)));
+            float frequency = amplitude > 0f ? moveSpeed / amplitude : 0f;
+            next.x = originX + Mathf.Sin(motionTime * frequency) * amplitude;
+        }
         position = next;
     }
 
@@ -262,6 +276,23 @@ internal sealed class AircraftVO : SceneElementVO {
     private void UpdateLaunchers(float dt) {
         if (!firingEnabled || projectileRequested == null || destroyed) {
             return;
+        }
+        if (faction == SceneElementFaction.ENEMY && formationPath != null && !formationPath.canFire) {
+            return;
+        }
+        if (faction == SceneElementFaction.ENEMY && formationPath == null) {
+            bool fullyVisible = position.y + size.y * 0.5f <= 0f &&
+                position.y - size.y * 0.5f >= BattleConst.EnemyActivityBottom &&
+                position.x - size.x * 0.5f >= 0f &&
+                position.x + size.x * 0.5f <= BattleConst.BattleViewportWidth;
+            if (!fullyVisible) {
+                enemyVisibleTime = 0f;
+                return;
+            }
+            enemyVisibleTime += dt;
+            if (enemyVisibleTime < specialMotion.prepareDuration) {
+                return;
+            }
         }
         foreach (BulletLauncherVO launcher in bulletLaunchers) {
             launcher.Update(dt, this, projectileRequested);

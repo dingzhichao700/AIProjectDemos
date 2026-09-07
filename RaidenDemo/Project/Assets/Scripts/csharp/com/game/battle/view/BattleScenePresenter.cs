@@ -12,27 +12,27 @@ internal sealed class BattleScenePresenter {
 
     private readonly RectTransform entityLayer;
     private readonly RectTransform projectileLayer;
-    private readonly RectTransform effectLayer;
     private readonly RectTransform bossHealthBar;
     private readonly Image bossHealthFill;
     private readonly BattleVisualPool visualPool;
     private readonly BattleEntityViewManager views;
     private readonly BattleEffectPresenter effects;
+    private readonly BattleAircraftDeathPresenter aircraftDeaths;
     private readonly BattleHudPresenter hud;
     private BattleModel model;
 
     public BattleScenePresenter(RectTransform entityLayer, RectTransform projectileLayer,
-        RectTransform effectLayer, RectTransform bossHealthBar, Image bossHealthFill,
+        RectTransform bossHealthBar, Image bossHealthFill,
         BattleVisualPool visualPool, BattleEntityViewManager views,
-        BattleEffectPresenter effects, BattleHudPresenter hud) {
+        BattleEffectPresenter effects, BattleAircraftDeathPresenter aircraftDeaths, BattleHudPresenter hud) {
         this.entityLayer = entityLayer;
         this.projectileLayer = projectileLayer;
-        this.effectLayer = effectLayer;
         this.bossHealthBar = bossHealthBar;
         this.bossHealthFill = bossHealthFill;
         this.visualPool = visualPool;
         this.views = views;
         this.effects = effects;
+        this.aircraftDeaths = aircraftDeaths;
         this.hud = hud;
     }
 
@@ -163,11 +163,14 @@ internal sealed class BattleScenePresenter {
         views.RemoveEnemy(enemy.id);
         views.RemoveEliteHealthBar(enemy.id)?.Dispose();
         if (defeated && root != null) {
-            effects.PlayAircraftDeath(root, enemy, false, () => model.StopEnemyDeathMovement(enemy), enemy.isBoss ? model.NotifyBossDeathPresentationCompleted : null);
+            aircraftDeaths.PlayAircraftDeath(root, enemy, false,
+                () => model.NotifyEnemyLastExplosionStarted(enemy),
+                () => model.NotifyEnemyDeathPresentationCompleted(enemy));
         } else {
             visualPool.Recycle(root);
-            if (defeated && enemy.isBoss) {
-                model.NotifyBossDeathPresentationCompleted();
+            if (defeated) {
+                model.NotifyEnemyLastExplosionStarted(enemy);
+                model.NotifyEnemyDeathPresentationCompleted(enemy);
             }
         }
         if (enemy.isBoss) {
@@ -212,7 +215,7 @@ internal sealed class BattleScenePresenter {
     }
 
     private void OnRewardSpawned(RewardVO reward) {
-        RectTransform view = visualPool.Create("rewardDrop", effectLayer, BattleConst.UpgradeDropSize, reward.position, reward.resPath);
+        RectTransform view = visualPool.Create("rewardDrop", entityLayer, BattleConst.UpgradeDropSize, reward.position, reward.resPath);
         views.BindReward(reward.id, view);
         views.BindRewardEffect(reward.id, effects.PlayRewardLoop(reward.effectId, view));
     }

@@ -15,6 +15,7 @@
 
     /**常规测试*/
     public void TestNormal() {
+        TestCaseConfigs.Run();
         //new TestCaseEvent();
         //new TestCaseHandler();
         //new TestCaseTimer();

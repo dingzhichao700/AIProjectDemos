@@ -20,10 +20,13 @@ public static class CfgManager {
 
     /**使用已预加载的 JSON 初始化 Luban 配置表*/
     public static void Init() {
+        ConfigValueHelper.ClearCache();
+        _tables = null;
         _tables = new Tables(LoadJson);
     }
 
     public static void Clear() {
+        ConfigValueHelper.ClearCache();
         _tables = null;
         foreach (string cfgName in ResourceConst.ALL_CONFIG_LIST) {
             ResourceManager.Release(ResourceConst.PATH_CONFIG + cfgName);

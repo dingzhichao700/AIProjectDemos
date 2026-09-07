@@ -21,12 +21,13 @@ internal sealed class RewardVO : SceneElementVO {
     private float bounceRemaining;
     private float warningElapsed;
     private float collectedElapsed;
+    private bool enteringPlayerArea;
 
     public bool isCollected { get; private set; }
 
     public float iconAlpha {
         get {
-            if (bounceRemaining > BattleConst.RewardPickupWarningDuration) {
+            if (enteringPlayerArea || bounceRemaining > BattleConst.RewardPickupWarningDuration) {
                 return 1f;
             }
             float fadeProgress = Mathf.PingPong(warningElapsed / BattleConst.RewardPickupWarningFadeHalfCycleDuration, 1f);
@@ -46,6 +47,7 @@ internal sealed class RewardVO : SceneElementVO {
         moveSpeed = config.MoveSpeed;
         bounceRemaining = config.BounceDurationMs / 1000f;
         moveDirection = CreateInitialDirection();
+        enteringPlayerArea = !BattleConst.IsRewardInPlayerArea(position, collisionRadius);
     }
 
     public override void OnTimeUpdate(float deltaTime) {
@@ -57,6 +59,12 @@ internal sealed class RewardVO : SceneElementVO {
         }
         position += moveDirection * currentMoveSpeed * deltaTime;
         if (isCollected) {
+            return;
+        }
+        // 向下输送期间只处理边缘反弹，不消耗玩家的拾取时间。
+        if (enteringPlayerArea) {
+            ReflectAtViewportEdge();
+            enteringPlayerArea = !BattleConst.IsRewardInPlayerArea(position, collisionRadius);
             return;
         }
         if (bounceRemaining <= BattleConst.RewardPickupWarningDuration) {

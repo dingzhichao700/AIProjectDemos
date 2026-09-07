@@ -14,16 +14,23 @@ internal sealed class BattleRewardModel {
 
     /**自然补给计时由场景 Timer 驱动，暂停时不推进*/
     private float naturalSupplyCooldown;
+    private readonly Func<float, float, float> randomRange;
 
-    /**按道具表顺序轮换，避免只生成一种补给*/
+    public BattleRewardModel(Func<float, float, float> randomRange = null) {
+        this.randomRange = randomRange ?? UnityEngine.Random.Range;
+    }
+
+    /**按关卡配置的道具顺序循环，与道具表行顺序无关*/
     private int naturalSupplyCount;
+    private StageConfigVO stageConfig;
 
     private bool playerUpgradeBlocked;
 
     public readonly List<RewardVO> rewards = new List<RewardVO>();
 
-    public void Initialize() {
-        naturalSupplyCooldown = BattleConst.NaturalSupplyFirstDelay;
+    public void Initialize(StageConfigVO config) {
+        stageConfig = config;
+        naturalSupplyCooldown = config != null ? config.supplyFirstDelay : 0f;
         naturalSupplyCount = 0;
         playerUpgradeBlocked = false;
     }
@@ -42,24 +49,24 @@ internal sealed class BattleRewardModel {
     }
 
     /// <summary>
-    /// 恢复定时自然补给：Boss 登场后停止新增，已有补给不受影响；卡帧不批量追补。
+    /// 战斗模拟期间持续生成自然补给，包含 Boss 阶段；卡帧不批量追补。
     /// </summary>
-    public void UpdateNaturalSupply(float deltaTime, bool bossSpawned, Action<Vector2, StageItemResource> spawn) {
-        if (bossSpawned || deltaTime <= 0f) {
+    public void UpdateNaturalSupply(float deltaTime, Action<Vector2, StageItemResource> spawn) {
+        if (stageConfig == null || deltaTime <= 0f) {
             return;
         }
         naturalSupplyCooldown -= deltaTime;
         if (naturalSupplyCooldown > 0f) {
             return;
         }
-        naturalSupplyCooldown = BattleConst.NaturalSupplyInterval;
-        IReadOnlyList<StageItemResource> configs = CfgManager.tables.StageItemObj.DataList;
+        naturalSupplyCooldown = stageConfig.supplyInterval;
+        IReadOnlyList<StageItemResource> configs = stageConfig.supplyItems;
         if (configs.Count == 0) {
             return;
         }
         StageItemResource config = configs[naturalSupplyCount % configs.Count];
         float margin = BattleConst.NaturalSupplySpawnMargin;
-        Vector2 position = new Vector2(UnityEngine.Random.Range(margin, BattleConst.BattleViewportWidth - margin), -margin);
+        Vector2 position = new Vector2(randomRange(margin, BattleConst.BattleViewportWidth - margin), -margin);
         spawn(position, config);
         naturalSupplyCount++;
     }
@@ -98,20 +105,7 @@ internal sealed class BattleRewardModel {
 
     public void Clear() {
         rewards.Clear();
-        Initialize();
-    }
-
-    public static StageItemEffectType GetWaveRewardType(int waveIndex) {
-        switch (waveIndex % 4) {
-            case 0:
-                return StageItemEffectType.HEALTH;
-            case 1:
-                return StageItemEffectType.PLAYER_UPGRADE;
-            case 2:
-                return StageItemEffectType.ADD_WINGMAN;
-            default:
-                return StageItemEffectType.LIFE;
-        }
+        Initialize(null);
     }
 
     private static StageItemResource GetItemConfig(StageItemEffectType type) {

@@ -5,27 +5,29 @@ using UnityEngine;
 /// <summary>集中预热本关可能使用的战斗视觉对象。</summary>
 internal static class BattlePrewarmService {
     public static void Prewarm(StageConfigVO stage, BattleVisualPool pool,
-        RectTransform layer) {
-        PrewarmPlayerProjectiles(pool, layer);
-        PrewarmWingman(pool, layer);
+        RectTransform entityLayer, RectTransform projectileLayer) {
+        PrewarmPlayerProjectiles(pool, projectileLayer);
+        PrewarmWingman(pool, entityLayer, projectileLayer);
         HashSet<int> enemyIds = new HashSet<int>();
         HashSet<string> bulletKeys = new HashSet<string>();
         foreach (EnemyWaveVO wave in stage.enemyWaves) {
-            PrewarmEnemy(wave.enemy, enemyIds, bulletKeys, pool, layer);
+            PrewarmEnemy(wave.enemy, enemyIds, bulletKeys, pool, entityLayer, projectileLayer);
         }
-        PrewarmEnemy(stage.bossWave.enemy, enemyIds, bulletKeys, pool, layer);
+        PrewarmEnemy(stage.bossWave.enemy, enemyIds, bulletKeys, pool, entityLayer, projectileLayer);
         foreach (StageItemResource item in CfgManager.tables.StageItemObj.DataList) {
-            pool.Prewarm(BattleConst.GetRaidenUnpackImagePath(item.Res), BattleConst.UpgradeDropSize, BattleConst.UpgradeDropPoolCapacity, layer);
+            pool.Prewarm(BattleConst.GetRaidenUnpackImagePath(item.Res), BattleConst.UpgradeDropSize, BattleConst.UpgradeDropPoolCapacity, entityLayer);
         }
     }
 
     /**按当前出战配置预热僚机外观和子弹。*/
-    private static void PrewarmWingman(BattleVisualPool pool, RectTransform layer) {
+    private static void PrewarmWingman(BattleVisualPool pool, RectTransform entityLayer, RectTransform projectileLayer) {
         WingmanConfigVO config = RaidenControl.ins.GetSelectedWingman();
         if (config == null) return;
-        pool.Prewarm(config.appearancePath, config.displaySize, config.maxCount, layer);
+        pool.Prewarm(config.appearancePath, config.displaySize, config.maxCount, entityLayer);
         HashSet<string> projectilePaths = new HashSet<string>();
-        foreach (BulletLauncherConfigVO launcher in config.bulletLaunchers) PrewarmBulletType(launcher, projectilePaths, pool, layer);
+        foreach (BulletLauncherConfigVO launcher in config.bulletLaunchers) {
+            PrewarmBulletType(launcher, projectilePaths, pool, projectileLayer);
+        }
     }
 
     /**按当前出战机型的全部可用等级预热玩家子弹。*/
@@ -47,14 +49,16 @@ internal static class BattlePrewarmService {
     }
 
     private static void PrewarmEnemy(EnemyConfigVO enemy, HashSet<int> enemyIds,
-        HashSet<string> bulletKeys, BattleVisualPool pool, RectTransform layer) {
+        HashSet<string> bulletKeys, BattleVisualPool pool, RectTransform entityLayer, RectTransform projectileLayer) {
         if (enemy == null || !enemyIds.Add(enemy.id)) {
             return;
         }
-        pool.Prewarm(enemy.appearancePath, enemy.displaySize, enemy.poolCapacity, layer);
+        pool.Prewarm(enemy.appearancePath, enemy.displaySize, enemy.poolCapacity, entityLayer);
         foreach (BulletLauncherConfigVO launcher in enemy.bulletLaunchers) {
             string key = $"{launcher.bulletType}:{launcher.bulletLevel}";
-            if (bulletKeys.Add(key)) PrewarmBulletType(launcher, bulletKeys, pool, layer);
+            if (bulletKeys.Add(key)) {
+                PrewarmBulletType(launcher, bulletKeys, pool, projectileLayer);
+            }
         }
     }
 

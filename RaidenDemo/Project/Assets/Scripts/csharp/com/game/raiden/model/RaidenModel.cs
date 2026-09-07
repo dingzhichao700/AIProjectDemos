@@ -67,7 +67,14 @@ public sealed class RaidenModel {
         if (bossWave.enemyClass != EnemyClass.BOSS || bossWave.count != 1) {
             throw new InvalidOperationException($"关卡 {config.Id} 的 Boss 波次 {config.BossWaveId} 必须只配置一架 Boss 敌机");
         }
-        return new StageConfigVO(config.Id, new Vector2(config.SelectPosition.X, config.SelectPosition.Y), CreateWaves(config.WaveIds), bossWave, config.SceneId, config.TwoStarScore, config.ThreeStarScore);
+        StageItemResource[] supplyItems = new StageItemResource[config.SupplyItemIds.Count];
+        for (int i = 0; i < supplyItems.Length; i++) {
+            supplyItems[i] = CfgManager.tables.StageItemObj.GetOrDefault(config.SupplyItemIds[i]);
+            if (supplyItems[i] == null) {
+                throw new InvalidOperationException($"关卡 {config.Id} 引用了不存在的补给道具 {config.SupplyItemIds[i]}");
+            }
+        }
+        return new StageConfigVO(config, CreateWaves(config.WaveIds), bossWave, supplyItems);
     }
 
     /**获取并转换普通敌机配置*/
@@ -75,6 +82,9 @@ public sealed class RaidenModel {
         EnemyResource enemy = CfgManager.tables.EnemyObj.GetOrDefault(enemyId);
         if (enemy == null) {
             return null;
+        }
+        if (enemy.Unit.Health <= 0 || enemy.Unit.MoveSpeed <= 0f || enemy.Score < 0 || enemy.DisplaySize.X <= 0f || enemy.DisplaySize.Y <= 0f) {
+            throw new InvalidOperationException($"敌机 {enemyId} 的血量、移速、尺寸或分数无效");
         }
         List<BulletLauncherConfigVO> launchers = CreateBulletLaunchers(enemy.Unit.BulletLaunchers, $"敌机 {enemyId}");
         return new EnemyConfigVO(enemy.Id, enemy.EnemyClass, enemy.Unit.Health, BattleConst.GetRaidenUnpackImagePath(enemy.Unit.AppearanceName), new Vector2(enemy.DisplaySize.X, enemy.DisplaySize.Y), AircraftCollisionVO.Create(enemy.Unit.CollisionShapes), enemy.Unit.MoveSpeed, enemy.Score, enemy.PoolCapacity, launchers, enemy.Unit.DeathExplosions, enemy.Unit.RemoveAfterDeathPresentation);
@@ -163,7 +173,7 @@ public sealed class RaidenModel {
             if (bullet == null) {
                 throw new InvalidOperationException($"{ownerName} 引用了不存在的子弹：type={launcher.BulletType}, level={launcher.BulletLevel}");
             }
-            result.Add(new BulletLauncherConfigVO(new Vector2(launcher.Offset.X, launcher.Offset.Y), launcher.BulletType, launcher.BulletLevel, Mathf.Max(1, launcher.BulletCount), Mathf.Max(0.001f, launcher.FireIntervalMs / 1000f), Mathf.Max(0, launcher.BulletIntervalMs), launcher.Direction, launcher.SpreadType, Mathf.Max(0f, launcher.SpreadAngle)));
+            result.Add(new BulletLauncherConfigVO(new Vector2(launcher.Offset.X, launcher.Offset.Y), launcher.BulletType, launcher.BulletLevel, launcher.BulletCount, launcher.FireIntervalMs / 1000f, launcher.BulletIntervalMs, launcher.Direction, launcher.SpreadType, Mathf.Max(0f, launcher.SpreadAngle)));
         }
         return result;
     }
@@ -282,7 +292,10 @@ public sealed class RaidenModel {
         if (enemy == null) {
             throw new InvalidOperationException($"波次 {wave.Id} 引用了不存在的敌机配置：{wave.EnemyId}");
         }
-        return new EnemyWaveVO(enemy, wave.MotionType, wave.FormationType, wave.EnemyCount, new Vector2(wave.SpawnCenter.X, wave.SpawnCenter.Y), wave.Spacing, wave.MotionDirection);
+        if (wave.RewardItemId < 0 || wave.RewardItemId > 0 && CfgManager.tables.StageItemObj.GetOrDefault(wave.RewardItemId) == null) {
+            throw new InvalidOperationException($"波次 {wave.Id} 的奖励道具 {wave.RewardItemId} 不存在");
+        }
+        return new EnemyWaveVO(enemy, wave);
     }
 
 }

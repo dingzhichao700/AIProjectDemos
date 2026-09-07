@@ -35,7 +35,7 @@
           "bulletType": 1003,
           "bulletLevel": 1,
           "bulletCount": 6,
-          "fireIntervalMs": 500,
+          "fireIntervalMs": 200,
           "bulletIntervalMs": 50,
           "direction": 90,
           "spreadType": 0,

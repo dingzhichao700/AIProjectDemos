@@ -18,13 +18,14 @@ internal sealed class BattleVisualPool {
     public RectTransform Create(string name, RectTransform parent, Vector2 size,
         Vector2 position, string imagePath, float visualRotation = 0f,
         bool useNativeSpriteVisual = false) {
-        RectTransform root = Take(imagePath);
+        string key = GetPoolKey(parent, imagePath);
+        RectTransform root = Take(key);
         if (root == null) {
             GameObject entity = new GameObject(name, typeof(RectTransform));
             root = entity.GetComponent<RectTransform>();
             CreateImage("imgVisual", root, size, Vector2.zero,
                 imagePath, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f));
-            poolKeys[root] = imagePath;
+            poolKeys[root] = key;
         }
         root.name = name;
         root.gameObject.SetActive(true);
@@ -47,7 +48,7 @@ internal sealed class BattleVisualPool {
 
     /**创建或复用一个用于承载帧动画的空场景节点。*/
     public RectTransform CreateEmpty(string name, RectTransform parent, Vector2 size, Vector2 position, string poolKey) {
-        string key = $"effect:{poolKey}";
+        string key = GetPoolKey(parent, $"effect:{poolKey}");
         RectTransform root = Take(key);
         if (root == null) {
             root = new GameObject(name, typeof(RectTransform)).GetComponent<RectTransform>();
@@ -62,13 +63,13 @@ internal sealed class BattleVisualPool {
 
     /**预先创建指定数量的对象并放回池中*/
     public void Prewarm(string imagePath, Vector2 size, int capacity,
-        RectTransform temporaryParent) {
+        RectTransform parent) {
         if (capacity <= 0) {
             return;
         }
         List<RectTransform> instances = new List<RectTransform>(capacity);
         for (int i = 0; i < capacity; i++) {
-            instances.Add(Create($"prewarm_{i}", temporaryParent, size,
+            instances.Add(Create($"prewarm_{i}", parent, size,
                 Vector2.zero, imagePath));
         }
         foreach (RectTransform instance in instances) {
@@ -99,8 +100,13 @@ internal sealed class BattleVisualPool {
         poolKeys.Clear();
     }
 
-    private RectTransform Take(string imagePath) {
-        if (!pools.TryGetValue(imagePath, out Stack<RectTransform> pool)) {
+    /**按所属层和资源共同分池，防止同一资源跨层复用实体。*/
+    private static string GetPoolKey(RectTransform parent, string resourceKey) {
+        return $"{parent.GetInstanceID()}:{resourceKey}";
+    }
+
+    private RectTransform Take(string key) {
+        if (!pools.TryGetValue(key, out Stack<RectTransform> pool)) {
             return null;
         }
         while (pool.Count > 0) {
@@ -127,7 +133,9 @@ internal sealed class BattleVisualPool {
 
     private static void SetupRect(RectTransform rect, RectTransform parent, Vector2 size,
         Vector2 position, Vector2 pivot, Vector2? anchor = null) {
-        rect.SetParent(parent, false);
+        if (rect.parent != parent) {
+            rect.SetParent(parent, false);
+        }
         rect.anchorMin = rect.anchorMax = anchor ?? new Vector2(0f, 1f);
         rect.pivot = pivot;
         rect.sizeDelta = size;

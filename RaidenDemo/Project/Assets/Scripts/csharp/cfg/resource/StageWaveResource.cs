@@ -25,6 +25,13 @@ public sealed partial class StageWaveResource : Luban.BeanBase
         { if(!_buf["spawnCenter"].IsObject) { throw new SerializationException(); }  SpawnCenter = global::cfg.vector2.Deserializevector2(_buf["spawnCenter"]);  }
         { if(!_buf["spacing"].IsNumber) { throw new SerializationException(); }  Spacing = _buf["spacing"]; }
         { if(!_buf["motionDirection"].IsNumber) { throw new SerializationException(); }  MotionDirection = _buf["motionDirection"]; }
+        { if(!_buf["entrySpeedMultiplier"].IsNumber) { throw new SerializationException(); }  EntrySpeedMultiplier = _buf["entrySpeedMultiplier"]; }
+        { if(!_buf["prepareDurationMs"].IsNumber) { throw new SerializationException(); }  PrepareDurationMs = _buf["prepareDurationMs"]; }
+        { if(!_buf["attackDurationMs"].IsNumber) { throw new SerializationException(); }  AttackDurationMs = _buf["attackDurationMs"]; }
+        { if(!_buf["patrolAmplitude"].IsNumber) { throw new SerializationException(); }  PatrolAmplitude = _buf["patrolAmplitude"]; }
+        { if(!_buf["stationHeightRatio"].IsNumber) { throw new SerializationException(); }  StationHeightRatio = _buf["stationHeightRatio"]; }
+        { if(!_buf["exitDirection"].IsObject) { throw new SerializationException(); }  ExitDirection = global::cfg.vector2.Deserializevector2(_buf["exitDirection"]);  }
+        { if(!_buf["rewardItemId"].IsNumber) { throw new SerializationException(); }  RewardItemId = _buf["rewardItemId"]; }
     }
 
     public static StageWaveResource DeserializeStageWaveResource(JSONNode _buf)
@@ -64,6 +71,34 @@ public sealed partial class StageWaveResource : Luban.BeanBase
     /// 运动方向
     /// </summary>
     public readonly float MotionDirection;
+    /// <summary>
+    /// 入场速度倍率
+    /// </summary>
+    public readonly float EntrySpeedMultiplier;
+    /// <summary>
+    /// 开火准备毫秒
+    /// </summary>
+    public readonly int PrepareDurationMs;
+    /// <summary>
+    /// 攻击阶段毫秒
+    /// </summary>
+    public readonly int AttackDurationMs;
+    /// <summary>
+    /// 巡航幅度
+    /// </summary>
+    public readonly float PatrolAmplitude;
+    /// <summary>
+    /// 停留高度比例
+    /// </summary>
+    public readonly float StationHeightRatio;
+    /// <summary>
+    /// 撤离方向
+    /// </summary>
+    public readonly vector2 ExitDirection;
+    /// <summary>
+    /// 全灭奖励道具ID（0为无）
+    /// </summary>
+    public readonly int RewardItemId;
    
     public const int __ID__ = -286377403;
     public override int GetTypeId() => __ID__;
@@ -83,6 +118,13 @@ public sealed partial class StageWaveResource : Luban.BeanBase
         + "spawnCenter:" + SpawnCenter + ","
         + "spacing:" + Spacing + ","
         + "motionDirection:" + MotionDirection + ","
+        + "entrySpeedMultiplier:" + EntrySpeedMultiplier + ","
+        + "prepareDurationMs:" + PrepareDurationMs + ","
+        + "attackDurationMs:" + AttackDurationMs + ","
+        + "patrolAmplitude:" + PatrolAmplitude + ","
+        + "stationHeightRatio:" + StationHeightRatio + ","
+        + "exitDirection:" + ExitDirection + ","
+        + "rewardItemId:" + RewardItemId + ","
         + "}";
     }
 }

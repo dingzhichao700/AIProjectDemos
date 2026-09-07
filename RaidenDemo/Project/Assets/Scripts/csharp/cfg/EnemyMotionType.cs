@@ -17,21 +17,17 @@ namespace cfg
     public enum EnemyMotionType
     {
         /// <summary>
-        /// 直线
+        /// 定点攻击
         /// </summary>
-        STRAIGHT = 0,
+        STATIONARY = 0,
         /// <summary>
-        /// 斜向
+        /// 横向穿越
         /// </summary>
-        DIAGONAL = 1,
+        HORIZONTAL_PASS = 2,
         /// <summary>
-        /// 蛇形
+        /// 巡航攻击
         /// </summary>
-        SNAKE = 2,
-        /// <summary>
-        /// 编队转向
-        /// </summary>
-        FORMATION_TURN = 3,
+        PATROL = 3,
     }
 
 } 

@@ -17,6 +17,11 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 6d2c545a885403549acf812cf0e01844
   m_SerializeEntries:
+  - m_GUID: 1ad066bbc1d34866ada17c02f0a1dfff
+    m_Address: Assets/ConfigBin/cfgobj_configvalueobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0474fe58d10cba94da6955102dfb9e95
     m_Address: Assets/ConfigBin/cfgobj_settingoptionobj.json
     m_ReadOnly: 0

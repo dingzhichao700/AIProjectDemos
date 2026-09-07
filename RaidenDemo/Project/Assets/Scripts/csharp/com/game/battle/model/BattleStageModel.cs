@@ -13,9 +13,11 @@ internal sealed class BattleStageModel {
     private int currentWaveIndex;
     private int spawnedInWave;
     private int defeatedInWave;
-    private float spawnCooldown;
     private float waveCooldown;
     private EnemyFormationPathVO currentFormationPath;
+
+    public float victoryDelay => stageConfig.victoryDelay;
+    public int GetWaveRewardItemId(int index) => stageConfig.enemyWaves[index].rewardItemId;
 
     public bool bossSpawned { get; private set; }
 
@@ -25,7 +27,6 @@ internal sealed class BattleStageModel {
         currentWaveIndex = 0;
         spawnedInWave = 0;
         defeatedInWave = 0;
-        spawnCooldown = 0f;
         waveCooldown = 0f;
         currentFormationPath = null;
         bossSpawned = false;
@@ -34,11 +35,10 @@ internal sealed class BattleStageModel {
     /**推进配置化普通波次，并在全部结束后请求创建 Boss。*/
     public void Update(float deltaTime, int activeEnemyCount,
         Action<EnemyWaveVO, int, EnemyFormationPathVO> spawnNormal,
-        Action<EnemyConfigVO, Vector2> spawnSpecial) {
+        Action<EnemyWaveVO> spawnSpecial) {
         if (stageConfig == null) {
             return;
         }
-        currentFormationPath?.Update(deltaTime);
         if (currentWaveIndex >= stageConfig.enemyWaves.Length) {
             TryRequestBoss(activeEnemyCount, spawnSpecial);
             return;
@@ -55,7 +55,6 @@ internal sealed class BattleStageModel {
             currentWaveIndex++;
             spawnedInWave = 0;
             defeatedInWave = 0;
-            spawnCooldown = 0f;
             currentFormationPath = null;
             if (currentWaveIndex >= stageConfig.enemyWaves.Length) {
                 TryRequestBoss(activeEnemyCount, spawnSpecial);
@@ -63,19 +62,21 @@ internal sealed class BattleStageModel {
             }
             wave = stageConfig.enemyWaves[currentWaveIndex];
         }
-        spawnCooldown -= deltaTime;
-        if (spawnCooldown > 0f) {
-            return;
-        }
-        currentFormationPath = new EnemyFormationPathVO(wave);
-        for (int formationIndex = 0; formationIndex < wave.count;
-             formationIndex++) {
-            spawnNormal(wave, formationIndex, currentFormationPath);
+        if (wave.enemyClass != cfg.EnemyClass.NORMAL) {
+            spawnSpecial(wave);
+        } else {
+            currentFormationPath = new EnemyFormationPathVO(wave);
+            for (int formationIndex = 0; formationIndex < wave.count; formationIndex++) {
+                spawnNormal(wave, formationIndex, currentFormationPath);
+            }
         }
         spawnedInWave = wave.count;
-        if (spawnedInWave >= wave.count) {
-            waveCooldown = BattleConst.EnemyWaveInterval;
-        }
+        waveCooldown = stageConfig.waveInterval;
+    }
+
+    /**仅使用 enemyTimer 推进共享路径一次，波次调度仍归 sceneTimer。*/
+    public void UpdateEnemyMovement(float deltaTime) {
+        currentFormationPath?.Update(deltaTime);
     }
 
     /**记录普通敌机结算，并返回刚完成击毁的波次索引。*/
@@ -90,13 +91,13 @@ internal sealed class BattleStageModel {
     }
 
     /**全部普通波次清除后请求生成 Boss。*/
-    public void TryRequestBoss(int activeEnemyCount, Action<EnemyConfigVO, Vector2> spawnSpecial) {
-        if (bossSpawned || activeEnemyCount > 0) {
+    public void TryRequestBoss(int activeEnemyCount, Action<EnemyWaveVO> spawnSpecial) {
+        if (stageConfig == null || currentWaveIndex < stageConfig.enemyWaves.Length || bossSpawned || activeEnemyCount > 0) {
             return;
         }
         bossSpawned = true;
         if (stageConfig.bossWave != null) {
-            spawnSpecial(stageConfig.bossWave.enemy, stageConfig.bossWave.spawnCenter);
+            spawnSpecial(stageConfig.bossWave);
         }
     }
 

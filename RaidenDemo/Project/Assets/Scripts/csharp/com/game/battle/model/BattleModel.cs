@@ -153,7 +153,7 @@ public sealed class BattleModel {
     /**初始化关卡波次运行状态*/
     public void InitializeStage(StageConfigVO config, int currentStageId = 0) {
         stageModel.Initialize(config);
-        rewardModel.Initialize();
+        rewardModel.Initialize(config);
         battleScore = 0;
         bulletAdditionalLevel = 0;
         bossVictoryDelayRemaining = -1f;
@@ -268,8 +268,9 @@ public sealed class BattleModel {
         formationModel.ConfigureWingman(config);
     }
 
-    /**更新玩家输入产生的权威逻辑坐标*/
+    /**更新玩家输入产生的权威逻辑坐标，机位限制在战斗视窗下半部分。*/
     internal void SetPlayerPosition(Vector2 position) {
+        position = BattleConst.ClampPlayerPosition(position);
         playerUnit?.SetPosition(position);
     }
 
@@ -338,15 +339,28 @@ public sealed class BattleModel {
             AddScore(enemy.scoreValue);
         }
         if (completedWaveIndex >= 0) {
-            SpawnReward(position, BattleRewardModel.GetWaveRewardType(completedWaveIndex));
+            int itemId = stageModel.GetWaveRewardItemId(completedWaveIndex);
+            if (itemId > 0) {
+                SpawnNaturalReward(position, CfgManager.tables.StageItemObj.GetOrDefault(itemId));
+            }
         }
         return true;
     }
 
-    /**最后一次死亡爆炸开始时结束敌机移动逻辑。*/
-    internal void StopEnemyDeathMovement(AircraftVO enemy) {
-        if (enemy != null) {
+    /**接收表现阶段通知，实体自行决定移动策略；需要移除机身时结束其逻辑生命周期。*/
+    internal void NotifyEnemyLastExplosionStarted(AircraftVO enemy) {
+        if (enemy == null || !enemy.isDying) {
+            return;
+        }
+        enemy.OnLastDeathExplosionStarted();
+        if (enemy.removeAfterDeathPresentation) {
             RemoveElement(enemy.id);
+        }
+    }
+
+    internal void NotifyEnemyDeathPresentationCompleted(AircraftVO enemy) {
+        if (enemy != null && enemy.isBoss) {
+            NotifyBossDeathPresentationCompleted();
         }
     }
 
@@ -356,7 +370,7 @@ public sealed class BattleModel {
             return;
         }
         waitingForBossDeathPresentation = false;
-        bossVictoryDelayRemaining = BattleConst.BattleResultDelayAfterDeathPresentation;
+        bossVictoryDelayRemaining = stageModel.victoryDelay;
     }
 
     /**玩家死亡表现完成后开始固定延迟。*/
@@ -364,7 +378,7 @@ public sealed class BattleModel {
         if (playerUnit == null || playerUnit.lifecycleState != PlayerLifecycleState.Dying || playerDefeatDelayRemaining >= 0f) {
             return;
         }
-        playerDefeatDelayRemaining = BattleConst.BattleResultDelayAfterDeathPresentation;
+        playerDefeatDelayRemaining = BattleConst.PlayerDefeatDelayAfterDeathPresentation;
     }
 
     /**登记一个由关卡逻辑生成的奖励道具*/
@@ -437,7 +451,7 @@ public sealed class BattleModel {
         }
         sceneModel.UpdateElements(TimerType.SCENE, deltaTime);
         stageModel.Update(deltaTime, enemies.Count, SpawnNormalEnemy, SpawnSpecialEnemy);
-        rewardModel.UpdateNaturalSupply(deltaTime, stageModel.bossSpawned, SpawnNaturalReward);
+        rewardModel.UpdateNaturalSupply(deltaTime, SpawnNaturalReward);
         UpdateRewards();
         UpdateBossVictoryDelay(deltaTime);
         UpdatePlayerDefeatDelay(deltaTime);
@@ -459,6 +473,7 @@ public sealed class BattleModel {
         if (!flowModel.simulationActive || deltaTime <= 0f) {
             return;
         }
+        stageModel.UpdateEnemyMovement(deltaTime);
         sceneModel.UpdateElements(TimerType.ENEMY, deltaTime);
         RemoveOutOfBoundsEnemies();
         RemoveOutOfBoundsEnemyProjectiles();
@@ -471,24 +486,24 @@ public sealed class BattleModel {
         EnemyFormationPathVO formationPath) {
         Vector2 spawnPosition = formationPath.GetMemberPosition(formationIndex);
         CreateEnemy(wave.enemy, spawnPosition, wave.motionType,
-            wave.enemy.moveSpeed, wave.enemy.score, formationIndex,
+            formationIndex,
             wave.count, wave.direction, formationPath);
     }
 
     /**根据特殊敌机请求创建精英或 Boss。*/
-    private void SpawnSpecialEnemy(EnemyConfigVO config, Vector2 position) {
-        CreateEnemy(config, position);
+    private void SpawnSpecialEnemy(EnemyWaveVO wave) {
+        CreateEnemy(wave.enemy, wave.spawnCenter, specialMotion: wave);
     }
 
     /**创建、登记并配置一架敌机逻辑对象*/
     private AircraftVO CreateEnemy(EnemyConfigVO config, Vector2 position,
-        EnemyMotionType motionType = EnemyMotionType.STRAIGHT, float moveSpeed = 0f,
-        int scoreValue = 0, int formationIndex = 0, int formationCount = 1,
-        float motionDirection = 1f, EnemyFormationPathVO formationPath = null) {
+        EnemyMotionType motionType = EnemyMotionType.STATIONARY,
+        int formationIndex = 0, int formationCount = 1,
+        float motionDirection = 1f, EnemyFormationPathVO formationPath = null, EnemyWaveVO specialMotion = null) {
         AircraftVO enemy = new AircraftVO(CreateElementId(), position, config.enemyClass,
             config.displaySize, config.collision, config.baseHealth, motionType,
-            moveSpeed, scoreValue, formationIndex, formationCount, motionDirection,
-            config.appearancePath, formationPath: formationPath);
+            config.moveSpeed, config.score, formationIndex, formationCount, motionDirection,
+            config.appearancePath, formationPath: formationPath, specialMotion: specialMotion);
         foreach (BulletLauncherConfigVO launcher in config.bulletLaunchers) {
             enemy.bulletLaunchers.Add(new BulletLauncherVO(launcher, RaidenControl.ins.model.GetBulletConfig));
         }
@@ -550,26 +565,18 @@ public sealed class BattleModel {
         }
     }
 
-    /**结算已经飞出关卡下边界的普通敌机*/
+    /**离场阶段完整离开顶部或侧边后结算逃离，避免把屏外入场误判为离场。*/
     private void RemoveOutOfBoundsEnemies() {
         for (int i = enemies.Count - 1; i >= 0; i--) {
             AircraftVO enemy = enemies[i];
             if (enemy.enemyClass != EnemyClass.NORMAL ||
-                !enemy.hasEnteredViewport) {
+                !enemy.isLeavingFormation) {
                 continue;
             }
-            float halfWidth = enemy.size.x * 0.5f;
-            bool horizontalExit = enemy.motionType == EnemyMotionType.SNAKE &&
-                                  (enemy.motionDirection > 0f
-                                      ? enemy.position.x - halfWidth >
-                                        BattleConst.BattleViewportWidth +
-                                        BattleConst.EnemyFormationViewportPadding
-                                      : enemy.position.x + halfWidth <
-                                        -BattleConst.EnemyFormationViewportPadding);
-            bool verticalExit = enemy.motionType != EnemyMotionType.SNAKE &&
-                                enemy.position.y + enemy.size.y * 0.5f <
-                                -BattleConst.BattleViewportHeight -
-                                BattleConst.EnemyFormationViewportPadding;
+            float radius = enemy.size.magnitude * 0.5f;
+            bool horizontalExit = enemy.position.x - radius > BattleConst.BattleViewportWidth + BattleConst.EnemyFormationViewportPadding ||
+                                  enemy.position.x + radius < -BattleConst.EnemyFormationViewportPadding;
+            bool verticalExit = enemy.position.y - radius > BattleConst.EnemyFormationViewportPadding;
             if (horizontalExit || verticalExit) {
                 ResolveEnemy(enemy, false);
             }
@@ -617,7 +624,7 @@ public sealed class BattleModel {
         Vector2 position = enemy.position;
         Rect enemyBounds = Rect.MinMaxRect(position.x - halfSize.x, position.y - halfSize.y,
             position.x + halfSize.x, position.y + halfSize.y);
-        return Rect.MinMaxRect(0f, -1280f, 720f, 0f).Overlaps(enemyBounds);
+        return BattleConst.ViewportBounds.Overlaps(enemyBounds);
     }
 
     /**集中检测三类战斗接触，并将命中结果通知表现协调层*/
@@ -636,7 +643,7 @@ public sealed class BattleModel {
         if (!defeated) {
             return;
         }
-        AddScore(enemy.isBoss ? BattleConst.BossScore : BattleConst.EliteScore);
+        AddScore(enemy.scoreValue);
         foreach (AircraftVO remainingEnemy in enemies) {
             if (remainingEnemy.showsSharedHealth) {
                 return;

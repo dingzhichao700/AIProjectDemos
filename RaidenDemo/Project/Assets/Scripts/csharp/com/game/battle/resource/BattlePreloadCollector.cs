@@ -28,6 +28,8 @@ public static class BattlePreloadCollector {
         if (stage == null) {
             throw new InvalidOperationException($"关卡 {stageId} 不存在，无法收集预加载资源");
         }
+        // 先转换整关配置，路径与奖励引用错误必须在进入战斗前暴露。
+        RaidenControl.ins.model.GetStageConfig(stageId);
         AddFixedStageResources(preload, resourceKeys);
         AddSceneBackgroundResources(preload, resourceKeys, stage.SceneId);
 

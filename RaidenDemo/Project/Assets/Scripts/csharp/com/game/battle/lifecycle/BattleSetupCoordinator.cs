@@ -11,9 +11,10 @@ internal sealed class BattleSetupCoordinator {
     private readonly BattleBackgroundPresenter backgroundPresenter;
     private readonly BattleHudPresenter hudPresenter;
     private readonly BattleVisualPool visualPool;
-    private readonly RectTransform effectLayer;
+    private readonly RectTransform entityLayer;
+    private readonly RectTransform projectileLayer;
 
-    public BattleSetupCoordinator(BattleModel model, BattleConfigProvider configProvider, BattlePlayerConfigCoordinator playerConfig, BattleFormationPresenter formationPresenter, BattlePlayerPresenter playerPresenter, BattleBackgroundPresenter backgroundPresenter, BattleHudPresenter hudPresenter, BattleVisualPool visualPool, RectTransform effectLayer) {
+    public BattleSetupCoordinator(BattleModel model, BattleConfigProvider configProvider, BattlePlayerConfigCoordinator playerConfig, BattleFormationPresenter formationPresenter, BattlePlayerPresenter playerPresenter, BattleBackgroundPresenter backgroundPresenter, BattleHudPresenter hudPresenter, BattleVisualPool visualPool, RectTransform entityLayer, RectTransform projectileLayer) {
         this.model = model;
         this.configProvider = configProvider;
         this.playerConfig = playerConfig;
@@ -22,7 +23,8 @@ internal sealed class BattleSetupCoordinator {
         this.backgroundPresenter = backgroundPresenter;
         this.hudPresenter = hudPresenter;
         this.visualPool = visualPool;
-        this.effectLayer = effectLayer;
+        this.entityLayer = entityLayer;
+        this.projectileLayer = projectileLayer;
     }
 
     /**初始化关卡、出战飞机、背景和预热对象。*/
@@ -37,7 +39,7 @@ internal sealed class BattleSetupCoordinator {
         formationPresenter.ApplyPlayerVisual(playerConfig.current);
         playerPresenter.Initialize(player);
         hudPresenter.Initialize();
-        BattlePrewarmService.Prewarm(stage, visualPool, effectLayer);
+        BattlePrewarmService.Prewarm(stage, visualPool, entityLayer, projectileLayer);
         return stage;
     }
 }

@@ -24,6 +24,11 @@ public sealed partial class StageResource : Luban.BeanBase
         { if(!_buf["threeStarScore"].IsNumber) { throw new SerializationException(); }  ThreeStarScore = _buf["threeStarScore"]; }
         { if(!_buf["bossWaveId"].IsNumber) { throw new SerializationException(); }  BossWaveId = _buf["bossWaveId"]; }
         { if(!_buf["sceneId"].IsNumber) { throw new SerializationException(); }  SceneId = _buf["sceneId"]; }
+        { if(!_buf["supplyFirstDelayMs"].IsNumber) { throw new SerializationException(); }  SupplyFirstDelayMs = _buf["supplyFirstDelayMs"]; }
+        { if(!_buf["supplyIntervalMs"].IsNumber) { throw new SerializationException(); }  SupplyIntervalMs = _buf["supplyIntervalMs"]; }
+        { var __json0 = _buf["supplyItemIds"]; if(!__json0.IsArray) { throw new SerializationException(); } SupplyItemIds = new System.Collections.Generic.List<int>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { int __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0; }  SupplyItemIds.Add(__v0); }   }
+        { if(!_buf["waveIntervalMs"].IsNumber) { throw new SerializationException(); }  WaveIntervalMs = _buf["waveIntervalMs"]; }
+        { if(!_buf["victoryDelayMs"].IsNumber) { throw new SerializationException(); }  VictoryDelayMs = _buf["victoryDelayMs"]; }
     }
 
     public static StageResource DeserializeStageResource(JSONNode _buf)
@@ -59,6 +64,26 @@ public sealed partial class StageResource : Luban.BeanBase
     /// 场景背景ID
     /// </summary>
     public readonly int SceneId;
+    /// <summary>
+    /// 补给首次延迟毫秒
+    /// </summary>
+    public readonly int SupplyFirstDelayMs;
+    /// <summary>
+    /// 补给间隔毫秒
+    /// </summary>
+    public readonly int SupplyIntervalMs;
+    /// <summary>
+    /// 补给道具顺序
+    /// </summary>
+    public readonly System.Collections.Generic.List<int> SupplyItemIds;
+    /// <summary>
+    /// 编队间隔毫秒
+    /// </summary>
+    public readonly int WaveIntervalMs;
+    /// <summary>
+    /// 胜利结算等待毫秒
+    /// </summary>
+    public readonly int VictoryDelayMs;
    
     public const int __ID__ = 357763884;
     public override int GetTypeId() => __ID__;
@@ -77,6 +102,11 @@ public sealed partial class StageResource : Luban.BeanBase
         + "threeStarScore:" + ThreeStarScore + ","
         + "bossWaveId:" + BossWaveId + ","
         + "sceneId:" + SceneId + ","
+        + "supplyFirstDelayMs:" + SupplyFirstDelayMs + ","
+        + "supplyIntervalMs:" + SupplyIntervalMs + ","
+        + "supplyItemIds:" + Luban.StringUtil.CollectionToString(SupplyItemIds) + ","
+        + "waveIntervalMs:" + WaveIntervalMs + ","
+        + "victoryDelayMs:" + VictoryDelayMs + ","
         + "}";
     }
 }

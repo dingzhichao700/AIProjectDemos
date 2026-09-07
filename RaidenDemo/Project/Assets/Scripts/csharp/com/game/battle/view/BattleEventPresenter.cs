@@ -14,6 +14,7 @@ internal sealed class BattleEventPresenter {
     private readonly BattleScenePresenter scenePresenter;
     private readonly BattleBackgroundPresenter backgroundPresenter;
     private readonly BattleEffectPresenter effectPresenter;
+    private readonly BattleAircraftDeathPresenter aircraftDeaths;
     private readonly BattleHudPresenter hudPresenter;
     private readonly BattlePlayerPresenter playerPresenter;
     private readonly BattleFormationPresenter formationPresenter;
@@ -24,7 +25,7 @@ internal sealed class BattleEventPresenter {
     private float healthFeedbackRemaining;
 
     public BattleEventPresenter(BattleModel model, BattleScenePresenter scenePresenter,
-        BattleBackgroundPresenter backgroundPresenter, BattleEffectPresenter effectPresenter,
+        BattleBackgroundPresenter backgroundPresenter, BattleEffectPresenter effectPresenter, BattleAircraftDeathPresenter aircraftDeaths,
         BattleHudPresenter hudPresenter, BattlePlayerPresenter playerPresenter,
         BattleFormationPresenter formationPresenter, BattlePlayerInputPresenter inputPresenter,
         BattlePlayerConfigCoordinator playerConfig, Action<int> applyPlayerLevel,
@@ -33,6 +34,7 @@ internal sealed class BattleEventPresenter {
         this.scenePresenter = scenePresenter;
         this.backgroundPresenter = backgroundPresenter;
         this.effectPresenter = effectPresenter;
+        this.aircraftDeaths = aircraftDeaths;
         this.hudPresenter = hudPresenter;
         this.playerPresenter = playerPresenter;
         this.formationPresenter = formationPresenter;
@@ -109,13 +111,13 @@ internal sealed class BattleEventPresenter {
         formationPresenter.Sync();
         playerPresenter.Update(formationPresenter.player, deltaTime);
         scenePresenter.SyncPlayerViews();
-        effectPresenter.Update(deltaTime, TimerType.PLAYER);
+        aircraftDeaths.Update(deltaTime, TimerType.PLAYER);
     }
 
     private void OnEnemyTimeUpdate(float deltaTime) {
         if (model.isPlaying) {
             scenePresenter.SyncEnemyViews();
-            effectPresenter.Update(deltaTime, TimerType.ENEMY);
+            aircraftDeaths.Update(deltaTime, TimerType.ENEMY);
         }
     }
 
@@ -163,7 +165,7 @@ internal sealed class BattleEventPresenter {
     private void OnPlayerDefeatStarted() {
         playerPresenter.OnDefeatStarted(formationPresenter.player);
         formationPresenter.ClearWingmen();
-        effectPresenter.PlayAircraftDeath(formationPresenter.GetView(formationPresenter.player), formationPresenter.player, true, null, model.NotifyPlayerDeathPresentationCompleted);
+        aircraftDeaths.PlayAircraftDeath(formationPresenter.GetView(formationPresenter.player), formationPresenter.player, true, null, model.NotifyPlayerDeathPresentationCompleted);
     }
 
     private void OnPlayerDefaultLevelRequested() {

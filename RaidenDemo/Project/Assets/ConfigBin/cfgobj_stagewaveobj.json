@@ -4,52 +4,92 @@
     "enemyId": 1,
     "motionType": 0,
     "formationType": 0,
-    "enemyCount": 5,
+    "enemyCount": 2,
     "spawnCenter": {
       "x": 360,
       "y": 90
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 1
   },
   {
     "id": 102,
     "enemyId": 2,
-    "motionType": 1,
+    "motionType": 0,
     "formationType": 1,
-    "enemyCount": 6,
+    "enemyCount": 3,
     "spawnCenter": {
       "x": 180,
       "y": 80
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 2
   },
   {
     "id": 103,
     "enemyId": 2,
     "motionType": 2,
     "formationType": 0,
-    "enemyCount": 7,
+    "enemyCount": 3,
     "spawnCenter": {
       "x": 360,
       "y": 70
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 1,
+      "y": 0
+    },
+    "rewardItemId": 3
   },
   {
     "id": 104,
     "enemyId": 3,
     "motionType": 3,
     "formationType": 0,
-    "enemyCount": 8,
+    "enemyCount": 3,
     "spawnCenter": {
       "x": 360,
       "y": 100
     },
     "spacing": 180,
-    "motionDirection": -1
+    "motionDirection": -1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 7000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": -0.55,
+      "y": 1
+    },
+    "rewardItemId": 4
   },
   {
     "id": 201,
@@ -62,12 +102,22 @@
       "y": 90
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 1
   },
   {
     "id": 202,
     "enemyId": 2,
-    "motionType": 1,
+    "motionType": 0,
     "formationType": 1,
     "enemyCount": 3,
     "spawnCenter": {
@@ -75,7 +125,17 @@
       "y": 80
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 2
   },
   {
     "id": 203,
@@ -88,7 +148,17 @@
       "y": 70
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 1,
+      "y": 0
+    },
+    "rewardItemId": 3
   },
   {
     "id": 301,
@@ -101,12 +171,22 @@
       "y": 90
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 1
   },
   {
     "id": 302,
     "enemyId": 2,
-    "motionType": 1,
+    "motionType": 0,
     "formationType": 1,
     "enemyCount": 3,
     "spawnCenter": {
@@ -114,7 +194,17 @@
       "y": 80
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 2
   },
   {
     "id": 303,
@@ -127,7 +217,17 @@
       "y": 70
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 1,
+      "y": 0
+    },
+    "rewardItemId": 3
   },
   {
     "id": 304,
@@ -140,7 +240,17 @@
       "y": 100
     },
     "spacing": 180,
-    "motionDirection": -1
+    "motionDirection": -1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 7000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": -0.55,
+      "y": 1
+    },
+    "rewardItemId": 4
   },
   {
     "id": 401,
@@ -153,12 +263,22 @@
       "y": 90
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 1
   },
   {
     "id": 402,
     "enemyId": 2,
-    "motionType": 1,
+    "motionType": 0,
     "formationType": 1,
     "enemyCount": 3,
     "spawnCenter": {
@@ -166,7 +286,17 @@
       "y": 80
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 2
   },
   {
     "id": 403,
@@ -179,7 +309,17 @@
       "y": 70
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 1,
+      "y": 0
+    },
+    "rewardItemId": 3
   },
   {
     "id": 404,
@@ -192,7 +332,17 @@
       "y": 100
     },
     "spacing": 180,
-    "motionDirection": -1
+    "motionDirection": -1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 7000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": -0.55,
+      "y": 1
+    },
+    "rewardItemId": 4
   },
   {
     "id": 501,
@@ -205,12 +355,22 @@
       "y": 90
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 1
   },
   {
     "id": 502,
     "enemyId": 2,
-    "motionType": 1,
+    "motionType": 0,
     "formationType": 1,
     "enemyCount": 3,
     "spawnCenter": {
@@ -218,7 +378,17 @@
       "y": 80
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 2
   },
   {
     "id": 503,
@@ -231,7 +401,17 @@
       "y": 70
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 1,
+      "y": 0
+    },
+    "rewardItemId": 3
   },
   {
     "id": 504,
@@ -244,7 +424,17 @@
       "y": 100
     },
     "spacing": 180,
-    "motionDirection": -1
+    "motionDirection": -1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 7000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": -0.55,
+      "y": 1
+    },
+    "rewardItemId": 4
   },
   {
     "id": 505,
@@ -257,7 +447,17 @@
       "y": 90
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 1
   },
   {
     "id": 601,
@@ -270,12 +470,22 @@
       "y": 90
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 1
   },
   {
     "id": 602,
     "enemyId": 2,
-    "motionType": 1,
+    "motionType": 0,
     "formationType": 1,
     "enemyCount": 3,
     "spawnCenter": {
@@ -283,7 +493,17 @@
       "y": 80
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 2
   },
   {
     "id": 603,
@@ -296,7 +516,17 @@
       "y": 70
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 1,
+      "y": 0
+    },
+    "rewardItemId": 3
   },
   {
     "id": 604,
@@ -309,7 +539,17 @@
       "y": 100
     },
     "spacing": 180,
-    "motionDirection": -1
+    "motionDirection": -1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 7000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": -0.55,
+      "y": 1
+    },
+    "rewardItemId": 4
   },
   {
     "id": 605,
@@ -322,7 +562,17 @@
       "y": 90
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 1
   },
   {
     "id": 701,
@@ -335,12 +585,22 @@
       "y": 90
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 1
   },
   {
     "id": 702,
     "enemyId": 2,
-    "motionType": 1,
+    "motionType": 0,
     "formationType": 1,
     "enemyCount": 3,
     "spawnCenter": {
@@ -348,7 +608,17 @@
       "y": 80
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 2
   },
   {
     "id": 703,
@@ -361,7 +631,17 @@
       "y": 70
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 1,
+      "y": 0
+    },
+    "rewardItemId": 3
   },
   {
     "id": 704,
@@ -374,7 +654,17 @@
       "y": 100
     },
     "spacing": 180,
-    "motionDirection": -1
+    "motionDirection": -1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 7000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": -0.55,
+      "y": 1
+    },
+    "rewardItemId": 4
   },
   {
     "id": 705,
@@ -387,12 +677,22 @@
       "y": 90
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 1
   },
   {
     "id": 706,
     "enemyId": 2,
-    "motionType": 1,
+    "motionType": 0,
     "formationType": 1,
     "enemyCount": 2,
     "spawnCenter": {
@@ -400,7 +700,17 @@
       "y": 80
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 2
   },
   {
     "id": 801,
@@ -413,12 +723,22 @@
       "y": 90
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 1
   },
   {
     "id": 802,
     "enemyId": 2,
-    "motionType": 1,
+    "motionType": 0,
     "formationType": 1,
     "enemyCount": 3,
     "spawnCenter": {
@@ -426,7 +746,17 @@
       "y": 80
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 2
   },
   {
     "id": 803,
@@ -439,7 +769,17 @@
       "y": 70
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 1,
+      "y": 0
+    },
+    "rewardItemId": 3
   },
   {
     "id": 804,
@@ -452,7 +792,17 @@
       "y": 100
     },
     "spacing": 180,
-    "motionDirection": -1
+    "motionDirection": -1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 7000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": -0.55,
+      "y": 1
+    },
+    "rewardItemId": 4
   },
   {
     "id": 805,
@@ -465,12 +815,22 @@
       "y": 90
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 1
   },
   {
     "id": 806,
     "enemyId": 2,
-    "motionType": 1,
+    "motionType": 0,
     "formationType": 1,
     "enemyCount": 3,
     "spawnCenter": {
@@ -478,7 +838,17 @@
       "y": 80
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 2
   },
   {
     "id": 901,
@@ -491,12 +861,22 @@
       "y": 90
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 1
   },
   {
     "id": 902,
     "enemyId": 2,
-    "motionType": 1,
+    "motionType": 0,
     "formationType": 1,
     "enemyCount": 3,
     "spawnCenter": {
@@ -504,7 +884,17 @@
       "y": 80
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 2
   },
   {
     "id": 903,
@@ -517,7 +907,17 @@
       "y": 70
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 1,
+      "y": 0
+    },
+    "rewardItemId": 3
   },
   {
     "id": 904,
@@ -530,7 +930,17 @@
       "y": 100
     },
     "spacing": 180,
-    "motionDirection": -1
+    "motionDirection": -1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 7000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": -0.55,
+      "y": 1
+    },
+    "rewardItemId": 4
   },
   {
     "id": 905,
@@ -543,12 +953,22 @@
       "y": 90
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 1
   },
   {
     "id": 906,
     "enemyId": 2,
-    "motionType": 1,
+    "motionType": 0,
     "formationType": 1,
     "enemyCount": 3,
     "spawnCenter": {
@@ -556,7 +976,17 @@
       "y": 80
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 2
   },
   {
     "id": 907,
@@ -569,7 +999,17 @@
       "y": 70
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 1,
+      "y": 0
+    },
+    "rewardItemId": 3
   },
   {
     "id": 1001,
@@ -582,12 +1022,22 @@
       "y": 90
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 1
   },
   {
     "id": 1002,
     "enemyId": 2,
-    "motionType": 1,
+    "motionType": 0,
     "formationType": 1,
     "enemyCount": 3,
     "spawnCenter": {
@@ -595,7 +1045,17 @@
       "y": 80
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 2
   },
   {
     "id": 1003,
@@ -608,7 +1068,17 @@
       "y": 70
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 1,
+      "y": 0
+    },
+    "rewardItemId": 3
   },
   {
     "id": 1004,
@@ -621,7 +1091,17 @@
       "y": 100
     },
     "spacing": 180,
-    "motionDirection": -1
+    "motionDirection": -1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 7000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": -0.55,
+      "y": 1
+    },
+    "rewardItemId": 4
   },
   {
     "id": 1005,
@@ -634,12 +1114,22 @@
       "y": 90
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 1
   },
   {
     "id": 1006,
     "enemyId": 2,
-    "motionType": 1,
+    "motionType": 0,
     "formationType": 1,
     "enemyCount": 3,
     "spawnCenter": {
@@ -647,7 +1137,17 @@
       "y": 80
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 2
   },
   {
     "id": 1007,
@@ -660,7 +1160,17 @@
       "y": 70
     },
     "spacing": 165,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 1,
+      "y": 0
+    },
+    "rewardItemId": 3
   },
   {
     "id": 1101,
@@ -673,6 +1183,16 @@
       "y": 120
     },
     "spacing": 0,
-    "motionDirection": 1
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 150,
+    "stationHeightRatio": 0.64285713,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 0
   }
 ]

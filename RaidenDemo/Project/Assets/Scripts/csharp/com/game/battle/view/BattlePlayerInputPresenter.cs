@@ -43,9 +43,6 @@ internal sealed class BattlePlayerInputPresenter {
         Vector2 pointerDelta = pointerPosition - lastPointerPosition;
         lastPointerPosition = pointerPosition;
         Vector2 nextPosition = getPosition() + pointerDelta;
-        Rect viewport = inputLayer.rect;
-        nextPosition.x = Mathf.Clamp(nextPosition.x, viewport.xMin, viewport.xMax);
-        nextPosition.y = Mathf.Clamp(nextPosition.y, viewport.yMin, viewport.yMax);
         setPosition(new Vector2(Mathf.Round(nextPosition.x), Mathf.Round(nextPosition.y)));
     }
 

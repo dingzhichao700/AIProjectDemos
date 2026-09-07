@@ -23,7 +23,9 @@ internal sealed class AircraftDeathPresentationViewState {
     public int nextExplosionIndex;
     public int activeExplosionCount;
     public bool aircraftVisualRemoved;
-    public bool movementStopped;
+    public bool lastExplosionNotified;
+    public bool cancelled;
+    public readonly List<FrameAnimationView> activeEffects = new List<FrameAnimationView>();
 
     public AircraftDeathPresentationViewState(RectTransform root, AircraftVO aircraft, IReadOnlyList<ExplosionEffect> explosions, bool removeAfterCompletion, bool preserveRootForReuse, TimerType timerType, Action lastExplosionStarted, Action completed) {
         this.root = root;
