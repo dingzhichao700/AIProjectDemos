@@ -17,8 +17,9 @@ public class BaseTipPanel : BasePanel {
     }
 
     private void UpdatePosition() {
-        float stageWidth = PanelMgr.ins.stageWidth;
-        float stageHeight = PanelMgr.ins.stageHeight;
+        RectTransform viewport = trans.parent as RectTransform;
+        float stageWidth = viewport.rect.width;
+        float stageHeight = viewport.rect.height;
         float selfWidth = trans.rect.width;
         float selfHeight = trans.rect.height;
         float posX;

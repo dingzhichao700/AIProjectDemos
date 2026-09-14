@@ -59,6 +59,11 @@ public class PanelMgr : EventDispatcher {
     private PointerEventData pointerEventData;
     private EventSystem eventSystem;
 
+    private readonly Vector3[] viewportCorners = new Vector3[4];
+
+    /**舞台在屏幕上的实际位置，用于窗口尺寸变化与输入换算*/
+    private Rect stageScreenRect;
+
     private static PanelMgr _ins;
     public static PanelMgr ins {
         get {
@@ -73,7 +78,7 @@ public class PanelMgr : EventDispatcher {
     }
 
     public void Init() {
-        raycaster = viewportConstant.GetComponent<GraphicRaycaster>();
+        raycaster = viewportConstant.GetComponentInParent<GraphicRaycaster>();
         eventSystem = EventSystem.current;
         KeyBoardControl.ins.OnAnyKeyDown(OnKeyDown);
     }
@@ -120,13 +125,19 @@ public class PanelMgr : EventDispatcher {
     public void Update() {
         int width = (int)viewportScale.rect.width;
         int height = (int)viewportScale.rect.height;
-        if (stageWidth != width || stageHeight != height) {
+        viewportScale.GetWorldCorners(viewportCorners);
+        Canvas canvas = viewportScale.GetComponentInParent<Canvas>();
+        Camera camera = canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera;
+        Vector2 min = RectTransformUtility.WorldToScreenPoint(camera, viewportCorners[0]);
+        Vector2 max = RectTransformUtility.WorldToScreenPoint(camera, viewportCorners[2]);
+        Rect screenRect = Rect.MinMaxRect(min.x, min.y, max.x, max.y);
+        if (stageWidth != width || stageHeight != height || stageScreenRect != screenRect) {
             stageWidth = width;
             stageHeight = height;
-            //uiRoot.sizeDelta = new Vector2(width, height);
+            stageScreenRect = screenRect;
             Debug.Log("stage size changed:" + stageWidth + "x" + stageHeight + ", windowSize:" + Screen.width + "x" + Screen.height + ", fullScreen:" + Screen.fullScreen);
-            globalWidthRatio = (float)stageWidth / Screen.width;
-            globalHeightRatio = (float)stageHeight / Screen.height;
+            globalWidthRatio = screenRect.width > 0f ? stageWidth / screenRect.width : 0f;
+            globalHeightRatio = screenRect.height > 0f ? stageHeight / screenRect.height : 0f;
             Dispatch(PanelEvent.WINDOW_RESIZE);
         }
 
@@ -232,10 +243,11 @@ public class PanelMgr : EventDispatcher {
         }
 
         RectTransform sourceRect = sourceGo.transform as RectTransform;
-        // sourceGo的世界坐标 → Canvas 本地坐标
-        Vector3 localPosToCanvas = (viewportConstant.transform as RectTransform).InverseTransformPoint(sourceRect.position);
-        //Debug.Log("相对于Canvas的本地坐标: " + localPosToCanvas);
-        Rect btnPosRect = new Rect(localPosToCanvas.x, localPosToCanvas.y, sourceRect.rect.width, sourceRect.rect.height);
+        // 将来源控件的真实边界换算到提示层，包含竖屏容器的缩放与居中偏移。
+        sourceRect.GetWorldCorners(viewportCorners);
+        Vector3 topLeft = viewportConstant.InverseTransformPoint(viewportCorners[1]);
+        Vector3 bottomRight = viewportConstant.InverseTransformPoint(viewportCorners[3]);
+        Rect btnPosRect = new Rect(topLeft.x, topLeft.y, bottomRight.x - topLeft.x, topLeft.y - bottomRight.y);
         //Debug.Log("按钮的全局位置: " + btnPosRect);
 
         BasePanel panelFromPool = GetPanelInsFromPool(panelEnum);

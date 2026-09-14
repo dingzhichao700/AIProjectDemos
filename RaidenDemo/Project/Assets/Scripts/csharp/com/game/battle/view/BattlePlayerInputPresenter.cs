@@ -38,6 +38,8 @@ internal sealed class BattlePlayerInputPresenter {
             return;
         }
         if (!TryGetPointerPosition(out Vector2 pointerPosition)) {
+            // 离开游戏区后结束本次拖动，避免重新进入时产生位置跳变。
+            dragging = false;
             return;
         }
         Vector2 pointerDelta = pointerPosition - lastPointerPosition;
@@ -50,6 +52,6 @@ internal sealed class BattlePlayerInputPresenter {
     private bool TryGetPointerPosition(out Vector2 pointerPosition) {
         Canvas canvas = inputLayer.GetComponentInParent<Canvas>();
         Camera camera = canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay ? canvas.worldCamera : null;
-        return RectTransformUtility.ScreenPointToLocalPointInRectangle(inputLayer, Input.mousePosition, camera, out pointerPosition);
+        return RectTransformUtility.ScreenPointToLocalPointInRectangle(inputLayer, Input.mousePosition, camera, out pointerPosition) && inputLayer.rect.Contains(pointerPosition);
     }
 }

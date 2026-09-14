@@ -11,6 +11,8 @@ public class RookieEngine : MonoBehaviour
     public RectTransform safeAreaRoot;
     public RectTransform uiPool;
 
+    private PortraitGameViewport portraitViewport;
+
     public static ObjectPoolDelegate monoPool;
 
     static Timer _timer;
@@ -38,7 +40,7 @@ public class RookieEngine : MonoBehaviour
 
         LogEnableMap[EngineLogType.LOAD_INFO] = false;
 
-        PanelMgr.ins.SetUIRoot(viewportScale, viewportConstant, safeAreaRoot, uiPool);
+        PanelMgr.ins.SetUIRoot(portraitViewport.scaleRoot, portraitViewport.constantRoot, safeAreaRoot, uiPool);
 
         _timer = new Timer();
         _sceneTimer = new Timer();
@@ -64,10 +66,20 @@ public class RookieEngine : MonoBehaviour
             viewportConstant = FindSceneRect("canvasConstantPixel");
         }
 
+        portraitViewport = GetComponent<PortraitGameViewport>();
+        if (portraitViewport == null) {
+            portraitViewport = gameObject.AddComponent<PortraitGameViewport>();
+        }
+        portraitViewport.Initialize(viewportScale, viewportConstant);
+
         if (safeAreaRoot == null)
         {
-            safeAreaRoot = SafeAreaFitter.GetOrCreate(viewportScale);
+            safeAreaRoot = SafeAreaFitter.GetOrCreate(portraitViewport.scaleRoot);
         }
+        else {
+            safeAreaRoot.SetParent(portraitViewport.scaleRoot, false);
+        }
+        safeAreaRoot.GetComponent<SafeAreaFitter>()?.Apply();
 
         if (uiPool == null)
         {
@@ -92,6 +104,7 @@ public class RookieEngine : MonoBehaviour
 
     void Update()
     {
+        portraitViewport.Refresh();
         float passTime = Mathf.Floor(Time.deltaTime * 1000);
         _timer.SyncTime(passTime);
         _sceneTimer.SyncTime(passTime);
