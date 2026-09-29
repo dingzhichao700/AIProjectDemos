@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using cfg;
 using UnityEngine;
@@ -39,17 +40,26 @@ internal static class BulletLauncherRegression {
     }
 
     /**入口依次验证发射器状态与真实场景登记链路*/
-    public static int Main() {
-        TestLauncher();
-        TestRoundEndInterval();
-        TestSceneIntegration();
-        Console.WriteLine($"PASS: {assertions} launcher assertions");
-        return 0;
+    public static int Main(string[] args) {
+        FieldInfo tablesField = typeof(CfgManager).GetField("_tables", BindingFlags.Static | BindingFlags.NonPublic);
+        object previous = tablesField.GetValue(null);
+        try {
+            Tables tables = new Tables(name => SimpleJSON.JSON.Parse(File.ReadAllText(Path.Combine(args[0], name + ".json"))));
+            tablesField.SetValue(null, tables);
+            TestLauncher();
+            TestRoundEndInterval();
+            TestSceneIntegration();
+            Console.WriteLine($"PASS: {assertions} launcher assertions");
+            return 0;
+        } finally {
+            tablesField.SetValue(null, previous);
+            ConfigValueHelper.ClearCache();
+        }
     }
 
     /**验证冻结、连发恢复、升级快照、复位和相同配置的跨阵营一致性*/
     private static void TestLauncher() {
-        AircraftVO owner = new AircraftVO(100, "testPlayer", true, new Vector2(100f, -200f));
+        PlayerAircraftUnitVO owner = new PlayerAircraftUnitVO(100, "testPlayer", new Vector2(100f, -200f));
         BulletLauncherVO launcher = new BulletLauncherVO(Config(), Resolve);
         List<BulletLaunchVO> shots = new List<BulletLaunchVO>();
         launcher.Update(0.01f, owner, shots.Add);
@@ -81,17 +91,17 @@ internal static class BulletLauncherRegression {
         Check(shots[4].bullet.level == 3, "session reset preserves configured upgrade");
         BulletLauncherVO other = new BulletLauncherVO(Config(), Resolve);
         List<BulletLaunchVO> enemyShots = new List<BulletLaunchVO>();
-        AircraftVO enemy = new AircraftVO(101, owner.position, EnemyClass.NORMAL, Vector2.one, null, 20);
+        EnemyAircraftVO enemy = new EnemyAircraftVO(101, owner.position, EnemyClass.NORMAL, Vector2.one, null, new Dictionary<AttributeType, int> { { AttributeType.MAX_LIFE, 20 } });
         other.Update(0.01f, enemy, enemyShots.Add);
         Check(Near(enemyShots[0].direction, shots[0].direction) && enemyShots[0].bullet.damage == shots[0].bullet.damage, "same launcher config is independent of owner faction");
         Check(other.additionalLevel == 0, "upgrade state is independent per launcher");
         BulletVO bullet = new BulletVO(102, shots[4]);
-        Check(bullet.weaponLevel == 3 && owner.effectiveLevel == 1, "bullet level comes from launcher not aircraft");
+        Check(bullet.weaponLevel == 3, "bullet level comes from launcher");
     }
 
     /**验证长连发不会积累跨轮冷却，以及帧内补偿和轮后冻结*/
     private static void TestRoundEndInterval() {
-        AircraftVO owner = new AircraftVO(200, "intervalTest", true, Vector2.zero);
+        PlayerAircraftUnitVO owner = new PlayerAircraftUnitVO(200, "intervalTest", Vector2.zero);
         BulletLauncherVO launcher = new BulletLauncherVO(Config(3, 800), Resolve);
         List<double> times = new List<double>();
         double elapsed = 0.0;
@@ -123,7 +133,8 @@ internal static class BulletLauncherRegression {
     /**验证飞机生命周期许可、生成请求登记以及双方追踪能力的配置入口*/
     private static void TestSceneIntegration() {
         BattleModel model = new BattleModel();
-        AircraftVO player = model.CreatePlayerAircraft("testPlayer", true, new Vector2(360f, -900f));
+        PlayerAircraftUnitVO player = model.CreatePlayerAircraft("testPlayer", new Vector2(360f, -900f));
+        player.ApplyBaseAttributes(new Dictionary<AttributeType, int> { { AttributeType.MAX_LIFE, 100 } });
         BulletLauncherVO launcher = new BulletLauncherVO(Config(1, 0), Resolve);
         player.bulletLaunchers.Add(launcher);
         player.OnTimeUpdate(0.01f);
@@ -137,7 +148,7 @@ internal static class BulletLauncherRegression {
         Check(model.playerProjectiles.Count == 1, "aircraft delegates to launcher and scene registers result");
         model.SetBulletAdditionalLevel(2);
         Check(launcher.effectiveBullet.level == 3, "upgrade entry applies launcher modifier");
-        AircraftVO enemy = new AircraftVO(model.CreateElementId(), new Vector2(360f, -200f), EnemyClass.NORMAL, new Vector2(50f, 60f), null, 100);
+        EnemyAircraftVO enemy = new EnemyAircraftVO(model.CreateElementId(), new Vector2(360f, -200f), EnemyClass.NORMAL, new Vector2(50f, 60f), null, new Dictionary<AttributeType, int> { { AttributeType.MAX_LIFE, 100 } });
         model.enemies.Add(enemy);
         MethodInfo create = typeof(BattleModel).GetMethod("CreateProjectile", BindingFlags.NonPublic | BindingFlags.Instance);
         Action<BulletLaunchVO> emit = (Action<BulletLaunchVO>)Delegate.CreateDelegate(typeof(Action<BulletLaunchVO>), model, create);
@@ -150,7 +161,7 @@ internal static class BulletLauncherRegression {
         Func<Vector2, AircraftVO> finder = (Func<Vector2, AircraftVO>)typeof(BulletVO).GetField("targetFinder", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(enemyBullet);
         Predicate<AircraftVO> validator = (Predicate<AircraftVO>)typeof(BulletVO).GetField("targetValidator", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(enemyBullet);
         Check(finder(enemyBullet.position) == player && validator(player), "enemy tracking configuration has target provider");
-        player.TryTakePlayerDamage(player.health);
+        player.TryTakeDamage(player.health);
         Check(finder(enemyBullet.position) == null && !validator(player), "dead player is not a tracking target");
         int count = model.playerProjectiles.Count;
         player.OnTimeUpdate(0.1f);

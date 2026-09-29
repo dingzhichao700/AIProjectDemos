@@ -1,4 +1,4 @@
-using cfg;
+﻿using cfg;
 using cfg.resource;
 using System;
 using System.Collections.Generic;
@@ -86,6 +86,21 @@ public static class BattlePreloadCollector {
         foreach (int effectId in BattleConst.FixedStageEffectIds) {
             AddEffectResource(preload, resourceKeys, effectId);
         }
+        foreach (int effectId in BattleAircraftFireConst.GetAllEffectIds()) {
+            AddEffectResource(preload, resourceKeys, effectId, EffectType.OTHER);
+        }
+        foreach (int effectId in BattleAircraftDeathConst.GetAllCrashEffectIds()) {
+            AddEffectResource(preload, resourceKeys, effectId);
+        }
+        foreach (int effectId in BattleAircraftDeathConst.GetAllDeathExplosionEffectIds()) {
+            AddEffectResource(preload, resourceKeys, effectId, EffectType.AIRCRAFT_EXPLOSION);
+        }
+        foreach (int effectId in BattleAircraftDeathConst.FallingSmokeEffectIds) {
+            AddEffectResource(preload, resourceKeys, effectId, EffectType.OTHER);
+        }
+        foreach (string hitHolePath in BattleAircraftDeathConst.GetAllHitHolePaths()) {
+            AddPreloadResource(preload, resourceKeys, hitHolePath, ResType.UnpackImage);
+        }
     }
 
     /**收集关卡配置引用的全部视差背景资源。*/
@@ -119,11 +134,13 @@ public static class BattlePreloadCollector {
         AddPreloadResource(preload, resourceKeys,
             BattleConst.GetRaidenUnpackImagePath(unit.AppearanceName),
             ResType.UnpackImage);
+        if (!string.IsNullOrWhiteSpace(unit.DamagedAppearance)) {
+            AddPreloadResource(preload, resourceKeys,
+                BattleConst.GetRaidenUnpackImagePath(unit.DamagedAppearance),
+                ResType.UnpackImage);
+        }
         foreach (BulletLauncher launcher in unit.BulletLaunchers) {
             AddBulletTypeResources(preload, resourceKeys, launcher.BulletType, launcher.BulletLevel);
-        }
-        foreach (ExplosionEffect explosion in unit.DeathExplosions) {
-            AddEffectResource(preload, resourceKeys, explosion.EffectId);
         }
     }
 

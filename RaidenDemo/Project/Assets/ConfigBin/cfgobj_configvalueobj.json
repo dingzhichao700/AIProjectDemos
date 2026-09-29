@@ -262,5 +262,173 @@
     "type": 0,
     "valueType": 1,
     "content": "2"
+  },
+  {
+    "id": 7001,
+    "type": 1,
+    "valueType": 1,
+    "content": "13101,13102,13103"
+  },
+  {
+    "id": 7002,
+    "type": 1,
+    "valueType": 1,
+    "content": "13201,13202,13203,13204"
+  },
+  {
+    "id": 7003,
+    "type": 1,
+    "valueType": 1,
+    "content": "13301,13302,13303"
+  },
+  {
+    "id": 7004,
+    "type": 1,
+    "valueType": 1,
+    "content": "13401"
+  },
+  {
+    "id": 7005,
+    "type": 1,
+    "valueType": 1,
+    "content": "13421"
+  },
+  {
+    "id": 7006,
+    "type": 1,
+    "valueType": 1,
+    "content": "13441"
+  },
+  {
+    "id": 7007,
+    "type": 0,
+    "valueType": 1,
+    "content": "200"
+  },
+  {
+    "id": 7010,
+    "type": 0,
+    "valueType": 1,
+    "content": "200"
+  },
+  {
+    "id": 7011,
+    "type": 0,
+    "valueType": 1,
+    "content": "5000"
+  },
+  {
+    "id": 7012,
+    "type": 0,
+    "valueType": 2,
+    "content": "0.2"
+  },
+  {
+    "id": 7013,
+    "type": 0,
+    "valueType": 1,
+    "content": "100"
+  },
+  {
+    "id": 7014,
+    "type": 1,
+    "valueType": 1,
+    "content": "15,30"
+  },
+  {
+    "id": 7015,
+    "type": 0,
+    "valueType": 1,
+    "content": "120"
+  },
+  {
+    "id": 7016,
+    "type": 0,
+    "valueType": 1,
+    "content": "500"
+  },
+  {
+    "id": 7021,
+    "type": 1,
+    "valueType": 1,
+    "content": "5101,5102,5103,5104,5105,5106,5107"
+  },
+  {
+    "id": 7022,
+    "type": 1,
+    "valueType": 1,
+    "content": "5201,5202"
+  },
+  {
+    "id": 7023,
+    "type": 1,
+    "valueType": 1,
+    "content": "5301,5302"
+  },
+  {
+    "id": 7025,
+    "type": 1,
+    "valueType": 1,
+    "content": "13501"
+  },
+  {
+    "id": 7026,
+    "type": 1,
+    "valueType": 1,
+    "content": "13521,13522,13523"
+  },
+  {
+    "id": 7027,
+    "type": 1,
+    "valueType": 1,
+    "content": "13541,13542,13543,13544"
+  },
+  {
+    "id": 7031,
+    "type": 1,
+    "valueType": 0,
+    "content": "hitHole/small_1"
+  },
+  {
+    "id": 7032,
+    "type": 1,
+    "valueType": 0,
+    "content": "hitHole/middle_1"
+  },
+  {
+    "id": 7033,
+    "type": 1,
+    "valueType": 0,
+    "content": "hitHole/big_1"
+  },
+  {
+    "id": 7041,
+    "type": 1,
+    "valueType": 1,
+    "content": "5001,5002,5003"
+  },
+  {
+    "id": 7042,
+    "type": 1,
+    "valueType": 1,
+    "content": "5101,5102,5103,5104,5105,5106,5107"
+  },
+  {
+    "id": 7043,
+    "type": 1,
+    "valueType": 1,
+    "content": "5201,5202"
+  },
+  {
+    "id": 7044,
+    "type": 1,
+    "valueType": 1,
+    "content": "5301,5302"
+  },
+  {
+    "id": 7061,
+    "type": 1,
+    "valueType": 1,
+    "content": "13560,13561"
   }
 ]

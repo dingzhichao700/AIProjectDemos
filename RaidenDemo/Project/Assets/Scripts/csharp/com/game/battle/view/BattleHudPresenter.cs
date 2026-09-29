@@ -44,7 +44,7 @@ internal sealed class BattleHudPresenter {
         EnsurePlayerHealthText();
     }
 
-    public void RefreshPlayer(AircraftVO player, int lifeCount) {
+    public void RefreshPlayer(PlayerAircraftUnitVO player, int lifeCount) {
         if (player != null && player.maxHealth > 0) {
             SetProgress((float)player.health / player.maxHealth);
             playerHealthText.text = $"{player.health}/{player.maxHealth}";
@@ -67,10 +67,10 @@ internal sealed class BattleHudPresenter {
         scoreText.text = $"得分 {Mathf.Max(0, value):000000}";
     }
 
-    public void RefreshBoss(IReadOnlyList<AircraftVO> enemies) {
+    public void RefreshBoss(IReadOnlyList<EnemyAircraftVO> enemies) {
         int health = 0;
         int maximum = 0;
-        foreach (AircraftVO enemy in enemies) {
+        foreach (EnemyAircraftVO enemy in enemies) {
             if (!enemy.isBoss) continue;
             health += Mathf.Max(0, enemy.health);
             maximum += enemy.maxHealth;

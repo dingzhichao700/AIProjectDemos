@@ -125,33 +125,34 @@ internal static class BattleCollisionSystem {
         if (projectile == null || collision == null) {
             return false;
         }
-        Vector2 projectileCenter = projectile.position;
+        Vector2 projectileStart = projectile.previousPosition;
+        Vector2 projectileEnd = projectile.position;
         float projectileRadius = projectile.collisionRadius;
         Vector2 boundsCenter = targetPosition + collision.boundsCenterOffset;
-        if (!OverlapsRectangleCircle(boundsCenter, collision.boundsSize, projectileCenter, projectileRadius)) {
+        Vector2 boundsHalf = collision.boundsSize * 0.5f + Vector2.one * projectileRadius;
+        if (!TryGetSegmentAabbEntry(projectileStart, projectileEnd,
+            boundsCenter - boundsHalf, boundsCenter + boundsHalf, out _)) {
             return false;
         }
         foreach (AircraftCollisionShapeVO shape in collision.shapes) {
             Vector2 shapeCenter = targetPosition + shape.centerOffset;
             if (shape.isCircle) {
-                Vector2 fromTarget = projectileCenter - shapeCenter;
                 float combinedRadius = projectileRadius + shape.radius;
-                if (fromTarget.sqrMagnitude > combinedRadius * combinedRadius) {
+                if (!TryGetSegmentCircleEntry(projectileStart, projectileEnd,
+                    shapeCenter, combinedRadius, out Vector2 circleEntryCenter)) {
                     continue;
                 }
+                Vector2 fromTarget = circleEntryCenter - shapeCenter;
                 Vector2 direction = fromTarget.sqrMagnitude > 0.0001f ? fromTarget.normalized : GetOppositeVelocityDirection(projectile);
                 contactPoint = shapeCenter + direction * shape.radius;
                 return true;
             }
-            if (!OverlapsRectangleCircle(shapeCenter, shape.size, projectileCenter, projectileRadius)) {
-                continue;
-            }
             Vector2 expandedHalf = shape.size * 0.5f + Vector2.one * projectileRadius;
             Vector2 expandedMin = shapeCenter - expandedHalf;
             Vector2 expandedMax = shapeCenter + expandedHalf;
-            Vector2 entryCenter = projectileCenter;
-            if (TryGetSegmentAabbEntry(projectile.previousPosition, projectileCenter, expandedMin, expandedMax, out Vector2 segmentEntry)) {
-                entryCenter = segmentEntry;
+            if (!TryGetSegmentAabbEntry(projectileStart, projectileEnd,
+                expandedMin, expandedMax, out Vector2 entryCenter)) {
+                continue;
             }
             Vector2 half = shape.size * 0.5f;
             contactPoint = new Vector2(
@@ -160,6 +161,33 @@ internal static class BattleCollisionSystem {
             return true;
         }
         return false;
+    }
+
+    /**计算移动线段进入圆形边界时的位置*/
+    private static bool TryGetSegmentCircleEntry(Vector2 start, Vector2 end,
+        Vector2 center, float radius, out Vector2 entryPoint) {
+        entryPoint = start;
+        Vector2 offset = start - center;
+        float radiusSquared = radius * radius;
+        if (offset.sqrMagnitude <= radiusSquared) {
+            return true;
+        }
+        Vector2 direction = end - start;
+        float lengthSquared = direction.sqrMagnitude;
+        if (lengthSquared <= 0.0001f) {
+            return false;
+        }
+        float projection = Vector2.Dot(offset, direction);
+        float discriminant = projection * projection - lengthSquared * (offset.sqrMagnitude - radiusSquared);
+        if (discriminant < 0f) {
+            return false;
+        }
+        float enter = (-projection - Mathf.Sqrt(discriminant)) / lengthSquared;
+        if (enter < 0f || enter > 1f) {
+            return false;
+        }
+        entryPoint = start + direction * enter;
+        return true;
     }
 
     /**检测圆形子弹与飞行物组合形状是否重叠*/

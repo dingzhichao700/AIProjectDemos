@@ -1,4 +1,4 @@
-using cfg;
+﻿using cfg;
 using System;
 using UnityEngine;
 
@@ -10,7 +10,7 @@ using UnityEngine;
 /// </remarks>
 internal sealed class BulletVO : SceneElementVO {
 
-    public readonly AircraftVO owner;
+    public readonly FlyingUnitVO owner;
     public readonly int weaponLevel;
     public readonly int damage;
     public readonly int hitEffectId;

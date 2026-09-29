@@ -93,7 +93,7 @@ public class OpeningPanel : BasePanel
     {
         boxContent.DOFade(0, 1.5f).OnComplete(() =>
         {
-            effect?.Destroy();
+            effect?.Recover();
             effect = null;
             PlayCloseComplete();
         }).SetDelay(0.5f);

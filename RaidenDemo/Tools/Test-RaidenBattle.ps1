@@ -9,7 +9,7 @@ New-Item -ItemType Directory -Force $output | Out-Null
 $lines = @(Get-Content $response.FullName | Where-Object { $_ -notmatch '^[-/](out:|refout:|target:)' -and $_ -notmatch '\.cs"?$' })
 $lines += '-target:exe', '-main:RaidenBattleChecks', ('-out:"' + $output + '/RaidenBattleChecks.exe"')
 $lines += Get-ChildItem "$project/Assets/Scripts" -Filter *.cs -Recurse | ForEach-Object { '"' + $_.FullName + '"' }
-$lines += '"' + $PSScriptRoot + '/Tests/RaidenBattleChecks.cs"'
+$lines += Get-ChildItem "$PSScriptRoot/Tests" -Filter *.cs -Recurse | ForEach-Object { '"' + $_.FullName + '"' }
 $rsp = Join-Path $output 'checks.rsp'
 $lines | Set-Content -Encoding utf8 $rsp
 $oldMonoPath = $env:MONO_PATH

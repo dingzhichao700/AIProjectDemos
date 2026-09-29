@@ -1,4 +1,4 @@
-using cfg;
+﻿using cfg;
 using cfg.resource;
 using System;
 using System.Collections.Generic;
@@ -83,11 +83,15 @@ public sealed class RaidenModel {
         if (enemy == null) {
             return null;
         }
-        if (enemy.Unit.Health <= 0 || enemy.Unit.MoveSpeed <= 0f || enemy.Score < 0 || enemy.DisplaySize.X <= 0f || enemy.DisplaySize.Y <= 0f) {
+        string ownerName = $"敌机 {enemyId}";
+        IReadOnlyDictionary<AttributeType, int> baseAttributes = AttributeHelper.CreateBaseAttributeMap(enemy.Unit.Attributes, ownerName);
+        int health = AttributeHelper.GetRequired(baseAttributes, AttributeType.MAX_LIFE, ownerName);
+        int moveSpeed = AttributeHelper.GetRequired(baseAttributes, AttributeType.SPEED, ownerName);
+        if (health <= 0 || moveSpeed <= 0 || enemy.Score < 0 || enemy.DisplaySize.X <= 0f || enemy.DisplaySize.Y <= 0f) {
             throw new InvalidOperationException($"敌机 {enemyId} 的血量、移速、尺寸或分数无效");
         }
-        List<BulletLauncherConfigVO> launchers = CreateBulletLaunchers(enemy.Unit.BulletLaunchers, $"敌机 {enemyId}");
-        return new EnemyConfigVO(enemy.Id, enemy.EnemyClass, enemy.Unit.Health, BattleConst.GetRaidenUnpackImagePath(enemy.Unit.AppearanceName), new Vector2(enemy.DisplaySize.X, enemy.DisplaySize.Y), AircraftCollisionVO.Create(enemy.Unit.CollisionShapes), enemy.Unit.MoveSpeed, enemy.Score, enemy.PoolCapacity, launchers, enemy.Unit.DeathExplosions, enemy.Unit.RemoveAfterDeathPresentation);
+        List<BulletLauncherConfigVO> launchers = CreateBulletLaunchers(enemy.Unit.BulletLaunchers, ownerName);
+        return new EnemyConfigVO(enemy.Id, enemy.EnemyClass, baseAttributes, BattleConst.GetRaidenUnpackImagePath(enemy.Unit.AppearanceName), BattleConst.GetRaidenUnpackImagePath(enemy.Unit.DamagedAppearance), new Vector2(enemy.DisplaySize.X, enemy.DisplaySize.Y), AircraftCollisionVO.Create(enemy.Unit.CollisionShapes), enemy.Score, enemy.PoolCapacity, launchers, enemy.Unit.AircraftSizeType);
     }
 
     /**获取并转换敌机子弹配置*/
@@ -137,8 +141,14 @@ public sealed class RaidenModel {
         }
         foreach (PlayerAircraftLevelResource candidate in CfgManager.tables.PlayerAircraftLevelObj.DataList) {
             if (candidate.AircraftId == aircraftId && candidate.Level == level) {
-                List<BulletLauncherConfigVO> launchers = CreateBulletLaunchers(candidate.Unit.BulletLaunchers, $"玩家飞机等级 {candidate.Id}");
-                return new PlayerAircraftBattleLevelVO(candidate.AircraftId, candidate.Level, BattleConst.GetRaidenUnpackImagePath(candidate.Unit.AppearanceName), new Vector2(candidate.DisplaySize.X, candidate.DisplaySize.Y), AircraftCollisionVO.Create(candidate.Unit.CollisionShapes), candidate.Unit.Health, candidate.BaseBulletCount, launchers, candidate.Unit.DeathExplosions, candidate.Unit.RemoveAfterDeathPresentation);
+                string ownerName = $"玩家飞机等级 {candidate.Id}";
+                IReadOnlyDictionary<AttributeType, int> baseAttributes = AttributeHelper.CreateBaseAttributeMap(candidate.Unit.Attributes, ownerName);
+                int health = AttributeHelper.GetRequired(baseAttributes, AttributeType.MAX_LIFE, ownerName);
+                if (health <= 0) {
+                    throw new InvalidOperationException($"{ownerName} 的最大生命值必须大于 0");
+                }
+                List<BulletLauncherConfigVO> launchers = CreateBulletLaunchers(candidate.Unit.BulletLaunchers, ownerName);
+                return new PlayerAircraftBattleLevelVO(candidate.AircraftId, candidate.Level, BattleConst.GetRaidenUnpackImagePath(candidate.Unit.AppearanceName), BattleConst.GetRaidenUnpackImagePath(candidate.Unit.DamagedAppearance), new Vector2(candidate.DisplaySize.X, candidate.DisplaySize.Y), AircraftCollisionVO.Create(candidate.Unit.CollisionShapes), baseAttributes, candidate.BaseBulletCount, launchers, candidate.Unit.AircraftSizeType);
             }
         }
         throw new InvalidOperationException($"玩家飞机 {aircraftId} 缺少等级 {level} 配置");
@@ -157,8 +167,16 @@ public sealed class RaidenModel {
         if (config.MaxCount <= 0 || offsets.Count < config.MaxCount) {
             throw new InvalidOperationException($"僚机 {config.Id} 的编队槽位少于数量上限");
         }
-        List<BulletLauncherConfigVO> launchers = CreateBulletLaunchers(config.Unit.BulletLaunchers, $"僚机 {config.Id}");
-        return new WingmanConfigVO(config.Id, config.Code, config.DisplayName, new Vector2(config.DisplaySize.X, config.DisplaySize.Y), config.MaxCount, config.FormationType, offsets, Mathf.Max(0f, config.FollowSpeed), BattleConst.GetRaidenUnpackImagePath(config.Unit.AppearanceName), launchers);
+        string ownerName = $"僚机 {config.Id}";
+        IReadOnlyDictionary<AttributeType, int> baseAttributes = AttributeHelper.CreateBaseAttributeMap(config.Unit.Attributes, ownerName);
+        AttributeHelper.GetRequired(baseAttributes, AttributeType.MAX_LIFE, ownerName);
+        int moveSpeed = AttributeHelper.GetRequired(baseAttributes, AttributeType.SPEED, ownerName);
+        if (moveSpeed <= 0) {
+            throw new InvalidOperationException($"{ownerName} 的速度必须大于 0");
+        }
+        List<BulletLauncherConfigVO> launchers = CreateBulletLaunchers(config.Unit.BulletLaunchers, ownerName);
+        AircraftCollisionVO collision = config.Unit.CollisionShapes.Count > 0 ? AircraftCollisionVO.Create(config.Unit.CollisionShapes) : null;
+        return new WingmanConfigVO(config.Id, config.Code, config.DisplayName, new Vector2(config.DisplaySize.X, config.DisplaySize.Y), config.MaxCount, config.FormationType, offsets, baseAttributes, BattleConst.GetRaidenUnpackImagePath(config.Unit.AppearanceName), string.IsNullOrWhiteSpace(config.Unit.DamagedAppearance) ? null : BattleConst.GetRaidenUnpackImagePath(config.Unit.DamagedAppearance), launchers, config.Unit.AircraftSizeType, collision);
     }
 
     private static List<BulletLauncherConfigVO> CreateBulletLaunchers(IReadOnlyList<BulletLauncher> configs, string ownerName) {

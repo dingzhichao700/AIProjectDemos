@@ -10,21 +10,31 @@
     "poolCapacity": 5,
     "unit": {
       "appearanceName": "aircraft/enemy/battleEnemyScout",
+      "damagedAppearance": "aircraft/enemy/battleEnemyScout",
+      "aircraftSizeType": 2,
       "collisionShapes": [
         {
           "$type": "RectangleShape",
           "rect": {
-            "x": 60,
-            "y": 105
+            "x": 80,
+            "y": 20
           },
           "pivot": {
             "x": 0.5,
-            "y": 0.5
+            "y": -1
           }
         }
       ],
-      "health": 30,
-      "moveSpeed": 187.5,
+      "attributes": [
+        {
+          "attributeId": 1,
+          "value": 30
+        },
+        {
+          "attributeId": 2,
+          "value": 188
+        }
+      ],
       "bulletLaunchers": [
         {
           "offset": {
@@ -40,18 +50,7 @@
           "spreadType": 0,
           "spreadAngle": 0
         }
-      ],
-      "deathExplosions": [
-        {
-          "delayMs": 0,
-          "position": {
-            "x": 0,
-            "y": 0
-          },
-          "effectId": 5001
-        }
-      ],
-      "removeAfterDeathPresentation": true
+      ]
     }
   },
   {
@@ -65,21 +64,31 @@
     "poolCapacity": 5,
     "unit": {
       "appearanceName": "aircraft/enemy/battleEnemyInterceptor",
+      "damagedAppearance": "aircraft/enemy/battleEnemyInterceptor",
+      "aircraftSizeType": 2,
       "collisionShapes": [
         {
           "$type": "RectangleShape",
           "rect": {
-            "x": 100,
-            "y": 80
+            "x": 90,
+            "y": 12
           },
           "pivot": {
             "x": 0.5,
-            "y": 0.5
+            "y": -2.5
           }
         }
       ],
-      "health": 30,
-      "moveSpeed": 150,
+      "attributes": [
+        {
+          "attributeId": 1,
+          "value": 30
+        },
+        {
+          "attributeId": 2,
+          "value": 150
+        }
+      ],
       "bulletLaunchers": [
         {
           "offset": {
@@ -109,18 +118,7 @@
           "spreadType": 0,
           "spreadAngle": 0
         }
-      ],
-      "deathExplosions": [
-        {
-          "delayMs": 0,
-          "position": {
-            "x": 0,
-            "y": 0
-          },
-          "effectId": 5001
-        }
-      ],
-      "removeAfterDeathPresentation": true
+      ]
     }
   },
   {
@@ -134,21 +132,31 @@
     "poolCapacity": 5,
     "unit": {
       "appearanceName": "aircraft/enemy/battleEnemyBomber",
+      "damagedAppearance": "aircraft/enemy/battleEnemyBomber",
+      "aircraftSizeType": 2,
       "collisionShapes": [
         {
           "$type": "RectangleShape",
           "rect": {
-            "x": 110,
-            "y": 90
+            "x": 120,
+            "y": 20
           },
           "pivot": {
             "x": 0.5,
-            "y": 0.5
+            "y": -1.25
           }
         }
       ],
-      "health": 48,
-      "moveSpeed": 108,
+      "attributes": [
+        {
+          "attributeId": 1,
+          "value": 48
+        },
+        {
+          "attributeId": 2,
+          "value": 108
+        }
+      ],
       "bulletLaunchers": [
         {
           "offset": {
@@ -164,18 +172,7 @@
           "spreadType": 0,
           "spreadAngle": 34
         }
-      ],
-      "deathExplosions": [
-        {
-          "delayMs": 0,
-          "position": {
-            "x": 0,
-            "y": 0
-          },
-          "effectId": 5001
-        }
-      ],
-      "removeAfterDeathPresentation": true
+      ]
     }
   },
   {
@@ -189,6 +186,8 @@
     "poolCapacity": 2,
     "unit": {
       "appearanceName": "aircraft/enemy/battleEliteInterceptor",
+      "damagedAppearance": "aircraft/enemy/battleEliteInterceptor",
+      "aircraftSizeType": 3,
       "collisionShapes": [
         {
           "$type": "RectangleShape",
@@ -202,8 +201,16 @@
           }
         }
       ],
-      "health": 1000,
-      "moveSpeed": 90,
+      "attributes": [
+        {
+          "attributeId": 1,
+          "value": 1000
+        },
+        {
+          "attributeId": 2,
+          "value": 90
+        }
+      ],
       "bulletLaunchers": [
         {
           "offset": {
@@ -219,42 +226,7 @@
           "spreadType": 0,
           "spreadAngle": 39
         }
-      ],
-      "deathExplosions": [
-        {
-          "delayMs": 0,
-          "position": {
-            "x": -45,
-            "y": 25
-          },
-          "effectId": 5001
-        },
-        {
-          "delayMs": 120,
-          "position": {
-            "x": 40,
-            "y": -10
-          },
-          "effectId": 5001
-        },
-        {
-          "delayMs": 240,
-          "position": {
-            "x": -20,
-            "y": -45
-          },
-          "effectId": 5001
-        },
-        {
-          "delayMs": 750,
-          "position": {
-            "x": 0,
-            "y": 0
-          },
-          "effectId": 5101
-        }
-      ],
-      "removeAfterDeathPresentation": true
+      ]
     }
   },
   {
@@ -268,6 +240,8 @@
     "poolCapacity": 1,
     "unit": {
       "appearanceName": "aircraft/enemy/battleBossStage01",
+      "damagedAppearance": "aircraft/enemy/battleBossStage01",
+      "aircraftSizeType": 4,
       "collisionShapes": [
         {
           "$type": "RectangleShape",
@@ -284,27 +258,35 @@
           "$type": "RectangleShape",
           "rect": {
             "x": 105,
-            "y": 90
+            "y": 40
           },
           "pivot": {
-            "x": 1.5,
-            "y": -0.11
+            "x": 1.44,
+            "y": -0.24
           }
         },
         {
           "$type": "RectangleShape",
           "rect": {
             "x": 105,
-            "y": 90
+            "y": 40
           },
           "pivot": {
-            "x": -0.5,
-            "y": -0.11
+            "x": -0.44,
+            "y": -0.24
           }
         }
       ],
-      "health": 2000,
-      "moveSpeed": 70,
+      "attributes": [
+        {
+          "attributeId": 1,
+          "value": 2000
+        },
+        {
+          "attributeId": 2,
+          "value": 70
+        }
+      ],
       "bulletLaunchers": [
         {
           "offset": {
@@ -320,58 +302,7 @@
           "spreadType": 0,
           "spreadAngle": 57
         }
-      ],
-      "deathExplosions": [
-        {
-          "delayMs": 0,
-          "position": {
-            "x": 0,
-            "y": 40
-          },
-          "effectId": 5101
-        },
-        {
-          "delayMs": 150,
-          "position": {
-            "x": -85,
-            "y": 0
-          },
-          "effectId": 5101
-        },
-        {
-          "delayMs": 300,
-          "position": {
-            "x": 80,
-            "y": -20
-          },
-          "effectId": 5101
-        },
-        {
-          "delayMs": 450,
-          "position": {
-            "x": -45,
-            "y": -90
-          },
-          "effectId": 5101
-        },
-        {
-          "delayMs": 600,
-          "position": {
-            "x": 55,
-            "y": -110
-          },
-          "effectId": 5101
-        },
-        {
-          "delayMs": 1100,
-          "position": {
-            "x": 0,
-            "y": 0
-          },
-          "effectId": 5301
-        }
-      ],
-      "removeAfterDeathPresentation": false
+      ]
     }
   }
 ]

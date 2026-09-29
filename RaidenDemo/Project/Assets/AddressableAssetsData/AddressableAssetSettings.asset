@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 94cf66f1d78353f4d9db978ed4aa4477
   m_currentHash:
     serializedVersion: 2
-    Hash: 00000000000000000000000000000000
+    Hash: 5c0685c28de2408b7af7f2b0105a738d
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -35,10 +35,10 @@ MonoBehaviour:
   m_CheckForContentUpdateRestrictionsOption: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
-    m_Id: 
+    m_Id: cc3bb5b7d46361d49b9222bf65cbc7f1
   m_RemoteCatalogLoadPath:
-    m_Id: 
-  m_ContentStateBuildPathProfileVariableName: 
+    m_Id: 0fb5e1eb508ebeb4280fb9068d2f2d4b
+  m_ContentStateBuildPathProfileVariableName: <default settings path>
   m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
   m_BuildAddressablesWithPlayerBuild: 0
@@ -57,12 +57,26 @@ MonoBehaviour:
     m_BundleBuildPath: Temp/com.unity.addressables/AssetBundles
   m_ProfileSettings:
     m_Profiles:
-    - m_InheritedParent: 
+    - m_InheritedParent:
       m_Id: de5898d85722c8346ab2c4039455ae5c
       m_ProfileName: Default
       m_Values:
       - m_Id: 0fb5e1eb508ebeb4280fb9068d2f2d4b
         m_Value: http://[PrivateIpAddress]:[HostingServicePort]
+      - m_Id: 6517023d4cf11064593287dbcab46f7e
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: a833dda2946e2ee4b8d24873fd57ed7d
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: cc3bb5b7d46361d49b9222bf65cbc7f1
+        m_Value: ServerData/[BuildTarget]
+      - m_Id: f79c9d28770aa30438e9e8fbb386be60
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+    - m_InheritedParent:
+      m_Id: 2031999f41dbe194cb46a154e2c7f900
+      m_ProfileName: WindowsRemoteTest
+      m_Values:
+      - m_Id: 0fb5e1eb508ebeb4280fb9068d2f2d4b
+        m_Value: http://127.0.0.1:8081/[BuildTarget]
       - m_Id: 6517023d4cf11064593287dbcab46f7e
         m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
       - m_Id: a833dda2946e2ee4b8d24873fd57ed7d

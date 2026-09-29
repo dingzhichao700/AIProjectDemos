@@ -18,13 +18,13 @@ internal sealed class BattleScenePresenter {
     private readonly BattleEntityViewManager views;
     private readonly BattleEffectPresenter effects;
     private readonly BattleAircraftDeathPresenter aircraftDeaths;
+
+    /**敌机从生成到销毁期间的着火表现*/
+    private readonly BattleAircraftFirePresenter aircraftFires;
     private readonly BattleHudPresenter hud;
     private BattleModel model;
 
-    public BattleScenePresenter(RectTransform entityLayer, RectTransform projectileLayer,
-        RectTransform bossHealthBar, Image bossHealthFill,
-        BattleVisualPool visualPool, BattleEntityViewManager views,
-        BattleEffectPresenter effects, BattleAircraftDeathPresenter aircraftDeaths, BattleHudPresenter hud) {
+    public BattleScenePresenter(RectTransform entityLayer, RectTransform projectileLayer, RectTransform bossHealthBar, Image bossHealthFill, BattleVisualPool visualPool, BattleEntityViewManager views, BattleEffectPresenter effects, BattleAircraftDeathPresenter aircraftDeaths, BattleHudPresenter hud, BattleAircraftFirePresenter aircraftFires) {
         this.entityLayer = entityLayer;
         this.projectileLayer = projectileLayer;
         this.bossHealthBar = bossHealthBar;
@@ -33,6 +33,7 @@ internal sealed class BattleScenePresenter {
         this.views = views;
         this.effects = effects;
         this.aircraftDeaths = aircraftDeaths;
+        this.aircraftFires = aircraftFires;
         this.hud = hud;
     }
 
@@ -108,7 +109,7 @@ internal sealed class BattleScenePresenter {
 
     /**同步敌方 Timer 管理的敌机和敌弹 View。*/
     public void SyncEnemyViews() {
-        foreach (AircraftVO enemy in model.enemies) {
+        foreach (EnemyAircraftVO enemy in model.enemies) {
             RectTransform view = views.GetEnemy(enemy.id);
             if (view != null) {
                 view.anchoredPosition = enemy.position;
@@ -137,14 +138,15 @@ internal sealed class BattleScenePresenter {
     }
 
     private void OnPlayerProjectileRemoved(long id) {
-        views.RemoveProjectileEffect(id)?.Destroy();
+        views.RemoveProjectileEffect(id)?.Recover();
         visualPool.Recycle(views.RemovePlayerProjectile(id));
     }
 
-    private void OnEnemySpawned(AircraftVO enemy) {
+    private void OnEnemySpawned(EnemyAircraftVO enemy) {
         RectTransform view = visualPool.Create(enemy.semanticName, entityLayer,
             enemy.size, enemy.position, enemy.appearancePath, enemy.rotation);
         views.BindEnemy(enemy.id, view);
+        aircraftFires.Bind(enemy, view);
         if (enemy.enemyClass == cfg.EnemyClass.ELITE) {
             EliteEnemyHealthBarView healthBar = EliteEnemyHealthBarView.Create(entityLayer);
             healthBar.SetPosition(enemy.position, enemy.size.y);
@@ -158,7 +160,7 @@ internal sealed class BattleScenePresenter {
         }
     }
 
-    private void OnEnemyRemoved(AircraftVO enemy, bool defeated) {
+    private void OnEnemyRemoved(EnemyAircraftVO enemy, bool defeated) {
         RectTransform root = views.GetEnemy(enemy.id);
         views.RemoveEnemy(enemy.id);
         views.RemoveEliteHealthBar(enemy.id)?.Dispose();
@@ -167,6 +169,7 @@ internal sealed class BattleScenePresenter {
                 () => model.NotifyEnemyLastExplosionStarted(enemy),
                 () => model.NotifyEnemyDeathPresentationCompleted(enemy));
         } else {
+            aircraftFires.Unbind(enemy.id);
             visualPool.Recycle(root);
             if (defeated) {
                 model.NotifyEnemyLastExplosionStarted(enemy);
@@ -178,7 +181,7 @@ internal sealed class BattleScenePresenter {
         }
     }
 
-    private void OnEnemyHealthChanged(AircraftVO enemy) {
+    private void OnEnemyHealthChanged(EnemyAircraftVO enemy) {
         if (enemy.isBoss) {
             hud.RefreshBoss(model.enemies);
         }
@@ -193,7 +196,7 @@ internal sealed class BattleScenePresenter {
     }
 
     private void OnEnemyProjectileRemoved(long id) {
-        views.RemoveProjectileEffect(id)?.Destroy();
+        views.RemoveProjectileEffect(id)?.Recover();
         visualPool.Recycle(views.RemoveEnemyProjectile(id));
     }
 
@@ -229,12 +232,12 @@ internal sealed class BattleScenePresenter {
         }
         RectTransform icon = view.Find("imgVisual") as RectTransform;
         (icon != null ? icon.gameObject : view.gameObject).SetActive(false);
-        views.RemoveRewardEffect(reward.id)?.Destroy();
+        views.RemoveRewardEffect(reward.id)?.Recover();
         effects.PlayRewardPickup(view, completed);
     }
 
     private void OnRewardRemoved(long id) {
-        views.RemoveRewardEffect(id)?.Destroy();
+        views.RemoveRewardEffect(id)?.Recover();
         visualPool.Recycle(views.RemoveReward(id));
     }
 
@@ -246,7 +249,7 @@ internal sealed class BattleScenePresenter {
     }
 
     /**只旋转敌机图像子节点，避免血条和逻辑根节点随飞机倾斜。*/
-    private static void SyncEnemyRotation(AircraftVO enemy, RectTransform enemyView) {
+    private static void SyncEnemyRotation(EnemyAircraftVO enemy, RectTransform enemyView) {
         RectTransform visual = enemyView.Find("imgVisual") as RectTransform;
         if (visual != null) {
             visual.localEulerAngles = new Vector3(0f, 0f, enemy.rotation);

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,10 +19,10 @@ internal sealed class BattlePlayerPresenter {
         Completing
     }
 
-    private readonly Func<AircraftVO, RectTransform> getView;
-    private readonly Func<AircraftVO, RectTransform> getVisual;
-    private readonly Action<AircraftVO> syncUnitView;
-    private readonly Func<IReadOnlyList<AircraftVO>> getWingmen;
+    private readonly Func<FlyingUnitVO, RectTransform> getView;
+    private readonly Func<FlyingUnitVO, RectTransform> getVisual;
+    private readonly Action<FlyingUnitVO> syncUnitView;
+    private readonly Func<IReadOnlyList<WingmanUnitVO>> getWingmen;
     private readonly Action<int> applyAircraftLevel;
     private readonly Action<bool> setUpgradeBlocked;
     private readonly Action<bool> setFiringEnabled;
@@ -36,7 +36,7 @@ internal sealed class BattlePlayerPresenter {
     private int nextCompletionEffectIndex;
     private FrameAnimationView loopingUpgradeEffect;
 
-    public BattlePlayerPresenter(Func<AircraftVO, RectTransform> getView, Func<AircraftVO, RectTransform> getVisual, Action<AircraftVO> syncUnitView, Func<IReadOnlyList<AircraftVO>> getWingmen, Action<int> applyAircraftLevel, Action<bool> setUpgradeBlocked, Action<bool> setFiringEnabled, BattleEffectPresenter effectPresenter) {
+    public BattlePlayerPresenter(Func<FlyingUnitVO, RectTransform> getView, Func<FlyingUnitVO, RectTransform> getVisual, Action<FlyingUnitVO> syncUnitView, Func<IReadOnlyList<WingmanUnitVO>> getWingmen, Action<int> applyAircraftLevel, Action<bool> setUpgradeBlocked, Action<bool> setFiringEnabled, BattleEffectPresenter effectPresenter) {
         this.getView = getView;
         this.getVisual = getVisual;
         this.syncUnitView = syncUnitView;
@@ -48,7 +48,7 @@ internal sealed class BattlePlayerPresenter {
     }
 
     /**记录玩家飞机表现的原始颜色和角度。*/
-    public void Initialize(AircraftVO player) {
+    public void Initialize(PlayerAircraftUnitVO player) {
         RectTransform visual = getVisual(player);
         Image image = visual != null ? visual.GetComponent<Image>() : null;
         baseColor = image != null ? image.color : Color.white;
@@ -61,14 +61,14 @@ internal sealed class BattlePlayerPresenter {
     }
 
     /**推进玩家生命周期、受击和升级表现。*/
-    public void Update(AircraftVO player, float deltaTime) {
+    public void Update(PlayerAircraftUnitVO player, float deltaTime) {
         SyncLifecycle(player);
         RefreshHitFeedback(player);
         UpdateUpgrade(player, deltaTime);
     }
 
     /**开始玩家飞机升级的蓄能、换装和完成表现。*/
-    public void BeginUpgrade(AircraftVO player, int targetLevel) {
+    public void BeginUpgrade(PlayerAircraftUnitVO player, int targetLevel) {
         pendingLevel = targetLevel;
         completionElapsed = 0f;
         nextCompletionEffectIndex = 0;
@@ -81,7 +81,7 @@ internal sealed class BattlePlayerPresenter {
     }
 
     /**进入死亡阶段时隐藏僚机并保留玩家死亡表现。*/
-    public void OnDefeatStarted(AircraftVO player) {
+    public void OnDefeatStarted(PlayerAircraftUnitVO player) {
         SetFormationVisible(player, false, false);
         RectTransform visual = getVisual(player);
         if (visual != null) {
@@ -90,7 +90,7 @@ internal sealed class BattlePlayerPresenter {
     }
 
     /**开始复活时重置玩家飞机的视觉变换。*/
-    public void OnRespawnStarted(AircraftVO player) {
+    public void OnRespawnStarted(PlayerAircraftUnitVO player) {
         syncUnitView(player);
         RectTransform visual = getVisual(player);
         if (visual != null) {
@@ -103,13 +103,13 @@ internal sealed class BattlePlayerPresenter {
     }
 
     /**完成复活时同步最终坐标与闪烁状态。*/
-    public void OnRespawnCompleted(AircraftVO player) {
+    public void OnRespawnCompleted(PlayerAircraftUnitVO player) {
         syncUnitView(player);
         RefreshHitFeedback(player);
     }
 
     /**立即刷新玩家受击或无敌表现。*/
-    public void RefreshHitFeedback(AircraftVO player) {
+    public void RefreshHitFeedback(PlayerAircraftUnitVO player) {
         RectTransform visual = getVisual(player);
         if (visual == null) {
             return;
@@ -146,7 +146,7 @@ internal sealed class BattlePlayerPresenter {
         setUpgradeBlocked(false);
     }
 
-    private void SyncLifecycle(AircraftVO player) {
+    private void SyncLifecycle(PlayerAircraftUnitVO player) {
         if (player == null) {
             return;
         }
@@ -155,7 +155,7 @@ internal sealed class BattlePlayerPresenter {
         }
     }
 
-    private void UpdateUpgrade(AircraftVO player, float deltaTime) {
+    private void UpdateUpgrade(PlayerAircraftUnitVO player, float deltaTime) {
         if (upgradePhase == UpgradePhase.None || player == null) {
             return;
         }
@@ -187,7 +187,7 @@ internal sealed class BattlePlayerPresenter {
     }
 
     /**开始错时播放升级完成粒子并解除升级保护。*/
-    private void BeginCompletionEffects(AircraftVO player) {
+    private void BeginCompletionEffects(PlayerAircraftUnitVO player) {
         upgradePhase = UpgradePhase.Completing;
         completionElapsed = 0f;
         nextCompletionEffectIndex = 0;
@@ -198,7 +198,7 @@ internal sealed class BattlePlayerPresenter {
     }
 
     /**按配置好的时间差和局部偏移依次播放完成粒子。*/
-    private void UpdateCompletionEffects(AircraftVO player, float deltaTime) {
+    private void UpdateCompletionEffects(PlayerAircraftUnitVO player, float deltaTime) {
         completionElapsed += deltaTime;
         while (nextCompletionEffectIndex < BattleConst.PlayerUpgradeCompleteEffectDelays.Count && completionElapsed * 1000f >= BattleConst.PlayerUpgradeCompleteEffectDelays[nextCompletionEffectIndex]) {
             Vector2 offset = BattleConst.PlayerUpgradeCompleteEffectOffsets[nextCompletionEffectIndex];
@@ -215,18 +215,18 @@ internal sealed class BattlePlayerPresenter {
         if (loopingUpgradeEffect == null) {
             return;
         }
-        loopingUpgradeEffect.Destroy();
+        loopingUpgradeEffect.Recover();
         loopingUpgradeEffect = null;
     }
 
-    private void SetFormationVisible(AircraftVO player, bool playerVisible, bool wingmenVisible) {
+    private void SetFormationVisible(PlayerAircraftUnitVO player, bool playerVisible, bool wingmenVisible) {
         SetVisualVisible(player, playerVisible);
-        IReadOnlyList<AircraftVO> wingmen = getWingmen?.Invoke();
+        IReadOnlyList<WingmanUnitVO> wingmen = getWingmen?.Invoke();
         if (wingmen == null) return;
-        foreach (AircraftVO wingman in wingmen) SetVisualVisible(wingman, wingmenVisible);
+        foreach (WingmanUnitVO wingman in wingmen) SetVisualVisible(wingman, wingmenVisible);
     }
 
-    private void SetVisualVisible(AircraftVO unit, bool visible) {
+    private void SetVisualVisible(FlyingUnitVO unit, bool visible) {
         RectTransform visual = getVisual(unit);
         if (visual != null) {
             visual.gameObject.SetActive(visible);

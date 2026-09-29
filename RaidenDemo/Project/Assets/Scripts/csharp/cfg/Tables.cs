@@ -66,6 +66,14 @@ public partial class Tables
     /// 通用常量配置表
     /// </summary>
     public cfgObj.ConfigValueObj ConfigValueObj {get; }
+    /// <summary>
+    /// 通用属性配置表
+    /// </summary>
+    public cfgObj.AttributeObj AttributeObj {get; }
+    /// <summary>
+    /// 飞机着火点规则配置表
+    /// </summary>
+    public cfgObj.AircraftFireRuleObj AircraftFireRuleObj {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
@@ -82,6 +90,8 @@ public partial class Tables
         StageItemObj = new cfgObj.StageItemObj(loader("cfgobj_stageitemobj"));
         WingmanObj = new cfgObj.WingmanObj(loader("cfgobj_wingmanobj"));
         ConfigValueObj = new cfgObj.ConfigValueObj(loader("cfgobj_configvalueobj"));
+        AttributeObj = new cfgObj.AttributeObj(loader("cfgobj_attributeobj"));
+        AircraftFireRuleObj = new cfgObj.AircraftFireRuleObj(loader("cfgobj_aircraftfireruleobj"));
         ResolveRef();
     }
     
@@ -100,6 +110,8 @@ public partial class Tables
         StageItemObj.ResolveRef(this);
         WingmanObj.ResolveRef(this);
         ConfigValueObj.ResolveRef(this);
+        AttributeObj.ResolveRef(this);
+        AircraftFireRuleObj.ResolveRef(this);
     }
 }
 

@@ -502,5 +502,143 @@
     "code": "smoke_01",
     "type": 0,
     "res": "smoke_01"
+  },
+  {
+    "id": 13101,
+    "code": "fire_small_1",
+    "type": 0,
+    "res": "fire_small_1"
+  },
+  {
+    "id": 13102,
+    "code": "fire_small_2",
+    "type": 0,
+    "res": "fire_small_2"
+  },
+  {
+    "id": 13103,
+    "code": "fire_small_3",
+    "type": 0,
+    "res": "fire_small_3"
+  },
+  {
+    "id": 13201,
+    "code": "fire_middle_1",
+    "type": 0,
+    "res": "fire_middle_1"
+  },
+  {
+    "id": 13202,
+    "code": "fire_middle_2",
+    "type": 0,
+    "res": "fire_middle_2"
+  },
+  {
+    "id": 13203,
+    "code": "fire_middle_3",
+    "type": 0,
+    "res": "fire_middle_3"
+  },
+  {
+    "id": 13204,
+    "code": "fire_middle_4",
+    "type": 0,
+    "res": "fire_middle_4"
+  },
+  {
+    "id": 13301,
+    "code": "fire_big_1",
+    "type": 0,
+    "res": "fire_big_1"
+  },
+  {
+    "id": 13302,
+    "code": "fire_big_2",
+    "type": 0,
+    "res": "fire_big_2"
+  },
+  {
+    "id": 13303,
+    "code": "fire_big_3",
+    "type": 0,
+    "res": "fire_big_3"
+  },
+  {
+    "id": 13401,
+    "code": "smoke_small_1",
+    "type": 0,
+    "res": "smoke_small_1"
+  },
+  {
+    "id": 13421,
+    "code": "smoke_middle_1",
+    "type": 0,
+    "res": "smoke_middle_1"
+  },
+  {
+    "id": 13441,
+    "code": "smoke_big_1",
+    "type": 0,
+    "res": "smoke_big_1"
+  },
+  {
+    "id": 13501,
+    "code": "crashSmoke_small_1",
+    "type": 0,
+    "res": "crashSmoke_small_1"
+  },
+  {
+    "id": 13521,
+    "code": "crashSmoke_middle_1",
+    "type": 0,
+    "res": "crashSmoke_middle_1"
+  },
+  {
+    "id": 13522,
+    "code": "crashSmoke_middle_2",
+    "type": 0,
+    "res": "crashSmoke_middle_2"
+  },
+  {
+    "id": 13523,
+    "code": "crashSmoke_middle_3",
+    "type": 0,
+    "res": "crashSmoke_middle_3"
+  },
+  {
+    "id": 13541,
+    "code": "crashSmoke_big_1",
+    "type": 0,
+    "res": "crashSmoke_big_1"
+  },
+  {
+    "id": 13542,
+    "code": "crashSmoke_big_2",
+    "type": 0,
+    "res": "crashSmoke_big_2"
+  },
+  {
+    "id": 13543,
+    "code": "crashSmoke_big_3",
+    "type": 0,
+    "res": "crashSmoke_big_3"
+  },
+  {
+    "id": 13544,
+    "code": "crashSmoke_big_4",
+    "type": 0,
+    "res": "crashSmoke_big_4"
+  },
+  {
+    "id": 13560,
+    "code": "dropSmoke_1",
+    "type": 0,
+    "res": "dropSmoke_1"
+  },
+  {
+    "id": 13561,
+    "code": "dropSmoke_2",
+    "type": 0,
+    "res": "dropSmoke_2"
   }
 ]

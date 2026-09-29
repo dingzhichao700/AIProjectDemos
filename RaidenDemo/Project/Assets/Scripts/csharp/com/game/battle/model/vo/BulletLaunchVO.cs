@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// 发射器确定的一次子弹生成请求
@@ -9,7 +9,7 @@ using UnityEngine;
 internal readonly struct BulletLaunchVO {
 
     /**来源对象，仅提供归属、计时器及效果关联*/
-    public readonly AircraftVO owner;
+    public readonly FlyingUnitVO owner;
 
     /**已经计算完成的战场出生坐标*/
     public readonly Vector2 position;
@@ -27,7 +27,7 @@ internal readonly struct BulletLaunchVO {
     public readonly float inFrameElapsed;
 
     /**记录发射瞬间的规格，不在接收端重新查询配置*/
-    public BulletLaunchVO(AircraftVO owner, Vector2 position, Vector2 launcherOffset, BulletConfigVO bullet, float direction, float inFrameElapsed) {
+    public BulletLaunchVO(FlyingUnitVO owner, Vector2 position, Vector2 launcherOffset, BulletConfigVO bullet, float direction, float inFrameElapsed) {
         this.owner = owner;
         this.position = position;
         this.launcherOffset = launcherOffset;

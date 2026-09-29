@@ -57,7 +57,7 @@ public class TitlePanel : BasePanel {
     public override void OnClose() {
         RemoveLis();
         if (effect != null) {
-            effect.Destroy();
+            effect.Recover();
             effect = null;
         }
     }

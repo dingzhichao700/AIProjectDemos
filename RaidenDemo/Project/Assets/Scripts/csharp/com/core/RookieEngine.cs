@@ -48,8 +48,9 @@ public class RookieEngine : MonoBehaviour
         _enemyTimer = new Timer();
         monoPool = new ObjectPoolDelegate();
 
-        // Setting correction dispatches events that use timer, so read it only after core services exist.
+        // Setting correction and application use timer, so read them only after core services exist.
         PersistentDataControl.ins.ReadUserSetting();
+        SettingControl.ins.ApplyAllSettings();
 
         GameEntrance.ins.StartGame();
     }
@@ -105,7 +106,7 @@ public class RookieEngine : MonoBehaviour
     void Update()
     {
         portraitViewport.Refresh();
-        float passTime = Mathf.Floor(Time.deltaTime * 1000);
+        float passTime = Time.deltaTime * 1000f;
         _timer.SyncTime(passTime);
         _sceneTimer.SyncTime(passTime);
         _playerTimer.SyncTime(passTime);

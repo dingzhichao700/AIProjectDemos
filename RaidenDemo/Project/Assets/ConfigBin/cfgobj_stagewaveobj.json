@@ -92,6 +92,29 @@
     "rewardItemId": 4
   },
   {
+    "id": 105,
+    "enemyId": 4,
+    "motionType": 0,
+    "formationType": 0,
+    "enemyCount": 1,
+    "spawnCenter": {
+      "x": 360,
+      "y": 80
+    },
+    "spacing": 0,
+    "motionDirection": 1,
+    "entrySpeedMultiplier": 2,
+    "prepareDurationMs": 400,
+    "attackDurationMs": 5000,
+    "patrolAmplitude": 90,
+    "stationHeightRatio": 0.5,
+    "exitDirection": {
+      "x": 0.55,
+      "y": 1
+    },
+    "rewardItemId": 0
+  },
+  {
     "id": 201,
     "enemyId": 1,
     "motionType": 0,

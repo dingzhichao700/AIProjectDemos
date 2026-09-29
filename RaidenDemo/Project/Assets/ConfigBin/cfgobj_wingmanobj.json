@@ -19,12 +19,21 @@
         "y": -10
       }
     ],
-    "followSpeed": 12,
     "unit": {
       "appearanceName": "wingman/self/battleWingman",
+      "damagedAppearance": "",
+      "aircraftSizeType": 1,
       "collisionShapes": [],
-      "health": 0,
-      "moveSpeed": 0,
+      "attributes": [
+        {
+          "attributeId": 1,
+          "value": 0
+        },
+        {
+          "attributeId": 2,
+          "value": 1200
+        }
+      ],
       "bulletLaunchers": [
         {
           "offset": {
@@ -54,9 +63,7 @@
           "spreadType": 0,
           "spreadAngle": 0
         }
-      ],
-      "deathExplosions": [],
-      "removeAfterDeathPresentation": false
+      ]
     }
   }
 ]

@@ -46,7 +46,7 @@
     "motionType": 0,
     "rotationSpeed": 0,
     "speed": 1600,
-    "damage": 2,
+    "damage": 3,
     "trackingDelayMs": 0,
     "trackingTurnSpeed": 0
   },
@@ -164,8 +164,8 @@
     "collisionRadius": 5,
     "motionType": 0,
     "rotationSpeed": 0,
-    "speed": 800,
-    "damage": 1,
+    "speed": 2000,
+    "damage": 2,
     "trackingDelayMs": 0,
     "trackingTurnSpeed": 0
   },

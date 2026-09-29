@@ -1,4 +1,4 @@
-/// <summary>
+﻿/// <summary>
 /// 子弹发射器运行状态与发射行为
 /// </summary>
 /// <remarks>
@@ -6,11 +6,23 @@
 /// </remarks>
 internal sealed class BulletLauncherVO {
 
+    private enum ModifierProperty {
+        FIRE_COOLDOWN,
+        SHOT_COUNT,
+        SHOT_INTERVAL
+    }
+
     /**发射规格的唯一配置来源*/
     public readonly BulletLauncherConfigVO config;
 
     /**配置查询由组装入口注入，发射器不依赖具体模块单例*/
     private readonly System.Func<int, int, int, BulletConfigVO> resolveBullet;
+
+    /**关卡外来源提供的修正，同来源 ID 只保留最新值。*/
+    private readonly System.Collections.Generic.Dictionary<int,BulletLauncherModifierVO> nonBattleModifiers = new System.Collections.Generic.Dictionary<int,BulletLauncherModifierVO>();
+
+    /**当前战斗来源提供的修正，同来源 ID 只保留最新值。*/
+    private readonly System.Collections.Generic.Dictionary<int,BulletLauncherModifierVO> battleModifiers = new System.Collections.Generic.Dictionary<int,BulletLauncherModifierVO>();
 
     /**独立开关；关闭时冻结整轮与轮内冷却，不产生补发时间债*/
     public bool isActive { get; set; } = true;
@@ -33,6 +45,9 @@ internal sealed class BulletLauncherVO {
     /**当前轮锁定的最终发射数量；本轮开始后不再改变*/
     private int currentRoundProjectileCount;
 
+    /**当前轮锁定的相邻子弹发射间隔，单位毫秒。*/
+    private double currentRoundShotIntervalMs;
+
     /**创建独立发射器并解析初始有效配置*/
     public BulletLauncherVO(BulletLauncherConfigVO config, System.Func<int, int, int, BulletConfigVO> resolveBullet, int additionalLevel = 0) {
         this.config = config ?? throw new System.ArgumentNullException(nameof(config));
@@ -49,10 +64,25 @@ internal sealed class BulletLauncherVO {
         }
     }
 
+    /**添加或更新指定乘区内同来源的万分比修正。*/
+    public void SetModifier(BulletLauncherModifierZone zone, BulletLauncherModifierVO modifier) {
+        GetModifiers(zone)[modifier.sourceId] = modifier;
+    }
+
+    /**移除指定乘区内一个来源的修正。*/
+    public bool RemoveModifier(BulletLauncherModifierZone zone, int sourceId) {
+        return GetModifiers(zone).Remove(sourceId);
+    }
+
+    /**清空指定乘区内的全部修正。*/
+    public void ClearModifiers(BulletLauncherModifierZone zone) {
+        GetModifiers(zone).Clear();
+    }
+
     /// <summary>
     /// 顺序推进轮内连发和轮后等待；关闭时冻结当前阶段，不积累跨轮冷却债。
     /// </summary>
-    public void Update(float deltaTime, AircraftVO owner, System.Action<BulletLaunchVO> emit) {
+    public void Update(float deltaTime, FlyingUnitVO owner, System.Action<BulletLaunchVO> emit) {
         if (!isActive || effectiveBullet == null || emit == null || deltaTime <= 0f) {
             return;
         }
@@ -64,18 +94,68 @@ internal sealed class BulletLauncherVO {
             }
             remainingTime -= emissionCooldown;
             if (pendingProjectileCount == 0) {
-                nextProjectileIndex = 0;
-                currentRoundProjectileCount = UnityEngine.Mathf.Clamp(config.bulletCount,
-                    BattleConst.shotCountMin, BattleConst.shotCountMax);
-                pendingProjectileCount = currentRoundProjectileCount;
+                BeginRound();
             }
             float direction = GetProjectileDirection(nextProjectileIndex++, currentRoundProjectileCount);
             pendingProjectileCount--;
             // 只有最后一颗子弹生成后才进入轮后等待；剩余帧时间按顺序消耗，不跨阶段重复扣减。
             emissionCooldown = pendingProjectileCount == 0
-                ? System.Math.Max(BattleConst.fireCooldownMinMs / 1000.0, config.fireInterval)
-                : System.Math.Max(BattleConst.shotIntervalMinMs, config.bulletIntervalMs) / 1000.0;
+                ? CalculateFireCooldownSeconds()
+                : currentRoundShotIntervalMs / 1000.0;
             emit(new BulletLaunchVO(owner, owner.position + config.offset, config.offset, effectiveBullet, direction, (float)remainingTime));
+        }
+    }
+
+    /**按最新修正计算并锁定本轮数量与轮内间隔。*/
+    private void BeginRound() {
+        nextProjectileIndex = 0;
+        double shotCount = System.Math.Floor(config.bulletCount * GetCombinedMultiplier(ModifierProperty.SHOT_COUNT));
+        currentRoundProjectileCount = shotCount <= BattleConst.shotCountMin
+            ? BattleConst.shotCountMin
+            : shotCount >= BattleConst.shotCountMax ? BattleConst.shotCountMax : (int)shotCount;
+        currentRoundShotIntervalMs = System.Math.Max(BattleConst.shotIntervalMinMs,
+            config.bulletIntervalMs * GetCombinedMultiplier(ModifierProperty.SHOT_INTERVAL));
+        pendingProjectileCount = currentRoundProjectileCount;
+    }
+
+    /**最后一颗子弹发出时按最新修正确定本次轮间等待。*/
+    private double CalculateFireCooldownSeconds() {
+        double value = config.fireInterval * GetCombinedMultiplier(ModifierProperty.FIRE_COOLDOWN);
+        return System.Math.Max(BattleConst.fireCooldownMinMs / 1000.0, value);
+    }
+
+    /**同一乘区内先加算万分比修正，两个乘区再相乘。*/
+    private double GetCombinedMultiplier(ModifierProperty property) {
+        return GetZoneMultiplier(nonBattleModifiers, property) * GetZoneMultiplier(battleModifiers, property);
+    }
+
+    /**单个乘区倍率最低为零，避免两个负倍率相乘后重新变为正数。*/
+    private static double GetZoneMultiplier(System.Collections.Generic.Dictionary<int,BulletLauncherModifierVO> modifiers, ModifierProperty property) {
+        long rate = 0;
+        foreach (BulletLauncherModifierVO modifier in modifiers.Values) {
+            switch (property) {
+                case ModifierProperty.FIRE_COOLDOWN:
+                    rate += modifier.fireCooldownRate;
+                    break;
+                case ModifierProperty.SHOT_COUNT:
+                    rate += modifier.shotCountRate;
+                    break;
+                case ModifierProperty.SHOT_INTERVAL:
+                    rate += modifier.shotIntervalRate;
+                    break;
+            }
+        }
+        return System.Math.Max(0.0, 1.0 + rate / 10000.0);
+    }
+
+    private System.Collections.Generic.Dictionary<int,BulletLauncherModifierVO> GetModifiers(BulletLauncherModifierZone zone) {
+        switch (zone) {
+            case BulletLauncherModifierZone.NON_BATTLE:
+                return nonBattleModifiers;
+            case BulletLauncherModifierZone.BATTLE:
+                return battleModifiers;
+            default:
+                throw new System.ArgumentOutOfRangeException(nameof(zone), zone, null);
         }
     }
 
@@ -104,6 +184,7 @@ internal sealed class BulletLauncherVO {
         nextProjectileIndex = 0;
         pendingProjectileCount = 0;
         currentRoundProjectileCount = 0;
+        currentRoundShotIntervalMs = 0.0;
     }
 
 }

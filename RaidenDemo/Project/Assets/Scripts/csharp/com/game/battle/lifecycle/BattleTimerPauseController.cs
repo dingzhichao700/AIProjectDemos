@@ -1,25 +1,34 @@
 using UnityEngine;
 
-/// <summary>统一冻结并恢复战斗场景使用的三类 Timer。</summary>
+/// <summary>
+/// 战斗场景 Timer 暂停控制器
+/// </summary>
 internal sealed class BattleTimerPauseController {
 
+    private readonly BattleTimerDebugController debugController;
     private bool paused;
-    private float sceneScale;
-    private float playerScale;
-    private float enemyScale;
+
+    /// <summary>
+    /// 创建正式暂停控制器
+    /// </summary>
+    /// <param name="debugController">场景 Timer 倍率与暂停状态的统一执行对象</param>
+    public BattleTimerPauseController(BattleTimerDebugController debugController) {
+        this.debugController = debugController;
+    }
+
+    /**恢复默认倍率并清除暂停状态*/
+    public void Reset() {
+        paused = false;
+        debugController.Reset();
+    }
 
     /**保存当前倍率并冻结场景、玩家和敌方时间流。*/
     public void Pause() {
         if (paused) {
             return;
         }
-        sceneScale = RookieEngine.sceneTimer.scale;
-        playerScale = RookieEngine.playerTimer.scale;
-        enemyScale = RookieEngine.enemyTimer.scale;
-        RookieEngine.sceneTimer.scale = 0f;
-        RookieEngine.playerTimer.scale = 0f;
-        RookieEngine.enemyTimer.scale = 0f;
         paused = true;
+        debugController.SetBattlePaused(true);
     }
 
     /**恢复冻结前的三类 Timer 倍率。*/
@@ -27,10 +36,8 @@ internal sealed class BattleTimerPauseController {
         if (!paused) {
             return;
         }
-        RookieEngine.sceneTimer.scale = sceneScale;
-        RookieEngine.playerTimer.scale = playerScale;
-        RookieEngine.enemyTimer.scale = enemyScale;
         paused = false;
+        debugController.SetBattlePaused(false);
     }
 
 }

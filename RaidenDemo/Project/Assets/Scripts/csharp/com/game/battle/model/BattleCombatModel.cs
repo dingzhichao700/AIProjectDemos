@@ -11,7 +11,7 @@ using UnityEngine;
 /// </remarks>
 internal sealed class BattleCombatModel {
 
-    public void Resolve(AircraftVO player, AircraftCollisionVO playerCollision, List<BulletVO> playerProjectiles, List<AircraftVO> enemies, List<BulletVO> enemyProjectiles, Func<BulletVO, bool> removePlayerProjectile, Func<AircraftVO, bool, bool> resolveEnemy, Action<AircraftVO> enemyHealthChanged, Action<BulletVO, AircraftVO, Vector2> playerProjectileHitEnemy, Func<BulletVO, bool> removeEnemyProjectile, Action<BulletVO, Vector2> enemyProjectileHitPlayer, Action playerStatusChanged, Action playerDefeatStarted) {
+    public void Resolve(PlayerAircraftUnitVO player, AircraftCollisionVO playerCollision, List<BulletVO> playerProjectiles, List<EnemyAircraftVO> enemies, List<BulletVO> enemyProjectiles, Func<BulletVO, bool> removePlayerProjectile, Func<EnemyAircraftVO, bool, bool> resolveEnemy, Action<EnemyAircraftVO> enemyHealthChanged, Action<BulletVO, EnemyAircraftVO, Vector2> playerProjectileHitEnemy, Func<BulletVO, bool> removeEnemyProjectile, Action<BulletVO, Vector2> enemyProjectileHitPlayer, Action playerStatusChanged, Action playerDefeatStarted) {
         if (player == null || playerCollision == null) {
             return;
         }
@@ -20,11 +20,11 @@ internal sealed class BattleCombatModel {
         ResolveEnemyBodies(player, playerCollision, enemies, resolveEnemy, playerStatusChanged, playerDefeatStarted);
     }
 
-    private static void ResolvePlayerProjectiles(List<BulletVO> projectiles, List<AircraftVO> enemies, Func<BulletVO, bool> removeProjectile, Func<AircraftVO, bool, bool> resolveEnemy, Action<AircraftVO> enemyHealthChanged, Action<BulletVO, AircraftVO, Vector2> hitEnemy) {
+    private static void ResolvePlayerProjectiles(List<BulletVO> projectiles, List<EnemyAircraftVO> enemies, Func<BulletVO, bool> removeProjectile, Func<EnemyAircraftVO, bool, bool> resolveEnemy, Action<EnemyAircraftVO> enemyHealthChanged, Action<BulletVO, EnemyAircraftVO, Vector2> hitEnemy) {
         for (int projectileIndex = projectiles.Count - 1; projectileIndex >= 0; projectileIndex--) {
             BulletVO projectile = projectiles[projectileIndex];
             for (int enemyIndex = enemies.Count - 1; enemyIndex >= 0; enemyIndex--) {
-                AircraftVO enemy = enemies[enemyIndex];
+                EnemyAircraftVO enemy = enemies[enemyIndex];
                 if (!BattleCollisionSystem.TryGetProjectileContactPoint(projectile, enemy.position, enemy.collision, out Vector2 contactPoint)) {
                     continue;
                 }
@@ -40,13 +40,13 @@ internal sealed class BattleCombatModel {
         }
     }
 
-    private static void ResolveEnemyProjectiles(AircraftVO player, AircraftCollisionVO playerCollision, List<BulletVO> projectiles, Func<BulletVO, bool> removeProjectile, Action<BulletVO, Vector2> hitPlayer, Action playerChanged, Action defeatStarted) {
+    private static void ResolveEnemyProjectiles(PlayerAircraftUnitVO player, AircraftCollisionVO playerCollision, List<BulletVO> projectiles, Func<BulletVO, bool> removeProjectile, Action<BulletVO, Vector2> hitPlayer, Action playerChanged, Action defeatStarted) {
         for (int i = projectiles.Count - 1; i >= 0; i--) {
             BulletVO projectile = projectiles[i];
             if (!BattleCollisionSystem.TryGetProjectileContactPoint(projectile, player.position, playerCollision, out Vector2 contactPoint)) {
                 continue;
             }
-            if (player.TryTakePlayerDamage(projectile.damage)) {
+            if (player.TryTakeDamage(projectile.damage)) {
                 removeProjectile(projectile);
                 hitPlayer?.Invoke(projectile, contactPoint);
                 NotifyAcceptedDamage(player, playerChanged, defeatStarted);
@@ -54,13 +54,13 @@ internal sealed class BattleCombatModel {
         }
     }
 
-    private static void ResolveEnemyBodies(AircraftVO player, AircraftCollisionVO playerCollision, List<AircraftVO> enemies, Func<AircraftVO, bool, bool> resolveEnemy, Action playerChanged, Action defeatStarted) {
+    private static void ResolveEnemyBodies(PlayerAircraftUnitVO player, AircraftCollisionVO playerCollision, List<EnemyAircraftVO> enemies, Func<EnemyAircraftVO, bool, bool> resolveEnemy, Action playerChanged, Action defeatStarted) {
         for (int i = enemies.Count - 1; i >= 0; i--) {
-            AircraftVO enemy = enemies[i];
+            EnemyAircraftVO enemy = enemies[i];
             if (!BattleCollisionSystem.Overlaps(enemy.position, enemy.collision, player.position, playerCollision)) {
                 continue;
             }
-            if (player.TryTakePlayerDamage(BattleConst.EnemyContactDamage)) {
+            if (player.TryTakeDamage(BattleConst.EnemyContactDamage)) {
                 NotifyAcceptedDamage(player, playerChanged, defeatStarted);
                 if (enemy.enemyClass == EnemyClass.NORMAL) {
                     resolveEnemy(enemy, false);
@@ -69,7 +69,7 @@ internal sealed class BattleCombatModel {
         }
     }
 
-    private static void NotifyAcceptedDamage(AircraftVO player, Action playerChanged, Action defeatStarted) {
+    private static void NotifyAcceptedDamage(PlayerAircraftUnitVO player, Action playerChanged, Action defeatStarted) {
         playerChanged?.Invoke();
         if (player.lifecycleState == PlayerLifecycleState.Dying) {
             defeatStarted?.Invoke();

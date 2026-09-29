@@ -26,10 +26,12 @@ public class FrameAnimationView : MonoBehaviour {
     private TimerType timerType;
     /**播放完成回调*/
     private Handler playOverHandler;
-    /**播放完成是否销毁*/
-    private bool playOverDestory;
+    /**播放完成后是否自动回收*/
+    private bool recoverAfterPlay;
     /**是否需要停在第一帧（某些角色动画用到，比如停在出生动作的首帧）*/
     private bool needStopAtFirstFrame;
+    /**当前实例是否已进入对象池*/
+    internal bool isInPool { get; private set; }
     /**缩放*/
     private float _scale;
     /**方向（-1左1右）*/
@@ -88,43 +90,39 @@ public class FrameAnimationView : MonoBehaviour {
     /// </summary>
     /// <param name="path">帧动画路径</param>
     /// <param name="loop">是否循环播放</param>
-    /// <param name="playOverDestory">播放完成后自动销毁</param>
     /// <param name="handler">播放完成回调</param>
+    /// <param name="recoverAfterPlay">播放完成后是否自动回收</param>
     /// <param name="scale">缩放倍率</param>
     /// <param name="dir">方向（-1左1右）</param>
     /// <param name="playSpeed">播放速度</param>
     /// <param name="timerType">使用的计时器类型</param>
-    public async void Play(string path, bool loop = true, Handler handler = null, bool playOverDestory = true, float scale = 1f, int dir = 1, float playSpeed = 1f, TimerType timerType = TimerType.COMMON) {
-        this._path = path;
-        int requestVersion = ++loadVersion;
+    public async void Play(string path, bool loop = true, Handler handler = null, bool recoverAfterPlay = true, float scale = 1f, int dir = 1, float playSpeed = 1f, TimerType timerType = TimerType.COMMON) {
+        ResetPlayback(false);
+        _path = path;
+        int requestVersion = loadVersion;
         this.loop = loop;
         if (loop) {
-            //循环
             if (handler != null) {
                 Debug.LogWarning("警告：帧动画循环播放时不应设置回调");
+                ReturnHandler(handler);
             }
         } else {
-            //不循环
-            this.playOverHandler = handler;
+            playOverHandler = handler;
         }
-        this.playOverDestory = playOverDestory;
+        this.recoverAfterPlay = recoverAfterPlay;
         this.timerType = timerType;
         this.dir = dir;
         this.scale = scale;
         this.playSpeed = playSpeed;
         needStopAtFirstFrame = false;
 
-        //设置播放相关数据
         isPause = false;
-        playSpeed = 1;
         playedDuration = 0;
         playBeginTime = lastSyncTime = timer.curTime;
-        _animationData = null;
         timer.Loop(this, 20, OnLoop);
         OnLoop();
         UpdateScaleAndDirection();
 
-        //加载资源
         await LoadAndPlay(path, requestVersion);
     }
 
@@ -132,13 +130,13 @@ public class FrameAnimationView : MonoBehaviour {
     private async Task LoadAndPlay(string path, int requestVersion) {
         FrameAnimationRes loadedData = FrameAnimationManager.GetRes(path);
         if (loadedData != null) {
-            if (this != null && requestVersion == loadVersion && _path == path) {
+            if (this != null && !isInPool && requestVersion == loadVersion && _path == path) {
                 OnLoadComplete(loadedData);
             }
             return;
         }
         await ResourceLoader.LoadListAsync(new List<ResLoadInfo> { new ResLoadInfo(path, ResType.FrameAnim) }, () => {
-            if (this == null || requestVersion != loadVersion || _path != path) {
+            if (this == null || isInPool || requestVersion != loadVersion || _path != path) {
                 return;
             }
             OnLoadComplete(FrameAnimationManager.GetRes(path));
@@ -147,29 +145,27 @@ public class FrameAnimationView : MonoBehaviour {
 
     /**停在第一帧*/
     public async void StopAtFirstFrame(string path) {
-        Pause();
-        this._path = path;
-        int requestVersion = ++loadVersion;
-        //加载资源
+        ResetPlayback(false);
+        isPause = true;
+        needStopAtFirstFrame = true;
+        _path = path;
+        playBeginTime = timer.curTime;
+        int requestVersion = loadVersion;
         await LoadAndPlay(path, requestVersion);
     }
 
     /**加载帧动画完成*/
     public void OnLoadComplete(FrameAnimationRes data) {
-        if (this == null || data == null) {
+        if (this == null || isInPool || data == null) {
             return;
         }
         float loadCostTime = timer.curTime - playBeginTime;
         if (loadCostTime > 300) {
             Debug.LogWarning("帧动画加载完成耗时：" + loadCostTime + "ms，资源：" + _path);
-        } else {
-            //Debug.Log("帧动画加载完成耗时：" + loadCostTime + "ms，资源："+ path);
         }
         _animationData = data;
-        if (animationData != null) {
-            trans.pivot = animationData.pivot;
-        }
-        if (isPause) {
+        trans.pivot = animationData.pivot;
+        if (isPause || needStopAtFirstFrame) {
             Sprite firstFrameSprite = animationData.GetSpriteByTime(0);
             if (firstFrameSprite != null) {
                 image.rectTransform.sizeDelta = new Vector2(firstFrameSprite.texture.width, firstFrameSprite.texture.height);
@@ -181,25 +177,13 @@ public class FrameAnimationView : MonoBehaviour {
     private void OnLoop() {
         float passTime = timer.curTime - lastSyncTime;
         if (!isPause) {
-            //先累加播放时长
             playedDuration += passTime * playSpeed;
             if (animationData != null) {
-                //动画数据已生成
-                if (playedDuration > animationData.totalDuration) {//时长超出动画时长
-                    //播放完成回调执行
-                    playedDuration = loop ? 0 : animationData.totalDuration; //循环播放的话，把播放时刻戳重置为0
-                    Handler handler = playOverHandler;
-                    if (playOverHandler != null) {
-                        playOverHandler = null;
-                    }
-                    if (!loop) {//不循环播放的话
-                        dispacher.Dispatch(FrameAnimationEvent.PLAY_COMPLETE);
-                        if (playOverDestory) {
-                            Destroy(); //需要自动销毁的话，到这一步就可以销毁了
-                        }
-                    }
-                    if (handler != null) {
-                        handler.Run();
+                if (playedDuration > animationData.totalDuration) {
+                    playedDuration = loop ? 0 : animationData.totalDuration;
+                    if (!loop) {
+                        CompletePlayback();
+                        return;
                     }
                 } else {
                     Sprite frameSprite = animationData.GetSpriteByTime(playedDuration);
@@ -214,8 +198,27 @@ public class FrameAnimationView : MonoBehaviour {
         lastSyncTime = timer.curTime;
     }
 
+    /**完成单次播放并按当前播放约定释放实例*/
+    private void CompletePlayback() {
+        int completedVersion = loadVersion;
+        Handler handler = playOverHandler;
+        playOverHandler = null;
+        try {
+            dispacher.Dispatch(FrameAnimationEvent.PLAY_COMPLETE);
+            handler?.Run();
+        } finally {
+            ReturnHandler(handler);
+            if (recoverAfterPlay && completedVersion == loadVersion && !isInPool) {
+                Recover();
+            }
+        }
+    }
+
     /**强制播放某时刻的对应的帧*/
     public void ForcePlayByTime(int duration) {
+        if (animationData == null) {
+            return;
+        }
         Sprite frameSprite = animationData.GetSpriteByTime(duration);
         if (frameSprite != null) {
             playedDuration = duration;
@@ -226,10 +229,8 @@ public class FrameAnimationView : MonoBehaviour {
 
     /**设置图片的精灵（精灵为空则图片设为不可见）*/
     private void SetSprite(Sprite sp) {
+        image.sprite = sp;
         image.gameObject.SetActive(sp != null);
-        if (sp != null) {
-            image.sprite = sp;
-        }
     }
 
     /**暂停播放*/
@@ -240,6 +241,7 @@ public class FrameAnimationView : MonoBehaviour {
     /**继续播放*/
     public void Continue() {
         isPause = false;
+        lastSyncTime = timer.curTime;
     }
 
     /**停止播放*/
@@ -277,30 +279,77 @@ public class FrameAnimationView : MonoBehaviour {
         transform.localScale = new Vector3(scale * dir, scale, scale);
     }
 
-    /**清理*/
+    /**清理播放状态与外部监听*/
     public void Clear() {
-        loadVersion++;
-        _scale = 0;
-        _dir = 0;
-        isPause = default;
-        SetSprite(null);
-        timer.Clear(this, OnLoop);
+        ResetPlayback(true);
     }
 
-    /**销毁*/
-    public void Destroy(bool needRecover = false) {
-        Clear();
-        if (needRecover) {
-            FrameAnimationManager.RecoverItem(this);
-        } else {
-            GameObject.Destroy(this.gameObject);
+    /**归还对象池*/
+    public void Recover() {
+        if (isInPool) {
+            return;
         }
+        Clear();
+        FrameAnimationManager.RecoverItem(this);
+    }
+
+    /**彻底销毁实例*/
+    public void Destroy() {
+        FrameAnimationManager.RemoveItem(this);
+        isInPool = false;
+        Clear();
+        GameObject.Destroy(gameObject);
+    }
+
+    /**标记实例已进入对象池*/
+    internal void MarkRecovered() {
+        isInPool = true;
+    }
+
+    /**标记实例已离开对象池*/
+    internal void MarkRented() {
+        isInPool = false;
+    }
+
+    /**重置当前播放，保留监听时可用于同一实例切换动画*/
+    private void ResetPlayback(bool clearDispatcher) {
+        loadVersion++;
+        timer.Clear(this, OnLoop);
+        Handler handler = playOverHandler;
+        playOverHandler = null;
+        ReturnHandler(handler);
+        _path = null;
+        loop = false;
+        recoverAfterPlay = false;
+        needStopAtFirstFrame = false;
+        _animationData = null;
+        _playedDuration = 0f;
+        playBeginTime = 0f;
+        lastSyncTime = 0f;
+        isPause = false;
+        _scale = 1f;
+        _dir = 1;
+        _playSpeed = 1f;
+        SetSprite(null);
+        if (clearDispatcher) {
+            dispacher.Clear();
+        }
+        timerType = TimerType.COMMON;
+    }
+
+    /**释放播放完成回调持有的引用*/
+    private static void ReturnHandler(Handler handler) {
+        if (handler == null) {
+            return;
+        }
+        handler.caller = null;
+        handler.callback = null;
+        Handler.ReturnToPool(handler);
     }
 
     /**获取一个实例*/
     public static FrameAnimationView GetInstance() {
         return FrameAnimationManager.GetInstance();
-        //return RookieEngine.monoPool.GetAnimeView();//使用这个接口会有问题，MapUnitView的AppearanceView中的FrameAnimationView坐标会发生偏移，原因暂未找到
     }
 
 }

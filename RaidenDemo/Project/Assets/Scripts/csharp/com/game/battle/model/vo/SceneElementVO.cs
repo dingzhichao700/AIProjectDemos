@@ -15,8 +15,7 @@ public abstract class SceneElementVO {
     public float rotation { get; protected set; }
     public bool destroyed { get; private set; }
 
-    protected SceneElementVO(long id, SceneElementFaction faction,
-        TimerType timerType, Vector2 position) {
+    protected SceneElementVO(long id, SceneElementFaction faction, TimerType timerType, Vector2 position) {
         this.id = id;
         this.faction = faction;
         this.timerType = timerType;
@@ -33,7 +32,22 @@ public abstract class SceneElementVO {
         }
     }
 
+    /// <summary>
+    /// 销毁场景元素。
+    /// </summary>
+    /// <remarks>
+    /// 只执行一次清理，派生类在元素从场景移除前释放所属逻辑数据。
+    /// </remarks>
     public void Destroy() {
+        if (destroyed) {
+            return;
+        }
         destroyed = true;
+        OnDestroy();
     }
+
+    /**清理元素持有的数据和监听*/
+    protected virtual void OnDestroy() {
+    }
+
 }

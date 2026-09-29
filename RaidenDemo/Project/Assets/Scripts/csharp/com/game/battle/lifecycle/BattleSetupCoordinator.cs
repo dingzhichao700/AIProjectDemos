@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>按固定顺序创建单局战斗配置、逻辑对象和初始表现。</summary>
 internal sealed class BattleSetupCoordinator {
@@ -32,8 +32,10 @@ internal sealed class BattleSetupCoordinator {
         StageConfigVO stage = configProvider.GetStage(stageId);
         model.InitializeStage(stage, stageId);
         playerConfig.Initialize();
-        backgroundPresenter.Initialize(configProvider.GetSceneBackground(stage.sceneId));
-        AircraftVO player = formationPresenter.CreatePlayer(playerConfig.current);
+        BattleSceneBackgroundVO background = configProvider.GetSceneBackground(stage.sceneId);
+        model.ConfigureGroundScroll(background.backgroundScrollSpeed);
+        backgroundPresenter.Initialize(background);
+        PlayerAircraftUnitVO player = formationPresenter.CreatePlayer(playerConfig.current);
         formationPresenter.ConfigureWingman(configProvider.GetSelectedWingman());
         playerConfig.ApplyBattleStats(model, player);
         formationPresenter.ApplyPlayerVisual(playerConfig.current);

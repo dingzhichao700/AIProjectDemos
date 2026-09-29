@@ -38,7 +38,9 @@ public static class ResourceConst
         "cfgobj_scenebgobj",
         "cfgobj_stageitemobj",
         "cfgobj_wingmanobj",
-        "cfgobj_configvalueobj"
+        "cfgobj_configvalueobj",
+        "cfgobj_attributeobj",
+        "cfgobj_aircraftfireruleobj"
     };
 
     public static readonly List<string> ALL_MATERIAL_LIST = new List<string>

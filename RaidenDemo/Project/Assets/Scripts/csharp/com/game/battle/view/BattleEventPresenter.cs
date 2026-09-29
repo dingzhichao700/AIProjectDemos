@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using cfg;
 using UnityEngine;
 
@@ -15,6 +15,9 @@ internal sealed class BattleEventPresenter {
     private readonly BattleBackgroundPresenter backgroundPresenter;
     private readonly BattleEffectPresenter effectPresenter;
     private readonly BattleAircraftDeathPresenter aircraftDeaths;
+
+    /**在机身可见性更新后同步附着火焰*/
+    private readonly BattleAircraftFirePresenter aircraftFires;
     private readonly BattleHudPresenter hudPresenter;
     private readonly BattlePlayerPresenter playerPresenter;
     private readonly BattleFormationPresenter formationPresenter;
@@ -24,17 +27,13 @@ internal sealed class BattleEventPresenter {
     private readonly Action<bool> completeBattle;
     private float healthFeedbackRemaining;
 
-    public BattleEventPresenter(BattleModel model, BattleScenePresenter scenePresenter,
-        BattleBackgroundPresenter backgroundPresenter, BattleEffectPresenter effectPresenter, BattleAircraftDeathPresenter aircraftDeaths,
-        BattleHudPresenter hudPresenter, BattlePlayerPresenter playerPresenter,
-        BattleFormationPresenter formationPresenter, BattlePlayerInputPresenter inputPresenter,
-        BattlePlayerConfigCoordinator playerConfig, Action<int> applyPlayerLevel,
-        Action<bool> completeBattle) {
+    public BattleEventPresenter(BattleModel model, BattleScenePresenter scenePresenter, BattleBackgroundPresenter backgroundPresenter, BattleEffectPresenter effectPresenter, BattleAircraftDeathPresenter aircraftDeaths, BattleHudPresenter hudPresenter, BattlePlayerPresenter playerPresenter, BattleFormationPresenter formationPresenter, BattlePlayerInputPresenter inputPresenter, BattlePlayerConfigCoordinator playerConfig, Action<int> applyPlayerLevel, Action<bool> completeBattle, BattleAircraftFirePresenter aircraftFires) {
         this.model = model;
         this.scenePresenter = scenePresenter;
         this.backgroundPresenter = backgroundPresenter;
         this.effectPresenter = effectPresenter;
         this.aircraftDeaths = aircraftDeaths;
+        this.aircraftFires = aircraftFires;
         this.hudPresenter = hudPresenter;
         this.playerPresenter = playerPresenter;
         this.formationPresenter = formationPresenter;
@@ -52,6 +51,8 @@ internal sealed class BattleEventPresenter {
         model.playerProjectileHitEnemy += OnPlayerProjectileHitEnemy;
         model.enemyProjectileHitPlayer += OnEnemyProjectileHitPlayer;
         model.rewardCollected += OnRewardCollected;
+        model.aircraftWreckageSpawned += backgroundPresenter.AddWreckage;
+        model.aircraftWreckageRemoved += backgroundPresenter.RemoveWreckage;
         model.scoreChanged += hudPresenter.SetScore;
         model.victoryRequested += OnVictoryRequested;
         model.playerStatusChanged += OnPlayerStatusChanged;
@@ -70,6 +71,8 @@ internal sealed class BattleEventPresenter {
         model.playerProjectileHitEnemy -= OnPlayerProjectileHitEnemy;
         model.enemyProjectileHitPlayer -= OnEnemyProjectileHitPlayer;
         model.rewardCollected -= OnRewardCollected;
+        model.aircraftWreckageSpawned -= backgroundPresenter.AddWreckage;
+        model.aircraftWreckageRemoved -= backgroundPresenter.RemoveWreckage;
         model.scoreChanged -= hudPresenter.SetScore;
         model.victoryRequested -= OnVictoryRequested;
         model.playerStatusChanged -= OnPlayerStatusChanged;
@@ -98,6 +101,9 @@ internal sealed class BattleEventPresenter {
             return;
         }
         backgroundPresenter.Update(deltaTime);
+        foreach (AircraftWreckageVO wreckage in model.aircraftWreckages) {
+            backgroundPresenter.SyncWreckage(wreckage);
+        }
         scenePresenter.SyncSceneViews();
         hudPresenter.UpdateFloatingTexts(deltaTime);
         UpdateHealthFeedback(deltaTime);
@@ -112,17 +118,19 @@ internal sealed class BattleEventPresenter {
         playerPresenter.Update(formationPresenter.player, deltaTime);
         scenePresenter.SyncPlayerViews();
         aircraftDeaths.Update(deltaTime, TimerType.PLAYER);
+        aircraftFires.Sync(TimerType.PLAYER);
     }
 
     private void OnEnemyTimeUpdate(float deltaTime) {
         if (model.isPlaying) {
             scenePresenter.SyncEnemyViews();
             aircraftDeaths.Update(deltaTime, TimerType.ENEMY);
+            aircraftFires.Sync(TimerType.ENEMY);
         }
     }
 
     private void OnPlayerProjectileHitEnemy(BulletVO projectile,
-        AircraftVO enemy, Vector2 contactPoint) {
+        EnemyAircraftVO enemy, Vector2 contactPoint) {
         effectPresenter.PlayBulletHit(projectile.hitEffectId, contactPoint, TimerType.ENEMY);
     }
 

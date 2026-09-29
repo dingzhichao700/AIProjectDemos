@@ -17,11 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 6d2c545a885403549acf812cf0e01844
   m_SerializeEntries:
-  - m_GUID: 1ad066bbc1d34866ada17c02f0a1dfff
-    m_Address: Assets/ConfigBin/cfgobj_configvalueobj.json
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0474fe58d10cba94da6955102dfb9e95
     m_Address: Assets/ConfigBin/cfgobj_settingoptionobj.json
     m_ReadOnly: 0
@@ -29,6 +24,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1170a9c9630a4edc9d3b7646b264a777
     m_Address: Assets/ConfigBin/cfgobj_playeraircraftobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ad066bbc1d34866ada17c02f0a1dfff
+    m_Address: Assets/ConfigBin/cfgobj_configvalueobj.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -127,6 +127,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a4eae9ccbd4b4f26b0b3aa47187f6892
+    m_Address: Assets/ConfigBin/cfgobj_attributeobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: baf9b0e32a9501444b226ce9f33581da
     m_Address: Assets/Art/frameAnimation/title/title_loop.json
     m_ReadOnly: 0
@@ -139,6 +144,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c29e350f184442719612c2938a9b48a0
     m_Address: Assets/ConfigBin/cfgobj_stagewaveobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7679ce44a065b54c80e5149096d2c65
+    m_Address: Assets/ConfigBin/cfgobj_aircraftfireruleobj.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -42,8 +42,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 052f7c54436f4ce4d9e9e01c60bbc6b2
+    m_Address: Assets/Art/frameAnimation/default/other/fire_small_2.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0544002d5d434ebba7991d476ca4d5a4
     m_Address: Assets/Art/unpack/default/raiden/bullet/self/bullet_tracking_torpedo_deep_sea.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 05515626e29141d49be142b1c6713716
+    m_Address: Assets/Art/frameAnimation/default/other/dropSmoke_1.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -64,6 +74,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0754eb2c31a8f4b469bc999c39349c75
     m_Address: Assets/Art/frameAnimation/default/bullet/hit_4.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07a3849efd8c1f049a1b79d6fb95e45a
+    m_Address: Assets/Art/frameAnimation/default/other/fire_small_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 087e4e2036b5e9d45850166db9e781fb
+    m_Address: Assets/Art/frameAnimation/default/other/fire_big_2.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -92,6 +112,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0bf724748a1054a4fbcd7f72ea34cb59
+    m_Address: Assets/Art/unpack/default/raiden/hitHole/big_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d14783e732ac674680f24621a6c4ca1
+    m_Address: Assets/Art/frameAnimation/default/other/crashSmoke_middle_2.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d41df08afdb0cc46b7099ba7d75d26e
     m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_1006.json
     m_ReadOnly: 0
@@ -112,6 +142,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 143f419a0490dfc46ac7db76ce1065f3
+    m_Address: Assets/Art/frameAnimation/default/other/crashSmoke_big_2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1474c8861da9dd24b9a72b49da044d6f
     m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_blue_1.png
     m_ReadOnly: 0
@@ -122,8 +157,28 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 160de8927682e6a449be1e304e168436
+    m_Address: Assets/Art/frameAnimation/default/other/crashSmoke_big_4.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 17609eaa8e0f2264c87e107d4437ef1f
     m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_2001.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1868346bc61f41640ad1ed1fdd13ae29
+    m_Address: Assets/Art/frameAnimation/default/other/smoke_small_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1880e5b55c6833a44953320c40bdb0ca
+    m_Address: Assets/Art/frameAnimation/default/other/crashSmoke_middle_3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 19cd0db426f07ed4da562a7ba0271bc8
+    m_Address: Assets/Art/frameAnimation/default/other/fire_middle_2.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -149,6 +204,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1d6bd35d370ff7242be0f7a561a85ffc
     m_Address: Assets/Art/frameAnimation/default/bullet/hit_12.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ebdda1230e49184abd251cc7d7fe3b6
+    m_Address: Assets/Art/frameAnimation/default/other/fire_small_1.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -202,6 +262,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d74c474d5562274eba3bb936ca3ebdd
+    m_Address: Assets/Art/frameAnimation/default/other/crashSmoke_big_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2f4d7f74503b4c4aa22c652ee88f3791
     m_Address: Assets/Art/unpack/default/raiden/hud/elite_health_bar_bg.png
     m_ReadOnly: 0
@@ -217,6 +282,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33ecc8d2da3f3e64c83dde17286271cb
+    m_Address: Assets/Art/frameAnimation/default/other/crashSmoke_big_3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 350180a434b55a34699a48b5bf071637
     m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_2002.json
     m_ReadOnly: 0
@@ -224,6 +294,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 356ee9c4bdcc96b4ebe0b1585b32022a
     m_Address: Assets/Prefab/default/raiden/StageSelectPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3701bfe30b77f1f4e9cb935db7aa66f8
+    m_Address: Assets/Art/frameAnimation/default/other/crashSmoke_middle_3.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -252,6 +327,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b6b5e8973fe72b4899d7a58a04f43a2
+    m_Address: Assets/Art/frameAnimation/default/other/crashSmoke_middle_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3c0af1965d264f76917b1bb3c6ddb807
     m_Address: Assets/Art/unpack/default/raiden/sceneBg/forest_cloud_mid.png
     m_ReadOnly: 0
@@ -264,6 +344,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3e4d41c762fa98149a60cc3996bbc5f7
     m_Address: Assets/Art/frameAnimation/default/bullet/hit_5.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e721730b35991f48bb9178346e7a82a
+    m_Address: Assets/Art/frameAnimation/default/other/dropSmoke_2.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -289,6 +374,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 423e0e93f97ca4640a8faebaa9e50a11
     m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_swift_001_lv01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44f9d471c537cf04ab0023a10d5e34c8
+    m_Address: Assets/Art/frameAnimation/default/other/fire_big_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47841e3041752234ca6edd2f41a61353
+    m_Address: Assets/Art/frameAnimation/default/other/crashSmoke_middle_2.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -332,6 +427,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51e1212b7dbc4cc408abe4bf3b900464
+    m_Address: Assets/Art/frameAnimation/default/other/crashSmoke_big_3.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 52cc7c2a9e2bb84499b9d0d7a081f848
     m_Address: Assets/Art/frameAnimation/default/other/circle_2.png
     m_ReadOnly: 0
@@ -367,6 +467,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5adfd4e70c3bb94438ccabb10cb87177
+    m_Address: Assets/Art/frameAnimation/default/other/dropSmoke_2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5b40600e35092bb43ae06976224dbe36
     m_Address: Assets/Art/frameAnimation/default/bullet/hit_11.png
     m_ReadOnly: 0
@@ -399,6 +504,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5f5659a429fef2c46aeaca0dc1d115aa
     m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_heavy_001_lv01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fa86083cb6163d42a5d845f834d0fee
+    m_Address: Assets/Art/frameAnimation/default/other/crashSmoke_small_1.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -452,6 +562,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6acca083bd47e50448d8a65155bd86b5
+    m_Address: Assets/Art/frameAnimation/default/other/fire_big_3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6afb2215edfb9194ca791d013f86a845
     m_Address: Assets/Art/frameAnimation/default/other/circle_4.png
     m_ReadOnly: 0
@@ -477,6 +592,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e45c654878e00b48afd4908482f5e84
+    m_Address: Assets/Art/frameAnimation/default/other/dropSmoke_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6f68c1b052d7190408e9cdfbe326874c
     m_Address: Assets/Art/frameAnimation/default/bullet/hit_8.png
     m_ReadOnly: 0
@@ -487,8 +607,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 700756ec500c5af478788d63206ceca7
+    m_Address: Assets/Art/frameAnimation/default/other/crashSmoke_big_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 70d9dfe81e91c7a4c9cd8ce9cb2e8610
     m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_assault_001_lv02.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71b3724f691363a4e82e1dccb8a9aa80
+    m_Address: Assets/Art/unpack/default/raiden/hitHole/middle_1.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -497,8 +627,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 72d04204efd7a1e46ba14d0e4462a6c4
+    m_Address: Assets/Art/frameAnimation/default/other/crashSmoke_big_4.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 730fc0e05ce6470e9899865b78324c17
     m_Address: Assets/Art/unpack/default/raiden/bullet/self/bullet_straight_light_heavy_beam.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 737c7f7c39bc4b64191f028df42bc0f7
+    m_Address: Assets/Art/frameAnimation/default/other/fire_middle_4.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -532,6 +672,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7949235877130ed49b48dbdab85bff57
+    m_Address: Assets/Art/unpack/default/raiden/hitHole/small_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 794a87324a10af6408f4c1325e3bd53c
     m_Address: Assets/Art/frameAnimation/default/other/levelup_04.png
     m_ReadOnly: 0
@@ -539,6 +684,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a42d53fe6354c44db7423e44fa0448e
     m_Address: Assets/Art/frameAnimation/default/bullet/bullet_ball_2004.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7aa4c6686e89d1c4a8bc4e16138fb40a
+    m_Address: Assets/Art/frameAnimation/default/other/fire_middle_1.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -587,6 +737,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82159488dcb971b4eade41ad955cac60
+    m_Address: Assets/Art/frameAnimation/default/other/fire_small_2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 84c0947fa04f04549936bf8d01a7a5e5
     m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_blue_1.json
     m_ReadOnly: 0
@@ -614,6 +769,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 86df6ea3c720075439d6461fbe7c8038
     m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_middle_3.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8751b7a59f3878541925e106ad18be40
+    m_Address: Assets/Art/frameAnimation/default/other/crashSmoke_small_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8983db588afb19342b1d6bfc72f3887e
+    m_Address: Assets/Art/frameAnimation/default/other/fire_middle_4.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -652,6 +817,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8fcef943e8a62d74d8651e7e4f1018f6
+    m_Address: Assets/Art/frameAnimation/default/other/smoke_small_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 91399038f1bae9e439c44fc84b321982
     m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_2.png
     m_ReadOnly: 0
@@ -667,8 +837,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 956d606cc245800478b081a0206fc169
+    m_Address: Assets/Art/frameAnimation/default/other/smoke_middle_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 973c40eef5717ae4b97621426d078d35
     m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_1009.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 976587948fba5e14087b119cd55a7e92
+    m_Address: Assets/Art/frameAnimation/default/other/fire_middle_3.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -712,6 +892,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0af72d91eb9a3746a7a4066c3862492
+    m_Address: Assets/Art/frameAnimation/default/other/fire_middle_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a111812b550bbcd4eb22d245790b3bad
     m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_swift_001_lv04.png
     m_ReadOnly: 0
@@ -724,6 +909,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a28a9b1c5ac18e1419b6dc5dd898e754
     m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_1008.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2ddf68da9eab4d42bea3f1bb4070c10
+    m_Address: Assets/Art/frameAnimation/default/other/crashSmoke_middle_1.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -762,6 +952,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8e05bc196f7534478dcfe074fb5c82a
+    m_Address: Assets/Art/frameAnimation/default/other/fire_middle_2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a965eb3737ff9bf4e9d683c3819d1285
     m_Address: Assets/Art/frameAnimation/default/bullet/bullet_line_3.png
     m_ReadOnly: 0
@@ -784,6 +979,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ade2a510bcae3af4b8647965a833ca9d
     m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_golden_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aea4c5b8f81eff4418a97e0c5866d42f
+    m_Address: Assets/Art/frameAnimation/default/other/smoke_middle_1.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -952,6 +1152,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf6ec76853c6f7a41a469ea72534f1da
+    m_Address: Assets/Art/frameAnimation/default/other/fire_middle_3.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cf86ce9d9e0224e4393ff4d5ef0c5578
     m_Address: Assets/Art/frameAnimation/default/bullet/shootFire_1006.png
     m_ReadOnly: 0
@@ -992,6 +1197,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d3ccdb174fd338a4982916fce4bc56ad
+    m_Address: Assets/Art/frameAnimation/default/other/crashSmoke_big_2.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d4828ce64811ec34d9be96e6e352ef97
+    m_Address: Assets/Art/frameAnimation/default/other/fire_big_3.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d60216bad6c75fa4180f20508fb3d66d
     m_Address: Assets/Art/frameAnimation/default/other/circle_6.json
     m_ReadOnly: 0
@@ -1012,6 +1227,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d92f3e9573651194286073892867c242
+    m_Address: Assets/Art/frameAnimation/default/other/fire_big_2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d9375c1618e56984f88178bfbf5c28fc
     m_Address: Assets/Art/unpack/default/raiden/wingman/self/battleWingman.png
     m_ReadOnly: 0
@@ -1024,6 +1244,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dadd60531fe593c478dddbbde0dc2665
     m_Address: Assets/Prefab/default/loading/LoadingPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: daef9a92ccd765e46954d42453a9403e
+    m_Address: Assets/Art/frameAnimation/default/other/fire_small_3.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -1054,6 +1279,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de8a37db4a46fac4b9f5c59718535f96
     m_Address: Assets/Art/frameAnimation/default/bullet/hit_10.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df98f7c3bd3e4784eb34ff3a364ac82a
+    m_Address: Assets/Art/frameAnimation/default/other/smoke_big_1.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -1097,8 +1327,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e7b15b083d6562e4e8a1658e60d82a43
+    m_Address: Assets/Art/frameAnimation/default/other/fire_big_1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e84d2d69620906e4185ea761b44ea0e2
     m_Address: Assets/Art/frameAnimation/default/aircraftExplosion/explosion_small_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e89153c39231eb9489a2d7b98f4f3b66
+    m_Address: Assets/Art/frameAnimation/default/other/fire_small_3.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -1159,6 +1399,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f960d7b256693fd4b919e8f7b15c9e88
     m_Address: Assets/Art/unpack/default/raiden/aircraft/self/player_aircraft_beam_001_lv01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9f502e4b95c53a41a37bafde9485731
+    m_Address: Assets/Art/frameAnimation/default/other/smoke_big_1.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

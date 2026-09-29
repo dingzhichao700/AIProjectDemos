@@ -8,19 +8,19 @@ internal sealed class BattleLifecycleCoordinator {
     private readonly BattlePlayerPresenter playerPresenter;
     private readonly BattleBackgroundPresenter backgroundPresenter;
     private readonly BattleAircraftDeathPresenter aircraftDeaths;
+
+    /**在回收任何机身前清理其火焰和烟雾句柄*/
+    private readonly BattleAircraftFirePresenter aircraftFires;
     private readonly BattleEntityViewManager entityViews;
     private readonly BattleVisualPool visualPool;
 
-    public BattleLifecycleCoordinator(BattleModel model,
-        BattleScenePresenter scenePresenter, BattlePlayerPresenter playerPresenter,
-        BattleBackgroundPresenter backgroundPresenter,
-        BattleAircraftDeathPresenter aircraftDeaths, BattleEntityViewManager entityViews,
-        BattleVisualPool visualPool) {
+    public BattleLifecycleCoordinator(BattleModel model, BattleScenePresenter scenePresenter, BattlePlayerPresenter playerPresenter, BattleBackgroundPresenter backgroundPresenter, BattleAircraftDeathPresenter aircraftDeaths, BattleEntityViewManager entityViews, BattleVisualPool visualPool, BattleAircraftFirePresenter aircraftFires) {
         this.model = model;
         this.scenePresenter = scenePresenter;
         this.playerPresenter = playerPresenter;
         this.backgroundPresenter = backgroundPresenter;
         this.aircraftDeaths = aircraftDeaths;
+        this.aircraftFires = aircraftFires;
         this.entityViews = entityViews;
         this.visualPool = visualPool;
     }
@@ -60,6 +60,7 @@ internal sealed class BattleLifecycleCoordinator {
 
     private void ClearRuntime(Action clearVisualLayers, Action resetPanelReferences) {
         backgroundPresenter.Clear();
+        aircraftFires.Clear();
         aircraftDeaths.Clear();
         playerPresenter.Clear();
         entityViews.Clear();

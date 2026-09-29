@@ -1,4 +1,4 @@
-﻿using cfg;
+using cfg;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +28,12 @@ public class SettingConst {
                     allResolutionTypes.Add(reso);
                 }
             }
+        }
+        // 微信/WebGL 等环境可能无法枚举显示器分辨率，使用当前画布尺寸兜底。
+        if (allResolutionTypes.Count == 0) {
+            return new List<string> {
+                Mathf.Max(1, Screen.width) + "x" + Mathf.Max(1, Screen.height)
+            };
         }
         return allResolutionTypes;
     }

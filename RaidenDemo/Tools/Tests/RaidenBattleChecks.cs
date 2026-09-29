@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using cfg;
@@ -29,9 +30,13 @@ internal static class RaidenBattleChecks {
                 CheckDeath(stage);
             }
             CheckLauncherBounds(tables, configs);
+            CheckLauncherModifiers(tables, configs);
+            CheckAttributeContainer();
+            RaidenAircraftFireChecks.Run(tables, configs);
+            RaidenAircraftDeathChecks.Run(tables, configs);
             Require(BattleConst.ClampPlayerPosition(new Vector2(-1, 1)).y == BattleConst.PlayerAreaTop, "Player upper boundary");
             Require(BattleConst.ClampPlayerPosition(new Vector2(9999, -9999)).y == -BattleConst.BattleViewportHeight, "Player lower boundary");
-            Console.WriteLine($"PASS: {tables.StageObj.DataList.Count} stages; {paths} configured paths; independent timers; rewards; Boss supply; death movement and configured victory delay.");
+            Console.WriteLine($"PASS: {tables.StageObj.DataList.Count} stages; {paths} configured paths; launcher modifiers; independent timers; rewards; Boss supply; death movement and configured victory delay.");
             return 0;
         } catch (Exception error) {
             Console.Error.WriteLine(error);
@@ -41,9 +46,60 @@ internal static class RaidenBattleChecks {
         }
     }
 
+    private static void CheckAttributeContainer() {
+        var baseAttributes = new AttributeContainer();
+        baseAttributes.SetAttr(AttributeType.MAX_LIFE, 100);
+        var researchAttributes = new AttributeContainer();
+        researchAttributes.SetAttr(AttributeType.MAX_LIFE, 20);
+        var nonBattleAttributes = new AttributeContainer();
+        nonBattleAttributes.AddChild(researchAttributes);
+        var battleAttributes = new AttributeContainer();
+        var root = new AttributeContainer(true);
+        root.AddChild(baseAttributes);
+        root.AddChild(nonBattleAttributes);
+        root.AddChild(battleAttributes);
+        Require(root.GetAttr(AttributeType.MAX_LIFE) == 120, "Attribute tree initial summary");
+        researchAttributes.AddAttr(AttributeType.MAX_LIFE, 10);
+        Require(root.GetAttr(AttributeType.MAX_LIFE) == 130, "Attribute tree incremental summary");
+        var buff = new AttributeContainer();
+        buff.SetAttr(AttributeType.FIRE_COOLDOWN_RATE, -5000);
+        battleAttributes.AddChild(buff);
+        Require(root.GetAttr(AttributeType.FIRE_COOLDOWN_RATE) == -5000, "Attribute tree nested structure propagation");
+        battleAttributes.RemoveAllChildren();
+        Require(root.GetAttr(AttributeType.FIRE_COOLDOWN_RATE) == 0, "Attribute tree child removal");
+        bool rejected = false;
+        try {
+            baseAttributes.AddChild(new AttributeContainer());
+        } catch (InvalidOperationException) {
+            rejected = true;
+        }
+        Require(rejected, "Attribute leaf accepted a child container");
+        var first = new AttributeContainer();
+        var second = new AttributeContainer();
+        first.AddChild(second);
+        rejected = false;
+        try {
+            second.AddChild(first);
+        } catch (InvalidOperationException) {
+            rejected = true;
+        }
+        Require(rejected, "Attribute container accepted a cycle");
+        root.RemoveAllChildren();
+        Require(root.childContainerList.Count == 0 && root.summaryMap.Count == 0, "Attribute tree did not remove all children");
+        var aircraft = new PlayerAircraftUnitVO(3, "attribute-test", Vector2.zero);
+        aircraft.ApplyBaseAttributes(new Dictionary<AttributeType, int> { { AttributeType.MAX_LIFE, 100 } });
+        Require(aircraft.maxHealth == 100 && aircraft.health == 100, "Aircraft base attributes were not applied");
+        var aircraftBonus = new AttributeContainer();
+        aircraftBonus.SetAttr(AttributeType.MAX_LIFE, 20);
+        aircraft.nonBattleAttributeContainer.AddChild(aircraftBonus);
+        Require(aircraft.maxHealth == 120 && aircraft.health == 120, "Aircraft non-battle attributes were not summarized");
+        aircraft.nonBattleAttributeContainer.RemoveChild(aircraftBonus);
+        Require(aircraft.maxHealth == 100 && aircraft.health == 100, "Aircraft attribute removal did not refresh state limits");
+    }
+
     private static void CheckLauncherBounds(Tables tables, RaidenModel configs) {
         var bullet = tables.BulletObj.DataList[0];
-        var owner = new AircraftVO(1, "test", true, Vector2.zero);
+        var owner = new PlayerAircraftUnitVO(1, "test", Vector2.zero);
         int emitted = 0;
         var maximum = new BulletLauncherVO(new BulletLauncherConfigVO(Vector2.zero, bullet.Type, bullet.Level,
             999, 0f, -1, 0f, default(cfg.BulletSpreadType), 0f), configs.GetBulletConfig);
@@ -59,6 +115,47 @@ internal static class RaidenBattleChecks {
             0, 1f, 0, 0f, default(cfg.BulletSpreadType), 0f), configs.GetBulletConfig);
         minimum.Update(.001f, owner, launch => emitted++);
         Require(emitted == BattleConst.shotCountMin, "Launcher minimum count boundary");
+    }
+
+    private static void CheckLauncherModifiers(Tables tables, RaidenModel configs) {
+        var bullet = tables.BulletObj.DataList[0];
+        var owner = new PlayerAircraftUnitVO(2, "modifier-test", Vector2.zero);
+        int emitted = 0;
+        var launcher = new BulletLauncherVO(new BulletLauncherConfigVO(Vector2.zero, bullet.Type, bullet.Level,
+            10, 1f, 0, 0f, default(cfg.BulletSpreadType), 0f), configs.GetBulletConfig);
+        launcher.SetModifier(BulletLauncherModifierZone.NON_BATTLE, new BulletLauncherModifierVO(1, 0, -2500, 0));
+        launcher.SetModifier(BulletLauncherModifierZone.NON_BATTLE, new BulletLauncherModifierVO(2, 0, -2500, 0));
+        launcher.SetModifier(BulletLauncherModifierZone.BATTLE, new BulletLauncherModifierVO(3, 0, 10000, 0));
+        launcher.Update(.001f, owner, launch => emitted++);
+        Require(emitted == 10, "Launcher modifier zones were not added then multiplied");
+        launcher.Reset();
+        launcher.RemoveModifier(BulletLauncherModifierZone.NON_BATTLE, 2);
+        emitted = 0;
+        launcher.Update(.001f, owner, launch => emitted++);
+        Require(emitted == 15, "Launcher modifier source removal failed");
+        launcher.Reset();
+        launcher.SetModifier(BulletLauncherModifierZone.NON_BATTLE, new BulletLauncherModifierVO(1, 0, -5000, 0));
+        emitted = 0;
+        launcher.Update(.001f, owner, launch => emitted++);
+        Require(emitted == 10, "Launcher modifier source update did not replace the old value");
+
+        emitted = 0;
+        var lockedRound = new BulletLauncherVO(new BulletLauncherConfigVO(Vector2.zero, bullet.Type, bullet.Level,
+            3, .1f, 100, 0f, default(cfg.BulletSpreadType), 0f), configs.GetBulletConfig);
+        lockedRound.Update(.001f, owner, launch => emitted++);
+        lockedRound.SetModifier(BulletLauncherModifierZone.BATTLE, new BulletLauncherModifierVO(4, -10000, -10000, -10000));
+        lockedRound.Update(.2f, owner, launch => emitted++);
+        Require(emitted == 3, "Current round changed after modifier update");
+        lockedRound.Update(.008f, owner, launch => emitted++);
+        Require(emitted == 3, "Modified fire cooldown ignored minimum boundary");
+        lockedRound.Update(.002f, owner, launch => emitted++);
+        Require(emitted == 4, "Next round did not use latest modifiers");
+
+        owner.bulletLaunchers.Add(launcher);
+        owner.bulletLaunchers.Add(lockedRound);
+        owner.SetAllLauncherModifiers(BulletLauncherModifierZone.BATTLE, new BulletLauncherModifierVO(5, 0, -10000, 0));
+        owner.RemoveAllLauncherModifiers(BulletLauncherModifierZone.BATTLE, 5);
+        owner.ClearAllLauncherModifiers(BulletLauncherModifierZone.BATTLE);
     }
 
     private static void CheckPath(EnemyWaveVO wave) {
@@ -138,15 +235,14 @@ internal static class RaidenBattleChecks {
     private static void CheckDeath(StageConfigVO config) {
         var wave = config.bossWave;
         var enemy = wave.enemy;
-        var boss = new AircraftVO(1, wave.spawnCenter, enemy.enemyClass, enemy.displaySize, enemy.collision,
-            enemy.baseHealth, moveSpeed: enemy.moveSpeed, scoreValue: enemy.score, specialMotion: wave);
-        boss.ConfigureDeathPresentation(enemy.deathExplosions, enemy.removeAfterDeathPresentation);
-        boss.BeginEnemyDeathPresentation();
+        var boss = new EnemyAircraftVO(1, wave.spawnCenter, enemy.enemyClass, enemy.displaySize, enemy.collision, enemy.baseAttributes, scoreValue: enemy.score, specialMotion: wave);
+        boss.ConfigureFirePoints(enemy.aircraftSizeType, enemy.collision);
+        boss.BeginDeathPresentation(AircraftDeathType.DISINTEGRATE);
         boss.OnLastDeathExplosionStarted();
         Vector2 before = boss.position;
         boss.OnTimeUpdate(.1f);
-        Require(boss.deathMovementActive == !enemy.removeAfterDeathPresentation, "Boss death movement policy");
-        Require(enemy.removeAfterDeathPresentation || boss.position != before, "Retained Boss stopped moving");
+        Require(boss.deathMovementActive, "Boss death movement policy");
+        Require(boss.position != before, "Retained Boss stopped moving");
         var battle = new BattleModel();
         const BindingFlags flags = BindingFlags.Instance | BindingFlags.NonPublic;
         ((BattleStageModel)typeof(BattleModel).GetField("stageModel", flags).GetValue(battle)).Initialize(config);

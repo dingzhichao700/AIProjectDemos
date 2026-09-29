@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "aircraftSizeType": 2,
+    "healthRateMin": 3000,
+    "healthRateMax": 7000,
+    "firePointList": [
+      {
+        "fireSize": 1,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "aircraftSizeType": 2,
+    "healthRateMin": 0,
+    "healthRateMax": 3000,
+    "firePointList": [
+      {
+        "fireSize": 1,
+        "count": 2
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "aircraftSizeType": 3,
+    "healthRateMin": 3000,
+    "healthRateMax": 7000,
+    "firePointList": [
+      {
+        "fireSize": 2,
+        "count": 1
+      },
+      {
+        "fireSize": 1,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "aircraftSizeType": 3,
+    "healthRateMin": 0,
+    "healthRateMax": 3000,
+    "firePointList": [
+      {
+        "fireSize": 3,
+        "count": 1
+      },
+      {
+        "fireSize": 2,
+        "count": 1
+      },
+      {
+        "fireSize": 1,
+        "count": 2
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "aircraftSizeType": 4,
+    "healthRateMin": 3000,
+    "healthRateMax": 7000,
+    "firePointList": [
+      {
+        "fireSize": 2,
+        "count": 2
+      },
+      {
+        "fireSize": 1,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "aircraftSizeType": 4,
+    "healthRateMin": 0,
+    "healthRateMax": 3000,
+    "firePointList": [
+      {
+        "fireSize": 3,
+        "count": 2
+      },
+      {
+        "fireSize": 2,
+        "count": 2
+      },
+      {
+        "fireSize": 1,
+        "count": 2
+      }
+    ]
+  }
+]

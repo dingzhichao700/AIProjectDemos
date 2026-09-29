@@ -1,4 +1,4 @@
-using cfg;
+﻿using cfg;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
@@ -11,30 +11,33 @@ public sealed class EnemyConfigVO {
 
     public readonly int id;
     public readonly EnemyClass enemyClass;
-    public readonly int baseHealth;
+    public readonly IReadOnlyDictionary<AttributeType, int> baseAttributes;
     public readonly string appearancePath;
+    public readonly string damagedAppearancePath;
     public readonly Vector2 displaySize;
     public readonly AircraftCollisionVO collision;
-    public readonly float moveSpeed;
     public readonly int score;
     public readonly int poolCapacity;
     public readonly IReadOnlyList<BulletLauncherConfigVO> bulletLaunchers;
-    public readonly IReadOnlyList<ExplosionEffect> deathExplosions;
-    public readonly bool removeAfterDeathPresentation;
 
-    public EnemyConfigVO(int id, EnemyClass enemyClass, int baseHealth, string appearancePath, Vector2 displaySize, AircraftCollisionVO collision, float moveSpeed, int score, int poolCapacity, IReadOnlyList<BulletLauncherConfigVO> bulletLaunchers, IReadOnlyList<ExplosionEffect> deathExplosions, bool removeAfterDeathPresentation) {
+    /**FlyingUnit 配置的飞行器体型*/
+    public readonly AircraftSizeType aircraftSizeType;
+
+    public float moveSpeed => baseAttributes[AttributeType.SPEED];
+
+    /**保存已解析的敌机战斗配置*/
+    public EnemyConfigVO(int id, EnemyClass enemyClass, IReadOnlyDictionary<AttributeType, int> baseAttributes, string appearancePath, string damagedAppearancePath, Vector2 displaySize, AircraftCollisionVO collision, int score, int poolCapacity, IReadOnlyList<BulletLauncherConfigVO> bulletLaunchers, AircraftSizeType aircraftSizeType) {
         this.id = id;
         this.enemyClass = enemyClass;
-        this.baseHealth = baseHealth;
+        this.baseAttributes = baseAttributes;
         this.appearancePath = appearancePath;
+        this.damagedAppearancePath = damagedAppearancePath;
         this.displaySize = displaySize;
         this.collision = collision;
-        this.moveSpeed = moveSpeed;
         this.score = score;
         this.poolCapacity = poolCapacity;
         this.bulletLaunchers = bulletLaunchers;
-        this.deathExplosions = deathExplosions;
-        this.removeAfterDeathPresentation = removeAfterDeathPresentation;
+        this.aircraftSizeType = aircraftSizeType;
     }
 
 }

@@ -52,6 +52,17 @@ public class SettingControl : EventDispatcher {
         }
     }
 
+    /// <summary>
+    /// 将全部已保存设置应用到运行环境。
+    /// </summary>
+    public void ApplyAllSettings() {
+        RookieEngine.timer.CallLater(this, SyncDisplayModeAndResolution);
+        OnSelectionValueUpdate(SettingOptionSelection.GRAPHIC_VSYNC);
+        OnSelectionValueUpdate(SettingOptionSelection.AUDIO_TOTAL);
+        OnSelectionValueUpdate(SettingOptionSelection.AUDIO_MUSIC);
+        OnSelectionValueUpdate(SettingOptionSelection.AUDIO_EFFECT);
+    }
+
     /**设置项的值发生变化*/
     private void OnSelectionValueUpdate(SettingOptionSelection selection) {
         string value = PersistentDataControl.ins.saveModel.GetSetting(selection);
@@ -80,6 +91,10 @@ public class SettingControl : EventDispatcher {
 
     /**同步显示方式和分辨率*/
     public void SyncDisplayModeAndResolution() {
+#if UNITY_WEBGL && !UNITY_EDITOR
+        // 画布尺寸由宿主环境管理，不应用桌面显示器的分辨率和全屏模式。
+        return;
+#else
         /**显示方式*/
         FullScreenMode displayMode = FullScreenMode.ExclusiveFullScreen;
         Enum.TryParse(PersistentDataControl.ins.saveModel.GetSetting(SettingOptionSelection.GRAPHIC_DISPLAY_MODE), out SettingOptionSelectionDisplay cacheValue);
@@ -101,6 +116,7 @@ public class SettingControl : EventDispatcher {
         int.TryParse(resoStr.Split("x")[1], out int height);
         //Debug.Log("设置显示方式为：" + displayMode.ToString() + ", 分辨率：" + width + "x" + height);
         Screen.SetResolution(width, height, displayMode);
+#endif
     }
 
 }

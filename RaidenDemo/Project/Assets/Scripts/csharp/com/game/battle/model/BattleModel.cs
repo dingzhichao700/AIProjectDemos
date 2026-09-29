@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using cfg;
 using cfg.resource;
@@ -30,15 +30,21 @@ public sealed class BattleModel {
     /**玩家主机、僚机与生命状态模型*/
     private readonly BattleFormationModel formationModel = new BattleFormationModel();
 
+    /**坠地资源和残骸角度使用的随机数来源*/
+    private static readonly System.Random deathRandom = new System.Random();
+
     /**玩家子弹运行时列表*/
     internal readonly List<BulletVO> playerProjectiles = new List<BulletVO>();
 
-    private AircraftVO playerUnit => formationModel.player;
+    private PlayerAircraftUnitVO playerUnit => formationModel.player;
     private int bulletAdditionalLevel;
     private AircraftCollisionVO playerCollision => formationModel.playerCollision;
 
     /**敌机运行时列表*/
-    internal readonly List<AircraftVO> enemies = new List<AircraftVO>();
+    internal readonly List<EnemyAircraftVO> enemies = new List<EnemyAircraftVO>();
+
+    /**已经坠地并随地面层移动的飞机残骸*/
+    internal readonly List<AircraftWreckageVO> aircraftWreckages = new List<AircraftWreckageVO>();
 
     /**敌方子弹运行时列表*/
     internal readonly List<BulletVO> enemyProjectiles = new List<BulletVO>();
@@ -54,6 +60,9 @@ public sealed class BattleModel {
 
     /**Boss 已被击毁，正在等待其死亡表现完成*/
     private bool waitingForBossDeathPresentation;
+
+    /**远景地面层每秒向后滚动的像素距离*/
+    private float groundScrollSpeed;
 
     /**玩家死亡表现结束后等待后续流程的剩余时间；负数表示尚未开始等待*/
     private float playerDefeatDelayRemaining = -1f;
@@ -75,17 +84,23 @@ public sealed class BattleModel {
     internal event Action<BulletVO> playerProjectileSpawned;
 
     /**玩家子弹与敌机发生有效接触*/
-    internal event Action<BulletVO, AircraftVO, Vector2>
+    internal event Action<BulletVO, EnemyAircraftVO, Vector2>
         playerProjectileHitEnemy;
 
     /**通知表现层回收敌机并播放对应离场表现*/
-    internal event Action<AircraftVO, bool> enemyRemoved;
+    internal event Action<EnemyAircraftVO, bool> enemyRemoved;
 
     /**通知表现层刷新未被击毁敌机的血量表现*/
-    internal event Action<AircraftVO> enemyHealthChanged;
+    internal event Action<EnemyAircraftVO> enemyHealthChanged;
 
     /**通知表现层为新建奖励补充 View*/
     internal event Action<RewardVO> rewardSpawned;
+
+    /**通知表现层创建新的地面残骸*/
+    internal event Action<AircraftWreckageVO> aircraftWreckageSpawned;
+
+    /**通知表现层回收已经离场的地面残骸*/
+    internal event Action<long> aircraftWreckageRemoved;
 
     /**通知表现层回收奖励 View*/
     internal event Action<long> rewardRemoved;
@@ -129,7 +144,7 @@ public sealed class BattleModel {
     public event Action<float> enemyTimeUpdated;
 
     /**通知表现层为已创建的敌机补充 View*/
-    internal event Action<AircraftVO> enemySpawned;
+    internal event Action<EnemyAircraftVO> enemySpawned;
 
     /**当前全部战斗场景元素*/
     public IReadOnlyDictionary<long, SceneElementVO> elements => sceneModel.elements;
@@ -167,19 +182,24 @@ public sealed class BattleModel {
     internal void SetBulletAdditionalLevel(int level) {
         bulletAdditionalLevel = Mathf.Max(0, level);
         ApplyLauncherAdditionalLevel(playerUnit);
-        foreach (AircraftVO wingman in formationModel.wingmen) {
+        foreach (WingmanUnitVO wingman in formationModel.wingmen) {
             ApplyLauncherAdditionalLevel(wingman);
         }
     }
 
     /**升级只在变更入口分发到具体发射器，生成子弹时不再按阵营修正规格*/
-    private void ApplyLauncherAdditionalLevel(AircraftVO unit) {
+    private void ApplyLauncherAdditionalLevel(FlyingUnitVO unit) {
         if (unit == null) {
             return;
         }
         foreach (BulletLauncherVO launcher in unit.bulletLaunchers) {
             launcher.SetAdditionalLevel(bulletAdditionalLevel);
         }
+    }
+
+    /**设置地面残骸使用的背景滚动速度*/
+    internal void ConfigureGroundScroll(float value) {
+        groundScrollSpeed = Mathf.Max(0f, value);
     }
 
     /**设置战斗模拟是否继续推进*/
@@ -242,25 +262,22 @@ public sealed class BattleModel {
     }
 
     /**登记玩家主机，作为僚机编队的跟随目标*/
-    internal void SetPlayerUnit(AircraftVO unit) {
+    internal void SetPlayerUnit(PlayerAircraftUnitVO unit) {
         formationModel.SetPlayer(unit);
         playerUnit?.ConfigureFiring(CreateProjectile);
         playerUnit?.ConfigurePlayerLifecycle(OnPlayerRespawnCompleted);
     }
 
     /**创建并登记玩家阵营飞机逻辑对象。*/
-    internal AircraftVO CreatePlayerAircraft(string name, bool isPlayer,
-        Vector2 position) {
-        AircraftVO unit = new AircraftVO(CreateElementId(), name, isPlayer, position);
+    internal PlayerAircraftUnitVO CreatePlayerAircraft(string name, Vector2 position) {
+        PlayerAircraftUnitVO unit = new PlayerAircraftUnitVO(CreateElementId(), name, position);
         AddElement(unit);
-        if (isPlayer) {
-            SetPlayerUnit(unit);
-        }
+        SetPlayerUnit(unit);
         return unit;
     }
 
     /**结算一次僚机奖励：数量未满时创建下一槽位僚机。*/
-    internal AircraftVO ApplyWingmanReward(out bool created) {
+    internal WingmanUnitVO ApplyWingmanReward(out bool created) {
         return formationModel.ApplyWingmanReward(CreateWingman, out created);
     }
 
@@ -316,13 +333,14 @@ public sealed class BattleModel {
     }
 
     /**由逻辑层统一移除敌机并完成分数、波次、掉落与 Boss 推进结算*/
-    internal bool ResolveEnemy(AircraftVO enemy, bool defeated) {
+    internal bool ResolveEnemy(EnemyAircraftVO enemy, bool defeated) {
         if (enemy == null || !enemies.Remove(enemy)) {
             return false;
         }
         Vector2 position = enemy.position;
         if (defeated) {
-            enemy.BeginEnemyDeathPresentation();
+            enemy.landed += OnEnemyLanded;
+            enemy.BeginDeathPresentation(AircraftDeathResolver.Resolve(enemy));
         } else {
             RemoveElement(enemy.id);
         }
@@ -348,17 +366,17 @@ public sealed class BattleModel {
     }
 
     /**接收表现阶段通知，实体自行决定移动策略；需要移除机身时结束其逻辑生命周期。*/
-    internal void NotifyEnemyLastExplosionStarted(AircraftVO enemy) {
+    internal void NotifyEnemyLastExplosionStarted(EnemyAircraftVO enemy) {
         if (enemy == null || !enemy.isDying) {
             return;
         }
         enemy.OnLastDeathExplosionStarted();
-        if (enemy.removeAfterDeathPresentation) {
+        if (enemy.deathType == AircraftDeathType.DISINTEGRATE && !enemy.retainBodyAfterDeathPresentation) {
             RemoveElement(enemy.id);
         }
     }
 
-    internal void NotifyEnemyDeathPresentationCompleted(AircraftVO enemy) {
+    internal void NotifyEnemyDeathPresentationCompleted(EnemyAircraftVO enemy) {
         if (enemy != null && enemy.isBoss) {
             NotifyBossDeathPresentationCompleted();
         }
@@ -437,6 +455,7 @@ public sealed class BattleModel {
         sceneModel.Clear();
         playerProjectiles.Clear();
         enemies.Clear();
+        aircraftWreckages.Clear();
         enemyProjectiles.Clear();
         rewardModel.Clear();
         formationModel.Clear();
@@ -450,6 +469,7 @@ public sealed class BattleModel {
             return;
         }
         sceneModel.UpdateElements(TimerType.SCENE, deltaTime);
+        RemoveOutOfBoundsAircraftWreckages();
         stageModel.Update(deltaTime, enemies.Count, SpawnNormalEnemy, SpawnSpecialEnemy);
         rewardModel.UpdateNaturalSupply(deltaTime, SpawnNaturalReward);
         UpdateRewards();
@@ -496,18 +516,15 @@ public sealed class BattleModel {
     }
 
     /**创建、登记并配置一架敌机逻辑对象*/
-    private AircraftVO CreateEnemy(EnemyConfigVO config, Vector2 position,
+    private EnemyAircraftVO CreateEnemy(EnemyConfigVO config, Vector2 position,
         EnemyMotionType motionType = EnemyMotionType.STATIONARY,
         int formationIndex = 0, int formationCount = 1,
         float motionDirection = 1f, EnemyFormationPathVO formationPath = null, EnemyWaveVO specialMotion = null) {
-        AircraftVO enemy = new AircraftVO(CreateElementId(), position, config.enemyClass,
-            config.displaySize, config.collision, config.baseHealth, motionType,
-            config.moveSpeed, config.score, formationIndex, formationCount, motionDirection,
-            config.appearancePath, formationPath: formationPath, specialMotion: specialMotion);
+        EnemyAircraftVO enemy = new EnemyAircraftVO(CreateElementId(), position, config.enemyClass, config.displaySize, config.collision, config.baseAttributes, motionType, config.score, formationIndex, formationCount, motionDirection, config.appearancePath, config.damagedAppearancePath, formationPath: formationPath, specialMotion: specialMotion);
         foreach (BulletLauncherConfigVO launcher in config.bulletLaunchers) {
             enemy.bulletLaunchers.Add(new BulletLauncherVO(launcher, RaidenControl.ins.model.GetBulletConfig));
         }
-        enemy.ConfigureDeathPresentation(config.deathExplosions, config.removeAfterDeathPresentation);
+        enemy.ConfigureFirePoints(config.aircraftSizeType, config.collision);
         enemy.ConfigureFiring(CreateProjectile);
         enemies.Add(enemy);
         AddElement(enemy);
@@ -516,8 +533,11 @@ public sealed class BattleModel {
     }
 
     /**按当前僚机配置创建一个无碰撞的玩家阵营飞行单位。*/
-    private AircraftVO CreateWingman(WingmanConfigVO config, int slotIndex, Vector2 position) {
-        AircraftVO wingman = CreatePlayerAircraft($"wingmanEntity{slotIndex + 1}", false, position);
+    private WingmanUnitVO CreateWingman(WingmanConfigVO config, int slotIndex, Vector2 position) {
+        WingmanUnitVO wingman = new WingmanUnitVO(CreateElementId(), $"wingmanEntity{slotIndex + 1}", position);
+        AddElement(wingman);
+        wingman.ConfigureAppearance(config.appearancePath, config.damagedAppearancePath);
+        wingman.ApplyBaseAttributes(config.baseAttributes);
         foreach (BulletLauncherConfigVO launcher in config.bulletLaunchers) {
             wingman.bulletLaunchers.Add(new BulletLauncherVO(launcher, RaidenControl.ins.model.GetBulletConfig, bulletAdditionalLevel));
         }
@@ -541,6 +561,19 @@ public sealed class BattleModel {
         enemyProjectiles.Add(projectile);
         AddElement(projectile);
         enemyProjectileSpawned?.Invoke(projectile);
+    }
+
+    /**移除已经随地面层完全离开回收范围的残骸*/
+    private void RemoveOutOfBoundsAircraftWreckages() {
+        for (int index = aircraftWreckages.Count - 1; index >= 0; index--) {
+            AircraftWreckageVO wreckage = aircraftWreckages[index];
+            if (wreckage.position.y >= -BattleConst.BattleViewportHeight - BattleAircraftDeathConst.WreckageRecycleDistance) {
+                continue;
+            }
+            aircraftWreckages.RemoveAt(index);
+            RemoveElement(wreckage.id);
+            aircraftWreckageRemoved?.Invoke(wreckage.id);
+        }
     }
 
     /**移除已经飞出战斗区域的玩家子弹*/
@@ -568,7 +601,7 @@ public sealed class BattleModel {
     /**离场阶段完整离开顶部或侧边后结算逃离，避免把屏外入场误判为离场。*/
     private void RemoveOutOfBoundsEnemies() {
         for (int i = enemies.Count - 1; i >= 0; i--) {
-            AircraftVO enemy = enemies[i];
+            EnemyAircraftVO enemy = enemies[i];
             if (enemy.enemyClass != EnemyClass.NORMAL ||
                 !enemy.isLeavingFormation) {
                 continue;
@@ -585,9 +618,9 @@ public sealed class BattleModel {
 
     /**查找当前战斗视窗内距离最近的敌机*/
     private AircraftVO FindNearestVisibleEnemy(Vector2 position) {
-        AircraftVO nearest = null;
+        EnemyAircraftVO nearest = null;
         float nearestDistance = float.MaxValue;
-        foreach (AircraftVO enemy in enemies) {
+        foreach (EnemyAircraftVO enemy in enemies) {
             if (enemy.health <= 0 || !IsEnemyInsideBattleViewport(enemy)) {
                 continue;
             }
@@ -602,7 +635,7 @@ public sealed class BattleModel {
 
     /**追踪只接受仍存活且可见的敌方目标，死亡表现期间不再锁定*/
     private bool IsEnemyTrackingTargetAvailable(AircraftVO target) {
-        return target != null && target.health > 0 && enemies.Contains(target) && IsEnemyInsideBattleViewport(target);
+        return target is EnemyAircraftVO enemy && enemy.health > 0 && enemies.Contains(enemy) && IsEnemyInsideBattleViewport(enemy);
     }
 
     /**敌方追踪子弹查询可被攻击的玩家主机；僚机当前没有碰撞受击职责*/
@@ -612,11 +645,11 @@ public sealed class BattleModel {
 
     /**玩家死亡或重新入场时不作为有效追踪目标；无敌闪烁不改变目标归属*/
     private bool IsPlayerTrackingTargetAvailable(AircraftVO target) {
-        return target != null && target == playerUnit && !target.destroyed && target.health > 0 && target.lifecycleState == PlayerLifecycleState.Alive && target.position.x >= 0f && target.position.x <= BattleConst.BattleViewportWidth && target.position.y <= 0f && target.position.y >= -BattleConst.BattleViewportHeight;
+        return target is PlayerAircraftUnitVO player && player == playerUnit && !player.destroyed && player.health > 0 && player.lifecycleState == PlayerLifecycleState.Alive && player.position.x >= 0f && player.position.x <= BattleConst.BattleViewportWidth && player.position.y <= 0f && player.position.y >= -BattleConst.BattleViewportHeight;
     }
 
     /**判断敌机形象范围是否仍与战斗视窗重叠*/
-    private static bool IsEnemyInsideBattleViewport(AircraftVO enemy) {
+    private static bool IsEnemyInsideBattleViewport(EnemyAircraftVO enemy) {
         if (enemy == null || enemy.destroyed) {
             return false;
         }
@@ -634,17 +667,32 @@ public sealed class BattleModel {
 
     /**玩家死亡时清空僚机逻辑对象，再通知表现层播放死亡流程。*/
     private void OnPlayerDefeatStarted() {
+        playerUnit.BeginDeathPresentation(AircraftDeathType.DISINTEGRATE);
         formationModel.ClearWingmen(id => RemoveElement(id));
         playerDefeatStarted?.Invoke();
     }
 
+    /**坠落飞机抵达地面时生成残骸并结束飞机逻辑生命周期*/
+    private void OnEnemyLanded(AircraftVO aircraft) {
+        if (!(aircraft is EnemyAircraftVO enemy) || enemy.destroyed) {
+            return;
+        }
+        enemy.landed -= OnEnemyLanded;
+        string hitHoleName = BattleAircraftDeathConst.GetRandom(BattleAircraftDeathConst.GetHitHoleResourceNames(enemy.aircraftSizeType), deathRandom, $"{enemy.aircraftSizeType}撞击坑资源");
+        AircraftWreckageVO wreckage = new AircraftWreckageVO(CreateElementId(), enemy.position, BattleConst.GetRaidenUnpackImagePath(hitHoleName), enemy.damagedAppearancePath, enemy.size, enemy.rotation, groundScrollSpeed);
+        aircraftWreckages.Add(wreckage);
+        AddElement(wreckage);
+        aircraftWreckageSpawned?.Invoke(wreckage);
+        RemoveElement(enemy.id);
+    }
+
     /**结算精英或 Boss 的击毁结果*/
-    private void ResolveSpecialEnemy(AircraftVO enemy, bool defeated) {
+    private void ResolveSpecialEnemy(EnemyAircraftVO enemy, bool defeated) {
         if (!defeated) {
             return;
         }
         AddScore(enemy.scoreValue);
-        foreach (AircraftVO remainingEnemy in enemies) {
+        foreach (EnemyAircraftVO remainingEnemy in enemies) {
             if (remainingEnemy.showsSharedHealth) {
                 return;
             }

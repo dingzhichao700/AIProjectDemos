@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,16 +20,17 @@ internal sealed class BattleCompositionRoot {
 
     public BattleCompositionRoot(BattleModel model, BattleConfigProvider configProvider, BattlePlayerConfigCoordinator playerConfig, BattleTimerPauseController timerPauseController, BattleVisualPool visualPool, BattleEntityViewManager entityViews, RectTransform backgroundLayer, RectTransform backgroundHighLayer, RectTransform entityLayer, RectTransform projectileLayer, RectTransform effectLayer, Image progressFill, TextMeshProUGUI lifeText, TextMeshProUGUI scoreText, RectTransform bossHealthRoot, Image bossHealthFill, TextMeshProUGUI bossHealthText, Action<Vector2> setPlayerPosition, Action<int> applyPlayerLevel, Action<bool> completeBattle) {
         effectPresenter = new BattleEffectPresenter(effectLayer);
+        BattleAircraftFirePresenter aircraftFires = new BattleAircraftFirePresenter(effectPresenter);
         BattleAircraftDeathPresenter aircraftDeaths = new BattleAircraftDeathPresenter(effectPresenter, visualPool);
         hudPresenter = new BattleHudPresenter(progressFill, lifeText, scoreText, bossHealthRoot, bossHealthFill, bossHealthText);
-        formationPresenter = new BattleFormationPresenter(entityLayer, model, visualPool, entityViews);
+        formationPresenter = new BattleFormationPresenter(entityLayer, model, visualPool, entityViews, aircraftFires);
         playerPresenter = new BattlePlayerPresenter(formationPresenter.GetView, formationPresenter.GetVisual, formationPresenter.SyncUnit, () => formationPresenter.wingmen, applyPlayerLevel, model.SetPlayerUpgradeBlocked, model.SetPlayerFiringEnabled, effectPresenter);
         inputPresenter = new BattlePlayerInputPresenter(entityLayer, model.GetPlayerPosition, setPlayerPosition);
         navigationCoordinator = new BattleNavigationCoordinator(model, timerPauseController);
-        scenePresenter = new BattleScenePresenter(entityLayer, projectileLayer, bossHealthRoot, bossHealthFill, visualPool, entityViews, effectPresenter, aircraftDeaths, hudPresenter);
-        backgroundPresenter = new BattleBackgroundPresenter(backgroundLayer, backgroundHighLayer);
-        eventPresenter = new BattleEventPresenter(model, scenePresenter, backgroundPresenter, effectPresenter, aircraftDeaths, hudPresenter, playerPresenter, formationPresenter, inputPresenter, playerConfig, applyPlayerLevel, completeBattle);
+        scenePresenter = new BattleScenePresenter(entityLayer, projectileLayer, bossHealthRoot, bossHealthFill, visualPool, entityViews, effectPresenter, aircraftDeaths, hudPresenter, aircraftFires);
+        backgroundPresenter = new BattleBackgroundPresenter(backgroundLayer, backgroundHighLayer, visualPool);
+        eventPresenter = new BattleEventPresenter(model, scenePresenter, backgroundPresenter, effectPresenter, aircraftDeaths, hudPresenter, playerPresenter, formationPresenter, inputPresenter, playerConfig, applyPlayerLevel, completeBattle, aircraftFires);
         setupCoordinator = new BattleSetupCoordinator(model, configProvider, playerConfig, formationPresenter, playerPresenter, backgroundPresenter, hudPresenter, visualPool, entityLayer, projectileLayer);
-        lifecycleCoordinator = new BattleLifecycleCoordinator(model, scenePresenter, playerPresenter, backgroundPresenter, aircraftDeaths, entityViews, visualPool);
+        lifecycleCoordinator = new BattleLifecycleCoordinator(model, scenePresenter, playerPresenter, backgroundPresenter, aircraftDeaths, entityViews, visualPool, aircraftFires);
     }
 }

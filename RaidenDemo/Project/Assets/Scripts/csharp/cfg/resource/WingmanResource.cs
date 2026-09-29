@@ -24,7 +24,6 @@ public sealed partial class WingmanResource : Luban.BeanBase
         { if(!_buf["maxCount"].IsNumber) { throw new SerializationException(); }  MaxCount = _buf["maxCount"]; }
         { if(!_buf["formationType"].IsNumber) { throw new SerializationException(); }  FormationType = (WingmanFormationType)_buf["formationType"].AsInt; }
         { var __json0 = _buf["formationOffsets"]; if(!__json0.IsArray) { throw new SerializationException(); } FormationOffsets = new System.Collections.Generic.List<vector2>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { vector2 __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = global::cfg.vector2.Deserializevector2(__e0);  }  FormationOffsets.Add(__v0); }   }
-        { if(!_buf["followSpeed"].IsNumber) { throw new SerializationException(); }  FollowSpeed = _buf["followSpeed"]; }
         { if(!_buf["unit"].IsObject) { throw new SerializationException(); }  Unit = global::cfg.FlyingUnit.DeserializeFlyingUnit(_buf["unit"]);  }
     }
 
@@ -62,10 +61,6 @@ public sealed partial class WingmanResource : Luban.BeanBase
     /// </summary>
     public readonly System.Collections.Generic.List<vector2> FormationOffsets;
     /// <summary>
-    /// 跟随速度
-    /// </summary>
-    public readonly float FollowSpeed;
-    /// <summary>
     /// 飞行单位
     /// </summary>
     public readonly FlyingUnit Unit;
@@ -88,7 +83,6 @@ public sealed partial class WingmanResource : Luban.BeanBase
         + "maxCount:" + MaxCount + ","
         + "formationType:" + FormationType + ","
         + "formationOffsets:" + Luban.StringUtil.CollectionToString(FormationOffsets) + ","
-        + "followSpeed:" + FollowSpeed + ","
         + "unit:" + Unit + ","
         + "}";
     }

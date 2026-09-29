@@ -9,12 +9,12 @@ using UnityEngine;
 /// 管理玩家主机、僚机编队、玩家碰撞形状和本局剩余生命。
 /// </remarks>
 internal sealed class BattleFormationModel {
-    private readonly List<AircraftVO> wingmanUnits = new List<AircraftVO>();
+    private readonly List<WingmanUnitVO> wingmanUnits = new List<WingmanUnitVO>();
     private WingmanConfigVO wingmanConfig;
     private bool firingEnabled;
 
-    public AircraftVO player { get; private set; }
-    public IReadOnlyList<AircraftVO> wingmen => wingmanUnits;
+    public PlayerAircraftUnitVO player { get; private set; }
+    public IReadOnlyList<WingmanUnitVO> wingmen => wingmanUnits;
     public AircraftCollisionVO playerCollision { get; private set; }
     public int playerLives { get; private set; }
     public bool isPlayerAlive => player != null && player.lifecycleState == PlayerLifecycleState.Alive;
@@ -26,7 +26,7 @@ internal sealed class BattleFormationModel {
         firingEnabled = false;
     }
 
-    public void SetPlayer(AircraftVO unit) {
+    public void SetPlayer(PlayerAircraftUnitVO unit) {
         player = unit;
     }
 
@@ -35,15 +35,15 @@ internal sealed class BattleFormationModel {
     }
 
     /**数量未满时创建下一槽位僚机；满员后不再变化。*/
-    public AircraftVO ApplyWingmanReward(Func<WingmanConfigVO, int, Vector2, AircraftVO> createUnit, out bool created) {
+    public WingmanUnitVO ApplyWingmanReward(Func<WingmanConfigVO, int, Vector2, WingmanUnitVO> createUnit, out bool created) {
         created = false;
         if (player == null || wingmanConfig == null || wingmanUnits.Count >= wingmanConfig.maxCount) {
             return null;
         }
         int slotIndex = wingmanUnits.Count;
         Vector2 offset = wingmanConfig.formationOffsets[slotIndex];
-        AircraftVO wingman = createUnit(wingmanConfig, slotIndex, player.position + offset);
-        wingman.ConfigureFollow(player, offset, wingmanConfig.followSpeed);
+        WingmanUnitVO wingman = createUnit(wingmanConfig, slotIndex, player.position + offset);
+        wingman.ConfigureFollow(player, offset);
         wingman.SetFiringEnabled(firingEnabled);
         wingmanUnits.Add(wingman);
         created = true;
@@ -58,18 +58,18 @@ internal sealed class BattleFormationModel {
     public void SetFiringEnabled(bool enabled) {
         firingEnabled = enabled;
         player?.SetFiringEnabled(enabled);
-        foreach (AircraftVO wingman in wingmanUnits) wingman.SetFiringEnabled(enabled);
+        foreach (WingmanUnitVO wingman in wingmanUnits) wingman.SetFiringEnabled(enabled);
     }
 
     /**重置玩家飞机和全部僚机的发射节奏。*/
     public void ResetLaunchers() {
         player?.ResetLaunchers();
-        foreach (AircraftVO wingman in wingmanUnits) wingman.ResetLaunchers();
+        foreach (WingmanUnitVO wingman in wingmanUnits) wingman.ResetLaunchers();
     }
 
     /**玩家死亡时移除全部僚机，下一次需重新拾取。*/
     public void ClearWingmen(Action<long> removeElement) {
-        foreach (AircraftVO wingman in wingmanUnits) removeElement?.Invoke(wingman.id);
+        foreach (WingmanUnitVO wingman in wingmanUnits) removeElement?.Invoke(wingman.id);
         wingmanUnits.Clear();
     }
 

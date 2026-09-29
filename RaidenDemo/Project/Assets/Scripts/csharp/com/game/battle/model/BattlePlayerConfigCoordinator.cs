@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 /// <summary>
@@ -56,14 +56,15 @@ internal sealed class BattlePlayerConfigCoordinator {
         return Mathf.Clamp(configProvider.defaultAircraftLevel, 1, maxLevel);
     }
 
-    /**将当前等级的碰撞、血量和发射器应用到逻辑对象。*/
-    public void ApplyBattleStats(BattleModel model, AircraftVO player) {
+    /**将当前等级的碰撞、属性、体型和发射器应用到逻辑对象*/
+    public void ApplyBattleStats(BattleModel model, PlayerAircraftUnitVO player) {
         if (current == null || player == null) {
             return;
         }
         model.SetPlayerCollision(current.collision);
-        player.ApplyPlayerAircraftStats(current.baseHealth);
-        player.ConfigureDeathPresentation(current.deathExplosions, current.removeAfterDeathPresentation);
+        player.ConfigureAppearance(current.appearancePath, current.damagedAppearancePath);
+        player.ApplyBaseAttributes(current.baseAttributes);
+        player.ConfigureFirePoints(current.aircraftSizeType, current.collision);
         model.ConfigurePlayerLaunchers(current.bulletLaunchers);
     }
 

@@ -35,9 +35,12 @@ public class BattlePanel : BasePanel {
     /**战斗图片表现对象池*/
     private readonly BattleVisualPool visualPool = new BattleVisualPool();
 
+    /**三类战斗 Timer 的调试倍率控制器*/
+    private readonly BattleTimerDebugController timerDebugController =
+        new BattleTimerDebugController();
+
     /**三类战斗 Timer 的暂停与倍率恢复控制器*/
-    private readonly BattleTimerPauseController timerPauseController =
-        new BattleTimerPauseController();
+    private readonly BattleTimerPauseController timerPauseController;
 
     /**战斗配置统一查询入口*/
     private readonly BattleConfigProvider configProvider = new BattleConfigProvider();
@@ -60,7 +63,7 @@ public class BattlePanel : BasePanel {
     /**当前关卡 ID*/
     private int stageId;
 
-    private AircraftVO playerUnit => formationPresenter?.player;
+    private PlayerAircraftUnitVO playerUnit => formationPresenter?.player;
 
     /**战斗是否处于正常运行状态*/
     public bool isBattlePlaying => battleModel.isPlaying;
@@ -77,13 +80,14 @@ public class BattlePanel : BasePanel {
 
     public BattlePanel() {
         layer = PanelLayer.SCALE_PANEL_FIRST;
+        timerPauseController = new BattleTimerPauseController(timerDebugController);
     }
 
     /**初始化单局战斗并启动时间流*/
     public override void OnOpen() {
         playerConfigCoordinator ??= new BattlePlayerConfigCoordinator(configProvider);
         composition ??= new BattleCompositionRoot(battleModel, configProvider, playerConfigCoordinator, timerPauseController, visualPool, entityViews, backgroundLayer, backgroundHighLayer, entityLayer, projectileLayer, effectLayer, imgMissionProgressFill, txtPlayerLife, txtScore, barBossHealth, imgBossHealthFill, txtBossHealth, SetPlayerPosition, ApplyPlayerAircraftLevel, CompleteBattle);
-        lifecycleCoordinator.ResetForOpen(eventPresenter.Unbind, RemoveLis, timerPauseController.Resume, ClearRuntimeLayers, ResetPanelReferences);
+        lifecycleCoordinator.ResetForOpen(eventPresenter.Unbind, RemoveLis, timerPauseController.Reset, ClearRuntimeLayers, ResetPanelReferences);
         stageId = ReadStageId();
         btnSkill.gameObject.SetActive(false);
         btnUpgrade.gameObject.SetActive(false);
@@ -95,7 +99,7 @@ public class BattlePanel : BasePanel {
 
     /**停止时间流并清理本局表现对象*/
     public override void OnClose() {
-        lifecycleCoordinator.Shutdown(eventPresenter.Unbind, RemoveLis, timerPauseController.Resume, ClearRuntimeLayers, ResetPanelReferences);
+        lifecycleCoordinator.Shutdown(eventPresenter.Unbind, RemoveLis, timerPauseController.Reset, ClearRuntimeLayers, ResetPanelReferences);
     }
 
     private int ReadStageId() {
@@ -107,10 +111,20 @@ public class BattlePanel : BasePanel {
 
     private void AddLis() {
         OnClick(btnPause.gameObject, OnPause);
+        KeyBoardControl.ins.OnKeyDown(KeyCode.Minus, timerDebugController.DecreaseScale);
+        KeyBoardControl.ins.OnKeyDown(KeyCode.KeypadMinus, timerDebugController.DecreaseScale);
+        KeyBoardControl.ins.OnKeyDown(KeyCode.Equals, timerDebugController.IncreaseScale);
+        KeyBoardControl.ins.OnKeyDown(KeyCode.KeypadPlus, timerDebugController.IncreaseScale);
+        KeyBoardControl.ins.OnKeyDown(KeyCode.U, timerDebugController.TogglePause);
     }
 
     private void RemoveLis() {
         OffClick(btnPause.gameObject, OnPause);
+        KeyBoardControl.ins.OffKeyDown(KeyCode.Minus, timerDebugController.DecreaseScale);
+        KeyBoardControl.ins.OffKeyDown(KeyCode.KeypadMinus, timerDebugController.DecreaseScale);
+        KeyBoardControl.ins.OffKeyDown(KeyCode.Equals, timerDebugController.IncreaseScale);
+        KeyBoardControl.ins.OffKeyDown(KeyCode.KeypadPlus, timerDebugController.IncreaseScale);
+        KeyBoardControl.ins.OffKeyDown(KeyCode.U, timerDebugController.TogglePause);
     }
 
 

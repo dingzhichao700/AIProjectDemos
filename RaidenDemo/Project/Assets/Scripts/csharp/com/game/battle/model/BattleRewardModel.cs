@@ -71,7 +71,7 @@ internal sealed class BattleRewardModel {
         naturalSupplyCount++;
     }
 
-    public void Update(AircraftVO player, bool playerAlive, AircraftCollisionVO collision, Func<RewardVO, bool> remove, Action<int> addLife, Action playerChanged, Action<RewardVO, int> collected) {
+    public void Update(PlayerAircraftUnitVO player, bool playerAlive, AircraftCollisionVO collision, Func<RewardVO, bool> remove, Action<int> addLife, Action playerChanged, Action<RewardVO, int> collected) {
         for (int i = rewards.Count - 1; i >= 0; i--) {
             RewardVO reward = rewards[i];
             if (!reward.isCollected && reward.IsOutsideViewport()) {

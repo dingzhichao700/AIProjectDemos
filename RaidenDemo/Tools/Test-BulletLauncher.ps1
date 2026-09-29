@@ -1,4 +1,4 @@
-param([string]$ProjectPath = (Join-Path $PSScriptRoot '../Project'))
+﻿param([string]$ProjectPath = (Join-Path $PSScriptRoot '../Project'))
 
 $ErrorActionPreference = 'Stop'
 $taskProject = (Resolve-Path -LiteralPath $ProjectPath).Path
@@ -22,7 +22,7 @@ Push-Location $taskProject
 try {
     $taskCompileLines += @(rg --files Assets/Scripts -g '*.cs' | ForEach-Object { '"' + $_.Replace('\', '/') + '"' })
     if ($LASTEXITCODE -ne 0) { throw '读取当前源码清单失败。' }
-    $taskCompileLines += '"' + (Join-Path $PSScriptRoot 'BulletLauncherRegression.cs') + '"'
+    $taskCompileLines += '"' + (Join-Path $PSScriptRoot 'Tests/BulletLauncherRegression.cs') + '"'
     $taskCompileLines += '-target:exe', '-main:BulletLauncherRegression', ('-out:"' + (Join-Path $taskOutput 'LauncherTests.exe') + '"')
     $taskRsp = Join-Path $taskOutput 'tests.rsp'
     [System.IO.File]::WriteAllLines($taskRsp, $taskCompileLines)
@@ -31,7 +31,7 @@ try {
     $taskPreviousMonoPath = $env:MONO_PATH
     try {
         $env:MONO_PATH = "$taskEditor/Data/Managed/UnityEngine;$taskEditor/Data/Managed;$taskProject/Library/ScriptAssemblies"
-        & (Join-Path $taskEditor 'Data/MonoBleedingEdge/bin/mono.exe') (Join-Path $taskOutput 'LauncherTests.exe')
+        & (Join-Path $taskEditor 'Data/MonoBleedingEdge/bin/mono.exe') (Join-Path $taskOutput 'LauncherTests.exe') (Join-Path $taskProject 'Assets/ConfigBin')
         if ($LASTEXITCODE -ne 0) { throw '发射器回归断言失败。' }
     } finally {
         $env:MONO_PATH = $taskPreviousMonoPath

@@ -21,12 +21,11 @@ public sealed partial class FlyingUnit : Luban.BeanBase
     public FlyingUnit(JSONNode _buf) 
     {
         { if(!_buf["appearanceName"].IsString) { throw new SerializationException(); }  AppearanceName = _buf["appearanceName"]; }
+        { if(!_buf["damagedAppearance"].IsString) { throw new SerializationException(); }  DamagedAppearance = _buf["damagedAppearance"]; }
+        { if(!_buf["aircraftSizeType"].IsNumber) { throw new SerializationException(); }  AircraftSizeType = (AircraftSizeType)_buf["aircraftSizeType"].AsInt; }
         { var __json0 = _buf["collisionShapes"]; if(!__json0.IsArray) { throw new SerializationException(); } CollisionShapes = new System.Collections.Generic.List<Shape>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { Shape __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = global::cfg.Shape.DeserializeShape(__e0);  }  CollisionShapes.Add(__v0); }   }
-        { if(!_buf["health"].IsNumber) { throw new SerializationException(); }  Health = _buf["health"]; }
-        { if(!_buf["moveSpeed"].IsNumber) { throw new SerializationException(); }  MoveSpeed = _buf["moveSpeed"]; }
+        { var __json0 = _buf["attributes"]; if(!__json0.IsArray) { throw new SerializationException(); } Attributes = new System.Collections.Generic.List<AttributeValue>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { AttributeValue __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = global::cfg.AttributeValue.DeserializeAttributeValue(__e0);  }  Attributes.Add(__v0); }   }
         { var __json0 = _buf["bulletLaunchers"]; if(!__json0.IsArray) { throw new SerializationException(); } BulletLaunchers = new System.Collections.Generic.List<BulletLauncher>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { BulletLauncher __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = global::cfg.BulletLauncher.DeserializeBulletLauncher(__e0);  }  BulletLaunchers.Add(__v0); }   }
-        { var __json0 = _buf["deathExplosions"]; if(!__json0.IsArray) { throw new SerializationException(); } DeathExplosions = new System.Collections.Generic.List<ExplosionEffect>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { ExplosionEffect __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = global::cfg.ExplosionEffect.DeserializeExplosionEffect(__e0);  }  DeathExplosions.Add(__v0); }   }
-        { if(!_buf["removeAfterDeathPresentation"].IsBoolean) { throw new SerializationException(); }  RemoveAfterDeathPresentation = _buf["removeAfterDeathPresentation"]; }
     }
 
     public static FlyingUnit DeserializeFlyingUnit(JSONNode _buf)
@@ -39,29 +38,25 @@ public sealed partial class FlyingUnit : Luban.BeanBase
     /// </summary>
     public readonly string AppearanceName;
     /// <summary>
+    /// 战损外观资源名
+    /// </summary>
+    public readonly string DamagedAppearance;
+    /// <summary>
+    /// 飞行单位的体型
+    /// </summary>
+    public readonly AircraftSizeType AircraftSizeType;
+    /// <summary>
     /// 飞行单位的碰撞形状列表
     /// </summary>
     public readonly System.Collections.Generic.List<Shape> CollisionShapes;
     /// <summary>
-    /// 生命值
+    /// 飞行单位的基础属性列表
     /// </summary>
-    public readonly int Health;
-    /// <summary>
-    /// 移动速度
-    /// </summary>
-    public readonly float MoveSpeed;
+    public readonly System.Collections.Generic.List<AttributeValue> Attributes;
     /// <summary>
     /// 子弹发射器列表
     /// </summary>
     public readonly System.Collections.Generic.List<BulletLauncher> BulletLaunchers;
-    /// <summary>
-    /// 死亡前依次播放的爆炸效果列表
-    /// </summary>
-    public readonly System.Collections.Generic.List<ExplosionEffect> DeathExplosions;
-    /// <summary>
-    /// 所有爆炸效果播放完成后是否移除飞行单位自身
-    /// </summary>
-    public readonly bool RemoveAfterDeathPresentation;
    
     public const int __ID__ = -430367533;
     public override int GetTypeId() => __ID__;
@@ -69,20 +64,19 @@ public sealed partial class FlyingUnit : Luban.BeanBase
     public  void ResolveRef(Tables tables)
     {
         foreach (var _e in CollisionShapes) { _e?.ResolveRef(tables); }
+        foreach (var _e in Attributes) { _e?.ResolveRef(tables); }
         foreach (var _e in BulletLaunchers) { _e?.ResolveRef(tables); }
-        foreach (var _e in DeathExplosions) { _e?.ResolveRef(tables); }
     }
 
     public override string ToString()
     {
         return "{ "
         + "appearanceName:" + AppearanceName + ","
+        + "damagedAppearance:" + DamagedAppearance + ","
+        + "aircraftSizeType:" + AircraftSizeType + ","
         + "collisionShapes:" + Luban.StringUtil.CollectionToString(CollisionShapes) + ","
-        + "health:" + Health + ","
-        + "moveSpeed:" + MoveSpeed + ","
+        + "attributes:" + Luban.StringUtil.CollectionToString(Attributes) + ","
         + "bulletLaunchers:" + Luban.StringUtil.CollectionToString(BulletLaunchers) + ","
-        + "deathExplosions:" + Luban.StringUtil.CollectionToString(DeathExplosions) + ","
-        + "removeAfterDeathPresentation:" + RemoveAfterDeathPresentation + ","
         + "}";
     }
 }

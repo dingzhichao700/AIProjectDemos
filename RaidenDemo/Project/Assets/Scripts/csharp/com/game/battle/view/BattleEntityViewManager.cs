@@ -57,10 +57,10 @@ internal sealed class BattleEntityViewManager {
         eliteHealthBars.Clear();
         enemyProjectiles.Clear();
         foreach (FrameAnimationView effect in rewardEffects.Values) {
-            effect?.Destroy();
+            effect?.Recover();
         }
         rewardEffects.Clear();
-        foreach (FrameAnimationView effect in projectileEffects.Values) effect?.Destroy();
+        foreach (FrameAnimationView effect in projectileEffects.Values) effect?.Recover();
         projectileEffects.Clear();
         rewards.Clear();
     }
