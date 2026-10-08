@@ -8,7 +8,7 @@ using UnityEngine;
 
 /// <summary>在编辑器内验证真实 Transform 的固定层级及死亡回收。</summary>
 public static class RaidenBattleViewChecks {
-    private static readonly Assembly Game = typeof(BattleConst).Assembly;
+    private static readonly Assembly Game = Assembly.Load("Main");
 
     [MenuItem("Tools/Raiden/Check battle view lifecycle %#F9")]
     public static void Run() {
@@ -60,7 +60,10 @@ public static class RaidenBattleViewChecks {
     private static object Enemy(bool retain) {
         Type type = Game.GetType("EnemyAircraftVO");
         var constructor = type.GetConstructors().Single(c => c.GetParameters().Any(p => p.Name == "enemyClass"));
-        object[] args = constructor.GetParameters().Select(p => p.Name == "enemyClass" ? (object)(retain ? cfg.EnemyClass.BOSS : cfg.EnemyClass.NORMAL) : p.Name == "baseAttributes" ? new Dictionary<cfg.AttributeType, int> { { cfg.AttributeType.MAX_LIFE, 100 } } : p.HasDefaultValue ? p.DefaultValue : p.ParameterType.IsValueType ? Activator.CreateInstance(p.ParameterType) : null).ToArray();
+        Type attributeType = Game.GetType("cfg.AttributeType", true);
+        IDictionary attributes = (IDictionary)Activator.CreateInstance(typeof(Dictionary<,>).MakeGenericType(attributeType, typeof(int)));
+        attributes.Add(Enum.Parse(attributeType, "MAX_LIFE"), 100);
+        object[] args = constructor.GetParameters().Select(p => p.Name == "enemyClass" ? Enum.Parse(p.ParameterType, retain ? "BOSS" : "NORMAL") : p.Name == "baseAttributes" ? attributes : p.HasDefaultValue ? p.DefaultValue : p.ParameterType.IsValueType ? Activator.CreateInstance(p.ParameterType) : null).ToArray();
         return constructor.Invoke(args);
     }
 

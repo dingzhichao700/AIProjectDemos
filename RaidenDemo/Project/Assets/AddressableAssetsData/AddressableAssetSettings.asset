@@ -15,9 +15,9 @@ MonoBehaviour:
   m_DefaultGroup: 94cf66f1d78353f4d9db978ed4aa4477
   m_currentHash:
     serializedVersion: 2
-    Hash: 5c0685c28de2408b7af7f2b0105a738d
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
-  m_BuildRemoteCatalog: 0
+  m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
   m_CatalogRequestsTimeout: 0
   m_DisableCatalogUpdateOnStart: 0
@@ -44,10 +44,15 @@ MonoBehaviour:
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
+  - {fileID: 11400000, guid: efc82440443bf8141a4c29ac10be1e21, type: 2}
+  - {fileID: 11400000, guid: ca3596195bb2ac043b658a4150c15474, type: 2}
   - {fileID: 11400000, guid: 8d4e93c5c373efe4d950e6a837dbbf77, type: 2}
+  - {fileID: 11400000, guid: 22c2c15ddd9986b46be3a29018b982a0, type: 2}
   - {fileID: 11400000, guid: f2d2b03ba253ca54c95e4ca2679455cc, type: 2}
   - {fileID: 11400000, guid: a67023a3945d2da439dd82693b87d01b, type: 2}
   - {fileID: 11400000, guid: d7b665214c799b54d937b86c511bfc1b, type: 2}
+  - {fileID: 11400000, guid: ea5715428383e5f4db06c0a4fad4e7e5, type: 2}
+  - {fileID: 11400000, guid: 7c9dec1cef841ed48a8cfc1d22799995, type: 2}
   - {fileID: 11400000, guid: 29e3eb3e3913a13478b5644d1d10126b, type: 2}
   - {fileID: 11400000, guid: 0efbc31254e8b5443843cb7badc7f353, type: 2}
   m_BuildSettings:
@@ -57,7 +62,7 @@ MonoBehaviour:
     m_BundleBuildPath: Temp/com.unity.addressables/AssetBundles
   m_ProfileSettings:
     m_Profiles:
-    - m_InheritedParent:
+    - m_InheritedParent: 
       m_Id: de5898d85722c8346ab2c4039455ae5c
       m_ProfileName: Default
       m_Values:
@@ -71,12 +76,26 @@ MonoBehaviour:
         m_Value: ServerData/[BuildTarget]
       - m_Id: f79c9d28770aa30438e9e8fbb386be60
         m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
-    - m_InheritedParent:
+    - m_InheritedParent: 
       m_Id: 2031999f41dbe194cb46a154e2c7f900
       m_ProfileName: WindowsRemoteTest
       m_Values:
       - m_Id: 0fb5e1eb508ebeb4280fb9068d2f2d4b
         m_Value: http://127.0.0.1:8081/[BuildTarget]
+      - m_Id: 6517023d4cf11064593287dbcab46f7e
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: a833dda2946e2ee4b8d24873fd57ed7d
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: cc3bb5b7d46361d49b9222bf65cbc7f1
+        m_Value: ServerData/[BuildTarget]
+      - m_Id: f79c9d28770aa30438e9e8fbb386be60
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+    - m_InheritedParent: 
+      m_Id: b5ddbeeacf24bb2428e70296fa738bfd
+      m_ProfileName: Wechat
+      m_Values:
+      - m_Id: 0fb5e1eb508ebeb4280fb9068d2f2d4b
+        m_Value: http://raiden-content.invalid
       - m_Id: 6517023d4cf11064593287dbcab46f7e
         m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
       - m_Id: a833dda2946e2ee4b8d24873fd57ed7d
@@ -105,6 +124,7 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
+    - main-content
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 846c504947d61dc4c8a55ea585b561a7, type: 2}
@@ -118,7 +138,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b848dbf37df68fa449bd453f8de2c5dd, type: 2}
   - {fileID: 11400000, guid: 70cbb011689e91a45bf58dfa1a327f9c, type: 2}
   - {fileID: 11400000, guid: 4f0334bdacaf8f64489d68494f591ad1, type: 2}
-  m_ActiveProfileId: de5898d85722c8346ab2c4039455ae5c
+  m_ActiveProfileId: b5ddbeeacf24bb2428e70296fa738bfd
   m_HostingServicesManager:
     m_HostingServiceInfos: []
     m_Settings: {fileID: 11400000}

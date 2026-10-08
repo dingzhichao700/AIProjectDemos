@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625d42892ede9214cb55b6772a116166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csharpAssetPath: Assets/Scripts/csharp/com/game/raiden/view/HangarAircraftItem.cs
+  csharpAssetPath: Assets/Scripts/csharp/main/raiden/view/HangarAircraftItem.cs
   csharpAsset: Assets/Scripts/csharp/com/game/raiden/view/HangarAircraftItem.cs
   uiList:
   - id: 1
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625d42892ede9214cb55b6772a116166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csharpAssetPath: Assets/Scripts/csharp/com/game/raiden/view/HangarAircraftItem.cs
+  csharpAssetPath: Assets/Scripts/csharp/main/raiden/view/HangarAircraftItem.cs
   csharpAsset: Assets/Scripts/csharp/com/game/raiden/view/HangarAircraftItem.cs
   uiList:
   - id: 1
@@ -1394,7 +1394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625d42892ede9214cb55b6772a116166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csharpAssetPath: Assets/Scripts/csharp/com/game/raiden/view/HangarAircraftItem.cs
+  csharpAssetPath: Assets/Scripts/csharp/main/raiden/view/HangarAircraftItem.cs
   csharpAsset: Assets/Scripts/csharp/com/game/raiden/view/HangarAircraftItem.cs
   uiList:
   - id: 1
@@ -1710,7 +1710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625d42892ede9214cb55b6772a116166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csharpAssetPath: Assets/Scripts/csharp/com/game/raiden/view/HangarAircraftItem.cs
+  csharpAssetPath: Assets/Scripts/csharp/main/raiden/view/HangarAircraftItem.cs
   csharpAsset: Assets/Scripts/csharp/com/game/raiden/view/HangarAircraftItem.cs
   uiList:
   - id: 1
@@ -4160,7 +4160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625d42892ede9214cb55b6772a116166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csharpAssetPath: Assets/Scripts/csharp/com/game/raiden/view/HangarAircraftItem.cs
+  csharpAssetPath: Assets/Scripts/csharp/main/raiden/view/HangarAircraftItem.cs
   csharpAsset: Assets/Scripts/csharp/com/game/raiden/view/HangarAircraftItem.cs
   uiList:
   - id: 1
@@ -4251,7 +4251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625d42892ede9214cb55b6772a116166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csharpAssetPath: Assets/Scripts/csharp/com/game/raiden/view/HangarPanel.cs
+  csharpAssetPath: Assets/Scripts/csharp/main/raiden/view/HangarPanel.cs
   csharpAsset: Assets/Scripts/csharp/com/game/raiden/view/HangarPanel.cs
   uiList:
   - id: 1
@@ -4815,7 +4815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625d42892ede9214cb55b6772a116166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csharpAssetPath: Assets/Scripts/csharp/com/game/raiden/view/HangarAircraftItem.cs
+  csharpAssetPath: Assets/Scripts/csharp/main/raiden/view/HangarAircraftItem.cs
   csharpAsset: Assets/Scripts/csharp/com/game/raiden/view/HangarAircraftItem.cs
   uiList:
   - id: 1

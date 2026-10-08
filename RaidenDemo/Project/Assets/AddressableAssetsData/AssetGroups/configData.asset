@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: configData
+  m_EditorClassIdentifier: 
+  m_GroupName: configData
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 184b1d8ce61d9de42b999866d5cb21bc
+  m_SerializeEntries:
+  - m_GUID: 0474fe58d10cba94da6955102dfb9e95
+    m_Address: Assets/ConfigBin/cfgobj_settingoptionobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1170a9c9630a4edc9d3b7646b264a777
+    m_Address: Assets/ConfigBin/cfgobj_playeraircraftobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ad066bbc1d34866ada17c02f0a1dfff
+    m_Address: Assets/ConfigBin/cfgobj_configvalueobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1db677583dd051a44bd46caa09bbc7ba
+    m_Address: Assets/ConfigBin/cfgobj_bulletobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2281bad0741b4fedae4c8757c375b888
+    m_Address: Assets/ConfigBin/cfgobj_playeraircraftlevelobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 654c6cc5e93bdfb4c85b85865b5ed40c
+    m_Address: Assets/ConfigBin/cfgobj_stageobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66963c13a60f4256a3954b51a48fc11f
+    m_Address: Assets/ConfigBin/cfgobj_scenebgobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71e42303889ef2244ab89ca7bf73c85c
+    m_Address: Assets/ConfigBin/cfgobj_wingmanobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9844b540314d4f959a9c6b33d5de369c
+    m_Address: Assets/ConfigBin/cfgobj_enemyobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a4eae9ccbd4b4f26b0b3aa47187f6892
+    m_Address: Assets/ConfigBin/cfgobj_attributeobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c29e350f184442719612c2938a9b48a0
+    m_Address: Assets/ConfigBin/cfgobj_stagewaveobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7679ce44a065b54c80e5149096d2c65
+    m_Address: Assets/ConfigBin/cfgobj_aircraftfireruleobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9fc1cbbb15c51745a5c6bbb8a971d62
+    m_Address: Assets/ConfigBin/cfgobj_stageitemobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de3f7505731d4e51885acb7ce94a88c2
+    m_Address: Assets/ConfigBin/cfgobj_effectobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f31a1a88cbede754bae5410d6d164d21
+    m_Address: Assets/ConfigBin/cfgobj_gmobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: b1a0955dcd22fb34c834009bf4768d90, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 4ab5e695dfb29ea4d96a77ba146b9285, type: 2}
+    - {fileID: 11400000, guid: d0437b0e1d6abed41af9496aa9b6c9bc, type: 2}

@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625d42892ede9214cb55b6772a116166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csharpAssetPath: Assets/Scripts/csharp/com/game/opening/OpeningPanel.cs
+  csharpAssetPath: Assets/Scripts/csharp/login/opening/OpeningPanel.cs
   csharpAsset: 
   uiList:
   - id: 1
@@ -348,8 +348,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Rookie Works
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8b671c3ab8331d44abaf1a235270ba96, type: 2}
-  m_sharedMaterial: {fileID: -2253291954993851622, guid: 8b671c3ab8331d44abaf1a235270ba96, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 543feac6bc373154181dcc2cf8497a62, type: 2}
+  m_sharedMaterial: {fileID: 3724337376146047626, guid: 543feac6bc373154181dcc2cf8497a62, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -482,8 +482,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: present
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8b671c3ab8331d44abaf1a235270ba96, type: 2}
-  m_sharedMaterial: {fileID: -2253291954993851622, guid: 8b671c3ab8331d44abaf1a235270ba96, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 543feac6bc373154181dcc2cf8497a62, type: 2}
+  m_sharedMaterial: {fileID: 3724337376146047626, guid: 543feac6bc373154181dcc2cf8497a62, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

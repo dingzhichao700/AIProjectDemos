@@ -113,8 +113,8 @@ TextureImporter:
       name: bg_pink1
       rect:
         serializedVersion: 2
-        x: 276
-        y: 2
+        x: 913
+        y: 6
         width: 56
         height: 54
       alignment: 9
@@ -134,8 +134,8 @@ TextureImporter:
       name: bg_white
       rect:
         serializedVersion: 2
-        x: 333
-        y: 17
+        x: 1195
+        y: 2
         width: 40
         height: 40
       alignment: 9
@@ -155,7 +155,7 @@ TextureImporter:
       name: bg_windowBlack
       rect:
         serializedVersion: 2
-        x: 0
+        x: 462
         y: 28
         width: 100
         height: 100
@@ -176,8 +176,8 @@ TextureImporter:
       name: bg_yellow1
       rect:
         serializedVersion: 2
-        x: 374
-        y: 19
+        x: 1236
+        y: 2
         width: 40
         height: 40
       alignment: 9
@@ -197,7 +197,7 @@ TextureImporter:
       name: bg_yellow2
       rect:
         serializedVersion: 2
-        x: 281
+        x: 743
         y: 58
         width: 72
         height: 70
@@ -218,8 +218,8 @@ TextureImporter:
       name: bg_yellowBlack1
       rect:
         serializedVersion: 2
-        x: 415
-        y: 19
+        x: 1277
+        y: 2
         width: 40
         height: 40
       alignment: 9
@@ -239,8 +239,8 @@ TextureImporter:
       name: line_black1
       rect:
         serializedVersion: 2
-        x: 101
-        y: 29
+        x: 0
+        y: 17
         width: 100
         height: 4
       alignment: 9
@@ -260,7 +260,7 @@ TextureImporter:
       name: line_gray
       rect:
         serializedVersion: 2
-        x: 333
+        x: 0
         y: 12
         width: 100
         height: 4
@@ -281,7 +281,7 @@ TextureImporter:
       name: line_red1
       rect:
         serializedVersion: 2
-        x: 333
+        x: 0
         y: 7
         width: 100
         height: 4
@@ -302,7 +302,7 @@ TextureImporter:
       name: progressBar_bg1
       rect:
         serializedVersion: 2
-        x: 354
+        x: 816
         y: 60
         width: 62
         height: 68
@@ -323,8 +323,8 @@ TextureImporter:
       name: progressBar_green
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
+        x: 563
+        y: 30
         width: 275
         height: 26
       alignment: 9
@@ -344,8 +344,8 @@ TextureImporter:
       name: sliderDot_black
       rect:
         serializedVersion: 2
-        x: 101
-        y: 34
+        x: 1410
+        y: 66
         width: 22
         height: 22
       alignment: 9
@@ -365,8 +365,8 @@ TextureImporter:
       name: sliderDot_red
       rect:
         serializedVersion: 2
-        x: 124
-        y: 34
+        x: 1410
+        y: 43
         width: 22
         height: 22
       alignment: 9
@@ -386,7 +386,7 @@ TextureImporter:
       name: tabButton1
       rect:
         serializedVersion: 2
-        x: 101
+        x: 563
         y: 57
         width: 179
         height: 71
@@ -403,10 +403,241 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: bg_black1
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 5
+        width: 37
+        height: 37
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d01e0809c5ee0184981cc16c96105f9a
+      internalID: 31180017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_black2
+      rect:
+        serializedVersion: 2
+        x: 1388
+        y: 12
+        width: 30
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79f93471537e2584384bc5d9a17728bd
+      internalID: 1199594715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_gray3
+      rect:
+        serializedVersion: 2
+        x: 1325
+        y: 47
+        width: 84
+        height: 41
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 10, z: 10, w: 10}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 666d972e0a6941d45895fd2637148acb
+      internalID: -206171676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_orange1
+      rect:
+        serializedVersion: 2
+        x: 1325
+        y: 89
+        width: 107
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 10, z: 10, w: 10}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aa35bfd8b02eb143b9a1db47d332a31
+      internalID: -1058444322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabButton_deco1
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 10
+        width: 31
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c4b071bec48f5e418d6bdfb08b3257d
+      internalID: -171745020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabButton2_hoverLight
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 61
+        width: 244
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 25, y: 0, z: 25, w: 25}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a841a5749b652ea46972b465735ba729
+      internalID: -1824505374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: window_titleDeco1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 22
+        width: 461
+        height: 106
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 610cd44ca78dd804d83b6b791c633e2f
+      internalID: 1642276228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: window_titleDeco2
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 0
+        width: 354
+        height: 27
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 30, y: 0, z: 30, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de2f928c7aecf0341a97f19718feb829
+      internalID: 2021147018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: window_titleDeco3
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 2
+        width: 73
+        height: 57
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eb07f1c2b7439d4cb56258fca29d59b
+      internalID: 398282118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: window_titleDeco4
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 65
+        width: 200
+        height: 63
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68db981bd83598e43b9b9741a6478cb0
+      internalID: 1769087278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_common1
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 10
+        width: 224
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 50, y: 0, z: 50, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a067833b9fb35ff45b9cd85ac9e30fe2
+      internalID: 1004011038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ac1d1c61ce08f084085ae78211ae4304
     internalID: 0
     vertices: []
     indices: 
@@ -430,6 +661,6 @@ TextureImporter:
       tabButton1: 7237167362256717112
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  userData: 
+  userData: TexturePackerToolFingerprintV4=4b6a8d1a79aa7ff99a4541632a163b3eeeda8ccf6f6d8b8e50b1827af1458ce7
   assetBundleName: 
   assetBundleVariant: 

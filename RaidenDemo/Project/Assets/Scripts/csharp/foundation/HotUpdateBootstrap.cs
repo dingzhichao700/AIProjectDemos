@@ -1,0 +1,181 @@
+using System;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Threading.Tasks;
+using HybridCLR;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.Networking;
+
+/// <summary>
+/// 从远程资源目录初始化资源系统并加载业务程序集。
+/// </summary>
+public static class HotUpdateBootstrap {
+
+    /**Catalog 中的可替换资源根地址*/
+    public const string BundleRoot = "http://raiden-content.invalid/";
+
+    /**当前底座选定的业务发布清单*/
+    private static HotUpdateManifest activeManifest;
+
+    /**已完成装载的业务程序集*/
+    private static readonly HashSet<string> loadedModules = new HashSet<string>();
+
+    /**正在装载的业务程序集任务*/
+    private static readonly Dictionary<string, Task> loadingModules = new Dictionary<string, Task>();
+
+    /// <summary>
+    /// 按底座版本选择发布内容，补充元数据并装载登录程序集。
+    /// </summary>
+    public static async Task InitializeAsync() {
+#if UNITY_EDITOR
+        // 编辑器使用已编译的程序集，避免重复加载同名 DLL。
+        await Addressables.InitializeAsync().Task;
+#else
+        TextAsset boot = Resources.Load<TextAsset>("RaidenHotUpdateBase");
+        if (boot == null) {
+            throw new InvalidOperationException("缺少热更新底座版本，请使用热更新构建入口。");
+        }
+        HotUpdateBootConfig config = JsonUtility.FromJson<HotUpdateBootConfig>(boot.text);
+        Resources.UnloadAsset(boot);
+        if (config == null || string.IsNullOrEmpty(config.baseVersion) || string.IsNullOrEmpty(config.bootstrapUrl)) {
+            throw new InvalidOperationException("热更新启动配置无效。");
+        }
+        string baseVersion = config.baseVersion;
+        HotUpdateIndex index = JsonUtility.FromJson<HotUpdateIndex>(await DownloadTextAsync(config.bootstrapUrl, true));
+        HotUpdateBaseEntry selected = null;
+        foreach (HotUpdateBaseEntry item in index?.bases ?? Array.Empty<HotUpdateBaseEntry>()) {
+            if (item.baseVersion == baseVersion) {
+                if (selected != null) {
+                    throw new InvalidOperationException("热更新入口存在重复底座版本。");
+                }
+                selected = item;
+            }
+        }
+        if (selected == null || string.IsNullOrEmpty(selected.manifestUrl)) {
+            throw new InvalidOperationException("当前底座尚未发布兼容的业务版本：" + baseVersion);
+        }
+        string pointerUrl = new Uri(new Uri(config.bootstrapUrl), selected.manifestUrl).AbsoluteUri;
+        HotUpdateManifest manifest = JsonUtility.FromJson<HotUpdateManifest>(await DownloadTextAsync(pointerUrl, true));
+        if (manifest == null || manifest.baseVersion != baseVersion || manifest.aot == null || manifest.assemblies == null || manifest.assemblies.Length == 0 || string.IsNullOrEmpty(manifest.release) || manifest.release.IndexOfAny(new[] { '/', '\\', '.' }) >= 0) {
+            throw new InvalidOperationException("热更新清单与当前底座不匹配。");
+        }
+        if (string.IsNullOrEmpty(manifest.resourceRoot)) {
+            throw new InvalidOperationException("发布清单缺少资源地址。");
+        }
+        string releaseRoot = new Uri(new Uri(pointerUrl), manifest.resourceRoot).AbsoluteUri.TrimEnd('/') + "/";
+        string localRoot = Addressables.RuntimePath.TrimEnd('/') + "/";
+        Addressables.InternalIdTransformFunc = location => {
+            string path = location.InternalId;
+            if (path.StartsWith(localRoot, StringComparison.Ordinal)) {
+                return releaseRoot + path.Substring(localRoot.Length);
+            }
+            if (path.StartsWith(BundleRoot, StringComparison.Ordinal)) {
+                return releaseRoot + path.Substring(BundleRoot.Length);
+            }
+            return path;
+        };
+        await Addressables.InitializeAsync().Task;
+        foreach (string name in manifest.aot) {
+            byte[] bytes = await LoadBytesAsync("hotupdate/aot/" + name);
+            LoadImageErrorCode result = RuntimeApi.LoadMetadataForAOTAssembly(bytes, HomologousImageMode.SuperSet);
+            if (result != LoadImageErrorCode.OK) {
+                throw new InvalidOperationException("补充 AOT 元数据失败：" + name + "，" + result);
+            }
+        }
+        activeManifest = manifest;
+        await LoadModuleAsync("Login");
+        Debug.Log("[HotUpdate] 登录程序集就绪，底座 " + baseVersion + "，业务发布 " + manifest.release);
+#endif
+    }
+
+    /// <summary>
+    /// 按需装载业务程序集，合并并发请求并允许失败后重试。
+    /// </summary>
+    /// <param name="moduleName">程序集名称，不含扩展名</param>
+    public static async Task LoadModuleAsync(string moduleName) {
+        if (loadedModules.Contains(moduleName)) {
+            return;
+        }
+        if (loadingModules.TryGetValue(moduleName, out Task pending)) {
+            await pending;
+            return;
+        }
+        Task task = LoadModuleCoreAsync(moduleName);
+        loadingModules.Add(moduleName, task);
+        try {
+            await task;
+            loadedModules.Add(moduleName);
+        } finally {
+            loadingModules.Remove(moduleName);
+        }
+    }
+
+    /**校验发布清单并装载指定业务程序集*/
+    private static async Task LoadModuleCoreAsync(string moduleName) {
+#if UNITY_EDITOR
+        await Task.CompletedTask;
+        if (Type.GetType(moduleName + "Entry, " + moduleName) == null) {
+            throw new InvalidOperationException("业务入口不存在：" + moduleName);
+        }
+#else
+        string fileName = moduleName + ".dll";
+        if (activeManifest == null || Array.IndexOf(activeManifest.assemblies, fileName) < 0) {
+            throw new InvalidOperationException("发布清单未包含业务程序集：" + fileName);
+        }
+        byte[] bytes = await LoadBytesAsync("hotupdate/code/" + fileName);
+        Assembly assembly = Assembly.Load(bytes);
+        Debug.Log("[HotUpdate] 已加载 " + assembly.GetName().Name + "，发布版本 " + activeManifest.release);
+#endif
+    }
+
+    /// <summary>
+    /// 调用已加载模块的公共入口。
+    /// </summary>
+    /// <param name="moduleName">程序集名称</param>
+    public static async Task EnterModuleAsync(string moduleName) {
+        await LoadModuleAsync(moduleName);
+        Type type = Type.GetType(moduleName + "Entry, " + moduleName, true);
+        if (!(Activator.CreateInstance(type) is IGameModuleEntry entry)) {
+            throw new InvalidOperationException("业务入口未实现 IGameModuleEntry：" + moduleName);
+        }
+        await entry.InitializeAsync();
+    }
+
+    /// <summary>
+    /// 从 Addressables 读取程序集数据并释放资源句柄。
+    /// </summary>
+    private static async Task<byte[]> LoadBytesAsync(string address) {
+        var handle = Addressables.LoadAssetAsync<TextAsset>(address);
+        try {
+            TextAsset asset = await handle.Task;
+            if (asset == null) {
+                throw new InvalidOperationException("程序集资源为空：" + address);
+            }
+            return asset.bytes;
+        } finally {
+            Addressables.Release(handle);
+        }
+    }
+
+    /// <summary>
+    /// 获取当前底座对应的发布清单。
+    /// </summary>
+    private static async Task<string> DownloadTextAsync(string url, bool refresh = false) {
+        if (refresh) {
+            url += (url.Contains("?") ? "&" : "?") + "request=" + Guid.NewGuid().ToString("N");
+        }
+        using (UnityWebRequest request = UnityWebRequest.Get(url)) {
+            request.timeout = 30;
+            UnityWebRequestAsyncOperation operation = request.SendWebRequest();
+            while (!operation.isDone) {
+                await Task.Yield();
+            }
+            if (request.result != UnityWebRequest.Result.Success) {
+                throw new InvalidOperationException("下载发布清单失败：" + url + "，" + request.error);
+            }
+            return request.downloadHandler.text;
+        }
+    }
+
+}

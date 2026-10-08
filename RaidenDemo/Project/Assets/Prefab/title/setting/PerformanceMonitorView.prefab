@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5645357858864743179, guid: 648a65727e384bc4ea92de659b650648, type: 3}
+  m_Sprite: {fileID: -206171676, guid: 240a1d1404072a843883f02017283a0c, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625d42892ede9214cb55b6772a116166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csharpAssetPath: Assets/Scripts/csharp/com/game/setting/view/PerformanceMonitorView.cs
+  csharpAssetPath: Assets/Scripts/csharp/login/setting/view/PerformanceMonitorView.cs
   csharpAsset: 
   uiList:
   - id: 1

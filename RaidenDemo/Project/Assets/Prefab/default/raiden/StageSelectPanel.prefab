@@ -593,7 +593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625d42892ede9214cb55b6772a116166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csharpAssetPath: Assets/Scripts/csharp/com/game/raiden/view/StageSelectItem.cs
+  csharpAssetPath: Assets/Scripts/csharp/main/raiden/view/StageSelectItem.cs
   csharpAsset: Assets/Scripts/csharp/com/game/raiden/view/StageSelectItem.cs
   uiList:
   - id: 1
@@ -958,7 +958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625d42892ede9214cb55b6772a116166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csharpAssetPath: Assets/Scripts/csharp/com/game/raiden/view/StagePathItem.cs
+  csharpAssetPath: Assets/Scripts/csharp/main/raiden/view/StagePathItem.cs
   csharpAsset: Assets/Scripts/csharp/com/game/raiden/view/StagePathItem.cs
   uiList:
   - id: 1
@@ -1831,7 +1831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625d42892ede9214cb55b6772a116166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csharpAssetPath: Assets/Scripts/csharp/com/game/raiden/view/StageSelectPanel.cs
+  csharpAssetPath: Assets/Scripts/csharp/main/raiden/view/StageSelectPanel.cs
   csharpAsset: Assets/Scripts/csharp/com/game/raiden/view/StageSelectPanel.cs
   uiList:
   - id: 1

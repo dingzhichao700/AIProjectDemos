@@ -27,6 +27,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 543feac6bc373154181dcc2cf8497a62
+    m_Address: Assets/Art/font/tmpFontAsset/common/fontOpeningLatin.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d31fb03420cc2a9448774ec01dc543aa
     m_Address: Assets/Art/audio/opening/Cmaj Victory Scale.mp3
     m_ReadOnly: 0

@@ -15,12 +15,12 @@ MonoBehaviour:
   ProjectConf:
     projectName: RaidenDemo1
     Appid: wx1448519cc265ac08
-    CDN: 
+    CDN: https://dingzhichao700.github.io/testcdn/raiden
     assetLoadType: 1
     compressDataPackage: 0
     VideoUrl: 
-    relativeDST: E:/MyWork/UnityOutput/wxMinigame/RaidenDemo1
-    DST: E:/MyWork/UnityOutput/wxMinigame/RaidenDemo1
+    relativeDST: E:/UnityTemplateTest/RaidenDemo/build/build_wechat_20261009023608
+    DST: E:/UnityTemplateTest/RaidenDemo/build/build_wechat_20261009023608
     StreamCDN: 
     bundleHashLength: 32
     bundlePathIdentifier: StreamingAssets;

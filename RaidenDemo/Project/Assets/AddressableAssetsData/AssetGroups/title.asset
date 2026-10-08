@@ -17,31 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 6d2c545a885403549acf812cf0e01844
   m_SerializeEntries:
-  - m_GUID: 0474fe58d10cba94da6955102dfb9e95
-    m_Address: Assets/ConfigBin/cfgobj_settingoptionobj.json
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1170a9c9630a4edc9d3b7646b264a777
-    m_Address: Assets/ConfigBin/cfgobj_playeraircraftobj.json
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1ad066bbc1d34866ada17c02f0a1dfff
-    m_Address: Assets/ConfigBin/cfgobj_configvalueobj.json
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1db677583dd051a44bd46caa09bbc7ba
-    m_Address: Assets/ConfigBin/cfgobj_bulletobj.json
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2281bad0741b4fedae4c8757c375b888
-    m_Address: Assets/ConfigBin/cfgobj_playeraircraftlevelobj.json
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 240a1d1404072a843883f02017283a0c
     m_Address: Assets/Art/atlas/title/title.png
     m_ReadOnly: 0
@@ -53,7 +28,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 29b6f9ad5dc358b42ace9b7faa53ede9
-    m_Address: Assets/Prefab/title/title/TitlePanel.prefab
+    m_Address: Assets/Prefab/title/title/LoginPanel.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -72,16 +47,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 654c6cc5e93bdfb4c85b85865b5ed40c
-    m_Address: Assets/ConfigBin/cfgobj_stageobj.json
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 66963c13a60f4256a3954b51a48fc11f
-    m_Address: Assets/ConfigBin/cfgobj_scenebgobj.json
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b3dc890b24ca5445936fbd1ef7a7a57
     m_Address: Assets/Art/audio/title/Peaceful Days.ogg
     m_ReadOnly: 0
@@ -89,11 +54,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6fd1c38fad5ebad48a0045d5b095c118
     m_Address: Assets/Art/frameAnimation/title/title_open.json
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 71e42303889ef2244ab89ca7bf73c85c
-    m_Address: Assets/ConfigBin/cfgobj_wingmanobj.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -122,16 +82,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9844b540314d4f959a9c6b33d5de369c
-    m_Address: Assets/ConfigBin/cfgobj_enemyobj.json
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a4eae9ccbd4b4f26b0b3aa47187f6892
-    m_Address: Assets/ConfigBin/cfgobj_attributeobj.json
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: baf9b0e32a9501444b226ce9f33581da
     m_Address: Assets/Art/frameAnimation/title/title_loop.json
     m_ReadOnly: 0
@@ -142,28 +92,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c29e350f184442719612c2938a9b48a0
-    m_Address: Assets/ConfigBin/cfgobj_stagewaveobj.json
+  - m_GUID: c616a7666f00a2045b4c3a4be0bfc093
+    m_Address: Assets/Art/atlas/title/loading.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c7679ce44a065b54c80e5149096d2c65
-    m_Address: Assets/ConfigBin/cfgobj_aircraftfireruleobj.json
+  - m_GUID: dadd60531fe593c478dddbbde0dc2665
+    m_Address: Assets/Prefab/title/loading/LoadingPanel.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c9fc1cbbb15c51745a5c6bbb8a971d62
-    m_Address: Assets/ConfigBin/cfgobj_stageitemobj.json
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: de3f7505731d4e51885acb7ce94a88c2
-    m_Address: Assets/ConfigBin/cfgobj_effectobj.json
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f31a1a88cbede754bae5410d6d164d21
-    m_Address: Assets/ConfigBin/cfgobj_gmobj.json
+  - m_GUID: e2f064082b7ec214cb7d4a2dbd14806c
+    m_Address: Assets/Prefab/title/common/GameButton.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -117,7 +117,7 @@ public class FindObjectWindow : EditorWindow
                 rootPath = "Assets/Scripts/lua";
                 break;
             case "csharp":
-                rootPath = "Assets/Scripts/csharp/com/game";
+                rootPath = "Assets/Scripts/csharp";
                 break;
             default:
                 Debug.LogErrorFormat("查找窗口找不到对应的路径类型：{0}", findType);

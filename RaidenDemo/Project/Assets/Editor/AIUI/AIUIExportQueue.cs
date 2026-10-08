@@ -164,6 +164,7 @@ public static class AIUIExportQueue {
     }
 
     static AIUIExportQueue() {
+        if (AssetDatabase.IsAssetImportWorkerProcess()) return;
         EditorApplication.update += Poll;
         PublishStatus(true);
     }

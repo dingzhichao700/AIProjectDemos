@@ -4859,7 +4859,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6803587959469853088, guid: 29b6f9ad5dc358b42ace9b7faa53ede9, type: 3}
       propertyPath: m_Name
-      value: TitlePanel
+      value: LoginPanel
       objectReference: {fileID: 0}
     - target: {fileID: 6803587959469853088, guid: 29b6f9ad5dc358b42ace9b7faa53ede9, type: 3}
       propertyPath: m_IsActive

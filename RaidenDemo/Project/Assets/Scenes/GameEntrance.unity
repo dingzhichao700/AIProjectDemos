@@ -535,6 +535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewportScale: {fileID: 1329214005}
   viewportConstant: {fileID: 673942956}
+  safeAreaRoot: {fileID: 0}
   uiPool: {fileID: 1301280780}
 --- !u!114 &915372053
 MonoBehaviour:
@@ -554,12 +555,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915372050}
+  m_GameObject: {fileID: 915372049}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c38c9c25251439b94d1734b760354fd, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   designSize: {x: 720, y: 1280}
 --- !u!1 &963194225
 GameObject:

@@ -640,7 +640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625d42892ede9214cb55b6772a116166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csharpAssetPath: Assets/Scripts/csharp/com/game/setting/view/SettingOptionItem.cs
+  csharpAssetPath: Assets/Scripts/csharp/login/setting/view/SettingOptionItem.cs
   csharpAsset: 
   uiList:
   - id: 1

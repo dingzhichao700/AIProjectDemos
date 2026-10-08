@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625d42892ede9214cb55b6772a116166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csharpAssetPath: Assets/Scripts/csharp/com/game/option/view/OptionPanel.cs
+  csharpAssetPath: Assets/Scripts/csharp/login/option/view/OptionPanel.cs
   csharpAsset: 
   uiList:
   - id: 1
@@ -619,7 +619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625d42892ede9214cb55b6772a116166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csharpAssetPath: Assets/Scripts/csharp/com/game/option/view/OptionItem.cs
+  csharpAssetPath: Assets/Scripts/csharp/login/option/view/OptionItem.cs
   csharpAsset: 
   uiList:
   - id: 1
