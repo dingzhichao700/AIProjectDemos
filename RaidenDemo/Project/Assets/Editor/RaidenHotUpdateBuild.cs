@@ -105,7 +105,10 @@ public static class RaidenHotUpdateBuild {
         string profile = settings.activeProfileId;
         settings.profileSettings.SetValue(profile, "Remote.BuildPath", "ServerData/[BuildTarget]");
         settings.profileSettings.SetValue(profile, "Remote.LoadPath", HotUpdateBootstrap.BundleRoot.TrimEnd('/'));
-        settings.BuildRemoteCatalog = true;
+        // 发布清单已选择不可变的资源版本，Catalog 由 RuntimePath 映射到该版本目录。
+        // 不生成另一套远程 hash 依赖，避免 Addressables 再次决定内容版本。
+        settings.BuildRemoteCatalog = false;
+        settings.DisableCatalogUpdateOnStartup = true;
         settings.RemoteCatalogBuildPath.SetVariableByName(settings, "Remote.BuildPath");
         settings.RemoteCatalogLoadPath.SetVariableByName(settings, "Remote.LoadPath");
         foreach (var group in settings.groups) {
@@ -170,13 +173,17 @@ public static class RaidenHotUpdateBuild {
     /// </summary>
     public static void BuildCandidate() {
         HotUpdateManifest manifest = ReadState();
+        string runtime = UnityEngine.AddressableAssets.Addressables.BuildPath;
+        var runtimeSettings = JsonUtility.FromJson<UnityEngine.AddressableAssets.Initialization.ResourceManagerRuntimeData>(File.ReadAllText(Path.Combine(runtime, "settings.json")));
+        if (runtimeSettings == null || !runtimeSettings.DisableCatalogUpdateOnStartup || runtimeSettings.CatalogLocations.Count != 1 || runtimeSettings.CatalogLocations[0].Dependencies.Length != 0 || runtimeSettings.CatalogLocations[0].InternalId != "{UnityEngine.AddressableAssets.Addressables.RuntimePath}/catalog.json") {
+            throw new InvalidOperationException("Catalog 必须直接从选定版本目录加载，不能包含 hash 更新依赖。请重新构建 Addressables。");
+        }
         string root = Path.Combine(ServerDirectory, manifest.baseVersion);
         string release = Path.Combine(root, manifest.release);
         if (Directory.Exists(release)) {
             throw new InvalidOperationException("候选目录已存在，禁止覆盖：" + release);
         }
         Directory.CreateDirectory(release);
-        string runtime = UnityEngine.AddressableAssets.Addressables.BuildPath;
         CopyFile(Path.Combine(runtime, "settings.json"), Path.Combine(release, "settings.json"));
         CopyFile(Path.Combine(runtime, "catalog.json"), Path.Combine(release, "catalog.json"));
         // 只复制当前 Catalog 引用的 Bundle，避免历史构建产物累积。
@@ -188,11 +195,6 @@ public static class RaidenHotUpdateBuild {
             }
             string relative = id.Substring(HotUpdateBootstrap.BundleRoot.Length);
             CopyFile(Path.Combine(remote, relative), Path.Combine(release, relative));
-        }
-        foreach (string file in Directory.GetFiles(remote, "catalog*")) {
-            if (Path.GetExtension(file) == ".json" || Path.GetExtension(file) == ".hash") {
-                CopyFile(file, Path.Combine(release, Path.GetFileName(file)));
-            }
         }
         File.WriteAllText(Path.Combine(release, "manifest.json"), JsonUtility.ToJson(manifest, true));
         Debug.Log("[HotUpdateBuild] 候选内容已生成，尚未切换生效版本：" + release);

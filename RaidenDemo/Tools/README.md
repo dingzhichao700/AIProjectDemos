@@ -49,3 +49,17 @@ Foundation、AOT 依赖、裁剪保留范围、桥接需求或平台编译设置
 - 尚待用户执行：开发者工具及 Android/iOS 真机启动，确认出现业务发布版本 `update20261007143649` 和上述 Login 日志，并进入战斗验证。构建及 HTTP 校验不代表真机验收通过。
 
 Jenkins 后续复用准备、生成、导出、内容发布四个阶段；当前脚本通过已打开的 Unity 编辑器队列执行，尚不是无人值守批处理入口。接入 Jenkins 时需要补充批处理入口、构建状态归档和正式 CDN 发布，并将底座与对应 AOT 元数据作为同一套不可变产物保存。
+
+### 当前 Catalog 与缓存策略（2026-10-09）
+
+当前远端根目录为 `E:\testcdn\raiden`，由 GitHub Pages 提供。`bootstrap.json` 按底座选择 `current.json`，后者选择 `<底座版本>/<内容版本>/`。Foundation 将 Addressables RuntimePath 和 Bundle 虚拟根地址映射到此版本目录；settings 和 catalog 都从该目录读取。
+
+构建关闭 `Build Remote Catalog` 并启用 `Disable Catalog Update on Startup`，仅发布 `catalog.json`，不生成 hash 更新依赖，也不复制 ServerData 遗留的 catalog/hash。关闭 Remote Catalog 不改变各 Group 的 Remote 路径。旧发布目录保持原样；新内容必须使用新版本目录。
+
+`WeChatResourceCache.js` 在微信导出时自动写入：真机允许缓存版本化 Bundle 与 Catalog，入口清单、settings、hash 不缓存；开发者工具仍保留缓存兼容禁用。允许缓存不代表实际命中，验收应在真机不清缓存连续启动两次，结合请求地址、报告缓存结果核对。源码规则修改不会自动更新已安装的微信包。
+### 2026-10-09 真机缓存与内容更新验收
+
+- 底座保持 `20261008T190447577Z`，微信包体文件哈希未变；内容从 `20261009T034531015Z` 更新至 `20261009T035347653Z`。
+- iOS 真机保留缓存，退出微信后重进，日志确认 Login、Main 均加载新内容版本，并出现验证标记 `CACHE-UPDATE-01`。
+- 本次确认目录版本可隔离 Catalog 缓存；插件“Catalog 无 hash/版本信息”提示不表示该发布方式无法更新。
+- 验收后源码已移除临时标记；已发布的不可变版本保留原样，后续正常构建会生成不带标记的新 DLL。

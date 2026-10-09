@@ -4,12 +4,17 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
+/// <summary>
+/// 管理共享帧动画资源与播放实例池。
+/// </summary>
 public class FrameAnimationManager : MonoBehaviour {
 
     /**加载完成的动画数据字典<路径,帧动画信息>*/
     public static Dictionary<string, FrameAnimationRes> loadedMap = new Dictionary<string, FrameAnimationRes>();
-    /**加载中的动画数据字典<路径,加载完成回调>*/
-    private static Dictionary<string, List<Action<FrameAnimationRes>>> loadingMap = new Dictionary<string, List<Action<FrameAnimationRes>>>();
+
+    /**合并同一动画的加载与裁帧请求，完成或失败后移除任务*/
+    private static Dictionary<string, Task<FrameAnimationRes>> loadingMap = new Dictionary<string, Task<FrameAnimationRes>>();
+
     /**帧动画对象池*/
     private static List<FrameAnimationView> pool;
 
@@ -92,66 +97,55 @@ public class FrameAnimationManager : MonoBehaviour {
     /// <param name="path">动画路径</param>
     /// <param name="action">加载完成回调</param>
     public static async void LoadFrameAnimationRes(string path, Action<FrameAnimationRes> action) {
-        if (loadedMap.ContainsKey(path)) {
-            //已加载完成
-            loadedMap.TryGetValue(path, out FrameAnimationRes data);
-            action(data);
-        } else {
-            //未加载完成
-            loadingMap.TryGetValue(path, out List<Action<FrameAnimationRes>> handlers);
-            bool isLoading = false;
-            if (handlers == null) {
-                handlers = new List<Action<FrameAnimationRes>>();
-                loadingMap.Add(path, handlers);
-            } else {
-                isLoading = true;
-            }
-            handlers.Add(action);
-            if (!isLoading) {
-                //ResourceManager.LoadJson(path + ".json", OnLoadJsonComplete);
-                await ResourceLoader.LoadListAsync(new List<ResLoadInfo> { new ResLoadInfo(path, ResType.FrameAnim) }, async () => {
-                    await OnLoadAnimResComplete(path);
-                    Debug.Log("加载动画完成：" + path);
-                });
-                //RookieEngine.PrintLog("加载动画：" + path, EngineLogType.LOAD_INFO);
-                Debug.Log("加载动画：" + path);
-            }
+        try {
+            FrameAnimationRes data = await LoadFrameAnimationResAsync(path);
+            action?.Invoke(data);
+        } catch (Exception exception) {
+            Debug.LogException(exception);
         }
     }
 
-    /**加载动画资源完成*/
-    public static async Task OnLoadAnimResComplete(string animationName) {
-        JSONNode jsonNode = ResourceManager.GetJsonNode(animationName);
-        Sprite sprite = ResourceManager.GetUnpackImage(animationName + ".png");
-        if (jsonNode == null || sprite == null || sprite.texture == null)
-        {
-            Debug.LogError($"帧动画资源缺失: {animationName} (json={jsonNode != null}, sprite={sprite != null})");
-            loadingMap.Remove(animationName);
-            return;
+    /// <summary>
+    /// 获取共享动画资源，合并预加载与播放发起的并发请求。
+    /// </summary>
+    /// <param name="path">动画路径</param>
+    public static async Task<FrameAnimationRes> LoadFrameAnimationResAsync(string path) {
+        if (loadedMap.TryGetValue(path, out FrameAnimationRes data)) {
+            return data;
         }
+        if (loadingMap.TryGetValue(path, out Task<FrameAnimationRes> pending)) {
+            return await pending;
+        }
+        Task<FrameAnimationRes> task = LoadResourceAsync(path);
+        loadingMap.Add(path, task);
+        try {
+            data = await task;
+            loadedMap.Add(path, data);
+            return data;
+        } finally {
+            loadingMap.Remove(path);
+        }
+    }
 
-        if (!loadedMap.ContainsKey(animationName)) {
-            // 生成动画数据的异步操作
-            FrameAnimationRes data = await GenerateAsync(jsonNode, sprite, animationName.Replace(ResourceConst.PATH_FRAME_ANIMATION, ""));
-
-            Debug.Log("动画资源处理完成：" + animationName);
-
-            // 在卸载资源之前，确保数据已经准备好
-            ResourceManager.Release(animationName); // 卸载json
-            ResourceManager.Release(animationName + ".png"); // 卸载图片
-
-            // 将处理完成的数据添加到 loadedMap 中
-            loadedMap.Add(animationName, data);
-
-            // 获取并执行所有与该动画相关的回调
-            List<Action<FrameAnimationRes>> complateHandlers;
-            if (loadingMap.TryGetValue(animationName, out complateHandlers) && complateHandlers != null) {
-                // 确保回调在主线程中执行，避免在异步线程中操作 Unity 的图形资源
-                foreach (var handler in complateHandlers) {
-                    // 调用回调方法，并确保它们在主线程执行
-                    UnityMainThreadDispatcher.Instance.Enqueue(() => handler(data));
-                }
+    /// <summary>
+    /// 加载源图集并还原动画帧，结束后释放源资源。
+    /// </summary>
+    /// <param name="path">动画路径</param>
+    /// <remarks>还原后的纹理由共享缓存持有，播放实例回收时不销毁它们。</remarks>
+    private static async Task<FrameAnimationRes> LoadResourceAsync(string path) {
+        try {
+            Task textureTask = ResourceManager.LoadAsync(new ResLoadInfo(path + ".png", ResType.UnpackImage));
+            Task jsonTask = ResourceManager.LoadAsync(new ResLoadInfo(path, ResType.Json));
+            await Task.WhenAll(textureTask, jsonTask);
+            JSONNode jsonNode = ResourceManager.GetJsonNode(path);
+            Sprite sprite = ResourceManager.GetUnpackImage(path + ".png");
+            if (jsonNode == null || sprite == null || sprite.texture == null) {
+                throw new InvalidOperationException("帧动画资源缺失：" + path);
             }
+            return await GenerateAsync(jsonNode, sprite, path.Replace(ResourceConst.PATH_FRAME_ANIMATION, ""));
+        } finally {
+            ResourceManager.Release(path);
+            ResourceManager.Release(path + ".png");
         }
     }
 
@@ -195,6 +189,9 @@ public class FrameAnimationManager : MonoBehaviour {
         UnityMainThreadDispatcher.Instance.Enqueue(() => {
             List<Texture2D> generatedTextures = new List<Texture2D>();
             try {
+                // 图集只读取一次；Color32 避免为每帧分配浮点颜色数组。
+                Color32[] sourcePixels = sprite.texture.GetPixels32();
+                int totalWidth = sprite.texture.width;
                 int totalHeight = sprite.texture.height;
                 for (int index = 0; index < frames.Count; index++) {
                     JSONNode singleFrame = frames[index];
@@ -209,23 +206,26 @@ public class FrameAnimationManager : MonoBehaviour {
                     int posX = frame["x"];
                     int posY = totalHeight - frame["y"] - frameH;
 
-                    Color[] colors = sprite.texture.GetPixels(posX, posY, frameW, frameH);
-                    Texture2D targetTex = new Texture2D(originTexWidth, originTexHeight);
+                    Texture2D targetTex = new Texture2D(originTexWidth, originTexHeight, TextureFormat.RGBA32, false);
                     generatedTextures.Add(targetTex);
-                    Color[] transPixels = new Color[targetTex.width * targetTex.height];
-                    for (int j = 0; j < transPixels.Length; j++) {
-                        transPixels[j] = Color.clear;
-                    }
-                    targetTex.SetPixels(transPixels);
+                    Color32[] targetPixels = new Color32[originTexWidth * originTexHeight];
 
                     // 还原导出前的透明边界，使各帧共用配置锚点。
-                    int transOriginY = targetTex.height - (spriteSourceSize["y"] + frameH);
-                    targetTex.SetPixels(spriteSourceSize["x"], transOriginY, frameW, frameH, colors);
-                    targetTex.Apply();
+                    int transOriginX = spriteSourceSize["x"];
+                    int transOriginY = originTexHeight - (spriteSourceSize["y"] + frameH);
+                    if (frameW <= 0 || frameH <= 0 || posX < 0 || posY < 0 || posX + frameW > totalWidth || posY + frameH > totalHeight || transOriginX < 0 || transOriginY < 0 || transOriginX + frameW > originTexWidth || transOriginY + frameH > originTexHeight) {
+                        throw new InvalidOperationException($"帧动画裁剪范围无效：{animationName}，frame={index}");
+                    }
+                    for (int row = 0; row < frameH; row++) {
+                        Array.Copy(sourcePixels, (posY + row) * totalWidth + posX, targetPixels, (transOriginY + row) * originTexWidth + transOriginX, frameW);
+                    }
+                    targetTex.SetPixels32(targetPixels);
 
                     Sprite sp = Sprite.Create(targetTex, new Rect(0, 0, targetTex.width, targetTex.height), data.pivot);
                     sp.name = animationName + "_" + index;
                     data.sprites[index] = sp;
+                    // Sprite 创建完成后释放 CPU 副本，保留 GPU 纹理供所有播放实例共享。
+                    targetTex.Apply(false, true);
                 }
                 completion.SetResult(data);
             } catch (Exception exception) {

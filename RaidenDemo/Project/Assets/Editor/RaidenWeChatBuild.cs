@@ -1,6 +1,7 @@
 #if UNITY_EDITOR
 using System;
 using System.IO;
+using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEditor.AddressableAssets.Settings;
 using UnityEditor.AddressableAssets.Build;
@@ -111,7 +112,7 @@ public static class RaidenWeChatBuild {
             if (result != WXConvertCore.WXExportError.SUCCEED || !File.Exists(Path.Combine(output, "minigame/project.config.json"))) {
                 throw new InvalidOperationException("微信导出未完成：" + result);
             }
-            ApplyDevtoolsCacheCompatibility(output);
+            ApplyResourceCachePolicy(output);
             RaidenHotUpdateBuild.BuildCandidate();
             WriteResult(request, "exported", null);
         } catch (Exception exception) {
@@ -123,18 +124,19 @@ public static class RaidenWeChatBuild {
     }
 
     /// <summary>
-    /// 修正开发工具的资源缓存兼容问题，保留真机缓存。
+    /// 写入真机版本资源缓存规则，保留开发工具兼容处理。
     /// </summary>
     /// <param name="output">微信导出目录</param>
-    private static void ApplyDevtoolsCacheCompatibility(string output) {
+    private static void ApplyResourceCachePolicy(string output) {
         string path = Path.Combine(output, "minigame/unity-namespace.js");
         string source = File.ReadAllText(path);
-        const string marker = "unityNamespace.isCacheableFile = function (path) {";
-        if (!source.Contains(marker)) {
+        Regex pattern = new Regex(@"^unityNamespace\.isCacheableFile = function \(path\) \{[\s\S]*?^\};", RegexOptions.Multiline);
+        if (pattern.Matches(source).Count != 1) {
             throw new InvalidOperationException("微信 SDK 缓存入口发生变化，请检查开发工具兼容处理。");
         }
-        string replacement = marker + "\n    // 开发工具的二进制缓存写入存在兼容问题；真机继续使用 SDK 缓存规则。\n    if (wx.getSystemInfoSync().platform === 'devtools') return false;";
-        File.WriteAllText(path, source.Replace(marker, replacement));
+        string policyPath = Path.GetFullPath(Path.Combine(Application.dataPath, "../../Tools/WeChatResourceCache.js"));
+        string policy = File.ReadAllText(policyPath).Trim();
+        File.WriteAllText(path, pattern.Replace(source, match => policy));
     }
 
     /**记录本次请求的进度与结果*/
