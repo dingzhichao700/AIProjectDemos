@@ -43,7 +43,8 @@ public class AssetsImport : AssetPostprocessor {
             importer.textureType = TextureImporterType.Sprite;
             importer.streamingMipmaps = false;
             importer.mipmapEnabled = false;
-            importer.isReadable = assetPath.Contains(ResourceConst.PATH_FRAME_ANIMATION);
+            // 帧动画直接引用图集区域，不再读取 CPU 像素。
+            importer.isReadable = false;
             importer.filterMode = FilterMode.Point;
             importer.wrapMode = TextureWrapMode.Clamp;
             importer.spriteImportMode = SpriteImportMode.Single;

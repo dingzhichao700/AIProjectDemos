@@ -9,7 +9,9 @@ using UnityEngine.UI;
 /// </summary>
 public class FrameAnimationView : MonoBehaviour {
 
+    /**仅子节点显示有效区域，根节点保留完整画布与外部变换*/
     private Image image;
+    private int displayedFrame = -1;
 
     /**是否暂停*/
     public bool isPause;
@@ -77,7 +79,11 @@ public class FrameAnimationView : MonoBehaviour {
     public RectTransform trans => transform as RectTransform;
 
     void Awake() {
-        image = gameObject.AddComponent<Image>() as Image;
+        var imageObject = new GameObject("FrameImage", typeof(RectTransform), typeof(Image));
+        image = imageObject.GetComponent<Image>();
+        image.rectTransform.SetParent(trans, false);
+        image.rectTransform.anchorMin = image.rectTransform.anchorMax = Vector2.zero;
+        image.rectTransform.pivot = Vector2.zero;
         image.color = Color.white;
         image.raycastTarget = false;
         image.gameObject.SetActive(false);
@@ -165,7 +171,7 @@ public class FrameAnimationView : MonoBehaviour {
         _animationData = data;
         trans.pivot = animationData.pivot;
         if (isPause || needStopAtFirstFrame) {
-            SetSprite(animationData.GetSpriteByTime(0));
+            SetFrame(0);
         } else {
             OnTimeUpdate(0f);
         }
@@ -189,12 +195,12 @@ public class FrameAnimationView : MonoBehaviour {
                     playedDuration %= animationData.totalDuration;
                 } else {
                     playedDuration = animationData.totalDuration;
-                    SetSprite(animationData.GetSpriteByIndex(animationData.sprites.Length - 1));
+                    SetFrame(animationData.sprites.Length - 1);
                     CompletePlayback();
                     return;
                 }
             }
-            SetSprite(animationData.GetSpriteByTime(playedDuration));
+            SetFrame(animationData.GetIndexByTime(playedDuration));
         }
         dispacher.Dispatch(FrameAnimationEvent.PLAY_PROCESS_UPDATE);
     }
@@ -221,26 +227,34 @@ public class FrameAnimationView : MonoBehaviour {
         if (animationData == null) {
             return;
         }
-        Sprite frameSprite = animationData.GetSpriteByTime(duration);
-        if (frameSprite != null) {
-            playedDuration = duration;
-            SetSprite(frameSprite);
-        }
+        playedDuration = duration;
+        SetFrame(animationData.GetIndexByTime(duration));
     }
 
-    /**设置图片的精灵（精灵为空则图片设为不可见）*/
-    private void SetSprite(Sprite sp) {
-        if (image.sprite == sp) {
+    /// <summary>
+    /// 用图集区域与裁剪偏移还原原始画布中的图像位置。
+    /// </summary>
+    /// <param name="index">目标帧索引。</param>
+    private void SetFrame(int index) {
+        if (index == displayedFrame || animationData == null || index < 0 || index >= animationData.sprites.Length) {
             return;
         }
-        if (sp != null) {
-            Vector2 size = sp.rect.size;
-            if (image.rectTransform.sizeDelta != size) {
-                image.rectTransform.sizeDelta = size;
-            }
+        displayedFrame = index;
+        Vector2 sourceSize = animationData.sourceSizes[index];
+        if (trans.sizeDelta != sourceSize) {
+            trans.sizeDelta = sourceSize;
         }
-        image.sprite = sp;
-        image.gameObject.SetActive(sp != null);
+        image.rectTransform.sizeDelta = animationData.sprites[index].rect.size;
+        image.rectTransform.anchoredPosition = animationData.frameOffsets[index];
+        image.sprite = animationData.sprites[index];
+        image.gameObject.SetActive(true);
+    }
+
+    /**隐藏有效区域并清除帧索引，恢复播放时可重新显示同一帧*/
+    private void HideFrame() {
+        displayedFrame = -1;
+        image.sprite = null;
+        image.gameObject.SetActive(false);
     }
 
     /**暂停播放*/
@@ -257,7 +271,7 @@ public class FrameAnimationView : MonoBehaviour {
     /**停止播放*/
     public void Stop() {
         isPause = true;
-        SetSprite(null);
+        HideFrame();
     }
 
     public float scale {
@@ -340,7 +354,7 @@ public class FrameAnimationView : MonoBehaviour {
         _scale = 1f;
         _dir = 1;
         _playSpeed = 1f;
-        SetSprite(null);
+        HideFrame();
         if (clearDispatcher) {
             dispacher.Clear();
         }

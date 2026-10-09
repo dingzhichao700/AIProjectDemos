@@ -1,4 +1,4 @@
 {
-    "baseVersion": "20261009T083322709Z",
+    "baseVersion": "20261009T092048332Z",
     "bootstrapUrl": "https://dingzhichao700.github.io/testcdn/raiden/bootstrap.json"
 }

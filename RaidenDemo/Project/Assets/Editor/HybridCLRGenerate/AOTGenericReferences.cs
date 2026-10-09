@@ -19,6 +19,11 @@ public class AOTGenericReferences : UnityEngine.MonoBehaviour
 	// }} 
 
 	// {{ AOT generic types
+	// Handler.<>c__12<int>
+	// Handler.<>c__12<object>
+	// Handler.<>c__13<object,int>
+	// Handler.<>c__13<object,object>
+	// Handler.<>c__14<object,object,int>
 	// System.Action<BulletLaunchVO>
 	// System.Action<ResLoadInfo>
 	// System.Action<System.Collections.Generic.KeyValuePair<object,float>>
@@ -359,6 +364,11 @@ public class AOTGenericReferences : UnityEngine.MonoBehaviour
 		// Handler Handler.Create<int>(object,System.Action<int>,int)
 		// Handler Handler.Create<object,int>(object,System.Action<object,int>,object,int)
 		// Handler Handler.Create<object>(object,System.Action<object>,object)
+		// System.Void Handler.SetCallback<int>(System.Action<int>,int)
+		// System.Void Handler.SetCallback<object,int>(System.Action<object,int>,object,int)
+		// System.Void Handler.SetCallback<object,object,int>(System.Action<object,object,int>,object,object,int)
+		// System.Void Handler.SetCallback<object,object>(System.Action<object,object>,object,object)
+		// System.Void Handler.SetCallback<object>(System.Action<object>,object)
 		// object JsonFileUtil.Load<object>(string)
 		// System.Void JsonFileUtil.Save<object>(string,object)
 		// string Luban.StringUtil.CollectionToString<cfg.vector2>(System.Collections.Generic.IEnumerable<cfg.vector2>)

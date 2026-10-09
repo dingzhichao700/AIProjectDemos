@@ -100,3 +100,16 @@ Catalog 仍记录虚拟根地址加 Bundle 完整相对路径，运行时只替�
 - Unity 编译与 7 项帧边界检查通过。新底座 `20261009T083322709Z`，微信工程 `build/build_wechat_20261009163340/minigame`，CDN 提交 `7b4bd4f`。
 - 发布后 28 个 Bundle 在线可访问，Login/Main 及 Foundation 元数据 Bundle 哈希校验通过；用户真机验收确认播放观感明显更流畅。
 - Timer 通用 Loop/Once 调度重构尚未执行。
+### Timer 源码回归检查
+
+执行 `Tools/Test-Timer.ps1`（PowerShell 新进程），直接编译当前 Handler、TimeHandler、Timer 源码，使用最小 Unity 类型替身验证 14 组调度行为。不会操作 Unity 场景或构建资源。覆盖增删与覆盖、下一帧批次、空参数、倍率暂停、异常隔离、销毁对象、池化清理及一万个任务的完成回收；真机性能需另行验收。
+
+调度约定：同帧到期任务按注册顺序执行，回调中新增或覆盖的任务下一轮参与；零延迟 Once 仍立即执行。Clear 取消该调用者全部匹配回调，包括 CallLater。循环每轮最多一次、不补跑历史间隔；回调异常记录后继续执行其他任务。
+### 共享图集 Sprite 与 Timer 发布验收（2026-10-09）
+
+- 帧动画改为引用原图集区域的 Sprite，子 Image 根据裁剪偏移摆放，根节点保留完整画布尺寸与锚点。不再创建逐帧纹理或复制像素；成功加载后持有图集句柄，失败时释放。
+- 111 张动画图集关闭 Read/Write，配套更新导入规则；111 段动画、1511 帧的区域与布局校验通过。保留约 2ms 的每帧生成软预算。
+- Timer 线性调度、类型化委托和延迟回收一同发布，14 组源码回归检查及 Unity 编译通过。
+- 底座与内容版本 `20261009T092048332Z`；微信工程 `build/build_wechat_20261009172110/minigame`；CDN 提交 `a9bcabc`。线上 28 个 Bundle 可访问，业务 DLL 与 Foundation 元数据 Bundle 哈希校验通过，用户真机验收效果良好。
+- HybridCLRData 已加入 Git 忽略；历史 PortraitViewportBackup 已按用户要求移入回收站。
+- 图集资源生命周期、对象池预热和帧索引查找优化尚未实施。

@@ -56,3 +56,6 @@
 **/*.stackdump
 **/*.dmp
 **/*.snap
+
+# 雷电战机 HybridCLR 本机安装与构建缓存
+/RaidenDemo/Project/HybridCLRData/

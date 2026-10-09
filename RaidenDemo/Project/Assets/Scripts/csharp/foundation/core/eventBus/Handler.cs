@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 保存类型化回调及参数，支持对象池复用。
+/// </summary>
 public class Handler {
 
     /// <summary>
@@ -24,6 +27,9 @@ public class Handler {
     /// </summary>
     public Delegate callback;
 
+    /**按创建时的参数类型直接调用，避免反射及空参数推断*/
+    protected Action<Handler> invoke;
+
     /// <summary>
     /// 委托的参数1
     /// </summary>
@@ -44,69 +50,78 @@ public class Handler {
     /// </summary>
     public object param4;
 
-    virtual public void Clear() {
-        if (param1 != null) {
-            param1 = null;
-        }
-        if (param2 != null) {
-            param2 = null;
-        }
-        if (param3 != null) {
-            param3 = null;
-        }
-        if (param4 != null) {
-            param4 = null;
-        }
+    /**清空回调与参数引用，供对象池复用*/
+    public virtual void Clear() {
+        caller = null;
+        callback = null;
+        invoke = null;
+        param1 = param2 = param3 = param4 = null;
     }
 
-    /// <summary>
-    /// 无参
-    /// </summary>
+    /**执行创建时绑定的类型化回调*/
     public void Run() {
-        if (param4 != null) {
-            callback.DynamicInvoke(param1, param2, param3, param4);
-        } else if (param3 != null) {
-            callback.DynamicInvoke(param1, param2, param3);
-        } else if (param2 != null) {
-            callback.DynamicInvoke(param1, param2);
-        } else if (param1 != null) {
-            callback.DynamicInvoke(param1);
-        } else {
-            callback.DynamicInvoke();
-        }
+        invoke(this);
     }
 
+    /**绑定无参回调*/
+    protected void SetCallback(Action func) {
+        callback = func;
+        invoke = handler => ((Action)handler.callback)();
+    }
+
+    /**绑定一个参数的回调，允许参数为 null*/
+    protected void SetCallback<T>(Action<T> func, T arg) {
+        callback = func;
+        param1 = arg;
+        invoke = handler => ((Action<T>)handler.callback)((T)handler.param1);
+    }
+
+    /**绑定两个参数的回调*/
+    protected void SetCallback<T, X>(Action<T, X> func, T arg1, X arg2) {
+        callback = func;
+        param1 = arg1;
+        param2 = arg2;
+        invoke = handler => ((Action<T, X>)handler.callback)((T)handler.param1, (X)handler.param2);
+    }
+
+    /**绑定三个参数的回调*/
+    protected void SetCallback<T, X, Y>(Action<T, X, Y> func, T arg1, X arg2, Y arg3) {
+        callback = func;
+        param1 = arg1;
+        param2 = arg2;
+        param3 = arg3;
+        invoke = handler => ((Action<T, X, Y>)handler.callback)((T)handler.param1, (X)handler.param2, (Y)handler.param3);
+    }
+
+    /**创建并绑定回调参数*/
     public static Handler Create(object caller, Action func) {
         Handler handler = GetFromPool();
         handler.caller = caller;
-        handler.callback = func;
+        handler.SetCallback(func);
         return handler;
     }
 
+    /**创建并绑定回调参数*/
     public static Handler Create<T>(object caller, Action<T> func, T arg) {
         Handler handler = GetFromPool();
         handler.caller = caller;
-        handler.callback = func;
-        handler.param1 = arg;
+        handler.SetCallback(func, arg);
         return handler;
     }
 
+    /**创建并绑定回调参数*/
     public static Handler Create<T, X>(object caller, Action<T, X> func, T arg1, X arg2) {
         Handler handler = GetFromPool();
         handler.caller = caller;
-        handler.callback = func;
-        handler.param1 = arg1;
-        handler.param2 = arg2;
+        handler.SetCallback(func, arg1, arg2);
         return handler;
     }
 
+    /**创建并绑定回调参数*/
     public static Handler Create<T, X, Y>(object caller, Action<T, X, Y> func, T arg1, X arg2, Y arg3) {
         Handler handler = GetFromPool();
         handler.caller = caller;
-        handler.callback = func;
-        handler.param1 = arg1;
-        handler.param2 = arg2;
-        handler.param3 = arg3;
+        handler.SetCallback(func, arg1, arg2, arg3);
         return handler;
     }
 
@@ -117,8 +132,9 @@ public class Handler {
     public static Handler GetFromPool() {
         Handler handler;
         if (pool.Count > 0) {
-            handler = pool[0];
-            pool.RemoveAt(0);
+            int index = pool.Count - 1;
+            handler = pool[index];
+            pool.RemoveAt(index);
             return handler;
         }
         handler = new Handler();
@@ -131,9 +147,8 @@ public class Handler {
     /// <param name="handler"></param>
     public static void ReturnToPool(Handler handler) {
         handler.Clear();
-        pool.Add(handler);
-        if (pool.Count > POOL_MAX) {
-            Debug.LogWarning(string.Format("Handler数量超过{0}，请注意回收", POOL_MAX));
+        if (pool.Count < POOL_MAX) {
+            pool.Add(handler);
         }
     }
 
