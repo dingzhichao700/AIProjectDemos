@@ -119,8 +119,7 @@ public class FrameAnimationView : MonoBehaviour {
         isPause = false;
         playedDuration = 0;
         playBeginTime = lastSyncTime = timer.curTime;
-        timer.Loop(this, 20, OnLoop);
-        OnLoop();
+        timer.AddUpdateListener(this, OnTimeUpdate);
         UpdateScaleAndDirection();
 
         await LoadAndPlay(path, requestVersion);
@@ -166,40 +165,43 @@ public class FrameAnimationView : MonoBehaviour {
         _animationData = data;
         trans.pivot = animationData.pivot;
         if (isPause || needStopAtFirstFrame) {
-            Sprite firstFrameSprite = animationData.GetSpriteByTime(0);
-            if (firstFrameSprite != null) {
-                image.rectTransform.sizeDelta = new Vector2(firstFrameSprite.texture.width, firstFrameSprite.texture.height);
-                SetSprite(firstFrameSprite);
-            }
+            SetSprite(animationData.GetSpriteByTime(0));
+        } else {
+            OnTimeUpdate(0f);
         }
     }
 
-    private void OnLoop() {
+    /// <summary>
+    /// 跟随所属时间轴推进播放，仅在图像变化时刷新显示。
+    /// </summary>
+    /// <param name="deltaTime">时间轴本帧增量，单位秒。</param>
+    /// <remarks>用时间轴时刻差避免播放在更新回调中启动时重复计入本帧时间。</remarks>
+    private void OnTimeUpdate(float deltaTime) {
         float passTime = timer.curTime - lastSyncTime;
-        if (!isPause) {
-            playedDuration += passTime * playSpeed;
-            if (animationData != null) {
-                if (playedDuration > animationData.totalDuration) {
-                    playedDuration = loop ? 0 : animationData.totalDuration;
-                    if (!loop) {
-                        CompletePlayback();
-                        return;
-                    }
+        lastSyncTime = timer.curTime;
+        if (isPause) {
+            return;
+        }
+        playedDuration += passTime * playSpeed;
+        if (animationData != null) {
+            if (playedDuration >= animationData.totalDuration) {
+                if (loop) {
+                    playedDuration %= animationData.totalDuration;
                 } else {
-                    Sprite frameSprite = animationData.GetSpriteByTime(playedDuration);
-                    if (frameSprite != null) {
-                        image.rectTransform.sizeDelta = new Vector2(frameSprite.texture.width, frameSprite.texture.height);
-                        SetSprite(frameSprite);
-                    }
+                    playedDuration = animationData.totalDuration;
+                    SetSprite(animationData.GetSpriteByIndex(animationData.sprites.Length - 1));
+                    CompletePlayback();
+                    return;
                 }
             }
-            dispacher.Dispatch(FrameAnimationEvent.PLAY_PROCESS_UPDATE);
+            SetSprite(animationData.GetSpriteByTime(playedDuration));
         }
-        lastSyncTime = timer.curTime;
+        dispacher.Dispatch(FrameAnimationEvent.PLAY_PROCESS_UPDATE);
     }
 
     /**完成单次播放并按当前播放约定释放实例*/
     private void CompletePlayback() {
+        timer.RemoveUpdateListener(this, OnTimeUpdate);
         int completedVersion = loadVersion;
         Handler handler = playOverHandler;
         playOverHandler = null;
@@ -222,13 +224,21 @@ public class FrameAnimationView : MonoBehaviour {
         Sprite frameSprite = animationData.GetSpriteByTime(duration);
         if (frameSprite != null) {
             playedDuration = duration;
-            image.rectTransform.sizeDelta = new Vector2(frameSprite.texture.width, frameSprite.texture.height);
             SetSprite(frameSprite);
         }
     }
 
     /**设置图片的精灵（精灵为空则图片设为不可见）*/
     private void SetSprite(Sprite sp) {
+        if (image.sprite == sp) {
+            return;
+        }
+        if (sp != null) {
+            Vector2 size = sp.rect.size;
+            if (image.rectTransform.sizeDelta != size) {
+                image.rectTransform.sizeDelta = size;
+            }
+        }
         image.sprite = sp;
         image.gameObject.SetActive(sp != null);
     }
@@ -314,7 +324,7 @@ public class FrameAnimationView : MonoBehaviour {
     /**重置当前播放，保留监听时可用于同一实例切换动画*/
     private void ResetPlayback(bool clearDispatcher) {
         loadVersion++;
-        timer.Clear(this, OnLoop);
+        timer.RemoveUpdateListener(this, OnTimeUpdate);
         Handler handler = playOverHandler;
         playOverHandler = null;
         ReturnHandler(handler);

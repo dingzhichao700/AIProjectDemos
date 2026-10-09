@@ -12,9 +12,10 @@ public class AssetsImport : AssetPostprocessor {
         if (assetPath.Contains(ResourceConst.PATH_ATLAS) || assetPath.Contains(ResourceConst.PATH_UI_REFERENCE)) {
             TextureImporter importer = (TextureImporter)assetImporter;
             importer.textureType = TextureImporterType.Sprite;
-            importer.streamingMipmaps = true;
-            importer.mipmapEnabled = true;
-            importer.isReadable = true;
+            importer.streamingMipmaps = false;
+            importer.mipmapEnabled = false;
+            // 普通 UI 图集仅供显示，不保留 CPU 像素副本。
+            importer.isReadable = false;
             importer.filterMode = FilterMode.Point;
             importer.wrapMode = TextureWrapMode.Clamp;
             importer.spriteImportMode = SpriteImportMode.Multiple;

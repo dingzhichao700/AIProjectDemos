@@ -107,8 +107,8 @@ public static class AddressablesAutoBuilder
             return;
         }
 
-        var targetGroup = GetGroup(settings, "title");
-        ConfigureGroup(targetGroup, "title");
+        var targetGroup = GetGroup(settings, "configData");
+        ConfigureGroup(targetGroup, "configData");
         AddAssetsRecursively(settings, targetGroup, CONFIG_BIN_ROOT, null);
     }
 
@@ -196,7 +196,10 @@ public static class AddressablesAutoBuilder
     private static void ConfigureGroup(AddressableAssetGroup group, string logicalGroupName)
     {
         var schema = group.GetSchema<BundledAssetGroupSchema>();
-        schema.BundleMode = AddressAblesConst.PACK_TOGETHER_GROUPS.Contains(logicalGroupName)
+        // 配置表独立打包，单表更新不会带动其他配置表重新下载。
+        schema.BundleMode = logicalGroupName == "configData"
+            ? BundledAssetGroupSchema.BundlePackingMode.PackSeparately
+            : AddressAblesConst.PACK_TOGETHER_GROUPS.Contains(logicalGroupName)
             ? BundledAssetGroupSchema.BundlePackingMode.PackTogether
             : BundledAssetGroupSchema.BundlePackingMode.PackTogetherByLabel;
         schema.UseAssetBundleCache = true;

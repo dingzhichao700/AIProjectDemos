@@ -36,8 +36,11 @@ public static class CfgManager {
         foreach (string name in ResourceConst.ALL_CONFIG_LIST) {
             resources.Add(new ResLoadInfo(ResourceConst.PATH_CONFIG + name, ResType.Json));
         }
-        await ResourceLoader.LoadListAsync(resources);
+        // 各表下载互相独立，全部就绪后才构造含跨表引用的 Tables。
+        await LoadTiming.MeasureAsync($"Config.Load count={resources.Count} concurrency=4", () => ResourceLoader.LoadListAsync(resources, maxConcurrent: 4));
+        var watch = System.Diagnostics.Stopwatch.StartNew();
         Init();
+        LoadTiming.Report("Config.TablesInit", watch);
     }
 
     public static Tables tables {

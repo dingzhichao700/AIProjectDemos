@@ -15,6 +15,9 @@ public class OpeningPanel : BasePanel
     bool preloadComplete;
     bool effectPlayComplete;
 
+    /**从界面打开起记录里程碑，区分资源等待与演出时间*/
+    readonly System.Diagnostics.Stopwatch openingWatch = new System.Diagnostics.Stopwatch();
+
     public OpeningPanel()
     {
         layer = PanelLayer.SCALE_PANEL_FIRST;
@@ -22,9 +25,10 @@ public class OpeningPanel : BasePanel
 
     public override void OnOpen()
     {
+        openingWatch.Restart();
         canvasGroupStudioMark.alpha = 0;
         LoadSelfResource();
-        LoadTitleResource();
+        LoadLoginResource();
     }
 
     //加载本界面资源
@@ -40,6 +44,7 @@ public class OpeningPanel : BasePanel
 
     void LoadSelfResourceComplete()
     {
+        LoadTiming.Report("Opening.SelfReady", openingWatch);
         AudioManager.ins.PlaySound(AudioBusType.HINT, ResourceConst.GetAudio(AudioConst.EFFECT_OPENING));
 
         effect = FrameAnimationView.GetInstance();
@@ -51,12 +56,13 @@ public class OpeningPanel : BasePanel
 
     void OnMarkTweenComplete()
     {
+        LoadTiming.Report("Opening.FadeInComplete", openingWatch);
         effectPlayComplete = true;
         TryPlayClose();
     }
 
-    //预加载title界面资源
-    async void LoadTitleResource()
+    //预加载Login界面资源
+    async void LoadLoginResource()
     {
         var preload = new List<ResLoadInfo>
         {
@@ -69,6 +75,7 @@ public class OpeningPanel : BasePanel
 
     void LoadTitleComplete()
     {
+        LoadTiming.Report("Opening.TitleResourcesReady", openingWatch);
         preloadComplete = true;
         TryPlayClose();
     }
@@ -83,6 +90,7 @@ public class OpeningPanel : BasePanel
 
     protected override void PlayClose()
     {
+        LoadTiming.Report("Opening.FadeOutBegin", openingWatch);
         boxContent.DOFade(0, 1.5f).OnComplete(() =>
         {
             effect?.Recover();
@@ -93,6 +101,7 @@ public class OpeningPanel : BasePanel
 
     public override void OnClose()
     {
+        LoadTiming.Report("Opening.RequestLoginPanel", openingWatch);
         PanelMgr.ins.OpenPanel(UIEnum.LOGIN_PANEL);
     }
 }

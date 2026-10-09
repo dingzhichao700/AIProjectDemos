@@ -1,5 +1,6 @@
 ﻿using SimpleJSON;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -19,6 +20,11 @@ public class FrameAnimationManager : MonoBehaviour {
     private static List<FrameAnimationView> pool;
 
     private static int createIndex = 0;
+
+    /**所有裁帧任务共用的每帧软预算，单次纹理 API 无法中断*/
+    private const double GENERATION_BUDGET_MS = 2;
+    private static readonly System.Diagnostics.Stopwatch generationWatch = new System.Diagnostics.Stopwatch();
+    private static int generationFrame = -1;
 
     /**池中实例上限*/
     private const int POOL_MAX = 300;
@@ -186,14 +192,16 @@ public class FrameAnimationManager : MonoBehaviour {
         }
 
         TaskCompletionSource<FrameAnimationRes> completion = new TaskCompletionSource<FrameAnimationRes>();
-        UnityMainThreadDispatcher.Instance.Enqueue(() => {
+        UnityMainThreadDispatcher.Instance.Enqueue(async () => {
             List<Texture2D> generatedTextures = new List<Texture2D>();
             try {
                 // 图集只读取一次；Color32 避免为每帧分配浮点颜色数组。
+                await WaitForGenerationBudgetAsync();
                 Color32[] sourcePixels = sprite.texture.GetPixels32();
                 int totalWidth = sprite.texture.width;
                 int totalHeight = sprite.texture.height;
                 for (int index = 0; index < frames.Count; index++) {
+                    await WaitForGenerationBudgetAsync();
                     JSONNode singleFrame = frames[index];
                     JSONNode frame = singleFrame["frame"];
                     JSONNode spriteSourceSize = singleFrame["spriteSourceSize"];
@@ -241,6 +249,30 @@ public class FrameAnimationManager : MonoBehaviour {
             }
         });
         return await completion.Task;
+    }
+
+    /// <summary>
+    /// 裁帧超出本帧预算时等待下一渲染帧，保留主线程执行 Unity API。
+    /// </summary>
+    private static async Task WaitForGenerationBudgetAsync() {
+        while (true) {
+            if (generationFrame != Time.frameCount) {
+                generationFrame = Time.frameCount;
+                generationWatch.Restart();
+            }
+            if (generationWatch.Elapsed.TotalMilliseconds < GENERATION_BUDGET_MS) {
+                return;
+            }
+            var nextFrame = new TaskCompletionSource<bool>();
+            UnityMainThreadDispatcher.Instance.StartCoroutine(CompleteOnNextFrame(nextFrame));
+            await nextFrame.Task;
+        }
+    }
+
+    /**通过协程确保让出当前帧，避免队列在同一 Update 内重新执行*/
+    private static IEnumerator CompleteOnNextFrame(TaskCompletionSource<bool> completion) {
+        yield return null;
+        completion.SetResult(true);
     }
 
 }

@@ -9,6 +9,7 @@ public class HotUpdateManifest {
     public string baseVersion;
     public string release;
     public string resourceRoot;
+    public string bundleRoot;
     public string[] aot;
     public string[] assemblies;
 

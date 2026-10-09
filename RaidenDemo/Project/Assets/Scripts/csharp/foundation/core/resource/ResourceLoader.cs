@@ -32,9 +32,17 @@ public static class ResourceLoader {
     private static int _batchIdCounter = 0;
 
     /// <summary>
-    /// 加载一批资源（不重复回调 / 带进度）
+    /// 按指定并发数加载资源，全部成功后回调。
     /// </summary>
-    public static async Task LoadListAsync(List<ResLoadInfo> list, Action onComplete = null, Action<float> onProgress = null) {
+    /// <param name="list">待加载资源</param>
+    /// <param name="onComplete">全部加载成功回调</param>
+    /// <param name="onProgress">按完成项数计算的进度</param>
+    /// <param name="maxConcurrent">本批次并发上限，默认顺序加载</param>
+    /// <remarks>失败后停止领取新资源，等待已发起任务结束再向上抛出异常。</remarks>
+    public static async Task LoadListAsync(List<ResLoadInfo> list, Action onComplete = null, Action<float> onProgress = null, int maxConcurrent = 1) {
+        if (maxConcurrent < 1) {
+            throw new ArgumentOutOfRangeException(nameof(maxConcurrent));
+        }
         if (list == null || list.Count == 0) {
             onProgress?.Invoke(1f);
             onComplete?.Invoke();
@@ -47,17 +55,31 @@ public static class ResourceLoader {
 
         _activeBatchMap.Add(batchId, batch);
         try {
-            // 顺序加载可让界面准确反映离散资源完成比例。
-            foreach (var item in list) {
-                if (item.resType == ResType.FrameAnim) {
-                    await FrameAnimationManager.LoadFrameAnimationResAsync(item.path);
-                } else {
-                    await ResourceManager.LoadAsync(item);
+            int nextIndex = 0;
+            bool failed = false;
+            // 任务在 Unity 主线程异步交错执行，不将 Unity API 放入线程池。
+            async Task LoadNextAsync() {
+                try {
+                    while (!failed && nextIndex < list.Count) {
+                        ResLoadInfo item = list[nextIndex++];
+                        if (item.resType == ResType.FrameAnim) {
+                            await FrameAnimationManager.LoadFrameAnimationResAsync(item.path);
+                        } else {
+                            await ResourceManager.LoadAsync(item);
+                        }
+                        batch.loaded++;
+                        batch.onProgress?.Invoke((float)batch.loaded / batch.total);
+                    }
+                } catch {
+                    failed = true;
+                    throw;
                 }
-                batch.loaded++;
-                batch.onProgress?.Invoke((float)batch.loaded / batch.total);
             }
-            batch.onProgress?.Invoke(1f);
+            Task[] workers = new Task[Math.Min(maxConcurrent, list.Count)];
+            for (int i = 0; i < workers.Length; i++) {
+                workers[i] = LoadNextAsync();
+            }
+            await Task.WhenAll(workers);
             batch.onComplete?.Invoke();
         } finally {
             _activeBatchMap.Remove(batchId);

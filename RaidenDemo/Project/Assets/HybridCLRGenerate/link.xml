@@ -30,6 +30,7 @@
     <type fullname="IGameModuleEntry" preserve="all" />
     <type fullname="JsonFileUtil" preserve="all" />
     <type fullname="KeyBoardControl" preserve="all" />
+    <type fullname="LoadTiming" preserve="all" />
     <type fullname="PanelLayer" preserve="all" />
     <type fullname="PanelMgr" preserve="all" />
     <type fullname="PanelOperateEnum" preserve="all" />
@@ -62,6 +63,7 @@
     <type fullname="System.Collections.Generic.Stack`1" preserve="all" />
     <type fullname="System.ComponentModel.EditorBrowsableAttribute" preserve="all" />
     <type fullname="System.ComponentModel.EditorBrowsableState" preserve="all" />
+    <type fullname="System.Diagnostics.Stopwatch" preserve="all" />
   </assembly>
   <assembly fullname="System.Core">
     <type fullname="System.Collections.Generic.HashSet`1" preserve="all" />

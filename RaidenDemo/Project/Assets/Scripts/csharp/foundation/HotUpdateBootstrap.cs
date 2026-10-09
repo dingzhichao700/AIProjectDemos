@@ -24,13 +24,17 @@ public static class HotUpdateBootstrap {
     /**正在装载的业务程序集任务*/
     private static readonly Dictionary<string, Task> loadingModules = new Dictionary<string, Task>();
 
+    /**限制启动时元数据下载并发及尚未加载的字节数组数量*/
+    private const int AOT_DOWNLOAD_CONCURRENCY = 3;
+
     /// <summary>
     /// 按底座版本选择发布内容，补充元数据并装载登录程序集。
     /// </summary>
     public static async Task InitializeAsync() {
+        var startupWatch = System.Diagnostics.Stopwatch.StartNew();
 #if UNITY_EDITOR
         // 编辑器使用已编译的程序集，避免重复加载同名 DLL。
-        await Addressables.InitializeAsync().Task;
+        await LoadTiming.MeasureAsync("Addressables.Initialize", async () => await Addressables.InitializeAsync().Task);
 #else
         TextAsset boot = Resources.Load<TextAsset>("RaidenHotUpdateBase");
         if (boot == null) {
@@ -60,31 +64,50 @@ public static class HotUpdateBootstrap {
         if (manifest == null || manifest.baseVersion != baseVersion || manifest.aot == null || manifest.assemblies == null || manifest.assemblies.Length == 0 || string.IsNullOrEmpty(manifest.release) || manifest.release.IndexOfAny(new[] { '/', '\\', '.' }) >= 0) {
             throw new InvalidOperationException("热更新清单与当前底座不匹配。");
         }
-        if (string.IsNullOrEmpty(manifest.resourceRoot)) {
-            throw new InvalidOperationException("发布清单缺少资源地址。");
+        if (manifest.resourceRoot != "releases/" + manifest.release + "/" || manifest.bundleRoot != "bundles/") {
+            throw new InvalidOperationException("发布清单的资源目录结构无效。");
         }
         string releaseRoot = new Uri(new Uri(pointerUrl), manifest.resourceRoot).AbsoluteUri.TrimEnd('/') + "/";
+        string bundleRoot = new Uri(new Uri(pointerUrl), manifest.bundleRoot).AbsoluteUri;
         string localRoot = Addressables.RuntimePath.TrimEnd('/') + "/";
+        LoadTiming.version = baseVersion + "/" + manifest.release;
+        LoadTiming.Report("Startup.Manifest", startupWatch);
         Addressables.InternalIdTransformFunc = location => {
             string path = location.InternalId;
             if (path.StartsWith(localRoot, StringComparison.Ordinal)) {
                 return releaseRoot + path.Substring(localRoot.Length);
             }
             if (path.StartsWith(BundleRoot, StringComparison.Ordinal)) {
-                return releaseRoot + path.Substring(BundleRoot.Length);
+                return bundleRoot + path.Substring(BundleRoot.Length);
             }
             return path;
         };
-        await Addressables.InitializeAsync().Task;
-        foreach (string name in manifest.aot) {
-            byte[] bytes = await LoadBytesAsync("hotupdate/aot/" + name);
-            LoadImageErrorCode result = RuntimeApi.LoadMetadataForAOTAssembly(bytes, HomologousImageMode.SuperSet);
-            if (result != LoadImageErrorCode.OK) {
-                throw new InvalidOperationException("补充 AOT 元数据失败：" + name + "，" + result);
+        await LoadTiming.MeasureAsync("Addressables.Initialize", async () => await Addressables.InitializeAsync().Task);
+        long aotDownloadMs = 0;
+        long aotLoadMs = 0;
+        for (int offset = 0; offset < manifest.aot.Length; offset += AOT_DOWNLOAD_CONCURRENCY) {
+            int count = Math.Min(AOT_DOWNLOAD_CONCURRENCY, manifest.aot.Length - offset);
+            var aotWatch = System.Diagnostics.Stopwatch.StartNew();
+            Task<byte[]>[] downloads = new Task<byte[]>[count];
+            for (int i = 0; i < count; i++) {
+                downloads[i] = LoadBytesAsync("hotupdate/aot/" + manifest.aot[offset + i]);
             }
+            byte[][] metadata = await Task.WhenAll(downloads);
+            aotDownloadMs += aotWatch.ElapsedMilliseconds;
+            aotWatch.Restart();
+            // 下载并行，元数据仍按清单顺序加载；全部完成后才允许装载业务 DLL。
+            for (int i = 0; i < count; i++) {
+                LoadImageErrorCode result = RuntimeApi.LoadMetadataForAOTAssembly(metadata[i], HomologousImageMode.SuperSet);
+                if (result != LoadImageErrorCode.OK) {
+                    throw new InvalidOperationException("补充 AOT 元数据失败：" + manifest.aot[offset + i] + "，" + result);
+                }
+            }
+            aotLoadMs += aotWatch.ElapsedMilliseconds;
         }
+        LoadTiming.Report("Startup.AOTReady", startupWatch, $"count={manifest.aot.Length} concurrency={AOT_DOWNLOAD_CONCURRENCY} downloadMs={aotDownloadMs} metadataLoadMs={aotLoadMs}");
         activeManifest = manifest;
         await LoadModuleAsync("Login");
+        LoadTiming.Report("Startup.LoginReady", startupWatch);
         Debug.Log("[HotUpdate] 登录程序集就绪，底座 " + baseVersion + "，业务发布 " + manifest.release);
 #endif
     }
@@ -113,6 +136,7 @@ public static class HotUpdateBootstrap {
 
     /**校验发布清单并装载指定业务程序集*/
     private static async Task LoadModuleCoreAsync(string moduleName) {
+        var moduleWatch = System.Diagnostics.Stopwatch.StartNew();
 #if UNITY_EDITOR
         await Task.CompletedTask;
         if (Type.GetType(moduleName + "Entry, " + moduleName) == null) {
@@ -124,7 +148,9 @@ public static class HotUpdateBootstrap {
             throw new InvalidOperationException("发布清单未包含业务程序集：" + fileName);
         }
         byte[] bytes = await LoadBytesAsync("hotupdate/code/" + fileName);
+        long downloadMs = moduleWatch.ElapsedMilliseconds;
         Assembly assembly = Assembly.Load(bytes);
+        LoadTiming.Report("Module." + moduleName, moduleWatch, $"downloadMs={downloadMs} assemblyLoadMs={moduleWatch.ElapsedMilliseconds - downloadMs}");
         Debug.Log("[HotUpdate] 已加载 " + assembly.GetName().Name + "，发布版本 " + activeManifest.release);
 #endif
     }

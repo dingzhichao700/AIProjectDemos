@@ -32,11 +32,11 @@ public class FrameAnimationRes {
         int temp = 0;
         for (int i = 0; i < durations.Length; i++) {
             temp += durations[i];
-            if (time <= temp) {
+            if (time < temp) {
                 return i;
             }
         }
-        return 0;
+        return durations.Length - 1;
     }
 
 }

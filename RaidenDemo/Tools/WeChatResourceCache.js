@@ -13,14 +13,10 @@ unityNamespace.isCacheableFile = function (path) {
         return false;
     }
     const relativePath = path.substring(prefix.length).split(/[?#]/)[0];
-    // 仅缓存不可变的“底座版本/资源版本”内容；可变发布入口始终联网。
-    const versionPath = /^\d{8}T\d{9}Z\/\d{8}T\d{9}Z\/(.+)$/.exec(relativePath);
-    if (!versionPath) {
+    // 共享 Bundle 和版本 Catalog 不可变；发布入口及 settings 始终联网。
+    if (relativePath.split('/').some(part => part === '.' || part === '..')) {
         return false;
     }
-    const resource = versionPath[1];
-    if (resource.split('/').some(part => part === '.' || part === '..')) {
-        return false;
-    }
-    return resource.endsWith('.bundle') || /^catalog(?:_[^/]*)?\.json$/.test(resource);
+    return /^\d{8}T\d{9}Z\/bundles\/.+_[0-9a-f]{16,64}\.bundle$/.test(relativePath)
+        || /^\d{8}T\d{9}Z\/releases\/\d{8}T\d{9}Z\/catalog\.json$/.test(relativePath);
 };

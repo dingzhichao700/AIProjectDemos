@@ -17,22 +17,40 @@ public static class MainContentLoader {
     /// <param name="onComplete">进入成功回调</param>
     /// <param name="onFailed">加载失败回调</param>
     public static void Enter(Action onComplete, Action<Exception> onFailed) {
+        var totalWatch = System.Diagnostics.Stopwatch.StartNew();
         var steps = new List<Func<Action<float>, Task>> {
             async progress => {
                 await CfgManager.EnsureLoadedAsync();
-                await HotUpdateBootstrap.LoadModuleAsync("Main");
-                progress(1f);
+                float moduleProgress = 0f;
+                float resourceProgress = 0f;
+                async Task LoadModuleAsync() {
+                    await HotUpdateBootstrap.LoadModuleAsync("Main");
+                    moduleProgress = 1f;
+                    progress((moduleProgress + resourceProgress) / 2f);
+                }
+                Task moduleTask = LoadModuleAsync();
+                Task resourceTask = LoadTiming.MeasureAsync("Main.ResourcesDownload", () => ResourceLoader.DownloadDependenciesAsync(ContentLabel, value => {
+                    resourceProgress = value;
+                    progress((moduleProgress + resourceProgress) / 2f);
+                }));
+                // 点击新游戏后才并行准备代码与资源，二者就绪前不创建正式界面。
+                await Task.WhenAll(moduleTask, resourceTask);
             },
-            progress => ResourceLoader.DownloadDependenciesAsync(ContentLabel, progress),
             async progress => {
-                await ResourceLoader.LoadListAsync(new List<ResLoadInfo> { new ResLoadInfo(ResourceConst.GetUIPath(UIEnum.HOME_PANEL), ResType.Prefab) }, null, progress);
+                await LoadTiming.MeasureAsync("Main.HomePrefabReady", () => ResourceLoader.LoadListAsync(new List<ResLoadInfo> { new ResLoadInfo(ResourceConst.GetUIPath(UIEnum.HOME_PANEL), ResType.Prefab) }, null, progress));
             },
             async progress => {
                 await HotUpdateBootstrap.EnterModuleAsync("Main");
                 progress(1f);
             }
         };
-        LoadingControl.ins.OpenQueue(steps, onComplete, onFailed);
+        LoadingControl.ins.OpenQueue(steps, () => {
+            LoadTiming.Report("Main.EntryRequested", totalWatch, "result=success");
+            onComplete?.Invoke();
+        }, exception => {
+            LoadTiming.Report("Main.EntryRequested", totalWatch, "result=failed");
+            onFailed?.Invoke(exception);
+        });
     }
 
 }

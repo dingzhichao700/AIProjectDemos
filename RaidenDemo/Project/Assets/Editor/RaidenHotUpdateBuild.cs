@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using HybridCLR.Editor;
 using HybridCLR.Editor.Commands;
@@ -66,7 +67,7 @@ public static class RaidenHotUpdateBuild {
         string generated = File.ReadAllText("Assets/" + HybridCLRSettings.Instance.outputAOTGenericReferenceFile);
         string aotSection = generated.Split(new[] { "// }}" }, StringSplitOptions.None)[0];
         string[] aot = Regex.Matches(aotSection, "\"([^\"]+\\.dll)\"").Cast<Match>().Select(match => match.Groups[1].Value).Distinct().ToArray();
-        var manifest = new HotUpdateManifest { baseVersion = baseVersion, release = baseVersion, resourceRoot = baseVersion + "/", aot = aot, assemblies = new[] { "Login.dll", "Main.dll" } };
+        var manifest = new HotUpdateManifest { baseVersion = baseVersion, release = baseVersion, resourceRoot = "releases/" + baseVersion + "/", bundleRoot = "bundles/", aot = aot, assemblies = new[] { "Login.dll", "Main.dll" } };
         File.WriteAllText(StatePath, JsonUtility.ToJson(manifest, true));
         Stage(manifest, true);
     }
@@ -76,10 +77,14 @@ public static class RaidenHotUpdateBuild {
     /// </summary>
     public static void GenerateContent() {
         HotUpdateManifest manifest = ReadState();
+        if (manifest.bundleRoot != "bundles/" || manifest.resourceRoot != "releases/" + manifest.release + "/") {
+            throw new InvalidOperationException("旧底座不支持共享 Bundle 目录，请先重新生成并导出底座。");
+        }
         manifest.assemblies = new[] { "Login.dll", "Main.dll" };
         CompileDllCommand.CompileDll(BuildTarget.WebGL, EditorUserBuildSettings.development);
         manifest.release = DateTime.UtcNow.ToString("yyyyMMddTHHmmssfffZ");
-        manifest.resourceRoot = manifest.release + "/";
+        manifest.resourceRoot = "releases/" + manifest.release + "/";
+        manifest.bundleRoot = "bundles/";
         File.WriteAllText(StatePath, JsonUtility.ToJson(manifest, true));
         Stage(manifest, false);
     }
@@ -179,14 +184,16 @@ public static class RaidenHotUpdateBuild {
             throw new InvalidOperationException("Catalog 必须直接从选定版本目录加载，不能包含 hash 更新依赖。请重新构建 Addressables。");
         }
         string root = Path.Combine(ServerDirectory, manifest.baseVersion);
-        string release = Path.Combine(root, manifest.release);
+        string release = Path.Combine(root, "releases", manifest.release);
         if (Directory.Exists(release)) {
             throw new InvalidOperationException("候选目录已存在，禁止覆盖：" + release);
         }
         Directory.CreateDirectory(release);
         CopyFile(Path.Combine(runtime, "settings.json"), Path.Combine(release, "settings.json"));
         CopyFile(Path.Combine(runtime, "catalog.json"), Path.Combine(release, "catalog.json"));
-        // 只复制当前 Catalog 引用的 Bundle，避免历史构建产物累积。
+        // 相同 Bundle 保持 URL 不变，旧 Catalog 引用的文件继续保留。
+        int added = 0;
+        int reused = 0;
         string remote = "ServerData/WebGL";
         CatalogFiles catalog = JsonUtility.FromJson<CatalogFiles>(File.ReadAllText(Path.Combine(runtime, "catalog.json")));
         foreach (string id in catalog.m_InternalIds.Distinct()) {
@@ -194,10 +201,23 @@ public static class RaidenHotUpdateBuild {
                 continue;
             }
             string relative = id.Substring(HotUpdateBootstrap.BundleRoot.Length);
-            CopyFile(Path.Combine(remote, relative), Path.Combine(release, relative));
+            if (relative.Contains("\\") || relative.Split('/').Any(part => part == ".." || part == "." || part.Length == 0) || !Regex.IsMatch(relative, @"_[0-9a-f]{16,64}\.bundle$")) {
+                throw new InvalidOperationException("Bundle 必须使用含哈希的安全相对路径：" + relative);
+            }
+            string source = Path.Combine(remote, relative);
+            string target = Path.Combine(root, "bundles", relative);
+            if (File.Exists(target)) {
+                if (FileHash(source) != FileHash(target)) {
+                    throw new InvalidOperationException("同名 Bundle 内容不一致，禁止覆盖：" + target);
+                }
+                reused++;
+            } else {
+                CopyFile(source, target);
+                added++;
+            }
         }
         File.WriteAllText(Path.Combine(release, "manifest.json"), JsonUtility.ToJson(manifest, true));
-        Debug.Log("[HotUpdateBuild] 候选内容已生成，尚未切换生效版本：" + release);
+        Debug.Log($"[HotUpdateBuild] 候选内容已生成：{release}，新增 Bundle={added}，复用 Bundle={reused}");
     }
 
     /// <summary>
@@ -206,7 +226,7 @@ public static class RaidenHotUpdateBuild {
     public static void Publish() {
         HotUpdateManifest manifest = ReadState();
         string root = Path.Combine(ServerDirectory, manifest.baseVersion);
-        string candidate = Path.Combine(root, manifest.release, "manifest.json");
+        string candidate = Path.Combine(root, "releases", manifest.release, "manifest.json");
         if (!File.Exists(candidate)) {
             throw new FileNotFoundException("请先构建候选版本。", candidate);
         }
@@ -228,6 +248,15 @@ public static class RaidenHotUpdateBuild {
 
         public string[] m_InternalIds;
 
+    }
+
+    /**校验共享文件内容，防止覆盖已发布资源*/
+    private static string FileHash(string path) {
+        using (var stream = File.OpenRead(path)) {
+            using (var hash = SHA256.Create()) {
+                return Convert.ToBase64String(hash.ComputeHash(stream));
+            }
+        }
     }
 
     /**复制单个发布文件*/
