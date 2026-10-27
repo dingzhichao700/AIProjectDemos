@@ -148,3 +148,7 @@ powershell -ExecutionPolicy Bypass -File Tools/Test-GameFrameworkTemplate.ps1
 ## 微信构建就绪基线
 
 默认模板携带锁定的微信 SDK/HybridCLR 依赖、编译宏、程序集引用和 Login/Main 热更新配置。生成器不切换 WebGL；目标切换与本机 HybridCLR 运行时安装由 game-build-release 在实际构建阶段负责。项目 AppID/CDN 留空等待工程配置；不回写案例底座版本、DLL、AOT 或 HybridCLRData。显式 Standalone 导出仍关闭微信策略。
+
+## 格子资产与示意图读取补充（2026-10-27）
+
+涉及地块美术、底面/顶面贴格、海拔、厚度/深度或中立岩质地块，必须读取《战斗场景元素表现规范》的「格子视觉资产结构规范（2026-10-27确认）」及配套示意图；不得混用旧顶面锚点与新底面贴格语义。涉及任何示意图，须遵守《阶段性设计验证流程规范》的「示意图通用规范」，只绘轮廓、色块和必要标注。
