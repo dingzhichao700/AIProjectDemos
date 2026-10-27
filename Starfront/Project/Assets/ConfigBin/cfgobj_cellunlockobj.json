@@ -1,0 +1,108 @@
+[
+  {
+    "id": 1,
+    "name": "采集站",
+    "cost": 50,
+    "generationWeight": 20,
+    "guaranteedNearBase": true,
+    "emptyWeight": 0,
+    "collectorWeight": 100,
+    "unitQualityWeights": []
+  },
+  {
+    "id": 2,
+    "name": "问号",
+    "cost": 25,
+    "generationWeight": 30,
+    "guaranteedNearBase": false,
+    "emptyWeight": 70,
+    "collectorWeight": 0,
+    "unitQualityWeights": [
+      {
+        "quality": 2,
+        "weight": 10
+      },
+      {
+        "quality": 4,
+        "weight": 15
+      },
+      {
+        "quality": 5,
+        "weight": 5
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "基础兵营",
+    "cost": 50,
+    "generationWeight": 35,
+    "guaranteedNearBase": true,
+    "emptyWeight": 0,
+    "collectorWeight": 0,
+    "unitQualityWeights": [
+      {
+        "quality": 2,
+        "weight": 74
+      },
+      {
+        "quality": 3,
+        "weight": 20
+      },
+      {
+        "quality": 4,
+        "weight": 5
+      },
+      {
+        "quality": 5,
+        "weight": 1
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "中档兵营",
+    "cost": 100,
+    "generationWeight": 10,
+    "guaranteedNearBase": false,
+    "emptyWeight": 0,
+    "collectorWeight": 0,
+    "unitQualityWeights": [
+      {
+        "quality": 2,
+        "weight": 50
+      },
+      {
+        "quality": 3,
+        "weight": 40
+      },
+      {
+        "quality": 4,
+        "weight": 8
+      },
+      {
+        "quality": 5,
+        "weight": 2
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "高档兵营",
+    "cost": 250,
+    "generationWeight": 5,
+    "guaranteedNearBase": false,
+    "emptyWeight": 0,
+    "collectorWeight": 0,
+    "unitQualityWeights": [
+      {
+        "quality": 4,
+        "weight": 90
+      },
+      {
+        "quality": 5,
+        "weight": 10
+      }
+    ]
+  }
+]

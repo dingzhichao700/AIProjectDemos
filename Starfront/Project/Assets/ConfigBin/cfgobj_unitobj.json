@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1101,
+    "name": "优秀步兵",
+    "race": 1,
+    "movementType": 1,
+    "maxHp": 0,
+    "moveSpeed": 30,
+    "appearances": [
+      {
+        "action": 1,
+        "direction": 1,
+        "resource": "scene/Colonial/Infantry/Move_Up",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 1,
+        "direction": 2,
+        "resource": "scene/Colonial/Infantry/Move_UpRight",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 1,
+        "direction": 3,
+        "resource": "scene/Colonial/Infantry/Move_Right",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 1,
+        "direction": 4,
+        "resource": "scene/Colonial/Infantry/Move_DownRight",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 1,
+        "direction": 5,
+        "resource": "scene/Colonial/Infantry/Move_Down",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ]
+  },
+  {
+    "id": 1102,
+    "name": "稀有步兵",
+    "race": 1,
+    "movementType": 1,
+    "maxHp": 0,
+    "moveSpeed": 30,
+    "appearances": [
+      {
+        "action": 1,
+        "direction": 1,
+        "resource": "scene/Colonial/Infantry/Move_Up",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 1,
+        "direction": 2,
+        "resource": "scene/Colonial/Infantry/Move_UpRight",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 1,
+        "direction": 3,
+        "resource": "scene/Colonial/Infantry/Move_Right",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 1,
+        "direction": 4,
+        "resource": "scene/Colonial/Infantry/Move_DownRight",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 1,
+        "direction": 5,
+        "resource": "scene/Colonial/Infantry/Move_Down",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ]
+  },
+  {
+    "id": 1103,
+    "name": "史诗步兵",
+    "race": 1,
+    "movementType": 1,
+    "maxHp": 0,
+    "moveSpeed": 30,
+    "appearances": [
+      {
+        "action": 1,
+        "direction": 1,
+        "resource": "scene/Colonial/Infantry/Move_Up",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 1,
+        "direction": 2,
+        "resource": "scene/Colonial/Infantry/Move_UpRight",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 1,
+        "direction": 3,
+        "resource": "scene/Colonial/Infantry/Move_Right",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 1,
+        "direction": 4,
+        "resource": "scene/Colonial/Infantry/Move_DownRight",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 1,
+        "direction": 5,
+        "resource": "scene/Colonial/Infantry/Move_Down",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ]
+  },
+  {
+    "id": 1104,
+    "name": "传说步兵",
+    "race": 1,
+    "movementType": 1,
+    "maxHp": 0,
+    "moveSpeed": 30,
+    "appearances": [
+      {
+        "action": 1,
+        "direction": 1,
+        "resource": "scene/Colonial/Infantry/Move_Up",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 1,
+        "direction": 2,
+        "resource": "scene/Colonial/Infantry/Move_UpRight",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 1,
+        "direction": 3,
+        "resource": "scene/Colonial/Infantry/Move_Right",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 1,
+        "direction": 4,
+        "resource": "scene/Colonial/Infantry/Move_DownRight",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 1,
+        "direction": 5,
+        "resource": "scene/Colonial/Infantry/Move_Down",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ]
+  }
+]

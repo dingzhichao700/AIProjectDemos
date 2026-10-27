@@ -1,0 +1,26 @@
+{
+  "name": "Framework.Editor",
+  "references": [
+    "Foundation",
+    "Login",
+    "Main",
+    "Unity.Addressables.Editor",
+    "Unity.Addressables",
+    "Unity.ResourceManager",
+    "Unity.TextMeshPro",
+    "Unity.ugui",
+    "DOTween.Modules",
+    "Luban.Editor",
+    "Luban.Runtime",
+    "Unity.InputSystem",
+    "Unity.2D.Sprite.Editor",
+    "HybridCLR.Runtime",
+    "HybridCLR.Editor",
+    "Wx",
+    "WxEditor"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "autoReferenced": true
+}

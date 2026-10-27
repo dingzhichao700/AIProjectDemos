@@ -1,0 +1,66 @@
+{
+  "files": [
+    {
+      "sha256": "1CB0ADB4A49F4091A28785168335C349A210E4F369261299E48A39DCD7DC70FA",
+      "path": "E:\\UnityTemplateTest\\Starfront\\文档\\交接\\开发交接-2026-10-26.md"
+    },
+    {
+      "sha256": "F047686CAF5722C507F6097F0A74209499F3ACF84F7DB21245A2F55641482EFC",
+      "path": "E:\\UnityTemplateTest\\Starfront\\Project\\Assets\\Prefab\\default\\battle\\BattleScenePanel.prefab"
+    },
+    {
+      "sha256": "EF918FA6B8733BAF576CE384622A75062B2C8296616829CE8CD5BC43EE67E0BF",
+      "path": "E:\\UnityTemplateTest\\Starfront\\文档\\配置表\\BattleSceneResource.xlsx"
+    },
+    {
+      "sha256": "28B5A5110A0838A244E839224F6902A00CFB6B42311BF71555BA3B58037B4C4A",
+      "path": "E:\\UnityTemplateTest\\Starfront\\文档\\配置表\\BattleSceneCellResource.xlsx"
+    },
+    {
+      "sha256": "DCF5108FAD77F1ECE0F2CAA058A1C029927A67B688C7B327ABE7D3149EE9AC69",
+      "path": "E:\\UnityTemplateTest\\Starfront\\Project\\Library\\battle-scene-runtime-validation.txt"
+    },
+    {
+      "sha256": "44D89D59FE7DC1794652EDF18C27AE93B4C12B5A2E5FEEA2B517ED7E436EFD91",
+      "path": "E:\\UnityTemplateTest\\Starfront\\Project\\Assets\\Scripts\\csharp\\main\\battle\\BattleControl.cs"
+    },
+    {
+      "sha256": "F14A506693465FA990B043EAC95ACBA415E1CE2B271C3D15B6160AC99DD2B7E3",
+      "path": "E:\\UnityTemplateTest\\Starfront\\Project\\Assets\\Scripts\\csharp\\main\\battle\\BattleSceneResources.cs"
+    },
+    {
+      "sha256": "E65A579DAB12D06E53319CE633D9D21406DB8DA27E831E86A11B41729BD23D5F",
+      "path": "E:\\UnityTemplateTest\\Starfront\\Project\\Assets\\Scripts\\csharp\\main\\battle\\constant\\BattleConst.cs"
+    },
+    {
+      "sha256": "063A4CE57164664201B368FCA154EBDB1D53AB6C729E3A967FCFD375645AFD62",
+      "path": "E:\\UnityTemplateTest\\Starfront\\Project\\Assets\\Scripts\\csharp\\main\\battle\\model\\BattleSceneModel.cs"
+    },
+    {
+      "sha256": "60AADFFB7B23299439258755776315D0B5EA101825525B52D3A1C669EF528925",
+      "path": "E:\\UnityTemplateTest\\Starfront\\Project\\Assets\\Scripts\\csharp\\main\\battle\\model\\vo\\BattleCellVO.cs"
+    },
+    {
+      "sha256": "24E86FC44D864A9B1506CE2CBF7066979ED916C95530B7334DF8FC0A137A54A7",
+      "path": "E:\\UnityTemplateTest\\Starfront\\Project\\Assets\\Scripts\\csharp\\main\\battle\\view\\BattleSceneCamera.cs"
+    },
+    {
+      "sha256": "A445C2A30EB6DB15860E26E4BDBB7EDA8985A3BF28F09E7F57382094BDF3B2AC",
+      "path": "E:\\UnityTemplateTest\\Starfront\\Project\\Assets\\Scripts\\csharp\\main\\battle\\view\\BattleSceneInput.cs"
+    },
+    {
+      "sha256": "4258590AC05EB308636169BDCA9C80F7FC4F337268AB1A88FD0F8705A1996D86",
+      "path": "E:\\UnityTemplateTest\\Starfront\\Project\\Assets\\Scripts\\csharp\\main\\battle\\view\\BattleScenePanel.cs"
+    },
+    {
+      "sha256": "F6CA4B38546DBE6DC2FA7ED4062F3422E838E11FD3C3EDCFBC539CEAB4BB5C82",
+      "path": "E:\\UnityTemplateTest\\Starfront\\Project\\Assets\\Scripts\\csharp\\main\\battle\\view\\BattleScenePresentation.cs"
+    },
+    {
+      "sha256": "EB78DF8FD788537AAFF592E24AAD98BDB11E287F0159A454A128B627BB4BCE8C",
+      "path": "E:\\UnityTemplateTest\\Starfront\\Project\\Assets\\Scripts\\csharp\\main\\battle\\view\\BattleSceneView.cs"
+    }
+  ],
+  "date": "2026-10-26",
+  "purpose": "交接时校验快照；后续正常修改允许改变hash，不是构建清单"
+}

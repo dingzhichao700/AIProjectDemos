@@ -1,0 +1,63 @@
+# Unity — regenerable local folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+sysinfo.txt
+
+# Unity — IDE / solution files
+*.csproj
+*.unityproj
+*.sln
+*.booproj
+*.pidb
+*.svd
+*.mdb
+*.opendb
+*.VC.db
+
+# Addressables / player build output
+**/ServerData/
+**/AssetBundles/
+**/[Aa]ssets/StreamingAssets/aa/
+**/[Aa]ssets/StreamingAssets/aa.meta
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.DotSettings.user
+*.sln.iml
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Misc
+*.tmp
+*.bak
+*.swp
+*~
+
+# Task intermediates and generated review artifacts
+**/art-generation/
+**/work/
+**/outputs/
+**/*.inspect.ndjson
+
+# HybridCLR generated build state
+**/HybridCLRData/
+**/Assets/HotUpdateBytes/
+**/Assets/HybridCLRGenerate/
+**/Assets/Editor/HybridCLRGenerate/
+
+**/Assets/Resources/GameFrameworkHotUpdateBase.txt*
+**/Assets/HotUpdateBytes.meta
+**/Assets/HybridCLRGenerate.meta
+**/Assets/Editor/HybridCLRGenerate.meta

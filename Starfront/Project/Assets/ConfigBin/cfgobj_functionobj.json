@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "name": "商店",
+    "openCondition": [
+      {
+        "$type": "PlayerLevelCondition",
+        "level": 5
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "卡组",
+    "openCondition": []
+  },
+  {
+    "id": 3,
+    "name": "对战",
+    "openCondition": []
+  },
+  {
+    "id": 4,
+    "name": "领地",
+    "openCondition": [
+      {
+        "$type": "DisabledCondition"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "排名",
+    "openCondition": [
+      {
+        "$type": "MissionProgressCondition",
+        "missionIndex": 20
+      }
+    ]
+  }
+]

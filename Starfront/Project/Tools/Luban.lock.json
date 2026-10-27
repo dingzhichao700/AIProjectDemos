@@ -1,0 +1,514 @@
+{
+  "version": "4.1.0+ebdb2a55680bf1c5e77be801acaab4c541862a20",
+  "runtime": "Microsoft.NETCore.App 8.0",
+  "files": [
+    {
+      "path": "CommandLine.dll",
+      "sha256": "8A55501CD1A1590A4BD93A17C6FDD2C01A0ED5BFF1AEA9036BDC78D98C9A3FAD"
+    },
+    {
+      "path": "ExcelDataReader.dll",
+      "sha256": "4D4118A94499012EF69326624F98F5D6F9C6F70BC97AC1599FA17B67AD82F81C"
+    },
+    {
+      "path": "Google.Protobuf.dll",
+      "sha256": "C512D080D82CFBD0F77F70ED594FA06AC4536B76322FD5EBFDBC46AAFF024E7B"
+    },
+    {
+      "path": "Luban.Bson.deps.json",
+      "sha256": "ADFD2495CEAAED8FF2916E4DD393A095E61B3893584C0CF36A9C10C0DAE7B01A"
+    },
+    {
+      "path": "Luban.Bson.dll",
+      "sha256": "2C6B91C47417721B2D5F624FB7DD8DD379BFE55B504D1D631BD8B8E37D31911B"
+    },
+    {
+      "path": "Luban.Core.deps.json",
+      "sha256": "5BC8257AF1B5843BB654B05759262B32A5724D2F37CA48274E21213729B29FF4"
+    },
+    {
+      "path": "Luban.Core.dll",
+      "sha256": "74266F580635474B2B416A6AF27F0CC2B64D407CC70862FD28F7F2CAA3A6B493"
+    },
+    {
+      "path": "Luban.Cpp.deps.json",
+      "sha256": "D610FEEEA25911FF66AA76633674EE404B32B1F1CF5CA827936A8A511420CD1E"
+    },
+    {
+      "path": "Luban.Cpp.dll",
+      "sha256": "599865223481144F6FF5B28533800057FD8F9F0B4466E83EF4F27D8C0E214456"
+    },
+    {
+      "path": "Luban.CSharp.deps.json",
+      "sha256": "220CBCA5549CF78E90CC9F817510E6A4BDE067A009DABE3B0F5509A560C37F58"
+    },
+    {
+      "path": "Luban.CSharp.dll",
+      "sha256": "3B4CE3CCC09D0EF372AAA529D28280437C644A0A9D2CB2210705FCD49E06424B"
+    },
+    {
+      "path": "Luban.Dart.deps.json",
+      "sha256": "D072249A007514E3B84C33A883E153AE00CF73E7413E73752C1041150DD2FEF3"
+    },
+    {
+      "path": "Luban.Dart.dll",
+      "sha256": "98E959BE0ECEE346BBC8CBA71E9BF50B25F0F5C50A4559B0DF96C8071BF48514"
+    },
+    {
+      "path": "Luban.DataLoader.Builtin.deps.json",
+      "sha256": "CF9B377DD1FBE44C4BA20C7CA5BFC36E42A6709508B1A0983E52D77D6C5DC6EA"
+    },
+    {
+      "path": "Luban.DataLoader.Builtin.dll",
+      "sha256": "41466290C54019FECD8CDB72D86F5DC04F9CA59083DC75ACEFD7680D7DD8B072"
+    },
+    {
+      "path": "Luban.DataTarget.Builtin.deps.json",
+      "sha256": "981C31CBC580E1559CF07D87B5F3CD6832E8F49BA54A54EAD75F782355AF9598"
+    },
+    {
+      "path": "Luban.DataTarget.Builtin.dll",
+      "sha256": "2583709BB3C2BA9D427FBD1B7A18B222E0AAC66950A560994169FEE73636ECD5"
+    },
+    {
+      "path": "Luban.DataValidator.Builtin.deps.json",
+      "sha256": "C5A3B48295FCEBB92E99991678D142F001494D77114CCAB2366B873C844A6B97"
+    },
+    {
+      "path": "Luban.DataValidator.Builtin.dll",
+      "sha256": "BEEC9FCEAABF2F76DA8D3FAE0868770C8EBB34B9A9A6BE6C581FCD7F9E4BABB1"
+    },
+    {
+      "path": "Luban.deps.json",
+      "sha256": "4D0316AF3222741CAAA60FD6E567D90B5D095E9A1B2E51321E25BF635ABDDF56"
+    },
+    {
+      "path": "Luban.dll",
+      "sha256": "7B55DF3D4FAA706CE46B63707C67F1806E409AC3A938653C351447262DBA17E7"
+    },
+    {
+      "path": "Luban.exe",
+      "sha256": "3B925AC6CE237ED74A22FA51C9250DFF950D0D37326930D7C9DB02686D71C39F"
+    },
+    {
+      "path": "Luban.FlatBuffers.deps.json",
+      "sha256": "97DD4D2106F5004C7FAAAA0B6545B5D5E46000B59414C5A556845D80B4F2B903"
+    },
+    {
+      "path": "Luban.FlatBuffers.dll",
+      "sha256": "883E1EA061156BB77ADEBD6F944CA17DDC34D037E88CEE64765EE80D77E1568D"
+    },
+    {
+      "path": "Luban.Gdscript.deps.json",
+      "sha256": "903F738E8DE73B681EEDC94164BEDFC13894CCBD00037D110EB4D1837AD66839"
+    },
+    {
+      "path": "Luban.Gdscript.dll",
+      "sha256": "33A5FA1A154D12B8977A73D577B189EB227D4B865194C60CA760E6CE7B6C5F64"
+    },
+    {
+      "path": "Luban.Golang.deps.json",
+      "sha256": "E2B58004DA19D3269F7A4CDD24AF3CA6A40CD5866545912FA0D67DF4251FFF79"
+    },
+    {
+      "path": "Luban.Golang.dll",
+      "sha256": "15D08CC1A0A3C0FE82127018758E16F36115774D52952ED843865D5B1EB7B2E4"
+    },
+    {
+      "path": "Luban.Java.deps.json",
+      "sha256": "8770BF3F5482DE941B02361F37C0E56CC53629AEE0E039A9E38D986FCF0FF3AE"
+    },
+    {
+      "path": "Luban.Java.dll",
+      "sha256": "CA19A9C1EDAD3621ED6A948EC7AEE2669ECCD0600893D856EAB6DC91E79A48E7"
+    },
+    {
+      "path": "Luban.L10N.deps.json",
+      "sha256": "BC45BD3601D98B72E29975361125F8A622F4E8C679B00AF029C01866D3F1E1B3"
+    },
+    {
+      "path": "Luban.L10N.dll",
+      "sha256": "93D761BB73261AA883022E826ED378887BD874C1C614BD76BFA50314E5E76099"
+    },
+    {
+      "path": "Luban.Lua.deps.json",
+      "sha256": "D5B5A264574D22C21889006B6FE45A71F65C2DF264FDE0A0C7B9712C491CF3E7"
+    },
+    {
+      "path": "Luban.Lua.dll",
+      "sha256": "C25E0A7607758C522C8A27FC212A92498B61EE8EC4C79E5A855A2851DBDB4373"
+    },
+    {
+      "path": "Luban.MsgPack.deps.json",
+      "sha256": "631BDD9DBE552AAB301F6125623673AB67631E2674599C5719543C82075F63A0"
+    },
+    {
+      "path": "Luban.MsgPack.dll",
+      "sha256": "E03173A1535CB2985115793ECD21628289E336D623DC085F00CB416FF8E894A9"
+    },
+    {
+      "path": "Luban.PHP.deps.json",
+      "sha256": "5D8599B19F0C2A8B361FCF985CFCD0C2BAF0B91BBE306094E014DC06A4BC7338"
+    },
+    {
+      "path": "Luban.PHP.dll",
+      "sha256": "05A6D5759B963E416195D843081454F94A0FCEA194C0F0238B62CE97C7CD8B8D"
+    },
+    {
+      "path": "Luban.Protobuf.deps.json",
+      "sha256": "6FFE4C3611375565201305B7F052DD47F31A46F2D8005BFBE2D753F2D1ECC281"
+    },
+    {
+      "path": "Luban.Protobuf.dll",
+      "sha256": "37007BF0FF428270F1A1251AADCD8E8EC6283358B360895F31BA5DB8B576927E"
+    },
+    {
+      "path": "Luban.Python.deps.json",
+      "sha256": "DE0E031AE16D292AC9C9FA041B94914B941BB7B9A2E5246881EAF88A02C48A4D"
+    },
+    {
+      "path": "Luban.Python.dll",
+      "sha256": "20AE4356602216C14E27399E80DF028B802DE30F7B401931D3C7E49684823074"
+    },
+    {
+      "path": "Luban.runtimeconfig.json",
+      "sha256": "28329CF08F6505E73806B17558B187C02F0C1C516FE47EBFB7A013D082AAA306"
+    },
+    {
+      "path": "Luban.Rust.deps.json",
+      "sha256": "B6BFA9AC67B3564528D2C3110BAEBA7A996E5E1E1BBDC10A489A2AD56512A52C"
+    },
+    {
+      "path": "Luban.Rust.dll",
+      "sha256": "DB0DA961048B7E2C04F81676B4761EA3E43B5D211B0E6D44968F2C990218061D"
+    },
+    {
+      "path": "Luban.Schema.Builtin.deps.json",
+      "sha256": "05880F2F82A5E1AEDBC8E0607BF976DC63B3ED403D745D3532A88A0A7F873CC7"
+    },
+    {
+      "path": "Luban.Schema.Builtin.dll",
+      "sha256": "EC0F43DC00BB26AA033C4BD8BF80E984D18F777C935BC5676CC72C3999EF3374"
+    },
+    {
+      "path": "Luban.Schema.Builtin.runtimeconfig.json",
+      "sha256": "2FA0B19E9BA0D01BF6FC57C18CBD4B03F808C229AC05316E321B62824C1AEA9C"
+    },
+    {
+      "path": "Luban.Typescript.deps.json",
+      "sha256": "AB84995BCCE806216F4AFF518D5A576B070D409C5EEBFDDD49713169CA373A97"
+    },
+    {
+      "path": "Luban.Typescript.dll",
+      "sha256": "934756F30F4988C4AF2E54E188B3E15CF7F5F2B2E434F7E7A5BC7B89FB7C74F7"
+    },
+    {
+      "path": "MessagePack.Annotations.dll",
+      "sha256": "C74C24F011A59EDB37D3FC1A4AE9B62EA549DC07A730CEF46C008355CECCA8F6"
+    },
+    {
+      "path": "MessagePack.dll",
+      "sha256": "B2C1CC3FC4C262A0F7CFA14F668AFC61C1F8B8B460B51D894D6331B63ACC14B2"
+    },
+    {
+      "path": "Microsoft.NET.StringTools.dll",
+      "sha256": "D4564C24C4D9E7D4D18E0939819613D3180D7A3B2953DDAA575430CD899C5404"
+    },
+    {
+      "path": "Neo.Lua.dll",
+      "sha256": "ACFBC880041D2022C237C32FAD7D0D66EE7B2AC49FDA71F5BC65C78882DBC335"
+    },
+    {
+      "path": "Newtonsoft.Json.Bson.dll",
+      "sha256": "A91F43908A4DA92F97A357ECFA685A9632A649880A4D3E70875EF3D4579F1F4B"
+    },
+    {
+      "path": "Newtonsoft.Json.dll",
+      "sha256": "72CF291D4BAB0EDD08A9B07C6173E1E7AD1ABB7AB727FD7044BF6305D7515661"
+    },
+    {
+      "path": "NLog.dll",
+      "sha256": "C4B04C6C2839AC011944698EEA4983D0AAD722BB82C6015CC7F1A5038C7F45F1"
+    },
+    {
+      "path": "nlog.xml",
+      "sha256": "05147F8055A69C3CCC5AEE49C127C13C7E4A04E6B02AA72AEF5365C8BE47F838"
+    },
+    {
+      "path": "Scriban.dll",
+      "sha256": "71C62B5C049193F2D03188F869C04ACAB15BB56B19980595BDBAEE8340A6F9AC"
+    },
+    {
+      "path": "Ude.NetStandard.dll",
+      "sha256": "98D4B00F323DCFF984C2EFF193DF5947F69653BE13C6DE98BC232A1F701C3963"
+    },
+    {
+      "path": "YamlDotNet.NetCore.dll",
+      "sha256": "C7B7E80CE82038ED32D58A736B17BD6323571FBDE0AD34FCAC097CB579CFC94A"
+    },
+    {
+      "path": "de/Neo.Lua.resources.dll",
+      "sha256": "73B4E75980A944CBD0D96F5E6ADFBD000AAB781DA0AC7500D0F612DAE06F5A99"
+    },
+    {
+      "path": "Templates/common/cpp/enum.sbn",
+      "sha256": "79F7C22306841D9FCAB7C036FFD32D7956F93C227D7ED2888B76BE6A0E97CA4A"
+    },
+    {
+      "path": "Templates/common/cs/enum.sbn",
+      "sha256": "A1FC29E0B4FC684073478521B7104F6670C52A14C083579DFECD4C2CE483983E"
+    },
+    {
+      "path": "Templates/common/dart/enum.sbn",
+      "sha256": "EBB031D6AF1E1F33E91E51540A99F8D05330CA36C267527BE44F08785902BED8"
+    },
+    {
+      "path": "Templates/common/go/enum.sbn",
+      "sha256": "2EDDBC4016E66D12EF4CAEF455B205244849C457579A6F6B3745AD1A7CA12AA3"
+    },
+    {
+      "path": "Templates/common/java/enum.sbn",
+      "sha256": "5248976B264A86E01FF4744D1DC3D88A99C931DE2365F1C00B984E6A176FE377"
+    },
+    {
+      "path": "Templates/common/php/enum.sbn",
+      "sha256": "DBA5166AD9DB9BA648C1032EBBD34DCD0D085B50023B839EF5C68CA1DB93A563"
+    },
+    {
+      "path": "Templates/common/rs/macros/Cargo.toml.sbn",
+      "sha256": "C8807D1F627D59F782B46826E466E9E4D913D5499EF237AC564D6AE1F0430A9B"
+    },
+    {
+      "path": "Templates/common/rs/macros/src/lib.rs.sbn",
+      "sha256": "47A6255D72BA10B4FF2D4CCB917F073F5A5DD55B372F298655E213EDA3BB62B3"
+    },
+    {
+      "path": "Templates/common/ts/enum.sbn",
+      "sha256": "DBA5166AD9DB9BA648C1032EBBD34DCD0D085B50023B839EF5C68CA1DB93A563"
+    },
+    {
+      "path": "Templates/cpp-rawptr-bin/bean.sbn",
+      "sha256": "87AE4E06A0ED43DA61CC181179674EA7967319ED7694B0388C5E9E25E448037C"
+    },
+    {
+      "path": "Templates/cpp-rawptr-bin/schema_cpp.sbn",
+      "sha256": "EE9BC9FE975A768B91956830F4428FB44C720E9F3A6990B91B553BF3AB86E0CF"
+    },
+    {
+      "path": "Templates/cpp-rawptr-bin/schema_h.sbn",
+      "sha256": "6B25CFCA324D31826DDC60314936CDB0154481D0B3F407F556D002ABDBBBC3E1"
+    },
+    {
+      "path": "Templates/cpp-rawptr-bin/table.sbn",
+      "sha256": "29ECD634B428A34D203DA3C46E03608D4D6246CDC784795D858AA761C2C7EF9B"
+    },
+    {
+      "path": "Templates/cpp-rawptr-bin/tables.sbn",
+      "sha256": "CDF0C2238C1E79D426CA50531C2300080E3D81AC1A2369D346CD3CE108AA8D14"
+    },
+    {
+      "path": "Templates/cpp-sharedptr-bin/bean.sbn",
+      "sha256": "8AC2A56416FB58D3F25C9D0E607B925A837CBDF6C44C8AA009BC56CEB1ADD093"
+    },
+    {
+      "path": "Templates/cpp-sharedptr-bin/schema_cpp.sbn",
+      "sha256": "12139AEBA4A5986CEEF2E1968E084CDF8857B204E72F6D21888407B21E704693"
+    },
+    {
+      "path": "Templates/cpp-sharedptr-bin/schema_h.sbn",
+      "sha256": "6B25CFCA324D31826DDC60314936CDB0154481D0B3F407F556D002ABDBBBC3E1"
+    },
+    {
+      "path": "Templates/cpp-sharedptr-bin/table.sbn",
+      "sha256": "21B8EA2C13CE40CF2B26E6051005A19581FE85035650A04AB246ABA8F17790F3"
+    },
+    {
+      "path": "Templates/cpp-sharedptr-bin/tables.sbn",
+      "sha256": "CDF0C2238C1E79D426CA50531C2300080E3D81AC1A2369D346CD3CE108AA8D14"
+    },
+    {
+      "path": "Templates/cs-bin/bean.sbn",
+      "sha256": "F480D1F924F5C75D28B74639D5DF58612FD5F8CA6E4505293F1798F86CC67D11"
+    },
+    {
+      "path": "Templates/cs-bin/table.sbn",
+      "sha256": "F6261BB36ECD2AAE0F98AC4815FA74F4E71EC27B097F8655638F519D111BC388"
+    },
+    {
+      "path": "Templates/cs-bin/tables.sbn",
+      "sha256": "31CE872340D2B9F4209EF6D09211CF96886DB7254F070FE37DDD9BBFC0394CD5"
+    },
+    {
+      "path": "Templates/cs-dotnet-json/bean.sbn",
+      "sha256": "77F922271A9F4E9B80D40C21983E7C3C408835EDA1335EF52649D1A9EE38F430"
+    },
+    {
+      "path": "Templates/cs-dotnet-json/table.sbn",
+      "sha256": "0ABE6B56FA872517E373B967DF4A676496C74040B4848597305FCEBD93F101FA"
+    },
+    {
+      "path": "Templates/cs-dotnet-json/tables.sbn",
+      "sha256": "B84EEDEA1DD07810586729DDDFBADC51E7A5AFA603ABF6902D3B0D14C242B523"
+    },
+    {
+      "path": "Templates/cs-editor-json/bean.sbn",
+      "sha256": "21040D0A2A41D2E0EB034021C450B7800F5251A30E3D859706503DBFD01E1872"
+    },
+    {
+      "path": "Templates/cs-editor-json/enum.sbn",
+      "sha256": "002D4D6A55C0F6E8BF6780F8AD98C9CE9B72D20685AA447DB5AADA08CEFDCCE5"
+    },
+    {
+      "path": "Templates/cs-newtonsoft-json/bean.sbn",
+      "sha256": "2153860055944692DA352B166269DEC9DB3B436183BC3C62BD4C0E89F8074FF9"
+    },
+    {
+      "path": "Templates/cs-newtonsoft-json/table.sbn",
+      "sha256": "7F38FD4D874C132C7E4E9D5B39EEF04C9591DB65B7175C08EBAC80DC791573B7"
+    },
+    {
+      "path": "Templates/cs-newtonsoft-json/tables.sbn",
+      "sha256": "2EB4AFEBDCD1FBD6221C770C0FB7F9BDCCF2CAFF8F14BAE464DEEAB6BBFC77F0"
+    },
+    {
+      "path": "Templates/cs-simple-json/bean.sbn",
+      "sha256": "BB7223C567986DAF0F50B22C79EF019BBE7792FB0EA119FD9307DDC6474701EC"
+    },
+    {
+      "path": "Templates/cs-simple-json/table.sbn",
+      "sha256": "424ED519854089ECB3B1DFD24BF9D3CB1417285705F8F9F4C4FDB2F5383ACEB9"
+    },
+    {
+      "path": "Templates/cs-simple-json/tables.sbn",
+      "sha256": "056B9AB9CE9127377DD7BE8D2343C36FB7171A4E61DC0DE22035BC3ED2490BB8"
+    },
+    {
+      "path": "Templates/cs_pb/tables.sbn",
+      "sha256": "6CCC8EC5FC5D7009DAED1A95B7F9B42DD8B967F8BC8A8E8DCE1FBDD31E58DED4"
+    },
+    {
+      "path": "Templates/dart-json/bean.sbn",
+      "sha256": "7AD8558BBFD1D6FF2EC365E9C9AE7C9BA607ABC3F879C559B7019767921C51D1"
+    },
+    {
+      "path": "Templates/dart-json/table.sbn",
+      "sha256": "E587095869D1108BFD1F51E4B84A6A26EB27E5A70B45FF7860BEEB08EC627331"
+    },
+    {
+      "path": "Templates/dart-json/tables.sbn",
+      "sha256": "F31A0973699BAF85D06ECAECFD519C28E62C73F6A0B5E4EE355FB431D36747AA"
+    },
+    {
+      "path": "Templates/flatbuffers/schema.sbn",
+      "sha256": "6B49121A06958F2BEE0ACF4E1834DB1ED14A600A1EC491DE85CEEEC0CCAC48CE"
+    },
+    {
+      "path": "Templates/gdscript-json/schema.sbn",
+      "sha256": "4CD94DADE75DF9635FC0A659D21C432934204351714D4415AFB7482C495B0D2E"
+    },
+    {
+      "path": "Templates/go-bin/bean.sbn",
+      "sha256": "CAA7C7305D96B1008C8CA23D3B2CB5370921AFAF0A021BA3186192E6E2818E60"
+    },
+    {
+      "path": "Templates/go-bin/table.sbn",
+      "sha256": "8245D01CE610C0D263D1020FD36F66E14ECE5AE5513BE037AFABE7E3ADDB5B3E"
+    },
+    {
+      "path": "Templates/go-bin/tables.sbn",
+      "sha256": "8C5C1365FE337E7B2CD9E8A70A5204D70E1068245141040B1A9C019D0C997AEA"
+    },
+    {
+      "path": "Templates/go-json/bean.sbn",
+      "sha256": "0B93A353B7B9E1349DB31DF85C3A5C0E0D107822E4D47F0593301E1D906A2593"
+    },
+    {
+      "path": "Templates/go-json/table.sbn",
+      "sha256": "E4B1E027F41BAD4B8D39DAB007F582FD3C907EEF230C8081D8687F1B5DA53ED5"
+    },
+    {
+      "path": "Templates/go-json/tables.sbn",
+      "sha256": "E67180D265B0EECE192872654FFC9EEDE263A9F37728E99C9C3BCEB9D11B5FE0"
+    },
+    {
+      "path": "Templates/java-bin/bean.sbn",
+      "sha256": "9A6548059A7694BEE0000C62A3CECC9A4282B410C60303A3B6044F0A45362B19"
+    },
+    {
+      "path": "Templates/java-bin/table.sbn",
+      "sha256": "A1FB07E8C8195A300C85CC9A04B89479F6437883C2CE56449B263255C25EF526"
+    },
+    {
+      "path": "Templates/java-bin/tables.sbn",
+      "sha256": "7DB50DE10E8DC15749A533817BA3EA7E5E1119C69CBC6C8A051CE6F80F78FA52"
+    },
+    {
+      "path": "Templates/java-json/bean.sbn",
+      "sha256": "9672E53ACCB58142808222678D675A31640C3756F3B36409AFE78128B541694E"
+    },
+    {
+      "path": "Templates/java-json/table.sbn",
+      "sha256": "34FADAE39C3EED3DC014BF797A3B80398C30F8B72A0EAE4857724C85CC2061DD"
+    },
+    {
+      "path": "Templates/java-json/tables.sbn",
+      "sha256": "C3C50345701517A6023B50BBAA09B8A65334959FAA660EBF03BF7AD6D13E2B3A"
+    },
+    {
+      "path": "Templates/lua-bin/schema.sbn",
+      "sha256": "61ED7778D2596E4EFE3C320CBCE576780276D143B0463F7839DE2F73AFAF5A8D"
+    },
+    {
+      "path": "Templates/lua-lua/schema.sbn",
+      "sha256": "AB6E6AEB4E0CFFF19B3CCC460602E8385C50DE1230EA99951D82FC2C34C43ADA"
+    },
+    {
+      "path": "Templates/pb/schema.sbn",
+      "sha256": "47A03FBED4A39BFAFE0BB71A27027EC6066DACEC6B24B161D60CE4D54C868994"
+    },
+    {
+      "path": "Templates/php-json/schema.sbn",
+      "sha256": "7AB76D55826672321789B5FE7C36FB787B5D78A944C4D0777AFDD581091DC2B1"
+    },
+    {
+      "path": "Templates/python-json/schema.sbn",
+      "sha256": "ABB2BDD47D2B151771015744615B6D09434B29BB24AF2667741CC45CEAB10557"
+    },
+    {
+      "path": "Templates/rust-bin/lib.sbn",
+      "sha256": "DE96594FD151D844CDA50407C8352E292F98D977C82A200FB9AABE19614036B3"
+    },
+    {
+      "path": "Templates/rust-bin/mod.sbn",
+      "sha256": "DEBF88422225FA4E583A834FD69D8EB71665E4E3F206BABFE33F329AE7CE443F"
+    },
+    {
+      "path": "Templates/rust-bin/toml.sbn",
+      "sha256": "CD973E3883252C2BAA7EF865E5B9D9582EBBCED5EE0D3127C26ED75F8D61700E"
+    },
+    {
+      "path": "Templates/rust-json/lib.sbn",
+      "sha256": "F98B0FCD8442944735B0C12013155E3D14F7B7FBDF483C30FD4B4C7490066451"
+    },
+    {
+      "path": "Templates/rust-json/mod.sbn",
+      "sha256": "A9CF46D759DA1FE546455665A8774CBCC10A67F5EE6705E23FD8574D9BAB05F4"
+    },
+    {
+      "path": "Templates/rust-json/toml.sbn",
+      "sha256": "D2056C99A77C936A6ACEFA979A87E74D81A06DA785BB131235C0DD6C02CE00C1"
+    },
+    {
+      "path": "Templates/typescript-bin/schema.sbn",
+      "sha256": "0344BD7C3ECF92ADAA7E0DE8B314B8640D66423144E4609E5BEF7A9AF992A591"
+    },
+    {
+      "path": "Templates/typescript-json/schema.sbn",
+      "sha256": "FC4E2EA64AAC591C970B85713D4F21FD74C839491AE823D02CED473811F4E06D"
+    },
+    {
+      "path": "Templates/typescript-protobuf/schema.sbn",
+      "sha256": "412B2E42B87FE2E487EDFC51BA379083C8AE16C671DFFBFE52BAF2B0016053C5"
+    }
+  ]
+}

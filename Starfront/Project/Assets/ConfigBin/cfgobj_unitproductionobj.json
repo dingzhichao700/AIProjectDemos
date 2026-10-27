@@ -1,0 +1,26 @@
+[
+  {
+    "unitId": 1101,
+    "buildingId": 1101,
+    "interval": 10000,
+    "count": 1
+  },
+  {
+    "unitId": 1102,
+    "buildingId": 1102,
+    "interval": 10000,
+    "count": 1
+  },
+  {
+    "unitId": 1103,
+    "buildingId": 1103,
+    "interval": 10000,
+    "count": 1
+  },
+  {
+    "unitId": 1104,
+    "buildingId": 1104,
+    "interval": 10000,
+    "count": 1
+  }
+]

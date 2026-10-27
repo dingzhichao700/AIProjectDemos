@@ -1,0 +1,15 @@
+{
+  "name": "Foundation",
+  "references": [
+    "Unity.Addressables",
+    "Unity.ResourceManager",
+    "Unity.TextMeshPro",
+    "Unity.ugui",
+    "Unity.InputSystem",
+    "DOTween.Modules",
+    "Luban.Runtime",
+    "HybridCLR.Runtime"
+  ],
+  "includePlatforms": [],
+  "autoReferenced": true
+}

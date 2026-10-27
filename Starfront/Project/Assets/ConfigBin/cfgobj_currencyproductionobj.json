@@ -1,0 +1,12 @@
+[
+  {
+    "buildingId": 1001,
+    "interval": 5000,
+    "count": 10
+  },
+  {
+    "buildingId": 1002,
+    "interval": 5000,
+    "count": 10
+  }
+]

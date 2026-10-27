@@ -1,0 +1,224 @@
+{
+  "scene": [
+    2000,
+    2000
+  ],
+  "viewport": [
+    640,
+    360,
+    720,
+    1280
+  ],
+  "hex": [
+    107,
+    93
+  ],
+  "pitch": [
+    80.25,
+    93
+  ],
+  "counts": [
+    76,
+    76,
+    19
+  ],
+  "buildingCount": 10,
+  "buildings": [
+    {
+      "name": "HQ",
+      "q": 0,
+      "k": -12,
+      "x": 1000,
+      "y": 442,
+      "asset": 7,
+      "anchor": "reference-image-center",
+      "width": 78,
+      "height": 77
+    },
+    {
+      "name": "HQ",
+      "q": 0,
+      "k": 12,
+      "x": 1000,
+      "y": 1558,
+      "asset": 3,
+      "anchor": "reference-image-center",
+      "width": 79,
+      "height": 77
+    },
+    {
+      "name": "COLLECTOR",
+      "q": 3,
+      "k": -11,
+      "x": 1240.75,
+      "y": 488.5,
+      "asset": 8,
+      "anchor": "reference-image-center",
+      "width": 76,
+      "height": 77
+    },
+    {
+      "name": "COLLECTOR",
+      "q": -3,
+      "k": 11,
+      "x": 759.25,
+      "y": 1511.5,
+      "asset": 4,
+      "anchor": "reference-image-center",
+      "width": 79,
+      "height": 77
+    },
+    {
+      "name": "SHIPYARD",
+      "q": -3,
+      "k": -11,
+      "x": 759.25,
+      "y": 488.5,
+      "asset": 9,
+      "anchor": "reference-image-center",
+      "width": 65,
+      "height": 77
+    },
+    {
+      "name": "SHIPYARD",
+      "q": 3,
+      "k": 11,
+      "x": 1240.75,
+      "y": 1511.5,
+      "asset": 5,
+      "anchor": "reference-image-center",
+      "width": 66,
+      "height": 77
+    },
+    {
+      "name": "TURRET",
+      "q": -2,
+      "k": -6,
+      "x": 839.5,
+      "y": 721,
+      "asset": 10,
+      "anchor": "reference-image-center",
+      "width": 66,
+      "height": 77
+    },
+    {
+      "name": "TURRET",
+      "q": 2,
+      "k": 6,
+      "x": 1160.5,
+      "y": 1279,
+      "asset": 6,
+      "anchor": "reference-image-center",
+      "width": 67,
+      "height": 77
+    },
+    {
+      "name": "TURRET",
+      "q": 2,
+      "k": -6,
+      "x": 1160.5,
+      "y": 721,
+      "asset": 10,
+      "anchor": "reference-image-center",
+      "width": 66,
+      "height": 77
+    },
+    {
+      "name": "TURRET",
+      "q": -2,
+      "k": 6,
+      "x": 839.5,
+      "y": 1279,
+      "asset": 6,
+      "anchor": "reference-image-center",
+      "width": 67,
+      "height": 77
+    }
+  ],
+  "units": [
+    {
+      "asset": 14,
+      "x": 696,
+      "y": 1193,
+      "angle": 0
+    },
+    {
+      "asset": 17,
+      "x": 1304,
+      "y": 807,
+      "angle": 180
+    },
+    {
+      "asset": 14,
+      "x": 1305,
+      "y": 1208,
+      "angle": 0
+    },
+    {
+      "asset": 17,
+      "x": 695,
+      "y": 792,
+      "angle": 180
+    },
+    {
+      "asset": 14,
+      "x": 737,
+      "y": 1262,
+      "angle": 0
+    },
+    {
+      "asset": 17,
+      "x": 1263,
+      "y": 738,
+      "angle": 180
+    },
+    {
+      "asset": 15,
+      "x": 775,
+      "y": 1168,
+      "angle": 0
+    },
+    {
+      "asset": 18,
+      "x": 1225,
+      "y": 832,
+      "angle": 180
+    },
+    {
+      "asset": 15,
+      "x": 1243,
+      "y": 1181,
+      "angle": 0
+    },
+    {
+      "asset": 18,
+      "x": 757,
+      "y": 819,
+      "angle": 180
+    },
+    {
+      "asset": 16,
+      "x": 1009,
+      "y": 1268,
+      "angle": 0
+    },
+    {
+      "asset": 19,
+      "x": 991,
+      "y": 732,
+      "angle": 180
+    }
+  ],
+  "checks": {
+    "rotationSymmetry": true,
+    "buildingCentersMatchCells": true,
+    "sourcePixelDimensionsPreserved": true,
+    "opaqueBuildingPixelsOutsideHex": 0
+  },
+  "limitations": [
+    "Existing reference artwork and directions preserved; enemy turret facing remains an artwork issue.",
+    "Building anchors match reference image centers, not yet production socket anchors.",
+    "Black hole and background are programmatic presentation placeholders.",
+    "Rounded dimensions apply to this preview; project runtime geometry is unchanged."
+  ]
+}

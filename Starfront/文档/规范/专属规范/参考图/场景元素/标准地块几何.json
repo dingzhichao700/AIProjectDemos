@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "status": "现行显示几何；转录自已确认规范，未更改尺寸",
+  "coordinateSystem": "x向右，y向下",
+  "orientation": "flat-top",
+  "bounds": {
+    "width": 107,
+    "height": 93
+  },
+  "anchor": "top-face-center",
+  "vertices": [
+    [
+      -53.5,
+      0
+    ],
+    [
+      -26.75,
+      -46.5
+    ],
+    [
+      26.75,
+      -46.5
+    ],
+    [
+      53.5,
+      0
+    ],
+    [
+      26.75,
+      46.5
+    ],
+    [
+      -26.75,
+      46.5
+    ]
+  ],
+  "columnStep": 80.25,
+  "sameColumnRowStep": 93,
+  "doubledRowStep": 46.5,
+  "validCoordinateRule": "(k-q)为偶数",
+  "centerFormula": [
+    "originX+80.25*q",
+    "originY+46.5*k"
+  ],
+  "neighbors": [
+    [
+      0,
+      -2
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      -1,
+      -1
+    ],
+    [
+      -1,
+      1
+    ],
+    [
+      1,
+      -1
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "note": "场景尺寸、视窗和布局由具体配置提供；不包含视觉厚度或实体高度。不是数学严格正六边形的新声明。"
+}

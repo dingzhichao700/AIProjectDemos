@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1001,
+    "name": "殖民军首版测试",
+    "cards": [
+      {
+        "cardId": 1001,
+        "locked": true
+      },
+      {
+        "cardId": 1101,
+        "locked": false
+      },
+      {
+        "cardId": 1102,
+        "locked": false
+      },
+      {
+        "cardId": 1103,
+        "locked": false
+      },
+      {
+        "cardId": 1104,
+        "locked": false
+      }
+    ]
+  }
+]

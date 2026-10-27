@@ -1,0 +1,256 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: scene
+  m_EditorClassIdentifier: 
+  m_GroupName: scene
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 81759b494abdd1b41b2579da118e6c14
+  m_SerializeEntries:
+  - m_GUID: 08d028bd592aa23449af877924cac36c
+    m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_001.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0afb0d37d26392f4098c815f7daa7677
+    m_Address: Assets/Art/unpack/scene/battle/effects/UI_unlock-glow.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - battle
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f2213b6e99e64747a2c171f215e4248
+    m_Address: Assets/Art/unpack/scene/battle/appearance/Ground_Red.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1766c40ef64cc6248ba4cd5f102b336d
+    m_Address: Assets/Art/unpack/scene/battle/appearance/Production_Fill.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - battle
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d1ddaea32fd1fe40b85ea5ed855cb6b
+    m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_AboveGround_565.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d3d4474f01182e4ab9587bc936f8dae
+    m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_AboveGround_566.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ec13302f2f0bb34190b3c7bdb0102bf
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Move_DownRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36d7171814f3b4949a4c6428568a1a5d
+    m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_194.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 370d1218896130e42b29e09200ebf7c1
+    m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_048.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b554777be1c3cf4ab67fd7a89fb05c8
+    m_Address: Assets/Art/unpack/scene/battle/appearance/hq.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 45071ff56975a614c9097197c7c29c4e
+    m_Address: Assets/Art/unpack/scene/battle/appearance/turret_shadow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47bcb7e715655904788a33f5622fd6a9
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Move_UpRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49400b569ae7a714390d21100aa8aca5
+    m_Address: Assets/Art/unpack/scene/battle/appearance/infantry_camp.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50c12aa0f8d6d564d814f338a1f94b19
+    m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_227.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56c1184e790dc5146a8a4f6d751df593
+    m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_AboveGround_567.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 579ff2cc008f5f94ba4e518f438f545e
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Move_Right.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5de4fad1b083e18418a536c9f627bffb
+    m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_190.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62a51971a00d5ec438d8e598a0b652c2
+    m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_172.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66991c8f1ec418c4d88e3758058ae644
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Move_DownRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6ba272cfb00d8e145a1c4f1bf4b3bfaa
+    m_Address: Assets/Art/unpack/scene/battle/appearance/hq_shadow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f81b1c112fbf28499593bb242705282
+    m_Address: Assets/Art/unpack/scene/battle/appearance/infantry_camp_shadow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73f3823dd8b546148a1d5bc1bd24a940
+    m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_229.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8485a08fd41d0fe47a6533309f0de862
+    m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_188.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8fa799ae6e8d1f746920c53a704f146d
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Move_Right.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9427b988de865914eb11e9b2e32f0baa
+    m_Address: Assets/Art/unpack/scene/battle/appearance/turret.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f49a3350816878489cdd9cd3da37645
+    m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_017.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0355a53c9810964aa6d81753c55fa6a
+    m_Address: Assets/Art/unpack/scene/battle/effects/UI_mineral.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - battle
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae387146217d7624c9b5b98115498a4b
+    m_Address: Assets/Art/unpack/scene/battle/effects/UI_random.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - battle
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae8ac3ea8d74cf1428d16c6f4376dde0
+    m_Address: Assets/Art/unpack/scene/battle/appearance/Ground_Blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b305e83cded223049bebd1284e7776b7
+    m_Address: Assets/Art/unpack/scene/battle/appearance/Infantry_UpRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b46ae02bbbe3913469b3e3cc42a08f0a
+    m_Address: Assets/Art/unpack/scene/battle/appearance/collector_shadow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6af1a1085da02342af9fbfa9cb0fe24
+    m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_187.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8dc7a4ed8ff2c84d96e067d28f5c89b
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Move_Up.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bdbb19d0409195d4f8832b65c7513cd4
+    m_Address: Assets/Art/unpack/scene/battle/appearance/Infantry_DownRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c15c57fa9366e7548b952e33792b6ce4
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Move_UpRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce29f58d2ab681a448c72d890d342daa
+    m_Address: Assets/Art/unpack/scene/battle/effects/UI_helmet.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - battle
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e029ce18e06e1ab41aad295089d01efb
+    m_Address: Assets/Art/unpack/scene/battle/appearance/Production_BG.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - battle
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee8c3e3d1df40ae4cb6b0b5b405d461b
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Move_Down.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f366ccb1859ca644bbf3e941cccc1eef
+    m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_032.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f516d36e9cbc05246bfcbb42bf3ff508
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Move_Down.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5b0676968d98ef48946e94837c80818
+    m_Address: Assets/Art/unpack/scene/battle/appearance/collector.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7bed0cf9ef5a2d40b18724fcbe732bb
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Move_Up.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fccb547805da826469974fce46ab2d7d
+    m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_225.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: b1a0955dcd22fb34c834009bf4768d90, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 959841bfe8ed22a4e94e1ae39f16d5f1, type: 2}
+    - {fileID: 11400000, guid: f831c29136bac934391e6ee0d7a28c23, type: 2}

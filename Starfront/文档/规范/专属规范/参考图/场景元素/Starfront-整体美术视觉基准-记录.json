@@ -1,0 +1,37 @@
+{
+  "version": "starfront-art-baseline-v1",
+  "sourcePath": "E:/ChatGPT/星域前线/outputs/BattleScenePanel-color-v1/BattleScenePanel-上色效果图.png",
+  "sourceSha256": "505C5980EA48795207B5DCDFD63AFAEDD165D6A328A77BC11B21573C6E8C6C75",
+  "sourceSize": [
+    941,
+    1672
+  ],
+  "outputPath": "E:\\ChatGPT\\星域前线\\outputs\\BattleScenePanel-art-baseline-v1\\Starfront-整体美术视觉基准-720x1280.png",
+  "outputSha256": "6BB3860D20C486CA28DEE604769D70623FD3D57ED1EE2DE4440EB0923769D404",
+  "targetSize": [
+    720,
+    1280
+  ],
+  "processing": "uniform scale to cover; centered crop; high-quality bicubic; no repaint",
+  "uniformScale": 0.7655502392344498,
+  "continuousScaledSize": [
+    720.3827751196172,
+    1280.0
+  ],
+  "centeredOffset": [
+    -0.19138755980861788,
+    0.0
+  ],
+  "cropEachSideInScaledPixels": [
+    0.19138755980861788,
+    0.0
+  ],
+  "sourceVisualApproval": "user designated as overall art visual reference",
+  "normalizedVisualReview": "prepared for user review",
+  "scope": "style, material, palette, viewpoint, relative scale and overall scene finish; geometric and anchor validation remain separate",
+  "projectReferenceOriginal": "E:\\UnityTemplateTest\\Starfront\\文档\\规范\\专属规范\\参考图\\场景元素\\Starfront-整体美术视觉基准-原图.png",
+  "projectReference720": "E:\\UnityTemplateTest\\Starfront\\文档\\规范\\专属规范\\参考图\\场景元素\\Starfront-整体美术视觉基准-720x1280.png",
+  "sourceRecordAlias": "exec-645c7a78-4df4-4c5f-9882-99f5dbb06d06.png (user-provided identifier; archived source visually and pixel-matched to attachment)",
+  "dimensionCheck": "passed 720x1280",
+  "sourcePreserved": true
+}

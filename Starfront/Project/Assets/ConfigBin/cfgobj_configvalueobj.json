@@ -1,0 +1,104 @@
+[
+  {
+    "id": 1,
+    "type": 0,
+    "valueType": 1,
+    "content": "123"
+  },
+  {
+    "id": 2,
+    "type": 0,
+    "valueType": 1,
+    "content": "2200000000"
+  },
+  {
+    "id": 3,
+    "type": 0,
+    "valueType": 2,
+    "content": "1.5"
+  },
+  {
+    "id": 4,
+    "type": 0,
+    "valueType": 2,
+    "content": "2200000000.000"
+  },
+  {
+    "id": 5,
+    "type": 0,
+    "valueType": 0,
+    "content": "aaabbbcccdddeeefff"
+  },
+  {
+    "id": 6,
+    "type": 1,
+    "valueType": 1,
+    "content": "123,456,789,101,202,303"
+  },
+  {
+    "id": 7,
+    "type": 1,
+    "valueType": 0,
+    "content": "hahaha,wawa,heiheihei"
+  },
+  {
+    "id": 8,
+    "type": 2,
+    "valueType": 0,
+    "content": "1:111,2:222,a:AAaa,b:BBbb,c:C_C-c_c"
+  },
+  {
+    "id": 1000,
+    "type": 0,
+    "valueType": 1,
+    "content": "180"
+  },
+  {
+    "id": 1001,
+    "type": 0,
+    "valueType": 0,
+    "content": "玩家"
+  },
+  {
+    "id": 1002,
+    "type": 0,
+    "valueType": 0,
+    "content": "敌方AI"
+  },
+  {
+    "id": 1003,
+    "type": 2,
+    "valueType": 0,
+    "content": "1:UI_mineral,2:UI_random,3:UI_helmet,4:UI_helmet,5:UI_helmet"
+  },
+  {
+    "id": 1004,
+    "type": 0,
+    "valueType": 0,
+    "content": "scene/battle/effects/UI_unlock-glow"
+  },
+  {
+    "id": 1005,
+    "type": 0,
+    "valueType": 2,
+    "content": "1.8"
+  },
+  {
+    "id": 1006,
+    "type": 0,
+    "valueType": 2,
+    "content": "0.45"
+  },
+  {
+    "id": 1007,
+    "type": 0,
+    "valueType": 2,
+    "content": "2"
+  },
+  {
+    "id": 1008,
+    "type": 0,
+    "valueType": 0,
+    "content": "scene/battle/effects/UI_mineral"
+  }
+]

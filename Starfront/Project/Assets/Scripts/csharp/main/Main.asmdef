@@ -1,0 +1,13 @@
+{
+    "name": "Main",
+    "references": [
+        "Foundation",
+        "Login",
+        "Unity.TextMeshPro",
+        "Unity.ugui",
+        "DOTween.Modules",
+        "Luban.Runtime"
+    ],
+    "includePlatforms": [],
+    "autoReferenced": false
+}

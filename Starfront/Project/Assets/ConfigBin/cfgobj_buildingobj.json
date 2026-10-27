@@ -1,0 +1,176 @@
+[
+  {
+    "id": 1001,
+    "name": "殖民军基地",
+    "race": 1,
+    "type": 1,
+    "maxHp": 0,
+    "appearances": [
+      {
+        "direction": 1,
+        "part": 1,
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/hq",
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "direction": 1,
+        "part": 4,
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/hq_shadow",
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ]
+  },
+  {
+    "id": 1002,
+    "name": "殖民军采集站",
+    "race": 1,
+    "type": 2,
+    "maxHp": 0,
+    "appearances": [
+      {
+        "direction": 1,
+        "part": 1,
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/collector",
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "direction": 1,
+        "part": 4,
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/collector_shadow",
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ]
+  },
+  {
+    "id": 1101,
+    "name": "优秀步兵兵营",
+    "race": 1,
+    "type": 3,
+    "maxHp": 0,
+    "appearances": [
+      {
+        "direction": 1,
+        "part": 1,
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/infantry_camp",
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "direction": 1,
+        "part": 4,
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/infantry_camp_shadow",
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ]
+  },
+  {
+    "id": 1102,
+    "name": "稀有步兵兵营",
+    "race": 1,
+    "type": 3,
+    "maxHp": 0,
+    "appearances": [
+      {
+        "direction": 1,
+        "part": 1,
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/infantry_camp",
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "direction": 1,
+        "part": 4,
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/infantry_camp_shadow",
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ]
+  },
+  {
+    "id": 1103,
+    "name": "史诗步兵兵营",
+    "race": 1,
+    "type": 3,
+    "maxHp": 0,
+    "appearances": [
+      {
+        "direction": 1,
+        "part": 1,
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/infantry_camp",
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "direction": 1,
+        "part": 4,
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/infantry_camp_shadow",
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ]
+  },
+  {
+    "id": 1104,
+    "name": "传说步兵兵营",
+    "race": 1,
+    "type": 3,
+    "maxHp": 0,
+    "appearances": [
+      {
+        "direction": 1,
+        "part": 1,
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/infantry_camp",
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "direction": 1,
+        "part": 4,
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/infantry_camp_shadow",
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ]
+  }
+]

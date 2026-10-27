@@ -1,0 +1,5 @@
+<linker>
+  <assembly fullname="Foundation" preserve="all" />
+  <assembly fullname="Login" preserve="all" ignoreIfMissing="1" />
+  <assembly fullname="Main" preserve="all" ignoreIfMissing="1" />
+</linker>

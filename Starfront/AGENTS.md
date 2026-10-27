@@ -1,0 +1,150 @@
+# Starfront 项目开发规范
+
+本目录是《星域前线》（Starfront）样例游戏工程，Unity 工程位于 `Project/`，项目规范位于 `文档/规范/`。下文保留的模板仓库定位、导出与标准化回写说明仅用于工具链来源参考，不表示本项目包含 Templates 或承担模板仓库职责。
+
+## 每项开发任务的规范读取入口
+
+1. 开始本项目开发前，读取本文件及目标目录适用的更深层 AGENTS.md；再读取 [开发规范索引](文档/规范/README.md)。不要仅凭历史聊天或文件名推断规则。
+2. 根据任务范围读取索引中所有相关专项规范及其要求的引用文件；跨领域任务须覆盖所有相关领域。未读完相关规范前不得开始依赖它们的修改。
+3. 涉及战斗地图、地块坐标、阵营初始化、基地位置、场景示意图或视窗布局，必须读取 [战斗场景网格规范](文档/规范/专属规范/战斗场景网格规范.md) 和 [场景管理规范](文档/规范/通用规范/场景管理规范.md)。
+涉及场景美术、建筑/移动单位表现、尺寸参考图或效果图合成，还必须读取 [战斗场景元素表现规范](文档/规范/专属规范/战斗场景元素表现规范.md)。
+
+涉及战斗场景容器、LOD层、血条、生产进度环、伤害飘字或固定HUD分工，必须读取 [场景管理规范](文档/规范/通用规范/场景管理规范.md) 第九节，并结合 [战斗场景元素表现规范](文档/规范/专属规范/战斗场景元素表现规范.md)。
+
+涉及 FunctionResource、功能开启条件、锁定入口或永久解锁存档，还必须读取 [功能开启配置规范](文档/规范/专属规范/功能开启配置规范.md)。
+
+涉及功能、道具、常量、GM 或设置表时，必须读取通用规范中对应的《功能开启配置规范》《道具表配置规范》《常量表配置规范》《GM表配置规范》《设置表配置规范》，并按索引补读项目专属约定；不能以通用文档代替项目的解锁、品质和业务数据决策。
+
+涉及场景、界面或美术资产的迭代设计，还必须读取 [阶段性设计验证流程规范](文档/规范/通用规范/阶段性设计验证流程规范.md)，按本轮目标提供可审核产物并记录阶段边界。
+
+涉及场景整体或局部的试绘、概念图、灰度、上色、视觉元素替换、修复或合成（包括“试一下”“局部看看”），必须读取 [场景美术设计与验证规范](文档/规范/通用规范/场景美术设计与验证规范.md) 和 [战斗场景元素表现规范](文档/规范/专属规范/战斗场景元素表现规范.md)。执行前明确目标、基准、锁定项、产物类型及尺寸；使用专属规范指定的几何基准先绘格线，按坐标合成并自检。不得仅凭图像模型提示词保证规格，也不得将不符合硬性标准的结果改称概念稿视为完成。
+
+4. 开发中任务范围扩大或规范文件更新时，补读受影响内容；上下文不足时重新读取，不以口头记忆替代项目文件。
+5. 完成时简要说明本次适用规范、执行的验证及尚未验证项；可自动检查的约束在实现时纳入校验，不能把“已读规范”当成验收通过。
+6. 新增或修订规范时同步索引及必要的读取触发条件。真实冲突按既有权威顺序处理；只有仍无法消解且影响实施时询问用户。
+
+涉及作战单位静态基准、带朝向动作、视频、PNG序列导出、镜像或 pivot 时，必须读取 [作战单位美术资源规范](文档/规范/专属规范/作战单位美术资源规范.md)，并按其中入口读取动画制作 Skill。
+
+涉及作战单位生成、人口登记/移除、移动、出生位置或建筑通行时，还须读取[作战单位生产与行动规范](文档/规范/专属规范/作战单位生产与行动规范.md)。
+
+涉及帧动画裁剪、pivot、换帧、翻转/镜像、动画视窗剔除或池化定位时，必须读取[运行时框架与加载规范](文档/规范/通用规范/运行时框架与加载规范.md)第四节“帧动画锚点与裁剪显示契约”；涉及源素材落脚点校准时同时读取作战单位美术资源规范。
+
+涉及任何美术产物的制作、优化或核验，必须先查看[战斗场景元素表现规范](文档/规范/专属规范/战斗场景元素表现规范.md)“整体美术视觉核验基准”及其720×1280参考图，按资产类别核对适用视觉属性；几何和锚点独立验证。
+
+## 权威顺序与文档索引
+
+涉及局内格子解锁资格、连续扩展、扣费、随机结果或解锁提示时，必须读取 [格子解锁规则](文档/规范/专属规范/格子解锁规则.md)，不得将待核实事项写死为已确认玩法。
+
+涉及卡组、初始卡牌、兵种卡牌、格子解锁后的生产建筑、产出对象或生产建筑美术清单时，须读取 [卡牌与生产建筑对应规范](文档/规范/专属规范/卡牌与生产建筑对应规范.md)，并按任务范围补读场景元素表现规范。
+
+涉及双方种族、开局货币、建筑生产周期或产量、作战单位数量上限及满员等待时，必须读取 [战斗初始化与建筑生产规范](文档/规范/专属规范/战斗初始化与建筑生产规范.md)；涉及生产圆环同时读取场景管理规范。
+
+规范的优先关系、条款强度、生效状态与验收范围统一见 [规范管理与冲突处理规则](文档/规范/通用规范/规范管理与冲突处理规则.md)。开始任务时一并读取；本入口不重复维护另一套排序。
+
+- [`docs/目录与分包原则.md`](文档/规范/通用规范/目录与分包原则.md)：Assets、Group、图集和 UI Prefab 落位。
+- [`docs/模板与导出规范.md`](文档/规范/通用规范/模板与导出规范.md)：自包含模板、导出器、验证和外部依赖边界。
+- [`docs/UI功能逻辑规范.md`](文档/规范/通用规范/UI功能逻辑规范.md)：BasePanel 生命周期、监听命名和 C# 换行风格。
+- [`docs/游戏业务与配置规范.md`](文档/规范/通用规范/游戏业务与配置规范.md)：业务 Model/VO、Luban 配置分层、运行时加载与新表接入。
+- [`docs/场景管理规范.md`](文档/规范/通用规范/场景管理规范.md)：场景逻辑元素、Timer 驱动、视窗同步及逻辑与表现分离。
+- [`docs/AIUI编辑器队列规范.md`](文档/规范/通用规范/AIUI编辑器队列规范.md)：Unity 状态识别、Play 控制、请求提交和进程边界。
+- [`docs/README.md`](文档/规范/README.md)：专项文档索引。
+
+- [`docs/运行时框架与加载规范.md`](文档/规范/通用规范/运行时框架与加载规范.md)：程序集边界、异步加载、Timer、帧动画及 UI 绑定。
+- [`docs/微信小游戏平台规范.md`](文档/规范/通用规范/微信小游戏平台规范.md)：微信平台默认的 HybridCLR、资源加载、版本、缓存及发布协议。
+
+专项细节只在对应文档维护，本文不复制完整路径表。
+
+涉及框架性能、资源加载或程序集迁移时必须读取运行时专项规范；涉及微信小游戏、HybridCLR、Catalog、底座/内容版本或 CDN 发布时必须读取微信平台专项规范。微信平台采用该规范的完整默认策略；其他平台另行定义，不套用微信专属执行方式。
+
+## 仓库定位
+
+```text
+game-framework-toolchain/
+├── SKILL.md
+├── AGENTS.md
+├── agents/
+├── docs/
+├── ThirdParty/TexturePacker/{version}/{platform}/
+├── Tools/
+└── Templates/GameFramework/
+    └── ProjectFiles/          完整但不含生成缓存的 Unity 工程源文件
+        ├── Assets/
+        ├── Packages/
+        └── ProjectSettings/
+```
+
+普通导出禁止读取 Golden、b1 或任何外部样例工程。外部样例只能在用户明确要求“标准化回写”时作为已验收改动来源。
+
+## 标准化回写
+
+当用户说 **“标准化回写”** 时，将已经在样例工程中敲定并验证的可复用改动同步到本仓库：
+
+1. Unity 源文件写入 `Templates/GameFramework/ProjectFiles`。
+2. 导出流程写入 `Tools`。
+3. 规范写入 `AGENTS.md` 或对应 `docs` 专项文件。
+4. Addressables 或运行时资源变化时，由下一次导出现场重新构建，不维护预构建缓存。
+5. 不迁入单次 Blueprint、实验 UI、美术参考图、日志、Library、Temp 或样例专属 Addressables entry。
+6. 保留无关的已有修改；未经要求不提交 Git。
+
+## 已拍板工程决策
+
+| 项 | 决策 |
+|----|------|
+| Unity | `ProjectVersion.txt` 为权威版本 |
+| 渲染管线 | Built-in，禁止 URP |
+| 入口类 | `RookieEngine` |
+| 场景 | `GameEntrance`、`UIEditor` 两个场景 |
+| Input System | `activeInputHandler: 2`（Both） |
+| Addressables | 按生命周期和阶段分组；旧模板五组为迁移起点，微信策略另设 configData、公共字体及程序集资源组 |
+| 配置 | 模板只带通用必需配置，不迁样例业务表；微信使用 configData 独立分组并在 LoginPanel 打开时加载初始化 |
+
+界面通过 Panel 与 Addressables 切换，不为每个界面增加 Unity Scene。
+
+## 模板必须包含
+
+- 完整 Luban 开发工具链：`RootFiles/文档/配置表` 中六张基础表、`ProjectFiles/ConfigResource` 和 `ProjectFiles/Tools/Luban`，详见 [配置表工具链规范](文档/规范/通用规范/配置表工具链规范.md)。导出工程的规范统一放入 `文档/规范`，不再生成根目录 `docs`。
+
+- 完整 `Assets`、`Packages`、`ProjectSettings`。
+- 内嵌 `Packages/com.code-philosophy.luban`。
+- TMP Essentials、DOTween、TexturePacker importer 和必要 Editor 工具。
+- `GameEntrance`、`UIEditor`。
+- Opening、Login、Option、Setting、最小 Main、GM 开发调试模块与公共 UI baseline。GM 代码属于 Main，面板及专属图集属于 default Group；详见 [GM开发调试模块规范](文档/规范/通用规范/GM开发调试模块规范.md)。
+- Addressables 设置及与所选平台策略一致的组定义；平台配置及验收边界见模板与导出规范。
+
+模板禁止包含 `Library`、`Temp`、`Logs`、`UserSettings`、`.vs`、工程文件，以及 bag、bagcartoon、baglegendary、shop、AIUI 临时生成器等实验内容。
+
+## 导出流程
+
+```powershell
+powershell -ExecutionPolicy Bypass -File Tools/Generate-GameFrameworkProject.ps1 `
+  -ProjectName GameFrameworkTest9 `
+  -OutputRoot E:\UnityTemplateTest
+```
+
+流程：模板复制到系统临时 staging → 写入工程实例信息与文档 → Unity 导入编译 → 初始化并构建 Addressables → 验证 → 清理可再生 Library 缓存 → 移至最终目录。
+
+- 默认拒绝覆盖；只有用户明确授权时使用 `-Force`。
+- 导出器从仓库 `ThirdParty/TexturePacker` 部署已锁定版本到 `Project/Tools/TexturePacker/{platform}`；样例工程不得依赖个人工具目录或 Skill 仓库绝对路径。
+- Addressables 不允许跳过；每次导出都从当前模板现场构建。
+- 最终交付只保留 `Library/com.unity.addressables`；其他 Library 内容由接收方首次打开时重新生成。
+- Unity 未显式指定时，按模板版本在常见安装目录自动查找。
+- 任何编译错误、批处理错误、缺失 marker 或无 bundle 均视为导出失败。
+- 导出目标只有 `{OutputRoot}/{ProjectName}`，staging 不出现在目标目录。
+
+## 最小验证
+
+修改模板或导出器后运行：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File Tools/Test-GameFrameworkTemplate.ps1
+```
+
+完整验收还包括：从仓库独立导出新样例、Unity 无编译错误、Addressables 构建成功、无 Missing Script/Sprite，并人工验证 `GameEntrance → Opening → Login → Loading → Main`（Starfront 登录开始后直达 MainPanel；OptionPanel 保留为模板资源，不进入正常启动链路）。
+
+## 构建发布入口
+
+构建和发布使用 `game-build-release` Skill，先阅读 [docs/构建发布规范.md](文档/规范/通用规范/构建发布规范.md)。模板生成及回写仍使用 `game-framework-toolchain`。
+
+## 微信构建就绪基线
+
+默认模板携带锁定的微信 SDK/HybridCLR 依赖、编译宏、程序集引用和 Login/Main 热更新配置。生成器不切换 WebGL；目标切换与本机 HybridCLR 运行时安装由 game-build-release 在实际构建阶段负责。项目 AppID/CDN 留空等待工程配置；不回写案例底座版本、DLL、AOT 或 HybridCLRData。显式 Standalone 导出仍关闭微信策略。

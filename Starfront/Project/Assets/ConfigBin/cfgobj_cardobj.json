@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1001,
+    "name": "采集站",
+    "description": "固定卡；产出局内货币",
+    "quality": 2,
+    "race": 1,
+    "image": "scene/battle/appearance/collector",
+    "content": {
+      "$type": "BuildingCardContent",
+      "buildingId": 1002
+    },
+    "fragmentItemId": 0
+  },
+  {
+    "id": 1101,
+    "name": "优秀步兵",
+    "description": "测试占位；共用步兵资源",
+    "quality": 2,
+    "race": 1,
+    "image": "scene/battle/appearance/infantry_camp",
+    "content": {
+      "$type": "UnitCardContent",
+      "unitId": 1101
+    },
+    "fragmentItemId": 0
+  },
+  {
+    "id": 1102,
+    "name": "稀有步兵",
+    "description": "测试占位；共用步兵资源",
+    "quality": 3,
+    "race": 1,
+    "image": "scene/battle/appearance/infantry_camp",
+    "content": {
+      "$type": "UnitCardContent",
+      "unitId": 1102
+    },
+    "fragmentItemId": 0
+  },
+  {
+    "id": 1103,
+    "name": "史诗步兵",
+    "description": "测试占位；共用步兵资源",
+    "quality": 4,
+    "race": 1,
+    "image": "scene/battle/appearance/infantry_camp",
+    "content": {
+      "$type": "UnitCardContent",
+      "unitId": 1103
+    },
+    "fragmentItemId": 0
+  },
+  {
+    "id": 1104,
+    "name": "传说步兵",
+    "description": "测试占位；共用步兵资源",
+    "quality": 5,
+    "race": 1,
+    "image": "scene/battle/appearance/infantry_camp",
+    "content": {
+      "$type": "UnitCardContent",
+      "unitId": 1104
+    },
+    "fragmentItemId": 0
+  }
+]

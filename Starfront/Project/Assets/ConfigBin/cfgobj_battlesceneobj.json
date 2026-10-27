@@ -1,0 +1,4429 @@
+[
+  {
+    "id": 1001,
+    "name": "样例场景1001",
+    "width": 2000,
+    "height": 2000,
+    "originX": 1000,
+    "originY": 1000,
+    "cameraCenterX": 1000,
+    "cameraCenterY": 1000,
+    "friendlyBaseQ": 0,
+    "friendlyBaseK": 10,
+    "enemyBaseQ": 0,
+    "enemyBaseK": -10,
+    "appearances": [
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": -15
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": -15
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": -13
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": -13
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": -11
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": -11
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": -9
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": -9
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": -7
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": -7
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": -5
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": -5
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": -3
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": -3
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": -1
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": -1
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": 1
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": 1
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": 3
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": 3
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": 5
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": 5
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": 7
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": 7
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": 9
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": 9
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": 11
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": 11
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": 13
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": 13
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": 15
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -4,
+            "k": -14
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": -14
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -4,
+            "k": -12
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": -12
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -4,
+            "k": -10
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": -10
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -4,
+            "k": -8
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": -8
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -4,
+            "k": -6
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": -6
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -4,
+            "k": -4
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": -4
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -4,
+            "k": -2
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": -2
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -4,
+            "k": 0
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": 0
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -4,
+            "k": 2
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": 2
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -4,
+            "k": 4
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": 4
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -4,
+            "k": 6
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": 6
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -4,
+            "k": 8
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": 8
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -4,
+            "k": 10
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": 10
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -4,
+            "k": 12
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": 12
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -4,
+            "k": 14
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": 14
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -3,
+            "k": -15
+          }
+        ],
+        "anchor": {
+          "q": -3,
+          "k": -15
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -3,
+            "k": -13
+          }
+        ],
+        "anchor": {
+          "q": -3,
+          "k": -13
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -3,
+            "k": -11
+          }
+        ],
+        "anchor": {
+          "q": -3,
+          "k": -11
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -3,
+            "k": -9
+          }
+        ],
+        "anchor": {
+          "q": -3,
+          "k": -9
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -3,
+            "k": -7
+          }
+        ],
+        "anchor": {
+          "q": -3,
+          "k": -7
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -3,
+            "k": -5
+          }
+        ],
+        "anchor": {
+          "q": -3,
+          "k": -5
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -3,
+            "k": -3
+          }
+        ],
+        "anchor": {
+          "q": -3,
+          "k": -3
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -3,
+            "k": -1
+          }
+        ],
+        "anchor": {
+          "q": -3,
+          "k": -1
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -3,
+            "k": 1
+          }
+        ],
+        "anchor": {
+          "q": -3,
+          "k": 1
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -3,
+            "k": 3
+          }
+        ],
+        "anchor": {
+          "q": -3,
+          "k": 3
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -3,
+            "k": 5
+          }
+        ],
+        "anchor": {
+          "q": -3,
+          "k": 5
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -3,
+            "k": 7
+          }
+        ],
+        "anchor": {
+          "q": -3,
+          "k": 7
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -3,
+            "k": 9
+          }
+        ],
+        "anchor": {
+          "q": -3,
+          "k": 9
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -3,
+            "k": 11
+          }
+        ],
+        "anchor": {
+          "q": -3,
+          "k": 11
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -3,
+            "k": 13
+          }
+        ],
+        "anchor": {
+          "q": -3,
+          "k": 13
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -3,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": -3,
+          "k": 15
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -2,
+            "k": -14
+          }
+        ],
+        "anchor": {
+          "q": -2,
+          "k": -14
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -2,
+            "k": -12
+          }
+        ],
+        "anchor": {
+          "q": -2,
+          "k": -12
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -2,
+            "k": -10
+          }
+        ],
+        "anchor": {
+          "q": -2,
+          "k": -10
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -2,
+            "k": -8
+          }
+        ],
+        "anchor": {
+          "q": -2,
+          "k": -8
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -2,
+            "k": -6
+          }
+        ],
+        "anchor": {
+          "q": -2,
+          "k": -6
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -2,
+            "k": -4
+          }
+        ],
+        "anchor": {
+          "q": -2,
+          "k": -4
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -2,
+            "k": -2
+          }
+        ],
+        "anchor": {
+          "q": -2,
+          "k": -2
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -2,
+            "k": 0
+          }
+        ],
+        "anchor": {
+          "q": -2,
+          "k": 0
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -2,
+            "k": 2
+          }
+        ],
+        "anchor": {
+          "q": -2,
+          "k": 2
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -2,
+            "k": 4
+          }
+        ],
+        "anchor": {
+          "q": -2,
+          "k": 4
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -2,
+            "k": 6
+          }
+        ],
+        "anchor": {
+          "q": -2,
+          "k": 6
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -2,
+            "k": 8
+          }
+        ],
+        "anchor": {
+          "q": -2,
+          "k": 8
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -2,
+            "k": 10
+          }
+        ],
+        "anchor": {
+          "q": -2,
+          "k": 10
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -2,
+            "k": 12
+          }
+        ],
+        "anchor": {
+          "q": -2,
+          "k": 12
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -2,
+            "k": 14
+          }
+        ],
+        "anchor": {
+          "q": -2,
+          "k": 14
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -1,
+            "k": -15
+          }
+        ],
+        "anchor": {
+          "q": -1,
+          "k": -15
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -1,
+            "k": -13
+          }
+        ],
+        "anchor": {
+          "q": -1,
+          "k": -13
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -1,
+            "k": -11
+          }
+        ],
+        "anchor": {
+          "q": -1,
+          "k": -11
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -1,
+            "k": -9
+          }
+        ],
+        "anchor": {
+          "q": -1,
+          "k": -9
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -1,
+            "k": -7
+          }
+        ],
+        "anchor": {
+          "q": -1,
+          "k": -7
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -1,
+            "k": -5
+          }
+        ],
+        "anchor": {
+          "q": -1,
+          "k": -5
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -1,
+            "k": -3
+          }
+        ],
+        "anchor": {
+          "q": -1,
+          "k": -3
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -1,
+            "k": -1
+          }
+        ],
+        "anchor": {
+          "q": -1,
+          "k": -1
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -1,
+            "k": 1
+          }
+        ],
+        "anchor": {
+          "q": -1,
+          "k": 1
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -1,
+            "k": 3
+          }
+        ],
+        "anchor": {
+          "q": -1,
+          "k": 3
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -1,
+            "k": 5
+          }
+        ],
+        "anchor": {
+          "q": -1,
+          "k": 5
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -1,
+            "k": 7
+          }
+        ],
+        "anchor": {
+          "q": -1,
+          "k": 7
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -1,
+            "k": 9
+          }
+        ],
+        "anchor": {
+          "q": -1,
+          "k": 9
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -1,
+            "k": 11
+          }
+        ],
+        "anchor": {
+          "q": -1,
+          "k": 11
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -1,
+            "k": 13
+          }
+        ],
+        "anchor": {
+          "q": -1,
+          "k": 13
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -1,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": -1,
+          "k": 15
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 0,
+            "k": -14
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": -14
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 0,
+            "k": -12
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": -12
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 0,
+            "k": -10
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": -10
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 0,
+            "k": -8
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": -8
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 0,
+            "k": -6
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": -6
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 0,
+            "k": -4
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": -4
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 0,
+            "k": -2
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": -2
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 0,
+            "k": 0
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": 0
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 0,
+            "k": 2
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": 2
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 0,
+            "k": 4
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": 4
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 0,
+            "k": 6
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": 6
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 0,
+            "k": 8
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": 8
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 0,
+            "k": 10
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": 10
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 0,
+            "k": 12
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": 12
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 0,
+            "k": 14
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": 14
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 1,
+            "k": -15
+          }
+        ],
+        "anchor": {
+          "q": 1,
+          "k": -15
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 1,
+            "k": -13
+          }
+        ],
+        "anchor": {
+          "q": 1,
+          "k": -13
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 1,
+            "k": -11
+          }
+        ],
+        "anchor": {
+          "q": 1,
+          "k": -11
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 1,
+            "k": -9
+          }
+        ],
+        "anchor": {
+          "q": 1,
+          "k": -9
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 1,
+            "k": -7
+          }
+        ],
+        "anchor": {
+          "q": 1,
+          "k": -7
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 1,
+            "k": -5
+          }
+        ],
+        "anchor": {
+          "q": 1,
+          "k": -5
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 1,
+            "k": -3
+          }
+        ],
+        "anchor": {
+          "q": 1,
+          "k": -3
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 1,
+            "k": -1
+          }
+        ],
+        "anchor": {
+          "q": 1,
+          "k": -1
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 1,
+            "k": 1
+          }
+        ],
+        "anchor": {
+          "q": 1,
+          "k": 1
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 1,
+            "k": 3
+          }
+        ],
+        "anchor": {
+          "q": 1,
+          "k": 3
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 1,
+            "k": 5
+          }
+        ],
+        "anchor": {
+          "q": 1,
+          "k": 5
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 1,
+            "k": 7
+          }
+        ],
+        "anchor": {
+          "q": 1,
+          "k": 7
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 1,
+            "k": 9
+          }
+        ],
+        "anchor": {
+          "q": 1,
+          "k": 9
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 1,
+            "k": 11
+          }
+        ],
+        "anchor": {
+          "q": 1,
+          "k": 11
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 1,
+            "k": 13
+          }
+        ],
+        "anchor": {
+          "q": 1,
+          "k": 13
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 1,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": 1,
+          "k": 15
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 2,
+            "k": -14
+          }
+        ],
+        "anchor": {
+          "q": 2,
+          "k": -14
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 2,
+            "k": -12
+          }
+        ],
+        "anchor": {
+          "q": 2,
+          "k": -12
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 2,
+            "k": -10
+          }
+        ],
+        "anchor": {
+          "q": 2,
+          "k": -10
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 2,
+            "k": -8
+          }
+        ],
+        "anchor": {
+          "q": 2,
+          "k": -8
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 2,
+            "k": -6
+          }
+        ],
+        "anchor": {
+          "q": 2,
+          "k": -6
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 2,
+            "k": -4
+          }
+        ],
+        "anchor": {
+          "q": 2,
+          "k": -4
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 2,
+            "k": -2
+          }
+        ],
+        "anchor": {
+          "q": 2,
+          "k": -2
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 2,
+            "k": 0
+          }
+        ],
+        "anchor": {
+          "q": 2,
+          "k": 0
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 2,
+            "k": 2
+          }
+        ],
+        "anchor": {
+          "q": 2,
+          "k": 2
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 2,
+            "k": 4
+          }
+        ],
+        "anchor": {
+          "q": 2,
+          "k": 4
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 2,
+            "k": 6
+          }
+        ],
+        "anchor": {
+          "q": 2,
+          "k": 6
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 2,
+            "k": 8
+          }
+        ],
+        "anchor": {
+          "q": 2,
+          "k": 8
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 2,
+            "k": 10
+          }
+        ],
+        "anchor": {
+          "q": 2,
+          "k": 10
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 2,
+            "k": 12
+          }
+        ],
+        "anchor": {
+          "q": 2,
+          "k": 12
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_048",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 2,
+            "k": 14
+          }
+        ],
+        "anchor": {
+          "q": 2,
+          "k": 14
+        },
+        "offset": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 3,
+            "k": -15
+          }
+        ],
+        "anchor": {
+          "q": 3,
+          "k": -15
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 3,
+            "k": -13
+          }
+        ],
+        "anchor": {
+          "q": 3,
+          "k": -13
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 3,
+            "k": -11
+          }
+        ],
+        "anchor": {
+          "q": 3,
+          "k": -11
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 3,
+            "k": -9
+          }
+        ],
+        "anchor": {
+          "q": 3,
+          "k": -9
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 3,
+            "k": -7
+          }
+        ],
+        "anchor": {
+          "q": 3,
+          "k": -7
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 3,
+            "k": -5
+          }
+        ],
+        "anchor": {
+          "q": 3,
+          "k": -5
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 3,
+            "k": -3
+          }
+        ],
+        "anchor": {
+          "q": 3,
+          "k": -3
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 3,
+            "k": -1
+          }
+        ],
+        "anchor": {
+          "q": 3,
+          "k": -1
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 3,
+            "k": 1
+          }
+        ],
+        "anchor": {
+          "q": 3,
+          "k": 1
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 3,
+            "k": 3
+          }
+        ],
+        "anchor": {
+          "q": 3,
+          "k": 3
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 3,
+            "k": 5
+          }
+        ],
+        "anchor": {
+          "q": 3,
+          "k": 5
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 3,
+            "k": 7
+          }
+        ],
+        "anchor": {
+          "q": 3,
+          "k": 7
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 3,
+            "k": 9
+          }
+        ],
+        "anchor": {
+          "q": 3,
+          "k": 9
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 3,
+            "k": 11
+          }
+        ],
+        "anchor": {
+          "q": 3,
+          "k": 11
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 3,
+            "k": 13
+          }
+        ],
+        "anchor": {
+          "q": 3,
+          "k": 13
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_001",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 3,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": 3,
+          "k": 15
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 4,
+            "k": -14
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": -14
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 4,
+            "k": -12
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": -12
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 4,
+            "k": -10
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": -10
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 4,
+            "k": -8
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": -8
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 4,
+            "k": -6
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": -6
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 4,
+            "k": -4
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": -4
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 4,
+            "k": -2
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": -2
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 4,
+            "k": 0
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": 0
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 4,
+            "k": 2
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": 2
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 4,
+            "k": 4
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": 4
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 4,
+            "k": 6
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": 6
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 4,
+            "k": 8
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": 8
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 4,
+            "k": 10
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": 10
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 4,
+            "k": 12
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": 12
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_017",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 4,
+            "k": 14
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": 14
+        },
+        "offset": {
+          "x": 0,
+          "y": 0.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": -15
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": -15
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": -13
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": -13
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": -11
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": -11
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": -9
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": -9
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": -7
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": -7
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": -5
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": -5
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": -3
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": -3
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": -1
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": -1
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": 1
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": 1
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": 3
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": 3
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": 5
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": 5
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": 7
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": 7
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": 9
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": 9
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": 11
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": 11
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": 13
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": 13
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_032",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": 15
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_172",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": -15
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": -15
+        },
+        "offset": {
+          "x": -39.75,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_172",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": -13
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": -13
+        },
+        "offset": {
+          "x": -39.75,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_172",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": -11
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": -11
+        },
+        "offset": {
+          "x": -39.75,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_172",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": -9
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": -9
+        },
+        "offset": {
+          "x": -39.75,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_172",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": -7
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": -7
+        },
+        "offset": {
+          "x": -39.75,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_172",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": -5
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": -5
+        },
+        "offset": {
+          "x": -39.75,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_172",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": -3
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": -3
+        },
+        "offset": {
+          "x": -39.75,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_172",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": -1
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": -1
+        },
+        "offset": {
+          "x": -39.75,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_172",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": 1
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": 1
+        },
+        "offset": {
+          "x": -39.75,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_172",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": 3
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": 3
+        },
+        "offset": {
+          "x": -39.75,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_172",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": 5
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": 5
+        },
+        "offset": {
+          "x": -39.75,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_172",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": 7
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": 7
+        },
+        "offset": {
+          "x": -39.75,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_172",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": 9
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": 9
+        },
+        "offset": {
+          "x": -39.75,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_172",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": 11
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": 11
+        },
+        "offset": {
+          "x": -39.75,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_172",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": 13
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": 13
+        },
+        "offset": {
+          "x": -39.75,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_187",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": 15
+        },
+        "offset": {
+          "x": 40.75,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_188",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": 15
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 62.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_172",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -5,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": -5,
+          "k": 15
+        },
+        "offset": {
+          "x": -39.75,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_190",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -4,
+            "k": 14
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": 14
+        },
+        "offset": {
+          "x": 0,
+          "y": 63
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_187",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -3,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": -3,
+          "k": 15
+        },
+        "offset": {
+          "x": 40.25,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_188",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -3,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": -3,
+          "k": 15
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 62.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_172",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -3,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": -3,
+          "k": 15
+        },
+        "offset": {
+          "x": -40.25,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_194",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -2,
+            "k": 14
+          }
+        ],
+        "anchor": {
+          "q": -2,
+          "k": 14
+        },
+        "offset": {
+          "x": 0,
+          "y": 63
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_187",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -1,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": -1,
+          "k": 15
+        },
+        "offset": {
+          "x": 40.75,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_188",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -1,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": -1,
+          "k": 15
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 62.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_172",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -1,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": -1,
+          "k": 15
+        },
+        "offset": {
+          "x": -39.75,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_190",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 0,
+            "k": 14
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": 14
+        },
+        "offset": {
+          "x": 0,
+          "y": 63
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_187",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 1,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": 1,
+          "k": 15
+        },
+        "offset": {
+          "x": 40.25,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_188",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 1,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": 1,
+          "k": 15
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 62.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_172",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 1,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": 1,
+          "k": 15
+        },
+        "offset": {
+          "x": -40.25,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_194",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 2,
+            "k": 14
+          }
+        ],
+        "anchor": {
+          "q": 2,
+          "k": 14
+        },
+        "offset": {
+          "x": 0,
+          "y": 63
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_187",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 3,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": 3,
+          "k": 15
+        },
+        "offset": {
+          "x": 40.75,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_188",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 3,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": 3,
+          "k": 15
+        },
+        "offset": {
+          "x": 0.25,
+          "y": 62.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_172",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 3,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": 3,
+          "k": 15
+        },
+        "offset": {
+          "x": -39.75,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_190",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 4,
+            "k": 14
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": 14
+        },
+        "offset": {
+          "x": 0,
+          "y": 63
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_187",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": -15
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": -15
+        },
+        "offset": {
+          "x": 40.25,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_187",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": -13
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": -13
+        },
+        "offset": {
+          "x": 40.25,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_187",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": -11
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": -11
+        },
+        "offset": {
+          "x": 40.25,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_187",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": -9
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": -9
+        },
+        "offset": {
+          "x": 40.25,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_187",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": -7
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": -7
+        },
+        "offset": {
+          "x": 40.25,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_187",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": -5
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": -5
+        },
+        "offset": {
+          "x": 40.25,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_187",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": -3
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": -3
+        },
+        "offset": {
+          "x": 40.25,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_187",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": -1
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": -1
+        },
+        "offset": {
+          "x": 40.25,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_187",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": 1
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": 1
+        },
+        "offset": {
+          "x": 40.25,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_187",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": 3
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": 3
+        },
+        "offset": {
+          "x": 40.25,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_187",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": 5
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": 5
+        },
+        "offset": {
+          "x": 40.25,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_187",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": 7
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": 7
+        },
+        "offset": {
+          "x": 40.25,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_187",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": 9
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": 9
+        },
+        "offset": {
+          "x": 40.25,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_187",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": 11
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": 11
+        },
+        "offset": {
+          "x": 40.25,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_187",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": 13
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": 13
+        },
+        "offset": {
+          "x": 40.25,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_187",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": 15
+        },
+        "offset": {
+          "x": 40.25,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_188",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": 15
+        },
+        "offset": {
+          "x": -0.25,
+          "y": 62.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_BelowGround_172",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 5,
+            "k": 15
+          }
+        ],
+        "anchor": {
+          "q": 5,
+          "k": 15
+        },
+        "offset": {
+          "x": -40.25,
+          "y": 39.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_AboveGround_565",
+        "layer": 7,
+        "cells": [
+          {
+            "q": -4,
+            "k": -10
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": -10
+        },
+        "offset": {
+          "x": 0,
+          "y": -3.5
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_AboveGround_566",
+        "layer": 7,
+        "cells": [
+          {
+            "q": 2,
+            "k": -10
+          }
+        ],
+        "anchor": {
+          "q": 2,
+          "k": -10
+        },
+        "offset": {
+          "x": 0,
+          "y": -13
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_AboveGround_567",
+        "layer": 7,
+        "cells": [
+          {
+            "q": 0,
+            "k": -6
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": -6
+        },
+        "offset": {
+          "x": -0.5,
+          "y": 11
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_AboveGround_567",
+        "layer": 7,
+        "cells": [
+          {
+            "q": 4,
+            "k": -4
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": -4
+        },
+        "offset": {
+          "x": -0.5,
+          "y": 11
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_AboveGround_567",
+        "layer": 7,
+        "cells": [
+          {
+            "q": -4,
+            "k": 4
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": 4
+        },
+        "offset": {
+          "x": -0.5,
+          "y": 11
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_AboveGround_567",
+        "layer": 7,
+        "cells": [
+          {
+            "q": 0,
+            "k": 6
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": 6
+        },
+        "offset": {
+          "x": -0.5,
+          "y": 11
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_AboveGround_566",
+        "layer": 7,
+        "cells": [
+          {
+            "q": -2,
+            "k": 10
+          }
+        ],
+        "anchor": {
+          "q": -2,
+          "k": 10
+        },
+        "offset": {
+          "x": 0,
+          "y": -13
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/Terrain_AboveGround_565",
+        "layer": 7,
+        "cells": [
+          {
+            "q": 4,
+            "k": 10
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": 10
+        },
+        "offset": {
+          "x": 0,
+          "y": -3.5
+        }
+      }
+    ],
+    "friendlyGroundResource": "scene/battle/appearance/Ground_Blue",
+    "enemyGroundResource": "scene/battle/appearance/Ground_Red",
+    "neutralGroundResource": ""
+  }
+]

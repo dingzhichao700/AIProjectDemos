@@ -1,0 +1,22 @@
+[
+  {
+    "sceneId": 1001,
+    "camp": 1,
+    "race": 1,
+    "baseBuildingId": 1001,
+    "deckId": 1001,
+    "initialCurrency": 50,
+    "unitLimit": 100,
+    "deckLimit": 8
+  },
+  {
+    "sceneId": 1001,
+    "camp": 2,
+    "race": 1,
+    "baseBuildingId": 1001,
+    "deckId": 1001,
+    "initialCurrency": 50,
+    "unitLimit": 100,
+    "deckLimit": 8
+  }
+]

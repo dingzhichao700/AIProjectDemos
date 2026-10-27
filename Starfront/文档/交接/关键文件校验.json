@@ -1,0 +1,587 @@
+{
+  "date": "2026-10-25",
+  "purpose": "迁移前关键文件快照；不是完整备份或完整依赖清单",
+  "roots": {
+    "art": "E:/ChatGPT/星域前线",
+    "game": "E:/UnityTemplateTest/Starfront"
+  },
+  "count": 96,
+  "files": [
+    {
+      "root": "game",
+      "path": "AGENTS.md",
+      "bytes": 11431,
+      "sha256": "1570C7B08E7CC80AB46DC36D975DD7DC5F5290A81BE4D5B43EAE695BBD930BA9"
+    },
+    {
+      "root": "game",
+      "path": "Project/ProjectSettings/ProjectVersion.txt",
+      "bytes": 87,
+      "sha256": "B51E896AA269E68A1A2EDC32ED0920B7C15973E9775F9C03967074BF5854CA73"
+    },
+    {
+      "root": "game",
+      "path": "Project/Assets/Prefab/default/battle/BattleScenePanel.prefab",
+      "bytes": 1079722,
+      "sha256": "1048A73B6ED76246FB2CF3FB6C3E69714EDEA86EBA306AA14B28D241AF3BB4C7"
+    },
+    {
+      "root": "game",
+      "path": "Project/Assets/Prefab/default/battle/BattleScenePanel.prefab.meta",
+      "bytes": 154,
+      "sha256": "7C9DA608E222B69E9DFF6B0A1F3A5D92A9C731C0D6ECDA3E192735D1B9DB6F69"
+    },
+    {
+      "root": "game",
+      "path": "Project/Assets/Editor/AIUI/AIUIExportQueue.cs",
+      "bytes": 64039,
+      "sha256": "F9BAEB078C59D8D864DF67CA933BD0332EE51BF115C5ACAD78622744DAC88869"
+    },
+    {
+      "root": "game",
+      "path": "Project/Assets/Scripts/csharp/main/MainPanel.cs",
+      "bytes": 7042,
+      "sha256": "2111593532D0C84DEE77AA1ED2EDAE752DEA0097ED12D1E5FCE4EAFCC6F9665A"
+    },
+    {
+      "root": "game",
+      "path": "Project/Assets/Scripts/csharp/login/title/view/LoginPanel.cs",
+      "bytes": 4735,
+      "sha256": "C67E9D58397BAB366DBA1CDB54B5162A0CBB515D54CEF202A56DECADB5FDAEF2"
+    },
+    {
+      "root": "game",
+      "path": "文档/规范/专属规范/参考图/场景元素/标准地块几何.json",
+      "bytes": 1119,
+      "sha256": "B5349FB7428868212A8D30EDC714D0E53A8EDEC9D999E49EBB1CC4EFBD38449F"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/manifest.json",
+      "bytes": 296,
+      "sha256": "ABE7B8CD37378023A02841AF71C54072D5CBFDA461B55641495468A9C040FA67"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/code.js",
+      "bytes": 591036,
+      "sha256": "25088C2C2C1343E47CA18A613A9E54B25BF9D6975E5BB3AD0F1D81F4A936C7C2"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/payload.json",
+      "bytes": 584701,
+      "sha256": "361DA0DEA03251E3E3706DD0A6384E3F551548F5EA8034D743B2784003B9CC12"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/run.manifest.json",
+      "bytes": 3415,
+      "sha256": "8E346145A6D0E111E9FF88B661DF1AD87CBF9719287114DCED6FCA4EF62DCF8A"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/unity/export.manifest.json",
+      "bytes": 16011,
+      "sha256": "0E7A67F4C13D47946D6420AC955138E220E728F9D22B3B4B19A905328341E05F"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/unity/default-migration-validation.json",
+      "bytes": 562,
+      "sha256": "31C089CEF90CBBB51B7318362C0963376BFA2617671DD1902883D94E089EE4DC"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-true-1x-v1/compose.py",
+      "bytes": 5705,
+      "sha256": "FE994001D5F21F0150314DD818E623596E64EE398EE2DDA2E21BA2BD63724F65"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/collector_shadow.png",
+      "bytes": 2301,
+      "sha256": "197CBCF2A3301E872C76006328F1FD43F7503CD31B9BBCF5C76AC87BF7259B27"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/collector.png",
+      "bytes": 21292,
+      "sha256": "01215858FA6FE58AAA727273FE73EEDCAE284382AF7CB5627D513810D78A6A89"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/Ground_Blue.png",
+      "bytes": 12513,
+      "sha256": "F8F3E5394C357EB645BD6EDF332C7E16327FA0FF59FBFB879F7563FD1ADEC793"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/Ground_Red.png",
+      "bytes": 11837,
+      "sha256": "A1256D84FC68A2C62A95E092BD5F1405BBB4641F4218ACFBFEC4EC1D0DEAD346"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/HP_BG_37.png",
+      "bytes": 183,
+      "sha256": "6DF9CED7DC553B42536F9DC8CD7276CF85A194CBE35EF94E6E996D27AC4B1AC1"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/HP_BG_61.png",
+      "bytes": 209,
+      "sha256": "E059E9118C88695FA7D1D377567EDF9B1FF6A871FB3CCFE32113FA305E14CBD9"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/HP_Fill_Enemy_37.png",
+      "bytes": 142,
+      "sha256": "E99152BA3F749168EF9AC0022E17A193BF015E5BFE83DB084C8A7682B7C122F8"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/HP_Fill_Enemy_61.png",
+      "bytes": 157,
+      "sha256": "12E608756DF0EDACE4B26724E8939DE86470F524BA32CB453AAAA8955E5621EA"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/HP_Fill_Friendly_37.png",
+      "bytes": 140,
+      "sha256": "90B90AB0EE07BCC2B887F7D008AF3F5C74DFEC127268DADD6A37E43EBCAF41AA"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/HP_Fill_Friendly_61.png",
+      "bytes": 159,
+      "sha256": "1A21C0CF82A74E7DC7B54F802BF8B1DF4CBB939190381BE1DCA3AD8F2E4005FB"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/hq_shadow.png",
+      "bytes": 2512,
+      "sha256": "63BE5E2265C6720730F9E3F10112879AAEFA77D671C60FD5A46B82225B210CC6"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/hq.png",
+      "bytes": 24634,
+      "sha256": "DE6AE5DB8D843F413CD720A4CE86A8C47472B819BA806F5960F723C67F187685"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/infantry_camp_shadow.png",
+      "bytes": 2174,
+      "sha256": "BFA33FCA0B881FC03FC2A7B1A61AFFDC6DD7E9A90911DE564028F4151D980C2B"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/infantry_camp.png",
+      "bytes": 22196,
+      "sha256": "DF3F38B88C3C099F82764C8F1B918FD202FED02CACC2E1DD1229A667A339D541"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/Infantry_DownRight.png",
+      "bytes": 2747,
+      "sha256": "4C56A8518A8484AEF545C5553E942E21A11B86434169BD157BFC516A473DD11F"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/Infantry_UpRight.png",
+      "bytes": 3159,
+      "sha256": "50EC080750AA75F11C6242388854E927A1D2C01A069246C1AE5DE6BE2ADE124E"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/Production_BG.png",
+      "bytes": 228,
+      "sha256": "F7B5BA4DDFA25F0D3B7FDB8CA4D5054B2229A1293CE2F0F5A85A43B208A41743"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/Production_Fill.png",
+      "bytes": 197,
+      "sha256": "BD1EA5402912E39082888924A1681A3B1F2ECBDD03775F398637E876DC0516C4"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/Terrain_AboveGround_565.png",
+      "bytes": 21600,
+      "sha256": "202DD806565A43027243107A82B3B52C0342A495879306E3834B69A24194F438"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/Terrain_AboveGround_566.png",
+      "bytes": 16213,
+      "sha256": "96D6F10A38C3FC7C8604A4F2C505CDD1A707E461724762E00A62EBFF8B85D9FD"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/Terrain_AboveGround_567.png",
+      "bytes": 5002,
+      "sha256": "C58BCED8696106B29062F1B5AA25BF1C3F9FBC15DA11AF5CB67639C0F78336ED"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/Terrain_BelowGround_001.png",
+      "bytes": 2334,
+      "sha256": "BC2A164F6BE655DC9A42D3F35B2E0A3F8A7CE54E92583870626ABDCEE7C83467"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/Terrain_BelowGround_017.png",
+      "bytes": 2401,
+      "sha256": "299A51F50D815CB1D5CA3882D51786E06C188CE3FEBE43314EDC1AE83F136D86"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/Terrain_BelowGround_032.png",
+      "bytes": 2305,
+      "sha256": "98951BEB3D4DA367D20D62EDB96D5FC07B3ED96C042268097248329D9DC22CB7"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/Terrain_BelowGround_048.png",
+      "bytes": 2287,
+      "sha256": "6D74FF897957724C2FEA728FC9989FA8F8A313F0D9098B62D707B3D2C0B01298"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/Terrain_BelowGround_172.png",
+      "bytes": 2530,
+      "sha256": "A04D47CDFB8FF3C6A7AD0FDAE4D6573CDDE6A8147422CECD3F4ECD67EDD5004F"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/Terrain_BelowGround_187.png",
+      "bytes": 2480,
+      "sha256": "38FFA76131BF99CA14AE728FC03D0C9F0BB435B2732D2D992CBF4B8F9F133AC5"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/Terrain_BelowGround_188.png",
+      "bytes": 2435,
+      "sha256": "2ADC39731B19C71613E12FADDB1A8E97880E7326B6976C9F20AF392AAED8EE1B"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/Terrain_BelowGround_190.png",
+      "bytes": 2422,
+      "sha256": "153E26926A16CEBE756ECCF3ABB53E8C70F2983A50DDEE77985F892DCEC7EB5F"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/Terrain_BelowGround_194.png",
+      "bytes": 2387,
+      "sha256": "C372B91AE0AD39C600BDEE4D9C2BE4BCF0B9C012526A45E8C82BC6C0712A061D"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/Terrain_BelowGround_225.png",
+      "bytes": 137562,
+      "sha256": "196049966AB6E419010A6D94EBD0252D2A10197DD6C087669E327EAF2167991D"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/Terrain_BelowGround_227.png",
+      "bytes": 21255,
+      "sha256": "2C8B6F181695AF2D96FE9BB93BF1A4D3B89EBCAF06D8B3E6943C920D337596C3"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/Terrain_BelowGround_229.png",
+      "bytes": 21362,
+      "sha256": "C160FC68CD40FE00D8E85B408766BC175B5BCA2D7EBE95A0CA112B98DDEA1423"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/turret_shadow.png",
+      "bytes": 1926,
+      "sha256": "6F33F738FACD7C6D327348469285E13556344EB524CCC88EE060EE087D196943"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/turret.png",
+      "bytes": 20082,
+      "sha256": "4AD250870BABE4B5AC30DE836516A2639FED05BA95A4F4444D40A212A641D613"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/UI_helmet.png",
+      "bytes": 825,
+      "sha256": "C42895E763BF17165B677AC65BB6080BB09DC201E0A8ED5FE689A556AC89BEB4"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/UI_mineral.png",
+      "bytes": 870,
+      "sha256": "365628EF5CFCBA1503823F01F2A7A3298AECB0B2A21344184B46463CF22C6384"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/UI_random.png",
+      "bytes": 607,
+      "sha256": "E2C065163D0CE9B7F9C81AF3A8F08FD33C209E2183DF4BC33272906C31C31BC0"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/UI_shield.png",
+      "bytes": 668,
+      "sha256": "AAF5671E08A4A393D4AD7108219551E0B4C42AF4694DF340960C1D4A4C272EA8"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/UI_turret.png",
+      "bytes": 787,
+      "sha256": "2455DEBAE89E664AFB061F3B770C30989154AD04E494E0082FA80521E1828E31"
+    },
+    {
+      "root": "art",
+      "path": "outputs/BattleScenePanel-Figma-plugin-v2/assets/UI_unlock-glow.png",
+      "bytes": 9959,
+      "sha256": "6D346CC5FF89DF45EB7DCEC7593BFC725A0AFA406491829762FEE87D6DAA80DF"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Down/001.png",
+      "bytes": 3086,
+      "sha256": "41F664658D6C6322AFDE1F0A08F7ACB14D082417D4BD98C5CD665A07F70459ED"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Down/002.png",
+      "bytes": 3160,
+      "sha256": "DEA2C5F3D72D5A8B821EAA5E3C4E1BC12CD384C524AF42194EC6A1566C18EF30"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Down/003.png",
+      "bytes": 3219,
+      "sha256": "70E20006DDBCF2855DA1C26D6AE62793E841851DB2E14006C04C7C96D13507A6"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Down/004.png",
+      "bytes": 3146,
+      "sha256": "773109109C41CC8FCAFF63883F85B9147C5714396E1957FD701853319FD41465"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Down/005.png",
+      "bytes": 3078,
+      "sha256": "6A13A4F72745D2256FE123FA52D3C6ED0BD959D13A0B2595D690CCD3D414B0C0"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Down/006.png",
+      "bytes": 3250,
+      "sha256": "AF1965F3DFC4373CF0138DCBF8E5146C3143D2DA8F800879E2102C52C379C796"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Down/007.png",
+      "bytes": 3193,
+      "sha256": "6F0E44B4F0C558324E6F00EF24DB4E4378D24BCFE925C689B0CA2DEC283CC0EF"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Down/008.png",
+      "bytes": 3138,
+      "sha256": "9140C25924490D613DCC758CF11FB8A0F9762888299EAD853A9CF7DAB4F109D8"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_DownRight/001.png",
+      "bytes": 2747,
+      "sha256": "4C56A8518A8484AEF545C5553E942E21A11B86434169BD157BFC516A473DD11F"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_DownRight/002.png",
+      "bytes": 2794,
+      "sha256": "1C51607235900B7F22B88CDBB2106E2B06D2E3A887AA09C50CDBF53849683A0A"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_DownRight/003.png",
+      "bytes": 2909,
+      "sha256": "95C1F9F606C85F3E3989172BED93D78E42D601A3124BD561184340D77A33751C"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_DownRight/004.png",
+      "bytes": 2885,
+      "sha256": "B1144D4C56512EEE8E4D7F2DBA582493263AD8028DB5621C84333CCF77E701A5"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_DownRight/005.png",
+      "bytes": 2871,
+      "sha256": "52D83B116D9466F072B074622F8FF11F9B91790133EC7634636149C63F608774"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_DownRight/006.png",
+      "bytes": 2679,
+      "sha256": "FED9214E2C1D70890D2BFE608FC128304F751EC0CCE9BE3CEB97D2B0B4C6A209"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_DownRight/007.png",
+      "bytes": 2785,
+      "sha256": "491EE41FD526F6A063816BEC84A415C20A26102E1E0CFE3116F90E07E5ED2F73"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_DownRight/008.png",
+      "bytes": 2661,
+      "sha256": "4493A1FE75A58E14FE79F7DBE4F551C7EE1AFCAC60D5FF9CA61303645165F3D5"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Right/001.png",
+      "bytes": 3018,
+      "sha256": "594BB5B1FA824D59879900A840D12008B9EB08B4F8A158914783E534B6CC6FEB"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Right/002.png",
+      "bytes": 3115,
+      "sha256": "CFACB90DD3909CAA7CB5A245AF92B0FA20BA5B461EDCEA7E8F69E05C7A2DFB7F"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Right/003.png",
+      "bytes": 3295,
+      "sha256": "8A4DB4AE2F9C59D74186640FC1AFFB47DEE0918DB32D86AC4957400AE8AB9E45"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Right/004.png",
+      "bytes": 3377,
+      "sha256": "2CF6EE04A9A08EBB25FE9CD5D1AF4B3CFC1BE5E0159E4733431F00A4C8707C2D"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Right/005.png",
+      "bytes": 3330,
+      "sha256": "5529F3B41827793631B53A9000E7582C695E9E59119DD6BA85BD0A64D0AAC047"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Right/006.png",
+      "bytes": 3010,
+      "sha256": "F3A20A0930DE85552C5075A4892D561B745291052D92045BF0152583A29B276C"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Right/007.png",
+      "bytes": 3127,
+      "sha256": "DC543D0EC534C87C3A355609A18EB8F2FD4A1CB4A0AC29CADCC70DB8B5CB8ECD"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Right/008.png",
+      "bytes": 3001,
+      "sha256": "C8E6265F21C61D7F3012CBB10CF7201A0751075160A8707FEC39C0FE755342CC"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Up/001.png",
+      "bytes": 2805,
+      "sha256": "F411B5378F4D51ECA9A6C1DFDA5BF1B4D836B70241B3E0910C20E0781B6267E7"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Up/002.png",
+      "bytes": 2834,
+      "sha256": "52DE3C6A28B9B9F1C05757F1930682E85666FA943EEC5F29147A5C27B1D78938"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Up/003.png",
+      "bytes": 2763,
+      "sha256": "A5DC1C46EBBD8DAECD282EE551C390369436182CAC1E3060647677E424FD76D8"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Up/004.png",
+      "bytes": 2777,
+      "sha256": "06CB995E14A81CF591307A4353B09EBB69DEC7FBAB576EF466C6DFD951BC1AC7"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Up/005.png",
+      "bytes": 2793,
+      "sha256": "421F5E6F9C05F8B0C9ABE357E88C0D1D9C60B35B3D91210CD39A4C0A4409A29C"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Up/006.png",
+      "bytes": 2772,
+      "sha256": "772E0E47EA670955F05C278253AB723716FECF47457D7EB7361013CDDD5AB892"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Up/007.png",
+      "bytes": 2776,
+      "sha256": "38DC7243F9CDA611CEAC82CEA8EFA5585C70B8D7FAE717B249293FFE09CACDC1"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_Up/008.png",
+      "bytes": 2783,
+      "sha256": "5248958B3A4BC572BB48EC77EE40427F6699D51B4EEF22C9EA83889404088711"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_UpRight/001.png",
+      "bytes": 3159,
+      "sha256": "50EC080750AA75F11C6242388854E927A1D2C01A069246C1AE5DE6BE2ADE124E"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_UpRight/002.png",
+      "bytes": 3135,
+      "sha256": "A05E178077DEFBBE409106997C34E4C2B41D661D469D8D83B7939DF8977CD8A6"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_UpRight/003.png",
+      "bytes": 3080,
+      "sha256": "DC3E90A3A2A8DAC00E963B704D10C01CC777CACD7FA9A2C8970686896420A7E0"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_UpRight/004.png",
+      "bytes": 3066,
+      "sha256": "66B11D73C503F7BB3982590CAB00E74697D2632842A8B69FF7ACAFC7B2A31BC9"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_UpRight/005.png",
+      "bytes": 3021,
+      "sha256": "C9F52B1F89F6EBAEAA95ECF7EB45CDAD5C178692E353F81F895D38CC4148C5D8"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_UpRight/006.png",
+      "bytes": 2928,
+      "sha256": "EBE40D46C8CA1AC5EC5A8A2237D2D771989F6A030FD949A61B33A456CFAA42F4"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_UpRight/007.png",
+      "bytes": 2992,
+      "sha256": "DD0EB164A38D2DB921DAEBEF46949952B524DD590A110FEFD7DEB8C9E5214AC6"
+    },
+    {
+      "root": "art",
+      "path": "outputs/colonial-infantry-move-png-v9/delivery/Infantry/Move_UpRight/008.png",
+      "bytes": 2997,
+      "sha256": "F2A8973507DEF3DFAD348BFCF0286420F200BD0F1B6A8199D1A04153632906B5"
+    }
+  ]
+}

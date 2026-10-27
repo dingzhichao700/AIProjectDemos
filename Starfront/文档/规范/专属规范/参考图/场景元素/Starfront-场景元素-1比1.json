@@ -1,0 +1,160 @@
+{
+  "hex": {
+    "width": 107,
+    "height": 93
+  },
+  "note": "Integer presentation bounds; source geometry unchanged. Direction and art validation pending.",
+  "elements": [
+    {
+      "name": "enemy_hex",
+      "width": 107,
+      "height": 93
+    },
+    {
+      "name": "friendly_hex",
+      "width": 107,
+      "height": 93
+    },
+    {
+      "name": "neutral_hex",
+      "width": 107,
+      "height": 93
+    },
+    {
+      "group": "BUILDINGS / CYAN",
+      "name": "HQ",
+      "guideWidth": 107,
+      "guideHeight": 93,
+      "visibleWidth": 79,
+      "visibleHeight": 77
+    },
+    {
+      "group": "BUILDINGS / CYAN",
+      "name": "COLLECTOR",
+      "guideWidth": 107,
+      "guideHeight": 93,
+      "visibleWidth": 79,
+      "visibleHeight": 77
+    },
+    {
+      "group": "BUILDINGS / CYAN",
+      "name": "SHIPYARD",
+      "guideWidth": 107,
+      "guideHeight": 93,
+      "visibleWidth": 66,
+      "visibleHeight": 77
+    },
+    {
+      "group": "BUILDINGS / CYAN",
+      "name": "TURRET",
+      "guideWidth": 107,
+      "guideHeight": 93,
+      "visibleWidth": 67,
+      "visibleHeight": 77
+    },
+    {
+      "group": "BUILDINGS / RED",
+      "name": "HQ",
+      "guideWidth": 107,
+      "guideHeight": 93,
+      "visibleWidth": 78,
+      "visibleHeight": 77
+    },
+    {
+      "group": "BUILDINGS / RED",
+      "name": "COLLECTOR",
+      "guideWidth": 107,
+      "guideHeight": 93,
+      "visibleWidth": 76,
+      "visibleHeight": 77
+    },
+    {
+      "group": "BUILDINGS / RED",
+      "name": "SHIPYARD",
+      "guideWidth": 107,
+      "guideHeight": 93,
+      "visibleWidth": 65,
+      "visibleHeight": 77
+    },
+    {
+      "group": "BUILDINGS / RED",
+      "name": "TURRET",
+      "guideWidth": 107,
+      "guideHeight": 93,
+      "visibleWidth": 66,
+      "visibleHeight": 77
+    },
+    {
+      "group": "TURRET / COMPONENTS",
+      "name": "BASE",
+      "guideWidth": 107,
+      "guideHeight": 93,
+      "visibleWidth": 85,
+      "visibleHeight": 66
+    },
+    {
+      "group": "TURRET / COMPONENTS",
+      "name": "MODULE N",
+      "guideWidth": 107,
+      "guideHeight": 93,
+      "visibleWidth": 75,
+      "visibleHeight": 77
+    },
+    {
+      "group": "TURRET / COMPONENTS",
+      "name": "MODULE S",
+      "guideWidth": 107,
+      "guideHeight": 93,
+      "visibleWidth": 79,
+      "visibleHeight": 77
+    },
+    {
+      "group": "MOBILE / CYAN",
+      "name": "FIGHTER",
+      "guideWidth": 107,
+      "guideHeight": 93,
+      "visibleWidth": 30,
+      "visibleHeight": 39
+    },
+    {
+      "group": "MOBILE / CYAN",
+      "name": "FRIGATE",
+      "guideWidth": 107,
+      "guideHeight": 93,
+      "visibleWidth": 33,
+      "visibleHeight": 61
+    },
+    {
+      "group": "MOBILE / CYAN",
+      "name": "HEAVY",
+      "guideWidth": 107,
+      "guideHeight": 93,
+      "visibleWidth": 60,
+      "visibleHeight": 70
+    },
+    {
+      "group": "MOBILE / RED",
+      "name": "FIGHTER",
+      "guideWidth": 107,
+      "guideHeight": 93,
+      "visibleWidth": 30,
+      "visibleHeight": 40
+    },
+    {
+      "group": "MOBILE / RED",
+      "name": "FRIGATE",
+      "guideWidth": 107,
+      "guideHeight": 93,
+      "visibleWidth": 35,
+      "visibleHeight": 61
+    },
+    {
+      "group": "MOBILE / RED",
+      "name": "HEAVY",
+      "guideWidth": 107,
+      "guideHeight": 93,
+      "visibleWidth": 60,
+      "visibleHeight": 69
+    }
+  ]
+}

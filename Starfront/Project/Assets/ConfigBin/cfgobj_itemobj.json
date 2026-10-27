@@ -1,0 +1,32 @@
+[
+  {
+    "id": 2001,
+    "iconId": 2001,
+    "name": "钻石",
+    "desc": "",
+    "quality": 1,
+    "type": 1,
+    "subType": 0,
+    "stackMax": 0
+  },
+  {
+    "id": 2002,
+    "iconId": 2002,
+    "name": "钢材",
+    "desc": "",
+    "quality": 1,
+    "type": 1,
+    "subType": 0,
+    "stackMax": 0
+  },
+  {
+    "id": 2003,
+    "iconId": 2003,
+    "name": "勋章",
+    "desc": "",
+    "quality": 1,
+    "type": 1,
+    "subType": 0,
+    "stackMax": 0
+  }
+]
