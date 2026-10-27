@@ -1,6 +1,15 @@
 {
   "platform": "WeChat",
-  "bootstrapUrl": "",
-  "cdnRoot": "",
-  "appId": ""
+  "bootstrapUrl": "https://game-res-cdn-1518403929.cos.ap-guangzhou.myqcloud.com/Starfront/bootstrap.json",
+  "cdnRoot": "E:\\UnityTemplateTest\\Starfront\\build\\cos\\Starfront",
+  "appId": "wx1448519cc265ac08",
+  "buildRelease": {
+    "deployment": {
+      "kind": "cos",
+      "bucket": "game-res-cdn-1518403929",
+      "region": "ap-guangzhou",
+      "projectSubdirectory": "Starfront",
+      "publicRoot": "https://game-res-cdn-1518403929.cos.ap-guangzhou.myqcloud.com/Starfront/"
+    }
+  }
 }

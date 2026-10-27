@@ -20,7 +20,8 @@ MonoBehaviour:
   - m_GUID: 135ea1ce4f5026a45a49c89a51f4d3db
     m_Address: Assets/Art/atlas/default/battleInfo.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - main-content
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 458985db52d368844b989108817c2b52
     m_Address: Assets/Prefab/default/mainView/MainPanel.prefab
@@ -49,12 +50,14 @@ MonoBehaviour:
   - m_GUID: 8d86e80d960e2134594a3ba59bc0d0d3
     m_Address: Assets/Prefab/default/layereffect/LayerEffectTestPanel.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - main-content
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b42d852bba879db4c89607298c8f0ab6
     m_Address: Assets/Art/atlas/default/mainView.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - main-content
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d2cc11449b3d444489852ac28d8efae7
     m_Address: Assets/Prefab/default/battle/BattleScenePanel.prefab
@@ -65,7 +68,8 @@ MonoBehaviour:
   - m_GUID: f25991022eea2cf499c6074dd52718ab
     m_Address: Assets/Art/atlas/default/layereffect.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - main-content
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f86794daa5fe57343acddfb59fdab61a
     m_Address: Assets/Prefab/default/gm/GmPanel.prefab

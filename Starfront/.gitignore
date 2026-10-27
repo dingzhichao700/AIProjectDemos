@@ -61,3 +61,9 @@ Desktop.ini
 **/Assets/HotUpdateBytes.meta
 **/Assets/HybridCLRGenerate.meta
 **/Assets/Editor/HybridCLRGenerate.meta
+
+# WeChat and Addressables generated local build data
+**/TextToolDatas/
+**/Assets/AddressableAssetsData/WebGL/
+**/Assets/AddressableAssetsData/WebGL.meta
+**/Assets/AddressableAssetsData/link.xml*

@@ -35,9 +35,9 @@ MonoBehaviour:
   m_CheckForContentUpdateRestrictionsOption: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
-    m_Id: 
+    m_Id: cc3bb5b7d46361d49b9222bf65cbc7f1
   m_RemoteCatalogLoadPath:
-    m_Id: 
+    m_Id: 0fb5e1eb508ebeb4280fb9068d2f2d4b
   m_ContentStateBuildPathProfileVariableName: 
   m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
@@ -46,10 +46,13 @@ MonoBehaviour:
   m_GroupAssets:
   - {fileID: 11400000, guid: 40a931eaef380b947a59e76312e33aff, type: 2}
   - {fileID: 11400000, guid: 8d4e93c5c373efe4d950e6a837dbbf77, type: 2}
+  - {fileID: 11400000, guid: a7adf654993ea7b4bb8ea3bb00f1b3c0, type: 2}
+  - {fileID: 11400000, guid: 06fa8e868947bae4e864a1db68e80073, type: 2}
   - {fileID: 11400000, guid: b68fffd35eaedc7478a35f23e5e983cd, type: 2}
   - {fileID: 11400000, guid: f2d2b03ba253ca54c95e4ca2679455cc, type: 2}
   - {fileID: 11400000, guid: a67023a3945d2da439dd82693b87d01b, type: 2}
   - {fileID: 11400000, guid: d7b665214c799b54d937b86c511bfc1b, type: 2}
+  - {fileID: 11400000, guid: ef382a365a6bfab4896826b815bf99c2, type: 2}
   - {fileID: 11400000, guid: 29e3eb3e3913a13478b5644d1d10126b, type: 2}
   - {fileID: 11400000, guid: 0efbc31254e8b5443843cb7badc7f353, type: 2}
   m_BuildSettings:
