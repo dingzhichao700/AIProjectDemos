@@ -22,11 +22,6 @@ public sealed class BattleScenePresentation : IDisposable {
     public int totalCount => items.Count;
 
     public BattleScenePresentation(BattleSceneModel model, RectTransform[] layers) {
-        foreach (var cell in model.cells.Values) {
-            if (cell.type == BattleSceneCellType.NORMAL) {
-                Add(cell.id, cell.position + new Vector2(0, 4), BattleSceneResources.GroundResource(model, cell.camp), BattleSceneVisualLayer.GROUND, layers);
-            }
-        }
         long decorationId = -1;
         foreach (var appearance in model.config.Appearances) {
             Vector2 anchor = model.GetCell(appearance.Anchor.Q, appearance.Anchor.K).position;
@@ -35,7 +30,7 @@ public sealed class BattleScenePresentation : IDisposable {
         foreach (var building in model.buildings.Values) {
             foreach (var appearance in building.config.Appearances) {
                 var layer = appearance.Part == BuildingAppearancePart.SHADOW ? BattleSceneVisualLayer.GROUND_SHADOW : BattleSceneVisualLayer.ABOVE_GROUND;
-                Add(decorationId--, building.position + new Vector2(appearance.Offset.X, appearance.Offset.Y), appearance.Resource, layer, layers, building);
+                Add(decorationId--, building.position + new Vector2(appearance.Offset.X, appearance.Offset.Y - model.config.GroundThickness), appearance.Resource, layer, layers, building);
             }
         }
         items.Sort((a, b) => {

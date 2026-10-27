@@ -30,9 +30,17 @@ public sealed partial class BattleSceneResource : Luban.BeanBase
         { if(!_buf["enemyBaseQ"].IsNumber) { throw new SerializationException(); }  EnemyBaseQ = _buf["enemyBaseQ"]; }
         { if(!_buf["enemyBaseK"].IsNumber) { throw new SerializationException(); }  EnemyBaseK = _buf["enemyBaseK"]; }
         { var __json0 = _buf["appearances"]; if(!__json0.IsArray) { throw new SerializationException(); } Appearances = new System.Collections.Generic.List<bean.BattleSceneAppearance>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { bean.BattleSceneAppearance __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = global::cfg.bean.BattleSceneAppearance.DeserializeBattleSceneAppearance(__e0);  }  Appearances.Add(__v0); }   }
-        { if(!_buf["friendlyGroundResource"].IsString) { throw new SerializationException(); }  FriendlyGroundResource = _buf["friendlyGroundResource"]; }
-        { if(!_buf["enemyGroundResource"].IsString) { throw new SerializationException(); }  EnemyGroundResource = _buf["enemyGroundResource"]; }
-        { if(!_buf["neutralGroundResource"].IsString) { throw new SerializationException(); }  NeutralGroundResource = _buf["neutralGroundResource"]; }
+        { if(!_buf["groundResource"].IsString) { throw new SerializationException(); }  GroundResource = _buf["groundResource"]; }
+        { if(!_buf["groundGridResource"].IsString) { throw new SerializationException(); }  GroundGridResource = _buf["groundGridResource"]; }
+        { if(!_buf["groundMaterialResource"].IsString) { throw new SerializationException(); }  GroundMaterialResource = _buf["groundMaterialResource"]; }
+        { if(!_buf["groundOffset"].IsObject) { throw new SerializationException(); }  GroundOffset = global::cfg.vector2.Deserializevector2(_buf["groundOffset"]);  }
+        { if(!_buf["groundThickness"].IsNumber) { throw new SerializationException(); }  GroundThickness = _buf["groundThickness"]; }
+        { if(!_buf["waterDepth"].IsNumber) { throw new SerializationException(); }  WaterDepth = _buf["waterDepth"]; }
+        { if(!_buf["groundRed"].IsString) { throw new SerializationException(); }  GroundRed = _buf["groundRed"]; }
+        { if(!_buf["groundBlue"].IsString) { throw new SerializationException(); }  GroundBlue = _buf["groundBlue"]; }
+        { if(!_buf["groundTintStrength"].IsNumber) { throw new SerializationException(); }  GroundTintStrength = _buf["groundTintStrength"]; }
+        { if(!_buf["groundBrightness"].IsNumber) { throw new SerializationException(); }  GroundBrightness = _buf["groundBrightness"]; }
+        { if(!_buf["groundContrast"].IsNumber) { throw new SerializationException(); }  GroundContrast = _buf["groundContrast"]; }
     }
 
     public static BattleSceneResource DeserializeBattleSceneResource(JSONNode _buf)
@@ -93,17 +101,49 @@ public sealed partial class BattleSceneResource : Luban.BeanBase
     /// </summary>
     public readonly System.Collections.Generic.List<bean.BattleSceneAppearance> Appearances;
     /// <summary>
-    /// 己方通用地面
+    /// 完整地块底图
     /// </summary>
-    public readonly string FriendlyGroundResource;
+    public readonly string GroundResource;
     /// <summary>
-    /// 敌方通用地面
+    /// 独立地表格线
     /// </summary>
-    public readonly string EnemyGroundResource;
+    public readonly string GroundGridResource;
     /// <summary>
-    /// 中立通用地面
+    /// 地表染色材质
     /// </summary>
-    public readonly string NeutralGroundResource;
+    public readonly string GroundMaterialResource;
+    /// <summary>
+    /// 底图左上角X,Y
+    /// </summary>
+    public readonly vector2 GroundOffset;
+    /// <summary>
+    /// 静态地块厚度（像素）
+    /// </summary>
+    public readonly float GroundThickness;
+    /// <summary>
+    /// 静态水洼深度（像素）
+    /// </summary>
+    public readonly float WaterDepth;
+    /// <summary>
+    /// 敌方地表颜色
+    /// </summary>
+    public readonly string GroundRed;
+    /// <summary>
+    /// 己方地表颜色
+    /// </summary>
+    public readonly string GroundBlue;
+    /// <summary>
+    /// 地表染色强度
+    /// </summary>
+    public readonly float GroundTintStrength;
+    /// <summary>
+    /// 地表灰度亮度
+    /// </summary>
+    public readonly float GroundBrightness;
+    /// <summary>
+    /// 地表灰度对比度
+    /// </summary>
+    public readonly float GroundContrast;
    
     public const int __ID__ = -1889059614;
     public override int GetTypeId() => __ID__;
@@ -129,9 +169,17 @@ public sealed partial class BattleSceneResource : Luban.BeanBase
         + "enemyBaseQ:" + EnemyBaseQ + ","
         + "enemyBaseK:" + EnemyBaseK + ","
         + "appearances:" + Luban.StringUtil.CollectionToString(Appearances) + ","
-        + "friendlyGroundResource:" + FriendlyGroundResource + ","
-        + "enemyGroundResource:" + EnemyGroundResource + ","
-        + "neutralGroundResource:" + NeutralGroundResource + ","
+        + "groundResource:" + GroundResource + ","
+        + "groundGridResource:" + GroundGridResource + ","
+        + "groundMaterialResource:" + GroundMaterialResource + ","
+        + "groundOffset:" + GroundOffset + ","
+        + "groundThickness:" + GroundThickness + ","
+        + "waterDepth:" + WaterDepth + ","
+        + "groundRed:" + GroundRed + ","
+        + "groundBlue:" + GroundBlue + ","
+        + "groundTintStrength:" + GroundTintStrength + ","
+        + "groundBrightness:" + GroundBrightness + ","
+        + "groundContrast:" + GroundContrast + ","
         + "}";
     }
 }

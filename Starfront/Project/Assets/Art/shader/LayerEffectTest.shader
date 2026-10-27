@@ -16,6 +16,9 @@ Shader "Starfront/LayerEffectTest" {
             sampler2D _MainTex;
             sampler2D _CellMap;
             sampler2D _HoleMask;
+            sampler2D _SceneOwners;
+            float _GroundScene;
+            float _SwapCamps;
             float4 _SourceUV;
             float2 _SourceGrayOffsets;
             float _GridLineWidth;
@@ -91,6 +94,30 @@ Shader "Starfront/LayerEffectTest" {
                 #ifndef UNITY_COLORSPACE_GAMMA
                     encoded = LinearToGammaSpace(encoded);
                 #endif
+                if (_GroundScene > .5) {
+                    float4 owner = tex2Dlod(_SceneOwners, float4(input.uv * _SourceUV.xy + _SourceUV.zw, 0, 0));
+                    float camp = round(owner.b * 255);
+                    float3 sceneResult = encoded;
+                    // Neutral and unowned pixels bypass every color operation.
+                    if (_DisplayMode > .5 && owner.a > .5 && camp > .5 && camp < 2.5) {
+                        float luminance = dot(encoded, float3(.2126, .7152, .0722));
+                        luminance = saturate(((luminance - .5) * _Contrast + .5) * _Brightness);
+                        sceneResult = luminance.xxx;
+                        if (_DisplayMode > 1.5) {
+                            float blue = camp < 1.5 ? 1 : 0;
+                            float2 cell = round(owner.rg * 255) - 64;
+                            float4 painted = cellData(cell);
+                            if (painted.r > .5) { blue = 0; }
+                            else if (painted.g > .5) { blue = 1; }
+                            blue = lerp(blue, 1 - blue, _SwapCamps);
+                            sceneResult = lerp(luminance.xxx, blendColor(luminance, lerp(_RedTint.rgb, _BlueTint.rgb, blue)), _Strength);
+                        }
+                    }
+                    #ifndef UNITY_COLORSPACE_GAMMA
+                        sceneResult = GammaToLinearSpace(sceneResult);
+                    #endif
+                    return float4(sceneResult, source.a);
+                }
                 float3 result = encoded;
                 if (_DisplayMode > .5) {
                     float gray = dot(encoded, float3(.2126, .7152, .0722));

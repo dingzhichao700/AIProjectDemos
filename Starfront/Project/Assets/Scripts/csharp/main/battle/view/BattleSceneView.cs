@@ -23,6 +23,8 @@ public sealed class BattleSceneView : MonoBehaviour {
     private BattleSceneModel model;
     private BattleScenePresentation presentation;
     private BattleProductionView production;
+    private BattleGroundView ground;
+    public RenderTexture groundTexture => ground?.texture;
 
     private BattleUnitView units;
 
@@ -49,6 +51,7 @@ public sealed class BattleSceneView : MonoBehaviour {
         }
         model = scene ?? throw new ArgumentNullException(nameof(scene));
         sceneRoot.sizeDelta = new Vector2(scene.config.Width, scene.config.Height);
+        ground = new BattleGroundView(scene, layers);
         presentation = new BattleScenePresentation(scene, layers);
         unlockHints = new BattleUnlockView(scene, sceneRoot, lod, layers[(int)cfg.BattleSceneVisualLayer.GROUND_GUIDE - 1], hintFont);
         model.StructureChanged += OnStructureChanged;
@@ -131,6 +134,8 @@ public sealed class BattleSceneView : MonoBehaviour {
         production = null;
         presentation?.Dispose();
         presentation = null;
+        ground?.Dispose();
+        ground = null;
         model = null;
         sceneCamera = null;
         if (sceneRoot != null) {

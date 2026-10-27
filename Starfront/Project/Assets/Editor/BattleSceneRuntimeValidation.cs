@@ -127,7 +127,7 @@ public static class BattleSceneRuntimeValidation {
                 if (main == null || !main.isOpened) {
                     return;
                 }
-                Require(CfgManager.tables.BattleSceneObj.Get(1001).Appearances.Count == 232, "scene config preloaded");
+                Require(CfgManager.tables.BattleSceneObj.Get(1001).Appearances.Count == 13, "scene config preloaded");
                 Require(CfgManager.tables.BattleSceneCellObj.DataList.Count == 171, "cell config preloaded");
                 BattleEconomyValidation.ValidateLoadedConfiguration();
                 BattleInfoRuntimeValidation.ValidateLoadedState();
@@ -193,8 +193,11 @@ public static class BattleSceneRuntimeValidation {
                     return;
                 }
                 var model = BattleControl.ins.model;
-                string path = BattleSceneResources.SpritePath(model.config.FriendlyGroundResource);
+                string path = BattleSceneResources.SpritePath(model.config.GroundResource);
+                var oldGround = panel.GetComponent<BattleSceneView>().groundTexture;
+                string materialPath = BattleSceneResources.GroundMaterialPath(model);
                 hud.OnPanelOperate(PanelOperateEnum.ESC);
+                Require(panel.GetComponent<BattleSceneView>().groundTexture == null && !oldGround.IsCreated() && ResourceManager.GetMaterial(materialPath) == null, "close releases tint target and owned material");
                 Require(PanelMgr.ins.GetPanel(UIEnum.BATTLE_INFO_PANEL) == null && info.friendlyCurrency.text == string.Empty, "HUD escape closes scene and clears text");
                 Require(BattleControl.ins.model == null && model.cells.Count == 0, "close clears logic");
                 Require(!ResourceManager.HasLoadedUnpackImage(path), "close releases scene sprites");
@@ -275,6 +278,7 @@ public static class BattleSceneRuntimeValidation {
         Require(Mathf.Approximately(hud.imgDivider.rectTransform.anchoredPosition.x, 340), "divider uses full design length");
         Require(hud.GetComponent<Image>() == null && hud.GetComponentsInChildren<TMPro.TextMeshProUGUI>().Length == 8, "transparent wrapper and eight independent texts");
         var hudBefore = info.friendlyCurrency.rectTransform.position;
+        BattleGroundValidation.Validate(view, model);
         BattleProductionValidation.Validate(view);
         BattleProductionValidation.ValidateAlignment(view, model);
         Require(model.camps.Count == 2 && model.buildings.Count == 2, "two camps and two bases");
@@ -283,8 +287,8 @@ public static class BattleSceneRuntimeValidation {
         Require(animations.Count == 5 && animations.All(path => FrameAnimationManager.loadedMap.ContainsKey(path)), "all five movement animations fully preloaded");
         Require(animations.All(path => FrameAnimationManager.loadedMap[path].sprites.Length == 8), "all forty animation frames ready");
         Require(Mathf.Approximately(view.zoom, 1f), "open resets zoom");
-        Require(model.cells.Count == 171 && view.totalVisualCount == 382, "logical and visual counts");
-        Require(view.visibleCount > 0 && view.visibleCount < view.totalVisualCount, "viewport culling");
+        Require(model.cells.Count == 171 && view.totalVisualCount == model.config.Appearances.Count + model.buildings.Values.Sum(item => item.config.Appearances.Count), "logical and visual counts");
+        Require(view.visibleCount > 0 && view.visibleCount <= view.totalVisualCount, "visible terrain bounded by configured appearances");
         Require(model.cells.Values.Count(cell => cell.groundPassable) == 146, "terrain passability");
         Require(model.cells.Values.All(cell => cell.flyingPassable), "air passability");
         foreach (var cell in model.cells.Values) {
@@ -325,6 +329,7 @@ public static class BattleSceneRuntimeValidation {
         Vector2 halfView = view.viewport.rect.size / (2 * view.zoom);
         Vector2 expectedEdge = new Vector2(Mathf.Min(halfView.x, model.config.Width / 2f), Mathf.Max(model.config.Height - halfView.y, model.config.Height / 2f));
         Require(Vector2.Distance(view.cameraCenter, expectedEdge) < 0.05f, "zoomed camera clamped: " + view.cameraCenter + " expected " + expectedEdge);
+        Require(view.visibleCount < view.totalVisualCount, "edge viewport culls offscreen terrain");
         Require(clicks == 2 && model.elements.Count == 173, "offscreen logic retained");
         Require(Vector3.Distance(hudBefore, info.friendlyCurrency.rectTransform.position) < 0.01f, "HUD unaffected by pan and zoom");
         Require(hud.GetComponentsInChildren<UnityEngine.UI.Graphic>().All(graphic => !graphic.raycastTarget), "HUD allows map input through");

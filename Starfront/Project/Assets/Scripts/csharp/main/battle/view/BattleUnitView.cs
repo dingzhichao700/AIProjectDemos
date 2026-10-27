@@ -47,7 +47,7 @@ public sealed class BattleUnitView : IDisposable {
             // Sprite区域自身使用零pivot。把完整画布的固定脚底点换算到裁剪区域，
             // 再由RectTransform围绕该点镜像，不能用区域左下角代替角色锚点。
             Vector2 framePivot = Vector2.Scale(animation.sourceSizes[frameIndex], animation.pivot) - animation.frameOffsets[frameIndex];
-            Vector2 point = unit.position + new Vector2(mirror ? -appearance.Offset.X : appearance.Offset.X, appearance.Offset.Y);
+            Vector2 point = unit.position + new Vector2(mirror ? -appearance.Offset.X : appearance.Offset.X, appearance.Offset.Y - model.config.GroundThickness);
             Vector2 pivot = framePivot;
             if (mirror) {
                 pivot.x = sprite.rect.width - pivot.x;

@@ -163,6 +163,11 @@ public sealed class LayerEffectTestPanel : BasePanel {
         txtCompareLabel.text = "看原图";
         txtPaintCampLabel.text = "画笔：红色";
         txtHint.text = "点击画笔切换染色/挖洞/还原；右侧预览支持拖动。";
+        if (rendererView.IsGroundScene) {
+            txtLeftPreviewTitle.text = "地块底图";
+            txtHint.text = "普通格含侧面染色；中立保留原色。点击左下按钮互换阵营。";
+            btnGridSettings.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "阵营：正常";
+        }
         Refresh();
     }
 
@@ -239,7 +244,7 @@ public sealed class LayerEffectTestPanel : BasePanel {
     }
 
     private void ToggleBrush() {
-        brush = (BrushMode)(((int)brush + 1) % 5);
+        brush = (BrushMode)(((int)brush + 1) % (rendererView.IsGroundScene ? 2 : 5));
         lastPaintPoint = null;
         txtPaintCampLabel.text = new[] { "画笔：红色", "画笔：蓝色", "画笔：整格挖洞", "画笔：局部挖洞", "画笔：还原格子" }[(int)brush];
     }
@@ -251,6 +256,11 @@ public sealed class LayerEffectTestPanel : BasePanel {
 
     private void Paint(Vector2 point) {
         if (boxGridSettings.gameObject.activeSelf) {
+            return;
+        }
+        if (rendererView.IsGroundScene) {
+            rendererView.PaintScenePoint(point, brush == BrushMode.Blue);
+            Refresh();
             return;
         }
         var cell = LayerEffectTestRenderer.CellAt(point, settings);
@@ -277,6 +287,12 @@ public sealed class LayerEffectTestPanel : BasePanel {
     }
 
     private void OpenGrid() {
+        if (rendererView.IsGroundScene) {
+            settings.layout = settings.layout == 0 ? 1 : 0;
+            btnGridSettings.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = settings.layout == 0 ? "阵营：正常" : "阵营：互换";
+            Refresh();
+            return;
+        }
         pendingGrid = settings.showGrid;
         txtGridToggleLabel.text = pendingGrid ? "格线：开启" : "格线：关闭";
         inpGridWidth.SetTextWithoutNotify(Number(settings.hexSize.x));
@@ -326,6 +342,9 @@ public sealed class LayerEffectTestPanel : BasePanel {
         txtBrightnessValue.text = settings.brightness.ToString("0.00", CultureInfo.InvariantCulture);
         txtContrastValue.text = settings.contrast.ToString("0.00", CultureInfo.InvariantCulture);
         txtGridInfo.text = "格子 " + Number(settings.hexSize.x) + " × " + Number(settings.hexSize.y) + " · 基点 " + Number(settings.origin.x) + ", " + Number(settings.origin.y);
+        if (rendererView.IsGroundScene) {
+            txtGridInfo.text = "场景1001 · 中立不染色";
+        }
         var modes = new[] { btnModeMultiply, btnModeOverlay, btnModeSoftLight, btnModeScreen, btnModeAdd };
         for (int i = 0; i < modes.Length; i++) {
             ((Image)modes[i].targetGraphic).sprite = settings.mode == i + 2 ? rendererView.selectedPlate : rendererView.neutralPlate;

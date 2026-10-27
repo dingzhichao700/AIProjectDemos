@@ -554,11 +554,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9085195c8972ff242b058789abca4620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 2800000, guid: 7f072c6e92cf281458d0ba2e97f49c73, type: 3}
-  sourceGrayOffsets: {x: 0.035687451, y: -0.035687451}
+  source: {fileID: 2800000, guid: a939bde19da280c4db03425b98cbe118, type: 3}
   shader: {fileID: 4800000, guid: f0aa0e6861ee4cd47bf88aed71d55076, type: 3}
+  sourceGrayOffsets: {x: 0, y: 0}
   neutralPlate: {fileID: 4172080509036260657, guid: f25991022eea2cf499c6074dd52718ab, type: 3}
   selectedPlate: {fileID: -3383555600063792855, guid: f25991022eea2cf499c6074dd52718ab, type: 3}
+  sceneOwnersData: {fileID: 4900000, guid: 43604197b7e5d8847b75eaeb786d9368, type: 3}
 --- !u!114 &500911748332423304
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -39,6 +39,36 @@ public static class LayerEffectTestSetup {
         EditorApplication.update += Poll;
     }
 
+    private static void ConfigureGroundTint() {
+        string folder = "Assets/Art/unpack/default/layereffect/";
+        foreach (string name in new[] { "groundScene" }) {
+            string path = folder + name + ".png";
+            AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceSynchronousImport);
+            var importer = (TextureImporter)AssetImporter.GetAtPath(path);
+            importer.textureType = TextureImporterType.Default;
+            importer.npotScale = TextureImporterNPOTScale.None;
+            importer.mipmapEnabled = false;
+            importer.isReadable = name == "groundOwners";
+            importer.sRGBTexture = name != "groundOwners";
+            importer.textureCompression = TextureImporterCompression.Uncompressed;
+            importer.maxTextureSize = 2048;
+            importer.filterMode = name == "groundOwners" ? FilterMode.Point : FilterMode.Bilinear;
+            importer.wrapMode = TextureWrapMode.Clamp;
+            importer.SaveAndReimport();
+        }
+        var prefab = PrefabUtility.LoadPrefabContents(PrefabPath);
+        try {
+            var serialized = new SerializedObject(prefab.GetComponent<LayerEffectTestRenderer>());
+            serialized.FindProperty("source").objectReferenceValue = AssetDatabase.LoadAssetAtPath<Texture2D>(folder + "groundScene.png");
+            serialized.FindProperty("sceneOwnersData").objectReferenceValue = AssetDatabase.LoadAssetAtPath<TextAsset>(folder + "groundOwners.bytes");
+            serialized.FindProperty("sourceGrayOffsets").vector2Value = Vector2.zero;
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+            PrefabUtility.SaveAsPrefabAsset(prefab, PrefabPath);
+        } finally {
+            PrefabUtility.UnloadPrefabContents(prefab);
+        }
+    }
+
     private static void Poll() {
         const string requestPath = "Library/layer-effect-request.json";
         if (!File.Exists(requestPath) || EditorApplication.isCompiling || EditorApplication.isUpdating || EditorApplication.isPlayingOrWillChangePlaymode) {
@@ -52,7 +82,9 @@ public static class LayerEffectTestSetup {
             if (request == null || string.IsNullOrEmpty(request.requestId) || request.processId != System.Diagnostics.Process.GetCurrentProcess().Id) {
                 throw new InvalidOperationException("Invalid request identity or editor PID.");
             }
-            if (request.action == "extendHoles") {
+            if (request.action == "groundTint") {
+                ConfigureGroundTint();
+            } else if (request.action == "extendHoles") {
                 ExtendHolePrototype();
             } else if (request.action == "import") {
                 ImportAssets();

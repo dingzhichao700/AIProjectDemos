@@ -11,22 +11,18 @@ public static class BattleSceneResources {
         return ResourceConst.PATH_UNPACK_IMAGE + resource + ".png";
     }
 
-    public static string GroundResource(BattleSceneModel model, BattleSceneCamp camp) {
-        switch (camp) {
-            case BattleSceneCamp.FRIENDLY: return model.config.FriendlyGroundResource;
-            case BattleSceneCamp.ENEMY: return model.config.EnemyGroundResource;
-            case BattleSceneCamp.ABSOLUTE_NEUTRAL: return model.config.NeutralGroundResource;
-            default: throw new InvalidOperationException("未知阵营：" + camp);
+    public static string GroundMaterialPath(BattleSceneModel model) {
+        string resource = model.config.GroundMaterialResource;
+        if (string.IsNullOrWhiteSpace(resource) || resource.Contains("..") || resource.StartsWith("/") || resource.Contains(":")) {
+            throw new InvalidOperationException("无效地表材质引用：" + resource);
         }
+        return "Assets/Art/material/" + resource;
     }
 
     public static HashSet<string> Collect(BattleSceneModel model) {
         var result = new HashSet<string>();
-        foreach (var cell in model.cells.Values) {
-            if (cell.type == BattleSceneCellType.NORMAL) {
-                result.Add(SpritePath(GroundResource(model, cell.camp)));
-            }
-        }
+        result.Add(SpritePath(model.config.GroundResource));
+        result.Add(SpritePath(model.config.GroundGridResource));
         foreach (var item in model.config.Appearances) {
             if (item.ResourceType != BattleSceneResourceType.STATIC_IMAGE) {
                 throw new NotSupportedException("场景帧动画尚未接入：" + item.Resource);

@@ -81,7 +81,7 @@ public static class BattleUnitProductionValidation {
                 Require(Vector2.Distance(friendlyUnit.position, origin) > 29, "offscreen unit logic continues");
                 presentation.Refresh(new Rect(0, 0, 2000, 2000));
                 var image = parent.Find("unit_" + friendlyUnit.id).GetComponent<Image>();
-                Require(Vector2.Distance(image.rectTransform.anchoredPosition, new Vector2(friendlyUnit.position.x, -friendlyUnit.position.y)) < .01, "recycled unit view restores current position");
+                Require(Vector2.Distance(image.rectTransform.anchoredPosition, new Vector2(friendlyUnit.position.x, -friendlyUnit.position.y + model.config.GroundThickness)) < .01, "recycled unit view restores current position");
                 Require(BattleUnitView.ResolveDirection(new Vector2(-1, -1)) == UnitAppearanceDirection.UP_RIGHT && BattleUnitView.ResolveDirection(Vector2.left) == UnitAppearanceDirection.RIGHT && image.rectTransform.localScale.x == (friendlyUnit.heading.x < 0 ? -1 : 1), "left source direction and anchor mirror");
             } finally {
                 presentation.Dispose();

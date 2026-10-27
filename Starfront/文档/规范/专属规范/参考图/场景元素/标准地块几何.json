@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "status": "现行显示几何；转录自已确认规范，未更改尺寸",
   "coordinateSystem": "x向右，y向下",
   "orientation": "flat-top",
@@ -7,7 +7,7 @@
     "width": 107,
     "height": 93
   },
-  "anchor": "top-face-center",
+  "anchor": "elevation-zero-cell-center",
   "vertices": [
     [
       -53.5,
@@ -68,5 +68,13 @@
       1
     ]
   ],
-  "note": "场景尺寸、视窗和布局由具体配置提供；不包含视觉厚度或实体高度。不是数学严格正六边形的新声明。"
+  "note": "场景尺寸、视窗和布局由具体配置提供；不包含视觉厚度或实体高度。不是数学严格正六边形的新声明。",
+  "anchorMigration": {
+    "previousAnchor": "top-face-center",
+    "changedOn": "2026-10-27",
+    "meaning": "海拔0处标准逻辑格中心；凸起地块底面中心、水洼坑口中心",
+    "runtimeMigrated": true,
+    "rule": "旧素材实测顶面到底面偏移；改变锚点或补偿绘制位置择一。规则见战斗场景元素表现规范。",
+    "runtimeMigrationScope": "2026-10-27：场景1001整图地表及独立山体/水洼接入，建筑/单位/跟随信息统一顶面偏移；功能回归通过，视觉待用户验收。"
+  }
 }

@@ -70,6 +70,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e94a43b7e6a79043af215261315bf68
+    m_Address: Assets/Art/unpack/scene/battle/ground/water_single.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - battle
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 45071ff56975a614c9097197c7c29c4e
     m_Address: Assets/Art/unpack/scene/battle/appearance/turret_shadow.png
     m_ReadOnly: 0
@@ -133,10 +139,28 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8433bb596583ab04188357830869c6e3
+    m_Address: Assets/Art/unpack/scene/battle/ground/ground_grid.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - battle
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8485a08fd41d0fe47a6533309f0de862
     m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_188.png
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8527474c9fa5f1344a5eaa69bc7a395c
+    m_Address: Assets/Art/unpack/scene/battle/ground/ground.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - battle
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 864d761eb0416c242bea1c90fe4e62ac
+    m_Address: Assets/Art/material/scene/battle/ground1001Owners.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - battle
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8fa799ae6e8d1f746920c53a704f146d
     m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Move_Right.json
@@ -209,8 +233,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - battle
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd2d5ca1c4b1c9442a3eb80c837adaa0
+    m_Address: Assets/Art/unpack/scene/battle/ground/mountain.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - battle
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e029ce18e06e1ab41aad295089d01efb
     m_Address: Assets/Art/unpack/scene/battle/appearance/Production_BG.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - battle
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee0cb707ec0c4844d8e22284e1da0f47
+    m_Address: Assets/Art/material/scene/battle/ground1001.mat
     m_ReadOnly: 0
     m_SerializedLabels:
     - battle
@@ -242,6 +278,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7cd9605ffbac684d8cacd36d8104a9a
+    m_Address: Assets/Art/unpack/scene/battle/ground/water_cluster_7.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - battle
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fccb547805da826469974fce46ab2d7d
     m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_225.png

@@ -41,7 +41,7 @@ public static class BattleUnitPivotValidation {
                     Vector2 footInRegion = Vector2.Scale(animation.sourceSizes[frame], animation.pivot) - animation.frameOffsets[frame];
                     Vector2 localFoot = image.rectTransform.rect.min + footInRegion;
                     Vector3 displayedFoot = image.rectTransform.TransformPoint(localFoot);
-                    Vector3 logicalFoot = root.TransformPoint(new Vector3(root.rect.xMin + unit.position.x, root.rect.yMax - unit.position.y, 0));
+                    Vector3 logicalFoot = root.TransformPoint(new Vector3(root.rect.xMin + unit.position.x, root.rect.yMax - unit.position.y + model.config.GroundThickness, 0));
                     if (image.sprite != animation.sprites[frame] || Vector3.Distance(displayedFoot, logicalFoot) > .001f) {
                         throw new InvalidOperationException("完整画布锚点未对齐：direction=" + unit.heading + ", frame=" + frame);
                     }

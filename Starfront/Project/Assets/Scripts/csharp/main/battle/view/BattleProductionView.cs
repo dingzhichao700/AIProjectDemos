@@ -43,7 +43,7 @@ public sealed class BattleProductionView : IDisposable {
             if (building.destroyed || building.owner.camp != BattleSceneCamp.FRIENDLY || (building.currencyProduction == null && building.unitProduction == null)) {
                 continue;
             }
-            Vector2 position = building.position + offset;
+            Vector2 position = building.position + offset - new Vector2(0, model.config.GroundThickness);
             var bounds = new Rect(position - size / 2, size);
             if (!bounds.Overlaps(visibleRect, true)) {
                 continue;

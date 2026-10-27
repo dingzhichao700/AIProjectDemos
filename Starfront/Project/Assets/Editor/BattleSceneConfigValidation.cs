@@ -19,7 +19,7 @@ public static class BattleSceneConfigValidation
             RegisterTables();
             AddressablesAutoBuilder.BuildPlayerContent();
             await ValidateLoading();
-            File.WriteAllText(ResultPath, "passed: Addressables -> ResourceLoader -> CfgManager; scene 1001; 171 cells; 232 appearances; concurrent load and release/reload");
+            File.WriteAllText(ResultPath, "passed: Addressables -> ResourceLoader -> CfgManager; scene 1001; 171 cells; 13 appearances; concurrent load and release/reload");
             EditorApplication.Exit(0);
         }
         catch (Exception exception)
@@ -66,7 +66,7 @@ public static class BattleSceneConfigValidation
             await Task.WhenAll(CfgManager.EnsureLoadedAsync(), CfgManager.EnsureLoadedAsync());
             var scene = CfgManager.tables.BattleSceneObj.Get(1001);
             var cells = CfgManager.tables.BattleSceneCellObj.DataList.Where(cell => cell.SceneId == scene.Id).ToList();
-            if (scene.Appearances.Count != 232 || cells.Count != 171 || scene.FriendlyBaseQ != 0 || scene.FriendlyBaseK != 10 || scene.EnemyBaseK != -10)
+            if (scene.Appearances.Count != 13 || cells.Count != 171 || scene.FriendlyBaseQ != 0 || scene.FriendlyBaseK != 10 || scene.EnemyBaseK != -10)
             {
                 throw new InvalidOperationException("Scene 1001 configuration differs from the approved fixture.");
             }

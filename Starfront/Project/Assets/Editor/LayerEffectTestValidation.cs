@@ -103,7 +103,7 @@ public static class LayerEffectTestValidation {
                     Require(panel.txtPaintCampLabel.text == "画笔：蓝色", "listeners register once on reopen");
                     panel.OnPanelOperate(PanelOperateEnum.ESC);
                     Require(PanelMgr.ins.GetPanel(UIEnum.LAYER_EFFECT_TEST_PANEL) == null && PanelMgr.ins.GetPanel(UIEnum.MAIN_PANEL) != null, "ESC returns to main");
-                    Finish("passed", "real Opening/Login/Main -> GM command 1001/openLayerEffectTest -> standard PanelMgr/UIBinder; six loaded GM commands; no test button on main; 37 non-null members; original source restored; equal grayscale medians; original alpha preserved; shared grid/cut coverage; adjacent cell holes; continuous local cuts; restore/clear; grayscale/source toggle; five blend modes; strict colors; 24x24 handles; three sliders with stable GPU targets; grid validation/apply/cancel; pointer painting and modal blocking; source Alpha retained pixel-for-pixel; close/ESC/reopen cleanup; runtime screenshots captured");
+                    Finish("passed", "real Opening/Login/Main -> GM command 1001/openLayerEffectTest -> standard PanelMgr/UIBinder; six loaded GM commands; no test button on main; 37 retained bindings; complete ground scene ownership tint; neutral unchanged under camp swap, all five blend modes, brightness and contrast; neutral brush blocked; reset exact; alpha preserved; close/ESC/reopen cleanup; runtime screenshots captured");
                 }
             }
         } catch (Exception exception) {
@@ -111,7 +111,61 @@ public static class LayerEffectTestValidation {
         }
     }
 
+    /**Validate actual scene ownership, neutral preservation, alpha and UI camp swapping.*/
+    private static void CheckGroundScene(LayerEffectTestPanel panel) {
+        var renderer = panel.GetComponent<LayerEffectTestRenderer>();
+        Require(panel.GetComponent<UIBinder>().uiList.Count == 37, "37 existing bindings retained");
+        var normal = Read(renderer.Result);
+        var reference = Read(renderer.Gray);
+        var neutralIndices = new List<int>();
+        var campIndices = new List<int>();
+        Vector2 neutralPoint = Vector2.zero;
+        for (int y = 0; y < 1280; y += 3) {
+            for (int x = 0; x < 720; x += 3) {
+                int index = (1279 - y) * 720 + x;
+                if (normal[index].a < 250) {
+                    continue;
+                }
+                var owner = renderer.SceneOwnerAt(new Vector2(x + .5f, y + .5f));
+                int camp = Mathf.RoundToInt(owner.b * 255);
+                if (camp == 3) {
+                    neutralIndices.Add(index);
+                    neutralPoint = new Vector2(x + .5f, y + .5f);
+                    Require(normal[index].Equals(reference[index]), "neutral bypasses tint and gray controls");
+                } else if (camp == 1 || camp == 2) {
+                    campIndices.Add(index);
+                }
+            }
+        }
+        Require(neutralIndices.Count > 1000 && campIndices.Count > 10000, "full region and neutral cells visible");
+        Require(normal.Where((pixel, i) => pixel.a != reference[i].a).Count() == 0, "source alpha retained");
+        Capture(panel, "Library/AIUI/ground-tint-normal.png");
+        panel.btnGridSettings.onClick.Invoke();
+        var swapped = Read(renderer.Result);
+        Require(neutralIndices.All(i => normal[i].Equals(swapped[i])), "camp swap leaves every sampled neutral pixel unchanged");
+        Require(campIndices.Count(i => !normal[i].Equals(swapped[i])) > 10000, "camp swap recolors configured ordinary cells");
+        Require(normal.Where((pixel, i) => pixel.a != swapped[i].a).Count() == 0, "swap preserves alpha");
+        Capture(panel, "Library/AIUI/ground-tint-swapped.png");
+        panel.sliderBrightness.value = 1.8f;
+        panel.sliderContrast.value = 1.5f;
+        foreach (var button in new[] { panel.btnModeMultiply, panel.btnModeOverlay, panel.btnModeSoftLight, panel.btnModeScreen, panel.btnModeAdd }) {
+            button.onClick.Invoke();
+            var pixels = Read(renderer.Result);
+            Require(neutralIndices.All(i => normal[i].Equals(pixels[i])), "neutral unchanged under every blend mode and controls");
+        }
+        int before = renderer.PaintCount;
+        renderer.PaintScenePoint(neutralPoint, true);
+        Require(renderer.PaintCount == before, "neutral painting ignored");
+        panel.btnReset.onClick.Invoke();
+        Require(Read(renderer.Result).SequenceEqual(normal), "reset restores exact default output");
+        Capture(panel, "Library/AIUI/layer-effect-runtime.png");
+    }
+
     private static void CheckPanel(LayerEffectTestPanel panel) {
+        if (panel.GetComponent<LayerEffectTestRenderer>().IsGroundScene) {
+            CheckGroundScene(panel);
+            return;
+        }
         var binder = panel.GetComponent<UIBinder>();
         Require(binder.uiList.Count == 37 && binder.uiList.All(n => n.go != null), "37 actual bound objects");
         foreach (var field in typeof(LayerEffectTestPanel).GetFields(BindingFlags.Instance | BindingFlags.Public).Where(f => typeof(Component).IsAssignableFrom(f.FieldType))) {

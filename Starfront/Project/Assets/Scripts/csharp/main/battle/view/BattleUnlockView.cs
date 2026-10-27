@@ -9,7 +9,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 显示可扩展格的光效、类型、费用及交互反馈。
 /// </summary>
-/// <remarks>光效归地面指引层，文字图标归LOD；只消费玩法查询，不决定解锁资格。</remarks>
+/// <remarks>光效、类型与费用共同归地面指引层；仅短时操作反馈归LOD；只消费玩法查询，不决定解锁资格。</remarks>
 public sealed class BattleUnlockView : IDisposable {
 
     private sealed class Hint {
@@ -81,7 +81,7 @@ public sealed class BattleUnlockView : IDisposable {
         visible.Clear();
         float alpha = Mathf.Lerp(BattleConst.UnlockMinAlpha, 1, (1 - Mathf.Cos((float)phase * Mathf.PI * 2)) / 2);
         foreach (var cell in model.cells.Values) {
-            if (cell.camp != BattleSceneCamp.FRIENDLY || !model.unlocks.IsRevealed(cell) || !new Rect(cell.position - new Vector2(62, 55), new Vector2(124, 110)).Overlaps(visibleRect, true)) {
+            if (cell.camp != BattleSceneCamp.FRIENDLY || !model.unlocks.IsRevealed(cell) || !new Rect(cell.position - new Vector2(62, 55 + model.config.GroundThickness), new Vector2(124, 110)).Overlaps(visibleRect, true)) {
                 continue;
             }
             visible.Add(cell.id);
@@ -102,9 +102,9 @@ public sealed class BattleUnlockView : IDisposable {
             hint.cost.text = cell.unlockConfig.Cost.ToString(CultureInfo.InvariantCulture);
             hint.cost.color = model.camps[cell.camp].currency >= cell.unlockConfig.Cost ? new Color32(255, 231, 119, 255) : new Color32(255, 89, 89, 255);
             hint.glow.color = new Color(1, 1, 1, alpha);
-            hint.glow.rectTransform.anchoredPosition = new Vector2(cell.position.x, -cell.position.y);
-            hint.glow.rectTransform.localScale = Vector3.one;
-            PositionLod(hint.root, cell.position, zoom);
+            // 根节点以地块顶面定位，缩放只由场景根继承一次。
+            hint.root.anchoredPosition = new Vector2(cell.position.x, -cell.position.y + model.config.GroundThickness);
+            hint.root.localScale = Vector3.one;
         }
         removed.Clear();
         foreach (long id in active.Keys) {
@@ -120,8 +120,8 @@ public sealed class BattleUnlockView : IDisposable {
         }
         var messageCell = model.GetCell(messageCellId);
         if (messageRemaining > 0 && messageCell != null) {
-            PositionLod(message.rectTransform, messageCell.position + new Vector2(0, -56), zoom);
-            message.gameObject.SetActive(visibleRect.Contains(messageCell.position));
+            PositionLod(message.rectTransform, messageCell.position + new Vector2(0, -56 - model.config.GroundThickness), zoom);
+            message.gameObject.SetActive(visibleRect.Contains(messageCell.position - new Vector2(0, model.config.GroundThickness)));
             message.transform.SetAsLastSibling();
         }
     }
@@ -133,11 +133,11 @@ public sealed class BattleUnlockView : IDisposable {
 
     private Hint CreateHint() {
         var root = new GameObject("UnlockHint", typeof(RectTransform)).GetComponent<RectTransform>();
-        root.SetParent(lod, false);
-        root.anchorMin = root.anchorMax = new Vector2(.5f, .5f);
+        root.SetParent(guides, false);
+        root.anchorMin = root.anchorMax = new Vector2(0, 1);
+        root.pivot = new Vector2(.5f, .5f);
         root.sizeDelta = new Vector2(BattleConst.CellWidth, BattleConst.CellHeight);
-        var glow = CreateImage(guides, "UnlockGlow", Vector2.zero);
-        glow.rectTransform.anchorMin = glow.rectTransform.anchorMax = new Vector2(0, 1);
+        var glow = CreateImage(root, "UnlockGlow", Vector2.zero);
         var icon = CreateImage(root, "type", new Vector2(0, 15));
         var currency = CreateImage(root, "currency", new Vector2(-20, -22));
         var cost = CreateText(root, "cost", new Vector2(54, 27), new Vector2(19, -22), 20);
@@ -193,12 +193,10 @@ public sealed class BattleUnlockView : IDisposable {
         foreach (var hint in active.Values) {
             Reset(hint);
             UnityEngine.Object.Destroy(hint.root.gameObject);
-            UnityEngine.Object.Destroy(hint.glow.gameObject);
         }
         foreach (var hint in pool) {
             Reset(hint);
             UnityEngine.Object.Destroy(hint.root.gameObject);
-            UnityEngine.Object.Destroy(hint.glow.gameObject);
         }
         active.Clear();
         pool.Clear();

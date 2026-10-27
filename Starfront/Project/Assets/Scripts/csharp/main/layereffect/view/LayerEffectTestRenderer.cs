@@ -19,6 +19,12 @@ public sealed class LayerEffectTestRenderer : MonoBehaviour {
 
     [SerializeField] public Sprite selectedPlate;
 
+    [SerializeField] private TextAsset sceneOwnersData;
+
+    private Texture2D sceneOwners;
+
+    public bool IsGroundScene => sceneOwnersData != null;
+
     private Material material;
 
     private Texture2D cellMap;
@@ -46,6 +52,12 @@ public sealed class LayerEffectTestRenderer : MonoBehaviour {
         Release();
         if (source == null || shader == null || !shader.isSupported) {
             throw new InvalidOperationException("图层测试源图或Shader不可用。");
+        }
+        if (IsGroundScene) {
+            sceneOwners = new Texture2D(2, 2, TextureFormat.RGBA32, false, true) { filterMode = FilterMode.Point, wrapMode = TextureWrapMode.Clamp };
+            if (!sceneOwners.LoadImage(sceneOwnersData.bytes)) {
+                throw new InvalidOperationException("Invalid scene ownership data.");
+            }
         }
         material = new Material(shader);
         cellMap = new Texture2D(128, 128, TextureFormat.RGBA32, false, true) { filterMode = FilterMode.Point, wrapMode = TextureWrapMode.Clamp };
@@ -78,6 +90,21 @@ public sealed class LayerEffectTestRenderer : MonoBehaviour {
         }
         painted[cell] = blue;
         UploadPaint();
+    }
+
+    /**Use ownership of the visible face, including side faces; neutral cells cannot be painted.*/
+    public void PaintScenePoint(Vector2 point, bool blue) {
+        var owner = SceneOwnerAt(point);
+        int camp = Mathf.RoundToInt(owner.b * 255);
+        if (owner.a > .5f && (camp == 1 || camp == 2)) {
+            Paint(new Vector2Int(Mathf.RoundToInt(owner.r * 255) - 64, Mathf.RoundToInt(owner.g * 255) - 64), blue);
+        }
+    }
+
+    public Color SceneOwnerAt(Vector2 point) {
+        float x = .25f + point.x / LayerEffectTestSettings.PreviewWidth * .5f;
+        float y = 1f / 18f + (1 - point.y / LayerEffectTestSettings.PreviewHeight) * 8f / 9f;
+        return sceneOwners.GetPixel(Mathf.Clamp((int)(x * sceneOwners.width), 0, sceneOwners.width - 1), Mathf.Clamp((int)(y * sceneOwners.height), 0, sceneOwners.height - 1));
     }
 
     public void SetCellHole(Vector2Int cell, bool value) {
@@ -155,6 +182,9 @@ public sealed class LayerEffectTestRenderer : MonoBehaviour {
 
     /**灰度/染色共用同一源图；混合计算独立于Alpha，目标纹理重复使用。*/
     public void Render(LayerEffectTestSettings settings, bool original) {
+        material.SetFloat("_GroundScene", IsGroundScene ? 1 : 0);
+        material.SetFloat("_SwapCamps", settings.layout == 1 ? 1 : 0);
+        material.SetTexture("_SceneOwners", sceneOwners);
         material.SetVector("_SourceGrayOffsets", new Vector4(sourceGrayOffsets.x, sourceGrayOffsets.y, 0, 0));
         material.SetTexture("_CellMap", cellMap);
         material.SetTexture("_HoleMask", holeMask);
@@ -164,6 +194,10 @@ public sealed class LayerEffectTestRenderer : MonoBehaviour {
         float sx = Mathf.Min(1, designAspect / aspect);
         float sy = Mathf.Min(1, aspect / designAspect);
         material.SetVector("_SourceUV", new Vector4(sx, sy, (1 - sx) * .5f, (1 - sy) * .5f));
+        if (IsGroundScene) {
+            // Fit the complete grid region uniformly: scene X 500..1500, Y 111.111..1888.889.
+            material.SetVector("_SourceUV", new Vector4(.5f, 8f / 9f, .25f, 1f / 18f));
+        }
         material.SetVector("_Hex", new Vector4(settings.origin.x, settings.origin.y, settings.hexSize.x, settings.hexSize.y));
         material.SetVector("_RedTint", new Vector4(settings.red.r, settings.red.g, settings.red.b, 1));
         material.SetVector("_BlueTint", new Vector4(settings.blue.r, settings.blue.g, settings.blue.b, 1));
@@ -226,6 +260,10 @@ public sealed class LayerEffectTestRenderer : MonoBehaviour {
         if (holeMask != null) {
             Destroy(holeMask);
         }
+        if (sceneOwners != null) {
+            Destroy(sceneOwners);
+        }
+        sceneOwners = null;
         holeMask = null;
         holePixels = null;
         holeCells.Clear();

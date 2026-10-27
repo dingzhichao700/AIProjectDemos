@@ -46,7 +46,7 @@ public static class BattleProductionValidation {
     public static void ValidateAlignment(BattleSceneView view, BattleSceneModel model) {
         var rect = new Rect(view.cameraCenter - view.viewport.rect.size / (2 * view.zoom), view.viewport.rect.size / view.zoom);
         foreach (var building in model.buildings.Values) {
-            Vector2 position = building.position + new Vector2(0, BattleConst.CellHeight / 3f);
+            Vector2 position = building.position + new Vector2(0, BattleConst.CellHeight / 3f - model.config.GroundThickness);
             bool expected = !building.destroyed && building.owner.camp == BattleSceneCamp.FRIENDLY && new Rect(position - Vector2.one * 12, Vector2.one * 24).Overlaps(rect, true);
             var ring = view.lod.Find("production_" + building.id);
             Require(expected == (ring != null && ring.gameObject.activeSelf), "viewport and camp visibility");

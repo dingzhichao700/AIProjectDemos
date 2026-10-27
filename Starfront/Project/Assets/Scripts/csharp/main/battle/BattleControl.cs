@@ -45,6 +45,11 @@ public sealed class BattleControl {
                 }
                 requests.Add(new ResLoadInfo(path, ResType.UnpackImage));
             }
+            string groundMaterial = BattleSceneResources.GroundMaterialPath(candidate);
+            if (ResourceManager.GetMaterial(groundMaterial) == null) {
+                acquired.Add(groundMaterial);
+            }
+            requests.Add(new ResLoadInfo(groundMaterial, ResType.Material));
             foreach (string path in BattleSceneResources.CollectAnimations(candidate)) {
                 requests.Add(new ResLoadInfo(path, ResType.FrameAnim));
             }
