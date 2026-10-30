@@ -14,6 +14,7 @@ public sealed class BattleGroundView : IDisposable {
     private RenderTexture result;
     private RawImage ground;
     private Image grid;
+    private bool ownershipDirty;
     public RenderTexture texture => result;
 
     public BattleGroundView(BattleSceneModel scene, RectTransform[] layers) {
@@ -51,6 +52,7 @@ public sealed class BattleGroundView : IDisposable {
             grid.sprite = lines;
             grid.raycastTarget = false;
             RefreshOwnership();
+            model.territory.Changed += OnOwnershipChanged;
         } catch {
             Dispose();
             throw;
@@ -64,8 +66,19 @@ public sealed class BattleGroundView : IDisposable {
         rect.anchoredPosition = new Vector2(model.config.GroundOffset.X, -model.config.GroundOffset.Y);
     }
 
-    /**当前地图阵营只在开局分配；未来归属事件可调用此接口，不按解锁状态或画面位置染色。*/
+    private void OnOwnershipChanged() {
+        ownershipDirty = true;
+    }
+
+    public void RefreshIfDirty() {
+        if (ownershipDirty) {
+            RefreshOwnership();
+        }
+    }
+
+    /**消费运行时归属，同帧多个变化合并为一次染色；不重建地形或材质。*/
     public void RefreshOwnership() {
+        ownershipDirty = false;
         var pixels = new Color32[MapSize * MapSize];
         foreach (var cell in model.cells.Values) {
             int x = cell.q + CoordinateBias, y = cell.k + CoordinateBias;
@@ -89,6 +102,9 @@ public sealed class BattleGroundView : IDisposable {
     }
 
     public void Dispose() {
+        if (model.territory != null) {
+            model.territory.Changed -= OnOwnershipChanged;
+        }
         if (ground != null) {
             ground.texture = null;
             UnityEngine.Object.Destroy(ground.gameObject);

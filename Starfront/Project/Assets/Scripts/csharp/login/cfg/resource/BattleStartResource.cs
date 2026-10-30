@@ -25,6 +25,8 @@ public sealed partial class BattleStartResource : Luban.BeanBase
         { if(!_buf["initialCurrency"].IsNumber) { throw new SerializationException(); }  InitialCurrency = _buf["initialCurrency"]; }
         { if(!_buf["unitLimit"].IsNumber) { throw new SerializationException(); }  UnitLimit = _buf["unitLimit"]; }
         { if(!_buf["deckLimit"].IsNumber) { throw new SerializationException(); }  DeckLimit = _buf["deckLimit"]; }
+        { if(!_buf["controlType"].IsNumber) { throw new SerializationException(); }  ControlType = (BattlePlayerControlType)_buf["controlType"].AsInt; }
+        { if(!_buf["aiProfileId"].IsNumber) { throw new SerializationException(); }  AiProfileId = _buf["aiProfileId"]; }
     }
 
     public static BattleStartResource DeserializeBattleStartResource(JSONNode _buf)
@@ -64,6 +66,14 @@ public sealed partial class BattleStartResource : Luban.BeanBase
     /// 卡组容量
     /// </summary>
     public readonly int DeckLimit;
+    /// <summary>
+    /// 玩家控制类型
+    /// </summary>
+    public readonly BattlePlayerControlType ControlType;
+    /// <summary>
+    /// 电脑策略ID（真人填0）
+    /// </summary>
+    public readonly int AiProfileId;
    
     public const int __ID__ = 1070117560;
     public override int GetTypeId() => __ID__;
@@ -83,6 +93,8 @@ public sealed partial class BattleStartResource : Luban.BeanBase
         + "initialCurrency:" + InitialCurrency + ","
         + "unitLimit:" + UnitLimit + ","
         + "deckLimit:" + DeckLimit + ","
+        + "controlType:" + ControlType + ","
+        + "aiProfileId:" + AiProfileId + ","
         + "}";
     }
 }

@@ -69,7 +69,7 @@
     "id": 1003,
     "type": 2,
     "valueType": 0,
-    "content": "1:UI_mineral,2:UI_random,3:UI_helmet,4:UI_helmet,5:UI_helmet"
+    "content": "1:UI_collector,2:UI_random,3:UI_helmet,4:UI_helmet,5:UI_helmet"
   },
   {
     "id": 1004,
@@ -100,5 +100,95 @@
     "type": 0,
     "valueType": 0,
     "content": "scene/battle/effects/UI_mineral"
+  },
+  {
+    "id": 1100,
+    "type": 0,
+    "valueType": 1,
+    "content": "200"
+  },
+  {
+    "id": 1101,
+    "type": 0,
+    "valueType": 1,
+    "content": "500"
+  },
+  {
+    "id": 1102,
+    "type": 0,
+    "valueType": 2,
+    "content": "0.12"
+  },
+  {
+    "id": 1103,
+    "type": 0,
+    "valueType": 2,
+    "content": "6"
+  },
+  {
+    "id": 1104,
+    "type": 0,
+    "valueType": 2,
+    "content": "55"
+  },
+  {
+    "id": 1105,
+    "type": 2,
+    "valueType": 0,
+    "content": "unit:scene/battle/appearance/HP_BG_37,building:scene/battle/appearance/HP_BG_61"
+  },
+  {
+    "id": 1106,
+    "type": 2,
+    "valueType": 0,
+    "content": "unit:scene/battle/appearance/HP_Fill_Friendly_37,building:scene/battle/appearance/HP_Fill_Friendly_61"
+  },
+  {
+    "id": 1107,
+    "type": 2,
+    "valueType": 0,
+    "content": "unit:scene/battle/appearance/HP_Fill_Enemy_37,building:scene/battle/appearance/HP_Fill_Enemy_61"
+  },
+  {
+    "id": 1108,
+    "type": 0,
+    "valueType": 2,
+    "content": "30"
+  },
+  {
+    "id": 1109,
+    "type": 0,
+    "valueType": 2,
+    "content": "0.60"
+  },
+  {
+    "id": 1110,
+    "type": 0,
+    "valueType": 2,
+    "content": "0.30"
+  },
+  {
+    "id": 1111,
+    "type": 0,
+    "valueType": 1,
+    "content": "2000"
+  },
+  {
+    "id": 1112,
+    "type": 0,
+    "valueType": 1,
+    "content": "300"
+  },
+  {
+    "id": 1009,
+    "type": 2,
+    "valueType": 2,
+    "content": "width:72,height:88,popMs:150,holdMs:600,fadeMs:250,startScale:0.8,border:3,nameHeight:16,fontSize:11"
+  },
+  {
+    "id": 1010,
+    "type": 2,
+    "valueType": 0,
+    "content": "NORMAL:#93999F,GREAT:#62BC78,RARE:#529ED8,EPIC:#AE74D3,LEGEND:#E6AA4D,Background:#10202C"
   }
 ]

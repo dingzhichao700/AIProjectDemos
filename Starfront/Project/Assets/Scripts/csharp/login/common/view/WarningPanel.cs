@@ -1,10 +1,15 @@
-﻿
+
 using TMPro;
 
 /// <summary>
 /// 警告窗口
 /// </summary>
 public class WarningPanel : BasePanel {
+
+    /**局部弹窗尺寸独立于项目屏幕方向。*/
+    public override UnityEngine.Vector2 SafeContentDesignSize => new UnityEngine.Vector2(860, 340);
+
+    public override string[] FullBleedChildren => new[] { "imgMask" };
     /******************* UIComponent Define begin ************************/
     public TextMeshProUGUI txtContent;
     public GameButton btnCancel;

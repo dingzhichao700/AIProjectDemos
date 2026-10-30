@@ -9,6 +9,8 @@ using UnityEngine.UI;
 /// <remarks>只处理视图切换与展示；功能开启由 FunctionControl 判定。</remarks>
 public sealed class MainPanel : BasePanel {
 
+    public override bool FitContentToSafeArea => false;
+
     /******************* UIComponent Define begin ************************/
 
     public Button btnShop;
@@ -134,7 +136,7 @@ public sealed class MainPanel : BasePanel {
         enteringBattle = true;
         playBattleButton.interactable = false;
         try {
-            await ResourceLoader.LoadListAsync(new System.Collections.Generic.List<ResLoadInfo> { new ResLoadInfo(ResourceConst.GetUIPath(UIEnum.BATTLE_SCENE_PANEL), ResType.Prefab), new ResLoadInfo(ResourceConst.GetUIPath(UIEnum.BATTLE_INFO_PANEL), ResType.Prefab) });
+            await ResourceLoader.LoadListAsync(new System.Collections.Generic.List<ResLoadInfo> { new ResLoadInfo(ResourceConst.GetUIPath(MainUIEnum.BATTLE_SCENE_PANEL), ResType.Prefab), new ResLoadInfo(ResourceConst.GetUIPath(MainUIEnum.BATTLE_INFO_PANEL), ResType.Prefab) });
             if (version != battleRequestVersion) {
                 return;
             }
@@ -144,7 +146,7 @@ public sealed class MainPanel : BasePanel {
             }
             enteringBattle = false;
             Close();
-            PanelMgr.ins.OpenPanel(UIEnum.BATTLE_SCENE_PANEL);
+            PanelMgr.ins.OpenPanel(MainUIEnum.BATTLE_SCENE_PANEL);
         } catch (System.OperationCanceledException) {
             // 离开页面后的完成回调不会重新打开场景。
         } catch (System.Exception exception) {

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -116,8 +116,10 @@ public static class BattleUnlockValidation {
         long before = model.camps[BattleSceneCamp.FRIENDLY].currency;
         var groundBeforeUnlock = view.groundTexture;
         Click(view, cell);
+        Require(view.cardRevealVisibleCount > 0, "real input shows result card");
+        ScreenCapture.CaptureScreenshot("E:/ChatGPT/星域前线/work/card-reveal/live-sample.png");
         Require(ReferenceEquals(groundBeforeUnlock, view.groundTexture), "unlock reuses complete ground target");
-        Require(cell.unlocked && model.buildings.Count == 3 && view.totalVisualCount == model.config.Appearances.Count + model.buildings.Values.Sum(item => item.config.Appearances.Count), "real click creates collector and shadow");
+        Require(cell.unlocked && model.buildings.Values.Count(b => b.camp == BattleSceneCamp.FRIENDLY) == 2 && view.totalVisualCount == model.config.Appearances.Count + model.buildings.Values.Sum(item => item.config.Appearances.Count), "real click creates collector and shadow");
         Require(model.camps[BattleSceneCamp.FRIENDLY].currency == before - cell.unlockConfig.Cost, "real click deducts configured cost");
         Require(!BattleControl.ins.TryUnlockCell(cell.id, out string duplicate) && duplicate == "格子已解锁", "live duplicate rejected");
         var poor = model.cells.Values.First(item => item.camp == BattleSceneCamp.FRIENDLY && model.unlocks.IsRevealed(item));
@@ -139,13 +141,14 @@ public static class BattleUnlockValidation {
     public static void ValidateLiveBarracks(BattleScenePanel panel) {
         var model = BattleControl.ins.model;
         var cell = GetLiveBarracks();
+        int territoryBefore = model.GetTerritoryCount(BattleSceneCamp.FRIENDLY);
         var view = panel.GetComponent<BattleSceneView>();
         Focus(view, cell);
         Click(view, cell);
         var building = model.buildings.Values.Single(item => item.cell == cell);
-        Require(building.unitProduction != null && model.buildings.Count == 4 && view.totalVisualCount == model.config.Appearances.Count + model.buildings.Values.Sum(item => item.config.Appearances.Count), "real income funds barracks generation with body and shadow");
+        Require(building.unitProduction != null && model.buildings.Values.Count(b => b.camp == BattleSceneCamp.FRIENDLY) == 3 && view.totalVisualCount == model.config.Appearances.Count + model.buildings.Values.Sum(item => item.config.Appearances.Count), "real income funds barracks generation with body and shadow");
         Require(model.GetUnitCount(BattleSceneCamp.FRIENDLY) == 0, "barracks does not instantly spawn unit");
-        Require(model.GetTerritoryCount(BattleSceneCamp.FRIENDLY) == 73, "territory measures ownership throughout unlocks");
+        Require(model.GetTerritoryCount(BattleSceneCamp.FRIENDLY) == territoryBefore, "unlock preserves current territory ownership");
         File.AppendAllText("Library/battle-unlock-live-validation.txt", "; barracks: natural base/collector income funds purchase, matches drawn card configuration, no premature unit spawn");
     }
 

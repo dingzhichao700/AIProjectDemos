@@ -276,7 +276,7 @@ public static class AIUIExportQueue {
                 if (EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isCompiling || EditorApplication.isUpdating) {
                     return true;
                 }
-                foreach (string configName in ResourceConst.ALL_CONFIG_LIST) {
+                foreach (string configName in ConfigManifest.Names) {
                     string configPath = ResourceConst.PATH_CONFIG + configName + ".json";
                     if (AssetDatabase.LoadAssetAtPath<TextAsset>(configPath) == null) {
                         throw new InvalidOperationException("Missing generated configuration: " + configPath);

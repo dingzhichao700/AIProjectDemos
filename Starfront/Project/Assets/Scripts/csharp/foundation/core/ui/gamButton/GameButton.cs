@@ -1,4 +1,4 @@
-﻿using TMPro;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -114,22 +114,9 @@ public class GameButton : BaseView, IPointerEnterHandler, IPointerExitHandler, I
         }
     }
 
-    int GetSoundId(ButtonSoundType type) {
-        if (!_interactable)
-            return AudioConst.SOUND_CLICK_DISABLE_1;
-
-        switch (type) {
-            case ButtonSoundType.DEFAULT_CLICK:
-                return AudioConst.SOUND_CLICK_ENABLE_1;
-            case ButtonSoundType.DEFAULT_HOVER:
-                return AudioConst.SOUND_HOVER_1;
-            case ButtonSoundType.ENSURE:
-                return AudioConst.SOUND_CLICK_ENABLE_2;
-            case ButtonSoundType.CANCEL:
-                return AudioConst.SOUND_CLICK_ENABLE_3;
-            default:
-                return 0;
-        }
+    int GetSoundId(ButtonSoundType type)
+    {
+        return ResourcePresentation.Policy.ResolveButtonSound(type, _interactable);
     }
 
     // ============ 交互 ============

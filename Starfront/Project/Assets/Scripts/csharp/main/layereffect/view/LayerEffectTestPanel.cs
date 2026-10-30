@@ -356,7 +356,7 @@ public sealed class LayerEffectTestPanel : BasePanel {
 
     private void RefreshFill(string name, float value) {
         var suffix = name.Substring(3, name.Length - 7);
-        var fill = (RectTransform)trans.Find("slider" + suffix + "/" + name);
+        var fill = (RectTransform)SafeContentRoot.Find("slider" + suffix + "/" + name);
         fill.sizeDelta = new Vector2(442 * Mathf.Clamp01(value), 6);
     }
 

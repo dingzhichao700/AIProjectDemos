@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -13,48 +13,16 @@ public class UITools {
     /// <param name="path">图片路径</param>
     public static void SetImage(Image imgObj, string path, bool syncSpritePivot = false,
         bool useNativeSize = false) {
-        /*if (path.Contains(ResourceConst.PATH_ATLAS)) {
-            //图集
-            string nameWithoutRoot = path.Replace(ResourceConst.PATH_ATLAS, "");
-            //图集名
-            string atlasName = nameWithoutRoot.Substring(0, nameWithoutRoot.IndexOf("/"));
-            //精灵图名
-            string spriteName = nameWithoutRoot.Substring(nameWithoutRoot.IndexOf("/") + 1);
-            if (ResourceManager.HasLoadedAtlas(atlasName)) {
-                Sprite sp = ResourceManager.GetAtlasSprite(atlasName, spriteName);
-                if (sp != null) {
-                    imgObj.sprite = sp;
-                } else {
-                    SetImage(imgObj, ResourceConst.PATH_ATLAS_COMMON + "default");
-                }
-            } else {
-                ResourceManager.LoadAtlas(atlasName, () => {
-                    Sprite sp = ResourceManager.GetAtlasSprite(atlasName, spriteName);
-                    if (sp != null) {
-                        imgObj.sprite = sp;
-                    } else { 
-                        SetImage(imgObj, ResourceConst.PATH_ATLAS_COMMON + "default");
-                    }
-                });
-            }
-        } else if (path.Contains(ResourceConst.PATH_UNPACK_IMAGE)) {
-            //散图
-            if (ResourceManager.HasLoadedUnpackImage(path)) {
-                imgObj.sprite = ResourceManager.GetUnpackImage(path);
-                //imgObj.GetComponent<RectTransform>().sizeDelta = new Vector2(tex2D.width, tex2D.height);
-            } else {
-                ResourceManager.LoadUnpackImage(path, (string imagePath, Sprite sp) => {
-                    imgObj.sprite = ResourceManager.GetUnpackImage(imagePath);
-                });
-            }
-        } else {
-            Debug.LogError("图片路径异常，请检查：" + path);
-        }*/
-        LoadImage(path, () => {
+        SetImage(imgObj, ResourcePresentation.Policy.ResolveImage(path), syncSpritePivot, useNativeSize);
+    }
+
+    public static void SetImage(Image imgObj, ImageResource resource, bool syncSpritePivot = false, bool useNativeSize = false)
+    {
+        LoadImage(resource, () => {
             if (imgObj == null) {
                 return;
             }
-            Sprite sprite = GetSprite(path);
+            Sprite sprite = GetSprite(resource);
             if (sprite == null) {
                 return;
             }
@@ -70,42 +38,29 @@ public class UITools {
         });
     }
 
-    /**加载图片*/
-    public async static void LoadImage(string path, Action action) {
-        if (path.Contains(ResourceConst.PATH_ATLAS)) {
-            await ResourceLoader.LoadListAsync(new List<ResLoadInfo> { new ResLoadInfo(path.Substring(0, path.LastIndexOf("/")), ResType.Atlas) });
-            action.Invoke();
-        } else if (path.Contains(ResourceConst.PATH_UNPACK_IMAGE)) {
-            //散图
-            if (ResourceManager.HasLoadedUnpackImage(path)) {
-                action.Invoke();
-            } else {
-                await ResourceLoader.LoadListAsync(new List<ResLoadInfo> { new ResLoadInfo(path, ResType.UnpackImage) });
-                action.Invoke();
-            }
-        } else {
-            Debug.LogError("图片路径异常，请检查：" + path);
-        }
+    public static void LoadImage(string path, Action action)
+    {
+        LoadImage(ResourcePresentation.Policy.ResolveImage(path), action);
     }
 
-    /**获取精灵对象*/
-    public static Sprite GetSprite(string path) {
-        if (path.Contains(ResourceConst.PATH_ATLAS)) {
-            //图集路径
-            string atlasPath = path.Substring(0, path.LastIndexOf("/"));
-            //精灵图名
-            string spriteName = path.Replace(atlasPath + "/", "");
-            if (ResourceManager.HasLoadedAtlas(atlasPath)) {
-                return ResourceManager.GetAtlasSprite(atlasPath, spriteName);
-            }
-        } else if (path.Contains(ResourceConst.PATH_UNPACK_IMAGE)) {
-            //散图
-            if (ResourceManager.HasLoadedUnpackImage(path)) {
-                return ResourceManager.GetUnpackImage(path);
-            }
+    public static async void LoadImage(ImageResource resource, Action action)
+    {
+        await ResourceLoader.LoadListAsync(new List<ResLoadInfo> { new ResLoadInfo(resource.Address, resource.Type) });
+        action?.Invoke();
+    }
+
+    public static Sprite GetSprite(string path)
+    {
+        return GetSprite(ResourcePresentation.Policy.ResolveImage(path));
+    }
+
+    public static Sprite GetSprite(ImageResource resource)
+    {
+        if (resource.Type == ResType.Atlas)
+        {
+            return ResourceManager.GetAtlasSprite(resource.Address, resource.SpriteName);
         }
-        Debug.LogError("图片路径异常，或图集尚未加载完成，请检查：" + path);
-        return null;
+        return ResourceManager.GetUnpackImage(resource.Address);
     }
 
     /// <summary>

@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class LoginPanel : BasePanel {
 
+    public override string[] FullBleedChildren => new[] { "bg", "boxEff" };
+
     public RectTransform boxEff;
     public TextMeshProUGUI txt;
 

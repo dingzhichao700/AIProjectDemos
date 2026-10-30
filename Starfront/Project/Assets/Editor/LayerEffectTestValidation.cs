@@ -79,30 +79,30 @@ public static class LayerEffectTestValidation {
                     phase = 10;
                 }
             } else if (phase == 10) {
-                var gm = PanelMgr.ins.GetPanel(UIEnum.GM_PANEL) as GmPanel;
+                var gm = PanelMgr.ins.GetPanel(MainUIEnum.GM_PANEL) as GmPanel;
                 if (gm != null && gm.isOpened) {
                     Require(gm.listItem.arraySource.Count == 6, "GM displays existing five and new test command");
                     Require(GMControl.ins.ExecuteGM(LayerEffectTestGM.Command), "GM opens test window");
                     phase = 2;
                 }
             } else if (phase == 2) {
-                var panel = PanelMgr.ins.GetPanel(UIEnum.LAYER_EFFECT_TEST_PANEL) as LayerEffectTestPanel;
+                var panel = PanelMgr.ins.GetPanel(MainUIEnum.LAYER_EFFECT_TEST_PANEL) as LayerEffectTestPanel;
                 if (panel != null && panel.isOpened) {
                     CheckPanel(panel);
                     oldTarget = (RenderTexture)panel.rawResultPreview.texture;
                     panel.btnClose.onClick.Invoke();
-                    Require(PanelMgr.ins.GetPanel(UIEnum.LAYER_EFFECT_TEST_PANEL) == null && !oldTarget.IsCreated(), "close releases targets");
+                    Require(PanelMgr.ins.GetPanel(MainUIEnum.LAYER_EFFECT_TEST_PANEL) == null && !oldTarget.IsCreated(), "close releases targets");
                     Require(GMControl.ins.ExecuteGM(LayerEffectTestGM.Command), "GM reopens test window");
                     phase = 3;
                 }
             } else if (phase == 3) {
-                var panel = PanelMgr.ins.GetPanel(UIEnum.LAYER_EFFECT_TEST_PANEL) as LayerEffectTestPanel;
+                var panel = PanelMgr.ins.GetPanel(MainUIEnum.LAYER_EFFECT_TEST_PANEL) as LayerEffectTestPanel;
                 if (panel != null && panel.isOpened) {
                     Require(Mathf.Abs(panel.sliderStrength.value - 1f) < .001f && panel.GetComponent<LayerEffectTestRenderer>().PaintCount == 0 && panel.rawResultPreview.texture != oldTarget, "pooled reopen resets parameters and resources");
                     panel.btnPaintCamp.onClick.Invoke();
                     Require(panel.txtPaintCampLabel.text == "画笔：蓝色", "listeners register once on reopen");
                     panel.OnPanelOperate(PanelOperateEnum.ESC);
-                    Require(PanelMgr.ins.GetPanel(UIEnum.LAYER_EFFECT_TEST_PANEL) == null && PanelMgr.ins.GetPanel(UIEnum.MAIN_PANEL) != null, "ESC returns to main");
+                    Require(PanelMgr.ins.GetPanel(MainUIEnum.LAYER_EFFECT_TEST_PANEL) == null && PanelMgr.ins.GetPanel(UIEnum.MAIN_PANEL) != null, "ESC returns to main");
                     Finish("passed", "real Opening/Login/Main -> GM command 1001/openLayerEffectTest -> standard PanelMgr/UIBinder; six loaded GM commands; no test button on main; 37 retained bindings; complete ground scene ownership tint; neutral unchanged under camp swap, all five blend modes, brightness and contrast; neutral brush blocked; reset exact; alpha preserved; close/ESC/reopen cleanup; runtime screenshots captured");
                 }
             }

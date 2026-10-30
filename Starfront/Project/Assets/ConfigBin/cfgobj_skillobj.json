@@ -1,0 +1,64 @@
+[
+  {
+    "id": 1101,
+    "name": "步兵普攻",
+    "trigger": 1,
+    "targetRule": 1,
+    "castRange": 180,
+    "cooldownMs": 1000,
+    "windupMs": 80,
+    "recoveryMs": 320,
+    "action": 3,
+    "effects": [
+      {
+        "$type": "LaunchProjectileEffect",
+        "projectileId": 1101,
+        "hitEffects": [
+          {
+            "$type": "FixedDamageEffect",
+            "amount": 20
+          }
+        ],
+        "delayMs": 0,
+        "firePointIndex": 0
+      }
+    ]
+  },
+  {
+    "id": 1201,
+    "name": "女妖双发对地导弹",
+    "trigger": 1,
+    "targetRule": 2,
+    "castRange": 220,
+    "cooldownMs": 1500,
+    "windupMs": 80,
+    "recoveryMs": 320,
+    "action": 4,
+    "effects": [
+      {
+        "$type": "LaunchProjectileEffect",
+        "projectileId": 1201,
+        "hitEffects": [
+          {
+            "$type": "FixedDamageEffect",
+            "amount": 15
+          }
+        ],
+        "delayMs": 0,
+        "firePointIndex": 0
+      },
+      {
+        "$type": "LaunchProjectileEffect",
+        "projectileId": 1201,
+        "hitEffects": [
+          {
+            "$type": "FixedDamageEffect",
+            "amount": 15
+          }
+        ],
+        "delayMs": 80,
+        "firePointIndex": 1
+      }
+    ]
+  }
+]

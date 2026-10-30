@@ -65,7 +65,7 @@ public static class BattleInfoSetup {
 
     /**补齐本地批准结构的锚点与字体，不重新生成UIBinder成员。*/
     private static void ConfigureApproved() {
-        string path = ResourceConst.GetUIPath(UIEnum.BATTLE_INFO_PANEL);
+        string path = ResourceConst.GetUIPath(MainUIEnum.BATTLE_INFO_PANEL);
         var root = PrefabUtility.LoadPrefabContents(path);
         try {
             if (root.GetComponent<Image>() != null) {

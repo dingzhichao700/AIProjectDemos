@@ -4,7 +4,7 @@
     "name": "优秀步兵",
     "race": 1,
     "movementType": 1,
-    "maxHp": 0,
+    "maxHp": 100,
     "moveSpeed": 30,
     "appearances": [
       {
@@ -56,15 +56,219 @@
           "x": 0,
           "y": 0
         }
+      },
+      {
+        "action": 3,
+        "direction": 1,
+        "resource": "scene/Colonial/Infantry/Attack1_Up",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 3,
+        "direction": 2,
+        "resource": "scene/Colonial/Infantry/Attack1_UpRight",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 3,
+        "direction": 3,
+        "resource": "scene/Colonial/Infantry/Attack1_Right",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 3,
+        "direction": 4,
+        "resource": "scene/Colonial/Infantry/Attack1_DownRight",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 3,
+        "direction": 5,
+        "resource": "scene/Colonial/Infantry/Attack1_Down",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 1,
+        "resource": "scene/Colonial/Infantry/Idle_Up",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 2,
+        "resource": "scene/Colonial/Infantry/Idle_UpRight",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 3,
+        "resource": "scene/Colonial/Infantry/Idle_Right",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 4,
+        "resource": "scene/Colonial/Infantry/Idle_DownRight",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 5,
+        "resource": "scene/Colonial/Infantry/Idle_Down",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 1,
+        "resource": "scene/Colonial/Infantry/Death_Up",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 2,
+        "resource": "scene/Colonial/Infantry/Death_UpRight",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 3,
+        "resource": "scene/Colonial/Infantry/Death_Right",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 4,
+        "resource": "scene/Colonial/Infantry/Death_DownRight",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 5,
+        "resource": "scene/Colonial/Infantry/Death_Down",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
       }
-    ]
+    ],
+    "skillIds": [
+      1101
+    ],
+    "searchRange": 240,
+    "hitRadius": 8,
+    "hitOffset": {
+      "x": 0,
+      "y": -24
+    },
+    "firePoints": [
+      {
+        "action": 3,
+        "direction": 1,
+        "offset": {
+          "x": 0,
+          "y": -42
+        }
+      },
+      {
+        "action": 3,
+        "direction": 2,
+        "offset": {
+          "x": 17,
+          "y": -36
+        }
+      },
+      {
+        "action": 3,
+        "direction": 3,
+        "offset": {
+          "x": 24,
+          "y": -26
+        }
+      },
+      {
+        "action": 3,
+        "direction": 4,
+        "offset": {
+          "x": 16,
+          "y": -16
+        }
+      },
+      {
+        "action": 3,
+        "direction": 5,
+        "offset": {
+          "x": 0,
+          "y": -13
+        }
+      }
+    ],
+    "defaultAltitude": 0,
+    "canCaptureTerritory": true,
+    "visualId": 1101
   },
   {
     "id": 1102,
     "name": "稀有步兵",
     "race": 1,
     "movementType": 1,
-    "maxHp": 0,
+    "maxHp": 100,
     "moveSpeed": 30,
     "appearances": [
       {
@@ -116,15 +320,219 @@
           "x": 0,
           "y": 0
         }
+      },
+      {
+        "action": 3,
+        "direction": 1,
+        "resource": "scene/Colonial/Infantry/Attack1_Up",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 3,
+        "direction": 2,
+        "resource": "scene/Colonial/Infantry/Attack1_UpRight",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 3,
+        "direction": 3,
+        "resource": "scene/Colonial/Infantry/Attack1_Right",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 3,
+        "direction": 4,
+        "resource": "scene/Colonial/Infantry/Attack1_DownRight",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 3,
+        "direction": 5,
+        "resource": "scene/Colonial/Infantry/Attack1_Down",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 1,
+        "resource": "scene/Colonial/Infantry/Idle_Up",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 2,
+        "resource": "scene/Colonial/Infantry/Idle_UpRight",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 3,
+        "resource": "scene/Colonial/Infantry/Idle_Right",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 4,
+        "resource": "scene/Colonial/Infantry/Idle_DownRight",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 5,
+        "resource": "scene/Colonial/Infantry/Idle_Down",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 1,
+        "resource": "scene/Colonial/Infantry/Death_Up",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 2,
+        "resource": "scene/Colonial/Infantry/Death_UpRight",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 3,
+        "resource": "scene/Colonial/Infantry/Death_Right",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 4,
+        "resource": "scene/Colonial/Infantry/Death_DownRight",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 5,
+        "resource": "scene/Colonial/Infantry/Death_Down",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
       }
-    ]
+    ],
+    "skillIds": [
+      1101
+    ],
+    "searchRange": 240,
+    "hitRadius": 8,
+    "hitOffset": {
+      "x": 0,
+      "y": -24
+    },
+    "firePoints": [
+      {
+        "action": 3,
+        "direction": 1,
+        "offset": {
+          "x": 0,
+          "y": -42
+        }
+      },
+      {
+        "action": 3,
+        "direction": 2,
+        "offset": {
+          "x": 17,
+          "y": -36
+        }
+      },
+      {
+        "action": 3,
+        "direction": 3,
+        "offset": {
+          "x": 24,
+          "y": -26
+        }
+      },
+      {
+        "action": 3,
+        "direction": 4,
+        "offset": {
+          "x": 16,
+          "y": -16
+        }
+      },
+      {
+        "action": 3,
+        "direction": 5,
+        "offset": {
+          "x": 0,
+          "y": -13
+        }
+      }
+    ],
+    "defaultAltitude": 0,
+    "canCaptureTerritory": true,
+    "visualId": 1101
   },
   {
     "id": 1103,
     "name": "史诗步兵",
     "race": 1,
     "movementType": 1,
-    "maxHp": 0,
+    "maxHp": 100,
     "moveSpeed": 30,
     "appearances": [
       {
@@ -176,15 +584,219 @@
           "x": 0,
           "y": 0
         }
+      },
+      {
+        "action": 3,
+        "direction": 1,
+        "resource": "scene/Colonial/Infantry/Attack1_Up",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 3,
+        "direction": 2,
+        "resource": "scene/Colonial/Infantry/Attack1_UpRight",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 3,
+        "direction": 3,
+        "resource": "scene/Colonial/Infantry/Attack1_Right",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 3,
+        "direction": 4,
+        "resource": "scene/Colonial/Infantry/Attack1_DownRight",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 3,
+        "direction": 5,
+        "resource": "scene/Colonial/Infantry/Attack1_Down",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 1,
+        "resource": "scene/Colonial/Infantry/Idle_Up",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 2,
+        "resource": "scene/Colonial/Infantry/Idle_UpRight",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 3,
+        "resource": "scene/Colonial/Infantry/Idle_Right",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 4,
+        "resource": "scene/Colonial/Infantry/Idle_DownRight",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 5,
+        "resource": "scene/Colonial/Infantry/Idle_Down",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 1,
+        "resource": "scene/Colonial/Infantry/Death_Up",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 2,
+        "resource": "scene/Colonial/Infantry/Death_UpRight",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 3,
+        "resource": "scene/Colonial/Infantry/Death_Right",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 4,
+        "resource": "scene/Colonial/Infantry/Death_DownRight",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 5,
+        "resource": "scene/Colonial/Infantry/Death_Down",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
       }
-    ]
+    ],
+    "skillIds": [
+      1101
+    ],
+    "searchRange": 240,
+    "hitRadius": 8,
+    "hitOffset": {
+      "x": 0,
+      "y": -24
+    },
+    "firePoints": [
+      {
+        "action": 3,
+        "direction": 1,
+        "offset": {
+          "x": 0,
+          "y": -42
+        }
+      },
+      {
+        "action": 3,
+        "direction": 2,
+        "offset": {
+          "x": 17,
+          "y": -36
+        }
+      },
+      {
+        "action": 3,
+        "direction": 3,
+        "offset": {
+          "x": 24,
+          "y": -26
+        }
+      },
+      {
+        "action": 3,
+        "direction": 4,
+        "offset": {
+          "x": 16,
+          "y": -16
+        }
+      },
+      {
+        "action": 3,
+        "direction": 5,
+        "offset": {
+          "x": 0,
+          "y": -13
+        }
+      }
+    ],
+    "defaultAltitude": 0,
+    "canCaptureTerritory": true,
+    "visualId": 1101
   },
   {
     "id": 1104,
     "name": "传说步兵",
     "race": 1,
     "movementType": 1,
-    "maxHp": 0,
+    "maxHp": 100,
     "moveSpeed": 30,
     "appearances": [
       {
@@ -236,7 +848,465 @@
           "x": 0,
           "y": 0
         }
+      },
+      {
+        "action": 3,
+        "direction": 1,
+        "resource": "scene/Colonial/Infantry/Attack1_Up",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 3,
+        "direction": 2,
+        "resource": "scene/Colonial/Infantry/Attack1_UpRight",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 3,
+        "direction": 3,
+        "resource": "scene/Colonial/Infantry/Attack1_Right",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 3,
+        "direction": 4,
+        "resource": "scene/Colonial/Infantry/Attack1_DownRight",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 3,
+        "direction": 5,
+        "resource": "scene/Colonial/Infantry/Attack1_Down",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 1,
+        "resource": "scene/Colonial/Infantry/Idle_Up",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 2,
+        "resource": "scene/Colonial/Infantry/Idle_UpRight",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 3,
+        "resource": "scene/Colonial/Infantry/Idle_Right",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 4,
+        "resource": "scene/Colonial/Infantry/Idle_DownRight",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 5,
+        "resource": "scene/Colonial/Infantry/Idle_Down",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 1,
+        "resource": "scene/Colonial/Infantry/Death_Up",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 2,
+        "resource": "scene/Colonial/Infantry/Death_UpRight",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 3,
+        "resource": "scene/Colonial/Infantry/Death_Right",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 4,
+        "resource": "scene/Colonial/Infantry/Death_DownRight",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 5,
+        "resource": "scene/Colonial/Infantry/Death_Down",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
       }
-    ]
+    ],
+    "skillIds": [
+      1101
+    ],
+    "searchRange": 240,
+    "hitRadius": 8,
+    "hitOffset": {
+      "x": 0,
+      "y": -24
+    },
+    "firePoints": [
+      {
+        "action": 3,
+        "direction": 1,
+        "offset": {
+          "x": 0,
+          "y": -42
+        }
+      },
+      {
+        "action": 3,
+        "direction": 2,
+        "offset": {
+          "x": 17,
+          "y": -36
+        }
+      },
+      {
+        "action": 3,
+        "direction": 3,
+        "offset": {
+          "x": 24,
+          "y": -26
+        }
+      },
+      {
+        "action": 3,
+        "direction": 4,
+        "offset": {
+          "x": 16,
+          "y": -16
+        }
+      },
+      {
+        "action": 3,
+        "direction": 5,
+        "offset": {
+          "x": 0,
+          "y": -13
+        }
+      }
+    ],
+    "defaultAltitude": 0,
+    "canCaptureTerritory": true,
+    "visualId": 1101
+  },
+  {
+    "id": 1201,
+    "name": "女妖战机",
+    "race": 1,
+    "movementType": 2,
+    "maxHp": 180,
+    "moveSpeed": 45,
+    "appearances": [
+      {
+        "action": 1,
+        "direction": 1,
+        "resource": "scene/Colonial/Gunship/Move_Up",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 1,
+        "direction": 2,
+        "resource": "scene/Colonial/Gunship/Move_UpRight",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 1,
+        "direction": 3,
+        "resource": "scene/Colonial/Gunship/Move_Right",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 1,
+        "direction": 4,
+        "resource": "scene/Colonial/Gunship/Move_DownRight",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 1,
+        "direction": 5,
+        "resource": "scene/Colonial/Gunship/Move_Down",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 1,
+        "resource": "scene/Colonial/Gunship/Idle_Up",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 2,
+        "resource": "scene/Colonial/Gunship/Idle_UpRight",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 3,
+        "resource": "scene/Colonial/Gunship/Idle_Right",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 4,
+        "resource": "scene/Colonial/Gunship/Idle_DownRight",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 4,
+        "direction": 5,
+        "resource": "scene/Colonial/Gunship/Idle_Down",
+        "loop": true,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 1,
+        "resource": "scene/Colonial/Gunship/Death_Up",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 2,
+        "resource": "scene/Colonial/Gunship/Death_UpRight",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 3,
+        "resource": "scene/Colonial/Gunship/Death_Right",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 4,
+        "resource": "scene/Colonial/Gunship/Death_DownRight",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "action": 2,
+        "direction": 5,
+        "resource": "scene/Colonial/Gunship/Death_Down",
+        "loop": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "skillIds": [
+      1201
+    ],
+    "searchRange": 280,
+    "hitRadius": 18,
+    "hitOffset": {
+      "x": 0,
+      "y": 0
+    },
+    "firePoints": [
+      {
+        "action": 4,
+        "direction": 1,
+        "offset": {
+          "x": -12,
+          "y": -8
+        }
+      },
+      {
+        "action": 4,
+        "direction": 1,
+        "offset": {
+          "x": 12,
+          "y": -8
+        }
+      },
+      {
+        "action": 4,
+        "direction": 2,
+        "offset": {
+          "x": 2,
+          "y": -12
+        }
+      },
+      {
+        "action": 4,
+        "direction": 2,
+        "offset": {
+          "x": 18,
+          "y": 1
+        }
+      },
+      {
+        "action": 4,
+        "direction": 3,
+        "offset": {
+          "x": 13,
+          "y": -8
+        }
+      },
+      {
+        "action": 4,
+        "direction": 3,
+        "offset": {
+          "x": 13,
+          "y": 8
+        }
+      },
+      {
+        "action": 4,
+        "direction": 4,
+        "offset": {
+          "x": 16,
+          "y": 5
+        }
+      },
+      {
+        "action": 4,
+        "direction": 4,
+        "offset": {
+          "x": 6,
+          "y": 15
+        }
+      },
+      {
+        "action": 4,
+        "direction": 5,
+        "offset": {
+          "x": -10,
+          "y": 12
+        }
+      },
+      {
+        "action": 4,
+        "direction": 5,
+        "offset": {
+          "x": 10,
+          "y": 12
+        }
+      }
+    ],
+    "defaultAltitude": 40,
+    "canCaptureTerritory": false,
+    "visualId": 1201
   }
 ]

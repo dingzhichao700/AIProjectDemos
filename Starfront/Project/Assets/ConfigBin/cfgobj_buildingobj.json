@@ -4,7 +4,7 @@
     "name": "殖民军基地",
     "race": 1,
     "type": 1,
-    "maxHp": 0,
+    "maxHp": 1000,
     "appearances": [
       {
         "direction": 1,
@@ -26,14 +26,19 @@
           "y": 0
         }
       }
-    ]
+    ],
+    "hitRadius": 28,
+    "hitOffset": {
+      "x": 0,
+      "y": -40
+    }
   },
   {
     "id": 1002,
     "name": "殖民军采集站",
     "race": 1,
     "type": 2,
-    "maxHp": 0,
+    "maxHp": 300,
     "appearances": [
       {
         "direction": 1,
@@ -55,14 +60,19 @@
           "y": 0
         }
       }
-    ]
+    ],
+    "hitRadius": 28,
+    "hitOffset": {
+      "x": 0,
+      "y": -40
+    }
   },
   {
     "id": 1101,
     "name": "优秀步兵兵营",
     "race": 1,
     "type": 3,
-    "maxHp": 0,
+    "maxHp": 300,
     "appearances": [
       {
         "direction": 1,
@@ -84,14 +94,19 @@
           "y": 0
         }
       }
-    ]
+    ],
+    "hitRadius": 28,
+    "hitOffset": {
+      "x": 0,
+      "y": -40
+    }
   },
   {
     "id": 1102,
     "name": "稀有步兵兵营",
     "race": 1,
     "type": 3,
-    "maxHp": 0,
+    "maxHp": 300,
     "appearances": [
       {
         "direction": 1,
@@ -113,14 +128,19 @@
           "y": 0
         }
       }
-    ]
+    ],
+    "hitRadius": 28,
+    "hitOffset": {
+      "x": 0,
+      "y": -40
+    }
   },
   {
     "id": 1103,
     "name": "史诗步兵兵营",
     "race": 1,
     "type": 3,
-    "maxHp": 0,
+    "maxHp": 300,
     "appearances": [
       {
         "direction": 1,
@@ -142,14 +162,19 @@
           "y": 0
         }
       }
-    ]
+    ],
+    "hitRadius": 28,
+    "hitOffset": {
+      "x": 0,
+      "y": -40
+    }
   },
   {
     "id": 1104,
     "name": "传说步兵兵营",
     "race": 1,
     "type": 3,
-    "maxHp": 0,
+    "maxHp": 300,
     "appearances": [
       {
         "direction": 1,
@@ -171,6 +196,45 @@
           "y": 0
         }
       }
-    ]
+    ],
+    "hitRadius": 28,
+    "hitOffset": {
+      "x": 0,
+      "y": -40
+    }
+  },
+  {
+    "id": 1201,
+    "name": "殖民军机场",
+    "race": 1,
+    "type": 3,
+    "maxHp": 300,
+    "appearances": [
+      {
+        "direction": 1,
+        "part": 1,
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/airport",
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "direction": 1,
+        "part": 4,
+        "resourceType": 1,
+        "resource": "scene/battle/appearance/airport_shadow",
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "hitRadius": 28,
+    "hitOffset": {
+      "x": 0,
+      "y": -40
+    }
   }
 ]

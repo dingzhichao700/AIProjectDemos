@@ -15,6 +15,7 @@ public static class BattleSceneRuntimeValidation {
     private static double deadline;
     private static int phase;
     private static int openedCount;
+    private static int layoutFrame = -1;
     private static string error;
     private static double incomeDeadline;
     private static double screenshotReadyAt;
@@ -84,6 +85,7 @@ public static class BattleSceneRuntimeValidation {
             deadline = EditorApplication.timeSinceStartup + 120;
             phase = 0;
             openedCount = 0;
+            layoutFrame = -1;
             screenshotReadyAt = 0;
             ringCaptureAt = 0;
             error = null;
@@ -128,39 +130,59 @@ public static class BattleSceneRuntimeValidation {
                     return;
                 }
                 Require(CfgManager.tables.BattleSceneObj.Get(1001).Appearances.Count == 13, "scene config preloaded");
-                Require(CfgManager.tables.BattleSceneCellObj.DataList.Count == 171, "cell config preloaded");
+                Require(CfgManager.tables.BattleSceneCellObj.DataList.Count(cell => cell.SceneId == 1001) == 171, "cell config preloaded");
+                Require(CfgManager.tables.BattleAIProfileObj.Get(1).DecisionIntervalMs == 2000, "AI config loaded through manifest");
+                UISafeAreaValidation.ValidateMain(main);
                 BattleEconomyValidation.ValidateLoadedConfiguration();
+                BattleGunshipValidation.Validate();
                 BattleInfoRuntimeValidation.ValidateLoadedState();
                 BattleUnlockValidation.ValidateLogic();
                 main.GetComponent<MainPanelLayout>().battleButton.GetComponent<Button>().onClick.Invoke();
                 phase = 2;
             } else if (phase == 2) {
-                var panel = PanelMgr.ins.GetPanel(UIEnum.BATTLE_SCENE_PANEL) as BattleScenePanel;
+                var panel = PanelMgr.ins.GetPanel(MainUIEnum.BATTLE_SCENE_PANEL) as BattleScenePanel;
                 if (panel == null || !panel.isOpened) {
                     return;
                 }
-                var hud = PanelMgr.ins.GetPanel(UIEnum.BATTLE_INFO_PANEL) as BattleInfoPanel;
+                var hud = PanelMgr.ins.GetPanel(MainUIEnum.BATTLE_INFO_PANEL) as BattleInfoPanel;
                 if (hud == null || !hud.isOpened) {
                     return;
                 }
+                // Editor update可能早于本帧Canvas布局，首帧完成后再检查实际屏幕边界。
+                if (layoutFrame < 0) {
+                    layoutFrame = Time.frameCount;
+                    return;
+                }
+                if (Time.frameCount <= layoutFrame) {
+                    return;
+                }
+                layoutFrame = -1;
                 ValidateScene(panel);
                 BattleControl.ins.model.StopTimeFlow();
                 try {
+                    BattleTerritoryValidation.Validate();
+                    BattleTerritoryValidation.ValidateView(panel.GetComponent<BattleSceneView>(), BattleControl.ins.model);
                     BattleUnitProductionValidation.ValidateLogic();
+                    BattleCombatValidation.ValidateHealthViews();
+                    BattleCardRevealValidation.Validate(panel.GetComponent<BattleSceneView>().hintFont);
+                    BattleProjectileValidation.ValidateViews();
+                    BattleUnitActionValidation.Validate();
                 } finally {
                     BattleControl.ins.model.StartTimeFlow();
                 }
                 incomeDeadline = EditorApplication.timeSinceStartup + 8;
                 phase = 3;
             } else if (phase == 3) {
-                var panel = PanelMgr.ins.GetPanel(UIEnum.BATTLE_SCENE_PANEL) as BattleScenePanel;
+                var panel = PanelMgr.ins.GetPanel(MainUIEnum.BATTLE_SCENE_PANEL) as BattleScenePanel;
                 var current = BattleControl.ins.model;
-                if (current.camps[cfg.BattleSceneCamp.FRIENDLY].currency < 60 || current.camps[cfg.BattleSceneCamp.ENEMY].currency < 60) {
+                if (current.camps[cfg.BattleSceneCamp.FRIENDLY].currency < 60) {
                     Require(EditorApplication.timeSinceStartup < incomeDeadline, "actual base income timeout");
                     return;
                 }
-                Require(current.camps.Values.All(owner => owner.currency == 60), "actual first period pays both bases once while offscreen");
-                var hud = PanelMgr.ins.GetPanel(UIEnum.BATTLE_INFO_PANEL) as BattleInfoPanel;
+                Require(current.camps[cfg.BattleSceneCamp.FRIENDLY].currency == 60, "human base income unchanged");
+                Require(current.ai.states[cfg.BattleSceneCamp.ENEMY].unlockCount >= 1
+                    && current.buildings.Values.Any(b => b.camp == cfg.BattleSceneCamp.ENEMY && b.unitProduction != null), "real AI buys first barracks with its own income");
+                var hud = PanelMgr.ins.GetPanel(MainUIEnum.BATTLE_INFO_PANEL) as BattleInfoPanel;
                 var info = hud.GetComponent<BattleInfoView>();
                 Require(info.friendlyCurrency.text == "60", "HUD reflects friendly income; enemy balance remains authoritative only");
                 if (openedCount == 0 && ringCaptureAt == 0) {
@@ -198,7 +220,7 @@ public static class BattleSceneRuntimeValidation {
                 string materialPath = BattleSceneResources.GroundMaterialPath(model);
                 hud.OnPanelOperate(PanelOperateEnum.ESC);
                 Require(panel.GetComponent<BattleSceneView>().groundTexture == null && !oldGround.IsCreated() && ResourceManager.GetMaterial(materialPath) == null, "close releases tint target and owned material");
-                Require(PanelMgr.ins.GetPanel(UIEnum.BATTLE_INFO_PANEL) == null && info.friendlyCurrency.text == string.Empty, "HUD escape closes scene and clears text");
+                Require(PanelMgr.ins.GetPanel(MainUIEnum.BATTLE_INFO_PANEL) == null && info.friendlyCurrency.text == string.Empty, "HUD escape closes scene and clears text");
                 Require(BattleControl.ins.model == null && model.cells.Count == 0, "close clears logic");
                 Require(!ResourceManager.HasLoadedUnpackImage(path), "close releases scene sprites");
                 Require(panel.GetComponent<BattleSceneView>().visibleCount == 0, "close clears presentation");
@@ -212,7 +234,7 @@ public static class BattleSceneRuntimeValidation {
                     Require(EditorApplication.timeSinceStartup < incomeDeadline, "new collector actual income timeout");
                     return;
                 }
-                var panel = PanelMgr.ins.GetPanel(UIEnum.BATTLE_SCENE_PANEL) as BattleScenePanel;
+                var panel = PanelMgr.ins.GetPanel(MainUIEnum.BATTLE_SCENE_PANEL) as BattleScenePanel;
                 BattleUnlockValidation.ValidateLiveBarracks(panel);
                 ScreenCapture.CaptureScreenshot("E:/ChatGPT/星域前线/work/unit-production-v1/runtime-unlocked.png");
                 incomeDeadline = EditorApplication.timeSinceStartup + 15;
@@ -222,8 +244,12 @@ public static class BattleSceneRuntimeValidation {
                     Require(EditorApplication.timeSinceStartup < incomeDeadline, "real unit production timeout");
                     return;
                 }
-                var livePanel = PanelMgr.ins.GetPanel(UIEnum.BATTLE_SCENE_PANEL) as BattleScenePanel;
+                var livePanel = PanelMgr.ins.GetPanel(MainUIEnum.BATTLE_SCENE_PANEL) as BattleScenePanel;
                 var first = BattleUnitProductionValidation.ValidateLive(livePanel);
+                Require(BattleControl.ins.model.GetUnitCount(cfg.BattleSceneCamp.ENEMY) > 0, "AI barracks produces real enemies");
+                File.WriteAllText("Library/battle-ai-runtime-validation.txt", "passed: new profile via Login preload; human untouched; AI first purchase and real enemy production; scene reopen resets AI");
+                Require(GMControl.ins.ExecuteGM("unitAltitude", new System.Collections.Generic.List<string> { "40" }) && first.altitude == 40, "GM changes current unit height");
+                Require(GMControl.ins.ExecuteGM("unitAltitude", new System.Collections.Generic.List<string> { "0" }) && first.altitude == 0, "GM restores grounded unit");
                 firstUnitId = first.id;
                 firstUnitPosition = first.position;
                 screenshotReadyAt = EditorApplication.timeSinceStartup + 1.2;
@@ -242,11 +268,11 @@ public static class BattleSceneRuntimeValidation {
                     return;
                 }
                 var current = BattleControl.ins.model;
-                var panel = PanelMgr.ins.GetPanel(UIEnum.BATTLE_SCENE_PANEL) as BattleScenePanel;
-                var info = (PanelMgr.ins.GetPanel(UIEnum.BATTLE_INFO_PANEL) as BattleInfoPanel).GetComponent<BattleInfoView>();
+                var panel = PanelMgr.ins.GetPanel(MainUIEnum.BATTLE_SCENE_PANEL) as BattleScenePanel;
+                var info = (PanelMgr.ins.GetPanel(MainUIEnum.BATTLE_INFO_PANEL) as BattleInfoPanel).GetComponent<BattleInfoView>();
                 RookieEngine.sceneTimer.SyncTime((float)(current.remainingSeconds + 1) * 1000);
                 Require(BattleControl.ins.model == null && current.cells.Count == 0, "expiry clears purchased logical scene");
-                Require(PanelMgr.ins.GetPanel(UIEnum.BATTLE_INFO_PANEL) == null && info.friendlyCurrency.text == string.Empty, "expiry clears HUD");
+                Require(PanelMgr.ins.GetPanel(MainUIEnum.BATTLE_INFO_PANEL) == null && info.friendlyCurrency.text == string.Empty, "expiry clears HUD");
                 Require(panel.GetComponent<BattleSceneView>().unitVisibleCount == 0, "expiry clears unit views");
                 Require(panel.GetComponent<BattleSceneView>().unlockVisibleCount == 0, "expiry clears dynamic hints");
                 Require(!ResourceManager.HasLoadedUnpackImage(BattleSceneResources.SpritePath(BattleConst.UnlockGlowResource)), "expiry releases glow after view cleanup");
@@ -267,7 +293,7 @@ public static class BattleSceneRuntimeValidation {
         Canvas.ForceUpdateCanvases();
         var view = panel.GetComponent<BattleSceneView>();
         var model = BattleControl.ins.model;
-        var hud = PanelMgr.ins.GetPanel(UIEnum.BATTLE_INFO_PANEL) as BattleInfoPanel;
+        var hud = PanelMgr.ins.GetPanel(MainUIEnum.BATTLE_INFO_PANEL) as BattleInfoPanel;
         var info = hud.GetComponent<BattleInfoView>();
         Require(info.friendlyCurrency.text == "50", "HUD resets on open");
         Require(hud.txtFriendlyTerritory.text == "73格" && hud.txtEnemyTerritory.text == "73格", "ownership HUD 73/73");
@@ -278,14 +304,15 @@ public static class BattleSceneRuntimeValidation {
         Require(Mathf.Approximately(hud.imgDivider.rectTransform.anchoredPosition.x, 340), "divider uses full design length");
         Require(hud.GetComponent<Image>() == null && hud.GetComponentsInChildren<TMPro.TextMeshProUGUI>().Length == 8, "transparent wrapper and eight independent texts");
         var hudBefore = info.friendlyCurrency.rectTransform.position;
+        BattleFullscreenValidation.Validate(panel, hud);
         BattleGroundValidation.Validate(view, model);
         BattleProductionValidation.Validate(view);
         BattleProductionValidation.ValidateAlignment(view, model);
         Require(model.camps.Count == 2 && model.buildings.Count == 2, "two camps and two bases");
         Require(model.camps.Values.All(owner => owner.currency == 50), "reopen resets both balances");
         var animations = BattleSceneResources.CollectAnimations(model);
-        Require(animations.Count == 5 && animations.All(path => FrameAnimationManager.loadedMap.ContainsKey(path)), "all five movement animations fully preloaded");
-        Require(animations.All(path => FrameAnimationManager.loadedMap[path].sprites.Length == 8), "all forty animation frames ready");
+        Require(animations.Count == 38 && animations.All(path => FrameAnimationManager.loadedMap.ContainsKey(path)), "five movement, five attack, five idle, five death and impact animations fully preloaded");
+        Require(animations.Where(path => path.Contains("/Infantry/") || path.EndsWith("/RifleImpact")).All(path => FrameAnimationManager.loadedMap[path].sprites.Length == (path.Contains("/Death_") ? 18 : path.Contains("/Idle_") ? 48 : path.Contains("/Attack1_") ? 10 : 8)), "40 movement, 50 attack, 240 idle, 90 death and 8 impact frames ready");
         Require(Mathf.Approximately(view.zoom, 1f), "open resets zoom");
         Require(model.cells.Count == 171 && view.totalVisualCount == model.config.Appearances.Count + model.buildings.Values.Sum(item => item.config.Appearances.Count), "logical and visual counts");
         Require(view.visibleCount > 0 && view.visibleCount <= view.totalVisualCount, "visible terrain bounded by configured appearances");
@@ -401,3 +428,5 @@ public static class BattleSceneRuntimeValidation {
         EditorApplication.isPlaying = false;
     }
 }
+
+

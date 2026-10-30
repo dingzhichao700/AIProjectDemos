@@ -37,6 +37,8 @@ public sealed class MainPanelLayout : MonoBehaviour {
 
     private bool applying;
 
+    private Rect lastSafe;
+
     private Vector2 lastSize = new Vector2(-1, -1);
 
     private void OnEnable() {
@@ -80,6 +82,10 @@ public sealed class MainPanelLayout : MonoBehaviour {
         RestoreViewport();
     }
 
+    private void LateUpdate() {
+        ApplyLayout();
+    }
+
     /**从固定设计尺寸计算，避免反复缩放累积误差。*/
     public void ApplyLayout() {
         RectTransform root = transform as RectTransform;
@@ -87,19 +93,25 @@ public sealed class MainPanelLayout : MonoBehaviour {
             return;
         }
         Vector2 size = root.rect.size;
-        if (size.x <= 0 || size.y <= 0 || (size - lastSize).sqrMagnitude < 0.0001f) {
+        Rect safe = UIScreenRegions.LocalContentArea(root);
+        if (size.x <= 0 || size.y <= 0 || ((size - lastSize).sqrMagnitude < 0.0001f && safe == lastSafe)) {
             return;
         }
         applying = true;
         try {
-            float scale = size.x / 720f;
+            Rect fit = PortraitGameViewport.FitRect(safe.size, new Vector2(720, 1280));
+            Vector2 origin = safe.min + fit.min;
+            float scale = fit.width / 720f;
             float navHeight = 150f * scale;
-            Stretch(contentViewport, new Vector2(0, navHeight), Vector2.zero);
+            contentViewport.anchorMin = contentViewport.anchorMax = Vector2.zero;
+            contentViewport.pivot = Vector2.zero;
+            contentViewport.sizeDelta = new Vector2(fit.width, fit.height - navHeight);
+            contentViewport.anchoredPosition = origin - root.rect.min + new Vector2(0, navHeight);
             navigation.anchorMin = Vector2.zero;
-            navigation.anchorMax = new Vector2(1, 0);
+            navigation.anchorMax = Vector2.zero;
             navigation.pivot = new Vector2(0.5f, 0);
-            navigation.sizeDelta = new Vector2(0, navHeight);
-            navigation.anchoredPosition = Vector2.zero;
+            navigation.sizeDelta = new Vector2(fit.width, navHeight);
+            navigation.anchoredPosition = origin - root.rect.min + new Vector2(fit.width * .5f, 0);
             navigationContent.anchorMin = navigationContent.anchorMax = new Vector2(0.5f, 0);
             navigationContent.pivot = new Vector2(0.5f, 0);
             navigationContent.sizeDelta = new Vector2(720, 150);
@@ -109,7 +121,7 @@ public sealed class MainPanelLayout : MonoBehaviour {
             foreach (RectTransform view in views) {
                 Stretch(view, Vector2.zero, Vector2.zero);
             }
-            float contentHeight = Mathf.Max(0, size.y - navHeight) / scale;
+            float contentHeight = 1130f;
             deckContent.anchorMin = deckContent.anchorMax = new Vector2(0.5f, 1);
             deckContent.pivot = new Vector2(0.5f, 1);
             deckContent.sizeDelta = new Vector2(720, contentHeight);
@@ -131,6 +143,7 @@ public sealed class MainPanelLayout : MonoBehaviour {
             background.anchoredPosition = Vector2.zero;
             background.sizeDelta = new Vector2(Mathf.Ceil(source.x * cover), Mathf.Ceil(source.y * cover));
             lastSize = size;
+            lastSafe = safe;
         } finally {
             applying = false;
         }

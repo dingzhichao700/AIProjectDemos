@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using cfg;
 using cfg.resource;
 
@@ -28,21 +29,26 @@ public static class BattleRoster {
             }
             ids.Add(card.Id);
             if (card.Content is UnitCardContent unitCard) {
+                if (card.UnlockWeight <= 0) {
+                    throw new InvalidOperationException("兵种卡解锁权重必须为正整数：" + card.Id);
+                }
                 var unit = tables.UnitObj.Get(unitCard.UnitId);
                 var production = tables.UnitProductionObj.Get(unitCard.UnitId);
                 var producer = production == null ? null : tables.BuildingObj.Get(production.BuildingId);
                 if (unit == null || unit.MoveSpeed <= 0 || float.IsNaN(unit.MoveSpeed) || float.IsInfinity(unit.MoveSpeed) || unit.Race != start.Race || producer == null || producer.Race != start.Race || producer.Type != BuildingType.UNIT_PRODUCER || production.Interval <= 0 || production.Count != 1) {
                     throw new InvalidOperationException("兵种生产引用不合法：" + card.Id);
                 }
-                var directions = new HashSet<UnitAppearanceDirection>();
-                foreach (var appearance in unit.Appearances) {
-                    if (appearance.Action == UnitActionType.MOVE && (!appearance.Loop || !directions.Add(appearance.Direction))) {
-                        throw new InvalidOperationException("移动外观必须循环且朝向唯一：" + unit.Id);
-                    }
+                var required = unit.SkillIds.Select(id => tables.SkillObj.Get(id).Action).Concat(new[] { UnitActionType.MOVE, UnitActionType.IDLE, UnitActionType.DEATH }).Distinct();
+                if (unit.Appearances.GroupBy(a => (a.Action, a.Direction)).Any(g => g.Count() != 1)) {
+                    throw new InvalidOperationException("单位动作朝向重复：" + unit.Id);
                 }
-                foreach (UnitAppearanceDirection direction in Enum.GetValues(typeof(UnitAppearanceDirection))) {
-                    if (!directions.Contains(direction)) {
-                        throw new InvalidOperationException("缺少移动源朝向：" + unit.Id + "/" + direction);
+                foreach (var action in required) {
+                    foreach (UnitAppearanceDirection direction in Enum.GetValues(typeof(UnitAppearanceDirection))) {
+                        var appearance = unit.Appearances.SingleOrDefault(a => a.Action == action && a.Direction == direction);
+                        bool loop = action == UnitActionType.MOVE || action == UnitActionType.IDLE;
+                        if (appearance == null || appearance.Loop != loop || string.IsNullOrWhiteSpace(appearance.Resource)) {
+                            throw new InvalidOperationException("单位动作缺失或循环配置非法：" + unit.Id + "/" + action + "/" + direction);
+                        }
                     }
                 }
                 qualities.Add(card.Quality);
@@ -59,6 +65,13 @@ public static class BattleRoster {
         }
         if (collectors != 1) {
             throw new InvalidOperationException("本局须有唯一固定采集站卡。");
+        }
+        // 同品质总权重必须能被随机数接口表示，进场前拒绝非法卡组。
+        foreach (var quality in qualities) {
+            long total = ids.Where(id => tables.CardObj.Get(id).Quality == quality && tables.CardObj.Get(id).Content is UnitCardContent).Sum(id => (long)tables.CardObj.Get(id).UnlockWeight);
+            if (total > int.MaxValue) {
+                throw new InvalidOperationException("同品质卡牌解锁权重溢出：" + quality);
+            }
         }
         foreach (var unlock in tables.CellUnlockObj.DataList) {
             foreach (var item in unlock.UnitQualityWeights) {

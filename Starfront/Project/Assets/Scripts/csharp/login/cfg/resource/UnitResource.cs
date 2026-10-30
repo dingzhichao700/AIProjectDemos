@@ -24,6 +24,14 @@ public sealed partial class UnitResource : Luban.BeanBase
         { if(!_buf["maxHp"].IsNumber) { throw new SerializationException(); }  MaxHp = _buf["maxHp"]; }
         { if(!_buf["moveSpeed"].IsNumber) { throw new SerializationException(); }  MoveSpeed = _buf["moveSpeed"]; }
         { var __json0 = _buf["appearances"]; if(!__json0.IsArray) { throw new SerializationException(); } Appearances = new System.Collections.Generic.List<bean.UnitAppearance>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { bean.UnitAppearance __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = global::cfg.bean.UnitAppearance.DeserializeUnitAppearance(__e0);  }  Appearances.Add(__v0); }   }
+        { var __json0 = _buf["skillIds"]; if(!__json0.IsArray) { throw new SerializationException(); } SkillIds = new System.Collections.Generic.List<int>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { int __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0; }  SkillIds.Add(__v0); }   }
+        { if(!_buf["searchRange"].IsNumber) { throw new SerializationException(); }  SearchRange = _buf["searchRange"]; }
+        { if(!_buf["hitRadius"].IsNumber) { throw new SerializationException(); }  HitRadius = _buf["hitRadius"]; }
+        { if(!_buf["hitOffset"].IsObject) { throw new SerializationException(); }  HitOffset = global::cfg.vector2.Deserializevector2(_buf["hitOffset"]);  }
+        { var __json0 = _buf["firePoints"]; if(!__json0.IsArray) { throw new SerializationException(); } FirePoints = new System.Collections.Generic.List<bean.UnitFirePoint>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { bean.UnitFirePoint __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = global::cfg.bean.UnitFirePoint.DeserializeUnitFirePoint(__e0);  }  FirePoints.Add(__v0); }   }
+        { if(!_buf["defaultAltitude"].IsNumber) { throw new SerializationException(); }  DefaultAltitude = _buf["defaultAltitude"]; }
+        { if(!_buf["canCaptureTerritory"].IsBoolean) { throw new SerializationException(); }  CanCaptureTerritory = _buf["canCaptureTerritory"]; }
+        { if(!_buf["visualId"].IsNumber) { throw new SerializationException(); }  VisualId = _buf["visualId"]; }
     }
 
     public static UnitResource DeserializeUnitResource(JSONNode _buf)
@@ -59,6 +67,38 @@ public sealed partial class UnitResource : Luban.BeanBase
     /// 动作外观
     /// </summary>
     public readonly System.Collections.Generic.List<bean.UnitAppearance> Appearances;
+    /// <summary>
+    /// 技能ID列表
+    /// </summary>
+    public readonly System.Collections.Generic.List<int> SkillIds;
+    /// <summary>
+    /// 索敌范围（像素）
+    /// </summary>
+    public readonly float SearchRange;
+    /// <summary>
+    /// 受击半径（像素）
+    /// </summary>
+    public readonly float HitRadius;
+    /// <summary>
+    /// 受击表现偏移
+    /// </summary>
+    public readonly vector2 HitOffset;
+    /// <summary>
+    /// 发射挂点
+    /// </summary>
+    public readonly System.Collections.Generic.List<bean.UnitFirePoint> FirePoints;
+    /// <summary>
+    /// 默认离地高度（场景像素）
+    /// </summary>
+    public readonly float DefaultAltitude;
+    /// <summary>
+    /// 可占领地块
+    /// </summary>
+    public readonly bool CanCaptureTerritory;
+    /// <summary>
+    /// 形象ID
+    /// </summary>
+    public readonly int VisualId;
    
     public const int __ID__ = 2133295026;
     public override int GetTypeId() => __ID__;
@@ -66,6 +106,7 @@ public sealed partial class UnitResource : Luban.BeanBase
     public  void ResolveRef(Tables tables)
     {
         foreach (var _e in Appearances) { _e?.ResolveRef(tables); }
+        foreach (var _e in FirePoints) { _e?.ResolveRef(tables); }
     }
 
     public override string ToString()
@@ -78,6 +119,14 @@ public sealed partial class UnitResource : Luban.BeanBase
         + "maxHp:" + MaxHp + ","
         + "moveSpeed:" + MoveSpeed + ","
         + "appearances:" + Luban.StringUtil.CollectionToString(Appearances) + ","
+        + "skillIds:" + Luban.StringUtil.CollectionToString(SkillIds) + ","
+        + "searchRange:" + SearchRange + ","
+        + "hitRadius:" + HitRadius + ","
+        + "hitOffset:" + HitOffset + ","
+        + "firePoints:" + Luban.StringUtil.CollectionToString(FirePoints) + ","
+        + "defaultAltitude:" + DefaultAltitude + ","
+        + "canCaptureTerritory:" + CanCaptureTerritory + ","
+        + "visualId:" + VisualId + ","
         + "}";
     }
 }

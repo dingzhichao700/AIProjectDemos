@@ -1,4 +1,4 @@
-﻿using SimpleJSON;
+using SimpleJSON;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -149,7 +149,7 @@ public class FrameAnimationManager : MonoBehaviour {
             if (jsonNode == null || sprite == null || sprite.texture == null) {
                 throw new InvalidOperationException("帧动画资源缺失：" + path);
             }
-            FrameAnimationRes data = await GenerateAsync(jsonNode, sprite, path.Replace(ResourceConst.PATH_FRAME_ANIMATION, ""));
+            FrameAnimationRes data = await GenerateAsync(jsonNode, sprite, path);
             retainedAtlas = true;
             return data;
         } finally {

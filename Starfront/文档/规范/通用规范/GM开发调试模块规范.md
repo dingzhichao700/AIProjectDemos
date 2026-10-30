@@ -45,5 +45,15 @@
 
 - GM 面板共享背景必须引用模板自身 default/common 的 Sprite，不能保留外部来源图集 GUID。修复引用时按 Sprite 名核对模板的 GUID 与 fileID，不复制样例图集元数据。
 - `Tools/Test-GMBaseline.ps1` 检查绑定脚本路径及 Main 类型标识、Sprite GUID/fileID、GM Addressables 地址和 main-content 标签、五条通用指令及注册处理函数。
-- 模板总检查调用该脚本，同时校验生成 Tables 与 ALL_CONFIG_LIST 完全一致，避免配置初始化时遗漏预加载。样例业务配置名不进入模板。
+- 模板总检查调用该脚本，同时校验生成 Tables 与 Login 层 ConfigManifest.Names 完全一致，避免配置初始化时遗漏预加载。样例业务配置名不进入模板。
 - 静态检查和 Luban 导出通过不代表 Unity 运行或微信真机验收通过；分别记录验证结果。
+
+## 运行版本与场景诊断
+
+- GM 面板顶部显示 Base（底座）、Content（内容版本）、Scene（当前业务场景ID），打开时同时输出 RuntimeDiagnostics 日志。读取本次启动实际锁定的 LoadTiming.version，不用服务器最新指针或构建目录推测当前客户端版本。
+- 编辑器未走热更新链路时显示 editor (local)；非编辑器缺少有效版本时显示 unknown，不伪装成正式版本。
+- 当前业务通过 GMControl.SceneIdProvider 提供实际场景ID；未进入场景显示 none，退出正式内容清空提供器。不得用默认场景常量冒充当前场景，也不得让 Foundation 反向引用业务场景。
+- 诊断文字复用现有公共字体；不拦截点击、不覆盖关闭按钮或命令列表。关闭重开不重复创建节点、不累计改变列表位置。
+- 验收覆盖正式版本、编辑器、未知版本、无场景、场景切换、关闭重开和提供器释放；诊断信息不等于版本兼容性或真机更新已通过。
+
+修订（2026-10-29）：新增运行诊断能力；不改变 GM 的现有开放范围、命令配置及程序集归属。

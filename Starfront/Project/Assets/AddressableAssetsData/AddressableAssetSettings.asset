@@ -99,6 +99,8 @@ MonoBehaviour:
     - main-content
     - Colonial
     - battle
+    - scene1001
+    - scene1002
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 846c504947d61dc4c8a55ea585b561a7, type: 2}

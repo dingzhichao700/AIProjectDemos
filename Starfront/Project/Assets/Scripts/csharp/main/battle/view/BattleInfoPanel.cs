@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
 /// <summary>独立战斗信息窗口，绑定本局余额事件，随战斗关闭清理。</summary>
 public sealed class BattleInfoPanel : BasePanel {
+
+    public override bool FitContentToSafeArea => false;
     /******************* UIComponent Define begin ************************/
     public Image imgFriendlyFill;
     public Image imgEnemyFill;
@@ -20,6 +22,8 @@ public sealed class BattleInfoPanel : BasePanel {
 
     private BattleSceneModel model;
     private BattleInfoView view;
+
+    public override bool UsesFullScreenViewport => true;
 
     public BattleInfoPanel() {
         layer = PanelLayer.SCALE_PANEL_SECOND;
@@ -71,7 +75,7 @@ public sealed class BattleInfoPanel : BasePanel {
 
     public override void OnPanelOperate(PanelOperateEnum operateCode) {
         if (operateCode == PanelOperateEnum.ESC) {
-            PanelMgr.ins.GetPanel(UIEnum.BATTLE_SCENE_PANEL)?.OnPanelOperate(operateCode);
+            PanelMgr.ins.GetPanel(MainUIEnum.BATTLE_SCENE_PANEL)?.OnPanelOperate(operateCode);
         }
     }
 }

@@ -86,7 +86,7 @@ public static class BattleUnlockSetup {
                 throw new InvalidOperationException("Missing interaction glyph: " + value);
             }
         }
-        string prefabPath = ResourceConst.GetUIPath(UIEnum.BATTLE_SCENE_PANEL);
+        string prefabPath = ResourceConst.GetUIPath(MainUIEnum.BATTLE_SCENE_PANEL);
         var root = PrefabUtility.LoadPrefabContents(prefabPath);
         try {
             root.GetComponent<BattleSceneView>().hintFont = font;

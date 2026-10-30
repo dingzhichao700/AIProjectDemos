@@ -39,7 +39,7 @@ public static class BattleGroundSetup {
     }
 
     private static void Install() {
-        const string art = "Assets/Art/unpack/scene/battle/ground/";
+        const string art = "Assets/Art/unpack/scene/battle/1001/";
         foreach (string name in new[] { "ground", "ground_grid", "mountain", "water_single", "water_cluster_7" }) {
             string path = art + name + ".png";
             AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceSynchronousImport);
@@ -67,7 +67,7 @@ public static class BattleGroundSetup {
         const string folder = "Assets/Art/material/scene/";
         Directory.CreateDirectory(folder);
         AssetDatabase.Refresh();
-        const string ownersPath = folder + "battle/ground1001Owners.png";
+        const string ownersPath = folder + "battle/1001/owners.png";
         Directory.CreateDirectory(folder + "battle");
         AssetDatabase.Refresh();
         // Data texture lives with its material, outside the display-sprite importer rules.
@@ -86,7 +86,7 @@ public static class BattleGroundSetup {
         dataImporter.alphaIsTransparency = false;
         dataImporter.SaveAndReimport();
         var owners = AssetDatabase.LoadAssetAtPath<Texture2D>(ownersPath);
-        const string materialPath = folder + "battle/ground1001.mat";
+        const string materialPath = folder + "battle/1001/ground.mat";
         var material = AssetDatabase.LoadAssetAtPath<Material>(materialPath);
         var shader = AssetDatabase.LoadAssetAtPath<Shader>("Assets/Art/shader/BattleGround.shader");
         if (shader == null || !shader.isSupported) { throw new InvalidOperationException("地表shader缺失或不支持。"); }
@@ -94,7 +94,7 @@ public static class BattleGroundSetup {
         material.shader = shader;
         material.SetTexture("_SceneOwners", owners);
         EditorUtility.SetDirty(material);
-        const string obsolete = folder + "battle/ground1001Owners.asset";
+        const string obsolete = folder + "battle/1001/owners.asset";
         if (AssetDatabase.LoadAssetAtPath<Texture2D>(obsolete) != null) {
             AddressableAssetSettingsDefaultObject.Settings.RemoveAssetEntry(AssetDatabase.AssetPathToGUID(obsolete));
             AssetDatabase.DeleteAsset(obsolete);
@@ -110,7 +110,8 @@ public static class BattleGroundSetup {
         if (group == null) { throw new InvalidOperationException("scene组缺失。"); }
         var entry = settings.CreateOrMoveEntry(AssetDatabase.AssetPathToGUID(path), group);
         entry.address = path;
-        entry.SetLabel("battle", true, true);
+        entry.SetLabel("battle", false);
+        entry.SetLabel("scene1001", true, true);
         EditorUtility.SetDirty(settings);
     }
 }

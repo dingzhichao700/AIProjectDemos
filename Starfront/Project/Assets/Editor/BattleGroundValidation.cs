@@ -15,10 +15,42 @@ public static class BattleGroundValidation {
         Require(!image.raycastTarget && view.layers[(int)BattleSceneVisualLayer.GROUND_DECAL - 1].GetComponentsInChildren<Image>().Length == 1, "independent grid and unblocked input");
         Require(model.config.GroundThickness == 10 && model.config.WaterDepth == 18, "static art dimensions");
         Require(model.config.Appearances.Count(a => a.Layer == BattleSceneVisualLayer.BELOW_GROUND) == 5 && model.config.Appearances.Where(a => a.Layer == BattleSceneVisualLayer.BELOW_GROUND).Sum(a => a.Cells.Count) == 17, "five complete water shapes cover seventeen cells");
-        Require(model.config.Appearances.All(a => a.Offset.X == 0 && a.Offset.Y == 0), "new assets have no old 8px compensation");
+        bool reviewed1002 = model.config.Id == 1002;
+        Require(model.config.Appearances.Count == (reviewed1002 ? 21 : 13), "expected appearance count");
         foreach (var a in model.config.Appearances) {
             Sprite sprite = ResourceManager.GetUnpackImage(BattleSceneResources.SpritePath(a.Resource));
-            if (a.Resource.EndsWith("/mountain")) { Require(Vector2.Distance(sprite.pivot, new Vector2(56, 49)) < .001f, "mountain elevation-zero pivot"); }
+            Require(sprite != null, "appearance loaded");
+            bool mountain = a.Resource.EndsWith("/mountain") || a.Resource.EndsWith("/mountain_small");
+            bool shadow = a.Resource.EndsWith("/mountain_shadow") || a.Resource.EndsWith("/mountain_small_shadow");
+            if (reviewed1002 && mountain) {
+                Require(a.Layer == BattleSceneVisualLayer.ABOVE_GROUND && a.Offset.X == 0 && a.Offset.Y == -model.config.GroundThickness, "mountain foot anchor placed on top once");
+                Vector2 expected = a.Resource.EndsWith("/mountain_small") ? new Vector2(56f,39.2f) : new Vector2(67.68f,73.12f);
+                Require(Vector2.Distance(sprite.pivot, expected) < .01f, "reviewed footprint pivot");
+            } else if (reviewed1002 && shadow) {
+                Require(a.Layer == BattleSceneVisualLayer.GROUND_SHADOW && a.Offset.X == 0 && a.Offset.Y == -model.config.GroundThickness, "shadow footprint on land top");
+                bool smallShadow = a.Resource.EndsWith("/mountain_small_shadow");
+                Require(sprite.rect.size == (smallShadow ? new Vector2(160,160) : new Vector2(256,256)), "independent shadow canvas");
+                Require(Vector2.Distance(sprite.pivot, smallShadow ? new Vector2(80,80) : new Vector2(160,134)) < .01f, "shadow contact pivot");
+                string bodyResource = a.Resource.Replace("_shadow", "");
+                Require(model.config.Appearances.Count(b => b.Resource == bodyResource && b.Anchor.Q == a.Anchor.Q && b.Anchor.K == a.Anchor.K) == 1, "one shadow per mountain");
+            } else {
+                Require(a.Offset.X == 0 && a.Offset.Y == 0, "legacy or water zero offset");
+                if(mountain) Require(Vector2.Distance(sprite.pivot,new Vector2(56,49))<.001f,"legacy elevation-zero pivot");
+            }
+        }
+        if (reviewed1002) {
+            Require(model.config.Appearances.Count(a => a.Resource.EndsWith("/mountain_small"))==4 && model.config.Appearances.Count(a => a.Resource.EndsWith("/mountain"))==4,"four small and four large");
+            var visible = new Rect(view.cameraCenter - view.viewport.rect.size / (2 * view.zoom), view.viewport.rect.size / view.zoom);
+            int expectedShadows = 0;
+            foreach (var a in model.config.Appearances.Where(a => a.Layer == BattleSceneVisualLayer.GROUND_SHADOW)) {
+                var sprite = ResourceManager.GetUnpackImage(BattleSceneResources.SpritePath(a.Resource));
+                float x = model.config.OriginX + 80.25f * a.Anchor.Q + a.Offset.X;
+                float y = model.config.OriginY + 46.5f * a.Anchor.K + a.Offset.Y;
+                var bounds = new Rect(x - sprite.pivot.x, y - (sprite.rect.height - sprite.pivot.y), sprite.rect.width, sprite.rect.height);
+                if (bounds.Overlaps(visible, true)) expectedShadows++;
+            }
+            int actualShadows = view.layers[(int)BattleSceneVisualLayer.GROUND_SHADOW-1].GetComponentsInChildren<Image>().Count(i => i.sprite != null && (i.sprite.name == "mountain_shadow" || i.sprite.name == "mountain_small_shadow"));
+            Require(actualShadows == expectedShadows, "independent shadows obey viewport culling");
         }
         var pixels = Read(view.groundTexture);
         var original = Read(ResourceManager.GetUnpackImage(BattleSceneResources.SpritePath(model.config.GroundResource)).texture);

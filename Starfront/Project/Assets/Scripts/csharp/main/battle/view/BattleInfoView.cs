@@ -9,6 +9,8 @@ public sealed class BattleInfoView : MonoBehaviour {
     [SerializeField] private float territoryFullLength;
     [SerializeField] private float territoryInsetX;
     private BattleInfoPanel panel;
+
+    private BattleHudSafeArea safeLayout;
     public TextMeshProUGUI friendlyCurrency => panel.txtCurrency;
     public TextMeshProUGUI countdown => panel.txtCountdown;
     public float fullTerritoryLength => territoryFullLength;
@@ -18,6 +20,10 @@ public sealed class BattleInfoView : MonoBehaviour {
             throw new InvalidOperationException("占地条缺少已确认的完整设计长度。");
         }
         this.panel = panel;
+        if (safeLayout == null) {
+            safeLayout = gameObject.AddComponent<BattleHudSafeArea>();
+        }
+        safeLayout.Initialize();
         foreach (var text in GetComponentsInChildren<TextMeshProUGUI>(true)) {
             text.fontStyle = FontStyles.Normal;
         }

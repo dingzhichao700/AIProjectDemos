@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "首版均衡",
+    "initialDelayMs": 3000,
+    "decisionIntervalMs": 2000,
+    "targetCollectors": 2,
+    "producersPerCollector": 3,
+    "currencyReserve": 0,
+    "needWeight": 100,
+    "forwardWeight": 5,
+    "expansionWeight": 2
+  }
+]

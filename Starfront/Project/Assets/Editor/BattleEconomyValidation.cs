@@ -16,7 +16,7 @@ public static class BattleEconomyValidation {
             var sceneGroup = settings.FindGroup("scene");
             Require(configGroup != null && sceneGroup != null, "configuration and scene groups exist");
             Require(configGroup.GetSchema<BundledAssetGroupSchema>().BundleMode == BundledAssetGroupSchema.BundlePackingMode.PackSeparately, "configuration bundles remain separate");
-            foreach (string name in ResourceConst.ALL_CONFIG_LIST) {
+            foreach (string name in ConfigManifest.Names) {
                 string path = ResourceConst.PATH_CONFIG + name + ".json";
                 string guid = AssetDatabase.AssetPathToGUID(path);
                 Require(!string.IsNullOrEmpty(guid), "configuration imported: " + path);
@@ -53,9 +53,10 @@ public static class BattleEconomyValidation {
     }
 
     public static void ValidateLoadedConfiguration() {
-        Require(CfgManager.tables.BattleStartObj.DataList.Count == 2, "two start records");
-        Require(CfgManager.tables.UnitObj.DataList.Count == 4, "four placeholder units");
-        Require(CfgManager.tables.UnitObj.DataList.All(unit => unit.Appearances.Count == 5), "twenty movement records parsed");
+        ResourcePolicyValidation.Validate();
+        Require(CfgManager.tables.BattleStartObj.DataList.Count(start => start.SceneId == BattleConst.InitialSceneId) == 2, "two start records");
+        Require(CfgManager.tables.UnitObj.DataList.Count == 5, "four placeholder units");
+        Require(CfgManager.tables.UnitObj.DataList.Where(u => u.Id >= 1101 && u.Id <= 1104).All(unit => unit.Appearances.Count == 20 && unit.Appearances.Count(a => a.Action == cfg.UnitActionType.MOVE) == 5 && unit.Appearances.Count(a => a.Action == cfg.UnitActionType.IDLE) == 5 && unit.Appearances.Count(a => a.Action == cfg.UnitActionType.ATTACK_1) == 5 && unit.Appearances.Count(a => a.Action == cfg.UnitActionType.DEATH && !a.Loop) == 5), "four units each have five move, attack, idle and death records");
         var scene = CfgManager.tables.BattleSceneObj.Get(BattleConst.InitialSceneId);
         var model = new BattleSceneModel(scene, CfgManager.tables.BattleSceneCellObj.DataList);
         model.InitializeBattle(CfgManager.tables);
@@ -82,7 +83,11 @@ public static class BattleEconomyValidation {
             RookieEngine.enemyTimer.scale = 1;
             RookieEngine.playerTimer.SyncTime(5000);
             RookieEngine.enemyTimer.SyncTime(5000);
-            Require(friendly.currency == 80 && enemy.currency == 60, "timer pause and independent enemy flow");
+            Require(friendly.currency == 80 && enemy.currency == 10 && model.ai.states[BattleSceneCamp.ENEMY].unlockCount == 1, "timer pause and independent enemy flow");
+            RookieEngine.enemyTimer.scale = 0;
+            int decisions = model.ai.states[BattleSceneCamp.ENEMY].decisionCount;
+            RookieEngine.enemyTimer.SyncTime(5000);
+            Require(model.ai.states[BattleSceneCamp.ENEMY].decisionCount == decisions, "paused enemy Timer pauses AI");
             RookieEngine.playerTimer.scale = 1;
             RookieEngine.playerTimer.SyncTime(3000);
             Require(friendly.currency == 90, "resume remainder and no duplicate subscription");

@@ -9,6 +9,8 @@ using UnityEngine.UI;
 /// </summary>
 public class LoadingPanel : BasePanel {
 
+    public override bool KeepOpenOnCloseAll => true;
+
     public TextMeshProUGUI txtProcess;
     public Image imgProcess;
     public CanvasGroup alphaContent;

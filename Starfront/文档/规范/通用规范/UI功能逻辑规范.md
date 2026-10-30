@@ -102,3 +102,7 @@ UIBinder 自动生成的成员区域继续由工程既有生成器维护，不�
 ## 程序集分层的路径适配
 
 本文旧 `com/game/{module}` 路径表示模块内部组织示例。采用程序集分层时，模块根改为 `Assets/Scripts/csharp/{程序集}/{module}`；view、model、model/vo、constant 等内部职责不变。Foundation 不承载设置界面等业务 UI，Login 不依赖 Main，详见运行时与平台专项规范。
+
+## 视窗与安全区
+
+涉及全屏、设计尺寸、safeContent或平台按钮避让时，读取[UI视窗与安全区适配规范](UI视窗与安全区适配规范.md)。项目尺寸与适配界面清单由项目专属规范维护。

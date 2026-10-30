@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class OptionPanel : BasePanel
 {
+
+    public override string[] FullBleedChildren => new[] { "bg", "imgMask", "imgPost" };
     public ScrollList listOption;
     public CanvasGroup canvasMask;
 

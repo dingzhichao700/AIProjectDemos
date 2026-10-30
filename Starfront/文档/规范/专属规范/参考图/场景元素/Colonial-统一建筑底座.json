@@ -1,0 +1,93 @@
+{
+  "status": "recovered from original procedural source; project pixel match verified",
+  "sourceScript": "E:\\ChatGPT\\星域前线\\outputs\\colonial-buildings-lighting-v12\\review_lighting.py",
+  "sourceScriptSHA256": "a5a02340bb6f0381b80a33cd029f157358dd8975b63000620342f615a2b6dcb9",
+  "exportChain": "work/export-battle-figma.py uses buildings from review_lighting.py",
+  "canvas": [
+    192,
+    192
+  ],
+  "anchorTopLeft": [
+    96,
+    96
+  ],
+  "unityPivot": [
+    0.5,
+    0.5
+  ],
+  "anchorMeaning": "building foundation ground contact center; scene terrain offset applied separately",
+  "standardHex": [
+    107,
+    93
+  ],
+  "footprintScale": 0.98,
+  "nominalContactSize": [
+    104.86,
+    91.14
+  ],
+  "contactVerticesRelative": [
+    [
+      -52.43,
+      0.0
+    ],
+    [
+      -26.215,
+      -45.57
+    ],
+    [
+      26.215,
+      -45.57
+    ],
+    [
+      52.43,
+      0.0
+    ],
+    [
+      26.215,
+      45.57
+    ],
+    [
+      -26.215,
+      45.57
+    ]
+  ],
+  "topOffset": [
+    0,
+    -4
+  ],
+  "slabThicknessPx": 4,
+  "innerRimScale": 0.92,
+  "renderSupersampling": 4,
+  "commonFile": "foundation-common.png",
+  "hqVariant": "same base, additional front panel seams",
+  "independentGroundShadow": true,
+  "terrainThicknessIsSeparate": 10,
+  "projectReconstructionChecks": [
+    {
+      "id": "hq",
+      "pixelIdentical": true,
+      "maxChannelDifference": 0,
+      "projectSHA256": "de6ae5db8d843f413cd720a4ce86a8c47472b819ba806f5960f723c67f187685"
+    },
+    {
+      "id": "collector",
+      "pixelIdentical": true,
+      "maxChannelDifference": 0,
+      "projectSHA256": "01215858fa6fe58aaa727273fe73eedcae284382af7cb5627d513810d78a6a89"
+    },
+    {
+      "id": "infantry_camp",
+      "pixelIdentical": true,
+      "maxChannelDifference": 0,
+      "projectSHA256": "df3f38b88c3c099f82764c8f1b918fd202fed02cacc2e1dd1229a667a339d541"
+    },
+    {
+      "id": "turret",
+      "pixelIdentical": true,
+      "maxChannelDifference": 0,
+      "projectSHA256": "4ad250870babe4b5ac30de836516a2639fed05ba95a4f4444d40a212a641d613"
+    }
+  ],
+  "noUnityChanges": true,
+  "nextStep": "reuse common base unchanged; generate upper starport body separately"
+}

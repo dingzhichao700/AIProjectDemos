@@ -18,6 +18,17 @@ public sealed class BattleSceneModel : SceneModel {
     public event Action InformationChanged;
 
     public event Action StructureChanged;
+    public event Action<BattleUnlockResultVO> UnlockCompleted;
+
+    internal void NotifyUnlockCompleted(BattleCellVO cell, BattleSceneCamp actor) {
+        UnlockCompleted?.Invoke(new BattleUnlockResultVO(cell, actor));
+    }
+
+    public BattleCombatModel combat { get; private set; }
+    public BattleTerritoryModel territory { get; private set; }
+    public BattleAIModel ai { get; private set; }
+    public BattleResultVO result { get; private set; }
+    public event Action<BattleSceneModel> BattleEnded;
 
     public BattleNavigation navigation { get; private set; }
 
@@ -61,6 +72,14 @@ public sealed class BattleSceneModel : SceneModel {
         if (campMap.Count != 0) {
             throw new InvalidOperationException("本局已初始化。");
         }
+        foreach (var unit in tables.UnitObj.DataList) {
+            BattleSkillModel.CreateSkills(unit, tables);
+        }
+        foreach (var building in tables.BuildingObj.DataList) {
+            if (building.HitRadius <= 0 || float.IsNaN(building.HitRadius) || float.IsInfinity(building.HitRadius) || float.IsNaN(building.HitOffset.X) || float.IsInfinity(building.HitOffset.X) || float.IsNaN(building.HitOffset.Y) || float.IsInfinity(building.HitOffset.Y)) {
+                throw new InvalidOperationException("建筑命中配置非法：" + building.Id);
+            }
+        }
         int duration = BattleConst.DurationSeconds;
         if (duration <= 0 || string.IsNullOrWhiteSpace(BattleConst.FriendlyName) || string.IsNullOrWhiteSpace(BattleConst.EnemyName)) {
             throw new InvalidOperationException("对局时长或首版名称常量无效。");
@@ -81,8 +100,11 @@ public sealed class BattleSceneModel : SceneModel {
         }
         AddCamp(tables, BattleSceneCamp.FRIENDLY, config.FriendlyBaseQ, config.FriendlyBaseK);
         AddCamp(tables, BattleSceneCamp.ENEMY, config.EnemyBaseQ, config.EnemyBaseK);
+        territory = new BattleTerritoryModel(this);
         navigation = new BattleNavigation(this);
+        combat = new BattleCombatModel(this);
         unlocks = new BattleUnlockModel(this, tables, randomSeed.HasValue ? new System.Random(randomSeed.Value) : new System.Random());
+        ai = new BattleAIModel(this, tables);
     }
 
     private void OnBattleTimeUpdated(float deltaTime) {
@@ -92,17 +114,47 @@ public sealed class BattleSceneModel : SceneModel {
         if (float.IsNaN(deltaTime) || float.IsInfinity(deltaTime) || deltaTime < 0) {
             throw new ArgumentOutOfRangeException(nameof(deltaTime));
         }
+        territory?.Resolve();
         int before = displayRemainingSeconds;
         remainingSeconds = Math.Max(0, remainingSeconds - deltaTime);
-        if (remainingSeconds == 0) {
-            expired = true;
-        }
         if (before != displayRemainingSeconds) {
             InformationChanged?.Invoke();
         }
-        if (expired) {
+        if (remainingSeconds == 0) {
+            int friendly = GetTerritoryCount(BattleSceneCamp.FRIENDLY);
+            int enemy = GetTerritoryCount(BattleSceneCamp.ENEMY);
+            Finish(friendly == enemy ? BattleSceneCamp.ABSOLUTE_NEUTRAL : friendly > enemy ? BattleSceneCamp.FRIENDLY : BattleSceneCamp.ENEMY, BattleEndReason.TimeExpired);
             TimeExpired?.Invoke(this);
         }
+    }
+
+    private void Finish(BattleSceneCamp winner, BattleEndReason reason) {
+        if (expired) {
+            return;
+        }
+        expired = true;
+        result = new BattleResultVO(winner, reason, GetTerritoryCount(BattleSceneCamp.FRIENDLY), GetTerritoryCount(BattleSceneCamp.ENEMY));
+        StopTimeFlow();
+        BattleEnded?.Invoke(this);
+    }
+
+    internal void RemoveDefeated(BattleCombatantVO target, BattleSceneCamp sourceCamp) {
+        if (target.hp > 0 || target.destroyed) {
+            return;
+        }
+        if (target is BattleUnitVO) {
+            RemoveCombatUnit(target.id);
+            return;
+        }
+        var building = (BattleBuildingVO)target;
+        RemoveElement(building.id);
+        buildingMap.Remove(building.id);
+        if (building.config.Type == BuildingType.BASE) {
+            Finish(building.camp == BattleSceneCamp.FRIENDLY ? BattleSceneCamp.ENEMY : BattleSceneCamp.FRIENDLY, BattleEndReason.BaseDestroyed);
+            return;
+        }
+        territory.CaptureDestroyedBuilding(building, sourceCamp);
+        NotifyStructureChanged();
     }
 
     /**归属统计包含未解锁普通格；不包含中立障碍。*/
@@ -165,6 +217,10 @@ public sealed class BattleSceneModel : SceneModel {
         cell.SetUnlockResult(cardId);
     }
 
+    internal void NotifyInformationChanged() {
+        InformationChanged?.Invoke();
+    }
+
     internal void NotifyStructureChanged() {
         StructureChanged?.Invoke();
         InformationChanged?.Invoke();
@@ -176,13 +232,10 @@ public sealed class BattleSceneModel : SceneModel {
             return false;
         }
         var target = building.owner.camp == BattleSceneCamp.FRIENDLY ? GetCell(config.EnemyBaseQ, config.EnemyBaseK) : GetCell(config.FriendlyBaseQ, config.FriendlyBaseK);
-        var path = navigation.FindGroundPath(building.cell, target);
+        var unitConfig = CfgManager.tables.UnitObj.Get(building.unitProduction.UnitId);
+        var path = navigation.FindPath(building.cell, target, unitConfig.MovementType);
         if (path == null || path.Count == 0) {
             return false;
-        }
-        var unitConfig = CfgManager.tables.UnitObj.Get(building.unitProduction.UnitId);
-        if (unitConfig.MovementType != UnitMovementType.GROUND) {
-            throw new NotSupportedException("本阶段尚未接入飞行路径。");
         }
         Vector2 birth = path[0];
         path.RemoveAt(0);
@@ -194,9 +247,10 @@ public sealed class BattleSceneModel : SceneModel {
 
     /**死亡移除释放名额后，立即尝试已满进度的等待建筑；不结束未完成周期。*/
     internal bool RemoveCombatUnit(long id) {
-        if (!elements.TryGetValue(id, out var element) || !(element is BattleUnitVO unit)) {
+        if (expired || !elements.TryGetValue(id, out var element) || !(element is BattleUnitVO unit)) {
             return false;
         }
+        unit.ClearTerritoryTrace();
         RemoveElement(id);
         foreach (var producer in buildingMap.Values) {
             if (producer.owner.camp == unit.camp) {
@@ -259,9 +313,17 @@ public sealed class BattleSceneModel : SceneModel {
 
     public void Dispose() {
         StopTimeFlow();
+        ai?.Dispose();
+        ai = null;
+        territory?.Dispose();
+        territory = null;
+        combat?.Dispose();
+        combat = null;
+        BattleEnded = null;
         sceneTimeUpdated -= OnBattleTimeUpdated;
         InformationChanged = null;
         StructureChanged = null;
+        UnlockCompleted = null;
         unlocks = null;
         navigation = null;
         TimeExpired = null;

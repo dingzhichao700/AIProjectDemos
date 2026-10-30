@@ -12,9 +12,26 @@ public sealed class PortraitGameViewport : MonoBehaviour {
 
     [SerializeField] private Vector2 designSize = new Vector2(720f, 1280f);
 
+    /**项目唯一设计尺寸；横竖方向由该配置决定，不由设备或旧预制体推断。*/
+    public Vector2 DesignSize => new Vector2(Mathf.Max(1f, designSize.x), Mathf.Max(1f, designSize.y));
+
     private RectTransform scaleCanvas;
 
     private RectTransform constantCanvas;
+
+    private bool fullScreen;
+
+    /**窗口管理器按已打开窗口的适配声明统一设置，避免嵌套窗口关闭时提前恢复。*/
+    public void SetFullScreen(bool enabled) {
+        fullScreen = enabled;
+        Refresh();
+    }
+
+    /**720×1280仍是基准；以等比缩放容纳基准后，扩展剩余可见空间。*/
+    public static Vector2 FullScreenDesignSize(Vector2 available, Vector2 design) {
+        float scale = Mathf.Min(available.x / design.x, available.y / design.y);
+        return scale > 0 ? available / scale : design;
+    }
 
     /**由全屏面板按生命周期选择，默认保持旧窗口的固定设计区域。*/
     public bool flexiblePortrait { get; private set; }
@@ -54,8 +71,10 @@ public sealed class PortraitGameViewport : MonoBehaviour {
         if (scaleRoot == null || constantRoot == null) {
             return;
         }
-        Vector2 size = new Vector2(Mathf.Max(1f, designSize.x), Mathf.Max(1f, designSize.y));
-        if (flexiblePortrait) {
+        Vector2 size = DesignSize;
+        if (fullScreen) {
+            size = FullScreenDesignSize(scaleCanvas.rect.size, size);
+        } else if (flexiblePortrait) {
             size = FlexibleDesignSize(scaleCanvas.rect.size, size);
         }
         Rect scaledFit = FitRect(scaleCanvas.rect.size, size);

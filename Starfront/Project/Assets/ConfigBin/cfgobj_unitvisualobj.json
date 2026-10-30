@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1101,
+    "name": "殖民军步兵",
+    "normalHeight": 44,
+    "deathHoldMs": 2000,
+    "deathFadeMs": 300,
+    "deathEffect": ""
+  },
+  {
+    "id": 1201,
+    "name": "殖民军女妖战机",
+    "normalHeight": 44,
+    "deathHoldMs": 0,
+    "deathFadeMs": 0,
+    "deathEffect": "scene/battle/effect/GunshipAirExplosion"
+  }
+]

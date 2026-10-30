@@ -11,7 +11,7 @@ using UnityEngine.UI;
 /// <summary>将已批准的静态场景预制迁移为运行时容器；不改动场景美术资源。</summary>
 public static class BattleSceneSetup {
     public static void RunBatch() {
-        string path = ResourceConst.GetUIPath(UIEnum.BATTLE_SCENE_PANEL);
+        string path = ResourceConst.GetUIPath(MainUIEnum.BATTLE_SCENE_PANEL);
         string backup = "Library/BattleSceneSetupBackup";
         Directory.CreateDirectory(backup);
         if (!File.Exists(backup + "/BattleScenePanel.prefab")) {

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 
 public class AudioManager {
@@ -100,7 +100,7 @@ public class AudioManager {
 
     /**基于音效id播放音效*/
     public void PlaySoundById(AudioBusType type, int audioId, float volume = 1f, bool loop = false, bool fadeIn = false, float fadeDuration = 0.2f) {
-        PlaySound(type, ResourceConst.GetAudioPathById(audioId), volume, loop, fadeIn, fadeDuration);
+        PlaySound(type, ResourcePresentation.Policy.ResolveAudio(audioId), volume, loop, fadeIn, fadeDuration);
     }
 
     /**播放音效*/
@@ -267,7 +267,7 @@ public class AudioManager {
 
     /**通过音效id播放 BGM*/
     public void PlayBgmById(int audioId, float volume = 1f, bool restartIfSame = false, bool fadeIn = true, float fadeDuration = 1f) {
-        PlayBgm(ResourceConst.GetAudioPathById(audioId), volume, restartIfSame, fadeIn, fadeDuration);
+        PlayBgm(ResourcePresentation.Policy.ResolveAudio(audioId), volume, restartIfSame, fadeIn, fadeDuration);
     }
 
     /**播放 BGM*/

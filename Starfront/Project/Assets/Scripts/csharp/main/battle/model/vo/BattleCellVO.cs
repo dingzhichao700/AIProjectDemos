@@ -7,7 +7,16 @@ public sealed class BattleCellVO : SceneElementVO {
     public int configId { get; }
     public int q { get; }
     public int k { get; }
-    public BattleSceneCamp camp { get; }
+    public BattleSceneCamp camp { get; private set; }
+    public bool capturable => groundPassable && camp != BattleSceneCamp.ABSOLUTE_NEUTRAL;
+
+    internal bool TrySetCamp(BattleSceneCamp value) {
+        if (!capturable || camp == value || (value != BattleSceneCamp.FRIENDLY && value != BattleSceneCamp.ENEMY)) {
+            return false;
+        }
+        camp = value;
+        return true;
+    }
     public BattleSceneCellType type { get; }
     public CellUnlockResource unlockConfig { get; private set; }
 

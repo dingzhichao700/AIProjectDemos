@@ -17,6 +17,11 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 5367e2a8f2d1edc469a28ac087cb8e47
   m_SerializeEntries:
+  - m_GUID: 412de1345b7340d8bdab4578d63061ad
+    m_Address: Assets/ConfigBin/cfgobj_unitvisualobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0474fe58d10cba94da6955102dfb9e95
     m_Address: Assets/ConfigBin/cfgobj_settingoptionobj.json
     m_ReadOnly: 0
@@ -44,6 +49,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2c2caeca00a584349a6a4ee4139f8e77
     m_Address: Assets/ConfigBin/cfgobj_cardobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3edd1785b91964849a7e32e004ff4b3c
+    m_Address: Assets/ConfigBin/cfgobj_battleaiprofileobj.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -77,6 +87,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a77edd0ceb851da4491a1ed17b7c4998
+    m_Address: Assets/ConfigBin/cfgobj_projectileobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c0692efd66daca44b9a4c983cdab7161
     m_Address: Assets/ConfigBin/cfgobj_cardlevelobj.json
     m_ReadOnly: 0
@@ -84,6 +99,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d5d8ea3e946cc17489b05e59f5af544c
     m_Address: Assets/ConfigBin/cfgobj_functionobj.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da39ffe20799d544080c0bf56c2fd74a
+    m_Address: Assets/ConfigBin/cfgobj_skillobj.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

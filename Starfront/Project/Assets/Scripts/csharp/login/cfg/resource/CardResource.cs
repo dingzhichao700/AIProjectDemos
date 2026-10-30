@@ -25,6 +25,7 @@ public sealed partial class CardResource : Luban.BeanBase
         { if(!_buf["image"].IsString) { throw new SerializationException(); }  Image = _buf["image"]; }
         { if(!_buf["content"].IsObject) { throw new SerializationException(); }  Content = global::cfg.bean.CardContent.DeserializeCardContent(_buf["content"]);  }
         { if(!_buf["fragmentItemId"].IsNumber) { throw new SerializationException(); }  FragmentItemId = _buf["fragmentItemId"]; }
+        { if(!_buf["unlockWeight"].IsNumber) { throw new SerializationException(); }  UnlockWeight = _buf["unlockWeight"]; }
     }
 
     public static CardResource DeserializeCardResource(JSONNode _buf)
@@ -64,6 +65,10 @@ public sealed partial class CardResource : Luban.BeanBase
     /// 碎片道具ID
     /// </summary>
     public readonly int FragmentItemId;
+    /// <summary>
+    /// 同品质兵种卡解锁权重（正整数）
+    /// </summary>
+    public readonly int UnlockWeight;
    
     public const int __ID__ = -1218783938;
     public override int GetTypeId() => __ID__;
@@ -84,6 +89,7 @@ public sealed partial class CardResource : Luban.BeanBase
         + "image:" + Image + ","
         + "content:" + Content + ","
         + "fragmentItemId:" + FragmentItemId + ","
+        + "unlockWeight:" + UnlockWeight + ","
         + "}";
     }
 }

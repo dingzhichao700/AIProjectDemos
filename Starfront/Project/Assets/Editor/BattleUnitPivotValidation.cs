@@ -16,7 +16,7 @@ public static class BattleUnitPivotValidation {
         var tables = CfgManager.tables;
         var model = new BattleSceneModel(tables.BattleSceneObj.Get(BattleConst.InitialSceneId), tables.BattleSceneCellObj.DataList);
         var root = new GameObject("PivotValidation", typeof(RectTransform)).GetComponent<RectTransform>();
-        var view = new BattleUnitView(model, root);
+        var view = new BattleUnitView(model, root, root);
         var directions = new[] { Vector2.up, Vector2.down, Vector2.left, Vector2.right, new Vector2(1, 1), new Vector2(1, -1), new Vector2(-1, 1), new Vector2(-1, -1) };
         var animationTime = typeof(BattleUnitVO).GetProperty("animationMs", BindingFlags.Public | BindingFlags.Instance);
         try {

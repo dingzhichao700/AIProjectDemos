@@ -17,6 +17,23 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 81759b494abdd1b41b2579da118e6c14
   m_SerializeEntries:
+  - m_GUID: 01b32bf496ce43a4d8b219dab5508d26
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Death_DownRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0294eafaff57424085ecf221ddd652d5
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Idle_DownRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 04a7a0821aac49d419a7a350c4586361
+    m_Address: Assets/Art/material/scene/battle/1002/ground.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - scene1002
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 08d028bd592aa23449af877924cac36c
     m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_001.png
     m_ReadOnly: 0
@@ -28,8 +45,25 @@ MonoBehaviour:
     m_SerializedLabels:
     - battle
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d2418b77a4d4c7a9107b9e737b50c39
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Death_Down.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0f2213b6e99e64747a2c171f215e4248
     m_Address: Assets/Art/unpack/scene/battle/appearance/Ground_Red.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f320926ce3ceec4f8919f42f79f9840
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Death_Down.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f4e6c86a36d4c65a061591f6b123700
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Idle_Right.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -38,6 +72,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - battle
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b3346eb35a54bbeb69d180528a22e63
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Attack1_Up.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1d1ddaea32fd1fe40b85ea5ed855cb6b
     m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_AboveGround_565.png
@@ -49,11 +89,32 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21f6721e0e1448a6b6dbc6ee0a58626b
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Idle_UpRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2780141ffbd84036b87ee1d99a987d2a
+    m_Address: Assets/Art/unpack/scene/battle/appearance/HP_Fill_Enemy_37.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b981aae68e9488091affd63e66c141b
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Attack1_Down.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2ec13302f2f0bb34190b3c7bdb0102bf
     m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Move_DownRight.json
     m_ReadOnly: 0
     m_SerializedLabels:
     - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3144e8f2b8fe4c238fc308f848a84e97
+    m_Address: Assets/Art/unpack/scene/battle/appearance/HP_Fill_Friendly_61.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 36d7171814f3b4949a4c6428568a1a5d
     m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_194.png
@@ -65,21 +126,61 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a3342dccc7b41888c25286281aa56cb
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Death_Up.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3b554777be1c3cf4ab67fd7a89fb05c8
     m_Address: Assets/Art/unpack/scene/battle/appearance/hq.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3e94a43b7e6a79043af215261315bf68
-    m_Address: Assets/Art/unpack/scene/battle/ground/water_single.png
+  - m_GUID: 3cc58e51a28a438290ae8b83792922c6
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Attack1_Down.json
     m_ReadOnly: 0
     m_SerializedLabels:
-    - battle
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3de21764e244421faf3f41d819e87efe
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Attack1_UpRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e94a43b7e6a79043af215261315bf68
+    m_Address: Assets/Art/unpack/scene/battle/1001/water_single.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - scene1001
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 42f5e39d67994db0a1e65185f20da592
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Idle_Right.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43dc1211141a35342be5a236e0ea7b6b
+    m_Address: Assets/Art/unpack/scene/battle/1002/mountain_small.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - scene1002
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44f91aa9d5304da69cc77165d56b55a9
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Idle_DownRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 45071ff56975a614c9097197c7c29c4e
     m_Address: Assets/Art/unpack/scene/battle/appearance/turret_shadow.png
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 45392f18d0ed411387631df70f4c6c7f
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Death_UpRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 47bcb7e715655904788a33f5622fd6a9
     m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Move_UpRight.png
@@ -92,8 +193,30 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e19b2b542c14f988cd4b9e01abc55a4
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Idle_Down.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 50c12aa0f8d6d564d814f338a1f94b19
     m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_227.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52089540ffc5b5c46a76df093e314bd3
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Death_Up.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52443bc1ccdd747428fc1268a98aef0d
+    m_Address: Assets/Art/unpack/scene/battle/1002/water_cluster_7.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - scene1002
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 536666d2ac064c9da5a423de3cb45830
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Idle_UpRight.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -107,6 +230,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b4844e5de644e868a5b0afcfcc52908
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Idle_Up.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5de4fad1b083e18418a536c9f627bffb
     m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_190.png
@@ -124,6 +252,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - Colonial
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66b9886ed7ee42718d4711503d4c1e92
+    m_Address: Assets/Art/unpack/scene/battle/appearance/HP_BG_37.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6ba272cfb00d8e145a1c4f1bf4b3bfaa
     m_Address: Assets/Art/unpack/scene/battle/appearance/hq_shadow.png
     m_ReadOnly: 0
@@ -139,11 +272,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8433bb596583ab04188357830869c6e3
-    m_Address: Assets/Art/unpack/scene/battle/ground/ground_grid.png
+  - m_GUID: 825b1f20df63e9d4caf50bf90626a22e
+    m_Address: Assets/Art/unpack/scene/battle/1002/mountain.png
     m_ReadOnly: 0
     m_SerializedLabels:
-    - battle
+    - scene1002
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8378e97a17ae465aa181ed1e26e9aad2
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Attack1_Right.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8433bb596583ab04188357830869c6e3
+    m_Address: Assets/Art/unpack/scene/battle/1001/ground_grid.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - scene1001
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8485a08fd41d0fe47a6533309f0de862
     m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_188.png
@@ -151,16 +296,28 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8527474c9fa5f1344a5eaa69bc7a395c
-    m_Address: Assets/Art/unpack/scene/battle/ground/ground.png
+    m_Address: Assets/Art/unpack/scene/battle/1001/ground.png
     m_ReadOnly: 0
     m_SerializedLabels:
-    - battle
+    - scene1001
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 858267d638d04862838fa27fd1a1c139
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Death_DownRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 864d761eb0416c242bea1c90fe4e62ac
-    m_Address: Assets/Art/material/scene/battle/ground1001Owners.png
+    m_Address: Assets/Art/material/scene/battle/1001/owners.png
     m_ReadOnly: 0
     m_SerializedLabels:
-    - battle
+    - scene1001
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d0a351af99942009240f0034b02fcae
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Attack1_Right.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8fa799ae6e8d1f746920c53a704f146d
     m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Move_Right.json
@@ -173,8 +330,31 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a57a66dc5f3a144d9b1c6e461669cd0
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Death_Right.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b01d48de291f2a4da2e7dc441f39113
+    m_Address: Assets/Art/unpack/scene/battle/1002/water_single.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - scene1002
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e0f22edd366482bb6a9ded1d674922e
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Attack1_Up.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9f49a3350816878489cdd9cd3da37645
     m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_017.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f5a86104f1c468c95ab9df15a65391a
+    m_Address: Assets/Art/unpack/scene/battle/appearance/HP_Fill_Friendly_37.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -183,6 +363,35 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - battle
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a1945958fd1c1874a9313801fe4256c1
+    m_Address: Assets/Art/material/scene/battle/1002/owners.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - scene1002
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a23961c5ee8047c683f6e735f1984dfd
+    m_Address: Assets/Art/unpack/scene/battle/appearance/HP_Fill_Enemy_61.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a54394f67d5427c4cbc1492152838e61
+    m_Address: Assets/Art/unpack/scene/battle/1002/ground_grid.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - scene1002
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8d281864fe768b4783ac78446b5d73d
+    m_Address: Assets/Art/unpack/scene/battle/1002/ground.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - scene1002
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac70c34a0a5a4f4db09ec03e2eb0d3d6
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Death_Right.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ae387146217d7624c9b5b98115498a4b
     m_Address: Assets/Art/unpack/scene/battle/effects/UI_random.png
@@ -205,6 +414,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4ae8c7d5ae50df46b806751c2f036c3
+    m_Address: Assets/Art/frameAnimation/scene/battle/effect/RifleImpact.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b6af1a1085da02342af9fbfa9cb0fe24
     m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_187.png
     m_ReadOnly: 0
@@ -221,11 +435,35 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c060e1c307ac4dfc93287410b4451d2c
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Attack1_UpRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c15c57fa9366e7548b952e33792b6ce4
     m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Move_UpRight.json
     m_ReadOnly: 0
     m_SerializedLabels:
     - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c18ceaacf310470438de7519f465464b
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Death_UpRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc9534d93a034641bde494e669188b60
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Attack1_DownRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d927148a69e74f588480f5155c670369
+    m_Address: Assets/Art/unpack/scene/battle/effects/UI_collector.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - battle
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ce29f58d2ab681a448c72d890d342daa
     m_Address: Assets/Art/unpack/scene/battle/effects/UI_helmet.png
@@ -233,11 +471,28 @@ MonoBehaviour:
     m_SerializedLabels:
     - battle
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: dd2d5ca1c4b1c9442a3eb80c837adaa0
-    m_Address: Assets/Art/unpack/scene/battle/ground/mountain.png
+  - m_GUID: cf33d913457b1b048a80c21a073a49d7
+    m_Address: Assets/Art/unpack/scene/battle/projectile/RifleProjectile.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dfa69e1a9b544c9d8bce1547bade3416
+    m_Address: Assets/Art/unpack/scene/battle/1002/mountain_shadow.png
     m_ReadOnly: 0
     m_SerializedLabels:
-    - battle
+    - scene1002
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92fe834fa920431a860a1217cb9b0e1f
+    m_Address: Assets/Art/unpack/scene/battle/1002/mountain_small_shadow.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - scene1002
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd2d5ca1c4b1c9442a3eb80c837adaa0
+    m_Address: Assets/Art/unpack/scene/battle/1001/mountain.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - scene1001
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e029ce18e06e1ab41aad295089d01efb
     m_Address: Assets/Art/unpack/scene/battle/appearance/Production_BG.png
@@ -245,11 +500,31 @@ MonoBehaviour:
     m_SerializedLabels:
     - battle
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3e30f6e404149e58186ff08935f333c
+    m_Address: Assets/Art/unpack/scene/battle/appearance/HP_BG_61.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6f78c9942314224b1c1563d09eaf533
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Idle_Down.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9ab070bdb492184d80d1322b8deedb4
+    m_Address: Assets/Art/frameAnimation/scene/battle/effect/RifleImpact.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9b74a1009d24b1caf224a0980c22702
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Idle_Up.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee0cb707ec0c4844d8e22284e1da0f47
-    m_Address: Assets/Art/material/scene/battle/ground1001.mat
+    m_Address: Assets/Art/material/scene/battle/1001/ground.mat
     m_ReadOnly: 0
     m_SerializedLabels:
-    - battle
+    - scene1001
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee8c3e3d1df40ae4cb6b0b5b405d461b
     m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Move_Down.json
@@ -273,6 +548,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5e9ff85cd154069977e0c8400631f18
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Attack1_DownRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Colonial
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f7bed0cf9ef5a2d40b18724fcbe732bb
     m_Address: Assets/Art/frameAnimation/scene/Colonial/Infantry/Move_Up.png
     m_ReadOnly: 0
@@ -280,13 +561,198 @@ MonoBehaviour:
     - Colonial
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f7cd9605ffbac684d8cacd36d8104a9a
-    m_Address: Assets/Art/unpack/scene/battle/ground/water_cluster_7.png
+    m_Address: Assets/Art/unpack/scene/battle/1001/water_cluster_7.png
     m_ReadOnly: 0
     m_SerializedLabels:
-    - battle
+    - scene1001
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fccb547805da826469974fce46ab2d7d
     m_Address: Assets/Art/unpack/scene/battle/appearance/Terrain_BelowGround_225.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 761ad6920bbd4631add6c595760f9eee
+    m_Address: Assets/Art/unpack/scene/battle/appearance/airport.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 857f285faa2e4f959623e6b02b43e3ec
+    m_Address: Assets/Art/unpack/scene/battle/appearance/airport_shadow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2b30b44ee1c4f8fa62e7f6c3015ad81
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Idle_Up.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 17d43cb211b44096a960a26f718a8272
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Idle_Up.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6446c66e9ca4f969336ccdcebfe2996
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Idle_UpRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f0800e7f10e470db052b6886b897b69
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Idle_UpRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 681b8503a1f74cd8a93cc3d52c83e39c
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Idle_Right.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e7113d23b5f74196a2755075e703b6b3
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Idle_Right.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ce441a82cb94b4c8899a98ac48cdc3d
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Idle_DownRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24b34da72c2540b7836383b635b781b1
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Idle_DownRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 683065c2ee0b4a7c91c5a4c1e8c161c2
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Idle_Down.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21828ed990884dc5967521a112c7cace
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Idle_Down.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e647258a4adf4d48b762a1c23afe4a76
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Move_Up.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d969b26a6834cbc9c6c57f3dffe3b57
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Move_Up.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f976136deaa423da7442fd798c5d123
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Move_UpRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fec65741f104316b05c110e3efdbb24
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Move_UpRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 78eeb1294d1d4fa5856ad2023f950468
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Move_Right.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1411099a8a8143e08613c155c52244c2
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Move_Right.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd66cecce9ba4e639a243c586a5aee38
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Move_DownRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4900921967d947649bbcc51e9ac33f94
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Move_DownRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e736646af9ac4f3893b217277aa5ca0b
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Move_Down.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3ba70effe904195af13cad633f7ab0b
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Move_Down.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f96e5146503c4ff7ae04844301fd4fff
+    m_Address: Assets/Art/unpack/scene/battle/projectile/GunshipMissile.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f472862452884fdc9f52c48e4bacd2ed
+    m_Address: Assets/Art/frameAnimation/scene/battle/effect/GunshipMissileImpact.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c737bf342c14598a2d5440060ad0d63
+    m_Address: Assets/Art/frameAnimation/scene/battle/effect/GunshipMissileImpact.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a773179c9f9f478b83b1fc8a09d93ca6
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Death_Down.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6bcd550fd76f462880a7b25e73c7a79e
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Death_Down.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1823893714d4463fae7eedf432cea835
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Death_DownRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aaa3b55e02f946e0b2189034d5b33cd3
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Death_DownRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9664d6f03d645deb6d539f754291f55
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Death_Right.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba98bcfac53a4b6386a078c5d2247ff2
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Death_Right.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5785f38013894703a1a8f79525569539
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Death_Up.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b98aa3062f1940208570d53f7d73f987
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Death_Up.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6b6ab8340d14161a257f0ed741643df
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Death_UpRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f588c671dbc140df9a182be6383a6eea
+    m_Address: Assets/Art/frameAnimation/scene/Colonial/Gunship/Death_UpRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3108379b6497478894a2f1b2422c9717
+    m_Address: Assets/Art/frameAnimation/scene/battle/effect/GunshipAirExplosion.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f6849aef878f4b449c394cb92a679639
+    m_Address: Assets/Art/frameAnimation/scene/battle/effect/GunshipAirExplosion.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

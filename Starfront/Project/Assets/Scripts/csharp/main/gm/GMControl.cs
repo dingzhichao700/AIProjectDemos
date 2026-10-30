@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
@@ -10,6 +10,25 @@ using TMPro;
 /// </summary>
 /// <remarks>项目业务通过注册接口扩展指令，模板不引用具体游戏模块。</remarks>
 public sealed class GMControl {
+
+    /**由当前业务场景提供实际ID；退出正式内容时清空，模板不依赖具体场景。*/
+    public Func<string> SceneIdProvider { get; set; }
+
+    /**读取本次启动实际锁定的版本，不读取远端最新指针或默认场景常量。*/
+    public string GetDiagnosticsText() {
+        string[] parts = (LoadTiming.version ?? string.Empty).Split('/');
+        string baseVersion = "unknown";
+        string contentVersion = "unknown";
+        if (parts.Length == 2 && !string.IsNullOrWhiteSpace(parts[0]) && !string.IsNullOrWhiteSpace(parts[1])) {
+            baseVersion = parts[0];
+            contentVersion = parts[1];
+        } else if (Application.isEditor) {
+            baseVersion = "editor (local)";
+            contentVersion = "editor (local)";
+        }
+        string scene = SceneIdProvider?.Invoke();
+        return "Base: " + baseVersion + "\nContent: " + contentVersion + "\nScene: " + (string.IsNullOrEmpty(scene) ? "none" : scene);
+    }
 
     /**模块单例*/
     public static GMControl ins { get; } = new GMControl();
@@ -62,7 +81,7 @@ public sealed class GMControl {
         });
         RegisterCommand("closeGM", values => {
             RequireCount(values, 0);
-            PanelMgr.ins.ClosePanelByType(UIEnum.GM_PANEL);
+            PanelMgr.ins.ClosePanelByType(MainUIEnum.GM_PANEL);
             return true;
         });
     }
@@ -86,11 +105,12 @@ public sealed class GMControl {
     /// 退出正式内容时注销快捷键、关闭面板并恢复进入前的倍率。
     /// </summary>
     public void Shutdown() {
+        SceneIdProvider = null;
         if (!initialized) {
             return;
         }
         KeyBoardControl.ins.OffAnyKeyDown(OnKeyDown);
-        PanelMgr.ins.ClosePanelByType(UIEnum.GM_PANEL);
+        PanelMgr.ins.ClosePanelByType(MainUIEnum.GM_PANEL);
         for (int i = 0; i < timerTypes.Length; i++) {
             RookieEngine.GetTimer(timerTypes[i]).scale = initialScales[i];
         }
@@ -104,7 +124,7 @@ public sealed class GMControl {
             Debug.LogError("GM 尚未初始化，请先进入正式内容。");
             return;
         }
-        PanelMgr.ins.OpenPanel(UIEnum.GM_PANEL);
+        PanelMgr.ins.OpenPanel(MainUIEnum.GM_PANEL);
     }
 
     /// <summary>

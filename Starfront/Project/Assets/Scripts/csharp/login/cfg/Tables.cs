@@ -78,6 +78,22 @@ public partial class Tables
     /// 格子解锁内容表
     /// </summary>
     public cfgObj.CellUnlockObj CellUnlockObj {get; }
+    /// <summary>
+    /// 技能表
+    /// </summary>
+    public cfgObj.SkillObj SkillObj {get; }
+    /// <summary>
+    /// 弹道表
+    /// </summary>
+    public cfgObj.ProjectileObj ProjectileObj {get; }
+    /// <summary>
+    /// 电脑玩家发展策略
+    /// </summary>
+    public cfgObj.BattleAIProfileObj BattleAIProfileObj {get; }
+    /// <summary>
+    /// 单位共用形象参数
+    /// </summary>
+    public cfgObj.UnitVisualObj UnitVisualObj {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
@@ -97,6 +113,10 @@ public partial class Tables
         BattleDeckObj = new cfgObj.BattleDeckObj(loader("cfgobj_battledeckobj"));
         CurrencyProductionObj = new cfgObj.CurrencyProductionObj(loader("cfgobj_currencyproductionobj"));
         CellUnlockObj = new cfgObj.CellUnlockObj(loader("cfgobj_cellunlockobj"));
+        SkillObj = new cfgObj.SkillObj(loader("cfgobj_skillobj"));
+        ProjectileObj = new cfgObj.ProjectileObj(loader("cfgobj_projectileobj"));
+        BattleAIProfileObj = new cfgObj.BattleAIProfileObj(loader("cfgobj_battleaiprofileobj"));
+        UnitVisualObj = new cfgObj.UnitVisualObj(loader("cfgobj_unitvisualobj"));
         ResolveRef();
     }
     
@@ -118,6 +138,10 @@ public partial class Tables
         BattleDeckObj.ResolveRef(this);
         CurrencyProductionObj.ResolveRef(this);
         CellUnlockObj.ResolveRef(this);
+        SkillObj.ResolveRef(this);
+        ProjectileObj.ResolveRef(this);
+        BattleAIProfileObj.ResolveRef(this);
+        UnitVisualObj.ResolveRef(this);
     }
 }
 

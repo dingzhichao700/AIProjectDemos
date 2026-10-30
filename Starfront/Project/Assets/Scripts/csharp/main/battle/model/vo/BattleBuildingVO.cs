@@ -6,7 +6,7 @@ using cfg.resource;
 /// 建筑自行推进所属生产周期，产兵成功后才重置进度。
 /// </summary>
 /// <remarks>人口与出生登记交给场景Model；等待期间不累计补发批次。</remarks>
-public sealed class BattleBuildingVO : SceneElementVO {
+public sealed class BattleBuildingVO : BattleCombatantVO {
 
     public BuildingResource config { get; }
 
@@ -24,7 +24,7 @@ public sealed class BattleBuildingVO : SceneElementVO {
 
     private readonly Func<BattleBuildingVO, bool> produceUnit;
 
-    internal BattleBuildingVO(long id, BuildingResource building, BattleCellVO cell, BattleCampVO owner, CurrencyProductionResource production, UnitProductionResource units = null, Func<BattleBuildingVO, bool> produceUnit = null) : base(id, owner.camp == BattleSceneCamp.FRIENDLY ? TimerType.PLAYER : TimerType.ENEMY, cell.position) {
+    internal BattleBuildingVO(long id, BuildingResource building, BattleCellVO cell, BattleCampVO owner, CurrencyProductionResource production, UnitProductionResource units = null, Func<BattleBuildingVO, bool> produceUnit = null) : base(id, owner.camp, cell.position, building.MaxHp) {
         bool currencyValid = production != null && production.BuildingId == building.Id && production.Interval > 0 && production.Count > 0;
         bool unitValid = units != null && units.BuildingId == building.Id && units.Interval > 0 && units.Count == 1 && produceUnit != null;
         if (currencyValid == unitValid || (building.Type == BuildingType.UNIT_PRODUCER ? !unitValid : !currencyValid)) {

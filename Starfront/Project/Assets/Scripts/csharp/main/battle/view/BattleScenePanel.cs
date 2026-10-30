@@ -1,12 +1,16 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 /// <summary>战斗场景窗口，仅负责表现和输入转发；没有扣费或建造规则。</summary>
 public sealed class BattleScenePanel : BasePanel {
+
+    public override bool FitContentToSafeArea => false;
     /******************* UIComponent Define begin ************************/
     /******************* UIComponent Define finish ************************/
 
     private BattleSceneView sceneView;
     public string lastInteractionHint { get; private set; }
+
+    public override bool UsesFullScreenViewport => true;
 
     public BattleScenePanel() {
         layer = PanelLayer.SCALE_PANEL_FIRST;
@@ -16,8 +20,11 @@ public sealed class BattleScenePanel : BasePanel {
         sceneView = GetComponent<BattleSceneView>();
         sceneView.Bind(BattleControl.ins.model);
         lastInteractionHint = string.Empty;
+        GMControl.ins.Init();
+        GMControl.ins.SceneIdProvider = () => BattleControl.ins.model?.config.Id.ToString();
+        BattleShadowGM.Init();
         AddLis();
-        PanelMgr.ins.OpenPanel(UIEnum.BATTLE_INFO_PANEL, new dynamic[] { BattleControl.ins.model });
+        PanelMgr.ins.OpenPanel(MainUIEnum.BATTLE_INFO_PANEL, new dynamic[] { BattleControl.ins.model });
         BattleControl.ins.model.StartTimeFlow();
     }
 
@@ -53,7 +60,9 @@ public sealed class BattleScenePanel : BasePanel {
     }
 
     public override void OnClose() {
-        PanelMgr.ins.GetPanel(UIEnum.BATTLE_INFO_PANEL)?.Close();
+        PanelMgr.ins.GetPanel(MainUIEnum.BATTLE_INFO_PANEL)?.Close();
+        BattleShadowGM.Shutdown();
+        GMControl.ins.Shutdown();
         RemoveLis();
         sceneView.Unbind();
         BattleControl.ins.End();

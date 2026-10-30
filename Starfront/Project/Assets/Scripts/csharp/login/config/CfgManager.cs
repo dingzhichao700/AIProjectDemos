@@ -33,7 +33,7 @@ public static class CfgManager {
     /**加载全部配置数据后统一解析表引用*/
     private static async Task LoadAllAsync() {
         var resources = new List<ResLoadInfo>();
-        foreach (string name in ResourceConst.ALL_CONFIG_LIST) {
+        foreach (string name in ConfigManifest.Names) {
             resources.Add(new ResLoadInfo(ResourceConst.PATH_CONFIG + name, ResType.Json));
         }
         // 各表下载互相独立，全部就绪后才构造含跨表引用的 Tables。
@@ -63,7 +63,7 @@ public static class CfgManager {
     public static void Clear() {
         ConfigValueHelper.ClearCache();
         _tables = null;
-        foreach (string cfgName in ResourceConst.ALL_CONFIG_LIST) {
+        foreach (string cfgName in ConfigManifest.Names) {
             ResourceManager.Release(ResourceConst.PATH_CONFIG + cfgName);
         }
     }

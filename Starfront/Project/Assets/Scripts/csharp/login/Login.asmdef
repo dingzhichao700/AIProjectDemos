@@ -5,7 +5,8 @@
         "Unity.TextMeshPro",
         "Unity.ugui",
         "DOTween.Modules",
-        "Luban.Runtime"
+        "Luban.Runtime",
+        "Wx"
     ],
     "includePlatforms": [],
     "autoReferenced": false

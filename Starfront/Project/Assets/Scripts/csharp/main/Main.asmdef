@@ -2,6 +2,7 @@
     "name": "Main",
     "references": [
         "Foundation",
+        "Wx",
         "Login",
         "Unity.TextMeshPro",
         "Unity.ugui",

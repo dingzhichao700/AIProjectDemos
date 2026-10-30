@@ -13,11 +13,13 @@ public sealed class BattleControl {
     private readonly HashSet<string> ownedResources = new HashSet<string>();
     public event Action<long, string> UnlockRejected;
     public event Action Finished;
+    public BattleResultVO lastResult { get; private set; }
 
     public Task PrepareAsync(int sceneId) {
         if (pending != null || model != null) {
             throw new InvalidOperationException("战斗已开始或正在准备。");
         }
+        lastResult = null;
         int version = ++generation;
         pending = PrepareCoreAsync(sceneId, version);
         return AwaitPreparationAsync();
@@ -58,7 +60,7 @@ public sealed class BattleControl {
                 throw new OperationCanceledException();
             }
             model = candidate;
-            model.TimeExpired += OnTimeExpired;
+            model.BattleEnded += OnBattleEnded;
             ownedResources.UnionWith(acquired);
         } catch {
             candidate?.Dispose();
@@ -69,11 +71,13 @@ public sealed class BattleControl {
         }
     }
 
-    private void OnTimeExpired(BattleSceneModel source) {
+    private void OnBattleEnded(BattleSceneModel source) {
         if (source != model) {
             return;
         }
+        lastResult = source.result;
         source.StopTimeFlow();
+        UnityEngine.Debug.Log("战斗结束：" + lastResult.reason + "，胜方=" + lastResult.winner + "，占地=" + lastResult.friendlyTerritory + ":" + lastResult.enemyTerritory);
         Finished?.Invoke();
     }
 
@@ -81,7 +85,7 @@ public sealed class BattleControl {
     public void End() {
         generation++;
         if (model != null) {
-            model.TimeExpired -= OnTimeExpired;
+            model.BattleEnded -= OnBattleEnded;
             model.Dispose();
         }
         model = null;
@@ -92,14 +96,33 @@ public sealed class BattleControl {
     }
 
     /**供后续伤害/死亡逻辑统一释放人口，表现回收不能调用此接口。*/
+    public bool SetUnitAltitude(long id, float altitude) {
+        if (model == null || !model.elements.TryGetValue(id, out var element) || !(element is BattleUnitVO unit) || unit.destroyed) {
+            return false;
+        }
+        unit.SetAltitude(altitude);
+        return true;
+    }
+
     public bool RemoveUnit(long id) {
         return model != null && model.RemoveCombatUnit(id);
+    }
+
+    /**玩家输入和电脑决策共用提交路径，最终校验与扣费仍由解锁模型负责。*/
+    internal static bool TryUnlockForCamp(BattleSceneModel scene, BattleSceneCamp camp, long cellId, out string reason) {
+        if (scene?.unlocks == null || !scene.camps.ContainsKey(camp)) {
+            reason = "对战尚未就绪或阵营无效";
+            return false;
+        }
+        return scene.unlocks.TryUnlock(cellId, camp, out reason);
     }
 
     public bool TryUnlockCell(long cellId, out string reason) {
         if (model?.unlocks == null) {
             reason = "对战尚未就绪";
-        } else if (model.unlocks.TryUnlock(cellId, cfg.BattleSceneCamp.FRIENDLY, out reason)) {
+        } else if (model.camps[BattleSceneCamp.FRIENDLY].config.ControlType != BattlePlayerControlType.HUMAN) {
+            reason = "该阵营由电脑控制";
+        } else if (TryUnlockForCamp(model, BattleSceneCamp.FRIENDLY, cellId, out reason)) {
             return true;
         }
         UnlockRejected?.Invoke(cellId, reason);

@@ -23,6 +23,8 @@ public sealed partial class BuildingResource : Luban.BeanBase
         { if(!_buf["type"].IsNumber) { throw new SerializationException(); }  Type = (BuildingType)_buf["type"].AsInt; }
         { if(!_buf["maxHp"].IsNumber) { throw new SerializationException(); }  MaxHp = _buf["maxHp"]; }
         { var __json0 = _buf["appearances"]; if(!__json0.IsArray) { throw new SerializationException(); } Appearances = new System.Collections.Generic.List<bean.BuildingAppearance>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { bean.BuildingAppearance __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = global::cfg.bean.BuildingAppearance.DeserializeBuildingAppearance(__e0);  }  Appearances.Add(__v0); }   }
+        { if(!_buf["hitRadius"].IsNumber) { throw new SerializationException(); }  HitRadius = _buf["hitRadius"]; }
+        { if(!_buf["hitOffset"].IsObject) { throw new SerializationException(); }  HitOffset = global::cfg.vector2.Deserializevector2(_buf["hitOffset"]);  }
     }
 
     public static BuildingResource DeserializeBuildingResource(JSONNode _buf)
@@ -54,6 +56,14 @@ public sealed partial class BuildingResource : Luban.BeanBase
     /// 建筑外观
     /// </summary>
     public readonly System.Collections.Generic.List<bean.BuildingAppearance> Appearances;
+    /// <summary>
+    /// 受击半径（像素）
+    /// </summary>
+    public readonly float HitRadius;
+    /// <summary>
+    /// 受击表现偏移
+    /// </summary>
+    public readonly vector2 HitOffset;
    
     public const int __ID__ = -1924822814;
     public override int GetTypeId() => __ID__;
@@ -72,6 +82,8 @@ public sealed partial class BuildingResource : Luban.BeanBase
         + "type:" + Type + ","
         + "maxHp:" + MaxHp + ","
         + "appearances:" + Luban.StringUtil.CollectionToString(Appearances) + ","
+        + "hitRadius:" + HitRadius + ","
+        + "hitOffset:" + HitOffset + ","
         + "}";
     }
 }

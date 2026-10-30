@@ -22,5 +22,11 @@
     "buildingId": 1104,
     "interval": 10000,
     "count": 1
+  },
+  {
+    "unitId": 1201,
+    "buildingId": 1201,
+    "interval": 15000,
+    "count": 1
   }
 ]

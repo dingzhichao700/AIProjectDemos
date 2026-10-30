@@ -28,6 +28,10 @@ namespace cfg
         /// 攻击动作1
         /// </summary>
         ATTACK_1 = 3,
+        /// <summary>
+        /// 空闲
+        /// </summary>
+        IDLE = 4,
     }
 
 } 

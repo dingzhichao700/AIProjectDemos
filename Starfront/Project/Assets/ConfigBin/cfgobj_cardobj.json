@@ -10,7 +10,8 @@
       "$type": "BuildingCardContent",
       "buildingId": 1002
     },
-    "fragmentItemId": 0
+    "fragmentItemId": 0,
+    "unlockWeight": 1
   },
   {
     "id": 1101,
@@ -23,7 +24,8 @@
       "$type": "UnitCardContent",
       "unitId": 1101
     },
-    "fragmentItemId": 0
+    "fragmentItemId": 0,
+    "unlockWeight": 1
   },
   {
     "id": 1102,
@@ -36,7 +38,8 @@
       "$type": "UnitCardContent",
       "unitId": 1102
     },
-    "fragmentItemId": 0
+    "fragmentItemId": 0,
+    "unlockWeight": 1
   },
   {
     "id": 1103,
@@ -49,7 +52,8 @@
       "$type": "UnitCardContent",
       "unitId": 1103
     },
-    "fragmentItemId": 0
+    "fragmentItemId": 0,
+    "unlockWeight": 1
   },
   {
     "id": 1104,
@@ -62,6 +66,21 @@
       "$type": "UnitCardContent",
       "unitId": 1104
     },
-    "fragmentItemId": 0
+    "fragmentItemId": 0,
+    "unlockWeight": 1
+  },
+  {
+    "id": 1201,
+    "name": "女妖战机",
+    "description": "飞行对地单位，由机场生产；卡面暂用机场占位",
+    "quality": 3,
+    "race": 1,
+    "image": "scene/battle/appearance/airport",
+    "content": {
+      "$type": "UnitCardContent",
+      "unitId": 1201
+    },
+    "fragmentItemId": 0,
+    "unlockWeight": 3
   }
 ]

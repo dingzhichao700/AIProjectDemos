@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 /// <summary>
 /// 窗口状态枚举
@@ -17,8 +17,27 @@ public class BasePanel : BaseView {
     /// <summary>
     /// 窗口枚举
     /// </summary>
-    /// <remarks>参考UIEnum</remarks>
+    /// <remarks>窗口标识由业务模块定义</remarks>
     public string panelEnum;
+
+    /// <summary>由具体窗口决定是否在批量关闭时保留。</summary>
+    public virtual bool KeepOpenOnCloseAll => false;
+
+    /**显式选择全屏舞台，默认保持原有设计区适配。*/
+    public virtual bool UsesFullScreenViewport => false;
+
+    /**完整面板默认等比容纳安全区；场景及自布局窗口显式接管。*/
+    public virtual bool FitContentToSafeArea => true;
+
+    /**仅明确声明的背景保留在原根节点，避免按名称猜测装饰图用途。*/
+    public virtual string[] FullBleedChildren => System.Array.Empty<string>();
+
+    /**完整界面沿用项目设计基准；局部弹窗显式声明自身内容尺寸。*/
+    public virtual Vector2 SafeContentDesignSize => PanelMgr.ins.DesignSize;
+
+    private PanelSafeContent safeContent;
+
+    public RectTransform SafeContentRoot => safeContent != null ? safeContent.content : trans;
 
     /**窗口层级，参考PanelLayer*/
     public int layer;
@@ -39,6 +58,12 @@ public class BasePanel : BaseView {
         state = PanelState.STATE_OPENING;
         if (openAudioId != 0) {
             AudioManager.ins.PlaySoundById(AudioBusType.HINT, openAudioId);
+        }
+        if (FitContentToSafeArea) {
+            if (safeContent == null) {
+                safeContent = gameObject.AddComponent<PanelSafeContent>();
+            }
+            safeContent.Initialize(FullBleedChildren, SafeContentDesignSize);
         }
         PlayOpen();
     }

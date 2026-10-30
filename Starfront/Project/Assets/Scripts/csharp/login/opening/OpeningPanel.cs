@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class OpeningPanel : BasePanel
 {
+
+    public override string[] FullBleedChildren => new[] { "bg" };
     public RectTransform boxEff;
     public CanvasGroup boxContent;
     public CanvasGroup canvasGroupStudioMark;

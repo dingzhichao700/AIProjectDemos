@@ -47,7 +47,7 @@ public static class BattleSceneConfigValidation
         {
             string path = ResourceConst.PATH_CONFIG + name + ".json";
             string guid = AssetDatabase.AssetPathToGUID(path);
-            if (string.IsNullOrEmpty(guid) || AssetDatabase.LoadAssetAtPath<TextAsset>(path) == null || !ResourceConst.ALL_CONFIG_LIST.Contains(name))
+            if (string.IsNullOrEmpty(guid) || AssetDatabase.LoadAssetAtPath<TextAsset>(path) == null || !ConfigManifest.Names.Contains(name))
             {
                 throw new InvalidOperationException("Missing configuration or preload entry: " + path);
             }

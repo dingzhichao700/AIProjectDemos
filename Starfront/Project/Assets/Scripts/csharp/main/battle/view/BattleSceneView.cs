@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using TMPro;
 
@@ -13,6 +13,8 @@ public sealed class BattleSceneView : MonoBehaviour {
     public TMP_FontAsset hintFont;
 
     private BattleUnlockView unlockHints;
+    private BattleCardRevealView cardResults;
+    public int cardRevealVisibleCount => cardResults?.visibleCount ?? 0;
 
     public int unlockVisibleCount => unlockHints?.visibleCount ?? 0;
     public event Action<long> CellClicked;
@@ -27,12 +29,13 @@ public sealed class BattleSceneView : MonoBehaviour {
     public RenderTexture groundTexture => ground?.texture;
 
     private BattleUnitView units;
+    private BattleProjectileView projectiles;
+    private BattleHealthView health;
+    public int healthVisibleCount => health?.visibleCount ?? 0;
 
     public int unitVisibleCount => units?.visibleCount ?? 0;
     public int productionVisibleCount => production?.visibleCount ?? 0;
     private Vector2 lastSize;
-    private PortraitGameViewport portrait;
-    private bool previousMode;
     private BattleSceneCamera sceneCamera;
 
     public void Bind(BattleSceneModel scene) {
@@ -44,19 +47,17 @@ public sealed class BattleSceneView : MonoBehaviour {
         root.sizeDelta = Vector2.zero;
         root.anchoredPosition3D = Vector3.zero;
         root.localScale = Vector3.one;
-        portrait = FindObjectOfType<PortraitGameViewport>();
-        if (portrait != null) {
-            previousMode = portrait.flexiblePortrait;
-            portrait.SetFlexiblePortrait(true);
-        }
         model = scene ?? throw new ArgumentNullException(nameof(scene));
         sceneRoot.sizeDelta = new Vector2(scene.config.Width, scene.config.Height);
         ground = new BattleGroundView(scene, layers);
         presentation = new BattleScenePresentation(scene, layers);
         unlockHints = new BattleUnlockView(scene, sceneRoot, lod, layers[(int)cfg.BattleSceneVisualLayer.GROUND_GUIDE - 1], hintFont);
         model.StructureChanged += OnStructureChanged;
-        units = new BattleUnitView(scene, layers[(int)cfg.BattleSceneVisualLayer.ABOVE_GROUND - 1]);
+        units = new BattleUnitView(scene, layers[(int)cfg.BattleSceneVisualLayer.ABOVE_GROUND - 1], layers[(int)cfg.BattleSceneVisualLayer.GROUND_SHADOW - 1]);
+        projectiles = new BattleProjectileView(scene, layers[(int)cfg.BattleSceneVisualLayer.FOREGROUND - 1]);
         production = new BattleProductionView(scene, sceneRoot, lod);
+        health = new BattleHealthView(scene, sceneRoot, lod);
+        cardResults = new BattleCardRevealView(scene, sceneRoot, lod, hintFont);
         sceneCamera = new BattleSceneCamera(new Vector2(scene.config.Width, scene.config.Height), new Vector2(scene.config.CameraCenterX, scene.config.CameraCenterY));
         input.Dragged += OnDrag;
         input.Clicked += OnClick;
@@ -66,13 +67,17 @@ public sealed class BattleSceneView : MonoBehaviour {
     }
 
     private void LateUpdate() {
+        ground?.RefreshIfDirty();
         if (model != null && viewport.rect.size != lastSize) {
             input.ResetGesture();
             RefreshCamera();
         } else if (model != null) {
             units.Refresh(sceneCamera.visibleRect);
+        projectiles.Refresh(sceneCamera.visibleRect);
+            health.Refresh(sceneCamera.visibleRect, zoom);
             production.Refresh(sceneCamera.visibleRect, zoom);
             unlockHints.Refresh(sceneCamera.visibleRect, zoom);
+        cardResults.Refresh(sceneCamera.visibleRect, zoom);
         }
     }
 
@@ -101,8 +106,11 @@ public sealed class BattleSceneView : MonoBehaviour {
         sceneRoot.anchoredPosition = new Vector2(-cameraCenter.x, cameraCenter.y) * zoom;
         presentation.Refresh(sceneCamera.visibleRect);
         units.Refresh(sceneCamera.visibleRect);
+        projectiles.Refresh(sceneCamera.visibleRect);
+        health.Refresh(sceneCamera.visibleRect, zoom);
         production.Refresh(sceneCamera.visibleRect, zoom);
         unlockHints.Refresh(sceneCamera.visibleRect, zoom);
+        cardResults.Refresh(sceneCamera.visibleRect, zoom);
     }
 
     /**建筑生成后重新收集静态外观，复用已预加载资源，镜头位置保持不变。*/
@@ -126,8 +134,14 @@ public sealed class BattleSceneView : MonoBehaviour {
         if (model != null) {
             model.StructureChanged -= OnStructureChanged;
         }
+        cardResults?.Dispose();
+        cardResults = null;
         unlockHints?.Dispose();
         unlockHints = null;
+        health?.Dispose();
+        health = null;
+        projectiles?.Dispose();
+        projectiles = null;
         units?.Dispose();
         units = null;
         production?.Dispose();
@@ -141,10 +155,7 @@ public sealed class BattleSceneView : MonoBehaviour {
         if (sceneRoot != null) {
             sceneRoot.localScale = Vector3.one;
         }
-        if (portrait != null) {
-            portrait.SetFlexiblePortrait(previousMode);
-            portrait = null;
-        }
+
     }
 
     private void OnDestroy() {

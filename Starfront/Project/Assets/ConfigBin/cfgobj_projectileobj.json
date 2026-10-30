@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1101,
+    "name": "步枪子弹",
+    "speed": 600,
+    "lifetimeMs": 2000,
+    "motion": 1,
+    "targetLost": 1,
+    "resource": "scene/battle/projectile/RifleProjectile",
+    "impactResource": "scene/battle/effect/RifleImpact"
+  },
+  {
+    "id": 1201,
+    "name": "女妖导弹",
+    "speed": 350,
+    "lifetimeMs": 3000,
+    "motion": 1,
+    "targetLost": 1,
+    "resource": "scene/battle/projectile/GunshipMissile",
+    "impactResource": "scene/battle/effect/GunshipMissileImpact"
+  }
+]

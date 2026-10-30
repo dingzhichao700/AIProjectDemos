@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,14 +17,14 @@ public class UIFactory {
 
     /**单一加载资源*/
     public static async void LoadUIPrefab(string uiEnum, Action<string> action) {
-        await ResourceLoader.LoadListAsync(new List<ResLoadInfo>() { new ResLoadInfo(ResourceConst.GetUIPath(uiEnum), ResType.Prefab) }, () => {
+        await ResourceLoader.LoadListAsync(new List<ResLoadInfo>() { new ResLoadInfo(ResourcePresentation.Policy.ResolveUI(uiEnum), ResType.Prefab) }, () => {
             action.Invoke(uiEnum);
         });
     }
 
     /**获取UI对象实例（这个接口是同步的，必须提前加载完成才能调用）*/
     public static BaseView GetUIInstance(string uiEnum) {
-        GameObject prefabGo = ResourceManager.GetLoadedPrefab(ResourceConst.GetUIPath(uiEnum));
+        GameObject prefabGo = ResourceManager.GetLoadedPrefab(ResourcePresentation.Policy.ResolveUI(uiEnum));
         if (prefabGo == null) { //拿不到就说明资源管理那边没加载这种预制
             Debug.LogError("获取UI预制失败，该预制还未加载完成：" + uiEnum);
             return null;

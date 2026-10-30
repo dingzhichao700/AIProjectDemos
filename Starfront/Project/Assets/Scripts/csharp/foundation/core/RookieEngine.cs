@@ -40,7 +40,7 @@ public class RookieEngine : MonoBehaviour
 
         LogEnableMap[EngineLogType.LOAD_INFO] = false;
 
-        PanelMgr.ins.SetUIRoot(portraitViewport.scaleRoot, portraitViewport.constantRoot, safeAreaRoot, uiPool);
+        PanelMgr.ins.SetUIRoot(portraitViewport.scaleRoot, portraitViewport.constantRoot, safeAreaRoot, uiPool, portraitViewport.DesignSize);
 
         _timer = new Timer();
         _sceneTimer = new Timer();

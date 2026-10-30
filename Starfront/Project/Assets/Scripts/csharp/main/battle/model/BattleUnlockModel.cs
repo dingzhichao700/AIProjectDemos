@@ -72,6 +72,7 @@ public sealed class BattleUnlockModel {
         scene.CommitUnlock(cell, cardId, building);
         owner.SpendCurrency(cell.unlockConfig.Cost);
         scene.NotifyStructureChanged();
+        scene.NotifyUnlockCompleted(cell, actor);
         return true;
     }
 
@@ -116,7 +117,7 @@ public sealed class BattleUnlockModel {
         enemy.SetUnlockConfig(rule);
     }
 
-    /**权重决定空/采集站/品质，命中品质后在本局同品质卡中等概率选取。*/
+    /**权重决定空/采集站/品质，命中品质后在本局同品质兵种卡中按配置权重抽取。*/
     private int? DrawCard(CellUnlockResource rule, BattleCampVO owner) {
         int value = random.Next(rule.EmptyWeight + rule.CollectorWeight + rule.UnitQualityWeights.Sum(item => item.Weight));
         if ((value -= rule.EmptyWeight) < 0) {
@@ -131,7 +132,18 @@ public sealed class BattleUnlockModel {
                 if (candidates.Count == 0) {
                     throw new InvalidOperationException("卡组缺少已抽中的品质：" + quality.Quality);
                 }
-                return candidates[random.Next(candidates.Count)];
+                long totalWeight = candidates.Sum(id => (long)tables.CardObj.Get(id).UnlockWeight);
+                if (totalWeight <= 0 || totalWeight > int.MaxValue || candidates.Any(id => tables.CardObj.Get(id).UnlockWeight <= 0)) {
+                    throw new InvalidOperationException("同品质卡牌解锁权重非法：" + quality.Quality);
+                }
+                int cardRoll = random.Next((int)totalWeight);
+                foreach (int id in candidates) {
+                    cardRoll -= tables.CardObj.Get(id).UnlockWeight;
+                    if (cardRoll < 0) {
+                        return id;
+                    }
+                }
+                throw new InvalidOperationException("同品质卡牌解锁权重未命中。");
             }
         }
         throw new InvalidOperationException("解锁结果权重未命中。");

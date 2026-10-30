@@ -48,5 +48,16 @@
     "content": "openLayerEffectTest",
     "paramFormat": [],
     "paramIntro": []
+  },
+  {
+    "id": 1002,
+    "desc": "测试当前单位离地高度",
+    "content": "unitAltitude",
+    "paramFormat": [
+      "40"
+    ],
+    "paramIntro": [
+      "离地高度（场景像素，0恢复贴地）"
+    ]
   }
 ]

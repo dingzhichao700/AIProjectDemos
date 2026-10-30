@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -41,7 +41,7 @@ public class PanelMgr : EventDispatcher {
 
     /**正在加载中的窗口列表*/
     private List<string> loadingPanelList = new List<string>();
-    /**已打开的窗口字典<UIEnum枚举,BasePanel>*/
+    /**已打开的窗口字典<业务窗口标识,BasePanel>*/
     private Dictionary<string, BasePanel> openPanelMap = new Dictionary<string, BasePanel>();
 
     /**已经打开的常规窗口列表*/
@@ -168,8 +168,12 @@ public class PanelMgr : EventDispatcher {
         }
     }
 
+    /**由项目视窗配置注入，在打开任何窗口前初始化。*/
+    public Vector2 DesignSize { get; private set; }
+
     /**设置UI节点*/
-    public void SetUIRoot(RectTransform viewportScale, RectTransform viewportConstant, RectTransform safeAreaRoot, RectTransform uiPool) {
+    public void SetUIRoot(RectTransform viewportScale, RectTransform viewportConstant, RectTransform safeAreaRoot, RectTransform uiPool, Vector2 designSize) {
+        DesignSize = designSize;
         this.viewportScale = viewportScale;
         this.viewportConstant = viewportConstant;
         this.safeAreaRoot = safeAreaRoot;
@@ -216,7 +220,7 @@ public class PanelMgr : EventDispatcher {
                 BasePanel panelIns = UIFactory.GetUIInstance(panelEnum) as BasePanel;
                 if (panelIns == null) {
                     Debug.LogError("打开窗口失败，Prefab 根节点缺少有效的 BasePanel/UIBinder：" + panelEnum +
-                                   "，资源路径：" + ResourceConst.GetUIPath(panelEnum));
+                                   "，资源路径：" + ResourcePresentation.Policy.ResolveUI(panelEnum));
                     return;
                 }
                 panelIns.panelEnum = panelEnum;
@@ -281,6 +285,7 @@ public class PanelMgr : EventDispatcher {
             } else {
                 panel.transform.localPosition = new Vector3(0, 0, 0);
             }
+            RefreshViewportMode();
             panel.Open();
             SortAllPanel();
         } else {
@@ -321,7 +326,7 @@ public class PanelMgr : EventDispatcher {
     /**关闭所有界面(加载界面除外)*/
     public void CloseAllPanel() {
         foreach (BasePanel panel in openPanelInsList) {
-            if(panel.panelEnum != UIEnum.LOADING_PANEL) {
+            if (!panel.KeepOpenOnCloseAll) {
                 RookieEngine.timer.CallLater(this, () => { 
                     panel.Close();
                 });
@@ -378,10 +383,16 @@ public class PanelMgr : EventDispatcher {
         return panel;
     }
 
-    /// <summary>
-    /// 排序所有打开中的窗口
-    /// </summary>
+    /**由仍处于打开状态的界面共同决定舞台，不修改默认适配方式。*/
+    private void RefreshViewportMode() {
+        var viewport = UnityEngine.Object.FindObjectOfType<PortraitGameViewport>();
+        if (viewport != null) {
+            viewport.SetFullScreen(openPanelInsList.Exists(panel => panel.UsesFullScreenViewport));
+        }
+    }
+
     public void SortAllPanel() {
+        RefreshViewportMode();
         openPanelInsList.Sort((p1, p2) => {
             return p1.layer - p2.layer;
         });

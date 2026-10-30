@@ -10,9 +10,14 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class SafeAreaFitter : MonoBehaviour {
 
+    /**窄安全区中等比容纳固定宽度的 HUD，零表示纯锚点布局。*/
+    public float minimumContentWidth;
+
     private Rect lastSafeArea;
 
     private Rect lastParentRect;
+
+    private float lastMinimumWidth;
 
     private readonly Vector3[] corners = new Vector3[4];
 
@@ -54,14 +59,25 @@ public class SafeAreaFitter : MonoBehaviour {
         Vector2 min = RectTransformUtility.WorldToScreenPoint(camera, corners[0]);
         Vector2 max = RectTransformUtility.WorldToScreenPoint(camera, corners[2]);
         Rect parentRect = Rect.MinMaxRect(min.x, min.y, max.x, max.y);
-        Rect safeArea = Screen.safeArea;
-        if (parentRect.width <= 0f || parentRect.height <= 0f || (safeArea == lastSafeArea && parentRect == lastParentRect)) {
+        Rect safeArea = UIScreenRegions.ContentArea;
+        if (parentRect.width <= 0f || parentRect.height <= 0f || (safeArea == lastSafeArea && parentRect == lastParentRect && lastMinimumWidth == minimumContentWidth)) {
             return;
         }
         Rect anchors = GetSafeAnchors(parentRect, safeArea);
         rect.anchorMin = anchors.min;
         rect.anchorMax = anchors.max;
         rect.offsetMin = rect.offsetMax = Vector2.zero;
+        rect.localScale = Vector3.one;
+        float width = parent.rect.width * anchors.width;
+        if (width > 0 && width < minimumContentWidth) {
+            float scale = width / minimumContentWidth;
+            rect.anchorMin = rect.anchorMax = anchors.center;
+            rect.pivot = new Vector2(.5f, .5f);
+            rect.sizeDelta = new Vector2(minimumContentWidth, parent.rect.height * anchors.height / scale);
+            rect.anchoredPosition = Vector2.zero;
+            rect.localScale = Vector3.one * scale;
+        }
+        lastMinimumWidth = minimumContentWidth;
         lastSafeArea = safeArea;
         lastParentRect = parentRect;
     }

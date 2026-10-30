@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
@@ -87,7 +87,7 @@ public class FrameAnimationView : MonoBehaviour {
         image.color = Color.white;
         image.raycastTarget = false;
         image.gameObject.SetActive(false);
-        image.material = ResourceManager.GetMaterial(ResourceConst.PATH_MATERIAL + "custom/matInstanceImage");
+
         dispacher = new EventDispatcher();
     }
 
@@ -104,6 +104,7 @@ public class FrameAnimationView : MonoBehaviour {
     /// <param name="timerType">使用的计时器类型</param>
     public async void Play(string path, bool loop = true, Handler handler = null, bool recoverAfterPlay = true, float scale = 1f, int dir = 1, float playSpeed = 1f, TimerType timerType = TimerType.COMMON) {
         ResetPlayback(false);
+        image.material = ResourcePresentation.Policy.GetFrameMaterial();
         _path = path;
         int requestVersion = loadVersion;
         this.loop = loop;
@@ -151,6 +152,7 @@ public class FrameAnimationView : MonoBehaviour {
     /**停在第一帧*/
     public async void StopAtFirstFrame(string path) {
         ResetPlayback(false);
+        image.material = ResourcePresentation.Policy.GetFrameMaterial();
         isPause = true;
         needStopAtFirstFrame = true;
         _path = path;
@@ -355,6 +357,7 @@ public class FrameAnimationView : MonoBehaviour {
         _dir = 1;
         _playSpeed = 1f;
         HideFrame();
+        image.material = null;
         if (clearDispatcher) {
             dispacher.Clear();
         }

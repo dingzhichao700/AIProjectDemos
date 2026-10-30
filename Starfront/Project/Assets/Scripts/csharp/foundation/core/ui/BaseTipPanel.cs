@@ -1,10 +1,12 @@
-﻿
+
 using UnityEngine;
 using UnityEngine.EventSystems;
 /// <summary>
 /// Tip窗口基类
 /// </summary>
 public class BaseTipPanel : BasePanel {
+
+    public override bool FitContentToSafeArea => false;
 
     /**源自舞台哪个位置展示（锚点在左上角的一个矩形）*/
     public Rect sourceStageRect;

@@ -24,7 +24,7 @@ public static class LayerEffectTestGM {
             return;
         }
         GMControl.ins.UnregisterCommand(Command);
-        PanelMgr.ins.ClosePanelByType(UIEnum.LAYER_EFFECT_TEST_PANEL);
+        PanelMgr.ins.ClosePanelByType(MainUIEnum.LAYER_EFFECT_TEST_PANEL);
         initialized = false;
     }
 
@@ -33,8 +33,8 @@ public static class LayerEffectTestGM {
         if (values.Count != 0) {
             throw new ArgumentException("打开图层效果测试界面不需要参数。");
         }
-        PanelMgr.ins.ClosePanelByType(UIEnum.GM_PANEL);
-        PanelMgr.ins.OpenPanel(UIEnum.LAYER_EFFECT_TEST_PANEL);
+        PanelMgr.ins.ClosePanelByType(MainUIEnum.GM_PANEL);
+        PanelMgr.ins.OpenPanel(MainUIEnum.LAYER_EFFECT_TEST_PANEL);
         return true;
     }
 

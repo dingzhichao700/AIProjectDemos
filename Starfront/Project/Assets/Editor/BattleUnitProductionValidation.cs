@@ -19,7 +19,7 @@ public static class BattleUnitProductionValidation {
         float enemyScale = RookieEngine.enemyTimer.scale;
         try {
             model.InitializeBattle(tables, 7);
-            Require(tables.UnitObj.DataList.All(unit => unit.MoveSpeed == 30), "all four configured speeds");
+            Require(tables.UnitObj.DataList.Where(u => u.Id >= 1101 && u.Id <= 1104).All(unit => unit.MoveSpeed == 30), "all four configured speeds");
             var producer = BuildProducer(model, BattleSceneCamp.FRIENDLY);
             producer.OnTimeUpdate(9);
             Require(model.GetUnitCount(BattleSceneCamp.FRIENDLY) == 0 && Math.Abs(producer.productionProgress - .9) < .001, "no early unit; configured progress");
@@ -70,7 +70,7 @@ public static class BattleUnitProductionValidation {
             Require(friendlyUnit.position == friendBefore && Vector2.Distance(enemyUnit.position, enemyBefore) > 29, "independent movement pause");
             model.StopTimeFlow();
             var parent = new GameObject("UnitValidation", typeof(RectTransform)).GetComponent<RectTransform>();
-            var presentation = new BattleUnitView(model, parent);
+            var presentation = new BattleUnitView(model, parent, parent);
             try {
                 presentation.Refresh(new Rect(0, 0, 2000, 2000));
                 Require(presentation.visibleCount == 101, "all live units displayed from shared preloaded animations");
@@ -108,10 +108,10 @@ public static class BattleUnitProductionValidation {
         var view = panel.GetComponent<BattleSceneView>();
         var delta = new Vector2(view.cameraCenter.x - unit.position.x, unit.position.y - view.cameraCenter.y) * view.zoom;
         typeof(BattleSceneView).GetMethod("OnDrag", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(view, new object[] { delta });
-        var hud = PanelMgr.ins.GetPanel(UIEnum.BATTLE_INFO_PANEL) as BattleInfoPanel;
-        Require(hud.txtFriendlyPopulation.text == "1 / 100" && hud.txtEnemyPopulation.text == "0 / 100", "spawn refreshes population HUD immediately");
-        Require(view.unitVisibleCount == 1, "spawned unit visible");
-        var producer = model.buildings.Values.Single(building => building.unitProduction != null);
+        var hud = PanelMgr.ins.GetPanel(MainUIEnum.BATTLE_INFO_PANEL) as BattleInfoPanel;
+        Require(hud.txtFriendlyPopulation.text == "1 / 100" && hud.txtEnemyPopulation.text == model.GetUnitCount(BattleSceneCamp.ENEMY) + " / 100", "spawn refreshes population HUD immediately");
+        Require(view.unitVisibleCount >= 1 && view.layers[(int)BattleSceneVisualLayer.ABOVE_GROUND - 1].Find("unit_" + unit.id) != null, "spawned friendly unit visible alongside AI units");
+        var producer = model.buildings.Values.Single(building => building.unitProduction != null && building.camp == BattleSceneCamp.FRIENDLY);
         var ring = view.lod.Find("production_" + producer.id);
         Require(ring != null && ring.GetComponentInChildren<Image>().gameObject.activeInHierarchy && producer.productionProgress < .2, "unit producer ring resets after output");
         return unit;
@@ -125,7 +125,7 @@ public static class BattleUnitProductionValidation {
             object[] args = { target.id, camp, null };
             Require((bool)typeof(BattleUnlockModel).GetMethod("TryUnlock", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(model.unlocks, args), "fixture unlock");
             var producer = model.buildings.Values.FirstOrDefault(building => building.cell == target && building.unitProduction != null);
-            if (producer != null) {
+            if (producer != null && producer.unitProduction.UnitId != 1201) {
                 return producer;
             }
         }
@@ -138,3 +138,4 @@ public static class BattleUnitProductionValidation {
     }
 
 }
+

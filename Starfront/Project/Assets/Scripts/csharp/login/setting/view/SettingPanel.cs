@@ -7,6 +7,9 @@ using UnityEngine;
 /// </summary>
 public class SettingPanel : BasePanel {
 
+    /**局部弹窗尺寸独立于项目屏幕方向。*/
+    public override UnityEngine.Vector2 SafeContentDesignSize => new Vector2(760, 640);
+
     /******************* UIComponent Define begin ************************/
     public CommonPanelView panelView;
     public ScrollList listTab;

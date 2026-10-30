@@ -22,6 +22,10 @@
       {
         "cardId": 1104,
         "locked": false
+      },
+      {
+        "cardId": 1201,
+        "locked": false
       }
     ]
   }
