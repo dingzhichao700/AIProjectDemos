@@ -97,6 +97,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4e8f2a91b3d4e5f8a7b6c5d4e3f2a1b
+    m_Address: Assets/Prefab/title/connect/ConnectPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e2f064082b7ec214cb7d4a2dbd14806c
     m_Address: Assets/Prefab/title/common/GameButton.prefab
     m_ReadOnly: 0

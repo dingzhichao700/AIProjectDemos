@@ -6,6 +6,9 @@ public static class UIEnum
     // opening
     public const string OPENING_PANEL = "opening/OpeningPanel";
 
+    // connect
+    public const string CONNECT_PANEL = "title/connect/ConnectPanel";
+
     // title
     public const string LOGIN_PANEL = "title/title/LoginPanel";
     public const string OPTION_PANEL = "title/option/OptionPanel";

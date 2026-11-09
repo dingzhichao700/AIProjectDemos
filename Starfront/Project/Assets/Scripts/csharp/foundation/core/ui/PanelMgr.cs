@@ -214,6 +214,7 @@ public class PanelMgr : EventDispatcher {
         if (panelFromPool != null) {
             OpenPanelInstance(panelFromPool, openParams, fromStageRect);
         } else {
+            loadingPanelList.Add(panelEnum);
             UIFactory.LoadUIPrefab(panelEnum, (string fullPath) => {
                 loadingPanelList.Remove(panelEnum);
 

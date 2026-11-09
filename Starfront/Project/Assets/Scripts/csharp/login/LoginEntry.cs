@@ -8,9 +8,9 @@ using UnityEngine.Scripting;
 public class LoginEntry : IGameModuleEntry {
 
     /// <summary>
-    /// 读取并应用设置，然后打开开场界面。
+    /// 读取并应用设置，然后打开连接面板。
     /// </summary>
-    /// <remarks>底座必须先完成 Timer、UI 根节点及资源系统初始化。</remarks>
+    /// <remarks>底座必须先完成 Timer、UI 根节点及资源系统初始化。登录成功后由 ConnectPanel 再打开开场。</remarks>
     [Preserve]
     public Task InitializeAsync() {
         UnityEngine.Debug.Log("[Login] 业务程序集入口已启动。");
@@ -18,7 +18,7 @@ public class LoginEntry : IGameModuleEntry {
         GameUIScreenRegions.Install();
         PersistentDataControl.ins.ReadUserSetting();
         SettingControl.ins.ApplyAllSettings();
-        PanelMgr.ins.OpenPanel(UIEnum.OPENING_PANEL);
+        PanelMgr.ins.OpenPanel(UIEnum.CONNECT_PANEL);
         return Task.CompletedTask;
     }
 
