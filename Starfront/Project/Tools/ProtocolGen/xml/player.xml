@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+	<package>
+		<packName>player</packName>
+		<packDesc>player</packDesc>
+	</package>
+	<bean id="-1101" name="CM_Login" desc="" read="true">
+		<p name="account" desc="" type="string"/>
+		<p name="op" desc="" type="string"/>
+		<p name="server" desc="" type="int"/>
+		<p name="referer" desc="" type="string"/>
+		<p name="time" desc="" type="int"/>
+		<p name="sign" desc="" type="string"/>
+		<p name="ext" desc="" type="string"/>
+		<p name="gid" desc="" type="string"/>
+		<p name="pid" desc="渠道id" type="string"/>
+		<p name="networkType" desc="网络类型0没有网络连接1wifi22G33G44g5其他移动网络65g" type="int"/>
+		<p name="guid" desc="发行随机码" type="string"/>
+		<p name="openId" desc="" type="string"/>
+	</bean>
+	<bean id="-1105" name="SM_LoginSuccess" desc="" read="false">
+		<p name="mapId" desc="" type="int"/>
+	</bean>
+	<bean id="-1108" name="SM_LoginFail" desc="" read="false">
+		<p name="code" desc="" type="int"/>
+	</bean>
+</config>
