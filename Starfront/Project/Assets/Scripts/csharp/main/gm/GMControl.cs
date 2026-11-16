@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
@@ -30,6 +30,14 @@ public sealed class GMControl {
         return "Base: " + baseVersion + "\nContent: " + contentVersion + "\nScene: " + (string.IsNullOrEmpty(scene) ? "none" : scene);
     }
 
+    /**最近一次执行的实际结果，供界面显示业务返回原因。*/
+    public string LastResultText { get; private set; } = "";
+
+    /**处理器可补充本次执行的实际道具/余额，不改变布尔成功契约。*/
+    public void ReportResult(string message) {
+        LastResultText = message ?? "";
+    }
+
     /**模块单例*/
     public static GMControl ins { get; } = new GMControl();
 
@@ -47,6 +55,11 @@ public sealed class GMControl {
 
     /**暂停前各计时器的独立倍率*/
     private readonly float[] resumeScales = new float[3];
+
+    /**正式内容内唯一常驻入口，页面关闭不销毁。*/
+    private GMEntryView entry;
+
+    public bool CanOpen => initialized && FrameworkDevelopmentSettings.GMEnabled && !PanelMgr.ins.IsLoading;
 
     /**快捷键是否已启用*/
     private bool initialized;
@@ -99,6 +112,9 @@ public sealed class GMControl {
         timeScale = initialScales[0];
         initialized = true;
         KeyBoardControl.ins.OnAnyKeyDown(OnKeyDown);
+        FrameworkDevelopmentSettings.Changed += RefreshAvailability;
+        PanelMgr.ins.PanelsChanged += RefreshAvailability;
+        RefreshAvailability();
     }
 
     /// <summary>
@@ -110,6 +126,12 @@ public sealed class GMControl {
             return;
         }
         KeyBoardControl.ins.OffAnyKeyDown(OnKeyDown);
+        FrameworkDevelopmentSettings.Changed -= RefreshAvailability;
+        PanelMgr.ins.PanelsChanged -= RefreshAvailability;
+        if (entry != null) {
+            entry.Close();
+            entry = null;
+        }
         PanelMgr.ins.ClosePanelByType(MainUIEnum.GM_PANEL);
         for (int i = 0; i < timerTypes.Length; i++) {
             RookieEngine.GetTimer(timerTypes[i]).scale = initialScales[i];
@@ -120,8 +142,7 @@ public sealed class GMControl {
 
     /**打开面板，供键盘、鼠标和触摸共用*/
     public void OpenPanel() {
-        if (!initialized) {
-            Debug.LogError("GM 尚未初始化，请先进入正式内容。");
+        if (!CanOpen) {
             return;
         }
         PanelMgr.ins.OpenPanel(MainUIEnum.GM_PANEL);
@@ -150,16 +171,21 @@ public sealed class GMControl {
     /// <param name="content">已注册的指令名。</param>
     /// <param name="param">用户填写的参数。</param>
     public bool ExecuteGM(string content, List<string> param = null) {
-        if (!initialized) {
-            Debug.LogError("GM 尚未初始化。");
+        LastResultText = "";
+        if (!CanOpen) {
+            LastResultText = "GM未就绪或当前正在加载，请稍后重试";
             return false;
         }
         if (string.IsNullOrWhiteSpace(content) || !commands.TryGetValue(content, out var handler)) {
-            Debug.LogError($"GM 指令未注册：{content}");
+            LastResultText = "GM指令未注册：" + content;
+            Debug.LogError(LastResultText);
             return false;
         }
         try {
             bool result = handler(param ?? new List<string>());
+            if (string.IsNullOrEmpty(LastResultText)) {
+                LastResultText = result ? "GM执行成功：" + content : "GM执行失败：" + content;
+            }
             if (result) {
                 Debug.Log($"GM 执行成功：{content}");
             } else {
@@ -167,13 +193,39 @@ public sealed class GMControl {
             }
             return result;
         } catch (Exception exception) {
+            LastResultText = "GM执行失败：" + exception.GetBaseException().Message;
             Debug.LogError($"GM 执行失败：{content}，{exception}");
             return false;
         }
     }
 
+    /**配置关闭时取消异步打开；关闭动画结束前仍隐藏按钮。*/
+    private void RefreshAvailability() {
+        if (!initialized) {
+            return;
+        }
+        if (!FrameworkDevelopmentSettings.GMEnabled) {
+            PanelMgr.ins.ClosePanelByType(MainUIEnum.GM_PANEL);
+            if (entry != null) {
+                GMEntryView oldEntry = entry;
+                entry = null;
+                oldEntry.Close();
+            }
+            return;
+        }
+        if (entry == null) {
+            // 先赋值再登记，避免排序通知重入时创建第二个宿主。
+            entry = UIFactory.TakePooledPanel(GMEntryView.PanelId) as GMEntryView ?? GMEntryView.Create();
+            PanelMgr.ins.OpenRuntimePanel(GMEntryView.PanelId, entry);
+        }
+        entry.SetAvailable(!PanelMgr.ins.IsPanelVisible(MainUIEnum.GM_PANEL), !PanelMgr.ins.IsLoading);
+    }
+
     /**参数框输入期间不响应时间调试快捷键*/
     private void OnKeyDown(KeyCode key) {
+        if (!CanOpen) {
+            return;
+        }
         GameObject selected = EventSystem.current != null ? EventSystem.current.currentSelectedGameObject : null;
         if (selected != null && selected.GetComponentInParent<TMP_InputField>() != null) {
             return;

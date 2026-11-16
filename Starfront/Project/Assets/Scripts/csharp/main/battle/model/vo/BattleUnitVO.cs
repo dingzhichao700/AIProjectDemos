@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using cfg;
 using cfg.resource;
@@ -11,6 +11,9 @@ using UnityEngine;
 public sealed class BattleUnitVO : BattleCombatantVO {
 
     public UnitResource config { get; }
+    public int sourceCardId { get; }
+    public int cardLevel { get; }
+    public float moveSpeed { get; }
     /**离地高度，场景像素；position仍为地面投影，不改变移动/攻击资格。*/
     public float altitude { get; private set; }
 
@@ -30,6 +33,7 @@ public sealed class BattleUnitVO : BattleCombatantVO {
     public double skillTimeMs { get; internal set; }
 
     public Vector2 heading { get; private set; }
+    public Vector2 displayHeading { get; private set; }
 
     public double animationMs { get; private set; }
 
@@ -49,12 +53,18 @@ public sealed class BattleUnitVO : BattleCombatantVO {
 
     public UnitVisualResource visual { get; }
 
-    public BattleUnitVO(long id, UnitResource config, BattleSceneCamp camp, Vector2 position, IReadOnlyList<Vector2> route = null) : base(id, camp, position, config.MaxHp) {
+    public BattleUnitVO(long id, UnitResource config, BattleSceneCamp camp, Vector2 position, IReadOnlyList<Vector2> route = null, CardUnitLevelResource growth = null) : base(id, camp, position, growth == null ? config.MaxHp : growth.MaxHp) {
         this.config = config ?? throw new ArgumentNullException(nameof(config));
+        sourceCardId = growth == null ? 0 : growth.CardId;
+        cardLevel = growth == null ? 0 : growth.Level;
+        moveSpeed = growth == null ? config.MoveSpeed : growth.MoveSpeed;
+        if (growth != null && growth.UnitId != config.Id) {
+            throw new InvalidOperationException("单位成长引用不匹配");
+        }
         if (camp != BattleSceneCamp.FRIENDLY && camp != BattleSceneCamp.ENEMY) {
             throw new ArgumentOutOfRangeException(nameof(camp));
         }
-        if (config.MoveSpeed <= 0 || float.IsNaN(config.MoveSpeed) || float.IsInfinity(config.MoveSpeed)) {
+        if (moveSpeed <= 0 || float.IsNaN(moveSpeed) || float.IsInfinity(moveSpeed)) {
             throw new InvalidOperationException("单位移动速度未配置：" + config.Id);
         }
         visual = CfgManager.tables.UnitVisualObj.GetOrDefault(config.VisualId);
@@ -62,9 +72,10 @@ public sealed class BattleUnitVO : BattleCombatantVO {
             throw new InvalidOperationException("单位形象缺失或常态高度非法：" + config.Id);
         }
         SetAltitude(config.DefaultAltitude);
-        skills = BattleSkillModel.CreateSkills(config, CfgManager.tables);
+        skills = BattleSkillModel.CreateSkills(config, CfgManager.tables, growth == null ? null : growth.SkillIds);
         this.route = route == null ? new List<Vector2>().AsReadOnly() : new List<Vector2>(route).AsReadOnly();
         heading = camp == BattleSceneCamp.FRIENDLY ? Vector2.down : Vector2.up;
+        displayHeading = new Vector2(1, heading.y);
     }
 
     internal Vector2 nextRoutePoint => moving ? route[waypoint] : position;
@@ -82,6 +93,7 @@ public sealed class BattleUnitVO : BattleCombatantVO {
         Vector2 direction = target - position;
         if (direction.sqrMagnitude > .0001f) {
             heading = direction.normalized;
+            displayHeading = BattleAim.UpdateDisplayHeading(displayHeading, heading);
         }
     }
 
@@ -96,7 +108,7 @@ public sealed class BattleUnitVO : BattleCombatantVO {
         if (config.CanCaptureTerritory && captureTrace.Count == 0) {
             captureTrace.Add(position);
         }
-        double budget = deltaTime * (double)config.MoveSpeed;
+        double budget = deltaTime * (double)moveSpeed;
         double travelled = 0;
         while (waypoint < route.Count && budget > 0) {
             Vector2 delta = route[waypoint] - position;
@@ -106,6 +118,7 @@ public sealed class BattleUnitVO : BattleCombatantVO {
                 continue;
             }
             heading = delta / distance;
+            displayHeading = BattleAim.UpdateDisplayHeading(displayHeading, heading);
             double step = Math.Min(distance, budget);
             position += heading * (float)step;
             if (config.CanCaptureTerritory) {
@@ -117,7 +130,7 @@ public sealed class BattleUnitVO : BattleCombatantVO {
                 position = route[waypoint++];
             }
         }
-        animationMs += travelled / config.MoveSpeed * 1000;
+        animationMs += travelled / moveSpeed * 1000;
     }
 
 }

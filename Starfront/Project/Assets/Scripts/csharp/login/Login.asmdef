@@ -1,13 +1,14 @@
 {
-    "name": "Login",
-    "references": [
-        "Foundation",
-        "Unity.TextMeshPro",
-        "Unity.ugui",
-        "DOTween.Modules",
-        "Luban.Runtime",
-        "Wx"
-    ],
-    "includePlatforms": [],
-    "autoReferenced": false
+  "name": "Login",
+  "references": [
+    "Foundation",
+    "Unity.TextMeshPro",
+    "Unity.ugui",
+    "DOTween.Modules",
+    "Luban.Runtime",
+    "Wx",
+    "HotUpdateCore"
+  ],
+  "includePlatforms": [],
+  "autoReferenced": false
 }

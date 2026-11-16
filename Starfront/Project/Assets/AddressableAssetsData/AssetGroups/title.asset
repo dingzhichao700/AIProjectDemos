@@ -82,6 +82,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8418f5b3ad14a5844909fc901e8f99eb
+    m_Address: Assets/Prefab/title/common/GlobalToastItem.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8cdd7251cd4e5e14d8f4298e43af64ad
     m_Address: Assets/Prefab/title/setting/SettingOptionItem.prefab
     m_ReadOnly: 0
@@ -104,6 +109,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f95018d40bb2efa4fb6ee83be5bf7591
     m_Address: Assets/Art/frameAnimation/title/title_open.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fca19c3f5760cb645b8b8ebdc87cc116
+    m_Address: Assets/Prefab/title/common/GlobalToastPanel.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

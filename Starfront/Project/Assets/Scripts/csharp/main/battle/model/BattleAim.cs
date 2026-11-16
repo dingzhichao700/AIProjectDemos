@@ -1,18 +1,21 @@
+using System.Collections.Generic;
 using cfg;
 using UnityEngine;
-
-/// <summary>场景X右Y下方向约定；逻辑与表现共用，左向镜像源朝向。</summary>
-public static class BattleAim {
-    public static UnitAppearanceDirection ResolveDirection(Vector2 heading) {
-        float x = Mathf.Abs(heading.x);
-        float y = Mathf.Abs(heading.y);
-        float threshold = Mathf.Tan(Mathf.PI / 8);
-        if (x <= y * threshold) {
-            return heading.y < 0 ? UnitAppearanceDirection.UP : UnitAppearanceDirection.DOWN;
-        }
-        if (y <= x * threshold) {
-            return UnitAppearanceDirection.RIGHT;
-        }
+public static class BattleAim
+{
+    public static IReadOnlyList<UnitAppearanceDirection> SourceDirections { get; } =
+        System.Array.AsReadOnly(new[] { UnitAppearanceDirection.UP_RIGHT, UnitAppearanceDirection.DOWN_RIGHT });
+    public static UnitAppearanceDirection ResolveDirection(Vector2 heading)
+    {
         return heading.y < 0 ? UnitAppearanceDirection.UP_RIGHT : UnitAppearanceDirection.DOWN_RIGHT;
+    }
+    public static Vector2 UpdateDisplayHeading(Vector2 previous, Vector2 heading)
+    {
+        if (float.IsNaN(heading.x) || float.IsNaN(heading.y) || float.IsInfinity(heading.x) || float.IsInfinity(heading.y))
+        {
+            return previous;
+        }
+        return new Vector2(heading.x == 0 ? previous.x : Mathf.Sign(heading.x),
+            heading.y == 0 ? previous.y : Mathf.Sign(heading.y));
     }
 }

@@ -1,0 +1,14 @@
+[
+  {
+    "race": 1,
+    "background": "Assets/Art/unpack/default/cardCultivation/temp-hero-background.png"
+  },
+  {
+    "race": 2,
+    "background": "Assets/Art/unpack/default/cardCultivation/temp-hero-background.png"
+  },
+  {
+    "race": 3,
+    "background": "Assets/Art/unpack/default/cardCultivation/temp-hero-background.png"
+  }
+]

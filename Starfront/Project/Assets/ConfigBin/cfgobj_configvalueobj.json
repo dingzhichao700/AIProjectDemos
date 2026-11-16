@@ -75,7 +75,7 @@
     "id": 1004,
     "type": 0,
     "valueType": 0,
-    "content": "scene/battle/effects/UI_unlock-glow"
+    "content": "default/battle/effects/UI_unlock-glow"
   },
   {
     "id": 1005,
@@ -99,7 +99,7 @@
     "id": 1008,
     "type": 0,
     "valueType": 0,
-    "content": "scene/battle/effects/UI_mineral"
+    "content": "default/battle/effects/UI_mineral"
   },
   {
     "id": 1100,
@@ -135,19 +135,19 @@
     "id": 1105,
     "type": 2,
     "valueType": 0,
-    "content": "unit:scene/battle/appearance/HP_BG_37,building:scene/battle/appearance/HP_BG_61"
+    "content": "unit:default/battle/appearance/HP_BG_37,building:default/battle/appearance/HP_BG_61"
   },
   {
     "id": 1106,
     "type": 2,
     "valueType": 0,
-    "content": "unit:scene/battle/appearance/HP_Fill_Friendly_37,building:scene/battle/appearance/HP_Fill_Friendly_61"
+    "content": "unit:default/battle/appearance/HP_Fill_Friendly_37,building:default/battle/appearance/HP_Fill_Friendly_61"
   },
   {
     "id": 1107,
     "type": 2,
     "valueType": 0,
-    "content": "unit:scene/battle/appearance/HP_Fill_Enemy_37,building:scene/battle/appearance/HP_Fill_Enemy_61"
+    "content": "unit:default/battle/appearance/HP_Fill_Enemy_37,building:default/battle/appearance/HP_Fill_Enemy_61"
   },
   {
     "id": 1108,
@@ -190,5 +190,41 @@
     "type": 2,
     "valueType": 0,
     "content": "NORMAL:#93999F,GREAT:#62BC78,RARE:#529ED8,EPIC:#AE74D3,LEGEND:#E6AA4D,Background:#10202C"
+  },
+  {
+    "id": 1011,
+    "type": 0,
+    "valueType": 0,
+    "content": "default/battle/effects/camp_blue"
+  },
+  {
+    "id": 1012,
+    "type": 0,
+    "valueType": 0,
+    "content": "default/battle/effects/camp_orange"
+  },
+  {
+    "id": 1013,
+    "type": 0,
+    "valueType": 0,
+    "content": "default/battle/coverage"
+  },
+  {
+    "id": 1200,
+    "type": 0,
+    "valueType": 1,
+    "content": "100"
+  },
+  {
+    "id": 1300,
+    "type": 0,
+    "valueType": 1,
+    "content": "3"
+  },
+  {
+    "id": 1014,
+    "type": 0,
+    "valueType": 1,
+    "content": "4"
   }
 ]

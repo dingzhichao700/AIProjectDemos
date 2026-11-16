@@ -66,9 +66,9 @@ public static class BattleUnlockSetup {
 
     private static void Setup() {
         var settings = AddressableAssetSettingsDefaultObject.Settings;
-        var group = settings.FindGroup("scene");
+        var group = settings.DefaultGroup;
         foreach (string name in new[] { "UI_unlock-glow", "UI_helmet", "UI_random", "UI_mineral" }) {
-            string path = "Assets/Art/unpack/scene/battle/effects/" + name + ".png";
+            string path = "Assets/Art/unpack/default/battle/effects/" + name + ".png";
             var importer = (TextureImporter)AssetImporter.GetAtPath(path);
             importer.textureType = TextureImporterType.Sprite;
             importer.spriteImportMode = SpriteImportMode.Single;
@@ -78,7 +78,7 @@ public static class BattleUnlockSetup {
             importer.SaveAndReimport();
             var entry = settings.CreateOrMoveEntry(AssetDatabase.AssetPathToGUID(path), group);
             entry.address = path;
-            entry.SetLabel("battle", true, true);
+            entry.SetLabel("main-content", true, true);
         }
         var font = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>("Assets/Art/font/tmpFontAsset/common/fontDynamicCommon.asset");
         foreach (char value in "货币不足只能解锁己方格子该不能请先相邻对战已结束尚未就绪不存在0123456789") {

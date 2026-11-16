@@ -16,7 +16,7 @@ using UnityEngine.UI;
 /// </summary>
 [InitializeOnLoad]
 public static class AIUIExportQueue {
-    const string ToolVersion = "0.4.9";
+    const string ToolVersion = "0.4.13";
     const string StatusPath = "Library/AIUI/editor-status.json";
     const string ControlPendingPath = "Library/AIUI/pending-control.json";
     const string ControlResultPath = "Library/AIUI/control-result.json";
@@ -46,11 +46,24 @@ public static class AIUIExportQueue {
         public ChildBinding[] childBindings;
         public ScrollBinding[] scrollBindings;
         public string previewImagePath;
+        public string capturePrefabPath;
+        public string captureStateContainer;
+        public string activeState;
+        public string auditPath;
     }
 
     [Serializable]
     public class Node {
         public string kind;
+        public string anchorMode;
+        public float anchorX;
+        public float anchorY;
+        public bool coverParent;
+        public Override[] overrides;
+        public Vector2[] points;
+        public bool openLine;
+        public string strokeColor;
+        public float lineWidth;
         public string name;
         public string parent;
         public string assetPath;
@@ -82,8 +95,22 @@ public static class AIUIExportQueue {
         public float labelHeight;
         public string labelColor = "#FFFFFFFF";
         public string textAlignment;
+        public string textFontStyle;
+        public string textOverflow;
+        public string textMaterialPath;
+        public bool useTmpUnderlay;
+        public string textOutlineColor;
+        public float textOutlineWidth;
+        public bool clickable;
+        public string selectedAssetPath;
         public bool clipChildren;
         public bool stretchToParent;
+    }
+
+    [Serializable] public class Override {
+        public string path;
+        public string assetPath;
+        public string text;
     }
 
     [Serializable]
@@ -256,6 +283,20 @@ public static class AIUIExportQueue {
         try {
             ControlRequest request = JsonUtility.FromJson<ControlRequest>(ReadRequestText(ControlPendingPath));
             requestId = request.requestId;
+            if (request.action == "inspectPreviewOrphan" || request.action == "cleanupPreviewOrphanById") {
+                var candidates = new List<string>();
+                foreach (GameObject go in Resources.FindObjectsOfTypeAll<GameObject>()) {
+                    if (EditorUtility.IsPersistent(go) || !go.scene.IsValid() || go.transform.parent != null || go.name != request.orphanRootName) continue;
+                    if (go.GetComponentsInChildren<RectTransform>(true).Length != request.orphanNodeCount) continue;
+                    candidates.Add("id="+go.GetInstanceID()+" scene="+go.scene.name+" path="+go.scene.path+" hide="+go.hideFlags);
+                    if (request.action == "cleanupPreviewOrphanById" && go.GetInstanceID() == request.orphanBindingCount
+                        && go.GetComponent<UIBinder>() == null)
+                        UnityEngine.Object.DestroyImmediate(go);
+                }
+                WriteTextAtomic("Library/AIUI/preview-orphan-audit.json", "{\"candidates\":\""+Escape(string.Join(";",candidates))+"\"}");
+                WriteResult(ControlResultPath, requestId, "passed", null, 0);
+                File.Delete(ControlPendingPath); return true;
+            }
             if (request.action == "cleanupFailedPreview") {
                 if (EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isCompiling || EditorApplication.isUpdating) {
                     return true;
@@ -759,6 +800,7 @@ public static class AIUIExportQueue {
             if (!string.IsNullOrEmpty(node.parent) && !names.Contains(node.parent))
                 throw new InvalidOperationException("Parent must appear before child: " + node.parent + " -> " + node.name);
             if (node.kind == "image" || node.kind == "button") EnsureSpriteImporter(node.assetPath);
+            if (!string.IsNullOrEmpty(node.selectedAssetPath)) EnsureSpriteImporter(node.selectedAssetPath);
         }
         if (request.initializeBinding) {
             if (request.binding == null) throw new InvalidOperationException("binding is required when initializeBinding is true");
@@ -833,7 +875,82 @@ public static class AIUIExportQueue {
         importer.SaveAndReimport();
     }
 
+    /**保留真实嵌套Prefab引用，覆盖仅作用于当前实例的明确相对路径。*/
+    static RectTransform CreateNestedPrefab(RectTransform parent, Node node) {
+        GameObject source = AssetDatabase.LoadAssetAtPath<GameObject>(node.assetPath);
+        if (source == null) throw new InvalidOperationException("Missing nested prefab: " + node.assetPath);
+        GameObject go = (GameObject)PrefabUtility.InstantiatePrefab(source, parent);
+        go.name = node.name;
+        RectTransform rect = go.GetComponent<RectTransform>();
+        SetTopLeft(rect, parent, node.x, node.y, node.width, node.height);
+        if (node.overrides != null) foreach (Override value in node.overrides) {
+            Transform target = go.transform.Find(value.path);
+            if (target == null) throw new InvalidOperationException("Missing nested override: " + value.path);
+            if (!string.IsNullOrEmpty(value.assetPath)) {
+                EnsureSpriteImporter(value.assetPath);
+                Image image = target.GetComponent<Image>();
+                if (image == null) throw new InvalidOperationException("Override must target Image");
+                image.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(value.assetPath);
+                PrefabUtility.RecordPrefabInstancePropertyModifications(image);
+            }
+            if (value.text != null) {
+                TextMeshProUGUI text = target.GetComponent<TextMeshProUGUI>();
+                if (text == null) throw new InvalidOperationException("Override must target TMP");
+                text.text = value.text;
+                PrefabUtility.RecordPrefabInstancePropertyModifications(text);
+            }
+        }
+        return rect;
+    }
+
+    static RectTransform CreateShape(RectTransform parent, Node node) {
+        RectTransform rect = CreateContainer(parent, node);
+        rect.gameObject.AddComponent<CanvasRenderer>();
+        UIShapeGraphic shape = rect.gameObject.AddComponent<UIShapeGraphic>();
+        shape.points = node.points; shape.openLine = node.openLine;
+        shape.color = ParseColor(node.color); shape.stroke = ParseColor(node.strokeColor ?? "#00000000");
+        shape.lineWidth = node.lineWidth; shape.raycastTarget = false;
+        return rect;
+    }
+
+    [Serializable] class Audit { public string requestId; public string status = "passed"; public AuditNode[] nodes; }
+    [Serializable] class AuditNode {
+        public string path, sprite, prefabSource, text;
+        public float x,y,width,height,anchorMinX,anchorMinY,pivotX,pivotY;
+        public bool active;
+    }
+    /**只读记录实际Unity层级和嵌套来源，避免以请求模板冒充生成结果。*/
+    static void WriteStructureAudit(GameObject root, Request request) {
+        if (string.IsNullOrEmpty(request.auditPath)) return;
+        string path = Path.GetFullPath(request.auditPath);
+        if (!path.StartsWith(Path.GetFullPath("Library/AIUI") + Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase))
+            throw new InvalidOperationException("Audit must be under Library/AIUI");
+        var nodes = new List<AuditNode>();
+        foreach (RectTransform rt in root.GetComponentsInChildren<RectTransform>(true)) {
+            Image image = rt.GetComponent<Image>(); TextMeshProUGUI text = rt.GetComponent<TextMeshProUGUI>();
+            nodes.Add(new AuditNode { path = AnimationUtility.CalculateTransformPath(rt, root.transform),
+                x=rt.anchoredPosition.x,y=rt.anchoredPosition.y,width=rt.rect.width,height=rt.rect.height,
+                anchorMinX=rt.anchorMin.x,anchorMinY=rt.anchorMin.y,pivotX=rt.pivot.x,pivotY=rt.pivot.y,
+                active=rt.gameObject.activeInHierarchy, sprite=image != null && image.sprite != null ? AssetDatabase.GetAssetPath(image.sprite) : null,
+                text=text != null ? text.text : null,prefabSource=PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(rt.gameObject) });
+        }
+        WriteTextAtomic(path,JsonUtility.ToJson(new Audit {requestId=request.requestId,nodes=nodes.ToArray()},true));
+    }
+
     static void GeneratePreview(Request request) {
+        if (!string.IsNullOrEmpty(request.capturePrefabPath)) {
+            GameObject captured = PrefabUtility.LoadPrefabContents(request.capturePrefabPath);
+            try {
+                captured.GetComponent<RectTransform>().sizeDelta = new Vector2(request.width, request.height);
+                Transform body = captured.transform.Find(request.captureStateContainer);
+                if (body == null) throw new InvalidOperationException("Missing centered content");
+                foreach (Transform child in body) child.gameObject.SetActive(child.name == request.activeState);
+                ValidatePreview(captured, request);
+                CapturePreview(captured, request);
+                WriteStructureAudit(captured, request);
+            } finally { PrefabUtility.UnloadPrefabContents(captured); }
+            return;
+        }
         GameObject root = new GameObject(request.rootName, typeof(RectTransform));
         try {
         RectTransform rootRect = root.GetComponent<RectTransform>();
@@ -846,6 +963,8 @@ public static class AIUIExportQueue {
             RectTransform parent = string.IsNullOrEmpty(node.parent) ? rootRect : parents[node.parent];
             RectTransform created;
             switch (node.kind) {
+                case "prefab": created = CreateNestedPrefab(parent, node); break;
+                case "shape": created = CreateShape(parent, node); break;
                 case "image": created = CreateImage(parent, node); break;
                 case "text": created = CreateText(parent, node, request.fontAssetPath); break;
                 case "button": created = CreateButton(parent, node, request.fontAssetPath); break;
@@ -866,7 +985,37 @@ public static class AIUIExportQueue {
                 Mask mask = created.gameObject.AddComponent<Mask>();
                 mask.showMaskGraphic = false;
             }
+            if (node.clickable) {
+                Image graphic = created.GetComponent<Image>();
+                if (graphic == null) {
+                    graphic = created.gameObject.AddComponent<Image>();
+                    graphic.color = Color.clear;
+                }
+                graphic.raycastTarget = true;
+                Button button = created.gameObject.GetComponent<Button>() ?? created.gameObject.AddComponent<Button>();
+                button.targetGraphic = graphic;
+                button.transition = Selectable.Transition.None;
+                if (!string.IsNullOrEmpty(node.selectedAssetPath)) {
+                    SpriteState state = button.spriteState;
+                    state.selectedSprite = AssetDatabase.LoadAssetAtPath<Sprite>(node.selectedAssetPath);
+                    button.spriteState = state;
+                }
+            }
+            if (node.anchorMode == "center" || node.anchorMode == "bottom") {
+                Vector2 anchor = node.anchorMode == "center" ? new Vector2(.5f,.5f) : new Vector2(.5f,0);
+                created.anchorMin = created.anchorMax = created.pivot = anchor;
+                created.anchoredPosition = new Vector2(node.anchorX, node.anchorY);
+            }
+            if (node.coverParent) {
+                created.pivot = new Vector2(.5f,.5f);
+                created.anchorMin = created.anchorMax = new Vector2(.5f,.5f);
+                created.anchoredPosition = Vector2.zero;
+                AspectRatioFitter fit = created.gameObject.AddComponent<AspectRatioFitter>();
+                fit.aspectMode = AspectRatioFitter.AspectMode.EnvelopeParent;
+                fit.aspectRatio = node.width / node.height;
+            }
             if (node.inactive) created.gameObject.SetActive(false);
+            if (PrefabUtility.IsPartOfPrefabInstance(created)) PrefabUtility.RecordPrefabInstancePropertyModifications(created);
         }
 
         ConfigureScrollLists(request.scrollBindings, parents);
@@ -885,6 +1034,7 @@ public static class AIUIExportQueue {
         PrefabUtility.SaveAsPrefabAsset(root, request.prefabPath);
         AssetDatabase.SaveAssets();
         if (!string.IsNullOrEmpty(request.previewImagePath)) CapturePreview(root, request);
+        WriteStructureAudit(root, request);
         Debug.Log("[AIUI Preview] generated: " + request.prefabPath);
         } finally {
             UnityEngine.Object.DestroyImmediate(root);
@@ -897,6 +1047,7 @@ public static class AIUIExportQueue {
         string allowed = Path.GetFullPath("Library/AIUI") + Path.DirectorySeparatorChar;
         if (!output.StartsWith(allowed, StringComparison.OrdinalIgnoreCase) || !output.EndsWith(".png", StringComparison.OrdinalIgnoreCase))
             throw new InvalidOperationException("Preview image must be a PNG under Library/AIUI");
+        UnityEngine.SceneManagement.Scene originalScene = root.scene;
         GameObject host = null;
         RenderTexture target = null;
         Texture2D image = null;
@@ -939,6 +1090,8 @@ public static class AIUIExportQueue {
         } finally {
             RenderTexture.active = previous;
             root.transform.SetParent(null, false);
+            if (root.scene != originalScene && originalScene.IsValid())
+                UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(root, originalScene);
             if (image != null) UnityEngine.Object.DestroyImmediate(image);
             if (host != null) UnityEngine.Object.DestroyImmediate(host);
             if (target != null) { target.Release(); UnityEngine.Object.DestroyImmediate(target); }
@@ -973,6 +1126,10 @@ public static class AIUIExportQueue {
 
     /**在保存前检查实际 Unity 对象和字体覆盖，结果仅作为执行诊断。*/
     static void ValidatePreview(GameObject root, Request request) {
+        foreach (UIShapeGraphic shape in root.GetComponentsInChildren<UIShapeGraphic>(true)) {
+            if (shape.GetComponent<CanvasRenderer>() == null)
+                throw new InvalidOperationException("Missing CanvasRenderer for vector: " + shape.name);
+        }
         foreach (Image image in root.GetComponentsInChildren<Image>(true)) {
             if (image.sprite == null && image.GetComponent<Mask>() == null && image.color == Color.white) {
                 throw new InvalidOperationException("Missing visual Sprite: " + image.name);
@@ -1152,13 +1309,47 @@ public static class AIUIExportQueue {
         text.font = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(fontPath);
         text.text = node.text ?? string.Empty;
         text.fontSize = node.fontSize;
-        text.fontStyle = FontStyles.Bold;
+        text.fontStyle = node.textFontStyle == "Normal" ? FontStyles.Normal : FontStyles.Bold;
         text.color = ParseColor(node.color);
-        text.alignment = node.textAlignment == "LEFT" ? TextAlignmentOptions.MidlineLeft : TextAlignmentOptions.Center;
+        text.alignment = node.textAlignment == "LEFT" ? TextAlignmentOptions.MidlineLeft : node.textAlignment == "RIGHT" ? TextAlignmentOptions.MidlineRight : TextAlignmentOptions.Center;
         text.enableWordWrapping = false;
-        text.overflowMode = TextOverflowModes.Overflow;
+        text.overflowMode = node.textOverflow == "Ellipsis" ? TextOverflowModes.Ellipsis : TextOverflowModes.Overflow;
         text.raycastTarget = false;
-        if (ParseColor(node.shadowColor).a > 0) {
+        if (!string.IsNullOrEmpty(node.textOutlineColor)) {
+            if (string.IsNullOrEmpty(node.textMaterialPath) || !node.textMaterialPath.StartsWith("Assets/Art/font/"))
+                throw new InvalidOperationException("Outline material requires explicit font material path");
+            Material outline = AssetDatabase.LoadAssetAtPath<Material>(node.textMaterialPath);
+            if (outline == null) {
+                EnsureAssetFolder(Path.GetDirectoryName(node.textMaterialPath).Replace('\\','/'));
+                outline = new Material(text.font.material);
+                outline.name = Path.GetFileNameWithoutExtension(node.textMaterialPath);
+                AssetDatabase.CreateAsset(outline,node.textMaterialPath);
+            }
+            outline.EnableKeyword("OUTLINE_ON");
+            outline.SetColor("_OutlineColor",ParseColor(node.textOutlineColor));
+            outline.SetFloat("_OutlineWidth",node.textOutlineWidth);
+            text.fontSharedMaterial=outline; text.UpdateMeshPadding();
+        }
+        if (node.useTmpUnderlay) {
+            if (string.IsNullOrEmpty(node.textMaterialPath) || !node.textMaterialPath.StartsWith("Assets/Art/font/"))
+                throw new InvalidOperationException("TMP Underlay material requires an explicit Assets/Art/font path");
+            Material material = AssetDatabase.LoadAssetAtPath<Material>(node.textMaterialPath);
+            if (material == null) {
+                EnsureAssetFolder(Path.GetDirectoryName(node.textMaterialPath).Replace('\\', '/'));
+                material = new Material(text.font.material);
+                material.name = Path.GetFileNameWithoutExtension(node.textMaterialPath);
+                material.SetFloat("_OutlineWidth", 0);
+                material.EnableKeyword("UNDERLAY_ON");
+                material.SetColor("_UnderlayColor", new Color(0, 8f / 255, 20f / 255, 180f / 255));
+                material.SetFloat("_UnderlayOffsetX", 0.3f);
+                material.SetFloat("_UnderlayOffsetY", -0.3f);
+                material.SetFloat("_UnderlayDilate", 0);
+                material.SetFloat("_UnderlaySoftness", 0.1f);
+                AssetDatabase.CreateAsset(material, node.textMaterialPath);
+            }
+            text.fontSharedMaterial = material;
+            text.UpdateMeshPadding();
+        } else if (ParseColor(node.shadowColor).a > 0) {
             Shadow shadow = go.AddComponent<Shadow>();
             shadow.effectColor = ParseColor(node.shadowColor);
             shadow.effectDistance = new Vector2(0, -node.shadowOffsetY);

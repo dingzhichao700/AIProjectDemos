@@ -6,6 +6,9 @@ using TMPro;
 /// </summary>
 public class WarningPanel : BasePanel {
 
+    public override bool UsesWindowTransition => true;
+    protected override UnityEngine.UI.Image WindowTransitionMask => transform.Find("imgMask").GetComponent<UnityEngine.UI.Image>();
+
     /**局部弹窗尺寸独立于项目屏幕方向。*/
     public override UnityEngine.Vector2 SafeContentDesignSize => new UnityEngine.Vector2(860, 340);
 
@@ -19,11 +22,14 @@ public class WarningPanel : BasePanel {
     private Handler sureHandler;
 
     public WarningPanel() {
-        layer = PanelLayer.SCALE_TOP_FOUTH;
+        layer = PanelLayer.SCALE_CONFIRM;
     }
 
-    override public void OnOpen() {
+    public override void OnOpen() {
         AddLis();
+    }
+
+    protected override void OnPrepareOpen() {
         txtContent.text = openParams[0] as string;
         sureHandler = openParams[1] as Handler;
     }

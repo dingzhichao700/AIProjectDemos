@@ -20,7 +20,6 @@ public sealed class BattleScenePanel : BasePanel {
         sceneView = GetComponent<BattleSceneView>();
         sceneView.Bind(BattleControl.ins.model);
         lastInteractionHint = string.Empty;
-        GMControl.ins.Init();
         GMControl.ins.SceneIdProvider = () => BattleControl.ins.model?.config.Id.ToString();
         BattleShadowGM.Init();
         AddLis();
@@ -55,14 +54,14 @@ public sealed class BattleScenePanel : BasePanel {
 
     private void OnUnlockRejected(long id, string reason) {
         lastInteractionHint = reason;
-        sceneView.ShowInteractionHint(id, reason);
+        GlobalToast.Warn(reason);
         Debug.Log("格子交互：" + id + "，" + reason);
     }
 
     public override void OnClose() {
         PanelMgr.ins.GetPanel(MainUIEnum.BATTLE_INFO_PANEL)?.Close();
         BattleShadowGM.Shutdown();
-        GMControl.ins.Shutdown();
+        GMControl.ins.SceneIdProvider = null;
         RemoveLis();
         sceneView.Unbind();
         BattleControl.ins.End();

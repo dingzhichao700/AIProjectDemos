@@ -1,0 +1,457 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: cardBattle
+  m_EditorClassIdentifier: 
+  m_GroupName: cardBattle
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 53ef6ccff2b10ef47a97579f6843f9fe
+  m_SerializeEntries:
+  - m_GUID: 01b32bf496ce43a4d8b219dab5508d26
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Death_DownRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0294eafaff57424085ecf221ddd652d5
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Idle_DownRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03b25ae4c60ae41418a05d085571ccf5
+    m_Address: Assets/Art/frameAnimation/cardBattle/2104/Death_DownRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2104
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d2418b77a4d4c7a9107b9e737b50c39
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Death_Down.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f320926ce3ceec4f8919f42f79f9840
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Death_Down.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f4e6c86a36d4c65a061591f6b123700
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Idle_Right.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 145c70b122e19b746b105a3936c7dc83
+    m_Address: Assets/Art/frameAnimation/cardBattle/2104/Attack_UpRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2104
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 155a62eef89653546a8272b15e06cef8
+    m_Address: Assets/Art/frameAnimation/cardBattle/2201/2201-Attack1_UpRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2201
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18c461cf2a973934abb9cf9373dc72a3
+    m_Address: Assets/Art/frameAnimation/cardBattle/2104/Move_UpRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2104
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b3346eb35a54bbeb69d180528a22e63
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Attack1_Up.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21f6721e0e1448a6b6dbc6ee0a58626b
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Idle_UpRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a3c409301b2f9443a52d40b7a80a4de
+    m_Address: Assets/Art/frameAnimation/cardBattle/2201/2201-Idle_UpRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2201
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b981aae68e9488091affd63e66c141b
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Attack1_Down.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ec13302f2f0bb34190b3c7bdb0102bf
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Move_DownRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32cd5abcbbf94b04d9772ac82005de91
+    m_Address: Assets/Art/frameAnimation/cardBattle/2104/Move_UpRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2104
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a3342dccc7b41888c25286281aa56cb
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Death_Up.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a4d0a01cc1f3ea42bce59fc1ef9e758
+    m_Address: Assets/Art/frameAnimation/cardBattle/2104/Idle_UpRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2104
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a755ac95c14a8846a1ff72c9137b082
+    m_Address: Assets/Art/frameAnimation/cardBattle/2104/Attack_DownRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2104
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cc58e51a28a438290ae8b83792922c6
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Attack1_Down.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3de21764e244421faf3f41d819e87efe
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Attack1_UpRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 42f5e39d67994db0a1e65185f20da592
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Idle_Right.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44f91aa9d5304da69cc77165d56b55a9
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Idle_DownRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 45392f18d0ed411387631df70f4c6c7f
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Death_UpRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47bcb7e715655904788a33f5622fd6a9
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Move_UpRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e19b2b542c14f988cd4b9e01abc55a4
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Idle_Down.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e257650dbca6ea4d9319caf5985016a
+    m_Address: Assets/Art/frameAnimation/cardBattle/2201/2201-Move_UpRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2201
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50af080709cd78d4692b9f64fde41fe0
+    m_Address: Assets/Art/frameAnimation/cardBattle/2201/2201-Attack1_UpRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2201
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52089540ffc5b5c46a76df093e314bd3
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Death_Up.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 536666d2ac064c9da5a423de3cb45830
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Idle_UpRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 579ff2cc008f5f94ba4e518f438f545e
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Move_Right.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59dfd8e1b0f74de41b5cc811311cc7c7
+    m_Address: Assets/Art/frameAnimation/cardBattle/2201/2201-Move_UpRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2201
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b4844e5de644e868a5b0afcfcc52908
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Idle_Up.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65048310376ff294bbbceb99fc88041c
+    m_Address: Assets/Art/frameAnimation/cardBattle/2104/Death_UpRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2104
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65cb28f00547ffa4888501c5e74fab81
+    m_Address: Assets/Art/frameAnimation/cardBattle/2104/Death_UpRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2104
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66991c8f1ec418c4d88e3758058ae644
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Move_DownRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 687036c0e8c4d984abaa959737674e08
+    m_Address: Assets/Art/frameAnimation/cardBattle/2201/2201-Idle_UpRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2201
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e2ffa1e2bc7d804f98231fade005f99
+    m_Address: Assets/Art/frameAnimation/cardBattle/2104/Attack_UpRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2104
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e8a59929067210409133a180be4bfd1
+    m_Address: Assets/Art/frameAnimation/cardBattle/2201/2201-Move_DownRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2201
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8378e97a17ae465aa181ed1e26e9aad2
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Attack1_Right.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 858267d638d04862838fa27fd1a1c139
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Death_DownRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d0a351af99942009240f0034b02fcae
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Attack1_Right.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f1c5ecd9ea9caf4eb02b78cf5da53fd
+    m_Address: Assets/Art/frameAnimation/cardBattle/2104/Idle_DownRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2104
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8fa799ae6e8d1f746920c53a704f146d
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Move_Right.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96acb14ef457b274bbb985c0a07c09b6
+    m_Address: Assets/Art/frameAnimation/cardBattle/2104/Idle_DownRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2104
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a57a66dc5f3a144d9b1c6e461669cd0
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Death_Right.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e0f22edd366482bb6a9ded1d674922e
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Attack1_Up.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f0d7bca5e52c7f4181c083247b1e734
+    m_Address: Assets/Art/frameAnimation/cardBattle/2104/Move_DownRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2104
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac70c34a0a5a4f4db09ec03e2eb0d3d6
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Death_Right.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b000106937e05204694e6e743eea061f
+    m_Address: Assets/Art/frameAnimation/cardBattle/2201/2201-Idle_DownRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2201
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b16a195b50140204db369afc7c943d43
+    m_Address: Assets/Art/frameAnimation/cardBattle/2201/2201-Death_UpRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2201
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8dc7a4ed8ff2c84d96e067d28f5c89b
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Move_Up.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8e481a819cf61c47958baac4cc20851
+    m_Address: Assets/Art/frameAnimation/cardBattle/2104/Attack_DownRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2104
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9c9d8effac68b94eaa7a3e8128a51d8
+    m_Address: Assets/Art/frameAnimation/cardBattle/2201/2201-Move_DownRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2201
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c060e1c307ac4dfc93287410b4451d2c
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Attack1_UpRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c15c57fa9366e7548b952e33792b6ce4
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Move_UpRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c18ceaacf310470438de7519f465464b
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Death_UpRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7e23fd14b45ad84383bc0230f3ef087
+    m_Address: Assets/Art/frameAnimation/cardBattle/2104/Idle_UpRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2104
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc9534d93a034641bde494e669188b60
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Attack1_DownRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce127981c6ef1e04288a5dd380715ec3
+    m_Address: Assets/Art/frameAnimation/cardBattle/2104/Death_DownRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2104
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc41ab02ba5763e4e85f763a952ea11f
+    m_Address: Assets/Art/frameAnimation/cardBattle/2201/2201-Death_UpRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2201
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd9c4470a46e2ba4592d4b1007aa9df5
+    m_Address: Assets/Art/frameAnimation/cardBattle/2104/Move_DownRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2104
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e39c69871c8b32140aea8c826c28a0f7
+    m_Address: Assets/Art/frameAnimation/cardBattle/2201/2201-Attack1_DownRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2201
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6f78c9942314224b1c1563d09eaf533
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Idle_Down.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9b74a1009d24b1caf224a0980c22702
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Idle_Up.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eadabf86bfa5f854a97165025329071f
+    m_Address: Assets/Art/frameAnimation/cardBattle/2201/2201-Death_DownRight.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2201
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec3d08502c38fe1479594161e61169f0
+    m_Address: Assets/Art/frameAnimation/cardBattle/2201/2201-Idle_DownRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2201
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee8c3e3d1df40ae4cb6b0b5b405d461b
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Move_Down.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f39f3f6dedc291045bca7d679e958ad0
+    m_Address: Assets/Art/frameAnimation/cardBattle/2201/2201-Attack1_DownRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2201
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4936dd3cff4ab84981d7306f0392976
+    m_Address: Assets/Art/frameAnimation/cardBattle/2201/2201-Death_DownRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2201
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f516d36e9cbc05246bfcbb42bf3ff508
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Move_Down.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5e9ff85cd154069977e0c8400631f18
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Attack1_DownRight.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7bed0cf9ef5a2d40b18724fcbe732bb
+    m_Address: Assets/Art/frameAnimation/cardBattle/2101/Move_Up.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - retained_card_2101
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: b1a0955dcd22fb34c834009bf4768d90, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 9a6e5f54a39061045afbf073f9abc0fe, type: 2}
+    - {fileID: 11400000, guid: afbd2af7b6aa080419086c46c43aa5fa, type: 2}

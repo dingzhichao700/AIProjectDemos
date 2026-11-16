@@ -39,12 +39,14 @@ public static class BattleCombatValidation {
             BattleProjectileValidation.ImportAssets();
             Validate();
             var settings = AddressableAssetSettingsDefaultObject.Settings;
-            var group = settings.FindGroup("scene");
-            Check(group != null, "scene Addressables group");
+            var group = settings.DefaultGroup;
+            Check(group != null, "default Addressables group");
             foreach (string file in new[] { "HP_BG_37", "HP_BG_61", "HP_Fill_Friendly_37", "HP_Fill_Friendly_61", "HP_Fill_Enemy_37", "HP_Fill_Enemy_61" }) {
-                string path = "Assets/Art/unpack/scene/battle/appearance/" + file + ".png";
+                string path = "Assets/Art/unpack/default/battle/appearance/" + file + ".png";
                 Check(AssetDatabase.LoadAssetAtPath<Sprite>(path) != null, "health sprite " + file);
-                settings.CreateOrMoveEntry(AssetDatabase.AssetPathToGUID(path), group).SetAddress(path);
+                var combatEntry = settings.CreateOrMoveEntry(AssetDatabase.AssetPathToGUID(path), group);
+                combatEntry.address = path;
+                combatEntry.SetLabel("main-content", true, true);
             }
             AssetDatabase.SaveAssets();
             result.status = "passed";
@@ -83,7 +85,7 @@ public static class BattleCombatValidation {
         try {
             field.SetValue(null, new Tables(name => JSON.Parse(File.ReadAllText("Assets/ConfigBin/" + name + ".json"))));
             typeof(ConfigValueHelper).GetMethod("ClearCache", BindingFlags.NonPublic | BindingFlags.Static).Invoke(null, null);
-            Check(CfgManager.tables.UnitObj.DataList.Where(u => u.Id >= 1101 && u.Id <= 1104).All(u => u.MaxHp == 100 && u.SkillIds.Count == 1 && u.SkillIds[0] == 1101), "unit values");
+            Check(CfgManager.tables.UnitObj.DataList.Where(u => u.Id == 1101).All(u => u.MaxHp == 100 && u.SkillIds.Count == 1 && u.SkillIds[0] == 1101), "unit values");
             Check(BattleConst.TargetScanMs == 200 && BattleConst.RepathMs == 500, "constant values");
             TargetAndDamage();
             ProductionAndVictory();

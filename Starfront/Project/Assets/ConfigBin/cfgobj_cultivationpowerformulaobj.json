@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "unitHpWeight": 1,
+    "buildingHpWeight": 0.1,
+    "rangeWeight": 0.1,
+    "speedWeight": 1,
+    "productionRateWeight": 10,
+    "isTemporary": true,
+    "description": "临时验证：四项属性加权+生产频率×10；不含缺失攻击力，非战斗结算"
+  }
+]

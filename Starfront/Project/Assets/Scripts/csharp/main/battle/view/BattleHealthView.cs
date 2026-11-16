@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using cfg;
@@ -17,25 +17,43 @@ public sealed class BattleHealthView : IDisposable {
     private readonly RectTransform lod;
     private readonly Dictionary<long, Bar> active = new Dictionary<long, Bar>();
     private readonly Stack<Bar> pool = new Stack<Bar>();
+    private readonly HashSet<long> keep = new HashSet<long>();
+    private readonly List<long> removed = new List<long>();
+    private Sprite unitBackground, buildingBackground, friendlyUnitFill, enemyUnitFill, friendlyBuildingFill, enemyBuildingFill;
     public int visibleCount => active.Count;
 
     public BattleHealthView(BattleSceneModel model, RectTransform sceneRoot, RectTransform lod) {
         this.model = model;
         this.sceneRoot = sceneRoot;
         this.lod = lod;
+        var backgrounds = BattleConst.HealthBackgrounds;
+        var friendly = BattleConst.FriendlyHealthFills;
+        var enemy = BattleConst.EnemyHealthFills;
+        unitBackground = ResourceManager.GetUnpackImage(BattleSceneResources.SpritePath(backgrounds["unit"]));
+        buildingBackground = ResourceManager.GetUnpackImage(BattleSceneResources.SpritePath(backgrounds["building"]));
+        friendlyUnitFill = ResourceManager.GetUnpackImage(BattleSceneResources.SpritePath(friendly["unit"]));
+        enemyUnitFill = ResourceManager.GetUnpackImage(BattleSceneResources.SpritePath(enemy["unit"]));
+        friendlyBuildingFill = ResourceManager.GetUnpackImage(BattleSceneResources.SpritePath(friendly["building"]));
+        enemyBuildingFill = ResourceManager.GetUnpackImage(BattleSceneResources.SpritePath(enemy["building"]));
+        if (unitBackground == null || buildingBackground == null || friendlyUnitFill == null || enemyUnitFill == null || friendlyBuildingFill == null || enemyBuildingFill == null) {
+            throw new InvalidOperationException("血条资源未预加载。");
+        }
     }
 
     public void Refresh(Rect visible, float zoom) {
-        var keep = new HashSet<long>();
-        foreach (var target in model.elements.Values.OfType<BattleCombatantVO>()) {
+        keep.Clear();
+        foreach (var element in model.elements.Values) {
+            if (!(element is BattleCombatantVO target)) {
+                continue;
+            }
             if (!target.alive) {
                 continue;
             }
             bool unit = target is BattleUnitVO;
-            string key = unit ? "unit" : "building";
-            Sprite background = ResourceManager.GetUnpackImage(BattleSceneResources.SpritePath(BattleConst.HealthBackgrounds[key]));
-            var fills = target.camp == BattleSceneCamp.FRIENDLY ? BattleConst.FriendlyHealthFills : BattleConst.EnemyHealthFills;
-            Sprite fill = ResourceManager.GetUnpackImage(BattleSceneResources.SpritePath(fills[key]));
+            Sprite background = unit ? unitBackground : buildingBackground;
+            Sprite fill = target.camp == BattleSceneCamp.FRIENDLY
+                ? (unit ? friendlyUnitFill : friendlyBuildingFill)
+                : (unit ? enemyUnitFill : enemyBuildingFill);
             if (background == null || fill == null) {
                 throw new InvalidOperationException("血条资源未预加载。");
             }
@@ -52,8 +70,8 @@ public sealed class BattleHealthView : IDisposable {
             if (!active.TryGetValue(target.id, out var bar)) {
                 bar = pool.Count > 0 ? pool.Pop() : Create();
                 active.Add(target.id, bar);
+                bar.root.name = "health_" + target.id;
             }
-            bar.root.name = "health_" + target.id;
             bar.root.gameObject.SetActive(true);
             bar.root.localPosition = lod.InverseTransformPoint(sceneRoot.TransformPoint(new Vector3(point.x, -point.y, 0)));
             bar.root.localScale = Vector3.one * zoom;
@@ -63,7 +81,13 @@ public sealed class BattleHealthView : IDisposable {
             bar.fill.rectTransform.sizeDelta = fill.rect.size;
             bar.fill.fillAmount = Mathf.Clamp01((float)(target.hp / target.maxHp));
         }
-        foreach (long id in active.Keys.Where(id => !keep.Contains(id)).ToArray()) {
+        removed.Clear();
+        foreach (long id in active.Keys) {
+            if (!keep.Contains(id)) {
+                removed.Add(id);
+            }
+        }
+        foreach (long id in removed) {
             var bar = active[id];
             active.Remove(id);
             Reset(bar);
@@ -103,5 +127,13 @@ public sealed class BattleHealthView : IDisposable {
         }
         active.Clear();
         pool.Clear();
+        keep.Clear();
+        removed.Clear();
+        unitBackground = null;
+        buildingBackground = null;
+        friendlyUnitFill = null;
+        enemyUnitFill = null;
+        friendlyBuildingFill = null;
+        enemyBuildingFill = null;
     }
 }

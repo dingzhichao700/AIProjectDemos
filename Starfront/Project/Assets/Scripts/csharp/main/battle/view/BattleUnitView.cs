@@ -12,6 +12,57 @@ using UnityEngine.UI;
 public sealed class BattleUnitView : IDisposable {
 
     private readonly BattleSceneModel model;
+    private readonly Dictionary<(cfg.resource.UnitResource, UnitActionType, UnitAppearanceDirection), VisualSource> visualSources = new Dictionary<(cfg.resource.UnitResource, UnitActionType, UnitAppearanceDirection), VisualSource>();
+    private readonly List<DepthEntry> depthOrder = new List<DepthEntry>();
+    private static readonly IComparer<DepthEntry> DepthOrder = new DepthComparer();
+
+    private sealed class VisualSource {
+        public cfg.bean.UnitAppearance appearance;
+        public FrameAnimationRes animation;
+    }
+
+    private struct DepthEntry {
+        public RectTransform rect;
+        public float depth;
+        public float x;
+        public int originalIndex;
+    }
+
+    private sealed class DepthComparer : IComparer<DepthEntry> {
+        public int Compare(DepthEntry a, DepthEntry b) {
+            int value = b.depth.CompareTo(a.depth);
+            if (value != 0) {
+                return value;
+            }
+            value = a.x.CompareTo(b.x);
+            return value != 0 ? value : a.originalIndex.CompareTo(b.originalIndex);
+        }
+    }
+
+    private VisualSource ResolveVisual(cfg.resource.UnitResource config, UnitActionType action, UnitAppearanceDirection direction) {
+        var key = (config, action, direction);
+        if (visualSources.TryGetValue(key, out var cached)) {
+            return cached;
+        }
+        cfg.bean.UnitAppearance appearance = null;
+        foreach (var candidate in config.Appearances) {
+            if (candidate.Action != action || candidate.Direction != direction) {
+                continue;
+            }
+            if (appearance != null) {
+                throw new InvalidOperationException("Sequence contains more than one matching element");
+            }
+            appearance = candidate;
+        }
+        if (appearance == null) {
+            throw new InvalidOperationException("Sequence contains no matching element");
+        }
+        string path = ResourceConst.GetFrameAnimationPath(appearance.Resource);
+        var animation = FrameAnimationManager.GetRes(path) ?? throw new InvalidOperationException("单位动作未预加载：" + path);
+        cached = new VisualSource { appearance = appearance, animation = animation };
+        visualSources.Add(key, cached);
+        return cached;
+    }
     private readonly BattleUnitDeathView deaths;
 
     private readonly RectTransform parent;
@@ -66,22 +117,31 @@ public sealed class BattleUnitView : IDisposable {
     }
 
     public void Refresh(Rect visibleRect) {
-        foreach (long id in idleStarts.Keys.Where(id => !model.elements.ContainsKey(id)).ToArray()) {
+        removed.Clear();
+        foreach (long id in idleStarts.Keys) {
+            if (!model.elements.ContainsKey(id)) {
+                removed.Add(id);
+            }
+        }
+        foreach (long id in removed) {
             idleStarts.Remove(id);
         }
         visible.Clear();
         groundDepths.Clear();
         deaths.Refresh(visibleRect);
-        foreach (var unit in model.elements.Values.OfType<BattleUnitVO>()) {
+        foreach (var element in model.elements.Values) {
+            if (!(element is BattleUnitVO unit)) {
+                continue;
+            }
             if (unit.destroyed) {
                 continue;
             }
-            var direction = ResolveDirection(unit.heading);
+            var direction = ResolveDirection(unit.displayHeading);
             var action = ResolveAction(unit);
-            var appearance = unit.config.Appearances.Single(item => item.Action == action && item.Direction == direction);
-            string path = ResourceConst.GetFrameAnimationPath(appearance.Resource);
-            var animation = FrameAnimationManager.GetRes(path) ?? throw new InvalidOperationException("单位动作未预加载：" + path);
-            bool mirror = unit.heading.x < 0;
+            var source = ResolveVisual(unit.config, action, direction);
+            var appearance = source.appearance;
+            var animation = source.animation;
+            bool mirror = unit.displayHeading.x < 0;
             double elapsed;
             if (unit.activeCast != null && action != UnitActionType.IDLE) {
                 idleStarts.Remove(unit.id);
@@ -156,9 +216,25 @@ public sealed class BattleUnitView : IDisposable {
         }
         // 与建筑共用地面深度顺序，镜头缩放由场景根应用一次。
         if (active.Count > 0 || deaths.visibleCount > 0) {
-            var ordered = Enumerable.Range(0, parent.childCount).Select(index => (RectTransform)parent.GetChild(index)).Where(rect => rect.gameObject.activeSelf).OrderByDescending(rect => groundDepths.TryGetValue(rect, out float depth) ? depth : rect.anchoredPosition.y).ThenBy(rect => rect.anchoredPosition.x).ToArray();
-            foreach (var rect in ordered) {
-                rect.SetAsLastSibling();
+            depthOrder.Clear();
+            int childCount = parent.childCount;
+            for (int i = 0; i < childCount; i++) {
+                var rect = (RectTransform)parent.GetChild(i);
+                if (!rect.gameObject.activeSelf) {
+                    continue;
+                }
+                Vector2 point = rect.anchoredPosition;
+                depthOrder.Add(new DepthEntry { rect = rect, depth = groundDepths.TryGetValue(rect, out float depth) ? depth : point.y, x = point.x, originalIndex = i });
+            }
+            depthOrder.Sort(DepthOrder);
+            // Reverse placement also preserves inactive pooled siblings in front.
+            // Stable frames avoid changing sibling order and dirtying Canvas again.
+            for (int i = depthOrder.Count - 1; i >= 0; i--) {
+                RectTransform rect = depthOrder[i].rect;
+                int target = childCount - depthOrder.Count + i;
+                if (rect.GetSiblingIndex() != target) {
+                    rect.SetSiblingIndex(target);
+                }
             }
         }
     }
@@ -223,6 +299,8 @@ public sealed class BattleUnitView : IDisposable {
         groundDepths.Clear();
         active.Clear();
         pool.Clear();
+        visualSources.Clear();
+        depthOrder.Clear();
     }
 
 }

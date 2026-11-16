@@ -7,7 +7,6 @@ using UnityEngine;
 public class RookieEngine : MonoBehaviour
 {
     public RectTransform viewportScale;
-    public RectTransform viewportConstant;
     public RectTransform safeAreaRoot;
     public RectTransform uiPool;
 
@@ -35,12 +34,15 @@ public class RookieEngine : MonoBehaviour
     void Awake()
     {
         EnsureSceneReferences();
+        if (GetComponent<FrameworkDevelopmentSettings>() == null) {
+            gameObject.AddComponent<FrameworkDevelopmentSettings>();
+        }
 
         Debug.Log("持久化路径：" + Application.persistentDataPath);
 
         LogEnableMap[EngineLogType.LOAD_INFO] = false;
 
-        PanelMgr.ins.SetUIRoot(portraitViewport.scaleRoot, portraitViewport.constantRoot, safeAreaRoot, uiPool, portraitViewport.DesignSize);
+        UiRuntimeHost.ConfigureRoots(portraitViewport.scaleRoot, safeAreaRoot, uiPool, portraitViewport.DesignSize);
 
         _timer = new Timer();
         _sceneTimer = new Timer();
@@ -58,16 +60,11 @@ public class RookieEngine : MonoBehaviour
             viewportScale = FindSceneRect("canvasScale");
         }
 
-        if (viewportConstant == null)
-        {
-            viewportConstant = FindSceneRect("canvasConstantPixel");
-        }
-
         portraitViewport = GetComponent<PortraitGameViewport>();
         if (portraitViewport == null) {
             portraitViewport = gameObject.AddComponent<PortraitGameViewport>();
         }
-        portraitViewport.Initialize(viewportScale, viewportConstant);
+        portraitViewport.Initialize(viewportScale);
 
         if (safeAreaRoot == null)
         {
@@ -108,14 +105,14 @@ public class RookieEngine : MonoBehaviour
         _playerTimer.SyncTime(passTime);
         _enemyTimer.SyncTime(passTime);
 
-        PanelMgr.ins.Update();
+        UiRuntimeHost.Tick();
         KeyBoardControl.ins.Update();
     }
 
     void OnApplicationFocus(bool value)
     {
         _isFocus = value;
-        PanelMgr.ins.Dispatch(PanelEvent.APPLICATION_FOCUS_UPDATE);
+        UiRuntimeHost.NotifyFocus(value);
     }
 
     public static Timer GetTimer(TimerType type)

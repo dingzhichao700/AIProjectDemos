@@ -1,0 +1,2156 @@
+{
+  "schemaVersion": 1,
+  "toolVersion": "1.0.0",
+  "groups": [
+    "audioCommon",
+    "battleCommon",
+    "cardBattle",
+    "cardDisplay",
+    "cardDisplayAnimation",
+    "common",
+    "cutScene",
+    "default",
+    "icons",
+    "map",
+    "opening",
+    "renderCommon",
+    "scene",
+    "title",
+    "uiBattle",
+    "uiCommon",
+    "uiCultivation",
+    "uiDebug",
+    "uiItem",
+    "uiMain",
+    "uiSkillDetail",
+    "uiTeam"
+  ],
+  "modules": [
+    "battle",
+    "battleInfo",
+    "card",
+    "cardCultivation",
+    "cardSkillDetail",
+    "common",
+    "effects",
+    "gm",
+    "item",
+    "itemIcons",
+    "itemTip",
+    "keyHint",
+    "layereffect",
+    "loading",
+    "mainView",
+    "opening",
+    "option",
+    "playerMatching",
+    "setting",
+    "sharedPower",
+    "skillIcons",
+    "title",
+    "warning"
+  ],
+  "protectedVendorRoots": [
+    "Assets/Plugins/",
+    "Assets/TextMesh Pro/",
+    "Assets/WX-WASM-SDK-V2/",
+    "Assets/WebGLTemplates/"
+  ],
+  "globalResourceRoots": [
+    "Assets/Art/font/",
+    "Assets/Art/shader/",
+    "Assets/Art/audioMixer/",
+    "Assets/Art/material/custom/"
+  ],
+  "artTypes": [
+    "atlas",
+    "atlasSource",
+    "unpack",
+    "frameAnimation",
+    "skeletalAnimation",
+    "audio",
+    "material"
+  ],
+  "skeletalExtensions": [
+    ".png",
+    ".anim",
+    ".asset",
+    ".mat",
+    ".controller",
+    ".overridecontroller"
+  ],
+  "audioExtensions": [
+    ".wav",
+    ".mp3",
+    ".ogg",
+    ".aiff"
+  ],
+  "bootstrapResources": [
+    "Assets/Resources/GameFrameworkHotUpdateBase.txt"
+  ],
+  "streamingAssets": [],
+  "builtInVirtualGuids": [
+    "EditorSceneList",
+    "Resources"
+  ],
+  "frameAuxiliaryJson": [
+    "Assets/Art/frameAnimation/mainView/formationEvents/spawn-footprints.json"
+  ],
+  "legacyIssues": [
+    {
+      "id": "LEGACY-001",
+      "code": "ATLAS_LAYOUT",
+      "path": "Assets/Art/atlas/default/card/burst/2101/marine-burst-atlas.png",
+      "guid": "ba8bbedea0a7a86488bb5e17b2d8df7b",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-002",
+      "code": "ATLAS_LAYOUT",
+      "path": "Assets/Art/atlas/default/card/idle/2202/hydralisk-mouth-atlas.png",
+      "guid": "ab623fb233bf89d4a95382882d658b38",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-003",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/skill-v11-active.png",
+      "guid": "51cbc911c4925c018fa3764f7f63aca5",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-004",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/skill-v11-basic.png",
+      "guid": "813dea84b76c5b7682aa037c928ff4aa",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-005",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/skill-v11-black.png",
+      "guid": "52e31ec2c3fd55868176a94509702dd9",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-006",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/skill-v11-frame.png",
+      "guid": "f40b11cf36315b6999119a24cb9a23f5",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-007",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/skill-v11-passive.png",
+      "guid": "2816aef02a225acca42b566585ec035c",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-008",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/skill-v11-ultimate.png",
+      "guid": "388931c2b12c5616b8ccb0b12f6d40a5",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-009",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/temp-material-symbol.png",
+      "guid": "73d43b7bea1464048add73c0e868a30a",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-010",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/temp-skill-basic-symbol.png",
+      "guid": "4de003215c4f2eb4984ecbac897ff975",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-011",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/temp-skill-passive-symbol.png",
+      "guid": "303d5fcfa5415dd4f9455b9898ac2652",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-012",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/temp-skill-ultimate-symbol.png",
+      "guid": "d88b01451faaff3479cf6f3d2f36ecba",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-013",
+      "code": "AUDIO_LAYOUT",
+      "path": "Assets/Art/audio/opening/A Painful Mistake.ogg",
+      "guid": "e76cc5f3fc7943a4c82579adbd882b2f",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-014",
+      "code": "AUDIO_LAYOUT",
+      "path": "Assets/Art/audio/opening/Cmaj Victory Scale.mp3",
+      "guid": "d31fb03420cc2a9448774ec01dc543aa",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-015",
+      "code": "AUDIO_LAYOUT",
+      "path": "Assets/Art/audio/title/Peaceful Days.ogg",
+      "guid": "6b3dc890b24ca5445936fbd1ef7a7a57",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-016",
+      "code": "AUDIO_LAYOUT",
+      "path": "Assets/Art/audio/title/The Visible and the Hidden.ogg",
+      "guid": "3fddb986df5afe34cbb542eaeae9845a",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-017",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/font/material/teamEditR3Underlay.mat",
+      "guid": "eb5e3dda47b2f6f4b8249b3fd027af35",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-018",
+      "code": "FRAME_GROUP",
+      "path": "Assets/Art/frameAnimation/card/2101/muzzle-flash.json",
+      "guid": "cb4e1ed243b70de41b9552f68a728797",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved 陆战队员-枪口帧火光-R1; preserve mounted action contract",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-019",
+      "code": "FRAME_GROUP",
+      "path": "Assets/Art/frameAnimation/card/2101/muzzle-flash.png",
+      "guid": "b9243507145d5d246933464f4aa0d4ab",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved 陆战队员-枪口帧火光-R1; preserve mounted action contract",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-020",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Attack1_Down.json",
+      "guid": "3cc58e51a28a438290ae8b83792922c6",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-021",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Attack1_Down.png",
+      "guid": "2b981aae68e9488091affd63e66c141b",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-022",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Attack1_DownRight.json",
+      "guid": "f5e9ff85cd154069977e0c8400631f18",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-023",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Attack1_DownRight.png",
+      "guid": "cc9534d93a034641bde494e669188b60",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-024",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Attack1_Right.json",
+      "guid": "8d0a351af99942009240f0034b02fcae",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-025",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Attack1_Right.png",
+      "guid": "8378e97a17ae465aa181ed1e26e9aad2",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-026",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Attack1_Up.json",
+      "guid": "1b3346eb35a54bbeb69d180528a22e63",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-027",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Attack1_Up.png",
+      "guid": "9e0f22edd366482bb6a9ded1d674922e",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-028",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Attack1_UpRight.json",
+      "guid": "3de21764e244421faf3f41d819e87efe",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-029",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Attack1_UpRight.png",
+      "guid": "c060e1c307ac4dfc93287410b4451d2c",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-030",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Death_Down.json",
+      "guid": "0f320926ce3ceec4f8919f42f79f9840",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-031",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Death_Down.png",
+      "guid": "0d2418b77a4d4c7a9107b9e737b50c39",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-032",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Death_DownRight.json",
+      "guid": "01b32bf496ce43a4d8b219dab5508d26",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-033",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Death_DownRight.png",
+      "guid": "858267d638d04862838fa27fd1a1c139",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-034",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Death_Right.json",
+      "guid": "9a57a66dc5f3a144d9b1c6e461669cd0",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-035",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Death_Right.png",
+      "guid": "ac70c34a0a5a4f4db09ec03e2eb0d3d6",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-036",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Death_Up.json",
+      "guid": "52089540ffc5b5c46a76df093e314bd3",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-037",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Death_Up.png",
+      "guid": "3a3342dccc7b41888c25286281aa56cb",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-038",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Death_UpRight.json",
+      "guid": "c18ceaacf310470438de7519f465464b",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-039",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Death_UpRight.png",
+      "guid": "45392f18d0ed411387631df70f4c6c7f",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-040",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Idle_Down.json",
+      "guid": "e6f78c9942314224b1c1563d09eaf533",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-041",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Idle_Down.png",
+      "guid": "4e19b2b542c14f988cd4b9e01abc55a4",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-042",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Idle_DownRight.json",
+      "guid": "44f91aa9d5304da69cc77165d56b55a9",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-043",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Idle_DownRight.png",
+      "guid": "0294eafaff57424085ecf221ddd652d5",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-044",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Idle_Right.json",
+      "guid": "42f5e39d67994db0a1e65185f20da592",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-045",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Idle_Right.png",
+      "guid": "0f4e6c86a36d4c65a061591f6b123700",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-046",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Idle_Up.json",
+      "guid": "e9b74a1009d24b1caf224a0980c22702",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-047",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Idle_Up.png",
+      "guid": "5b4844e5de644e868a5b0afcfcc52908",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-048",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Idle_UpRight.json",
+      "guid": "536666d2ac064c9da5a423de3cb45830",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-049",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Idle_UpRight.png",
+      "guid": "21f6721e0e1448a6b6dbc6ee0a58626b",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-050",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Move_Down.json",
+      "guid": "ee8c3e3d1df40ae4cb6b0b5b405d461b",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-051",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Move_Down.png",
+      "guid": "f516d36e9cbc05246bfcbb42bf3ff508",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-052",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Move_DownRight.json",
+      "guid": "2ec13302f2f0bb34190b3c7bdb0102bf",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-053",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Move_DownRight.png",
+      "guid": "66991c8f1ec418c4d88e3758058ae644",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-054",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Move_Right.json",
+      "guid": "8fa799ae6e8d1f746920c53a704f146d",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-055",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Move_Right.png",
+      "guid": "579ff2cc008f5f94ba4e518f438f545e",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-056",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Move_Up.json",
+      "guid": "b8dc7a4ed8ff2c84d96e067d28f5c89b",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-057",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Move_Up.png",
+      "guid": "f7bed0cf9ef5a2d40b18724fcbe732bb",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-058",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Move_UpRight.json",
+      "guid": "c15c57fa9366e7548b952e33792b6ce4",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-059",
+      "code": "UNKNOWN_MODULE",
+      "path": "Assets/Art/frameAnimation/default/Colonial/Infantry/Move_UpRight.png",
+      "guid": "47bcb7e715655904788a33f5622fd6a9",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-060",
+      "code": "FRAME_GROUP",
+      "path": "Assets/Art/frameAnimation/mainView/formationBackground/fog-a.json",
+      "guid": "a0b438e43e0747a45ae11ddb6db0dc75",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved 阵容动态背景资源与接入规范; migrate only as approved address transaction",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-061",
+      "code": "FRAME_GROUP",
+      "path": "Assets/Art/frameAnimation/mainView/formationBackground/fog-a.png",
+      "guid": "dce40c9694a72e6489bebecbcf0affca",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved 阵容动态背景资源与接入规范; migrate only as approved address transaction",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-062",
+      "code": "FRAME_GROUP",
+      "path": "Assets/Art/frameAnimation/mainView/formationBackground/fog-b.json",
+      "guid": "90f0c6f02d05b2a45a030ee1935311c2",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved 阵容动态背景资源与接入规范; migrate only as approved address transaction",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-063",
+      "code": "FRAME_GROUP",
+      "path": "Assets/Art/frameAnimation/mainView/formationBackground/fog-b.png",
+      "guid": "b8d5111c3aeb4b64d909705873397d22",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved 阵容动态背景资源与接入规范; migrate only as approved address transaction",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-064",
+      "code": "FRAME_GROUP",
+      "path": "Assets/Art/frameAnimation/mainView/formationBackground/star.json",
+      "guid": "c3d6b1a9fdf97e5469565a001fe9fca6",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved 阵容动态背景资源与接入规范; migrate only as approved address transaction",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-065",
+      "code": "FRAME_GROUP",
+      "path": "Assets/Art/frameAnimation/mainView/formationBackground/star.png",
+      "guid": "69151e4ac3a4ab04481a679a92915788",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved 阵容动态背景资源与接入规范; migrate only as approved address transaction",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-066",
+      "code": "FRAME_GROUP",
+      "path": "Assets/Art/frameAnimation/mainView/formationEvents/frigate-rear.json",
+      "guid": "d67ccba84c19aa449a7caaf78ca6e19c",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved 阵容动态背景资源与接入规范; migrate only as approved address transaction",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-067",
+      "code": "FRAME_GROUP",
+      "path": "Assets/Art/frameAnimation/mainView/formationEvents/frigate-rear.png",
+      "guid": "282f6abef55976645b57ebaa4f1ce39b",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved 阵容动态背景资源与接入规范; migrate only as approved address transaction",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-068",
+      "code": "FRAME_GROUP",
+      "path": "Assets/Art/frameAnimation/mainView/formationEvents/meteor.json",
+      "guid": "2b892b85ecc74ca4a8b1ae155e7f4e58",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved 阵容动态背景资源与接入规范; migrate only as approved address transaction",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-069",
+      "code": "FRAME_GROUP",
+      "path": "Assets/Art/frameAnimation/mainView/formationEvents/meteor.png",
+      "guid": "659cd3dcbda3fb242b221d38f8dc4da5",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved 阵容动态背景资源与接入规范; migrate only as approved address transaction",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-070",
+      "code": "FRAME_GROUP",
+      "path": "Assets/Art/frameAnimation/mainView/formationEvents/spawn-footprints.json",
+      "guid": "9be9c42e09aea354d9193a96b1128446",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved 阵容动态背景资源与接入规范; migrate only as approved address transaction",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-071",
+      "code": "FRAME_LAYOUT",
+      "path": "Assets/Art/frameAnimation/opening/box_open.json",
+      "guid": "d46572e4eb7f9ed4f9c1cceb9fd9578f",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-072",
+      "code": "FRAME_LAYOUT",
+      "path": "Assets/Art/frameAnimation/opening/box_open.png",
+      "guid": "469ae2f09a4701549ad9622d4d00349f",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-073",
+      "code": "FRAME_LAYOUT",
+      "path": "Assets/Art/frameAnimation/title/loadingFire.json",
+      "guid": "fe2fe0c1338ad704facf861f43d95759",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-074",
+      "code": "FRAME_LAYOUT",
+      "path": "Assets/Art/frameAnimation/title/loadingFire.png",
+      "guid": "2d3b1d954752bbc42bc951e4b3a064c6",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-075",
+      "code": "FRAME_LAYOUT",
+      "path": "Assets/Art/frameAnimation/title/title_loop.json",
+      "guid": "baf9b0e32a9501444b226ce9f33581da",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-076",
+      "code": "FRAME_LAYOUT",
+      "path": "Assets/Art/frameAnimation/title/title_loop.png",
+      "guid": "7de4be21924cba24a950e21ac7da5f91",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-077",
+      "code": "FRAME_LAYOUT",
+      "path": "Assets/Art/frameAnimation/title/title_open.json",
+      "guid": "6fd1c38fad5ebad48a0045d5b095c118",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-078",
+      "code": "FRAME_LAYOUT",
+      "path": "Assets/Art/frameAnimation/title/title_open.png",
+      "guid": "f95018d40bb2efa4fb6ee83be5bf7591",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-079",
+      "code": "MATERIAL_LAYOUT",
+      "path": "Assets/Art/material/DeckLockedFrame.mat",
+      "guid": "7d6158255f063c041b0af4f0ede7fca5",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-080",
+      "code": "MATERIAL_LAYOUT",
+      "path": "Assets/Art/material/scene/battle/1001/owners.png",
+      "guid": "864d761eb0416c242bea1c90fe4e62ac",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-081",
+      "code": "UNPACK_TYPE",
+      "path": "Assets/Art/unpack/default/card/burst/2101/MarineBurstRig.prefab",
+      "guid": "1da73dafde455294eb679d7a69be0a31",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-082",
+      "code": "UNPACK_TYPE",
+      "path": "Assets/Art/unpack/default/card/idle/2101/MarineIdleRig.prefab",
+      "guid": "2959f2e417688914daf52469f06b3b36",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-083",
+      "code": "UNPACK_TYPE",
+      "path": "Assets/Art/unpack/default/card/idle/2202/HydraliskIdleRig.prefab",
+      "guid": "1629e251ee4c29d4fa21b08785ba2f34",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-084",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2101/card.png",
+      "guid": "2af2cb740128c8b469115a78de984730",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-085",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2101/portrait.png",
+      "guid": "ce8f6907e4b8b3a4281ed18e5658c73f",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-086",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2102/card.png",
+      "guid": "4bfa9ac8732d92d43a3d119617109760",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-087",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2102/portrait.png",
+      "guid": "567f9fb3aec691a48847eb2eea05b859",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-088",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2103/card.png",
+      "guid": "227332915c1ce1942985ef3fdabd2e20",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-089",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2103/portrait.png",
+      "guid": "6b9fdf94adbf68d439e87d6961b82478",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-090",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2104/card.png",
+      "guid": "7b9b21106b775f742afd045c70a5e1a3",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-091",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2104/portrait.png",
+      "guid": "4cb0347c60596be4aa86df42c40c3309",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-092",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2105/card.png",
+      "guid": "e06a78329a40bd7429aa47b6a9655a68",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-093",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2105/portrait.png",
+      "guid": "de36e9844b81cf247af22cb7244b649e",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-094",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2201/card.png",
+      "guid": "af94e9b94e8b8a64ba8d860e88f32b86",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-095",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2201/portrait.png",
+      "guid": "846a9401862f8d34da09ec8cdbd59fc7",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-096",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2202/card.png",
+      "guid": "12c1e80d155ad754ab563d16cd5ea52e",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-097",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2202/portrait.png",
+      "guid": "223fe7f063a2b9347b112a7b048e6d10",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-098",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2203/card.png",
+      "guid": "5e90c5fdaa08c12469cd0f6f992f39f5",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-099",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2203/portrait.png",
+      "guid": "c24ae9ea3fbf7a545a0e0762c536f2f4",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-100",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2204/card.png",
+      "guid": "0e0b05600dbbd34468663751af975f62",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-101",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2204/portrait.png",
+      "guid": "94f90ab0d26104648aafa4ce35a482a7",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-102",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2205/card.png",
+      "guid": "be48bfd4cd4219d44b7339a2a04e5c36",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-103",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2205/portrait.png",
+      "guid": "105c131fbe48c044187f11212f5eb115",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-104",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2301/card.png",
+      "guid": "60944aaf535ab5a438eef3dd3d509ac8",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-105",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2301/portrait.png",
+      "guid": "c0f060fdb7e17f9409bc18387e71620b",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-106",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2302/card.png",
+      "guid": "a3dfbe08293660246a1d35d46966c71c",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-107",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2302/portrait.png",
+      "guid": "a3ca98076bfe8be4da013c0b8e866192",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-108",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2303/card.png",
+      "guid": "8e3f023775b74f8498366dd6334485b5",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-109",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2303/portrait.png",
+      "guid": "d974dc3838da853419123c14f657d2ed",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-110",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2304/card.png",
+      "guid": "7bdc479b0742f654baada790b3c63b98",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-111",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2304/portrait.png",
+      "guid": "dcbf75b327e141e49b3a1f952e918643",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-112",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2305/card.png",
+      "guid": "7924193facd4eaf44ba31d137382be32",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-113",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2305/portrait.png",
+      "guid": "96b107ab0a5fbc9438e7622df65e6e16",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-114",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2306/card.png",
+      "guid": "4f03734f63d0eee4f8296c99743b116d",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-115",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/rosterV3/2306/portrait.png",
+      "guid": "ebcad401f2ab8fb41b174c4534933b67",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-116",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/sharedV1/badge-base.png",
+      "guid": "2c54f28bf6f8c1741937937f433568d3",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-117",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/sharedV1/crosshair-icon.png",
+      "guid": "ea6b7c99749687946aa31b1c0e93fea3",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-118",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/sharedV1/frame-gold-preview.png",
+      "guid": "bfad99456f5ea2040ab534834e6773f6",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-119",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/sharedV1/frame-quality-2.png",
+      "guid": "e625c62c89350a74aa042c6ac82be939",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-120",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/sharedV1/frame-quality-3.png",
+      "guid": "afba6a41c72e9714daefa0ac53cbe512",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-121",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/sharedV1/frame-quality-4.png",
+      "guid": "e32a8ecd518b88745b2736bca900ce0c",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-122",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/sharedV1/frame-quality-5.png",
+      "guid": "4ef39bc4d5f699b42af4b902473f96e9",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-123",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/sharedV1/picture-mask.png",
+      "guid": "b4f0daf2b7b6c704aa039b003af9ed8c",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-124",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/sharedV1/progress-fill.png",
+      "guid": "e2eff75cb4b6f424bb1b0dd2a1a9b14d",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-125",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/sharedV1/progress-track.png",
+      "guid": "c437968c19f2f4c44935b7ef15cbc037",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-126",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/card/sharedV1/status-tag.png",
+      "guid": "9cc2f2bf0893419449b37636e504aebd",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B2",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-127",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/cardCultivation/temp-hero-background.png",
+      "guid": "8f02a84a0c0f6214d919a2c044220d5a",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-128",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/cardCultivation/temp-podium-ring.png",
+      "guid": "4c856071429fc3a4a9e90cd0dfc2c753",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-129",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/cardCultivation/pulseQualitiesR1/GoldLocalPulse.json",
+      "guid": "731120f4730f04340882d7261e03dce3",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-130",
+      "code": "UNPACK_TYPE",
+      "path": "Assets/Art/unpack/default/cardCultivation/pulseQualitiesR1/GoldLocalPulse.json",
+      "guid": "731120f4730f04340882d7261e03dce3",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-131",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/cardCultivation/pulseQualitiesR1/GoldLocalPulse.png",
+      "guid": "387eedde90ec1144aaf9b14de5a4bf84",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-132",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/cardCultivation/pulseQualitiesR1/GreenLocalPulse.json",
+      "guid": "a2c0f7e1cc5deed4695ea6ffe57319f5",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-133",
+      "code": "UNPACK_TYPE",
+      "path": "Assets/Art/unpack/default/cardCultivation/pulseQualitiesR1/GreenLocalPulse.json",
+      "guid": "a2c0f7e1cc5deed4695ea6ffe57319f5",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-134",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/cardCultivation/pulseQualitiesR1/GreenLocalPulse.png",
+      "guid": "96ff9c76afd5e2e429c8c451b13d0d04",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-135",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/cardCultivation/pulseQualitiesR1/PurpleLocalPulse.json",
+      "guid": "b52bddeb9aaffeb42810096d5267599c",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-136",
+      "code": "UNPACK_TYPE",
+      "path": "Assets/Art/unpack/default/cardCultivation/pulseQualitiesR1/PurpleLocalPulse.json",
+      "guid": "b52bddeb9aaffeb42810096d5267599c",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-137",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/cardCultivation/pulseQualitiesR1/PurpleLocalPulse.png",
+      "guid": "0e8d9884200edfa4a852d2d1158b868a",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-138",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/cardCultivation/pulseRareCTrial/BlueLocalPulse.json",
+      "guid": "7163d37e85943f9499344024739100e0",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-139",
+      "code": "UNPACK_TYPE",
+      "path": "Assets/Art/unpack/default/cardCultivation/pulseRareCTrial/BlueLocalPulse.json",
+      "guid": "7163d37e85943f9499344024739100e0",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-140",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/cardCultivation/pulseRareCTrial/BlueLocalPulse.png",
+      "guid": "f44b0db4c9cc3ef448071a78865fa5d0",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-161",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/item/generalR5/blue-background-97x101.png",
+      "guid": "d2a37ff3724a67a418c417d47069554a",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-162",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/item/generalR5/green-background-97x101.png",
+      "guid": "34e8700a71985194e80da834475cdecf",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-163",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/item/generalR5/orange-background-97x101.png",
+      "guid": "b23d8e22e58f0d64f90a58864a16a90e",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-164",
+      "code": "PRODUCTION_VERSION_NAME",
+      "path": "Assets/Art/unpack/default/item/generalR5/purple-background-97x101.png",
+      "guid": "b7d1a141838e5dc43a8654c3f32426f0",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B3",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-165",
+      "code": "UNPACK_TYPE",
+      "path": "Assets/Art/unpack/default/layereffect/groundOwners.bytes",
+      "guid": "43604197b7e5d8847b75eaeb786d9368",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-166",
+      "code": "PREFAB_LAYOUT",
+      "path": "Assets/Prefab/opening/OpeningPanel.prefab",
+      "guid": "203643be0ff32cd41a24ac6e916fd4e9",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Existing opening prefab and bootstrap address; preserve stable entry until explicit compatible migration",
+      "reviewBatch": "B4",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-167",
+      "code": "SOURCE_RUNTIME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/attr-attack.png",
+      "guid": "173de4857780b9848a1751adfb37570d",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B1",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-170",
+      "code": "SOURCE_RUNTIME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/attr-production.png",
+      "guid": "2dc80d01a0cc63a4dac33e999152b53d",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B1",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-172",
+      "code": "SOURCE_RUNTIME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/attr-building-hp.png",
+      "guid": "4da2bdd0c13106a44a3de03571c5603e",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B1",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-173",
+      "code": "SOURCE_RUNTIME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/podium-metal.png",
+      "guid": "51ace42bf4d548fd8d2145209114d76a",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B1",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-176",
+      "code": "SOURCE_RUNTIME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/quality-legend.png",
+      "guid": "5ee726b0ed3954dabd7c450f00243cfa",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B1",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-177",
+      "code": "SOURCE_RUNTIME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/podium-purple.png",
+      "guid": "5f392270f58a56efa6b364eec8052be3",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B1",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-179",
+      "code": "SOURCE_RUNTIME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/quality-epic.png",
+      "guid": "90500450f65053bf8127822746832195",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B1",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-180",
+      "code": "SOURCE_RUNTIME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/attr-range.png",
+      "guid": "9571977ac0c41f24d856745ec2aedc4e",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B1",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-181",
+      "code": "SOURCE_RUNTIME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/podium-blue.png",
+      "guid": "9e305acefd385e3cb32d57610d3c997f",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B1",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-183",
+      "code": "SOURCE_RUNTIME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/attr-speed.png",
+      "guid": "a58e82f2ca68e56479c2cbeb870edcad",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B1",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-184",
+      "code": "SOURCE_RUNTIME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/podium-green.png",
+      "guid": "a6ee03dbf21f5ca7be3150b35223dbde",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B1",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-185",
+      "code": "SOURCE_RUNTIME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/attr-unit-hp.png",
+      "guid": "a956cf40e814eb94d880048ec84cd75d",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B1",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-186",
+      "code": "SOURCE_RUNTIME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/podium-gold.png",
+      "guid": "bc8c9ffa33fb54f0b08582021700bd4d",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B1",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-187",
+      "code": "SOURCE_RUNTIME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/quality-normal.png",
+      "guid": "cc56eaafcf455403a48c63dad2e68d59",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B1",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    },
+    {
+      "id": "LEGACY-188",
+      "code": "SOURCE_RUNTIME",
+      "path": "Assets/Art/atlasSource/default/cardCultivation/quality-rare.png",
+      "guid": "d95f7b65cf8c53a48e9a21736deac5ff",
+      "owner": "性能-加载与历史资源审计",
+      "basis": "Approved RESOURCE-GOVERNANCE-01/R1 existing-state audit; retain until classified and migrated",
+      "reviewBatch": "B1",
+      "exitCondition": "Recheck production references; migrate/resolve in named batch, then remove exact exception; no blanket deletion"
+    }
+  ],
+  "duplicateReviewGroups": [
+    {
+      "id": "DUP-001",
+      "paths": [
+        "Assets/Art/atlasSource/default/battle/HP_Fill_Enemy_37.png",
+        "Assets/Art/unpack/default/battle/appearance/HP_Fill_Enemy_37.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-002",
+      "paths": [
+        "Assets/Art/atlasSource/default/battle/HP_Fill_Enemy_61.png",
+        "Assets/Art/unpack/default/battle/appearance/HP_Fill_Enemy_61.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-003",
+      "paths": [
+        "Assets/Art/atlasSource/default/battle/HP_Fill_Friendly_37.png",
+        "Assets/Art/unpack/default/battle/appearance/HP_Fill_Friendly_37.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-004",
+      "paths": [
+        "Assets/Art/atlasSource/default/battle/HP_Fill_Friendly_61.png",
+        "Assets/Art/unpack/default/battle/appearance/HP_Fill_Friendly_61.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-005",
+      "paths": [
+        "Assets/Art/atlasSource/default/battleInfo/CountdownPlate.png",
+        "Assets/Art/atlasSource/default/layereffect/plateNeutral.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-006",
+      "paths": [
+        "Assets/Art/atlasSource/default/battleInfo/FriendlyPopulationPlate.png",
+        "Assets/Art/atlasSource/default/layereffect/plateSelected.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-007",
+      "paths": [
+        "Assets/Art/atlasSource/default/cardCultivation/skill-v11-active.png",
+        "Assets/Art/unpack/default/skillIcons/210103.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-008",
+      "paths": [
+        "Assets/Art/atlasSource/default/cardCultivation/skill-v11-basic.png",
+        "Assets/Art/unpack/default/skillIcons/210101.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-009",
+      "paths": [
+        "Assets/Art/atlasSource/default/cardCultivation/skill-v11-passive.png",
+        "Assets/Art/unpack/default/skillIcons/210102.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-010",
+      "paths": [
+        "Assets/Art/atlasSource/default/cardCultivation/skill-v11-ultimate.png",
+        "Assets/Art/unpack/default/skillIcons/210104.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-011",
+      "paths": [
+        "Assets/Art/atlasSource/default/cardCultivation/ui-power-icon.png",
+        "Assets/Art/atlasSource/default/mainView/formation-power-icon.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-012",
+      "paths": [
+        "Assets/Art/atlasSource/default/common/bg_black1.png",
+        "Assets/Art/atlasSource/title/title/bg_black1.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-013",
+      "paths": [
+        "Assets/Art/atlasSource/default/common/bg_black2.png",
+        "Assets/Art/atlasSource/default/common/mask_black.png",
+        "Assets/Art/atlasSource/title/title/bg_black2.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-014",
+      "paths": [
+        "Assets/Art/atlasSource/default/common/bg_blackPixel1.png",
+        "Assets/Art/atlasSource/default/gm/progressBar_bg1.png",
+        "Assets/Art/atlasSource/title/title/progressBar_bg1.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-015",
+      "paths": [
+        "Assets/Art/atlasSource/default/common/btn_common1.png",
+        "Assets/Art/atlasSource/title/title/btn_common1.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-016",
+      "paths": [
+        "Assets/Art/atlasSource/default/common/btn_gray3.png",
+        "Assets/Art/atlasSource/title/title/btn_gray3.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-017",
+      "paths": [
+        "Assets/Art/atlasSource/default/common/btn_orange1.png",
+        "Assets/Art/atlasSource/title/title/btn_orange1.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-018",
+      "paths": [
+        "Assets/Art/atlasSource/default/common/cellMonsterBg.png",
+        "Assets/Art/atlasSource/default/common/equipSlotBg.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-019",
+      "paths": [
+        "Assets/Art/atlasSource/default/common/tabButton2_hoverLight.png",
+        "Assets/Art/atlasSource/title/title/tabButton2_hoverLight.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-020",
+      "paths": [
+        "Assets/Art/atlasSource/default/common/tabButton_deco1.png",
+        "Assets/Art/atlasSource/title/title/tabButton_deco1.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-021",
+      "paths": [
+        "Assets/Art/atlasSource/default/common/window_titleDeco1.png",
+        "Assets/Art/atlasSource/title/title/window_titleDeco1.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-022",
+      "paths": [
+        "Assets/Art/atlasSource/default/common/window_titleDeco2.png",
+        "Assets/Art/atlasSource/title/title/window_titleDeco2.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-023",
+      "paths": [
+        "Assets/Art/atlasSource/default/common/window_titleDeco3.png",
+        "Assets/Art/atlasSource/title/title/window_titleDeco3.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-024",
+      "paths": [
+        "Assets/Art/atlasSource/default/common/window_titleDeco4.png",
+        "Assets/Art/atlasSource/title/title/window_titleDeco4.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-025",
+      "paths": [
+        "Assets/Art/atlasSource/default/gm/bg_yellowBlack1.png",
+        "Assets/Art/atlasSource/title/title/bg_yellowBlack1.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-026",
+      "paths": [
+        "Assets/Art/atlasSource/default/gm/sliderDot_red.png",
+        "Assets/Art/atlasSource/title/title/sliderDot_red.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-027",
+      "paths": [
+        "Assets/Art/atlasSource/default/mainView/formation-profession-firepower.png",
+        "Assets/Art/unpack/default/card/professions/102.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-028",
+      "paths": [
+        "Assets/Art/atlasSource/default/mainView/formation-profession-heavy.png",
+        "Assets/Art/unpack/default/card/professions/103.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-029",
+      "paths": [
+        "Assets/Art/atlasSource/default/mainView/formation-profession-support.png",
+        "Assets/Art/unpack/default/card/professions/104.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-030",
+      "paths": [
+        "Assets/Art/atlasSource/default/mainView/formation-profession-vanguard.png",
+        "Assets/Art/unpack/default/card/professions/101.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-031",
+      "paths": [
+        "Assets/Art/atlasSource/default/mainView/quality-information-bg.png",
+        "Assets/Art/atlasSource/default/mainView/team-information-bg.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-032",
+      "paths": [
+        "Assets/Art/material/scene/battle/1001/owners.png",
+        "Assets/Art/unpack/default/layereffect/groundOwners.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    },
+    {
+      "id": "DUP-033",
+      "paths": [
+        "Assets/Art/unpack/default/layereffect/groundScene.png",
+        "Assets/Art/unpack/scene/battle/1001/ground.png"
+      ],
+      "owner": "性能-加载与历史资源审计",
+      "reviewBatch": "B1/B5",
+      "status": "pending-importer-and-lifecycle-review; retain",
+      "basis": "Full-project snapshot; byte identity is not deletion proof"
+    }
+  ],
+  "approvedPlan": "RESOURCE-GOVERNANCE-01/R1 D1-D3",
+  "approvalMessageId": "01a1d48f-2b53-7140-aecf-deb4d315387e",
+  "legacyOwner": "性能-加载与历史资源审计",
+  "deletionExecutionEnabled": false,
+  "generatedAddressRules": [
+    {
+      "assetPrefix": "Assets/HotUpdateBytes/aot/",
+      "addressPrefix": "hotupdate/aot/",
+      "stripSuffix": ".bytes",
+      "basis": "HotUpdateBootstrap.LoadBytesAsync current AOT address contract"
+    },
+    {
+      "assetPrefix": "Assets/HotUpdateBytes/code/",
+      "addressPrefix": "hotupdate/code/",
+      "stripSuffix": ".bytes",
+      "basis": "HotUpdateBootstrap.LoadAssembly current code address contract"
+    }
+  ],
+  "skillIconGovernance": {
+    "skillsFile": "Assets/ConfigBin/cfgobj_cultivationskillobj.json",
+    "entriesFile": "Assets/ConfigBin/cfgobj_cardskillentryobj.json",
+    "cardsFile": "Assets/ConfigBin/cfgobj_cardobj.json",
+    "independentRoot": "Assets/Art/unpack/default/skillIcons",
+    "atlasSourceRoot": "Assets/Art/atlasSource/default/skillIcons",
+    "atlasAddressRoot": "Assets/Art/atlas/default/skillIcons",
+    "legacyIcons": [],
+    "sharedIcons": [],
+    "loadingMode": "unpack-flat"
+  },
+  "itemIconGovernance": {
+    "itemsFile": "Assets/ConfigBin/cfgobj_itemobj.json",
+    "mapFile": "Assets/ResourceData/default/item/icon-map.json",
+    "root": "Assets/Art/unpack/default/itemIcons"
+  },
+  "retiredRuntimeAssets": [
+    {
+      "path": "Assets/Art/atlas/default/skillIcons.png",
+      "guid": "678639ec4bc436d468347081f8200316",
+      "reason": "User approved exact remaining retired resource cleanup; original identity/hash retained in Manifest deletionTombstones and durable backup.",
+      "state": "deleted"
+    },
+    {
+      "path": "Assets/Art/atlasSource/default/cardCultivation/skill-v11-active.png",
+      "guid": "51cbc911c4925c018fa3764f7f63aca5",
+      "state": "deleted",
+      "reason": "User approved exact remaining retired resource cleanup; original identity/hash retained in Manifest deletionTombstones and durable backup."
+    },
+    {
+      "path": "Assets/Art/atlasSource/default/cardCultivation/skill-v11-basic.png",
+      "guid": "813dea84b76c5b7682aa037c928ff4aa",
+      "state": "deleted",
+      "reason": "User approved exact remaining retired resource cleanup; original identity/hash retained in Manifest deletionTombstones and durable backup."
+    },
+    {
+      "path": "Assets/Art/atlasSource/default/cardCultivation/skill-v11-passive.png",
+      "guid": "2816aef02a225acca42b566585ec035c",
+      "state": "deleted",
+      "reason": "User approved exact remaining retired resource cleanup; original identity/hash retained in Manifest deletionTombstones and durable backup."
+    },
+    {
+      "path": "Assets/Art/atlasSource/default/cardCultivation/skill-v11-ultimate.png",
+      "guid": "388931c2b12c5616b8ccb0b12f6d40a5",
+      "state": "deleted",
+      "reason": "User approved exact remaining retired resource cleanup; original identity/hash retained in Manifest deletionTombstones and durable backup."
+    }
+  ],
+  "packGovernance": {
+    "schemaVersion": 1,
+    "manifest": "ProjectSettings/ResourcePackManifest.json",
+    "approvalId": "RESOURCE-PACK/R1",
+    "phase": "P0",
+    "supplementRevision": "RESOURCE-PACK-NORM/R1"
+  },
+  "cardSuiteGovernance": {
+    "schemaVersion": 1,
+    "manifest": "ProjectSettings/ResourcePackManifest.json",
+    "revision": "RESOURCE-PACK/R2"
+  }
+}

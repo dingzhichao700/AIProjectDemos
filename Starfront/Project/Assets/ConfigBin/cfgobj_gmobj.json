@@ -59,5 +59,36 @@
     "paramIntro": [
       "离地高度（场景像素，0恢复贴地）"
     ]
+  },
+  {
+    "id": 1101,
+    "desc": "增加道具",
+    "content": "inventoryGrant",
+    "paramFormat": [
+      "3101",
+      "15"
+    ],
+    "paramIntro": [
+      "道具ID",
+      "正整数数量"
+    ]
+  },
+  {
+    "id": 1102,
+    "desc": "背包查询余额",
+    "content": "inventoryBalance",
+    "paramFormat": [
+      "3101"
+    ],
+    "paramIntro": [
+      "道具ID"
+    ]
+  },
+  {
+    "id": 1103,
+    "desc": "清空背包",
+    "content": "inventoryClear",
+    "paramFormat": [],
+    "paramIntro": []
   }
 ]

@@ -10,6 +10,8 @@ public sealed class BattleSceneModel : SceneModel {
     private readonly Dictionary<(int, int), BattleCellVO> byCoordinate = new Dictionary<(int, int), BattleCellVO>();
     private readonly Dictionary<long, BattleCellVO> byId = new Dictionary<long, BattleCellVO>();
     private long nextId;
+    private BattleCardGrowthModel cardGrowth;
+    private IDisposable cardGrowthLock;
     private readonly Dictionary<BattleSceneCamp, BattleCampVO> campMap = new Dictionary<BattleSceneCamp, BattleCampVO>();
     private readonly Dictionary<long, BattleBuildingVO> buildingMap = new Dictionary<long, BattleBuildingVO>();
     public IReadOnlyDictionary<BattleSceneCamp, BattleCampVO> camps { get; }
@@ -68,7 +70,7 @@ public sealed class BattleSceneModel : SceneModel {
         ValidateBase(scene.EnemyBaseQ, scene.EnemyBaseK, BattleSceneCamp.ENEMY);
     }
 
-    public void InitializeBattle(Tables tables, int? randomSeed = null) {
+    public void InitializeBattle(Tables tables, int? randomSeed = null, IReadOnlyDictionary<BattleSceneCamp, BattlePlayerDeckVO> playerDecks = null, Func<ResLoadInfo, bool> resourceExists = null) {
         if (campMap.Count != 0) {
             throw new InvalidOperationException("本局已初始化。");
         }
@@ -80,6 +82,7 @@ public sealed class BattleSceneModel : SceneModel {
                 throw new InvalidOperationException("建筑命中配置非法：" + building.Id);
             }
         }
+        cardGrowth = new BattleCardGrowthModel(tables);
         int duration = BattleConst.DurationSeconds;
         if (duration <= 0 || string.IsNullOrWhiteSpace(BattleConst.FriendlyName) || string.IsNullOrWhiteSpace(BattleConst.EnemyName)) {
             throw new InvalidOperationException("对局时长或首版名称常量无效。");
@@ -98,13 +101,22 @@ public sealed class BattleSceneModel : SceneModel {
         if (startCount != 2) {
             throw new InvalidOperationException("开局须且仅须配置双方阵营。");
         }
-        AddCamp(tables, BattleSceneCamp.FRIENDLY, config.FriendlyBaseQ, config.FriendlyBaseK);
-        AddCamp(tables, BattleSceneCamp.ENEMY, config.EnemyBaseQ, config.EnemyBaseK);
+        // 当前本地开发对手使用同一已选方案的独立快照；外部对手可传入其自己的快照。
+        var localDeck = playerDecks == null ? BattlePlayerDeckVO.CaptureCurrent() : null;
+        AddCamp(tables, BattleSceneCamp.FRIENDLY, config.FriendlyBaseQ, config.FriendlyBaseK, playerDecks == null ? localDeck : playerDecks[BattleSceneCamp.FRIENDLY], resourceExists);
+        AddCamp(tables, BattleSceneCamp.ENEMY, config.EnemyBaseQ, config.EnemyBaseK, playerDecks == null ? localDeck : playerDecks[BattleSceneCamp.ENEMY], resourceExists);
         territory = new BattleTerritoryModel(this);
+        foreach (var owner in campMap.Values) {
+            var start = owner.camp == BattleSceneCamp.FRIENDLY
+                ? GetCell(config.FriendlyBaseQ, config.FriendlyBaseK)
+                : GetCell(config.EnemyBaseQ, config.EnemyBaseK);
+            territory.ExpandFrom(start, owner.camp);
+        }
         navigation = new BattleNavigation(this);
         combat = new BattleCombatModel(this);
         unlocks = new BattleUnlockModel(this, tables, randomSeed.HasValue ? new System.Random(randomSeed.Value) : new System.Random());
         ai = new BattleAIModel(this, tables);
+        cardGrowthLock = CardCollectionControl.ins.model.BeginBattle();
     }
 
     private void OnBattleTimeUpdated(float deltaTime) {
@@ -159,6 +171,9 @@ public sealed class BattleSceneModel : SceneModel {
 
     /**归属统计包含未解锁普通格；不包含中立障碍。*/
     public int GetTerritoryCount(BattleSceneCamp camp) {
+        if (camp != BattleSceneCamp.FRIENDLY && camp != BattleSceneCamp.ENEMY) {
+            return 0;
+        }
         int count = 0;
         foreach (var cell in byId.Values) {
             if (cell.groundPassable && cell.camp == camp && camp != BattleSceneCamp.ABSOLUTE_NEUTRAL) {
@@ -179,8 +194,8 @@ public sealed class BattleSceneModel : SceneModel {
         return count;
     }
 
-    private void AddCamp(Tables tables, BattleSceneCamp camp, int q, int k) {
-        var owner = BattleRoster.CreateCamp(tables, config.Id, camp);
+    private void AddCamp(Tables tables, BattleSceneCamp camp, int q, int k, BattlePlayerDeckVO player, Func<ResLoadInfo, bool> resourceExists) {
+        var owner = BattleRoster.CreateCamp(tables, config.Id, camp, player, resourceExists);
         var baseConfig = tables.BuildingObj.Get(owner.config.BaseBuildingId);
         var cell = GetCell(q, k);
         var building = new BattleBuildingVO(++nextId, baseConfig, cell, owner, tables.CurrencyProductionObj.Get(baseConfig.Id));
@@ -204,7 +219,12 @@ public sealed class BattleSceneModel : SceneModel {
         } else {
             throw new InvalidOperationException("不支持的解锁卡牌：" + card.Id);
         }
-        return new BattleBuildingVO(nextId + 1, tables.BuildingObj.Get(buildingId), cell, campMap[cell.camp], tables.CurrencyProductionObj.GetOrDefault(buildingId), units, TryProduceUnit);
+        var owner = campMap[cell.camp];
+        CardBuildingLevelResource growth = null;
+        if (card.MaxLevel > 0) {
+            growth = cardGrowth.Building(card.Id, owner.cardLevels[card.Id], buildingId);
+        }
+        return new BattleBuildingVO(nextId + 1, tables.BuildingObj.Get(buildingId), cell, owner, tables.CurrencyProductionObj.GetOrDefault(buildingId), units, TryProduceUnit, growth);
     }
 
     /**只在资格、余额及全部结果引用已校验后提交，稳定ID不会与现有元素冲突。*/
@@ -239,7 +259,7 @@ public sealed class BattleSceneModel : SceneModel {
         }
         Vector2 birth = path[0];
         path.RemoveAt(0);
-        var unit = new BattleUnitVO(++nextId, unitConfig, building.owner.camp, birth, path);
+        var unit = new BattleUnitVO(++nextId, unitConfig, building.owner.camp, birth, path, building.sourceCardId == 0 ? null : cardGrowth.Unit(building.sourceCardId, building.cardLevel, unitConfig.Id));
         AddElement(unit);
         InformationChanged?.Invoke();
         return true;
@@ -312,6 +332,8 @@ public sealed class BattleSceneModel : SceneModel {
     }
 
     public void Dispose() {
+        cardGrowthLock?.Dispose();
+        cardGrowthLock = null;
         StopTimeFlow();
         ai?.Dispose();
         ai = null;

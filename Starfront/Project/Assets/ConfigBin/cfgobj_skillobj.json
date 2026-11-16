@@ -25,39 +25,422 @@
     ]
   },
   {
-    "id": 1201,
-    "name": "女妖双发对地导弹",
+    "id": 210401,
+    "name": "幽灵普攻Lv1（动作资源测试）",
     "trigger": 1,
-    "targetRule": 2,
-    "castRange": 220,
-    "cooldownMs": 1500,
-    "windupMs": 80,
-    "recoveryMs": 320,
-    "action": 4,
+    "targetRule": 1,
+    "castRange": 192,
+    "cooldownMs": 3333,
+    "windupMs": 233,
+    "recoveryMs": 3100,
+    "action": 3,
     "effects": [
       {
         "$type": "LaunchProjectileEffect",
-        "projectileId": 1201,
+        "projectileId": 1101,
         "hitEffects": [
           {
             "$type": "FixedDamageEffect",
-            "amount": 15
+            "amount": 26
           }
         ],
         "delayMs": 0,
         "firePointIndex": 0
-      },
+      }
+    ]
+  },
+  {
+    "id": 210402,
+    "name": "幽灵普攻Lv2（动作资源测试）",
+    "trigger": 1,
+    "targetRule": 1,
+    "castRange": 192,
+    "cooldownMs": 3333,
+    "windupMs": 233,
+    "recoveryMs": 3100,
+    "action": 3,
+    "effects": [
       {
         "$type": "LaunchProjectileEffect",
-        "projectileId": 1201,
+        "projectileId": 1101,
         "hitEffects": [
           {
             "$type": "FixedDamageEffect",
-            "amount": 15
+            "amount": 28
           }
         ],
-        "delayMs": 80,
-        "firePointIndex": 1
+        "delayMs": 0,
+        "firePointIndex": 0
+      }
+    ]
+  },
+  {
+    "id": 210403,
+    "name": "幽灵普攻Lv3（动作资源测试）",
+    "trigger": 1,
+    "targetRule": 1,
+    "castRange": 192,
+    "cooldownMs": 3333,
+    "windupMs": 233,
+    "recoveryMs": 3100,
+    "action": 3,
+    "effects": [
+      {
+        "$type": "LaunchProjectileEffect",
+        "projectileId": 1101,
+        "hitEffects": [
+          {
+            "$type": "FixedDamageEffect",
+            "amount": 30
+          }
+        ],
+        "delayMs": 0,
+        "firePointIndex": 0
+      }
+    ]
+  },
+  {
+    "id": 210404,
+    "name": "幽灵普攻Lv4（动作资源测试）",
+    "trigger": 1,
+    "targetRule": 1,
+    "castRange": 192,
+    "cooldownMs": 3333,
+    "windupMs": 233,
+    "recoveryMs": 3100,
+    "action": 3,
+    "effects": [
+      {
+        "$type": "LaunchProjectileEffect",
+        "projectileId": 1101,
+        "hitEffects": [
+          {
+            "$type": "FixedDamageEffect",
+            "amount": 32
+          }
+        ],
+        "delayMs": 0,
+        "firePointIndex": 0
+      }
+    ]
+  },
+  {
+    "id": 210405,
+    "name": "幽灵普攻Lv5（动作资源测试）",
+    "trigger": 1,
+    "targetRule": 1,
+    "castRange": 192,
+    "cooldownMs": 3333,
+    "windupMs": 233,
+    "recoveryMs": 3100,
+    "action": 3,
+    "effects": [
+      {
+        "$type": "LaunchProjectileEffect",
+        "projectileId": 1101,
+        "hitEffects": [
+          {
+            "$type": "FixedDamageEffect",
+            "amount": 34
+          }
+        ],
+        "delayMs": 0,
+        "firePointIndex": 0
+      }
+    ]
+  },
+  {
+    "id": 210406,
+    "name": "幽灵普攻Lv6（动作资源测试）",
+    "trigger": 1,
+    "targetRule": 1,
+    "castRange": 192,
+    "cooldownMs": 3333,
+    "windupMs": 233,
+    "recoveryMs": 3100,
+    "action": 3,
+    "effects": [
+      {
+        "$type": "LaunchProjectileEffect",
+        "projectileId": 1101,
+        "hitEffects": [
+          {
+            "$type": "FixedDamageEffect",
+            "amount": 36
+          }
+        ],
+        "delayMs": 0,
+        "firePointIndex": 0
+      }
+    ]
+  },
+  {
+    "id": 210407,
+    "name": "幽灵普攻Lv7（动作资源测试）",
+    "trigger": 1,
+    "targetRule": 1,
+    "castRange": 192,
+    "cooldownMs": 3333,
+    "windupMs": 233,
+    "recoveryMs": 3100,
+    "action": 3,
+    "effects": [
+      {
+        "$type": "LaunchProjectileEffect",
+        "projectileId": 1101,
+        "hitEffects": [
+          {
+            "$type": "FixedDamageEffect",
+            "amount": 38
+          }
+        ],
+        "delayMs": 0,
+        "firePointIndex": 0
+      }
+    ]
+  },
+  {
+    "id": 210408,
+    "name": "幽灵普攻Lv8（动作资源测试）",
+    "trigger": 1,
+    "targetRule": 1,
+    "castRange": 192,
+    "cooldownMs": 3333,
+    "windupMs": 233,
+    "recoveryMs": 3100,
+    "action": 3,
+    "effects": [
+      {
+        "$type": "LaunchProjectileEffect",
+        "projectileId": 1101,
+        "hitEffects": [
+          {
+            "$type": "FixedDamageEffect",
+            "amount": 40
+          }
+        ],
+        "delayMs": 0,
+        "firePointIndex": 0
+      }
+    ]
+  },
+  {
+    "id": 210409,
+    "name": "幽灵普攻Lv9（动作资源测试）",
+    "trigger": 1,
+    "targetRule": 1,
+    "castRange": 192,
+    "cooldownMs": 3333,
+    "windupMs": 233,
+    "recoveryMs": 3100,
+    "action": 3,
+    "effects": [
+      {
+        "$type": "LaunchProjectileEffect",
+        "projectileId": 1101,
+        "hitEffects": [
+          {
+            "$type": "FixedDamageEffect",
+            "amount": 42
+          }
+        ],
+        "delayMs": 0,
+        "firePointIndex": 0
+      }
+    ]
+  },
+  {
+    "id": 210410,
+    "name": "幽灵普攻Lv10（动作资源测试）",
+    "trigger": 1,
+    "targetRule": 1,
+    "castRange": 192,
+    "cooldownMs": 3333,
+    "windupMs": 233,
+    "recoveryMs": 3100,
+    "action": 3,
+    "effects": [
+      {
+        "$type": "LaunchProjectileEffect",
+        "projectileId": 1101,
+        "hitEffects": [
+          {
+            "$type": "FixedDamageEffect",
+            "amount": 44
+          }
+        ],
+        "delayMs": 0,
+        "firePointIndex": 0
+      }
+    ]
+  },
+  {
+    "id": 220101,
+    "name": "蟑螂普攻Lv1",
+    "trigger": 1,
+    "targetRule": 1,
+    "castRange": 200,
+    "cooldownMs": 1000,
+    "windupMs": 433,
+    "recoveryMs": 567,
+    "action": 3,
+    "effects": [
+      {
+        "$type": "FixedDamageEffect",
+        "amount": 30
+      }
+    ]
+  },
+  {
+    "id": 220102,
+    "name": "蟑螂普攻Lv2",
+    "trigger": 1,
+    "targetRule": 1,
+    "castRange": 200,
+    "cooldownMs": 1000,
+    "windupMs": 433,
+    "recoveryMs": 567,
+    "action": 3,
+    "effects": [
+      {
+        "$type": "FixedDamageEffect",
+        "amount": 32
+      }
+    ]
+  },
+  {
+    "id": 220103,
+    "name": "蟑螂普攻Lv3",
+    "trigger": 1,
+    "targetRule": 1,
+    "castRange": 200,
+    "cooldownMs": 1000,
+    "windupMs": 433,
+    "recoveryMs": 567,
+    "action": 3,
+    "effects": [
+      {
+        "$type": "FixedDamageEffect",
+        "amount": 34
+      }
+    ]
+  },
+  {
+    "id": 220104,
+    "name": "蟑螂普攻Lv4",
+    "trigger": 1,
+    "targetRule": 1,
+    "castRange": 200,
+    "cooldownMs": 1000,
+    "windupMs": 433,
+    "recoveryMs": 567,
+    "action": 3,
+    "effects": [
+      {
+        "$type": "FixedDamageEffect",
+        "amount": 36
+      }
+    ]
+  },
+  {
+    "id": 220105,
+    "name": "蟑螂普攻Lv5",
+    "trigger": 1,
+    "targetRule": 1,
+    "castRange": 200,
+    "cooldownMs": 1000,
+    "windupMs": 433,
+    "recoveryMs": 567,
+    "action": 3,
+    "effects": [
+      {
+        "$type": "FixedDamageEffect",
+        "amount": 38
+      }
+    ]
+  },
+  {
+    "id": 220106,
+    "name": "蟑螂普攻Lv6",
+    "trigger": 1,
+    "targetRule": 1,
+    "castRange": 200,
+    "cooldownMs": 1000,
+    "windupMs": 433,
+    "recoveryMs": 567,
+    "action": 3,
+    "effects": [
+      {
+        "$type": "FixedDamageEffect",
+        "amount": 40
+      }
+    ]
+  },
+  {
+    "id": 220107,
+    "name": "蟑螂普攻Lv7",
+    "trigger": 1,
+    "targetRule": 1,
+    "castRange": 200,
+    "cooldownMs": 1000,
+    "windupMs": 433,
+    "recoveryMs": 567,
+    "action": 3,
+    "effects": [
+      {
+        "$type": "FixedDamageEffect",
+        "amount": 42
+      }
+    ]
+  },
+  {
+    "id": 220108,
+    "name": "蟑螂普攻Lv8",
+    "trigger": 1,
+    "targetRule": 1,
+    "castRange": 200,
+    "cooldownMs": 1000,
+    "windupMs": 433,
+    "recoveryMs": 567,
+    "action": 3,
+    "effects": [
+      {
+        "$type": "FixedDamageEffect",
+        "amount": 44
+      }
+    ]
+  },
+  {
+    "id": 220109,
+    "name": "蟑螂普攻Lv9",
+    "trigger": 1,
+    "targetRule": 1,
+    "castRange": 200,
+    "cooldownMs": 1000,
+    "windupMs": 433,
+    "recoveryMs": 567,
+    "action": 3,
+    "effects": [
+      {
+        "$type": "FixedDamageEffect",
+        "amount": 46
+      }
+    ]
+  },
+  {
+    "id": 220110,
+    "name": "蟑螂普攻Lv10",
+    "trigger": 1,
+    "targetRule": 1,
+    "castRange": 200,
+    "cooldownMs": 1000,
+    "windupMs": 433,
+    "recoveryMs": 567,
+    "action": 3,
+    "effects": [
+      {
+        "$type": "FixedDamageEffect",
+        "amount": 48
       }
     ]
   }

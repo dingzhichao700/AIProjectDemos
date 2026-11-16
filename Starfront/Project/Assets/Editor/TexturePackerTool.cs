@@ -14,8 +14,8 @@ using Debug = UnityEngine.Debug;
 namespace TexturePackerImporter {
     /// <summary>通过 TexturePacker 生成图集，并以 Unity Sprite Data Provider 写入切片信息。</summary>
     public class TexturePackerTool : Editor {
-        const string FingerprintPrefix = "TexturePackerToolFingerprintV4=";
-        const string ToolVersion = "4";
+        const string FingerprintPrefix = "TexturePackerToolFingerprintV5=";
+        const string ToolVersion = "5";
         const int MaxAtlasSize = 2048;
         const int LargeBackgroundMinWidth = 720;
         const int LargeBackgroundMinHeight = 720;
@@ -52,6 +52,7 @@ namespace TexturePackerImporter {
             public string name;
             public string assetPath;
             public string contentHash;
+            public string importContract;
             public Vector4 border;
             public Vector2 pivot;
         }
@@ -87,11 +88,12 @@ namespace TexturePackerImporter {
             bool allowLargeSprites = false) {
             Stopwatch stopwatch = Stopwatch.StartNew();
             ValidateSourceAssetPath(sourceAssetDir);
+            ResourceGovernanceGate.ValidateOrThrow("ui-atlas-pack", sourceAssetDir);
 
             string relativePath = GetRelativePath(sourceAssetDir);
             int separatorIndex = relativePath.LastIndexOf("/", StringComparison.Ordinal);
             if (separatorIndex <= 0)
-                throw new InvalidOperationException("图集源目录必须包含 Group/模块 两级路径：" + sourceAssetDir);
+                throw new InvalidOperationException("图集源目录必须包含 基础目录/业务图集名 两级路径：" + sourceAssetDir);
 
             string sourceDir = Path.Combine(Application.dataPath, sourceAssetDir.Substring("Assets/".Length))
                 .Replace("\\", "/");
@@ -105,9 +107,8 @@ namespace TexturePackerImporter {
             string finalFolder = relativePath.Substring(0, separatorIndex);
             string outputDir = (Application.dataPath + "/" + AtlasOutputRoot.Replace("Assets/", "") + finalFolder + "/")
                 .Replace("\\", "/");
-            Directory.CreateDirectory(outputDir);
-
             List<SourceSpriteInfo> sources = CollectAndValidateSources(sourceDir, allowLargeSprites);
+            Directory.CreateDirectory(outputDir);
             string trimMode = trimTrans ? "Trim" : "None";
             string atlasName = Path.GetFileName(sourceDir);
             string atlasPath = outputDir + atlasName + ".png";
@@ -164,9 +165,12 @@ namespace TexturePackerImporter {
         }
 
         static void ValidateSourceAssetPath(string sourceAssetDir) {
-            if (string.IsNullOrEmpty(sourceAssetDir) ||
-                !sourceAssetDir.Replace("\\", "/").StartsWith(AtlasSourceRoot, StringComparison.Ordinal))
-                throw new InvalidOperationException("只支持 " + AtlasSourceRoot + " 下的目录：" + sourceAssetDir);
+            if (string.IsNullOrEmpty(sourceAssetDir) || sourceAssetDir.Contains("\\") ||
+                !sourceAssetDir.StartsWith(AtlasSourceRoot, StringComparison.Ordinal))
+                throw new InvalidOperationException("只支持规范 atlasSource 路径：" + sourceAssetDir);
+            string[] parts = GetRelativePath(sourceAssetDir).Split('/');
+            if (parts.Length != 2 || Array.Exists(parts, p => string.IsNullOrWhiteSpace(p) || p == "." || p == ".."))
+                throw new InvalidOperationException("图集源目录必须严格为 基础目录/业务图集名 两级：" + sourceAssetDir);
         }
 
         static string GetRelativePath(string sourceDir) {
@@ -174,7 +178,9 @@ namespace TexturePackerImporter {
         }
 
         static List<SourceSpriteInfo> CollectAndValidateSources(string sourceDir, bool allowLargeSprites) {
-            FileInfo[] pngFiles = new DirectoryInfo(sourceDir).GetFiles("*.png", SearchOption.AllDirectories);
+            if (Directory.GetDirectories(sourceDir).Length != 0)
+                throw new InvalidOperationException("图集原图目录不可包含子目录，请先完成保 GUID 迁移：" + sourceDir);
+            FileInfo[] pngFiles = new DirectoryInfo(sourceDir).GetFiles("*.png", SearchOption.TopDirectoryOnly);
             Array.Sort(pngFiles, (left, right) => string.CompareOrdinal(left.FullName, right.FullName));
             if (pngFiles.Length == 0) throw new InvalidOperationException("图集源目录没有 PNG：" + sourceDir);
 
@@ -190,10 +196,6 @@ namespace TexturePackerImporter {
                 names[name] = file.FullName;
 
                 string contentHash = ComputeFileSha256(file.FullName);
-                if (contentHashes.TryGetValue(contentHash, out string duplicateContentPath))
-                    throw new InvalidOperationException($"图集源图内容重复，请复用同一 Sprite：\n{duplicateContentPath}\n{file.FullName}");
-                contentHashes[contentHash] = file.FullName;
-
                 string absolutePath = file.FullName.Replace("\\", "/");
                 string assetPath = "Assets" + absolutePath.Replace(appPath, "");
                 Sprite sprite = AssetDatabase.LoadAssetAtPath<Sprite>(assetPath);
@@ -210,10 +212,23 @@ namespace TexturePackerImporter {
                         $"检测到疑似全屏/超大背景 {name} ({sprite.rect.width}x{sprite.rect.height})。" +
                         "请迁移到 Assets/Art/unpack；确需入图集时显式传 allowLargeSprites: true。");
 
+                var sourceImporter = (TextureImporter)AssetImporter.GetAtPath(assetPath);
+                var settings = new TextureImporterSettings();
+                sourceImporter.ReadTextureSettings(settings);
+                // 相同位图只有在导入契约也一致时才判为冗余；保留已确认的网格/压缩差异。
+                string contract = JsonUtility.ToJson(settings) + "|" + sourceImporter.textureCompression +
+                    "|" + sourceImporter.compressionQuality + "|" + sourceImporter.maxTextureSize +
+                    "|" + JsonUtility.ToJson(sourceImporter.GetPlatformTextureSettings("WebGL"));
+                string duplicateKey = contentHash + "|" + contract;
+                if (contentHashes.TryGetValue(duplicateKey, out string duplicateContentPath))
+                    throw new InvalidOperationException($"图集源图内容及导入设置重复，请复用同一 Sprite：\n{duplicateContentPath}\n{file.FullName}");
+                contentHashes[duplicateKey] = file.FullName;
+
                 result.Add(new SourceSpriteInfo {
                     name = name,
                     assetPath = assetPath,
                     contentHash = contentHash,
+                    importContract = contract,
                     border = sprite.border,
                     pivot = new Vector2(sprite.pivot.x / sprite.rect.width, sprite.pivot.y / sprite.rect.height)
                 });
@@ -302,6 +317,12 @@ namespace TexturePackerImporter {
                 };
             }
             provider.SetSpriteRects(spriteRects);
+            var nameProvider = provider.GetDataProvider<ISpriteNameFileIdDataProvider>();
+            if (nameProvider != null) {
+                var pairs = new List<SpriteNameFileIdPair>();
+                foreach (var rect in spriteRects) pairs.Add(new SpriteNameFileIdPair(rect.name, rect.spriteID));
+                nameProvider.SetNameFileIdPairs(pairs);
+            }
             provider.Apply();
             importer.userData = SetFingerprint(importer.userData, fingerprint);
             importer.SaveAndReimport();
@@ -362,7 +383,7 @@ namespace TexturePackerImporter {
             builder.Append(ToolVersion).Append('|').Append(trimMode).Append('|').Append(MaxAtlasSize).Append('\n');
             foreach (SourceSpriteInfo source in sources) {
                 builder.Append(source.assetPath).Append('|').Append(source.contentHash).Append('|')
-                    .Append(source.border).Append('|').Append(source.pivot).Append('\n');
+                    .Append(source.border).Append('|').Append(source.pivot).Append('|').Append(source.importContract).Append('\n');
             }
             using (SHA256 sha256 = SHA256.Create()) {
                 return BytesToHex(sha256.ComputeHash(Encoding.UTF8.GetBytes(builder.ToString())));

@@ -74,8 +74,8 @@ public class FrameAnimationManager : MonoBehaviour {
         }
         item.MarkRecovered();
         ResetTransform(item.trans);
-        if (PanelMgr.ins != null && PanelMgr.ins.uiPool != null) {
-            item.trans.SetParent(PanelMgr.ins.uiPool, false);
+        if (UiRuntimeHost.Roots != null && UiRuntimeHost.Roots.PoolRoot != null) {
+            item.trans.SetParent(UiRuntimeHost.Roots.PoolRoot, false);
         }
         pool.Add(item);
     }

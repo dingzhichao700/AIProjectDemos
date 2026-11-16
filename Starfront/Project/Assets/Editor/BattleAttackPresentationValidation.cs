@@ -12,7 +12,7 @@ using UnityEngine.UI;
 /// <summary>攻击资源的定向导入与隔离表现验证；不修改玩法数据。</summary>
 [InitializeOnLoad]
 public static class BattleAttackPresentationValidation {
-    const string Root = "Assets/Art/frameAnimation/scene/Colonial/Infantry/";
+    const string Root = "Assets/Art/frameAnimation/default/Colonial/Infantry/";
     const string Key = "Starfront.AttackPresentationValidation";
     static readonly string[] Directions = { "Up", "UpRight", "Right", "DownRight", "Down" };
     [Serializable] class Request { public string requestId; public int processId; }
@@ -36,7 +36,7 @@ public static class BattleAttackPresentationValidation {
         var report = new Result { requestId = req?.requestId, status = "failed" };
         try {
             Require(req != null && !string.IsNullOrEmpty(req.requestId) && req.processId == System.Diagnostics.Process.GetCurrentProcess().Id, "request ownership");
-            var settings = AddressableAssetSettingsDefaultObject.Settings; var group = settings.FindGroup("scene"); Require(group != null, "scene group");
+            var settings = AddressableAssetSettingsDefaultObject.Settings; var group = settings.DefaultGroup; Require(group != null, "default group");
             foreach (string direction in Directions) {
                 string path = Root + "Attack1_" + direction;
                 AssetDatabase.ImportAsset(path + ".png", ImportAssetOptions.ForceSynchronousImport);
@@ -44,7 +44,7 @@ public static class BattleAttackPresentationValidation {
                 var importer = (TextureImporter)AssetImporter.GetAtPath(path + ".png");
                 Require(!importer.isReadable && !importer.mipmapEnabled, "texture settings");
                 foreach (string ext in new[] { ".png", ".json" }) {
-                    var entry = settings.CreateOrMoveEntry(AssetDatabase.AssetPathToGUID(path + ext), group); entry.address = path + ext; entry.SetLabel("Colonial", true, true);
+                    var entry = settings.CreateOrMoveEntry(AssetDatabase.AssetPathToGUID(path + ext), group); entry.address = path + ext; entry.SetLabel("main-content", true, true);
                 }
             }
             EditorUtility.SetDirty(group); EditorUtility.SetDirty(settings); AssetDatabase.SaveAssets();

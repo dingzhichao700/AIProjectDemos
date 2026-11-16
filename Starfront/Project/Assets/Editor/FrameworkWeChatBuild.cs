@@ -1,4 +1,4 @@
-#if UNITY_EDITOR && GAMEFRAMEWORK_WECHAT
+﻿#if UNITY_EDITOR && GAMEFRAMEWORK_WECHAT
 using System;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -197,7 +197,7 @@ public static class FrameworkWeChatBuild {
             EditorUtility.SetDirty(config);
             AssetDatabase.SaveAssets();
             WriteResult(request, "building-wechat", null);
-            var result = WXConvertCore.DoExport(true);
+            var result = ExportWithPreservedBackgroundSetting(() => WXConvertCore.DoExport(true));
             if (result != WXConvertCore.WXExportError.SUCCEED || !File.Exists(Path.Combine(output, "minigame/project.config.json"))) {
                 throw new InvalidOperationException("微信导出未完成：" + result);
             }
@@ -209,6 +209,25 @@ public static class FrameworkWeChatBuild {
             Debug.LogException(exception);
         } finally {
             running = false;
+        }
+    }
+
+    private static WXConvertCore.WXExportError ExportWithPreservedBackgroundSetting(Func<WXConvertCore.WXExportError> export) {
+        bool original = PlayerSettings.runInBackground;
+        if (!original) {
+            throw new InvalidOperationException("Run In Background must be enabled in persistent Player Settings before SDK export.");
+        }
+        try {
+            return export();
+        } finally {
+            // The SDK changes this project-wide setting while exporting; never leak it into editor use.
+            if (PlayerSettings.runInBackground != original) {
+                PlayerSettings.runInBackground = original;
+                AssetDatabase.SaveAssets();
+            }
+            if (PlayerSettings.runInBackground != original) {
+                throw new InvalidOperationException("Failed to restore persistent Run In Background after SDK export.");
+            }
         }
     }
 

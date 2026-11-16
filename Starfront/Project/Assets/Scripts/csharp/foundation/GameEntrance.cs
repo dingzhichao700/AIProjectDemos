@@ -26,7 +26,7 @@ public class GameEntrance {
         try {
             Debug.Log("游戏开始");
             await HotUpdateBootstrap.InitializeAsync();
-            PanelMgr.ins.Init();
+            if (!UiRuntimeHost.IsReady) throw new InvalidOperationException("共享界面服务未就绪。");
             Type entryType = Type.GetType("LoginEntry, Login", true);
             IGameModuleEntry entry = Activator.CreateInstance(entryType) as IGameModuleEntry;
             if (entry == null) {

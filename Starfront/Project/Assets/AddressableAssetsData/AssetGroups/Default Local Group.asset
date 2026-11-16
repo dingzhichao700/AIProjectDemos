@@ -17,8 +17,147 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 94cf66f1d78353f4d9db978ed4aa4477
   m_SerializeEntries:
+  - m_GUID: 02c3d04bc9f81024eaba826b31e78772
+    m_Address: Assets/Prefab/default/mainView/CardCultivationPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0afb0d37d26392f4098c815f7daa7677
+    m_Address: Assets/Art/unpack/default/battle/effects/UI_unlock-glow.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e0b05600dbbd34468663751af975f62
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2204/card.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e8d9884200edfa4a852d2d1158b868a
+    m_Address: Assets/Art/unpack/default/cardCultivation/pulseQualitiesR1/PurpleLocalPulse.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 105c131fbe48c044187f11212f5eb115
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2205/portrait.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12c1e80d155ad754ab563d16cd5ea52e
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2202/card.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 135ea1ce4f5026a45a49c89a51f4d3db
     m_Address: Assets/Art/atlas/default/battleInfo.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1629e251ee4c29d4fa21b08785ba2f34
+    m_Address: Assets/Art/unpack/default/card/idle/2202/HydraliskIdleRig.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 173de4857780b9848a1751adfb37570d
+    m_Address: Assets/Art/atlasSource/default/cardCultivation/attr-attack.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1766c40ef64cc6248ba4cd5f102b336d
+    m_Address: Assets/Art/unpack/default/battle/appearance/Production_Fill.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1da73dafde455294eb679d7a69be0a31
+    m_Address: Assets/Art/unpack/default/card/burst/2101/MarineBurstRig.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 223fe7f063a2b9347b112a7b048e6d10
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2202/portrait.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 227332915c1ce1942985ef3fdabd2e20
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2103/card.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2780141ffbd84036b87ee1d99a987d2a
+    m_Address: Assets/Art/unpack/default/battle/appearance/HP_Fill_Enemy_37.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2959f2e417688914daf52469f06b3b36
+    m_Address: Assets/Art/unpack/default/card/idle/2101/MarineIdleRig.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2af2cb740128c8b469115a78de984730
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2101/card.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c54f28bf6f8c1741937937f433568d3
+    m_Address: Assets/Art/unpack/default/card/sharedV1/badge-base.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2dc80d01a0cc63a4dac33e999152b53d
+    m_Address: Assets/Art/atlasSource/default/cardCultivation/attr-production.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3144e8f2b8fe4c238fc308f848a84e97
+    m_Address: Assets/Art/unpack/default/battle/appearance/HP_Fill_Friendly_61.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34e8700a71985194e80da834475cdecf
+    m_Address: Assets/Art/unpack/default/item/generalR5/green-background-97x101.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 387eedde90ec1144aaf9b14de5a4bf84
+    m_Address: Assets/Art/unpack/default/cardCultivation/pulseQualitiesR1/GoldLocalPulse.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b09bc743ed56c84da12112a83a8cf16
+    m_Address: Assets/Prefab/default/mainView/CardSkillDetailPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b554777be1c3cf4ab67fd7a89fb05c8
+    m_Address: Assets/Art/unpack/default/battle/appearance/hq.png
     m_ReadOnly: 0
     m_SerializedLabels:
     - main-content
@@ -29,16 +168,184 @@ MonoBehaviour:
     m_SerializedLabels:
     - main-content
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49400b569ae7a714390d21100aa8aca5
+    m_Address: Assets/Art/unpack/default/battle/appearance/infantry_camp.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4bfa9ac8732d92d43a3d119617109760
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2102/card.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4c856071429fc3a4a9e90cd0dfc2c753
+    m_Address: Assets/Art/unpack/default/cardCultivation/temp-podium-ring.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4cb0347c60596be4aa86df42c40c3309
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2104/portrait.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4da2bdd0c13106a44a3de03571c5603e
+    m_Address: Assets/Art/atlasSource/default/cardCultivation/attr-building-hp.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ef39bc4d5f699b42af4b902473f96e9
+    m_Address: Assets/Art/unpack/default/card/sharedV1/frame-quality-5.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f03734f63d0eee4f8296c99743b116d
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2306/card.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51ace42bf4d548fd8d2145209114d76a
+    m_Address: Assets/Art/atlasSource/default/cardCultivation/podium-metal.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 567f9fb3aec691a48847eb2eea05b859
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2102/portrait.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e90c5fdaa08c12469cd0f6f992f39f5
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2203/card.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ee726b0ed3954dabd7c450f00243cfa
+    m_Address: Assets/Art/atlasSource/default/cardCultivation/quality-legend.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f392270f58a56efa6b364eec8052be3
+    m_Address: Assets/Art/atlasSource/default/cardCultivation/podium-purple.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 60944aaf535ab5a438eef3dd3d509ac8
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2301/card.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 626bbbae37274b9ea3d14f58fb681544
+    m_Address: Assets/Art/unpack/default/battle/effects/camp_orange.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 648a65727e384bc4ea92de659b650648
     m_Address: Assets/Art/atlas/default/common.png
     m_ReadOnly: 0
     m_SerializedLabels:
     - main-content
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66b9886ed7ee42718d4711503d4c1e92
+    m_Address: Assets/Art/unpack/default/battle/appearance/HP_BG_37.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b9fdf94adbf68d439e87d6961b82478
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2103/portrait.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6ba272cfb00d8e145a1c4f1bf4b3bfaa
+    m_Address: Assets/Art/unpack/default/battle/appearance/hq_shadow.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f81b1c112fbf28499593bb242705282
+    m_Address: Assets/Art/unpack/default/battle/appearance/infantry_camp_shadow.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6fe25311e050f264d9f09083de0f39fa
+    m_Address: Assets/Art/unpack/default/card/professions/102.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7163d37e85943f9499344024739100e0
+    m_Address: Assets/Art/unpack/default/cardCultivation/pulseRareCTrial/BlueLocalPulse.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 731120f4730f04340882d7261e03dce3
+    m_Address: Assets/Art/unpack/default/cardCultivation/pulseQualitiesR1/GoldLocalPulse.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7924193facd4eaf44ba31d137382be32
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2305/card.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b9b21106b775f742afd045c70a5e1a3
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2104/card.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b9e0359b7a8436498607022c4f71814
+    m_Address: Assets/Prefab/default/mainView/TeamEditPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bdc479b0742f654baada790b3c63b98
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2304/card.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7d9602b5782469b4c8954ecb39cea094
     m_Address: Assets/Prefab/default/battle/BattleInfoPanel.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 846a9401862f8d34da09ec8cdbd59fc7
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2201/portrait.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
     - main-content
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 87d4635cf23647709829f15f57b7f514
@@ -53,8 +360,275 @@ MonoBehaviour:
     m_SerializedLabels:
     - main-content
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e3f023775b74f8498366dd6334485b5
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2303/card.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f02a84a0c0f6214d919a2c044220d5a
+    m_Address: Assets/Art/unpack/default/cardCultivation/temp-hero-background.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8fc2099b8ef1c3e4ca59c4241144a7fa
+    m_Address: Assets/Art/unpack/default/card/professions/104.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90500450f65053bf8127822746832195
+    m_Address: Assets/Art/atlasSource/default/cardCultivation/quality-epic.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9422b0351e51b9446b961408892ab6e3
+    m_Address: Assets/Art/unpack/default/card/professions/101.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94f90ab0d26104648aafa4ce35a482a7
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2204/portrait.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9571977ac0c41f24d856745ec2aedc4e
+    m_Address: Assets/Art/atlasSource/default/cardCultivation/attr-range.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96b107ab0a5fbc9438e7622df65e6e16
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2305/portrait.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96ff9c76afd5e2e429c8c451b13d0d04
+    m_Address: Assets/Art/unpack/default/cardCultivation/pulseQualitiesR1/GreenLocalPulse.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b465ac61a6f4bfdb9bba9251265a2c3
+    m_Address: Assets/Art/unpack/default/battle/effects/camp_blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9cc2f2bf0893419449b37636e504aebd
+    m_Address: Assets/Art/unpack/default/card/sharedV1/status-tag.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e305acefd385e3cb32d57610d3c997f
+    m_Address: Assets/Art/atlasSource/default/cardCultivation/podium-blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f5a86104f1c468c95ab9df15a65391a
+    m_Address: Assets/Art/unpack/default/battle/appearance/HP_Fill_Friendly_37.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0355a53c9810964aa6d81753c55fa6a
+    m_Address: Assets/Art/unpack/default/battle/effects/UI_mineral.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a23961c5ee8047c683f6e735f1984dfd
+    m_Address: Assets/Art/unpack/default/battle/appearance/HP_Fill_Enemy_61.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2c0f7e1cc5deed4695ea6ffe57319f5
+    m_Address: Assets/Art/unpack/default/cardCultivation/pulseQualitiesR1/GreenLocalPulse.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3ca98076bfe8be4da013c0b8e866192
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2302/portrait.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3dfbe08293660246a1d35d46966c71c
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2302/card.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a58e82f2ca68e56479c2cbeb870edcad
+    m_Address: Assets/Art/atlasSource/default/cardCultivation/attr-speed.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6ee03dbf21f5ca7be3150b35223dbde
+    m_Address: Assets/Art/atlasSource/default/cardCultivation/podium-green.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a956cf40e814eb94d880048ec84cd75d
+    m_Address: Assets/Art/atlasSource/default/cardCultivation/attr-unit-hp.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae387146217d7624c9b5b98115498a4b
+    m_Address: Assets/Art/unpack/default/battle/effects/UI_random.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: af94e9b94e8b8a64ba8d860e88f32b86
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2201/card.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: afba6a41c72e9714daefa0ac53cbe512
+    m_Address: Assets/Art/unpack/default/card/sharedV1/frame-quality-3.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b23d8e22e58f0d64f90a58864a16a90e
+    m_Address: Assets/Art/unpack/default/item/generalR5/orange-background-97x101.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b42d852bba879db4c89607298c8f0ab6
     m_Address: Assets/Art/atlas/default/mainView.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b46ae02bbbe3913469b3e3cc42a08f0a
+    m_Address: Assets/Art/unpack/default/battle/appearance/collector_shadow.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4ae8c7d5ae50df46b806751c2f036c3
+    m_Address: Assets/Art/frameAnimation/default/battle/effect/RifleImpact.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4f0daf2b7b6c704aa039b003af9ed8c
+    m_Address: Assets/Art/unpack/default/card/sharedV1/picture-mask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b52bddeb9aaffeb42810096d5267599c
+    m_Address: Assets/Art/unpack/default/cardCultivation/pulseQualitiesR1/PurpleLocalPulse.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7d1a141838e5dc43a8654c3f32426f0
+    m_Address: Assets/Art/unpack/default/item/generalR5/purple-background-97x101.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc8c9ffa33fb54f0b08582021700bd4d
+    m_Address: Assets/Art/atlasSource/default/cardCultivation/podium-gold.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be48bfd4cd4219d44b7339a2a04e5c36
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2205/card.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bfad99456f5ea2040ab534834e6773f6
+    m_Address: Assets/Art/unpack/default/card/sharedV1/frame-gold-preview.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0f060fdb7e17f9409bc18387e71620b
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2301/portrait.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c24ae9ea3fbf7a545a0e0762c536f2f4
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2203/portrait.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c437968c19f2f4c44935b7ef15cbc037
+    m_Address: Assets/Art/unpack/default/card/sharedV1/progress-track.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc56eaafcf455403a48c63dad2e68d59
+    m_Address: Assets/Art/atlasSource/default/cardCultivation/quality-normal.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce29f58d2ab681a448c72d890d342daa
+    m_Address: Assets/Art/unpack/default/battle/effects/UI_helmet.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce8f6907e4b8b3a4281ed18e5658c73f
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2101/portrait.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf33d913457b1b048a80c21a073a49d7
+    m_Address: Assets/Art/unpack/default/battle/projectile/RifleProjectile.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf830899496b2dc45bbb48e6477b4130
+    m_Address: Assets/Art/material/default/battle/coverage.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2a37ff3724a67a418c417d47069554a
+    m_Address: Assets/Art/unpack/default/item/generalR5/blue-background-97x101.png
     m_ReadOnly: 0
     m_SerializedLabels:
     - main-content
@@ -65,14 +639,131 @@ MonoBehaviour:
     m_SerializedLabels:
     - main-content
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d927148a69e74f588480f5155c670369
+    m_Address: Assets/Art/unpack/default/battle/effects/UI_collector.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d95f7b65cf8c53a48e9a21736deac5ff
+    m_Address: Assets/Art/atlasSource/default/cardCultivation/quality-rare.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d974dc3838da853419123c14f657d2ed
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2303/portrait.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dcbf75b327e141e49b3a1f952e918643
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2304/portrait.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de36e9844b81cf247af22cb7244b649e
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2105/portrait.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e029ce18e06e1ab41aad295089d01efb
+    m_Address: Assets/Art/unpack/default/battle/appearance/Production_BG.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e06a78329a40bd7429aa47b6a9655a68
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2105/card.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2eff75cb4b6f424bb1b0dd2a1a9b14d
+    m_Address: Assets/Art/unpack/default/card/sharedV1/progress-fill.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e32a8ecd518b88745b2736bca900ce0c
+    m_Address: Assets/Art/unpack/default/card/sharedV1/frame-quality-4.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3e30f6e404149e58186ff08935f333c
+    m_Address: Assets/Art/unpack/default/battle/appearance/HP_BG_61.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e625c62c89350a74aa042c6ac82be939
+    m_Address: Assets/Art/unpack/default/card/sharedV1/frame-quality-2.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9ab070bdb492184d80d1322b8deedb4
+    m_Address: Assets/Art/frameAnimation/default/battle/effect/RifleImpact.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea6b7c99749687946aa31b1c0e93fea3
+    m_Address: Assets/Art/unpack/default/card/sharedV1/crosshair-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ebcad401f2ab8fb41b174c4534933b67
+    m_Address: Assets/Art/unpack/default/card/rosterV3/2306/portrait.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f223a9ad236db674580979ec32cd132e
+    m_Address: Assets/Prefab/default/itemTip/ItemTipPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f25991022eea2cf499c6074dd52718ab
     m_Address: Assets/Art/atlas/default/layereffect.png
     m_ReadOnly: 0
     m_SerializedLabels:
     - main-content
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f44b0db4c9cc3ef448071a78865fa5d0
+    m_Address: Assets/Art/unpack/default/cardCultivation/pulseRareCTrial/BlueLocalPulse.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5b0676968d98ef48946e94837c80818
+    m_Address: Assets/Art/unpack/default/battle/appearance/collector.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f86794daa5fe57343acddfb59fdab61a
     m_Address: Assets/Prefab/default/gm/GmPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - main-content
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f991aff54af102940961330eaa82e5d8
+    m_Address: Assets/Art/unpack/default/card/professions/103.png
     m_ReadOnly: 0
     m_SerializedLabels:
     - main-content

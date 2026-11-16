@@ -17,15 +17,16 @@ public sealed class BattleSkillModel : IDisposable {
         this.combat = combat;
     }
 
-    internal static IReadOnlyList<BattleSkillVO> CreateSkills(UnitResource unit, Tables tables) {
-        if (unit.SkillIds.Count == 0 || unit.SkillIds.Distinct().Count() != unit.SkillIds.Count || float.IsNaN(unit.SearchRange) || float.IsInfinity(unit.SearchRange)) {
+    internal static IReadOnlyList<BattleSkillVO> CreateSkills(UnitResource unit, Tables tables, IReadOnlyList<int> skillIds = null) {
+        skillIds = skillIds ?? unit.SkillIds;
+        if (skillIds.Count == 0 || skillIds.Distinct().Count() != skillIds.Count || float.IsNaN(unit.SearchRange) || float.IsInfinity(unit.SearchRange)) {
             throw new InvalidOperationException("单位技能引用或索敌范围非法：" + unit.Id);
         }
         if (!Positive(unit.HitRadius) || !Finite(unit.HitOffset.X) || !Finite(unit.HitOffset.Y)) {
             throw new InvalidOperationException("单位命中配置非法：" + unit.Id);
         }
         var result = new List<BattleSkillVO>();
-        foreach (int id in unit.SkillIds) {
+        foreach (int id in skillIds) {
             var config = tables.SkillObj.Get(id);
             if (config == null || config.Trigger != SkillTriggerType.AUTO_ATTACK || (config.TargetRule != SkillTargetRule.ENEMY_UNIT_THEN_BUILDING && config.TargetRule != SkillTargetRule.ENEMY_GROUND_UNIT_THEN_BUILDING) || config.CastRange <= 0 || float.IsNaN(config.CastRange) || float.IsInfinity(config.CastRange) || config.CastRange > unit.SearchRange || config.CooldownMs <= 0 || config.WindupMs < 0 || config.RecoveryMs < 0 || config.Effects.Count == 0 || !Enum.IsDefined(typeof(UnitActionType), config.Action)) {
                 throw new InvalidOperationException("技能配置非法或尚未支持：" + id);
@@ -50,7 +51,7 @@ public sealed class BattleSkillModel : IDisposable {
                         }
                         ValidateDamage(hitDamage);
                     }
-                    foreach (UnitAppearanceDirection direction in Enum.GetValues(typeof(UnitAppearanceDirection))) {
+                    foreach (UnitAppearanceDirection direction in BattleAim.SourceDirections) {
                         var points = unit.FirePoints.Where(p => p.Action == config.Action && p.Direction == direction).ToArray();
                         if (launch.DelayMs < 0 || launch.DelayMs > config.RecoveryMs || launch.FirePointIndex < 0 || points.Length <= launch.FirePointIndex || !Finite(points[launch.FirePointIndex].Offset.X) || !Finite(points[launch.FirePointIndex].Offset.Y)) {
                             throw new InvalidOperationException("单位发射挂点缺失或重复：" + unit.Id + "/" + direction);

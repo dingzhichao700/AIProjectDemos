@@ -1,1 +1,977 @@
-[]
+[
+  {
+    "cardId": 2101,
+    "level": 1,
+    "fragmentCount": 10,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2101,
+    "level": 2,
+    "fragmentCount": 15,
+    "extraCosts": [
+      {
+        "itemId": 2001,
+        "count": 20
+      }
+    ]
+  },
+  {
+    "cardId": 2101,
+    "level": 3,
+    "fragmentCount": 20,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2101,
+    "level": 4,
+    "fragmentCount": 25,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2101,
+    "level": 5,
+    "fragmentCount": 30,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2101,
+    "level": 6,
+    "fragmentCount": 35,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2101,
+    "level": 7,
+    "fragmentCount": 40,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2101,
+    "level": 8,
+    "fragmentCount": 45,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2101,
+    "level": 9,
+    "fragmentCount": 50,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2101,
+    "level": 10,
+    "fragmentCount": 55,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2102,
+    "level": 1,
+    "fragmentCount": 10,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2102,
+    "level": 2,
+    "fragmentCount": 15,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2102,
+    "level": 3,
+    "fragmentCount": 20,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2102,
+    "level": 4,
+    "fragmentCount": 25,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2102,
+    "level": 5,
+    "fragmentCount": 30,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2102,
+    "level": 6,
+    "fragmentCount": 35,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2102,
+    "level": 7,
+    "fragmentCount": 40,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2102,
+    "level": 8,
+    "fragmentCount": 45,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2102,
+    "level": 9,
+    "fragmentCount": 50,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2102,
+    "level": 10,
+    "fragmentCount": 55,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2103,
+    "level": 1,
+    "fragmentCount": 20,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2103,
+    "level": 2,
+    "fragmentCount": 25,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2103,
+    "level": 3,
+    "fragmentCount": 30,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2103,
+    "level": 4,
+    "fragmentCount": 35,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2103,
+    "level": 5,
+    "fragmentCount": 40,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2103,
+    "level": 6,
+    "fragmentCount": 45,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2103,
+    "level": 7,
+    "fragmentCount": 50,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2103,
+    "level": 8,
+    "fragmentCount": 55,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2103,
+    "level": 9,
+    "fragmentCount": 60,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2103,
+    "level": 10,
+    "fragmentCount": 65,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2104,
+    "level": 1,
+    "fragmentCount": 30,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2104,
+    "level": 2,
+    "fragmentCount": 35,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2104,
+    "level": 3,
+    "fragmentCount": 40,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2104,
+    "level": 4,
+    "fragmentCount": 45,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2104,
+    "level": 5,
+    "fragmentCount": 50,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2104,
+    "level": 6,
+    "fragmentCount": 55,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2104,
+    "level": 7,
+    "fragmentCount": 60,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2104,
+    "level": 8,
+    "fragmentCount": 65,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2104,
+    "level": 9,
+    "fragmentCount": 70,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2104,
+    "level": 10,
+    "fragmentCount": 75,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2105,
+    "level": 1,
+    "fragmentCount": 40,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2105,
+    "level": 2,
+    "fragmentCount": 45,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2105,
+    "level": 3,
+    "fragmentCount": 50,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2105,
+    "level": 4,
+    "fragmentCount": 55,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2105,
+    "level": 5,
+    "fragmentCount": 60,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2105,
+    "level": 6,
+    "fragmentCount": 65,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2105,
+    "level": 7,
+    "fragmentCount": 70,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2105,
+    "level": 8,
+    "fragmentCount": 75,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2105,
+    "level": 9,
+    "fragmentCount": 80,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2105,
+    "level": 10,
+    "fragmentCount": 85,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2201,
+    "level": 1,
+    "fragmentCount": 10,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2201,
+    "level": 2,
+    "fragmentCount": 15,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2201,
+    "level": 3,
+    "fragmentCount": 20,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2201,
+    "level": 4,
+    "fragmentCount": 25,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2201,
+    "level": 5,
+    "fragmentCount": 30,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2201,
+    "level": 6,
+    "fragmentCount": 35,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2201,
+    "level": 7,
+    "fragmentCount": 40,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2201,
+    "level": 8,
+    "fragmentCount": 45,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2201,
+    "level": 9,
+    "fragmentCount": 50,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2201,
+    "level": 10,
+    "fragmentCount": 55,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2202,
+    "level": 1,
+    "fragmentCount": 20,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2202,
+    "level": 2,
+    "fragmentCount": 25,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2202,
+    "level": 3,
+    "fragmentCount": 30,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2202,
+    "level": 4,
+    "fragmentCount": 35,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2202,
+    "level": 5,
+    "fragmentCount": 40,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2202,
+    "level": 6,
+    "fragmentCount": 45,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2202,
+    "level": 7,
+    "fragmentCount": 50,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2202,
+    "level": 8,
+    "fragmentCount": 55,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2202,
+    "level": 9,
+    "fragmentCount": 60,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2202,
+    "level": 10,
+    "fragmentCount": 65,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2203,
+    "level": 1,
+    "fragmentCount": 30,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2203,
+    "level": 2,
+    "fragmentCount": 35,
+    "extraCosts": [
+      {
+        "itemId": 2002,
+        "count": 30
+      }
+    ]
+  },
+  {
+    "cardId": 2203,
+    "level": 3,
+    "fragmentCount": 40,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2203,
+    "level": 4,
+    "fragmentCount": 45,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2203,
+    "level": 5,
+    "fragmentCount": 50,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2203,
+    "level": 6,
+    "fragmentCount": 55,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2203,
+    "level": 7,
+    "fragmentCount": 60,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2203,
+    "level": 8,
+    "fragmentCount": 65,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2203,
+    "level": 9,
+    "fragmentCount": 70,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2203,
+    "level": 10,
+    "fragmentCount": 75,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2204,
+    "level": 1,
+    "fragmentCount": 30,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2204,
+    "level": 2,
+    "fragmentCount": 35,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2204,
+    "level": 3,
+    "fragmentCount": 40,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2204,
+    "level": 4,
+    "fragmentCount": 45,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2204,
+    "level": 5,
+    "fragmentCount": 50,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2204,
+    "level": 6,
+    "fragmentCount": 55,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2204,
+    "level": 7,
+    "fragmentCount": 60,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2204,
+    "level": 8,
+    "fragmentCount": 65,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2204,
+    "level": 9,
+    "fragmentCount": 70,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2204,
+    "level": 10,
+    "fragmentCount": 75,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2205,
+    "level": 1,
+    "fragmentCount": 40,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2205,
+    "level": 2,
+    "fragmentCount": 45,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2205,
+    "level": 3,
+    "fragmentCount": 50,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2205,
+    "level": 4,
+    "fragmentCount": 55,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2205,
+    "level": 5,
+    "fragmentCount": 60,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2205,
+    "level": 6,
+    "fragmentCount": 65,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2205,
+    "level": 7,
+    "fragmentCount": 70,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2205,
+    "level": 8,
+    "fragmentCount": 75,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2205,
+    "level": 9,
+    "fragmentCount": 80,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2205,
+    "level": 10,
+    "fragmentCount": 85,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2301,
+    "level": 1,
+    "fragmentCount": 10,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2301,
+    "level": 2,
+    "fragmentCount": 15,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2301,
+    "level": 3,
+    "fragmentCount": 20,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2301,
+    "level": 4,
+    "fragmentCount": 25,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2301,
+    "level": 5,
+    "fragmentCount": 30,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2301,
+    "level": 6,
+    "fragmentCount": 35,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2301,
+    "level": 7,
+    "fragmentCount": 40,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2301,
+    "level": 8,
+    "fragmentCount": 45,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2301,
+    "level": 9,
+    "fragmentCount": 50,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2301,
+    "level": 10,
+    "fragmentCount": 55,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2302,
+    "level": 1,
+    "fragmentCount": 20,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2302,
+    "level": 2,
+    "fragmentCount": 25,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2302,
+    "level": 3,
+    "fragmentCount": 30,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2302,
+    "level": 4,
+    "fragmentCount": 35,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2302,
+    "level": 5,
+    "fragmentCount": 40,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2302,
+    "level": 6,
+    "fragmentCount": 45,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2302,
+    "level": 7,
+    "fragmentCount": 50,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2302,
+    "level": 8,
+    "fragmentCount": 55,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2302,
+    "level": 9,
+    "fragmentCount": 60,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2302,
+    "level": 10,
+    "fragmentCount": 65,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2303,
+    "level": 1,
+    "fragmentCount": 20,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2303,
+    "level": 2,
+    "fragmentCount": 25,
+    "extraCosts": [
+      {
+        "itemId": 2003,
+        "count": 10
+      }
+    ]
+  },
+  {
+    "cardId": 2303,
+    "level": 3,
+    "fragmentCount": 30,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2303,
+    "level": 4,
+    "fragmentCount": 35,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2303,
+    "level": 5,
+    "fragmentCount": 40,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2303,
+    "level": 6,
+    "fragmentCount": 45,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2303,
+    "level": 7,
+    "fragmentCount": 50,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2303,
+    "level": 8,
+    "fragmentCount": 55,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2303,
+    "level": 9,
+    "fragmentCount": 60,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2303,
+    "level": 10,
+    "fragmentCount": 65,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2304,
+    "level": 1,
+    "fragmentCount": 30,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2304,
+    "level": 2,
+    "fragmentCount": 35,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2304,
+    "level": 3,
+    "fragmentCount": 40,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2304,
+    "level": 4,
+    "fragmentCount": 45,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2304,
+    "level": 5,
+    "fragmentCount": 50,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2304,
+    "level": 6,
+    "fragmentCount": 55,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2304,
+    "level": 7,
+    "fragmentCount": 60,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2304,
+    "level": 8,
+    "fragmentCount": 65,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2304,
+    "level": 9,
+    "fragmentCount": 70,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2304,
+    "level": 10,
+    "fragmentCount": 75,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2305,
+    "level": 1,
+    "fragmentCount": 40,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2305,
+    "level": 2,
+    "fragmentCount": 45,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2305,
+    "level": 3,
+    "fragmentCount": 50,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2305,
+    "level": 4,
+    "fragmentCount": 55,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2305,
+    "level": 5,
+    "fragmentCount": 60,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2305,
+    "level": 6,
+    "fragmentCount": 65,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2305,
+    "level": 7,
+    "fragmentCount": 70,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2305,
+    "level": 8,
+    "fragmentCount": 75,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2305,
+    "level": 9,
+    "fragmentCount": 80,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2305,
+    "level": 10,
+    "fragmentCount": 85,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2306,
+    "level": 1,
+    "fragmentCount": 40,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2306,
+    "level": 2,
+    "fragmentCount": 45,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2306,
+    "level": 3,
+    "fragmentCount": 50,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2306,
+    "level": 4,
+    "fragmentCount": 55,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2306,
+    "level": 5,
+    "fragmentCount": 60,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2306,
+    "level": 6,
+    "fragmentCount": 65,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2306,
+    "level": 7,
+    "fragmentCount": 70,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2306,
+    "level": 8,
+    "fragmentCount": 75,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2306,
+    "level": 9,
+    "fragmentCount": 80,
+    "extraCosts": []
+  },
+  {
+    "cardId": 2306,
+    "level": 10,
+    "fragmentCount": 85,
+    "extraCosts": []
+  }
+]

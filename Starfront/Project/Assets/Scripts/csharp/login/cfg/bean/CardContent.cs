@@ -25,6 +25,7 @@ public abstract partial class CardContent : Luban.BeanBase
         {
             case "UnitCardContent": return new UnitCardContent(_buf);
             case "BuildingCardContent": return new BuildingCardContent(_buf);
+            case "UnconfiguredCardContent": return new UnconfiguredCardContent(_buf);
             default: throw new SerializationException();
         }
     }

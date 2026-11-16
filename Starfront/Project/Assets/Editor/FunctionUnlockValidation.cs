@@ -96,9 +96,8 @@ public static class FunctionUnlockValidation {
             return;
         }
         button.onClick.Invoke();
-        Transform hint = main.transform.Find("boxFunctionHint");
-        Require(hint != null && hint.gameObject.activeSelf, "visible locked hint " + id);
-        Require(hint.GetComponentInChildren<TMP_Text>().text == FunctionControl.ins.model.GetLockedHint(id), "correct hint " + id);
+        Require(GlobalToast.Contains(FunctionControl.ins.model.GetLockedHint(id)), "correct global locked hint " + id);
+        Require(main.transform.Find("boxFunctionHint") == null, "old page-local hint removed " + id);
         Require(main.imgDeckSelected.gameObject.activeSelf, "locked click preserves selection");
     }
 

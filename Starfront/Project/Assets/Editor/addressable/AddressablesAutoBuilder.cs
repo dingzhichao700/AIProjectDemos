@@ -19,10 +19,11 @@ public static class AddressablesAutoBuilder
         "unpack",
         "audio",
         "frameAnimation",
-        "material"
+        "material",
+        "skeletalAnimation"
     };
 
-    /// <summary>Step 1：创建/链接 Settings + 五组。</summary>
+    /// <summary>Step 1：创建/链接Settings，按已批准资源状态初始化。</summary>
     [MenuItem("Tools/Addressables/Initialize Addressables")]
     public static void InitializeAddressables()
     {
@@ -54,6 +55,8 @@ public static class AddressablesAutoBuilder
 
     public static void AssignGameAddressables()
     {
+        ResourceGovernanceGate.ValidateOrThrow("addressables-assign");
+        LoadRuntimeExclusions();
         AddressablesProjectBootstrap.EnsureReady(log: true);
 
         var settings = AddressableAssetSettingsDefaultObject.Settings;
@@ -63,8 +66,10 @@ public static class AddressablesAutoBuilder
             return;
         }
 
+        if(ResourcePackRouting.Enabled){ResourcePackRouting.AssignDeclared(settings);return;}
         ProcessConfigBin(settings);
         ProcessRoot(settings, PREFAB_ROOT);
+        if (Directory.Exists("Assets/ResourceData")) ProcessRoot(settings, "Assets/ResourceData");
 
         foreach (var artType in ValidArtTypes)
         {
@@ -81,6 +86,7 @@ public static class AddressablesAutoBuilder
 
     public static void BuildPlayerContent()
     {
+        ResourceGovernanceGate.ValidateOrThrow("addressables-content");
         var settings = AddressableAssetSettingsDefaultObject.Settings;
         if (settings == null)
         {
@@ -116,6 +122,16 @@ public static class AddressablesAutoBuilder
     #endregion
 
     #region Core
+
+    [System.Serializable] private class RetiredAsset { public string path,guid; }
+    [System.Serializable] private class RetirementPolicy { public RetiredAsset[] retiredRuntimeAssets; }
+    private static RetirementPolicy runtimeExclusions;
+    private static void LoadRuntimeExclusions() {
+        runtimeExclusions=JsonUtility.FromJson<RetirementPolicy>(File.ReadAllText("ProjectSettings/ResourceGovernance.json"));
+    }
+    private static bool IsRetiredRuntimeAsset(string path,string guid) {
+        return runtimeExclusions?.retiredRuntimeAssets!=null && System.Array.Exists(runtimeExclusions.retiredRuntimeAssets,entry=>entry.path==path&&entry.guid==guid);
+    }
 
     private static void ProcessRoot(AddressableAssetSettings settings, string rootPath)
     {
@@ -158,13 +174,26 @@ public static class AddressablesAutoBuilder
 
             string assetPath = file.Replace("\\", "/");
             string guid = AssetDatabase.AssetPathToGUID(assetPath);
+            if (IsRetiredRuntimeAsset(assetPath,guid)) { continue; }
             if (string.IsNullOrEmpty(guid))
             {
                 continue;
             }
 
+            // Battle map assets pack by scene ID, not by their shared "battle" parent.
+            string mapPrefix = rootPath.Replace('\\', '/') + "/";
+            if (group.Name == "scene" && label == "battle" && assetPath.StartsWith(mapPrefix)) {
+                string first = assetPath.Substring(mapPrefix.Length).Split('/')[0];
+                if (int.TryParse(first, out int mapId)) {
+                    var mapEntry = settings.CreateOrMoveEntry(guid, group);
+                    mapEntry.address = assetPath;
+                    mapEntry.SetLabel("battle", false);
+                    mapEntry.SetLabel("scene" + mapId, true, true);
+                    continue;
+                }
+            }
             var entry = settings.FindAssetEntry(guid);
-            if (entry == null || (assetPath.StartsWith(CONFIG_BIN_ROOT + "/") && entry.parentGroup.Name == "title")) {
+            if (entry == null || (group == settings.DefaultGroup && entry.parentGroup.Name == "scene") || (assetPath.StartsWith(CONFIG_BIN_ROOT + "/") && entry.parentGroup.Name == "title")) {
                 entry = settings.CreateOrMoveEntry(guid, group);
             }
             entry.address = assetPath;

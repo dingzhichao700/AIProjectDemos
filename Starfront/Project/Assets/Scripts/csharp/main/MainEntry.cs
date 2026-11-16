@@ -12,6 +12,7 @@ public sealed class MainEntry : IGameModuleEntry {
     /// </summary>
     [Preserve]
     public Task InitializeAsync() {
+        GMControl.ins.Init();
         PanelMgr.ins.ClosePanelByType(UIEnum.OPTION_PANEL);
         PanelMgr.ins.OpenPanel(UIEnum.MAIN_PANEL);
         return Task.CompletedTask;

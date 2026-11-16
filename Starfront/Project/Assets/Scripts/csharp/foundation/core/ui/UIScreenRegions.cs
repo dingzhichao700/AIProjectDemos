@@ -24,11 +24,16 @@ public static class UIScreenRegions {
 
 #if UNITY_EDITOR
     public static Regions? EditorOverride;
+    /**Editor离屏视窗模拟，与实际RenderTexture像素边界一致；不进入Player。*/
+    public static Rect? EditorScreenOverride;
 #endif
 
     public static Rect ContentArea {
         get {
             Rect screen = new Rect(0, 0, Screen.width, Screen.height);
+#if UNITY_EDITOR
+            screen = EditorScreenOverride ?? screen;
+#endif
             Regions regions = new Regions { safeArea = Screen.safeArea };
             try {
                 if (provider != null) {

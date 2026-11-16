@@ -67,7 +67,7 @@ MonoBehaviour:
   skinType: 0
   label: {fileID: 4639219736726622103}
   text: label
-  enableHoverScale: 1
+  enableHoverScale: 0
   disabledColorMultiplier: 0.5
 --- !u!114 &4639219735548043168
 MonoBehaviour:

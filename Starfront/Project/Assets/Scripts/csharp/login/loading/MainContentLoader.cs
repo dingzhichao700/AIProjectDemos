@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public static class MainContentLoader {
 
-    /**正式内容资源标签，由构建工具同步到 Default Group*/
+    /**保留的旧内容标签；首屏下载按 MainPanel 精确根，不再整组预取*/
     public const string ContentLabel = "main-content";
 
     /// <summary>
@@ -29,7 +29,7 @@ public static class MainContentLoader {
                     progress((moduleProgress + resourceProgress) / 2f);
                 }
                 Task moduleTask = LoadModuleAsync();
-                Task resourceTask = LoadTiming.MeasureAsync("Main.ResourcesDownload", () => ResourceLoader.DownloadDependenciesAsync(ContentLabel, value => {
+                Task resourceTask = LoadTiming.MeasureAsync("Main.ResourcesDownload", () => ResourceLoader.DownloadDependenciesAsync(ResourceConst.GetUIPath(UIEnum.MAIN_PANEL), value => {
                     resourceProgress = value;
                     progress((moduleProgress + resourceProgress) / 2f);
                 }));

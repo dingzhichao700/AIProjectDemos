@@ -62,19 +62,12 @@ public static class GameEntranceSceneWiring
         }
 
         var viewportScale = GetRectTransform(scene, "canvasScale");
-        var viewportConstant = GetRectTransform(scene, "canvasConstantPixel");
         var uiPool = GetRectTransform(scene, "uiPool");
 
         var changed = false;
         if (engine.viewportScale != viewportScale)
         {
             engine.viewportScale = viewportScale;
-            changed = true;
-        }
-
-        if (engine.viewportConstant != viewportConstant)
-        {
-            engine.viewportConstant = viewportConstant;
             changed = true;
         }
 
@@ -87,7 +80,7 @@ public static class GameEntranceSceneWiring
         if (changed)
         {
             EditorUtility.SetDirty(engine);
-            Debug.Log("[wire] RookieEngine: canvasScale / canvasConstantPixel / uiPool assigned.");
+            Debug.Log("[wire] RookieEngine: canvasScale / uiPool assigned.");
         }
 
         return changed;

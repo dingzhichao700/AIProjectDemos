@@ -28,6 +28,10 @@ namespace cfg
         /// 绝对中立
         /// </summary>
         ABSOLUTE_NEUTRAL = 3,
+        /// <summary>
+        /// 未占领
+        /// </summary>
+        UNOWNED = 0,
     }
 
 } 

@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class SettingPanel : BasePanel {
 
+    public override bool UsesWindowTransition => true;
+
     /**局部弹窗尺寸独立于项目屏幕方向。*/
     public override UnityEngine.Vector2 SafeContentDesignSize => new Vector2(760, 640);
 
@@ -26,11 +28,10 @@ public class SettingPanel : BasePanel {
     private int tabIndex => SettingControl.ins.selectTabIndex;
 
     public SettingPanel() {
-        layer = PanelLayer.SCALE_TOP_THIRD;
+        layer = PanelLayer.SCALE_TOOL;
     }
 
-    override protected void PlayOpen() {
-        panelView.PlayOpen(PlayOpenComplete);
+    protected override void OnPrepareOpen() {
         SetTabIndex(0);
         SettingControl.ins.SetFocusTab(true);
         listTab.array = SettingConst.TAB_OPTIONS;
@@ -126,17 +127,6 @@ public class SettingPanel : BasePanel {
 
     private void OnExit() {
         Close();
-    }
-
-    override protected void PlayClose() {
-        panelView.PlayClose(PlayCloseComplete);
-
-        for (int i = 0; i < listTab.arraySource.Count; i++) {
-            GameObject go = listTab.GetCell(i);
-            if (go != null) {
-                go.GetComponent<SettingTabItem>().PlayExit(listTab.arraySource.Count - i);
-            }
-        }
     }
 
     override public void OnClose() {

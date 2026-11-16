@@ -1,0 +1,18 @@
+{
+  "canvas": [
+    2000,
+    2000
+  ],
+  "cellSize": [
+    107,
+    93
+  ],
+  "cellCount": 171,
+  "uniqueEdges": 382,
+  "allEdgesExactlyMatchStandardLandSharedEdges": true,
+  "duplicateEdges": 0,
+  "groundAlphaChangedPixels": 0,
+  "rgbChangedOutsideLandTop": 0,
+  "gridPixelsOutsideLandTop": 0,
+  "unityModified": false
+}

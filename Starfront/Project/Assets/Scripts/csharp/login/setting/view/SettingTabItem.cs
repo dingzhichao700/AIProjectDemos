@@ -1,4 +1,4 @@
-﻿using cfg;
+using cfg;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -43,7 +43,9 @@ public class SettingTabItem : ScrollListItem {
         OnTabUpdate();
 
         KillTween();
-        PlayBorn();
+        contentAlpha.alpha = 1f;
+        boxContent.anchoredPosition = new Vector2(0, isSelected ? 0 : -5);
+        PlayBornComplete();
     }
 
     private void PlayBorn() {

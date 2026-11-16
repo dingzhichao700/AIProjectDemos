@@ -14,7 +14,7 @@
     "iconId": 2002,
     "name": "钢材",
     "desc": "",
-    "quality": 1,
+    "quality": 3,
     "type": 1,
     "subType": 0,
     "stackMax": 0
@@ -24,8 +24,168 @@
     "iconId": 2003,
     "name": "勋章",
     "desc": "",
-    "quality": 1,
+    "quality": 4,
     "type": 1,
+    "subType": 0,
+    "stackMax": 0
+  },
+  {
+    "id": 12101,
+    "iconId": 12101,
+    "name": "陆战队员碎片",
+    "desc": "用于解锁及升级陆战队员",
+    "quality": 1,
+    "type": 0,
+    "subType": 0,
+    "stackMax": 0
+  },
+  {
+    "id": 12102,
+    "iconId": 12102,
+    "name": "医疗运输机碎片",
+    "desc": "用于解锁及升级医疗运输机",
+    "quality": 1,
+    "type": 0,
+    "subType": 0,
+    "stackMax": 0
+  },
+  {
+    "id": 12103,
+    "iconId": 12103,
+    "name": "攻城坦克碎片",
+    "desc": "用于解锁及升级攻城坦克",
+    "quality": 3,
+    "type": 0,
+    "subType": 0,
+    "stackMax": 0
+  },
+  {
+    "id": 12104,
+    "iconId": 12104,
+    "name": "幽灵碎片",
+    "desc": "用于解锁及升级幽灵",
+    "quality": 4,
+    "type": 0,
+    "subType": 0,
+    "stackMax": 0
+  },
+  {
+    "id": 12105,
+    "iconId": 12105,
+    "name": "战列巡航舰碎片",
+    "desc": "用于解锁及升级战列巡航舰",
+    "quality": 5,
+    "type": 0,
+    "subType": 0,
+    "stackMax": 0
+  },
+  {
+    "id": 12201,
+    "iconId": 12201,
+    "name": "蟑螂碎片",
+    "desc": "用于解锁及升级蟑螂",
+    "quality": 1,
+    "type": 0,
+    "subType": 0,
+    "stackMax": 0
+  },
+  {
+    "id": 12202,
+    "iconId": 12202,
+    "name": "刺蛇碎片",
+    "desc": "用于解锁及升级刺蛇",
+    "quality": 3,
+    "type": 0,
+    "subType": 0,
+    "stackMax": 0
+  },
+  {
+    "id": 12203,
+    "iconId": 12203,
+    "name": "异龙碎片",
+    "desc": "用于解锁及升级异龙",
+    "quality": 4,
+    "type": 0,
+    "subType": 0,
+    "stackMax": 0
+  },
+  {
+    "id": 12204,
+    "iconId": 12204,
+    "name": "感染虫碎片",
+    "desc": "用于解锁及升级感染虫",
+    "quality": 4,
+    "type": 0,
+    "subType": 0,
+    "stackMax": 0
+  },
+  {
+    "id": 12205,
+    "iconId": 12205,
+    "name": "雷兽碎片",
+    "desc": "用于解锁及升级雷兽",
+    "quality": 5,
+    "type": 0,
+    "subType": 0,
+    "stackMax": 0
+  },
+  {
+    "id": 12301,
+    "iconId": 12301,
+    "name": "追猎者碎片",
+    "desc": "用于解锁及升级追猎者",
+    "quality": 1,
+    "type": 0,
+    "subType": 0,
+    "stackMax": 0
+  },
+  {
+    "id": 12302,
+    "iconId": 12302,
+    "name": "狂热者碎片",
+    "desc": "用于解锁及升级狂热者",
+    "quality": 3,
+    "type": 0,
+    "subType": 0,
+    "stackMax": 0
+  },
+  {
+    "id": 12303,
+    "iconId": 12303,
+    "name": "哨兵碎片",
+    "desc": "用于解锁及升级哨兵",
+    "quality": 3,
+    "type": 0,
+    "subType": 0,
+    "stackMax": 0
+  },
+  {
+    "id": 12304,
+    "iconId": 12304,
+    "name": "不朽者碎片",
+    "desc": "用于解锁及升级不朽者",
+    "quality": 4,
+    "type": 0,
+    "subType": 0,
+    "stackMax": 0
+  },
+  {
+    "id": 12305,
+    "iconId": 12305,
+    "name": "风暴战舰碎片",
+    "desc": "用于解锁及升级风暴战舰",
+    "quality": 5,
+    "type": 0,
+    "subType": 0,
+    "stackMax": 0
+  },
+  {
+    "id": 12306,
+    "iconId": 12306,
+    "name": "高阶圣堂武士碎片",
+    "desc": "用于解锁及升级高阶圣堂武士",
+    "quality": 5,
+    "type": 0,
     "subType": 0,
     "stackMax": 0
   }

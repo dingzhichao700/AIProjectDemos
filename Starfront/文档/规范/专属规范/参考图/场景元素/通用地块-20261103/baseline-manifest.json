@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-03",
+  "status": "当前可用基线，视觉暂通过，保留后续优化",
+  "userFeedback": "效果还行吧，将来可能再回头优化这个地面的视觉效果，整理一下规范。",
+  "sourcePackages": [
+    "standard-generic-tiles-v1",
+    "standard-generic-scene-v1",
+    "standard-ground-integration-v1"
+  ],
+  "files": [
+    {
+      "file": "local-1x.png",
+      "source": "E:\\Codex_Projects\\异星军团\\outputs\\standard-generic-tiles-v1\\tiles-1x.png",
+      "sha256": "21e80cd9e43527e1f3c76088fbfdf7f3258af00e2614b8b852ffaf9d383e445e"
+    },
+    {
+      "file": "scene-1x.png",
+      "source": "E:\\Codex_Projects\\异星军团\\outputs\\standard-generic-scene-v1\\tiles-1x.png",
+      "sha256": "63eabe6f42097f0eb613612a0aa5afda91128e38b296883ceab58a9e109cacf5"
+    },
+    {
+      "file": "diagnostic-1x.png",
+      "source": "E:\\Codex_Projects\\异星军团\\outputs\\standard-generic-scene-v1\\diagnostic-1x.png",
+      "sha256": "92f84b786deaf654b750aed1f8abeea00342b63c40f77bc69bf4a2f997c8cf83"
+    },
+    {
+      "file": "geometry-validation.json",
+      "source": "E:\\Codex_Projects\\异星军团\\outputs\\standard-generic-scene-v1\\validation.json",
+      "sha256": "6e11805a8253a83573613cb1d668c72b8193398b3c581ad22482c462a5c3e36a"
+    },
+    {
+      "file": "decoration-validation.json",
+      "source": "E:\\Codex_Projects\\异星军团\\outputs\\standard-generic-scene-v1\\decoration-validation.json",
+      "sha256": "ec7a99d3406482394bbfc51403b7c125fdcbc5da73cc9d8ef8c7163ed456bcc8"
+    },
+    {
+      "file": "unity-runtime-1002.png",
+      "source": "E:\\Codex_Projects\\异星军团\\outputs\\standard-ground-integration-v1\\unity-runtime-1002.png",
+      "sha256": "1ac7b1c096991a981b8703cdec69a950f4fb4c1bad2520c8c4fad8961f98ea62"
+    },
+    {
+      "file": "integration-validation.json",
+      "source": "E:\\Codex_Projects\\异星军团\\outputs\\standard-ground-integration-v1\\integration-validation.json",
+      "sha256": "4478efbbcbd07f54df18d97fbb58952a820b0c873455ec11fc3a5c74597e6127"
+    },
+    {
+      "file": "unity-runtime-result.json",
+      "source": "E:\\Codex_Projects\\异星军团\\outputs\\standard-ground-integration-v1\\unity-runtime-result.json",
+      "sha256": "38bfa92da9ee51f0ea1464d0bfaa008af34d72fc3201f97151a15b0036558200"
+    }
+  ]
+}

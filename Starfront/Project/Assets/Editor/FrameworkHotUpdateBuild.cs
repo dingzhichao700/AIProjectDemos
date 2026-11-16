@@ -36,6 +36,7 @@ public static class FrameworkHotUpdateBuild {
         settings.enable = true;
         settings.useGlobalIl2cpp = false;
         settings.hotUpdateAssemblyDefinitions = new[] {
+            AssetDatabase.LoadAssetAtPath<AssemblyDefinitionAsset>("Assets/Scripts/csharp/hotUpdateCore/HotUpdateCore.asmdef"),
             AssetDatabase.LoadAssetAtPath<AssemblyDefinitionAsset>("Assets/Scripts/csharp/main/Main.asmdef"),
             AssetDatabase.LoadAssetAtPath<AssemblyDefinitionAsset>("Assets/Scripts/csharp/login/Login.asmdef")
         };
@@ -71,7 +72,7 @@ public static class FrameworkHotUpdateBuild {
         string generated = File.ReadAllText("Assets/" + HybridCLRSettings.Instance.outputAOTGenericReferenceFile);
         string aotSection = generated.Split(new[] { "// }}" }, StringSplitOptions.None)[0];
         string[] aot = Regex.Matches(aotSection, "\"([^\"]+\\.dll)\"").Cast<Match>().Select(match => match.Groups[1].Value).Distinct().ToArray();
-        var manifest = new HotUpdateManifest { baseVersion = baseVersion, release = baseVersion, resourceRoot = "releases/" + baseVersion + "/", bundleRoot = "bundles/", aot = aot, assemblies = new[] { "Login.dll", "Main.dll" } };
+        var manifest = new HotUpdateManifest { uiRuntimeContract = UiRuntimeHost.ContractVersion, baseVersion = baseVersion, release = baseVersion, resourceRoot = "releases/" + baseVersion + "/", bundleRoot = "bundles/", aot = aot, assemblies = new[] { "HotUpdateCore.dll", "Login.dll", "Main.dll" } };
         File.WriteAllText(StatePath, JsonUtility.ToJson(manifest, true));
         Stage(manifest, true);
     }
@@ -81,10 +82,13 @@ public static class FrameworkHotUpdateBuild {
     /// </summary>
     public static void GenerateContent() {
         HotUpdateManifest manifest = ReadState();
+        if (manifest.uiRuntimeContract != UiRuntimeHost.ContractVersion || Array.IndexOf(manifest.assemblies ?? Array.Empty<string>(), "HotUpdateCore.dll") < 0) {
+            throw new InvalidOperationException("当前底座不支持共享界面库，请先由发布专项生成迁移后的新底座。");
+        }
         if (manifest.bundleRoot != "bundles/" || manifest.resourceRoot != "releases/" + manifest.release + "/") {
             throw new InvalidOperationException("旧底座不支持共享 Bundle 目录，请先重新生成并导出底座。");
         }
-        manifest.assemblies = new[] { "Login.dll", "Main.dll" };
+        manifest.assemblies = new[] { "HotUpdateCore.dll", "Login.dll", "Main.dll" };
         CompileDllCommand.CompileDll(BuildTarget.WebGL, EditorUserBuildSettings.development);
         manifest.release = DateTime.UtcNow.ToString("yyyyMMddTHHmmssfffZ");
         manifest.resourceRoot = "releases/" + manifest.release + "/";
@@ -98,19 +102,10 @@ public static class FrameworkHotUpdateBuild {
     /// </summary>
     private static void Stage(HotUpdateManifest manifest, bool copyAot) {
         var settings = AddressableAssetSettingsDefaultObject.Settings;
-        settings.AddLabel("main-content");
-        var contentGroup = settings.FindGroup("Default Local Group");
-        if (contentGroup == null) {
-            throw new InvalidOperationException("缺少正式内容资源组 Default Local Group。");
+        if (settings == null) {
+            throw new InvalidOperationException("缺少 Addressables Settings。");
         }
-        foreach (var group in settings.groups) {
-            if (group == null) {
-                continue;
-            }
-            foreach (var entry in group.entries) {
-                entry.SetLabel("main-content", group == contentGroup);
-            }
-        }
+        // 精确根与包标签由资源契约维护；Stage 不按旧 Group 重标业务资源。
         string profile = settings.activeProfileId;
         settings.profileSettings.SetValue(profile, "Remote.BuildPath", "ServerData/[BuildTarget]");
         settings.profileSettings.SetValue(profile, "Remote.LoadPath", HotUpdateBootstrap.BundleRoot.TrimEnd('/'));
@@ -144,10 +139,10 @@ public static class FrameworkHotUpdateBuild {
         }
         AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
         foreach (string name in manifest.assemblies) {
-            Register(settings, name, "code", Path.GetFileNameWithoutExtension(name));
+            Register(settings, name, "code");
         }
         foreach (string name in manifest.aot) {
-            Register(settings, name, "aot", "Foundation");
+            Register(settings, name, "aot");
         }
         EditorUtility.SetDirty(settings);
         AssetDatabase.SaveAssets();
@@ -161,7 +156,8 @@ public static class FrameworkHotUpdateBuild {
     }
 
     /**注册程序集资源，独立打包以便先于界面资源加载*/
-    private static void Register(AddressableAssetSettings settings, string name, string kind, string groupName) {
+    private static void Register(AddressableAssetSettings settings, string name, string kind) {
+        const string groupName = "hotUpdate";
         var group = settings.FindGroup(groupName) ?? settings.CreateGroup(groupName, false, false, false, null, typeof(BundledAssetGroupSchema), typeof(ContentUpdateGroupSchema));
         var schema = group.GetSchema<BundledAssetGroupSchema>();
         schema.BuildPath.SetVariableByName(settings, "Remote.BuildPath");

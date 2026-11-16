@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 /// <summary>
-/// Addressables 分包常量（baseline：五组，无 region）。
+/// 历史无Manifest工程的兼容分包常量；正式项目按ResourcePackRouting的唯一CLI报告归组。
 /// </summary>
 public static class AddressAblesConst
 {

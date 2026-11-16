@@ -26,6 +26,8 @@ public class GMItem : ScrollListItem {
     /**本条指令注册的输入回调*/
     private readonly Dictionary<TMP_InputField, UnityAction<string>> inputListeners = new Dictionary<TMP_InputField, UnityAction<string>>();
 
+    private readonly Dictionary<int, TMP_InputField> parameterFields = new Dictionary<int, TMP_InputField>();
+
     /**注册按钮与参数项渲染回调*/
     protected override void OnInitListItem() {
         OnClick(btnExecute.gameObject, OnExecute);
@@ -54,7 +56,19 @@ public class GMItem : ScrollListItem {
     /**执行按钮使用当前参数快照*/
     private void OnExecute() {
         if (cfg != null) {
-            GMControl.ins.ExecuteGM(cfg.Content, new List<string>(parameters));
+            // 执行时再读取可见输入框，避免平台最后一次输入与通知帧不同步。
+            foreach (var entry in parameterFields) {
+                if (entry.Key < parameters.Count && entry.Value != null) {
+                    parameters[entry.Key] = entry.Value.text;
+                }
+            }
+            Debug.Log("[GMUI] execute " + cfg.Content + ", parameters=" + parameters.Count);
+            bool success = GMControl.ins.ExecuteGM(cfg.Content, new List<string>(parameters));
+            if (success) {
+                GlobalToast.Show(GMControl.ins.LastResultText);
+            } else {
+                GlobalToast.Warn(GMControl.ins.LastResultText);
+            }
         }
     }
 
@@ -64,6 +78,8 @@ public class GMItem : ScrollListItem {
             return;
         }
         TMP_InputField input = listParam.GetCell(index).GetComponent<TMP_InputField>();
+        PlatformInputFieldKeyboard.Install(input);
+        parameterFields[index] = input;
         if (inputListeners.TryGetValue(input, out var previous)) {
             input.onValueChanged.RemoveListener(previous);
         }
@@ -87,11 +103,13 @@ public class GMItem : ScrollListItem {
     private void RemoveInputListeners() {
         foreach (var entry in inputListeners) {
             if (entry.Key != null) {
+                entry.Key.GetComponent<PlatformInputFieldKeyboard>()?.Close();
                 entry.Key.onValueChanged.RemoveListener(entry.Value);
                 entry.Key.onSubmit.RemoveListener(OnSubmit);
             }
         }
         inputListeners.Clear();
+        parameterFields.Clear();
     }
 
     /**回收时释放旧配置与输入，避免池化对象继续修改旧数据*/

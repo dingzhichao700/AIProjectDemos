@@ -107,9 +107,11 @@ public static class BattleSceneSetup {
         entry.address = path;
         settings.AddLabel("main-content");
         entry.SetLabel("main-content", true);
-        foreach (string file in Directory.GetFiles("Assets/Art/unpack/scene/battle/appearance", "*.png")) {
+        foreach (string file in Directory.GetFiles("Assets/Art/unpack/default/battle/appearance", "*.png")) {
             string assetPath = file.Replace('\\', '/');
-            settings.CreateOrMoveEntry(AssetDatabase.AssetPathToGUID(assetPath), settings.FindGroup("scene")).address = assetPath;
+            var combatEntry = settings.CreateOrMoveEntry(AssetDatabase.AssetPathToGUID(assetPath), settings.DefaultGroup);
+            combatEntry.address = assetPath;
+            combatEntry.SetLabel("main-content", true, true);
         }
         settings.SetDirty(UnityEditor.AddressableAssets.Settings.AddressableAssetSettings.ModificationEvent.EntryMoved, entry, true);
         AssetDatabase.SaveAssets();

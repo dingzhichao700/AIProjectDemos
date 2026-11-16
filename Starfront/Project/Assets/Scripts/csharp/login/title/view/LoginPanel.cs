@@ -74,14 +74,21 @@ public class LoginPanel : BasePanel {
             }
         } catch (Exception exception) {
             Debug.LogException(exception);
-            if (version == openVersion) {
-                txt.text = "配置加载失败，点击或按任意键重试";
-            }
+            OnConfigsFailed(version);
         } finally {
             if (version == openVersion) {
                 loadingConfigs = false;
             }
         }
+    }
+
+    /**迟到失败不覆盖重开后的新登录状态，也不发出过期提示。*/
+    private void OnConfigsFailed(int version) {
+        if (version != openVersion) {
+            return;
+        }
+        txt.text = "配置加载失败，点击或按任意键重试";
+        GlobalToast.Warn("配置加载失败，请点击重试");
     }
 
     /**接收鼠标点击和触摸开始，兼容无键盘设备*/
@@ -142,6 +149,7 @@ public class LoginPanel : BasePanel {
     private void OnEnterMainFailed(Exception exception) {
         Debug.LogError("进入主界面失败，请在登录界面重试：" + exception);
         PanelMgr.ins.OpenPanel(UIEnum.LOGIN_PANEL);
+        GlobalToast.Warn("进入主界面失败，请重试");
     }
 
     public override void OnClose() {

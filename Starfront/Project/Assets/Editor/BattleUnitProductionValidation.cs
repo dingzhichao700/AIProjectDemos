@@ -19,7 +19,7 @@ public static class BattleUnitProductionValidation {
         float enemyScale = RookieEngine.enemyTimer.scale;
         try {
             model.InitializeBattle(tables, 7);
-            Require(tables.UnitObj.DataList.Where(u => u.Id >= 1101 && u.Id <= 1104).All(unit => unit.MoveSpeed == 30), "all four configured speeds");
+            Require(tables.UnitObj.DataList.Where(u => u.Id == 1101).All(unit => unit.MoveSpeed == 30), "surviving infantry configured speed");
             var producer = BuildProducer(model, BattleSceneCamp.FRIENDLY);
             producer.OnTimeUpdate(9);
             Require(model.GetUnitCount(BattleSceneCamp.FRIENDLY) == 0 && Math.Abs(producer.productionProgress - .9) < .001, "no early unit; configured progress");
@@ -125,7 +125,7 @@ public static class BattleUnitProductionValidation {
             object[] args = { target.id, camp, null };
             Require((bool)typeof(BattleUnlockModel).GetMethod("TryUnlock", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(model.unlocks, args), "fixture unlock");
             var producer = model.buildings.Values.FirstOrDefault(building => building.cell == target && building.unitProduction != null);
-            if (producer != null && producer.unitProduction.UnitId != 1201) {
+            if (producer != null && producer.unitProduction.UnitId == 1101) {
                 return producer;
             }
         }

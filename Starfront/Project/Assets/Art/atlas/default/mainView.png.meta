@@ -113,8 +113,8 @@ TextureImporter:
       name: mainBattleButtonBorder
       rect:
         serializedVersion: 2
-        x: 0
-        y: 470
+        x: 596
+        y: 412
         width: 480
         height: 158
       alignment: 9
@@ -131,473 +131,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainCardArt0
-      rect:
-        serializedVersion: 2
-        x: 322
-        y: 111
-        width: 133
-        height: 114
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cfbf6ccc942611149af917d01bcc4aae
-      internalID: 5183470138140148569
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainCardArt1
-      rect:
-        serializedVersion: 2
-        x: 322
-        y: 226
-        width: 133
-        height: 146
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 875d43f609ff4154f9d73700ec0175c6
-      internalID: 2112394722898882215
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainCardArt2
-      rect:
-        serializedVersion: 2
-        x: 456
-        y: 259
-        width: 133
-        height: 146
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e4165fd9a3b7372418cecc09e9477829
-      internalID: -7760688336254585435
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainCardArt3
-      rect:
-        serializedVersion: 2
-        x: 590
-        y: 259
-        width: 133
-        height: 146
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c22a345398526ba42ab359d50ce51526
-      internalID: -5825575415640679573
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainCardArt4
-      rect:
-        serializedVersion: 2
-        x: 724
-        y: 259
-        width: 133
-        height: 146
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3e17926a67b490342a996900ade7be13
-      internalID: -4400371390087655913
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainCardArt5
-      rect:
-        serializedVersion: 2
-        x: 456
-        y: 112
-        width: 133
-        height: 146
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 08062ae931710a04cbe2e02457c16f04
-      internalID: 1501466825340664542
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainCardArt6
-      rect:
-        serializedVersion: 2
-        x: 590
-        y: 112
-        width: 133
-        height: 146
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac81555c97163f94cb7e15eb4358a0d5
-      internalID: 804579383124855849
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainCardArt7
-      rect:
-        serializedVersion: 2
-        x: 724
-        y: 112
-        width: 133
-        height: 146
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e68cacc1b547feb499bd33b789f04a30
-      internalID: -392728783360446535
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainCardFrame0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 149
-        width: 160
-        height: 222
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca034da1679192f449c95d85f360ac4e
-      internalID: -4703445688595248511
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainCardFrame1
-      rect:
-        serializedVersion: 2
-        x: 161
-        y: 149
-        width: 160
-        height: 222
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aa0260119e774d040a064db1e3faa868
-      internalID: 1655847469331034760
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainCardFrame2
-      rect:
-        serializedVersion: 2
-        x: 481
-        y: 406
-        width: 160
-        height: 222
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d8a603e973b58854eacfc4d7396134c6
-      internalID: 8397627208175389967
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainCardFrame3
-      rect:
-        serializedVersion: 2
-        x: 642
-        y: 406
-        width: 160
-        height: 222
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1bcbaeebb57b8064e839a17f407960c8
-      internalID: -728358837468129482
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainDeckHeading
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 683
-        width: 696
-        height: 53
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 22f06a2ae23e98b45a77ecc51fdb0e89
-      internalID: -4982509548205922766
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainLibraryArt0
-      rect:
-        serializedVersion: 2
-        x: 311
-        y: 373
-        width: 133
-        height: 96
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fcbd4912f051f8940a61d23c9e5ea381
-      internalID: 7923958601152273227
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainLibraryArt1
-      rect:
-        serializedVersion: 2
-        x: 697
-        y: 640
-        width: 133
-        height: 96
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ad2d03e5d863f64392262009e66cb20
-      internalID: 2194172165786247247
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainLibraryArt2
-      rect:
-        serializedVersion: 2
-        x: 282
-        y: 14
-        width: 133
-        height: 96
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cbf34d77fb5be294184f075d6dae1a98
-      internalID: -3912847197969595123
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainLibraryArt3
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 14
-        width: 133
-        height: 96
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b5e10a25760aa64cad1f45104eb6cfc
-      internalID: -7831470158078099055
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainLibraryArt4
-      rect:
-        serializedVersion: 2
-        x: 550
-        y: 15
-        width: 133
-        height: 96
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f882c95defd32d64cb38df8ee82c619b
-      internalID: -5995441934087396195
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainLibraryArt5
-      rect:
-        serializedVersion: 2
-        x: 684
-        y: 15
-        width: 133
-        height: 96
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70bf3dfba5f69d44584fc87e2de51e7b
-      internalID: -6699530606820317458
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainLibraryArt6
-      rect:
-        serializedVersion: 2
-        x: 803
-        y: 543
-        width: 133
-        height: 96
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 36395b9842dde9148b7a65266b2cbe67
-      internalID: -5968655707504073801
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainLibraryArt7
-      rect:
-        serializedVersion: 2
-        x: 803
-        y: 446
-        width: 133
-        height: 96
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ba3586f57026b94b8bd10eb7c75ad82
-      internalID: 177175846700059151
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainLibraryHeading
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 629
-        width: 696
-        height: 53
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 45b1895464bf0824e914c22c7bc9f1d4
-      internalID: -8900849789075836868
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: mainLock
       rect:
         serializedVersion: 2
-        x: 445
-        y: 439
+        x: 1808
+        y: 799
         width: 25
         height: 30
       alignment: 9
@@ -614,13 +152,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainNavBattle
+      name: deck-card-bg
       rect:
         serializedVersion: 2
-        x: 831
-        y: 656
-        width: 80
-        height: 80
+        x: 1393
+        y: 32
+        width: 142
+        height: 120
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -628,41 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00a40b71b23506140933c3c96e7831e6
-      internalID: -3638266721931829623
+      spriteID: 9f43e31c87450124d9e28be4e1399b14
+      internalID: -1506250422
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainNavDeck
-      rect:
-        serializedVersion: 2
-        x: 818
-        y: 31
-        width: 80
-        height: 80
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4deda35549003a847bbe3c9bb8be4935
-      internalID: -5062747485063527536
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainNavNormal
+      name: deck-deployed-ribbon
       rect:
         serializedVersion: 2
         x: 0
-        y: 3
-        width: 140
-        height: 145
+        y: 0
+        width: 626
+        height: 157
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -670,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2b8a8ec9b5ca3e4ab9841b05dd3a707
-      internalID: 5612110724807712034
+      spriteID: 2ff30928fbc8836468315923c31b498c
+      internalID: 606919607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainNavRank
+      name: deck-progress-fill
       rect:
         serializedVersion: 2
-        x: 858
-        y: 365
-        width: 80
-        height: 80
+        x: 1677
+        y: 818
+        width: 130
+        height: 11
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -691,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6299d87e5a064a14f96ce2e0f57f5a66
-      internalID: 7904349425814123190
+      spriteID: 18a4864113c6e0b43b49b6a287d1fe6b
+      internalID: -1572886965
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainNavSelected
+      name: deck-stage-blue
       rect:
         serializedVersion: 2
-        x: 141
-        y: 3
-        width: 140
-        height: 145
+        x: 651
+        y: 1339
+        width: 595
+        height: 241
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -712,62 +229,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6a9783174f57904694e64f8252c92d6
-      internalID: -8203404371001885666
+      spriteID: 5f2369f1648d9c74ba2dc60c47298324
+      internalID: 1830580372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainNavShop
-      rect:
-        serializedVersion: 2
-        x: 858
-        y: 284
-        width: 80
-        height: 80
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f710a3fc032bfe848870116a611dc36e
-      internalID: 887837914293873893
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainNavTerritory
-      rect:
-        serializedVersion: 2
-        x: 858
-        y: 203
-        width: 80
-        height: 80
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ee3979cc50f49a64e870193db8df79d2
-      internalID: 8465152145829567734
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainTitlePlate
+      name: deck-stage-green
       rect:
         serializedVersion: 2
         x: 0
-        y: 372
-        width: 310
-        height: 97
+        y: 373
+        width: 595
+        height: 241
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -775,8 +250,2045 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c1befaccd4529f4cb4178759ee7bbbf
-      internalID: -2548575992757064677
+      spriteID: 308aa4922068ec04db4ff5819d438b79
+      internalID: 1854458741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deck-stage-orange
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 1341
+        width: 595
+        height: 239
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b61246ec4be5f3488a053503c677b99
+      internalID: 983878879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deck-stage-purple
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 1097
+        width: 595
+        height: 241
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce0d84151a721104aaf91358aa4018e9
+      internalID: -552503203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deck-synergy-07
+      rect:
+        serializedVersion: 2
+        x: 1867
+        y: 141
+        width: 44
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0225cda48896fc48abb531136decdd4
+      internalID: -1772650472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-category-selected
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 95
+        width: 199
+        height: 57
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5723de95c63ad1c45aa67cc0e9bae52d
+      internalID: 769061682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-category-shell
+      rect:
+        serializedVersion: 2
+        x: 1077
+        y: 342
+        width: 650
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e25c698699052d46a45a8f045c64839
+      internalID: -1918323496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-category-track
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 354
+        width: 385
+        height: 57
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c84154c899ac5f45ba686d704afae78
+      internalID: 1003017386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-edit-base
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 36
+        width: 159
+        height: 58
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c831460f9e24c85459ab075157aa6d75
+      internalID: 472368225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-edit-pencil
+      rect:
+        serializedVersion: 2
+        x: 1952
+        y: 669
+        width: 34
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc586a2d1f17ae347845537e531ff476
+      internalID: 133594844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-filter-off
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 354
+        width: 60
+        height: 57
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d46450763fe850419193b11fabfacf3
+      internalID: -738725740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-filter-on
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 1080
+        width: 61
+        height: 61
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8d641b755d2e4d4d9b6ba470d8ef785
+      internalID: -224837555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-info-profession-base
+      rect:
+        serializedVersion: 2
+        x: 1843
+        y: 1452
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66c03a88513c01543bcdaecd04615edf
+      internalID: 989920796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-info-profession-shadow
+      rect:
+        serializedVersion: 2
+        x: 1791
+        y: 583
+        width: 160
+        height: 160
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dc2668a1eb6425408ddaf666433c849
+      internalID: 1156861594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-library-shell
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1051
+        width: 650
+        height: 529
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cde2d57fa7006b240880458cca15e80a
+      internalID: -659900950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-nav-battle-normal
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 1158
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b93247fa3c9e1b42826ccd8438814c8
+      internalID: -48907351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-nav-battle-selected
+      rect:
+        serializedVersion: 2
+        x: 1933
+        y: 312
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac8f45e5c4477c34d85548e1f6618279
+      internalID: 996029456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-nav-deck-normal
+      rect:
+        serializedVersion: 2
+        x: 1829
+        y: 90
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd22160e5c2fe554dafcc56b109fd98e
+      internalID: 740708505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-nav-deck-selected
+      rect:
+        serializedVersion: 2
+        x: 1867
+        y: 186
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59c99617bb8c2694fbcb2fcf625357c8
+      internalID: 1539673055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-nav-left-normal-plate
+      rect:
+        serializedVersion: 2
+        x: 1843
+        y: 1341
+        width: 121
+        height: 110
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3700eee24eae927468095bbdc03ac7ef
+      internalID: -941707183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-nav-left-selected-plate
+      rect:
+        serializedVersion: 2
+        x: 1850
+        y: 472
+        width: 121
+        height: 110
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 232d147000ae82748ae27a48e517cffa
+      internalID: -179730948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-nav-lock
+      rect:
+        serializedVersion: 2
+        x: 1808
+        y: 799
+        width: 25
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62ae60584f6deaf4683cebf27372110d
+      internalID: -947356941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-nav-middle-normal-plate
+      rect:
+        serializedVersion: 2
+        x: 1748
+        y: 139
+        width: 118
+        height: 110
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d42d6096b5134f0438268968c092c74a
+      internalID: -531748359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-nav-middle-selected-plate
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 443
+        width: 121
+        height: 115
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b0348aae3ec7cc40b9ef3ba0c7f2551
+      internalID: 583632582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-nav-rail
+      rect:
+        serializedVersion: 2
+        x: 1077
+        y: 422
+        width: 650
+        height: 129
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a46494e669823a4380fe8b84a78de71
+      internalID: 1971356252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-nav-ranking-normal
+      rect:
+        serializedVersion: 2
+        x: 1829
+        y: 41
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed826df624f99b5468ec4d11b317b116
+      internalID: -483348943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-nav-ranking-selected
+      rect:
+        serializedVersion: 2
+        x: 1878
+        y: 92
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af1117f107664c14c8150324c5651ee1
+      internalID: -406527486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-nav-right-normal-plate
+      rect:
+        serializedVersion: 2
+        x: 1850
+        y: 361
+        width: 121
+        height: 110
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dae61058d7eba564ab00360dab6f14ae
+      internalID: 149965884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-nav-right-selected-plate
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 250
+        width: 121
+        height: 110
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 622027bb12cf7c64fb90a9d156f8d8ed
+      internalID: -1733399319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-nav-shop-normal
+      rect:
+        serializedVersion: 2
+        x: 1878
+        y: 43
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61087a454d6ff4f4caa7c0121c4a65e5
+      internalID: -403969833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-nav-shop-selected
+      rect:
+        serializedVersion: 2
+        x: 1916
+        y: 186
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f329ea91fbbbfb4dbbd3ac10cbc196d
+      internalID: -510071123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-nav-territory-normal
+      rect:
+        serializedVersion: 2
+        x: 1927
+        y: 92
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db0e404bd979a7d4593f268efcd6e398
+      internalID: 728324578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-nav-territory-selected
+      rect:
+        serializedVersion: 2
+        x: 1927
+        y: 43
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f137fbee0ee1e843b8acc1e09ff90da
+      internalID: 594135642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-owned-base
+      rect:
+        serializedVersion: 2
+        x: 1677
+        y: 830
+        width: 151
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d497c3aa98c4096439027badfe3634bd
+      internalID: -359881672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-podium-light-blue
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 1078
+        width: 512
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e782e3f8cf249de4fbc2dfb7c48e69ce
+      internalID: 40158277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-podium-light-green
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 834
+        width: 512
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1518145ddd16b546980e5844f594989
+      internalID: -1305006930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-podium-light-orange
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 571
+        width: 512
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4ae9b03ead1f1944bdbdf609c7a06ba
+      internalID: -1674550865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-podium-light-purple
+      rect:
+        serializedVersion: 2
+        x: 1164
+        y: 815
+        width: 512
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aa2c3f2f2dcc614198bca8ac40413de
+      internalID: 720771374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-podium-podium-base
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 552
+        width: 512
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 898d63919909f1c48a5915e2be391540
+      internalID: -2042072406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-podium-podium-shadow
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 1
+        width: 512
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3c76b3c1d660cc4aaa1775c55bcbea6
+      internalID: -1775318247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-power-base
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 289
+        width: 349
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c99dd3924c11a304eb6e1078d6689d60
+      internalID: -1587631277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-power-digit-0
+      rect:
+        serializedVersion: 2
+        x: 1972
+        y: 1548
+        width: 20
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61a5652d948c9c34ab27ccf1087da9d7
+      internalID: -181515747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-power-digit-1
+      rect:
+        serializedVersion: 2
+        x: 1972
+        y: 1515
+        width: 20
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3e02cb5cbe60f1448c1cc5957e557e9
+      internalID: -1503556673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-power-digit-2
+      rect:
+        serializedVersion: 2
+        x: 1972
+        y: 1482
+        width: 20
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f005ae57ba2f4a44accc9dc097fe55f
+      internalID: -890086682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-power-digit-3
+      rect:
+        serializedVersion: 2
+        x: 1972
+        y: 1449
+        width: 20
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5979e9fce1b13994881444dafb25fff8
+      internalID: 1101787504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-power-digit-4
+      rect:
+        serializedVersion: 2
+        x: 1972
+        y: 570
+        width: 20
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 029292adc4c48134ca90467a7ad30106
+      internalID: 1738119095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-power-digit-5
+      rect:
+        serializedVersion: 2
+        x: 1972
+        y: 537
+        width: 20
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76856cf8db275394abc54a6aa160f39e
+      internalID: 1937243774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-power-digit-6
+      rect:
+        serializedVersion: 2
+        x: 1972
+        y: 504
+        width: 20
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33b2d5fcf4fa3c547a5dd47ad0cfd3c9
+      internalID: 32077278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-power-digit-7
+      rect:
+        serializedVersion: 2
+        x: 1972
+        y: 471
+        width: 20
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f944024423de50a49858d548fac4b1ac
+      internalID: 183965819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-power-digit-8
+      rect:
+        serializedVersion: 2
+        x: 1972
+        y: 438
+        width: 20
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 450546a18799ab148ba9753e4fce4edf
+      internalID: -545883696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-power-digit-9
+      rect:
+        serializedVersion: 2
+        x: 1972
+        y: 405
+        width: 20
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7afbc809cb2f9e64b85804be6813496f
+      internalID: 2042809046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-power-icon
+      rect:
+        serializedVersion: 2
+        x: 1876
+        y: 235
+        width: 61
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aac43a842ce545046a40e5539fef3b35
+      internalID: -269910153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-profession-firepower
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 976
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16809d1aef8a4dd459b923ef5b57e4d2
+      internalID: -699540401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-profession-heavy
+      rect:
+        serializedVersion: 2
+        x: 1925
+        y: 10
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25e97d7c29687994eba08933445b2c6e
+      internalID: 1995075562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-profession-support
+      rect:
+        serializedVersion: 2
+        x: 1952
+        y: 636
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 835a082d6d6b1094ca50f38e51936676
+      internalID: 1954060871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-profession-vanguard
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 943
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a01436e365660ef48a3cc7f075557825
+      internalID: -1927341781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: formation-toolbar-plate
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 264
+        width: 650
+        height: 77
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7c1426ddf7074649a166899960a06c6
+      internalID: -841625922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quality-cost-base
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 1207
+        width: 51
+        height: 52
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96364575b6500b743bac5f03791e7376
+      internalID: 1936541958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quality-formation-badge
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1009
+        width: 41
+        height: 41
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 752c0430b5152b34c8ca3fe9d3d8a04c
+      internalID: -264511375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quality-formation-fill
+      rect:
+        serializedVersion: 2
+        x: 1393
+        y: 15
+        width: 130
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d893e2cd6cfb494e8c5dc4c3a4cffa0
+      internalID: -989526577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quality-formation-ribbon
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 266
+        width: 76
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67c536eda0cf5494681f55db16e3a192
+      internalID: 424846619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quality-formation-track
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 266
+        width: 136
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75e0015e1cbbf9940802ca90be71087f
+      internalID: 62296273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quality-frame-blue
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 1142
+        width: 156
+        height: 198
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 16, y: 16, z: 16, w: 16}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0356e76d70262f04f84a669e59c87590
+      internalID: -519243871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quality-frame-gold
+      rect:
+        serializedVersion: 2
+        x: 1677
+        y: 879
+        width: 156
+        height: 198
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 16, y: 16, z: 16, w: 16}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da7b94a1cd658234085e6fc134086250
+      internalID: -94585442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quality-frame-green
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 616
+        width: 156
+        height: 198
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 16, y: 16, z: 16, w: 16}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b95bd29a97e8924ea7815f849b08d70
+      internalID: -554951992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quality-frame-locked
+      rect:
+        serializedVersion: 2
+        x: 1834
+        y: 943
+        width: 156
+        height: 198
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 16, y: 16, z: 16, w: 16}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0151057526c7e674589c1bcad0252e7f
+      internalID: 2076822478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quality-frame-purple
+      rect:
+        serializedVersion: 2
+        x: 1834
+        y: 744
+        width: 156
+        height: 198
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 16, y: 16, z: 16, w: 16}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 468ae41d0a629bb43abd8ce5433b1dc6
+      internalID: -1200174225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quality-information-bg
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 293
+        width: 144
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b13d9e1946fbcc840b9a0df4a0f7ff6e
+      internalID: 50187401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quality-profession-base
+      rect:
+        serializedVersion: 2
+        x: 1952
+        y: 603
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fec386bcac5f02142adfed228eaa8d4c
+      internalID: -1701986717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quality-upgrade-arrow
+      rect:
+        serializedVersion: 2
+        x: 1696
+        y: 60
+        width: 34
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e44e739d960dec642a48ff78bc1e3bb1
+      internalID: -1576511434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-check
+      rect:
+        serializedVersion: 2
+        x: 1952
+        y: 704
+        width: 40
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5f7ce341ef90e74d941ab2c9866d03f
+      internalID: -2075808053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-clear-button-base
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 80
+        width: 252
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 18, y: 18, z: 18, w: 18}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a38435d10d848fb42a42ce5baa4d5001
+      internalID: 1861900946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-close-button-base
+      rect:
+        serializedVersion: 2
+        x: 1878
+        y: 0
+        width: 46
+        height: 42
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4e79d61c4c89cd4aba760f8de0a73fe
+      internalID: -333467790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-cost-base
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 910
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 335c41fb20cc49b46bed66eb1881e2cf
+      internalID: 369852154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-deployed-tag
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 269
+        width: 78
+        height: 19
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49af7e797c7ab214aaf569443d2b508a
+      internalID: -1454445126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-direction-82
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 362
+        width: 56
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d9b1161ab9ac1647a6d9fe8eccb88b4
+      internalID: 241354639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-direction-86
+      rect:
+        serializedVersion: 2
+        x: 1876
+        y: 280
+        width: 56
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45d9e6bee0605bd4983f6ee1922b5254
+      internalID: -653984154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-direction-runtime-up
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 1260
+        width: 56
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfc2e2079e0bc65438c0f0ea557efae7
+      internalID: -203510526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-filter-normal
+      rect:
+        serializedVersion: 2
+        x: 1912
+        y: 141
+        width: 44
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07e0ac8da1a936b4aab3dadfb85d42b9
+      internalID: 1117938403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-filter-panel
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 208
+        width: 607
+        height: 55
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17b12f2052bb8f3439c49a53d26474dc
+      internalID: -1081926398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-filter-selected
+      rect:
+        serializedVersion: 2
+        x: 1938
+        y: 267
+        width: 44
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1e910e248903d74fbb75dba940017c2
+      internalID: -338937176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-formation-panel
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 158
+        width: 607
+        height: 214
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 14, y: 14, z: 14, w: 14}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df5a124677ea3ef40ba276415b7d4676
+      internalID: 319642395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-formation-stage
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 559
+        width: 140
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 382650ad0284b4940be573f1288aaabd
+      internalID: 233670253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-frame-locked
+      rect:
+        serializedVersion: 2
+        x: 1834
+        y: 943
+        width: 156
+        height: 198
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 12, z: 12, w: 12}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13b0c6d101b0937468bb00f734c7ee08
+      internalID: 1175232000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-frame-owned
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 616
+        width: 156
+        height: 198
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 12, z: 12, w: 12}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b10fc5983a3d31c43b3478b3d5f97ceb
+      internalID: 1726744366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-information-bg
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 293
+        width: 144
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6642ab6462501f4ea0d04428b1ef62b
+      internalID: 2075436809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-library-panel
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 615
+        width: 607
+        height: 435
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d646b203805b364438369a398ae5a81b
+      internalID: 553503006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-lock
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 383
+        width: 21
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9390b4f31a84df4aaa6629409d815b8
+      internalID: -1655127624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-profession-base
+      rect:
+        serializedVersion: 2
+        x: 1686
+        y: 264
+        width: 28
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d23996718241e1448d6e46b87d121b7
+      internalID: -786311812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-profession-firepower
+      rect:
+        serializedVersion: 2
+        x: 1164
+        y: 1083
+        width: 13
+        height: 13
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 509856ccce0907d488dc65be4d7da29f
+      internalID: 861165337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-profession-heavy
+      rect:
+        serializedVersion: 2
+        x: 1775
+        y: 600
+        width: 15
+        height: 15
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9611b9a33274371458853dcee7d572fd
+      internalID: -317426879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-profession-support
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 1142
+        width: 15
+        height: 15
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aebfb49b6c894a408e75aa2765997cd
+      internalID: 112770807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-profession-vanguard
+      rect:
+        serializedVersion: 2
+        x: 1775
+        y: 584
+        width: 15
+        height: 15
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30ded13f3f95f2748b359f959e1ec781
+      internalID: 1541928485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-save-button-base
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 7
+        width: 252
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b5a3eddb73e83248a93d1e4e494749d
+      internalID: 1946850102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-scheme-normal
+      rect:
+        serializedVersion: 2
+        x: 1785
+        y: 402
+        width: 64
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 041ebaea77893e04b968bc8940b4449e
+      internalID: 1572129428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-scheme-panel
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 153
+        width: 607
+        height: 54
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c460dc0baef8204287ef959aa053a1e
+      internalID: 794555030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-scheme-selected
+      rect:
+        serializedVersion: 2
+        x: 1785
+        y: 361
+        width: 64
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 178af1bc3d5dd6f44a26b4ddf5e31730
+      internalID: -2042251435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-sort-normal
+      rect:
+        serializedVersion: 2
+        x: 1736
+        y: 96
+        width: 92
+        height: 42
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46214dcca020f2946adb584d098cbc38
+      internalID: -2144985808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: team-sort-selected
+      rect:
+        serializedVersion: 2
+        x: 1736
+        y: 53
+        width: 92
+        height: 42
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5971dd2a55a4ba448845e3daba5ebc5e
+      internalID: 711021159
       vertices: []
       indices: 
       edges: []
@@ -792,40 +2304,112 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      deck-card-bg: -1506250422
+      deck-deployed-ribbon: 606919607
+      deck-progress-fill: -1572886965
+      deck-stage-blue: 1830580372
+      deck-stage-green: 1854458741
+      deck-stage-orange: 983878879
+      deck-stage-purple: -552503203
+      deck-synergy-07: -1772650472
+      formation-category-selected: 769061682
+      formation-category-shell: -1918323496
+      formation-category-track: 1003017386
+      formation-edit-base: 472368225
+      formation-edit-pencil: 133594844
+      formation-filter-off: -738725740
+      formation-filter-on: -224837555
+      formation-info-profession-base: 989920796
+      formation-info-profession-shadow: 1156861594
+      formation-library-shell: -659900950
+      formation-nav-battle-normal: -48907351
+      formation-nav-battle-selected: 996029456
+      formation-nav-deck-normal: 740708505
+      formation-nav-deck-selected: 1539673055
+      formation-nav-left-normal-plate: -941707183
+      formation-nav-left-selected-plate: -179730948
+      formation-nav-lock: -947356941
+      formation-nav-middle-normal-plate: -531748359
+      formation-nav-middle-selected-plate: 583632582
+      formation-nav-rail: 1971356252
+      formation-nav-ranking-normal: -483348943
+      formation-nav-ranking-selected: -406527486
+      formation-nav-right-normal-plate: 149965884
+      formation-nav-right-selected-plate: -1733399319
+      formation-nav-shop-normal: -403969833
+      formation-nav-shop-selected: -510071123
+      formation-nav-territory-normal: 728324578
+      formation-nav-territory-selected: 594135642
+      formation-owned-base: -359881672
+      formation-podium-light-blue: 40158277
+      formation-podium-light-green: -1305006930
+      formation-podium-light-orange: -1674550865
+      formation-podium-light-purple: 720771374
+      formation-podium-podium-base: -2042072406
+      formation-podium-podium-shadow: -1775318247
+      formation-power-base: -1587631277
+      formation-power-digit-0: -181515747
+      formation-power-digit-1: -1503556673
+      formation-power-digit-2: -890086682
+      formation-power-digit-3: 1101787504
+      formation-power-digit-4: 1738119095
+      formation-power-digit-5: 1937243774
+      formation-power-digit-6: 32077278
+      formation-power-digit-7: 183965819
+      formation-power-digit-8: -545883696
+      formation-power-digit-9: 2042809046
+      formation-power-icon: -269910153
+      formation-profession-firepower: -699540401
+      formation-profession-heavy: 1995075562
+      formation-profession-support: 1954060871
+      formation-profession-vanguard: -1927341781
+      formation-toolbar-plate: -841625922
       mainBattleButtonBorder: -7222266099368379181
-      mainCardArt0: 5183470138140148569
-      mainCardArt1: 2112394722898882215
-      mainCardArt2: -7760688336254585435
-      mainCardArt3: -5825575415640679573
-      mainCardArt4: -4400371390087655913
-      mainCardArt5: 1501466825340664542
-      mainCardArt6: 804579383124855849
-      mainCardArt7: -392728783360446535
-      mainCardFrame0: -4703445688595248511
-      mainCardFrame1: 1655847469331034760
-      mainCardFrame2: 8397627208175389967
-      mainCardFrame3: -728358837468129482
-      mainDeckHeading: -4982509548205922766
-      mainLibraryArt0: 7923958601152273227
-      mainLibraryArt1: 2194172165786247247
-      mainLibraryArt2: -3912847197969595123
-      mainLibraryArt3: -7831470158078099055
-      mainLibraryArt4: -5995441934087396195
-      mainLibraryArt5: -6699530606820317458
-      mainLibraryArt6: -5968655707504073801
-      mainLibraryArt7: 177175846700059151
-      mainLibraryHeading: -8900849789075836868
       mainLock: 8015562602224119009
-      mainNavBattle: -3638266721931829623
-      mainNavDeck: -5062747485063527536
-      mainNavNormal: 5612110724807712034
-      mainNavRank: 7904349425814123190
-      mainNavSelected: -8203404371001885666
-      mainNavShop: 887837914293873893
-      mainNavTerritory: 8465152145829567734
-      mainTitlePlate: -2548575992757064677
+      quality-cost-base: 1936541958
+      quality-formation-badge: -264511375
+      quality-formation-fill: -989526577
+      quality-formation-ribbon: 424846619
+      quality-formation-track: 62296273
+      quality-frame-blue: -519243871
+      quality-frame-gold: -94585442
+      quality-frame-green: -554951992
+      quality-frame-locked: 2076822478
+      quality-frame-purple: -1200174225
+      quality-information-bg: 50187401
+      quality-profession-base: -1701986717
+      quality-upgrade-arrow: -1576511434
+      team-check: -2075808053
+      team-clear-button-base: 1861900946
+      team-close-button-base: -333467790
+      team-cost-base: 369852154
+      team-deployed-tag: -1454445126
+      team-direction-82: 241354639
+      team-direction-86: -653984154
+      team-direction-runtime-up: -203510526
+      team-filter-normal: 1117938403
+      team-filter-panel: -1081926398
+      team-filter-selected: -338937176
+      team-formation-panel: 319642395
+      team-formation-stage: 233670253
+      team-frame-locked: 1175232000
+      team-frame-owned: 1726744366
+      team-information-bg: 2075436809
+      team-library-panel: 553503006
+      team-lock: -1655127624
+      team-profession-base: -786311812
+      team-profession-firepower: 861165337
+      team-profession-heavy: -317426879
+      team-profession-support: 112770807
+      team-profession-vanguard: 1541928485
+      team-save-button-base: 1946850102
+      team-scheme-normal: 1572129428
+      team-scheme-panel: 794555030
+      team-scheme-selected: -2042251435
+      team-sort-normal: -2144985808
+      team-sort-selected: 711021159
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  userData: TexturePackerToolFingerprintV4=cb56a0602fb91238c1981f6898896f088f3504b994b1063e470ef905eb538217
+  userData: TexturePackerToolFingerprintV5=7f395fa9a9ffc05f89b8993b3a16129b9224a674678c1e8c9565301d4f2e0e4d
   assetBundleName: 
   assetBundleVariant: 

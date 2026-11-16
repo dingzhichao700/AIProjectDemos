@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -128,7 +128,7 @@ public static class BattleUnlockValidation {
         Require(!poor.unlocked && panel.lastInteractionHint == "货币不足", "live insufficient feedback");
         var poorRoot = guides.Find("unlock_" + poor.id);
         Require(poorRoot.Find("cost").GetComponent<TextMeshProUGUI>().color.r > .9f && poorRoot.Find("cost").GetComponent<TextMeshProUGUI>().color.g < .5f, "unaffordable price red; hint retained");
-        Require(view.lod.Find("unlockMessage").GetComponent<TextMeshProUGUI>().text == "货币不足", "short message uses business rejection");
+        Require(view.lod.Find("unlockMessage") == null && GlobalToast.Contains("货币不足"), "global warning replaces local short message");
         Require(view.lod.GetComponentsInChildren<Graphic>(true).All(graphic => !graphic.raycastTarget), "hint UI does not intercept map input");
         File.WriteAllText("Library/battle-unlock-live-validation.txt", "collector: real input pays once, creates body/shadow and expands frontier; insufficient cost turns red, retains glow and displays message");
     }

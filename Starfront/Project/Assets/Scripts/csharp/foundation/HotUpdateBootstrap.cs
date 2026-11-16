@@ -37,6 +37,7 @@ public static class HotUpdateBootstrap {
 #if UNITY_EDITOR || !GAMEFRAMEWORK_WECHAT
         // 编辑器使用已编译的程序集，避免重复加载同名 DLL。
         await LoadTiming.MeasureAsync("Addressables.Initialize", async () => await Addressables.InitializeAsync().Task);
+        await EnterModuleAsync("HotUpdateCore");
 #else
         TextAsset boot = Resources.Load<TextAsset>("GameFrameworkHotUpdateBase");
         if (boot == null) {
@@ -63,7 +64,7 @@ public static class HotUpdateBootstrap {
         }
         string pointerUrl = new Uri(new Uri(config.bootstrapUrl), selected.manifestUrl).AbsoluteUri;
         HotUpdateManifest manifest = JsonUtility.FromJson<HotUpdateManifest>(await DownloadTextAsync(pointerUrl, true));
-        if (manifest == null || manifest.baseVersion != baseVersion || manifest.aot == null || manifest.assemblies == null || manifest.assemblies.Length == 0 || string.IsNullOrEmpty(manifest.release) || manifest.release.IndexOfAny(new[] { '/', '\\', '.' }) >= 0) {
+        if (manifest == null || manifest.baseVersion != baseVersion || manifest.aot == null || manifest.assemblies == null || manifest.assemblies.Length == 0 || manifest.uiRuntimeContract != UiRuntimeHost.ContractVersion || string.IsNullOrEmpty(manifest.release) || manifest.release.IndexOfAny(new[] { '/', '\\', '.' }) >= 0) {
             throw new InvalidOperationException("热更新清单与当前底座不匹配。");
         }
         if (manifest.resourceRoot != "releases/" + manifest.release + "/" || manifest.bundleRoot != "bundles/") {
@@ -108,6 +109,7 @@ public static class HotUpdateBootstrap {
         }
         LoadTiming.Report("Startup.AOTReady", startupWatch, $"count={manifest.aot.Length} concurrency={AOT_DOWNLOAD_CONCURRENCY} downloadMs={aotDownloadMs} metadataLoadMs={aotLoadMs}");
         activeManifest = manifest;
+        await EnterModuleAsync("HotUpdateCore");
         await LoadModuleAsync("Login");
         LoadTiming.Report("Startup.LoginReady", startupWatch);
         Debug.Log("[HotUpdate] 登录程序集就绪，底座 " + baseVersion + "，业务发布 " + manifest.release);
@@ -119,6 +121,9 @@ public static class HotUpdateBootstrap {
     /// </summary>
     /// <param name="moduleName">程序集名称，不含扩展名</param>
     public static async Task LoadModuleAsync(string moduleName) {
+        if (moduleName != "HotUpdateCore" && !UiRuntimeHost.IsReady) {
+            throw new InvalidOperationException("必须先初始化共享界面库，再加载业务模块：" + moduleName);
+        }
         if (loadedModules.Contains(moduleName)) {
             return;
         }

@@ -62,10 +62,11 @@ public class UIBinder : MonoBehaviour {
 
     void Awake() {
         AppendScriptClass();
-        BaseView baseView = GetComponent<BaseView>();
-        if (baseView != null) {
-            baseView.isInit = true;
-            baseView.OnInit();
+        foreach (Component component in GetComponents<Component>()) {
+            if (component is IUiBoundView view) {
+                view.InitializeAfterBinding();
+                break;
+            }
         }
     }
 

@@ -1,0 +1,122 @@
+{
+  "version": "ground-edge-6px-v1",
+  "sourceRoot": "E:\\Codex_Projects\\异星军团\\outputs\\ground-edge-6px-v1",
+  "runtime": "未接入",
+  "approvedDate": "2026-11-03",
+  "fullMap": "待验收",
+  "files": [
+    {
+      "path": "build.ps1",
+      "sha256": "6AB93F200F2CA3F33490CD3C3876AEE3B2512C9348316745CEBA8D883E239AF7"
+    },
+    {
+      "path": "cells.json",
+      "sha256": "15CEF2E81A9B2421E78FA358863B971D7D8FF4396AD98A8468B3CEF8CE02E067"
+    },
+    {
+      "path": "edges.json",
+      "sha256": "77C6FEF38FA015C0233233BD93C83C5E0D1A6666F803A22BA77C4D0557F04CDD"
+    },
+    {
+      "path": "geometry.json",
+      "sha256": "24215837C8DCC00E4C795C93D382D06DD22B1DE1A64323406F6FBEAEEB4A9F65"
+    },
+    {
+      "path": "rebuild-ground.ps1",
+      "sha256": "3AA8738660E30BB3872350187C18E935D1A1460524C2ECA38EAD329B9C6C7552"
+    },
+    {
+      "path": "scene.json",
+      "sha256": "2961FDBF7A38ACDAA0F89B267B8A5F5524DFAE9B78DC238D0E730176CC6B8127"
+    },
+    {
+      "path": "side-geometry.json",
+      "sha256": "5B5AA259262D9DB674EFB9C642109C3B1045694723E6F29CE3709C37BB842BE6"
+    },
+    {
+      "path": "validate.py",
+      "sha256": "F6E7DC40E4243FD8126B65A7D140A50EB5B2769398613D0C6BD0C8E9C3B104BE"
+    },
+    {
+      "path": "validation.json",
+      "sha256": "476D75C29AAA6AD41F686D1E166CD169783CA642F26941640BA0933F3BF81CC1"
+    },
+    {
+      "path": "assets/grid-highlight.png",
+      "sha256": "073B11773D76B6AAF3029B16863EF75E3B57CA0357D32FB1052975080F10D589"
+    },
+    {
+      "path": "assets/grid-reusable.png",
+      "sha256": "5612D0639030FD91BACF09B63B50958C48C62D861F60446CFDF8A880F3A7A0D2"
+    },
+    {
+      "path": "assets/grid-shadow.png",
+      "sha256": "4D8AD74CF1A2C1CF9F3B6E36817E4409A863A355E4403F91DD4C9F810352DBA4"
+    },
+    {
+      "path": "assets/ground_grid.png",
+      "sha256": "CBD5322BFE535B3049093F605FB215E83A674CAD2EEE6FEBA5369E8AFCCD7465"
+    },
+    {
+      "path": "assets/ground-side-unclipped.png",
+      "sha256": "EA685910E7589C445321DBB4CB885BE9412A9C652F2E907E502A69957533237B"
+    },
+    {
+      "path": "assets/ground-side.png",
+      "sha256": "44562C546F747FC047809CCD6D5C7ADC38A4731520040AACEDF98C9DC4243D5F"
+    },
+    {
+      "path": "assets/ground-top.png",
+      "sha256": "F9CA0DF8D666FD149CF6D920B29AEB2A4E01F0C18171FD53533C8C018C04323C"
+    },
+    {
+      "path": "assets/ground.png",
+      "sha256": "014620F63BE9A338806ED7434AA319149B21E4EA77FB7FB3CA7307435F78B899"
+    },
+    {
+      "path": "assets/land-top-mask.png",
+      "sha256": "102F5C2E8F3595E7F6AE5FF82A03B10F061C6FCD5D8CA01DCFFEC7DC2E58F9F0"
+    },
+    {
+      "path": "assets/scene-occlusion-mask.png",
+      "sha256": "F184ED36BDBC11CF18F3187221154057AE5B387E29F86B9C808B7E9B1F025447"
+    },
+    {
+      "path": "review/comparison-1x.png",
+      "sha256": "877E978B25727679F0EBD9A6B00DB5393E25D81312F2603AFFADE49CB4DD5F45"
+    },
+    {
+      "path": "review/ground-grid-region-1x.png",
+      "sha256": "91DA73B0093C66484260CC66052D149DCB1A89B6C4F276E8D9AB4F7D52716B1F"
+    },
+    {
+      "path": "review/local-1x.png",
+      "sha256": "1E27A65746D36E1925AE4448BEF52E3711D129333BA24614FB315D638C5431EE"
+    },
+    {
+      "path": "review/scene-full-2000.png",
+      "sha256": "7085466E0473E597CD25B054D521F050CC83FD7E65EB28973A85C475763D3496"
+    },
+    {
+      "path": "review/scene-region-1x.png",
+      "sha256": "61BE4D32387B767E1E3FFCB33F51DE79836802CE819AE5EB016A083A8EFF7661"
+    },
+    {
+      "path": "review/shore-0-1x.png",
+      "sha256": "43F49DF6219962703DE180916E423D089951CF25CDA9740026E439361A2CED86"
+    },
+    {
+      "path": "review/shore-1-1x.png",
+      "sha256": "51CA1B2BB66782331D25B18FEAD1A4A9035E020E6AA2505C1F42D1374538A5AD"
+    },
+    {
+      "path": "review/viewport-1x.png",
+      "sha256": "08ACCA2A163F754625B9DD0F313A99204F0D0A86C836F046B22069DA0E529D77"
+    },
+    {
+      "path": "source/continuous-ground.png",
+      "sha256": "CCD31664F23120998A3554CF19C0674F1AE8C9F1F7B71E845C936FE5AD77B73A"
+    }
+  ],
+  "scope": "局部6px侧面及背光离线视觉通过"
+}

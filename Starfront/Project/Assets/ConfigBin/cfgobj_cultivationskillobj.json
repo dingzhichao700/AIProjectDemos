@@ -1,0 +1,450 @@
+[
+  {
+    "id": 210101,
+    "name": "步枪射击",
+    "kind": 1,
+    "slot": 0,
+    "icon": "Assets/Art/unpack/default/skillIcons/210101.png"
+  },
+  {
+    "id": 210103,
+    "name": "强化剂",
+    "kind": 1,
+    "slot": 2,
+    "icon": "Assets/Art/unpack/default/skillIcons/210103.png"
+  },
+  {
+    "id": 210104,
+    "name": "弹群",
+    "kind": 1,
+    "slot": 3,
+    "icon": "Assets/Art/unpack/default/skillIcons/210104.png"
+  },
+  {
+    "id": 210102,
+    "name": "防暴护盾",
+    "kind": 2,
+    "slot": 1,
+    "icon": "Assets/Art/unpack/default/skillIcons/210102.png"
+  },
+  {
+    "id": 210201,
+    "name": "治疗光束",
+    "kind": 1,
+    "slot": 0,
+    "icon": "Assets/Art/unpack/default/skillIcons/210201.png"
+  },
+  {
+    "id": 210202,
+    "name": "增幅医疗舱",
+    "kind": 2,
+    "slot": 1,
+    "icon": "Assets/Art/unpack/default/skillIcons/210202.png"
+  },
+  {
+    "id": 210203,
+    "name": "救援推进",
+    "kind": 1,
+    "slot": 2,
+    "icon": "Assets/Art/unpack/default/skillIcons/210203.png"
+  },
+  {
+    "id": 210204,
+    "name": "群体急救",
+    "kind": 1,
+    "slot": 3,
+    "icon": "Assets/Art/unpack/default/skillIcons/210204.png"
+  },
+  {
+    "id": 210301,
+    "name": "高爆炮弹",
+    "kind": 1,
+    "slot": 0,
+    "icon": "Assets/Art/unpack/default/skillIcons/210301.png"
+  },
+  {
+    "id": 210302,
+    "name": "复合装甲",
+    "kind": 2,
+    "slot": 1,
+    "icon": "Assets/Art/unpack/default/skillIcons/210302.png"
+  },
+  {
+    "id": 210303,
+    "name": "火力校准",
+    "kind": 1,
+    "slot": 2,
+    "icon": "Assets/Art/unpack/default/skillIcons/210303.png"
+  },
+  {
+    "id": 210304,
+    "name": "震荡轰击",
+    "kind": 1,
+    "slot": 3,
+    "icon": "Assets/Art/unpack/default/skillIcons/210304.png"
+  },
+  {
+    "id": 210401,
+    "name": "精准射击",
+    "kind": 1,
+    "slot": 0,
+    "icon": "Assets/Art/unpack/default/skillIcons/210401.png"
+  },
+  {
+    "id": 210402,
+    "name": "远程瞄具",
+    "kind": 2,
+    "slot": 1,
+    "icon": "Assets/Art/unpack/default/skillIcons/210402.png"
+  },
+  {
+    "id": 210403,
+    "name": "战术转移",
+    "kind": 1,
+    "slot": 2,
+    "icon": "Assets/Art/unpack/default/skillIcons/210403.png"
+  },
+  {
+    "id": 210404,
+    "name": "弱点狙杀",
+    "kind": 1,
+    "slot": 3,
+    "icon": "Assets/Art/unpack/default/skillIcons/210404.png"
+  },
+  {
+    "id": 210501,
+    "name": "联装激光",
+    "kind": 1,
+    "slot": 0,
+    "icon": "Assets/Art/unpack/default/skillIcons/210501.png"
+  },
+  {
+    "id": 210502,
+    "name": "强化反应堆",
+    "kind": 2,
+    "slot": 1,
+    "icon": "Assets/Art/unpack/default/skillIcons/210502.png"
+  },
+  {
+    "id": 210503,
+    "name": "能量过载",
+    "kind": 1,
+    "slot": 2,
+    "icon": "Assets/Art/unpack/default/skillIcons/210503.png"
+  },
+  {
+    "id": 210504,
+    "name": "轨道重炮",
+    "kind": 1,
+    "slot": 3,
+    "icon": "Assets/Art/unpack/default/skillIcons/210504.png"
+  },
+  {
+    "id": 220101,
+    "name": "腐蚀酸液",
+    "kind": 1,
+    "slot": 0,
+    "icon": "Assets/Art/unpack/default/skillIcons/220101.png"
+  },
+  {
+    "id": 220102,
+    "name": "硬化甲壳",
+    "kind": 2,
+    "slot": 1,
+    "icon": "Assets/Art/unpack/default/skillIcons/220102.png"
+  },
+  {
+    "id": 220103,
+    "name": "疾行腺体",
+    "kind": 1,
+    "slot": 2,
+    "icon": "Assets/Art/unpack/default/skillIcons/220103.png"
+  },
+  {
+    "id": 220104,
+    "name": "酸雨喷涌",
+    "kind": 1,
+    "slot": 3,
+    "icon": "Assets/Art/unpack/default/skillIcons/220104.png"
+  },
+  {
+    "id": 220201,
+    "name": "骨针齐射",
+    "kind": 1,
+    "slot": 0,
+    "icon": "Assets/Art/unpack/default/skillIcons/220201.png"
+  },
+  {
+    "id": 220202,
+    "name": "远视复眼",
+    "kind": 2,
+    "slot": 1,
+    "icon": "Assets/Art/unpack/default/skillIcons/220202.png"
+  },
+  {
+    "id": 220203,
+    "name": "狂暴腺体",
+    "kind": 1,
+    "slot": 2,
+    "icon": "Assets/Art/unpack/default/skillIcons/220203.png"
+  },
+  {
+    "id": 220204,
+    "name": "穿刺针雨",
+    "kind": 1,
+    "slot": 3,
+    "icon": "Assets/Art/unpack/default/skillIcons/220204.png"
+  },
+  {
+    "id": 220301,
+    "name": "刃虫投射",
+    "kind": 1,
+    "slot": 0,
+    "icon": "Assets/Art/unpack/default/skillIcons/220301.png"
+  },
+  {
+    "id": 220302,
+    "name": "翼膜强化",
+    "kind": 2,
+    "slot": 1,
+    "icon": "Assets/Art/unpack/default/skillIcons/220302.png"
+  },
+  {
+    "id": 220303,
+    "name": "振翅加速",
+    "kind": 1,
+    "slot": 2,
+    "icon": "Assets/Art/unpack/default/skillIcons/220303.png"
+  },
+  {
+    "id": 220304,
+    "name": "刃虫风暴",
+    "kind": 1,
+    "slot": 3,
+    "icon": "Assets/Art/unpack/default/skillIcons/220304.png"
+  },
+  {
+    "id": 220401,
+    "name": "酸蚀孢子",
+    "kind": 1,
+    "slot": 0,
+    "icon": "Assets/Art/unpack/default/skillIcons/220401.png"
+  },
+  {
+    "id": 220402,
+    "name": "共生组织",
+    "kind": 2,
+    "slot": 1,
+    "icon": "Assets/Art/unpack/default/skillIcons/220402.png"
+  },
+  {
+    "id": 220403,
+    "name": "孢囊增生",
+    "kind": 1,
+    "slot": 2,
+    "icon": "Assets/Art/unpack/default/skillIcons/220403.png"
+  },
+  {
+    "id": 220404,
+    "name": "再生孢雾",
+    "kind": 1,
+    "slot": 3,
+    "icon": "Assets/Art/unpack/default/skillIcons/220404.png"
+  },
+  {
+    "id": 220501,
+    "name": "巨镰横扫",
+    "kind": 1,
+    "slot": 0,
+    "icon": "Assets/Art/unpack/default/skillIcons/220501.png"
+  },
+  {
+    "id": 220502,
+    "name": "重质甲壳",
+    "kind": 2,
+    "slot": 1,
+    "icon": "Assets/Art/unpack/default/skillIcons/220502.png"
+  },
+  {
+    "id": 220503,
+    "name": "狂怒冲锋",
+    "kind": 1,
+    "slot": 2,
+    "icon": "Assets/Art/unpack/default/skillIcons/220503.png"
+  },
+  {
+    "id": 220504,
+    "name": "裂地重斩",
+    "kind": 1,
+    "slot": 3,
+    "icon": "Assets/Art/unpack/default/skillIcons/220504.png"
+  },
+  {
+    "id": 230101,
+    "name": "相位能弹",
+    "kind": 1,
+    "slot": 0,
+    "icon": "Assets/Art/unpack/default/skillIcons/230101.png"
+  },
+  {
+    "id": 230102,
+    "name": "聚焦棱镜",
+    "kind": 2,
+    "slot": 1,
+    "icon": "Assets/Art/unpack/default/skillIcons/230102.png"
+  },
+  {
+    "id": 230103,
+    "name": "相位疾行",
+    "kind": 1,
+    "slot": 2,
+    "icon": "Assets/Art/unpack/default/skillIcons/230103.png"
+  },
+  {
+    "id": 230104,
+    "name": "裂隙贯击",
+    "kind": 1,
+    "slot": 3,
+    "icon": "Assets/Art/unpack/default/skillIcons/230104.png"
+  },
+  {
+    "id": 230201,
+    "name": "灵能双刃",
+    "kind": 1,
+    "slot": 0,
+    "icon": "Assets/Art/unpack/default/skillIcons/230201.png"
+  },
+  {
+    "id": 230202,
+    "name": "坚毅意志",
+    "kind": 2,
+    "slot": 1,
+    "icon": "Assets/Art/unpack/default/skillIcons/230202.png"
+  },
+  {
+    "id": 230203,
+    "name": "灵能冲锋",
+    "kind": 1,
+    "slot": 2,
+    "icon": "Assets/Art/unpack/default/skillIcons/230203.png"
+  },
+  {
+    "id": 230204,
+    "name": "旋刃风暴",
+    "kind": 1,
+    "slot": 3,
+    "icon": "Assets/Art/unpack/default/skillIcons/230204.png"
+  },
+  {
+    "id": 230301,
+    "name": "光束照射",
+    "kind": 1,
+    "slot": 0,
+    "icon": "Assets/Art/unpack/default/skillIcons/230301.png"
+  },
+  {
+    "id": 230302,
+    "name": "增幅晶核",
+    "kind": 2,
+    "slot": 1,
+    "icon": "Assets/Art/unpack/default/skillIcons/230302.png"
+  },
+  {
+    "id": 230303,
+    "name": "能量增幅",
+    "kind": 1,
+    "slot": 2,
+    "icon": "Assets/Art/unpack/default/skillIcons/230303.png"
+  },
+  {
+    "id": 230304,
+    "name": "守护脉冲",
+    "kind": 1,
+    "slot": 3,
+    "icon": "Assets/Art/unpack/default/skillIcons/230304.png"
+  },
+  {
+    "id": 230401,
+    "name": "双联重炮",
+    "kind": 1,
+    "slot": 0,
+    "icon": "Assets/Art/unpack/default/skillIcons/230401.png"
+  },
+  {
+    "id": 230402,
+    "name": "相位装甲",
+    "kind": 2,
+    "slot": 1,
+    "icon": "Assets/Art/unpack/default/skillIcons/230402.png"
+  },
+  {
+    "id": 230403,
+    "name": "火控过载",
+    "kind": 1,
+    "slot": 2,
+    "icon": "Assets/Art/unpack/default/skillIcons/230403.png"
+  },
+  {
+    "id": 230404,
+    "name": "歼灭齐射",
+    "kind": 1,
+    "slot": 3,
+    "icon": "Assets/Art/unpack/default/skillIcons/230404.png"
+  },
+  {
+    "id": 230501,
+    "name": "共振光炮",
+    "kind": 1,
+    "slot": 0,
+    "icon": "Assets/Art/unpack/default/skillIcons/230501.png"
+  },
+  {
+    "id": 230502,
+    "name": "远距晶阵",
+    "kind": 2,
+    "slot": 1,
+    "icon": "Assets/Art/unpack/default/skillIcons/230502.png"
+  },
+  {
+    "id": 230503,
+    "name": "能量聚焦",
+    "kind": 1,
+    "slot": 2,
+    "icon": "Assets/Art/unpack/default/skillIcons/230503.png"
+  },
+  {
+    "id": 230504,
+    "name": "风暴轰击",
+    "kind": 1,
+    "slot": 3,
+    "icon": "Assets/Art/unpack/default/skillIcons/230504.png"
+  },
+  {
+    "id": 230601,
+    "name": "灵能冲击",
+    "kind": 1,
+    "slot": 0,
+    "icon": "Assets/Art/unpack/default/skillIcons/230601.png"
+  },
+  {
+    "id": 230602,
+    "name": "静心冥想",
+    "kind": 2,
+    "slot": 1,
+    "icon": "Assets/Art/unpack/default/skillIcons/230602.png"
+  },
+  {
+    "id": 230603,
+    "name": "灵能涌动",
+    "kind": 1,
+    "slot": 2,
+    "icon": "Assets/Art/unpack/default/skillIcons/230603.png"
+  },
+  {
+    "id": 230604,
+    "name": "灵能风暴",
+    "kind": 1,
+    "slot": 3,
+    "icon": "Assets/Art/unpack/default/skillIcons/230604.png"
+  }
+]

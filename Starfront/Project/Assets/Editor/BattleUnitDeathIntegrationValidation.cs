@@ -15,7 +15,7 @@ public static class BattleUnitDeathIntegrationValidation {
     const string Key = "Starfront.FormalDeathValidation";
     const string Pending = "Library/infantry-death-integration-request.json";
     const string ResultPath = "Library/infantry-death-integration-result.json";
-    const string Root = "Assets/Art/frameAnimation/scene/Colonial/Infantry/";
+    const string Root = "Assets/Art/frameAnimation/default/Colonial/Infantry/";
     static readonly string[] Directions = { "Up", "UpRight", "Right", "DownRight", "Down" };
     [Serializable] class Request { public string requestId; public int processId; public string action; }
     [Serializable] class Result { public string requestId; public string status; public string details; }
@@ -71,21 +71,21 @@ public static class BattleUnitDeathIntegrationValidation {
     }
     static void Register() {
         var settings = AddressableAssetSettingsDefaultObject.Settings;
-        Check(settings != null && settings.FindGroup("scene") != null, "scene group");
+        Check(settings != null && settings.DefaultGroup != null, "default group");
         foreach (string direction in Directions) foreach (string ext in new[] { ".png", ".json" }) {
             string target = Root + "Death_" + direction + ext;
-            string source = Root + "DeathReview/Death_" + direction + ext;
+            string source = "Assets/Art/frameAnimation/scene/Colonial/Infantry/DeathReview/Death_" + direction + ext;
             if (AssetDatabase.LoadMainAssetAtPath(target) == null) {
                 Check(AssetDatabase.LoadMainAssetAtPath(source) != null, "approved source " + source);
                 string error = AssetDatabase.MoveAsset(source, target);
                 Check(string.IsNullOrEmpty(error), error);
             }
-            var entry = settings.CreateOrMoveEntry(AssetDatabase.AssetPathToGUID(target), settings.FindGroup("scene"));
-            entry.SetAddress(target); entry.SetLabel("Colonial", true, true);
+            var entry = settings.CreateOrMoveEntry(AssetDatabase.AssetPathToGUID(target), settings.DefaultGroup);
+            entry.SetAddress(target); entry.SetLabel("main-content", true, true);
             Check(AssetDatabase.LoadMainAssetAtPath(target) != null, "formal asset " + target);
         }
         EditorUtility.SetDirty(settings);
-        EditorUtility.SetDirty(settings.FindGroup("scene"));
+        EditorUtility.SetDirty(settings.DefaultGroup);
         AssetDatabase.SaveAssets();
     }
     static object Get(object o, string name) => o.GetType().GetField(name, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).GetValue(o);

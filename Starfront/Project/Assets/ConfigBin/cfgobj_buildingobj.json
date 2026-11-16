@@ -10,7 +10,7 @@
         "direction": 1,
         "part": 1,
         "resourceType": 1,
-        "resource": "scene/battle/appearance/hq",
+        "resource": "default/battle/appearance/hq",
         "offset": {
           "x": 0,
           "y": 0
@@ -20,7 +20,7 @@
         "direction": 1,
         "part": 4,
         "resourceType": 1,
-        "resource": "scene/battle/appearance/hq_shadow",
+        "resource": "default/battle/appearance/hq_shadow",
         "offset": {
           "x": 0,
           "y": 0
@@ -44,7 +44,7 @@
         "direction": 1,
         "part": 1,
         "resourceType": 1,
-        "resource": "scene/battle/appearance/collector",
+        "resource": "default/battle/appearance/collector",
         "offset": {
           "x": 0,
           "y": 0
@@ -54,7 +54,7 @@
         "direction": 1,
         "part": 4,
         "resourceType": 1,
-        "resource": "scene/battle/appearance/collector_shadow",
+        "resource": "default/battle/appearance/collector_shadow",
         "offset": {
           "x": 0,
           "y": 0
@@ -68,8 +68,8 @@
     }
   },
   {
-    "id": 1101,
-    "name": "优秀步兵兵营",
+    "id": 2101,
+    "name": "陆战队员兵营",
     "race": 1,
     "type": 3,
     "maxHp": 300,
@@ -78,7 +78,7 @@
         "direction": 1,
         "part": 1,
         "resourceType": 1,
-        "resource": "scene/battle/appearance/infantry_camp",
+        "resource": "default/battle/appearance/infantry_camp",
         "offset": {
           "x": 0,
           "y": 0
@@ -88,7 +88,7 @@
         "direction": 1,
         "part": 4,
         "resourceType": 1,
-        "resource": "scene/battle/appearance/infantry_camp_shadow",
+        "resource": "default/battle/appearance/infantry_camp_shadow",
         "offset": {
           "x": 0,
           "y": 0
@@ -102,17 +102,17 @@
     }
   },
   {
-    "id": 1102,
-    "name": "稀有步兵兵营",
+    "id": 2104,
+    "name": "幽灵训练营（复用兵营外观）",
     "race": 1,
     "type": 3,
-    "maxHp": 300,
+    "maxHp": 390,
     "appearances": [
       {
         "direction": 1,
         "part": 1,
         "resourceType": 1,
-        "resource": "scene/battle/appearance/infantry_camp",
+        "resource": "default/battle/appearance/infantry_camp",
         "offset": {
           "x": 0,
           "y": 0
@@ -122,7 +122,7 @@
         "direction": 1,
         "part": 4,
         "resourceType": 1,
-        "resource": "scene/battle/appearance/infantry_camp_shadow",
+        "resource": "default/battle/appearance/infantry_camp_shadow",
         "offset": {
           "x": 0,
           "y": 0
@@ -136,17 +136,17 @@
     }
   },
   {
-    "id": 1103,
-    "name": "史诗步兵兵营",
-    "race": 1,
+    "id": 2201,
+    "name": "蟑螂孵化巢",
+    "race": 2,
     "type": 3,
-    "maxHp": 300,
+    "maxHp": 450,
     "appearances": [
       {
         "direction": 1,
         "part": 1,
         "resourceType": 1,
-        "resource": "scene/battle/appearance/infantry_camp",
+        "resource": "default/battle/appearance/infantry_camp",
         "offset": {
           "x": 0,
           "y": 0
@@ -156,75 +156,7 @@
         "direction": 1,
         "part": 4,
         "resourceType": 1,
-        "resource": "scene/battle/appearance/infantry_camp_shadow",
-        "offset": {
-          "x": 0,
-          "y": 0
-        }
-      }
-    ],
-    "hitRadius": 28,
-    "hitOffset": {
-      "x": 0,
-      "y": -40
-    }
-  },
-  {
-    "id": 1104,
-    "name": "传说步兵兵营",
-    "race": 1,
-    "type": 3,
-    "maxHp": 300,
-    "appearances": [
-      {
-        "direction": 1,
-        "part": 1,
-        "resourceType": 1,
-        "resource": "scene/battle/appearance/infantry_camp",
-        "offset": {
-          "x": 0,
-          "y": 0
-        }
-      },
-      {
-        "direction": 1,
-        "part": 4,
-        "resourceType": 1,
-        "resource": "scene/battle/appearance/infantry_camp_shadow",
-        "offset": {
-          "x": 0,
-          "y": 0
-        }
-      }
-    ],
-    "hitRadius": 28,
-    "hitOffset": {
-      "x": 0,
-      "y": -40
-    }
-  },
-  {
-    "id": 1201,
-    "name": "殖民军机场",
-    "race": 1,
-    "type": 3,
-    "maxHp": 300,
-    "appearances": [
-      {
-        "direction": 1,
-        "part": 1,
-        "resourceType": 1,
-        "resource": "scene/battle/appearance/airport",
-        "offset": {
-          "x": 0,
-          "y": 0
-        }
-      },
-      {
-        "direction": 1,
-        "part": 4,
-        "resourceType": 1,
-        "resource": "scene/battle/appearance/airport_shadow",
+        "resource": "default/battle/appearance/infantry_camp_shadow",
         "offset": {
           "x": 0,
           "y": 0

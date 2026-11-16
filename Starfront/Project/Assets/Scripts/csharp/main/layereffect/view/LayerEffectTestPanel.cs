@@ -70,6 +70,23 @@ public sealed class LayerEffectTestPanel : BasePanel {
         layer = PanelLayer.SCALE_PANEL_SECOND;
     }
 
+    public override void OnInit() {
+        foreach (var input in InputFields()) {
+            PlatformInputFieldKeyboard.Install(input);
+        }
+    }
+
+    /**输入字段显式列举，避免遗漏默认隐藏的网格设置项。*/
+    private TMP_InputField[] InputFields() {
+        return new[] { inpRedHex, inpBlueHex, inpGridWidth, inpGridHeight, inpGridOriginX, inpGridOriginY };
+    }
+
+    private void CloseInputKeyboards() {
+        foreach (var input in InputFields()) {
+            input.GetComponent<PlatformInputFieldKeyboard>()?.Close();
+        }
+    }
+
     /**通过绑定窗口生命周期管理GPU资源和监听；池化重开不继承旧试验状态。*/
     public override void OnOpen() {
         rendererView = GetComponent<LayerEffectTestRenderer>();
@@ -81,6 +98,7 @@ public sealed class LayerEffectTestPanel : BasePanel {
     }
 
     public override void OnClose() {
+        CloseInputKeyboards();
         RemoveLis();
         boxGridSettings.gameObject.SetActive(false);
         rawGrayPreview.texture = null;
@@ -98,6 +116,8 @@ public sealed class LayerEffectTestPanel : BasePanel {
         btnModeAdd.onClick.AddListener(AddBlend);
         inpRedHex.onEndEdit.AddListener(ChangeRed);
         inpBlueHex.onEndEdit.AddListener(ChangeBlue);
+        inpRedHex.onSubmit.AddListener(ChangeRed);
+        inpBlueHex.onSubmit.AddListener(ChangeBlue);
         sliderStrength.onValueChanged.AddListener(ChangeStrength);
         sliderBrightness.onValueChanged.AddListener(ChangeBrightness);
         sliderContrast.onValueChanged.AddListener(ChangeContrast);
@@ -123,6 +143,8 @@ public sealed class LayerEffectTestPanel : BasePanel {
         btnModeAdd.onClick.RemoveListener(AddBlend);
         inpRedHex.onEndEdit.RemoveListener(ChangeRed);
         inpBlueHex.onEndEdit.RemoveListener(ChangeBlue);
+        inpRedHex.onSubmit.RemoveListener(ChangeRed);
+        inpBlueHex.onSubmit.RemoveListener(ChangeBlue);
         sliderStrength.onValueChanged.RemoveListener(ChangeStrength);
         sliderBrightness.onValueChanged.RemoveListener(ChangeBrightness);
         sliderContrast.onValueChanged.RemoveListener(ChangeContrast);
@@ -148,6 +170,8 @@ public sealed class LayerEffectTestPanel : BasePanel {
     }
 
     private void ResetParameters() {
+        // 重置同一表单也会替换编辑身份，先废弃尚未确认的原生输入。
+        CloseInputKeyboards();
         settings = new LayerEffectTestSettings();
         original = false;
         brush = BrushMode.Red;
@@ -216,7 +240,12 @@ public sealed class LayerEffectTestPanel : BasePanel {
         value = value.Trim();
         if (value.Length != 7 || value[0] != '#' || !uint.TryParse(value.Substring(1), NumberStyles.HexNumber, CultureInfo.InvariantCulture, out uint rgb) || !ColorUtility.TryParseHtmlString(value, out Color color)) {
             (blue ? inpBlueHex : inpRedHex).SetTextWithoutNotify("#" + ColorUtility.ToHtmlStringRGB(blue ? settings.blue : settings.red));
-            txtHint.text = "颜色格式应为 #RRGGBB，已保留原颜色。";
+            GlobalToast.Warn("颜色格式应为 #RRGGBB，已保留原颜色。");
+            return;
+        }
+        if ((blue ? settings.blue : settings.red) == color) {
+            // 微信Confirm和随后TMP失焦可能先后到达；相同有效颜色不重复渲染。
+            (blue ? inpBlueHex : inpRedHex).SetTextWithoutNotify(value.ToUpperInvariant());
             return;
         }
         if (blue) {
@@ -287,6 +316,7 @@ public sealed class LayerEffectTestPanel : BasePanel {
     }
 
     private void OpenGrid() {
+        CloseInputKeyboards();
         if (rendererView.IsGroundScene) {
             settings.layout = settings.layout == 0 ? 1 : 0;
             btnGridSettings.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = settings.layout == 0 ? "阵营：正常" : "阵营：互换";
@@ -309,7 +339,7 @@ public sealed class LayerEffectTestPanel : BasePanel {
     /**弹窗所有字段同时通过才提交；网格身份改变时旧画笔覆盖失效。*/
     private void ApplyGrid() {
         if (!TryNumber(inpGridWidth.text, 8, 720, out float width) || !TryNumber(inpGridHeight.text, 8, 1280, out float height) || !TryNumber(inpGridOriginX.text, -720, 1440, out float x) || !TryNumber(inpGridOriginY.text, -1280, 2560, out float y)) {
-            txtHint.text = "网格参数无效：宽8–720、高8–1280；基点超出范围。";
+            GlobalToast.Warn("网格参数无效：宽8–720、高8–1280；基点超出范围。");
             return;
         }
         bool geometryChanged = settings.hexSize != new Vector2(width, height) || settings.origin != new Vector2(x, y);

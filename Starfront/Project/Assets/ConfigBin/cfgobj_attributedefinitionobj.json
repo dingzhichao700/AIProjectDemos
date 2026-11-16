@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "兵种血量",
+    "valueType": 1,
+    "icon": "attr-unit-hp"
+  },
+  {
+    "id": 2,
+    "name": "攻击力",
+    "valueType": 1,
+    "icon": "attr-attack"
+  },
+  {
+    "id": 3,
+    "name": "攻击范围",
+    "valueType": 1,
+    "icon": "attr-range"
+  },
+  {
+    "id": 4,
+    "name": "移动速度",
+    "valueType": 1,
+    "icon": "attr-speed"
+  },
+  {
+    "id": 5,
+    "name": "建筑血量",
+    "valueType": 1,
+    "icon": "attr-building-hp"
+  },
+  {
+    "id": 6,
+    "name": "生产时间",
+    "valueType": 1,
+    "icon": "attr-production"
+  }
+]

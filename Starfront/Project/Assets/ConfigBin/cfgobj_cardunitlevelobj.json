@@ -1,0 +1,1662 @@
+[
+  {
+    "cardId": 2101,
+    "level": 1,
+    "unitId": 2101,
+    "maxHp": 100,
+    "moveSpeed": 30,
+    "skillIds": [
+      1101
+    ],
+    "attack": 20,
+    "attackRange": 180
+  },
+  {
+    "cardId": 2101,
+    "level": 2,
+    "unitId": 2101,
+    "maxHp": 110,
+    "moveSpeed": 31,
+    "skillIds": [
+      1101
+    ],
+    "attack": 22,
+    "attackRange": 180
+  },
+  {
+    "cardId": 2101,
+    "level": 3,
+    "unitId": 2101,
+    "maxHp": 120,
+    "moveSpeed": 32,
+    "skillIds": [
+      1101
+    ],
+    "attack": 24,
+    "attackRange": 180
+  },
+  {
+    "cardId": 2101,
+    "level": 4,
+    "unitId": 2101,
+    "maxHp": 130,
+    "moveSpeed": 33,
+    "skillIds": [
+      1101
+    ],
+    "attack": 26,
+    "attackRange": 180
+  },
+  {
+    "cardId": 2101,
+    "level": 5,
+    "unitId": 2101,
+    "maxHp": 140,
+    "moveSpeed": 34,
+    "skillIds": [
+      1101
+    ],
+    "attack": 28,
+    "attackRange": 180
+  },
+  {
+    "cardId": 2101,
+    "level": 6,
+    "unitId": 2101,
+    "maxHp": 150,
+    "moveSpeed": 35,
+    "skillIds": [
+      1101
+    ],
+    "attack": 30,
+    "attackRange": 180
+  },
+  {
+    "cardId": 2101,
+    "level": 7,
+    "unitId": 2101,
+    "maxHp": 160,
+    "moveSpeed": 36,
+    "skillIds": [
+      1101
+    ],
+    "attack": 32,
+    "attackRange": 180
+  },
+  {
+    "cardId": 2101,
+    "level": 8,
+    "unitId": 2101,
+    "maxHp": 170,
+    "moveSpeed": 37,
+    "skillIds": [
+      1101
+    ],
+    "attack": 34,
+    "attackRange": 180
+  },
+  {
+    "cardId": 2101,
+    "level": 9,
+    "unitId": 2101,
+    "maxHp": 180,
+    "moveSpeed": 38,
+    "skillIds": [
+      1101
+    ],
+    "attack": 36,
+    "attackRange": 180
+  },
+  {
+    "cardId": 2101,
+    "level": 10,
+    "unitId": 2101,
+    "maxHp": 190,
+    "moveSpeed": 39,
+    "skillIds": [
+      1101
+    ],
+    "attack": 38,
+    "attackRange": 180
+  },
+  {
+    "cardId": 2102,
+    "level": 1,
+    "unitId": 2102,
+    "maxHp": 120,
+    "moveSpeed": 31,
+    "skillIds": [],
+    "attack": 22,
+    "attackRange": 184
+  },
+  {
+    "cardId": 2102,
+    "level": 2,
+    "unitId": 2102,
+    "maxHp": 130,
+    "moveSpeed": 32,
+    "skillIds": [],
+    "attack": 24,
+    "attackRange": 184
+  },
+  {
+    "cardId": 2102,
+    "level": 3,
+    "unitId": 2102,
+    "maxHp": 140,
+    "moveSpeed": 33,
+    "skillIds": [],
+    "attack": 26,
+    "attackRange": 184
+  },
+  {
+    "cardId": 2102,
+    "level": 4,
+    "unitId": 2102,
+    "maxHp": 150,
+    "moveSpeed": 34,
+    "skillIds": [],
+    "attack": 28,
+    "attackRange": 184
+  },
+  {
+    "cardId": 2102,
+    "level": 5,
+    "unitId": 2102,
+    "maxHp": 160,
+    "moveSpeed": 35,
+    "skillIds": [],
+    "attack": 30,
+    "attackRange": 184
+  },
+  {
+    "cardId": 2102,
+    "level": 6,
+    "unitId": 2102,
+    "maxHp": 170,
+    "moveSpeed": 36,
+    "skillIds": [],
+    "attack": 32,
+    "attackRange": 184
+  },
+  {
+    "cardId": 2102,
+    "level": 7,
+    "unitId": 2102,
+    "maxHp": 180,
+    "moveSpeed": 37,
+    "skillIds": [],
+    "attack": 34,
+    "attackRange": 184
+  },
+  {
+    "cardId": 2102,
+    "level": 8,
+    "unitId": 2102,
+    "maxHp": 190,
+    "moveSpeed": 38,
+    "skillIds": [],
+    "attack": 36,
+    "attackRange": 184
+  },
+  {
+    "cardId": 2102,
+    "level": 9,
+    "unitId": 2102,
+    "maxHp": 200,
+    "moveSpeed": 39,
+    "skillIds": [],
+    "attack": 38,
+    "attackRange": 184
+  },
+  {
+    "cardId": 2102,
+    "level": 10,
+    "unitId": 2102,
+    "maxHp": 210,
+    "moveSpeed": 40,
+    "skillIds": [],
+    "attack": 40,
+    "attackRange": 184
+  },
+  {
+    "cardId": 2103,
+    "level": 1,
+    "unitId": 2103,
+    "maxHp": 140,
+    "moveSpeed": 32,
+    "skillIds": [],
+    "attack": 24,
+    "attackRange": 188
+  },
+  {
+    "cardId": 2103,
+    "level": 2,
+    "unitId": 2103,
+    "maxHp": 150,
+    "moveSpeed": 33,
+    "skillIds": [],
+    "attack": 26,
+    "attackRange": 188
+  },
+  {
+    "cardId": 2103,
+    "level": 3,
+    "unitId": 2103,
+    "maxHp": 160,
+    "moveSpeed": 34,
+    "skillIds": [],
+    "attack": 28,
+    "attackRange": 188
+  },
+  {
+    "cardId": 2103,
+    "level": 4,
+    "unitId": 2103,
+    "maxHp": 170,
+    "moveSpeed": 35,
+    "skillIds": [],
+    "attack": 30,
+    "attackRange": 188
+  },
+  {
+    "cardId": 2103,
+    "level": 5,
+    "unitId": 2103,
+    "maxHp": 180,
+    "moveSpeed": 36,
+    "skillIds": [],
+    "attack": 32,
+    "attackRange": 188
+  },
+  {
+    "cardId": 2103,
+    "level": 6,
+    "unitId": 2103,
+    "maxHp": 190,
+    "moveSpeed": 37,
+    "skillIds": [],
+    "attack": 34,
+    "attackRange": 188
+  },
+  {
+    "cardId": 2103,
+    "level": 7,
+    "unitId": 2103,
+    "maxHp": 200,
+    "moveSpeed": 38,
+    "skillIds": [],
+    "attack": 36,
+    "attackRange": 188
+  },
+  {
+    "cardId": 2103,
+    "level": 8,
+    "unitId": 2103,
+    "maxHp": 210,
+    "moveSpeed": 39,
+    "skillIds": [],
+    "attack": 38,
+    "attackRange": 188
+  },
+  {
+    "cardId": 2103,
+    "level": 9,
+    "unitId": 2103,
+    "maxHp": 220,
+    "moveSpeed": 40,
+    "skillIds": [],
+    "attack": 40,
+    "attackRange": 188
+  },
+  {
+    "cardId": 2103,
+    "level": 10,
+    "unitId": 2103,
+    "maxHp": 230,
+    "moveSpeed": 41,
+    "skillIds": [],
+    "attack": 42,
+    "attackRange": 188
+  },
+  {
+    "cardId": 2104,
+    "level": 1,
+    "unitId": 2104,
+    "maxHp": 160,
+    "moveSpeed": 33,
+    "skillIds": [
+      210401
+    ],
+    "attack": 26,
+    "attackRange": 192
+  },
+  {
+    "cardId": 2104,
+    "level": 2,
+    "unitId": 2104,
+    "maxHp": 170,
+    "moveSpeed": 34,
+    "skillIds": [
+      210402
+    ],
+    "attack": 28,
+    "attackRange": 192
+  },
+  {
+    "cardId": 2104,
+    "level": 3,
+    "unitId": 2104,
+    "maxHp": 180,
+    "moveSpeed": 35,
+    "skillIds": [
+      210403
+    ],
+    "attack": 30,
+    "attackRange": 192
+  },
+  {
+    "cardId": 2104,
+    "level": 4,
+    "unitId": 2104,
+    "maxHp": 190,
+    "moveSpeed": 36,
+    "skillIds": [
+      210404
+    ],
+    "attack": 32,
+    "attackRange": 192
+  },
+  {
+    "cardId": 2104,
+    "level": 5,
+    "unitId": 2104,
+    "maxHp": 200,
+    "moveSpeed": 37,
+    "skillIds": [
+      210405
+    ],
+    "attack": 34,
+    "attackRange": 192
+  },
+  {
+    "cardId": 2104,
+    "level": 6,
+    "unitId": 2104,
+    "maxHp": 210,
+    "moveSpeed": 38,
+    "skillIds": [
+      210406
+    ],
+    "attack": 36,
+    "attackRange": 192
+  },
+  {
+    "cardId": 2104,
+    "level": 7,
+    "unitId": 2104,
+    "maxHp": 220,
+    "moveSpeed": 39,
+    "skillIds": [
+      210407
+    ],
+    "attack": 38,
+    "attackRange": 192
+  },
+  {
+    "cardId": 2104,
+    "level": 8,
+    "unitId": 2104,
+    "maxHp": 230,
+    "moveSpeed": 40,
+    "skillIds": [
+      210408
+    ],
+    "attack": 40,
+    "attackRange": 192
+  },
+  {
+    "cardId": 2104,
+    "level": 9,
+    "unitId": 2104,
+    "maxHp": 240,
+    "moveSpeed": 41,
+    "skillIds": [
+      210409
+    ],
+    "attack": 42,
+    "attackRange": 192
+  },
+  {
+    "cardId": 2104,
+    "level": 10,
+    "unitId": 2104,
+    "maxHp": 250,
+    "moveSpeed": 42,
+    "skillIds": [
+      210410
+    ],
+    "attack": 44,
+    "attackRange": 192
+  },
+  {
+    "cardId": 2105,
+    "level": 1,
+    "unitId": 2105,
+    "maxHp": 180,
+    "moveSpeed": 34,
+    "skillIds": [],
+    "attack": 28,
+    "attackRange": 196
+  },
+  {
+    "cardId": 2105,
+    "level": 2,
+    "unitId": 2105,
+    "maxHp": 190,
+    "moveSpeed": 35,
+    "skillIds": [],
+    "attack": 30,
+    "attackRange": 196
+  },
+  {
+    "cardId": 2105,
+    "level": 3,
+    "unitId": 2105,
+    "maxHp": 200,
+    "moveSpeed": 36,
+    "skillIds": [],
+    "attack": 32,
+    "attackRange": 196
+  },
+  {
+    "cardId": 2105,
+    "level": 4,
+    "unitId": 2105,
+    "maxHp": 210,
+    "moveSpeed": 37,
+    "skillIds": [],
+    "attack": 34,
+    "attackRange": 196
+  },
+  {
+    "cardId": 2105,
+    "level": 5,
+    "unitId": 2105,
+    "maxHp": 220,
+    "moveSpeed": 38,
+    "skillIds": [],
+    "attack": 36,
+    "attackRange": 196
+  },
+  {
+    "cardId": 2105,
+    "level": 6,
+    "unitId": 2105,
+    "maxHp": 230,
+    "moveSpeed": 39,
+    "skillIds": [],
+    "attack": 38,
+    "attackRange": 196
+  },
+  {
+    "cardId": 2105,
+    "level": 7,
+    "unitId": 2105,
+    "maxHp": 240,
+    "moveSpeed": 40,
+    "skillIds": [],
+    "attack": 40,
+    "attackRange": 196
+  },
+  {
+    "cardId": 2105,
+    "level": 8,
+    "unitId": 2105,
+    "maxHp": 250,
+    "moveSpeed": 41,
+    "skillIds": [],
+    "attack": 42,
+    "attackRange": 196
+  },
+  {
+    "cardId": 2105,
+    "level": 9,
+    "unitId": 2105,
+    "maxHp": 260,
+    "moveSpeed": 42,
+    "skillIds": [],
+    "attack": 44,
+    "attackRange": 196
+  },
+  {
+    "cardId": 2105,
+    "level": 10,
+    "unitId": 2105,
+    "maxHp": 270,
+    "moveSpeed": 43,
+    "skillIds": [],
+    "attack": 46,
+    "attackRange": 196
+  },
+  {
+    "cardId": 2201,
+    "level": 1,
+    "unitId": 2201,
+    "maxHp": 200,
+    "moveSpeed": 35,
+    "skillIds": [
+      220101
+    ],
+    "attack": 30,
+    "attackRange": 200
+  },
+  {
+    "cardId": 2201,
+    "level": 2,
+    "unitId": 2201,
+    "maxHp": 210,
+    "moveSpeed": 36,
+    "skillIds": [
+      220102
+    ],
+    "attack": 32,
+    "attackRange": 200
+  },
+  {
+    "cardId": 2201,
+    "level": 3,
+    "unitId": 2201,
+    "maxHp": 220,
+    "moveSpeed": 37,
+    "skillIds": [
+      220103
+    ],
+    "attack": 34,
+    "attackRange": 200
+  },
+  {
+    "cardId": 2201,
+    "level": 4,
+    "unitId": 2201,
+    "maxHp": 230,
+    "moveSpeed": 38,
+    "skillIds": [
+      220104
+    ],
+    "attack": 36,
+    "attackRange": 200
+  },
+  {
+    "cardId": 2201,
+    "level": 5,
+    "unitId": 2201,
+    "maxHp": 240,
+    "moveSpeed": 39,
+    "skillIds": [
+      220105
+    ],
+    "attack": 38,
+    "attackRange": 200
+  },
+  {
+    "cardId": 2201,
+    "level": 6,
+    "unitId": 2201,
+    "maxHp": 250,
+    "moveSpeed": 40,
+    "skillIds": [
+      220106
+    ],
+    "attack": 40,
+    "attackRange": 200
+  },
+  {
+    "cardId": 2201,
+    "level": 7,
+    "unitId": 2201,
+    "maxHp": 260,
+    "moveSpeed": 41,
+    "skillIds": [
+      220107
+    ],
+    "attack": 42,
+    "attackRange": 200
+  },
+  {
+    "cardId": 2201,
+    "level": 8,
+    "unitId": 2201,
+    "maxHp": 270,
+    "moveSpeed": 42,
+    "skillIds": [
+      220108
+    ],
+    "attack": 44,
+    "attackRange": 200
+  },
+  {
+    "cardId": 2201,
+    "level": 9,
+    "unitId": 2201,
+    "maxHp": 280,
+    "moveSpeed": 43,
+    "skillIds": [
+      220109
+    ],
+    "attack": 46,
+    "attackRange": 200
+  },
+  {
+    "cardId": 2201,
+    "level": 10,
+    "unitId": 2201,
+    "maxHp": 290,
+    "moveSpeed": 44,
+    "skillIds": [
+      220110
+    ],
+    "attack": 48,
+    "attackRange": 200
+  },
+  {
+    "cardId": 2202,
+    "level": 1,
+    "unitId": 2202,
+    "maxHp": 220,
+    "moveSpeed": 36,
+    "skillIds": [],
+    "attack": 32,
+    "attackRange": 204
+  },
+  {
+    "cardId": 2202,
+    "level": 2,
+    "unitId": 2202,
+    "maxHp": 230,
+    "moveSpeed": 37,
+    "skillIds": [],
+    "attack": 34,
+    "attackRange": 204
+  },
+  {
+    "cardId": 2202,
+    "level": 3,
+    "unitId": 2202,
+    "maxHp": 240,
+    "moveSpeed": 38,
+    "skillIds": [],
+    "attack": 36,
+    "attackRange": 204
+  },
+  {
+    "cardId": 2202,
+    "level": 4,
+    "unitId": 2202,
+    "maxHp": 250,
+    "moveSpeed": 39,
+    "skillIds": [],
+    "attack": 38,
+    "attackRange": 204
+  },
+  {
+    "cardId": 2202,
+    "level": 5,
+    "unitId": 2202,
+    "maxHp": 260,
+    "moveSpeed": 40,
+    "skillIds": [],
+    "attack": 40,
+    "attackRange": 204
+  },
+  {
+    "cardId": 2202,
+    "level": 6,
+    "unitId": 2202,
+    "maxHp": 270,
+    "moveSpeed": 41,
+    "skillIds": [],
+    "attack": 42,
+    "attackRange": 204
+  },
+  {
+    "cardId": 2202,
+    "level": 7,
+    "unitId": 2202,
+    "maxHp": 280,
+    "moveSpeed": 42,
+    "skillIds": [],
+    "attack": 44,
+    "attackRange": 204
+  },
+  {
+    "cardId": 2202,
+    "level": 8,
+    "unitId": 2202,
+    "maxHp": 290,
+    "moveSpeed": 43,
+    "skillIds": [],
+    "attack": 46,
+    "attackRange": 204
+  },
+  {
+    "cardId": 2202,
+    "level": 9,
+    "unitId": 2202,
+    "maxHp": 300,
+    "moveSpeed": 44,
+    "skillIds": [],
+    "attack": 48,
+    "attackRange": 204
+  },
+  {
+    "cardId": 2202,
+    "level": 10,
+    "unitId": 2202,
+    "maxHp": 310,
+    "moveSpeed": 45,
+    "skillIds": [],
+    "attack": 50,
+    "attackRange": 204
+  },
+  {
+    "cardId": 2203,
+    "level": 1,
+    "unitId": 2203,
+    "maxHp": 240,
+    "moveSpeed": 37,
+    "skillIds": [],
+    "attack": 34,
+    "attackRange": 208
+  },
+  {
+    "cardId": 2203,
+    "level": 2,
+    "unitId": 2203,
+    "maxHp": 250,
+    "moveSpeed": 38,
+    "skillIds": [],
+    "attack": 36,
+    "attackRange": 208
+  },
+  {
+    "cardId": 2203,
+    "level": 3,
+    "unitId": 2203,
+    "maxHp": 260,
+    "moveSpeed": 39,
+    "skillIds": [],
+    "attack": 38,
+    "attackRange": 208
+  },
+  {
+    "cardId": 2203,
+    "level": 4,
+    "unitId": 2203,
+    "maxHp": 270,
+    "moveSpeed": 40,
+    "skillIds": [],
+    "attack": 40,
+    "attackRange": 208
+  },
+  {
+    "cardId": 2203,
+    "level": 5,
+    "unitId": 2203,
+    "maxHp": 280,
+    "moveSpeed": 41,
+    "skillIds": [],
+    "attack": 42,
+    "attackRange": 208
+  },
+  {
+    "cardId": 2203,
+    "level": 6,
+    "unitId": 2203,
+    "maxHp": 290,
+    "moveSpeed": 42,
+    "skillIds": [],
+    "attack": 44,
+    "attackRange": 208
+  },
+  {
+    "cardId": 2203,
+    "level": 7,
+    "unitId": 2203,
+    "maxHp": 300,
+    "moveSpeed": 43,
+    "skillIds": [],
+    "attack": 46,
+    "attackRange": 208
+  },
+  {
+    "cardId": 2203,
+    "level": 8,
+    "unitId": 2203,
+    "maxHp": 310,
+    "moveSpeed": 44,
+    "skillIds": [],
+    "attack": 48,
+    "attackRange": 208
+  },
+  {
+    "cardId": 2203,
+    "level": 9,
+    "unitId": 2203,
+    "maxHp": 320,
+    "moveSpeed": 45,
+    "skillIds": [],
+    "attack": 50,
+    "attackRange": 208
+  },
+  {
+    "cardId": 2203,
+    "level": 10,
+    "unitId": 2203,
+    "maxHp": 330,
+    "moveSpeed": 46,
+    "skillIds": [],
+    "attack": 52,
+    "attackRange": 208
+  },
+  {
+    "cardId": 2204,
+    "level": 1,
+    "unitId": 2204,
+    "maxHp": 260,
+    "moveSpeed": 38,
+    "skillIds": [],
+    "attack": 36,
+    "attackRange": 212
+  },
+  {
+    "cardId": 2204,
+    "level": 2,
+    "unitId": 2204,
+    "maxHp": 270,
+    "moveSpeed": 39,
+    "skillIds": [],
+    "attack": 38,
+    "attackRange": 212
+  },
+  {
+    "cardId": 2204,
+    "level": 3,
+    "unitId": 2204,
+    "maxHp": 280,
+    "moveSpeed": 40,
+    "skillIds": [],
+    "attack": 40,
+    "attackRange": 212
+  },
+  {
+    "cardId": 2204,
+    "level": 4,
+    "unitId": 2204,
+    "maxHp": 290,
+    "moveSpeed": 41,
+    "skillIds": [],
+    "attack": 42,
+    "attackRange": 212
+  },
+  {
+    "cardId": 2204,
+    "level": 5,
+    "unitId": 2204,
+    "maxHp": 300,
+    "moveSpeed": 42,
+    "skillIds": [],
+    "attack": 44,
+    "attackRange": 212
+  },
+  {
+    "cardId": 2204,
+    "level": 6,
+    "unitId": 2204,
+    "maxHp": 310,
+    "moveSpeed": 43,
+    "skillIds": [],
+    "attack": 46,
+    "attackRange": 212
+  },
+  {
+    "cardId": 2204,
+    "level": 7,
+    "unitId": 2204,
+    "maxHp": 320,
+    "moveSpeed": 44,
+    "skillIds": [],
+    "attack": 48,
+    "attackRange": 212
+  },
+  {
+    "cardId": 2204,
+    "level": 8,
+    "unitId": 2204,
+    "maxHp": 330,
+    "moveSpeed": 45,
+    "skillIds": [],
+    "attack": 50,
+    "attackRange": 212
+  },
+  {
+    "cardId": 2204,
+    "level": 9,
+    "unitId": 2204,
+    "maxHp": 340,
+    "moveSpeed": 46,
+    "skillIds": [],
+    "attack": 52,
+    "attackRange": 212
+  },
+  {
+    "cardId": 2204,
+    "level": 10,
+    "unitId": 2204,
+    "maxHp": 350,
+    "moveSpeed": 47,
+    "skillIds": [],
+    "attack": 54,
+    "attackRange": 212
+  },
+  {
+    "cardId": 2205,
+    "level": 1,
+    "unitId": 2205,
+    "maxHp": 280,
+    "moveSpeed": 39,
+    "skillIds": [],
+    "attack": 38,
+    "attackRange": 216
+  },
+  {
+    "cardId": 2205,
+    "level": 2,
+    "unitId": 2205,
+    "maxHp": 290,
+    "moveSpeed": 40,
+    "skillIds": [],
+    "attack": 40,
+    "attackRange": 216
+  },
+  {
+    "cardId": 2205,
+    "level": 3,
+    "unitId": 2205,
+    "maxHp": 300,
+    "moveSpeed": 41,
+    "skillIds": [],
+    "attack": 42,
+    "attackRange": 216
+  },
+  {
+    "cardId": 2205,
+    "level": 4,
+    "unitId": 2205,
+    "maxHp": 310,
+    "moveSpeed": 42,
+    "skillIds": [],
+    "attack": 44,
+    "attackRange": 216
+  },
+  {
+    "cardId": 2205,
+    "level": 5,
+    "unitId": 2205,
+    "maxHp": 320,
+    "moveSpeed": 43,
+    "skillIds": [],
+    "attack": 46,
+    "attackRange": 216
+  },
+  {
+    "cardId": 2205,
+    "level": 6,
+    "unitId": 2205,
+    "maxHp": 330,
+    "moveSpeed": 44,
+    "skillIds": [],
+    "attack": 48,
+    "attackRange": 216
+  },
+  {
+    "cardId": 2205,
+    "level": 7,
+    "unitId": 2205,
+    "maxHp": 340,
+    "moveSpeed": 45,
+    "skillIds": [],
+    "attack": 50,
+    "attackRange": 216
+  },
+  {
+    "cardId": 2205,
+    "level": 8,
+    "unitId": 2205,
+    "maxHp": 350,
+    "moveSpeed": 46,
+    "skillIds": [],
+    "attack": 52,
+    "attackRange": 216
+  },
+  {
+    "cardId": 2205,
+    "level": 9,
+    "unitId": 2205,
+    "maxHp": 360,
+    "moveSpeed": 47,
+    "skillIds": [],
+    "attack": 54,
+    "attackRange": 216
+  },
+  {
+    "cardId": 2205,
+    "level": 10,
+    "unitId": 2205,
+    "maxHp": 370,
+    "moveSpeed": 48,
+    "skillIds": [],
+    "attack": 56,
+    "attackRange": 216
+  },
+  {
+    "cardId": 2301,
+    "level": 1,
+    "unitId": 2301,
+    "maxHp": 300,
+    "moveSpeed": 40,
+    "skillIds": [],
+    "attack": 40,
+    "attackRange": 220
+  },
+  {
+    "cardId": 2301,
+    "level": 2,
+    "unitId": 2301,
+    "maxHp": 310,
+    "moveSpeed": 41,
+    "skillIds": [],
+    "attack": 42,
+    "attackRange": 220
+  },
+  {
+    "cardId": 2301,
+    "level": 3,
+    "unitId": 2301,
+    "maxHp": 320,
+    "moveSpeed": 42,
+    "skillIds": [],
+    "attack": 44,
+    "attackRange": 220
+  },
+  {
+    "cardId": 2301,
+    "level": 4,
+    "unitId": 2301,
+    "maxHp": 330,
+    "moveSpeed": 43,
+    "skillIds": [],
+    "attack": 46,
+    "attackRange": 220
+  },
+  {
+    "cardId": 2301,
+    "level": 5,
+    "unitId": 2301,
+    "maxHp": 340,
+    "moveSpeed": 44,
+    "skillIds": [],
+    "attack": 48,
+    "attackRange": 220
+  },
+  {
+    "cardId": 2301,
+    "level": 6,
+    "unitId": 2301,
+    "maxHp": 350,
+    "moveSpeed": 45,
+    "skillIds": [],
+    "attack": 50,
+    "attackRange": 220
+  },
+  {
+    "cardId": 2301,
+    "level": 7,
+    "unitId": 2301,
+    "maxHp": 360,
+    "moveSpeed": 46,
+    "skillIds": [],
+    "attack": 52,
+    "attackRange": 220
+  },
+  {
+    "cardId": 2301,
+    "level": 8,
+    "unitId": 2301,
+    "maxHp": 370,
+    "moveSpeed": 47,
+    "skillIds": [],
+    "attack": 54,
+    "attackRange": 220
+  },
+  {
+    "cardId": 2301,
+    "level": 9,
+    "unitId": 2301,
+    "maxHp": 380,
+    "moveSpeed": 48,
+    "skillIds": [],
+    "attack": 56,
+    "attackRange": 220
+  },
+  {
+    "cardId": 2301,
+    "level": 10,
+    "unitId": 2301,
+    "maxHp": 390,
+    "moveSpeed": 49,
+    "skillIds": [],
+    "attack": 58,
+    "attackRange": 220
+  },
+  {
+    "cardId": 2302,
+    "level": 1,
+    "unitId": 2302,
+    "maxHp": 320,
+    "moveSpeed": 41,
+    "skillIds": [],
+    "attack": 42,
+    "attackRange": 224
+  },
+  {
+    "cardId": 2302,
+    "level": 2,
+    "unitId": 2302,
+    "maxHp": 330,
+    "moveSpeed": 42,
+    "skillIds": [],
+    "attack": 44,
+    "attackRange": 224
+  },
+  {
+    "cardId": 2302,
+    "level": 3,
+    "unitId": 2302,
+    "maxHp": 340,
+    "moveSpeed": 43,
+    "skillIds": [],
+    "attack": 46,
+    "attackRange": 224
+  },
+  {
+    "cardId": 2302,
+    "level": 4,
+    "unitId": 2302,
+    "maxHp": 350,
+    "moveSpeed": 44,
+    "skillIds": [],
+    "attack": 48,
+    "attackRange": 224
+  },
+  {
+    "cardId": 2302,
+    "level": 5,
+    "unitId": 2302,
+    "maxHp": 360,
+    "moveSpeed": 45,
+    "skillIds": [],
+    "attack": 50,
+    "attackRange": 224
+  },
+  {
+    "cardId": 2302,
+    "level": 6,
+    "unitId": 2302,
+    "maxHp": 370,
+    "moveSpeed": 46,
+    "skillIds": [],
+    "attack": 52,
+    "attackRange": 224
+  },
+  {
+    "cardId": 2302,
+    "level": 7,
+    "unitId": 2302,
+    "maxHp": 380,
+    "moveSpeed": 47,
+    "skillIds": [],
+    "attack": 54,
+    "attackRange": 224
+  },
+  {
+    "cardId": 2302,
+    "level": 8,
+    "unitId": 2302,
+    "maxHp": 390,
+    "moveSpeed": 48,
+    "skillIds": [],
+    "attack": 56,
+    "attackRange": 224
+  },
+  {
+    "cardId": 2302,
+    "level": 9,
+    "unitId": 2302,
+    "maxHp": 400,
+    "moveSpeed": 49,
+    "skillIds": [],
+    "attack": 58,
+    "attackRange": 224
+  },
+  {
+    "cardId": 2302,
+    "level": 10,
+    "unitId": 2302,
+    "maxHp": 410,
+    "moveSpeed": 50,
+    "skillIds": [],
+    "attack": 60,
+    "attackRange": 224
+  },
+  {
+    "cardId": 2303,
+    "level": 1,
+    "unitId": 2303,
+    "maxHp": 340,
+    "moveSpeed": 42,
+    "skillIds": [],
+    "attack": 44,
+    "attackRange": 228
+  },
+  {
+    "cardId": 2303,
+    "level": 2,
+    "unitId": 2303,
+    "maxHp": 350,
+    "moveSpeed": 43,
+    "skillIds": [],
+    "attack": 46,
+    "attackRange": 228
+  },
+  {
+    "cardId": 2303,
+    "level": 3,
+    "unitId": 2303,
+    "maxHp": 360,
+    "moveSpeed": 44,
+    "skillIds": [],
+    "attack": 48,
+    "attackRange": 228
+  },
+  {
+    "cardId": 2303,
+    "level": 4,
+    "unitId": 2303,
+    "maxHp": 370,
+    "moveSpeed": 45,
+    "skillIds": [],
+    "attack": 50,
+    "attackRange": 228
+  },
+  {
+    "cardId": 2303,
+    "level": 5,
+    "unitId": 2303,
+    "maxHp": 380,
+    "moveSpeed": 46,
+    "skillIds": [],
+    "attack": 52,
+    "attackRange": 228
+  },
+  {
+    "cardId": 2303,
+    "level": 6,
+    "unitId": 2303,
+    "maxHp": 390,
+    "moveSpeed": 47,
+    "skillIds": [],
+    "attack": 54,
+    "attackRange": 228
+  },
+  {
+    "cardId": 2303,
+    "level": 7,
+    "unitId": 2303,
+    "maxHp": 400,
+    "moveSpeed": 48,
+    "skillIds": [],
+    "attack": 56,
+    "attackRange": 228
+  },
+  {
+    "cardId": 2303,
+    "level": 8,
+    "unitId": 2303,
+    "maxHp": 410,
+    "moveSpeed": 49,
+    "skillIds": [],
+    "attack": 58,
+    "attackRange": 228
+  },
+  {
+    "cardId": 2303,
+    "level": 9,
+    "unitId": 2303,
+    "maxHp": 420,
+    "moveSpeed": 50,
+    "skillIds": [],
+    "attack": 60,
+    "attackRange": 228
+  },
+  {
+    "cardId": 2303,
+    "level": 10,
+    "unitId": 2303,
+    "maxHp": 430,
+    "moveSpeed": 51,
+    "skillIds": [],
+    "attack": 62,
+    "attackRange": 228
+  },
+  {
+    "cardId": 2304,
+    "level": 1,
+    "unitId": 2304,
+    "maxHp": 360,
+    "moveSpeed": 43,
+    "skillIds": [],
+    "attack": 46,
+    "attackRange": 232
+  },
+  {
+    "cardId": 2304,
+    "level": 2,
+    "unitId": 2304,
+    "maxHp": 370,
+    "moveSpeed": 44,
+    "skillIds": [],
+    "attack": 48,
+    "attackRange": 232
+  },
+  {
+    "cardId": 2304,
+    "level": 3,
+    "unitId": 2304,
+    "maxHp": 380,
+    "moveSpeed": 45,
+    "skillIds": [],
+    "attack": 50,
+    "attackRange": 232
+  },
+  {
+    "cardId": 2304,
+    "level": 4,
+    "unitId": 2304,
+    "maxHp": 390,
+    "moveSpeed": 46,
+    "skillIds": [],
+    "attack": 52,
+    "attackRange": 232
+  },
+  {
+    "cardId": 2304,
+    "level": 5,
+    "unitId": 2304,
+    "maxHp": 400,
+    "moveSpeed": 47,
+    "skillIds": [],
+    "attack": 54,
+    "attackRange": 232
+  },
+  {
+    "cardId": 2304,
+    "level": 6,
+    "unitId": 2304,
+    "maxHp": 410,
+    "moveSpeed": 48,
+    "skillIds": [],
+    "attack": 56,
+    "attackRange": 232
+  },
+  {
+    "cardId": 2304,
+    "level": 7,
+    "unitId": 2304,
+    "maxHp": 420,
+    "moveSpeed": 49,
+    "skillIds": [],
+    "attack": 58,
+    "attackRange": 232
+  },
+  {
+    "cardId": 2304,
+    "level": 8,
+    "unitId": 2304,
+    "maxHp": 430,
+    "moveSpeed": 50,
+    "skillIds": [],
+    "attack": 60,
+    "attackRange": 232
+  },
+  {
+    "cardId": 2304,
+    "level": 9,
+    "unitId": 2304,
+    "maxHp": 440,
+    "moveSpeed": 51,
+    "skillIds": [],
+    "attack": 62,
+    "attackRange": 232
+  },
+  {
+    "cardId": 2304,
+    "level": 10,
+    "unitId": 2304,
+    "maxHp": 450,
+    "moveSpeed": 52,
+    "skillIds": [],
+    "attack": 64,
+    "attackRange": 232
+  },
+  {
+    "cardId": 2305,
+    "level": 1,
+    "unitId": 2305,
+    "maxHp": 380,
+    "moveSpeed": 44,
+    "skillIds": [],
+    "attack": 48,
+    "attackRange": 236
+  },
+  {
+    "cardId": 2305,
+    "level": 2,
+    "unitId": 2305,
+    "maxHp": 390,
+    "moveSpeed": 45,
+    "skillIds": [],
+    "attack": 50,
+    "attackRange": 236
+  },
+  {
+    "cardId": 2305,
+    "level": 3,
+    "unitId": 2305,
+    "maxHp": 400,
+    "moveSpeed": 46,
+    "skillIds": [],
+    "attack": 52,
+    "attackRange": 236
+  },
+  {
+    "cardId": 2305,
+    "level": 4,
+    "unitId": 2305,
+    "maxHp": 410,
+    "moveSpeed": 47,
+    "skillIds": [],
+    "attack": 54,
+    "attackRange": 236
+  },
+  {
+    "cardId": 2305,
+    "level": 5,
+    "unitId": 2305,
+    "maxHp": 420,
+    "moveSpeed": 48,
+    "skillIds": [],
+    "attack": 56,
+    "attackRange": 236
+  },
+  {
+    "cardId": 2305,
+    "level": 6,
+    "unitId": 2305,
+    "maxHp": 430,
+    "moveSpeed": 49,
+    "skillIds": [],
+    "attack": 58,
+    "attackRange": 236
+  },
+  {
+    "cardId": 2305,
+    "level": 7,
+    "unitId": 2305,
+    "maxHp": 440,
+    "moveSpeed": 50,
+    "skillIds": [],
+    "attack": 60,
+    "attackRange": 236
+  },
+  {
+    "cardId": 2305,
+    "level": 8,
+    "unitId": 2305,
+    "maxHp": 450,
+    "moveSpeed": 51,
+    "skillIds": [],
+    "attack": 62,
+    "attackRange": 236
+  },
+  {
+    "cardId": 2305,
+    "level": 9,
+    "unitId": 2305,
+    "maxHp": 460,
+    "moveSpeed": 52,
+    "skillIds": [],
+    "attack": 64,
+    "attackRange": 236
+  },
+  {
+    "cardId": 2305,
+    "level": 10,
+    "unitId": 2305,
+    "maxHp": 470,
+    "moveSpeed": 53,
+    "skillIds": [],
+    "attack": 66,
+    "attackRange": 236
+  },
+  {
+    "cardId": 2306,
+    "level": 1,
+    "unitId": 2306,
+    "maxHp": 400,
+    "moveSpeed": 45,
+    "skillIds": [],
+    "attack": 50,
+    "attackRange": 240
+  },
+  {
+    "cardId": 2306,
+    "level": 2,
+    "unitId": 2306,
+    "maxHp": 410,
+    "moveSpeed": 46,
+    "skillIds": [],
+    "attack": 52,
+    "attackRange": 240
+  },
+  {
+    "cardId": 2306,
+    "level": 3,
+    "unitId": 2306,
+    "maxHp": 420,
+    "moveSpeed": 47,
+    "skillIds": [],
+    "attack": 54,
+    "attackRange": 240
+  },
+  {
+    "cardId": 2306,
+    "level": 4,
+    "unitId": 2306,
+    "maxHp": 430,
+    "moveSpeed": 48,
+    "skillIds": [],
+    "attack": 56,
+    "attackRange": 240
+  },
+  {
+    "cardId": 2306,
+    "level": 5,
+    "unitId": 2306,
+    "maxHp": 440,
+    "moveSpeed": 49,
+    "skillIds": [],
+    "attack": 58,
+    "attackRange": 240
+  },
+  {
+    "cardId": 2306,
+    "level": 6,
+    "unitId": 2306,
+    "maxHp": 450,
+    "moveSpeed": 50,
+    "skillIds": [],
+    "attack": 60,
+    "attackRange": 240
+  },
+  {
+    "cardId": 2306,
+    "level": 7,
+    "unitId": 2306,
+    "maxHp": 460,
+    "moveSpeed": 51,
+    "skillIds": [],
+    "attack": 62,
+    "attackRange": 240
+  },
+  {
+    "cardId": 2306,
+    "level": 8,
+    "unitId": 2306,
+    "maxHp": 470,
+    "moveSpeed": 52,
+    "skillIds": [],
+    "attack": 64,
+    "attackRange": 240
+  },
+  {
+    "cardId": 2306,
+    "level": 9,
+    "unitId": 2306,
+    "maxHp": 480,
+    "moveSpeed": 53,
+    "skillIds": [],
+    "attack": 66,
+    "attackRange": 240
+  },
+  {
+    "cardId": 2306,
+    "level": 10,
+    "unitId": 2306,
+    "maxHp": 490,
+    "moveSpeed": 54,
+    "skillIds": [],
+    "attack": 68,
+    "attackRange": 240
+  }
+]

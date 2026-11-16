@@ -20,6 +20,10 @@ public sealed class MainPanelLayout : MonoBehaviour {
 
     public RectTransform deckContent;
 
+    public RectTransform hangar;
+
+    public RectTransform powerHeader;
+
     public RectTransform library;
 
     public RectTransform battleButton;
@@ -100,13 +104,14 @@ public sealed class MainPanelLayout : MonoBehaviour {
         applying = true;
         try {
             Rect fit = PortraitGameViewport.FitRect(safe.size, new Vector2(720, 1280));
-            Vector2 origin = safe.min + fit.min;
+            Vector2 origin = safe.min + new Vector2(fit.xMin, 0f);
             float scale = fit.width / 720f;
-            float navHeight = 150f * scale;
+            float navHeight = 144f * scale;
             contentViewport.anchorMin = contentViewport.anchorMax = Vector2.zero;
             contentViewport.pivot = Vector2.zero;
-            contentViewport.sizeDelta = new Vector2(fit.width, fit.height - navHeight);
-            contentViewport.anchoredPosition = origin - root.rect.min + new Vector2(0, navHeight);
+            float bottom = origin.y - root.rect.yMin + navHeight;
+            contentViewport.sizeDelta = new Vector2(size.x, size.y - bottom);
+            contentViewport.anchoredPosition = new Vector2(0, bottom);
             navigation.anchorMin = Vector2.zero;
             navigation.anchorMax = Vector2.zero;
             navigation.pivot = new Vector2(0.5f, 0);
@@ -114,26 +119,50 @@ public sealed class MainPanelLayout : MonoBehaviour {
             navigation.anchoredPosition = origin - root.rect.min + new Vector2(fit.width * .5f, 0);
             navigationContent.anchorMin = navigationContent.anchorMax = new Vector2(0.5f, 0);
             navigationContent.pivot = new Vector2(0.5f, 0);
-            navigationContent.sizeDelta = new Vector2(720, 150);
+            navigationContent.sizeDelta = new Vector2(720, 144);
             navigationContent.anchoredPosition = Vector2.zero;
             navigationContent.localScale = Vector3.one * scale;
 
             foreach (RectTransform view in views) {
-                Stretch(view, Vector2.zero, Vector2.zero);
+                Vector2 viewportSize = contentViewport.sizeDelta;
+                view.anchorMin = new Vector2((origin.x - root.rect.xMin) / viewportSize.x, 0);
+                view.anchorMax = view.anchorMin + new Vector2(fit.width / viewportSize.x, (fit.height - navHeight) / viewportSize.y);
+                view.offsetMin = view.offsetMax = Vector2.zero;
             }
-            float contentHeight = 1130f;
+            float contentHeight = 1136f;
             deckContent.anchorMin = deckContent.anchorMax = new Vector2(0.5f, 1);
             deckContent.pivot = new Vector2(0.5f, 1);
             deckContent.sizeDelta = new Vector2(720, contentHeight);
             deckContent.anchoredPosition = Vector2.zero;
             deckContent.localScale = Vector3.one * scale;
-            library.sizeDelta = new Vector2(668, Mathf.Max(1, Mathf.Round(contentHeight - 693)));
+            if (hangar != null && powerHeader != null && scale > 0) {
+                // Keep the floor at the authored formation baseline and cover the exposed sky.
+                RectTransform stage = (RectTransform)hangar.parent;
+                float deckTop = origin.y + fit.height;
+                float stageTop = deckTop + stage.anchoredPosition.y * scale;
+                float rise = (root.rect.yMax - stageTop) / scale;
+                // Approved sky master: preserve the floor scale and extend/crop only upward.
+                Image hangarImage = hangar.GetComponent<Image>();
+                Vector2 sourceSize = hangarImage.sprite.rect.size;
+                float hangarCover = Mathf.Max(stage.rect.width / sourceSize.x, size.x / scale / sourceSize.x);
+                hangarCover = Mathf.Max(hangarCover, (stage.rect.height + rise) / sourceSize.y);
+                float width = sourceSize.x * hangarCover;
+                float height = sourceSize.y * hangarCover;
+                hangar.sizeDelta = new Vector2(width, height);
+                hangar.anchoredPosition = new Vector2((root.rect.center.x - origin.x) / scale - width * .5f, height - stage.rect.height);
+                powerHeader.anchoredPosition = new Vector2(powerHeader.anchoredPosition.x, (safe.yMax - deckTop) / scale - 16f);
+            }
 
-            battleButton.anchorMin = battleButton.anchorMax = new Vector2(0.5f, 459f / 1130f);
+            battleButton.anchorMin = battleButton.anchorMax = new Vector2(0.5f, 489f / 1160f);
             battleButton.pivot = new Vector2(0.5f, 0.5f);
             battleButton.anchoredPosition = Vector2.zero;
             battleButton.sizeDelta = new Vector2(480, 158);
             battleButton.localScale = Vector3.one * scale;
+            // 按压反馈使用布局后的基准比例，避免Update恢复Awake时的旧缩放。
+            GameButton battleFeedback = battleButton.GetComponent<GameButton>();
+            if (battleFeedback != null) {
+                battleFeedback.SetNormalScale(Vector3.one * scale);
+            }
 
             Image image = background.GetComponent<Image>();
             Vector2 source = image != null && image.sprite != null ? image.sprite.rect.size : new Vector2(720, 1130);
@@ -158,3 +187,5 @@ public sealed class MainPanelLayout : MonoBehaviour {
     }
 
 }
+
+

@@ -38,7 +38,7 @@ public static class BattleTerritoryValidation {
         return (BattleBuildingVO)typeof(BattleUnitProductionValidation).GetMethod("BuildProducer", BindingFlags.Static | BindingFlags.NonPublic).Invoke(null, new object[] { scene, camp });
     }
     public static void Validate() {
-        Check(CfgManager.tables.UnitObj.DataList.Where(u => u.Id >= 1101 && u.Id <= 1104).All(u => u.CanCaptureTerritory), "all current infantry can capture");
+        Check(CfgManager.tables.UnitObj.DataList.Where(u => u.Id == 1101).All(u => u.CanCaptureTerritory), "all current infantry can capture");
         foreach (int id in new[] { 1001, 1002 }) {
             CaptureAndContest(id);
             LongMovementAndEligibility(id);

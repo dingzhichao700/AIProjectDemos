@@ -1,0 +1,12 @@
+{
+  "targetThickness": 6,
+  "waterDepth": 18,
+  "totalDrop": 24,
+  "sideTopOverlapPixels": 0,
+  "waterAppearancesUnchanged": true,
+  "aboveGroundOffsetShift": true,
+  "exactVerticalSideExtrusion": 6,
+  "topOffset": -6,
+  "sourceGeometry": "standard vertices, common edges culled",
+  "runtimeModified": false
+}

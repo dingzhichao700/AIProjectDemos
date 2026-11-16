@@ -3,6 +3,7 @@
 Game Framework sample generated from the self-contained game-framework-toolchain template.
 
 - Open in Unity Hub: Project/
+- [配置表](配置表/) 与 [文档](文档/) 同级。
 - Project rules: AGENTS.md
 - Directory rules: 文档/规范/通用规范/目录与分包原则.md
 - Generated: 2026-10-17 16:47

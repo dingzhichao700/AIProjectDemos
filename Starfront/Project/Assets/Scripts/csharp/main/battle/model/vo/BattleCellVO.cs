@@ -1,4 +1,4 @@
-using cfg;
+﻿using cfg;
 using cfg.resource;
 using UnityEngine;
 
@@ -8,7 +8,7 @@ public sealed class BattleCellVO : SceneElementVO {
     public int q { get; }
     public int k { get; }
     public BattleSceneCamp camp { get; private set; }
-    public bool capturable => groundPassable && camp != BattleSceneCamp.ABSOLUTE_NEUTRAL;
+    public bool capturable => groundPassable && camp != BattleSceneCamp.ABSOLUTE_NEUTRAL && !ruined;
 
     internal bool TrySetCamp(BattleSceneCamp value) {
         if (!capturable || camp == value || (value != BattleSceneCamp.FRIENDLY && value != BattleSceneCamp.ENEMY)) {
@@ -19,6 +19,19 @@ public sealed class BattleCellVO : SceneElementVO {
     }
     public BattleSceneCellType type { get; }
     public CellUnlockResource unlockConfig { get; private set; }
+
+    public bool ruined { get; private set; }
+    public int ruinedBuildingId { get; private set; }
+
+    internal void MarkRuined(int buildingId, BattleSceneCamp destroyer) {
+        if (!groundPassable || camp == BattleSceneCamp.ABSOLUTE_NEUTRAL || ruined || !unlocked
+            || (destroyer != BattleSceneCamp.FRIENDLY && destroyer != BattleSceneCamp.ENEMY)) {
+            throw new System.InvalidOperationException("Invalid permanent ruin transition.");
+        }
+        camp = destroyer;
+        ruinedBuildingId = buildingId;
+        ruined = true;
+    }
 
     public int? unlockedCardId { get; private set; }
 

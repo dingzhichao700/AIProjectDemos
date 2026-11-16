@@ -13,8 +13,8 @@ public static class BattleEconomyValidation {
         try {
             var settings = AddressableAssetSettingsDefaultObject.Settings;
             var configGroup = settings.FindGroup("configData");
-            var sceneGroup = settings.FindGroup("scene");
-            Require(configGroup != null && sceneGroup != null, "configuration and scene groups exist");
+            var defaultGroup = settings.DefaultGroup;
+            Require(configGroup != null && defaultGroup != null, "configuration and default groups exist");
             Require(configGroup.GetSchema<BundledAssetGroupSchema>().BundleMode == BundledAssetGroupSchema.BundlePackingMode.PackSeparately, "configuration bundles remain separate");
             foreach (string name in ConfigManifest.Names) {
                 string path = ResourceConst.PATH_CONFIG + name + ".json";
@@ -22,7 +22,7 @@ public static class BattleEconomyValidation {
                 Require(!string.IsNullOrEmpty(guid), "configuration imported: " + path);
                 settings.CreateOrMoveEntry(guid, configGroup).address = path;
             }
-            const string animationRoot = "Assets/Art/frameAnimation/scene/Colonial/Infantry";
+            const string animationRoot = "Assets/Art/frameAnimation/default/Colonial/Infantry";
             foreach (string path in Directory.GetFiles(animationRoot)) {
                 if (path.EndsWith(".png")) {
                     var importer = (TextureImporter)AssetImporter.GetAtPath(path);
@@ -35,14 +35,14 @@ public static class BattleEconomyValidation {
                 if (path.EndsWith(".png") || path.EndsWith(".json")) {
                     string guid = AssetDatabase.AssetPathToGUID(path);
                     Require(!string.IsNullOrEmpty(guid), "animation imported: " + path);
-                    var entry = settings.CreateOrMoveEntry(guid, sceneGroup);
+                    var entry = settings.CreateOrMoveEntry(guid, defaultGroup);
                     entry.address = path.Replace('\\', '/');
-                    entry.SetLabel("Colonial", true, true);
+                    entry.SetLabel("main-content", true, true);
                 }
             }
             EditorUtility.SetDirty(settings);
             EditorUtility.SetDirty(configGroup);
-            EditorUtility.SetDirty(sceneGroup);
+            EditorUtility.SetDirty(defaultGroup);
             AssetDatabase.SaveAssets();
             BattleSceneRuntimeValidation.RunBatch();
         } catch (Exception exception) {
@@ -55,8 +55,8 @@ public static class BattleEconomyValidation {
     public static void ValidateLoadedConfiguration() {
         ResourcePolicyValidation.Validate();
         Require(CfgManager.tables.BattleStartObj.DataList.Count(start => start.SceneId == BattleConst.InitialSceneId) == 2, "two start records");
-        Require(CfgManager.tables.UnitObj.DataList.Count == 5, "four placeholder units");
-        Require(CfgManager.tables.UnitObj.DataList.Where(u => u.Id >= 1101 && u.Id <= 1104).All(unit => unit.Appearances.Count == 20 && unit.Appearances.Count(a => a.Action == cfg.UnitActionType.MOVE) == 5 && unit.Appearances.Count(a => a.Action == cfg.UnitActionType.IDLE) == 5 && unit.Appearances.Count(a => a.Action == cfg.UnitActionType.ATTACK_1) == 5 && unit.Appearances.Count(a => a.Action == cfg.UnitActionType.DEATH && !a.Loop) == 5), "four units each have five move, attack, idle and death records");
+        Require(CfgManager.tables.UnitObj.DataList.Count == 1 && CfgManager.tables.UnitObj.Get(1101) != null, "only configured infantry enters battle");
+        Require(CfgManager.tables.UnitObj.DataList.Where(u => u.Id == 1101).All(unit => unit.Appearances.Count == 20 && unit.Appearances.Count(a => a.Action == cfg.UnitActionType.MOVE) == 5 && unit.Appearances.Count(a => a.Action == cfg.UnitActionType.IDLE) == 5 && unit.Appearances.Count(a => a.Action == cfg.UnitActionType.ATTACK_1) == 5 && unit.Appearances.Count(a => a.Action == cfg.UnitActionType.DEATH && !a.Loop) == 5), "infantry has five move, attack, idle and death records");
         var scene = CfgManager.tables.BattleSceneObj.Get(BattleConst.InitialSceneId);
         var model = new BattleSceneModel(scene, CfgManager.tables.BattleSceneCellObj.DataList);
         model.InitializeBattle(CfgManager.tables);

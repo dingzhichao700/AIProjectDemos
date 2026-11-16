@@ -34,7 +34,7 @@ public static class BattleProjectileValidation {
         typeof(SceneElementVO).GetProperty("position").SetValue(unit, point);
     }
     public static void Validate() {
-        Check(CfgManager.tables.UnitObj.DataList.Where(u => u.Id >= 1101 && u.Id <= 1104).All(u => u.SearchRange == 240), "search range 240");
+        Check(CfgManager.tables.UnitObj.DataList.Where(u => u.Id == 1101).All(u => u.SearchRange == 240), "search range 240");
         Check(CfgManager.tables.SkillObj.Get(1101).CastRange == 180, "shooting range 180");
         foreach (int mode in Enumerable.Range(0, 6)) {
             var scene = Scene();
@@ -92,8 +92,8 @@ public static class BattleProjectileValidation {
 
     public static void ImportAssets() {
         var settings = AddressableAssetSettingsDefaultObject.Settings;
-        var group = settings.FindGroup("scene");
-        foreach (string path in new[] { "Assets/Art/unpack/scene/battle/projectile/RifleProjectile.png", "Assets/Art/frameAnimation/scene/battle/effect/RifleImpact.png", "Assets/Art/frameAnimation/scene/battle/effect/RifleImpact.json" }) {
+        var group = settings.DefaultGroup;
+        foreach (string path in new[] { "Assets/Art/unpack/default/battle/projectile/RifleProjectile.png", "Assets/Art/frameAnimation/default/battle/effect/RifleImpact.png", "Assets/Art/frameAnimation/default/battle/effect/RifleImpact.json" }) {
             AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceSynchronousImport);
             if (path.EndsWith(".png")) {
                 var importer = (TextureImporter)AssetImporter.GetAtPath(path);
@@ -114,7 +114,9 @@ public static class BattleProjectileValidation {
                 importer.SaveAndReimport();
                 Check(AssetDatabase.LoadAssetAtPath<Sprite>(path) != null, "sprite import");
             }
-            settings.CreateOrMoveEntry(AssetDatabase.AssetPathToGUID(path), group).SetAddress(path);
+            var combatEntry = settings.CreateOrMoveEntry(AssetDatabase.AssetPathToGUID(path), group);
+            combatEntry.address = path;
+            combatEntry.SetLabel("main-content", true, true);
         }
         EditorUtility.SetDirty(group);
         EditorUtility.SetDirty(settings);

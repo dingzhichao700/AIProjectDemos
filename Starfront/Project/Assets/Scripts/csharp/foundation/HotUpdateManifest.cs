@@ -6,6 +6,7 @@ using System;
 [Serializable]
 public class HotUpdateManifest {
 
+    public int uiRuntimeContract;
     public string baseVersion;
     public string release;
     public string resourceRoot;

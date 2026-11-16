@@ -11,6 +11,8 @@ public sealed class BattleScenePresentation : IDisposable {
         public SceneElementVO owner;
         public Vector2 position;
         public Sprite sprite;
+        public FrameAnimationRes animation;
+        public Vector2 framePivot;
         public Rect bounds;
         public RectTransform parent;
         public int layer;
@@ -25,7 +27,7 @@ public sealed class BattleScenePresentation : IDisposable {
         long decorationId = -1;
         foreach (var appearance in model.config.Appearances) {
             Vector2 anchor = model.GetCell(appearance.Anchor.Q, appearance.Anchor.K).position;
-            Add(decorationId--, anchor + new Vector2(appearance.Offset.X, appearance.Offset.Y), appearance.Resource, appearance.Layer, layers);
+            Add(decorationId--, anchor + new Vector2(appearance.Offset.X, appearance.Offset.Y), appearance.Resource, appearance.Layer, layers, null, appearance.ResourceType);
         }
         foreach (var building in model.buildings.Values) {
             foreach (var appearance in building.config.Appearances) {
@@ -41,19 +43,32 @@ public sealed class BattleScenePresentation : IDisposable {
         });
     }
 
-    private void Add(long id, Vector2 position, string resource, BattleSceneVisualLayer layer, RectTransform[] layers, SceneElementVO owner = null) {
-        Sprite sprite = ResourceManager.GetUnpackImage(BattleSceneResources.SpritePath(resource));
+    private void Add(long id, Vector2 position, string resource, BattleSceneVisualLayer layer, RectTransform[] layers, SceneElementVO owner = null, BattleSceneResourceType type = BattleSceneResourceType.STATIC_IMAGE) {
+        FrameAnimationRes animation = type == BattleSceneResourceType.FRAME_ANIMATION
+            ? FrameAnimationManager.GetRes(ResourceConst.GetFrameAnimationPath(resource)) : null;
+        if (type == BattleSceneResourceType.FRAME_ANIMATION && (animation == null || animation.totalDuration <= 0 || animation.sprites.Length == 0)) {
+            throw new InvalidOperationException("场景动画未就绪：" + resource);
+        }
+        Sprite sprite = animation != null ? animation.sprites[0] : ResourceManager.GetUnpackImage(BattleSceneResources.SpritePath(resource));
         int index = (int)layer - 1;
         if (sprite == null || index < 0 || index >= layers.Length || layers[index] == null) {
             throw new InvalidOperationException("场景资源未预加载或层级缺失：" + resource);
         }
         Vector2 pivot = sprite.pivot;
         Vector2 size = sprite.rect.size;
-        items.Add(new Item { id = id, owner = owner, position = position, sprite = sprite, parent = layers[index], layer = index, bounds = new Rect(position.x - pivot.x, position.y - (size.y - pivot.y), size.x, size.y) });
+        items.Add(new Item { id = id, owner = owner, position = position, sprite = sprite, animation = animation, framePivot = pivot, parent = layers[index], layer = index, bounds = new Rect(position.x - pivot.x, position.y - (size.y - pivot.y), size.x, size.y) });
     }
 
     public void Refresh(Rect visibleRect) {
         foreach (Item item in items) {
+            if (item.animation != null) {
+                // 场景时钟在离屏期间继续；重建表现或池化不重置周期。
+                int frame = item.animation.GetIndexByTime(Math.Max(0, RookieEngine.sceneTimer.curTime) % item.animation.totalDuration);
+                item.sprite = item.animation.sprites[frame];
+                item.framePivot = Vector2.Scale(item.animation.sourceSizes[frame], item.animation.pivot) - item.animation.frameOffsets[frame];
+                Vector2 size = item.sprite.rect.size;
+                item.bounds = new Rect(item.position.x - item.framePivot.x, item.position.y - (size.y - item.framePivot.y), size.x, size.y);
+            }
             bool visible = (item.owner == null || !item.owner.destroyed) && item.bounds.Overlaps(visibleRect, true);
             if (!visible) {
                 if (active.TryGetValue(item.id, out Image old)) {
@@ -82,6 +97,9 @@ public sealed class BattleScenePresentation : IDisposable {
                 rect.localScale = Vector3.one;
                 rect.localRotation = Quaternion.identity;
             }
+            image.sprite = item.sprite;
+            image.rectTransform.pivot = item.framePivot / item.sprite.rect.size;
+            image.rectTransform.sizeDelta = item.sprite.rect.size;
             image.transform.SetAsLastSibling();
         }
     }

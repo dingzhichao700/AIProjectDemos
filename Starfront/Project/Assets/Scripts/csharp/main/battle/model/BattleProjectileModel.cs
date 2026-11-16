@@ -22,8 +22,8 @@ public sealed class BattleProjectileModel : IDisposable {
 
     internal void Launch(BattleUnitVO source, BattleCombatantVO target, BattleSkillCastVO cast, LaunchProjectileEffect effect, double elapsedMs) {
         var config = CfgManager.tables.ProjectileObj.Get(effect.ProjectileId);
-        var point = source.config.FirePoints.Where(p => p.Action == cast.skill.config.Action && p.Direction == BattleAim.ResolveDirection(source.heading)).ElementAt(effect.FirePointIndex);
-        var offset = new Vector2(source.heading.x < 0 ? -point.Offset.X : point.Offset.X, point.Offset.Y - source.altitude);
+        var point = source.config.FirePoints.Where(p => p.Action == cast.skill.config.Action && p.Direction == BattleAim.ResolveDirection(source.displayHeading)).ElementAt(effect.FirePointIndex);
+        var offset = new Vector2(source.displayHeading.x < 0 ? -point.Offset.X : point.Offset.X, point.Offset.Y - source.altitude);
         var value = new BattleProjectileVO(++nextId, source, target, cast, config, effect.HitEffects.Cast<FixedDamageEffect>().Select(e => e.Amount).ToArray(), offset);
         active.Add(value.id, value);
         // 补偿的是本帧发射后的剩余时间，不能再推进整个帧长。

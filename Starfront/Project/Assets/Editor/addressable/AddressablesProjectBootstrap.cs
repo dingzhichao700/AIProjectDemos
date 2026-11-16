@@ -29,7 +29,7 @@ public static class AddressablesProjectBootstrap
         };
     }
 
-    /// <summary>等同 Window → Addressables → Create Addressables Settings，并补全五组。</summary>
+    /// <summary>等同 Window → Addressables → Create Addressables Settings，按已批准状态初始化需要的组。</summary>
     [MenuItem("Tools/Addressables/Create Addressables Settings")]
     public static void CreateAddressablesSettingsMenu()
     {

@@ -1,0 +1,26 @@
+[
+  {
+    "quality": 2,
+    "podium": "Assets/Art/atlasSource/default/cardCultivation/podium-green.png"
+  },
+  {
+    "quality": 3,
+    "podium": "Assets/Art/atlasSource/default/cardCultivation/podium-blue.png"
+  },
+  {
+    "quality": 4,
+    "podium": "Assets/Art/atlasSource/default/cardCultivation/podium-purple.png"
+  },
+  {
+    "quality": 5,
+    "podium": "Assets/Art/atlasSource/default/cardCultivation/podium-gold.png"
+  },
+  {
+    "quality": 6,
+    "podium": "Assets/Art/atlasSource/default/cardCultivation/podium-gold.png"
+  },
+  {
+    "quality": 1,
+    "podium": "Assets/Art/atlasSource/default/cardCultivation/podium-green.png"
+  }
+]

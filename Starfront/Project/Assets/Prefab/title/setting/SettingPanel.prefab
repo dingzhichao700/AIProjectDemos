@@ -895,7 +895,7 @@ MonoBehaviour:
   skinType: 0
   label: {fileID: 1837062049168032552}
   text: "\u91CD\u7F6E\u4E3A\u9ED8\u8BA4\u503C"
-  enableHoverScale: 1
+  enableHoverScale: 0
   disabledColorMultiplier: 0.5
 --- !u!114 &8319942044326415751
 MonoBehaviour:

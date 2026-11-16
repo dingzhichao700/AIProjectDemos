@@ -54,12 +54,12 @@ public sealed class BattleUnitDeathView : IDisposable {
     public void OnDied(BattleCombatEvent change) {
         if (change.type != BattleCombatEventType.Died || entries.ContainsKey(change.targetId)
             || !model.elements.TryGetValue(change.targetId, out var element) || !(element is BattleUnitVO unit)) return;
-        var direction = BattleAim.ResolveDirection(unit.heading);
+        var direction = BattleAim.ResolveDirection(unit.displayHeading);
         var appearance = unit.config.Appearances.Single(a => a.Action == UnitActionType.DEATH && a.Direction == direction);
         if (appearance.Loop) throw new InvalidOperationException("死亡动作禁止循环：" + unit.config.Id);
         string path = ResourceConst.GetFrameAnimationPath(appearance.Resource);
         var animation = FrameAnimationManager.GetRes(path) ?? throw new InvalidOperationException("死亡动作未预加载：" + path);
-        bool mirror = unit.heading.x < 0;
+        bool mirror = unit.displayHeading.x < 0;
         entries.Add(unit.id, new Corpse {
             animation = animation, holdMs = unit.visual.DeathHoldMs, fadeMs = unit.visual.DeathFadeMs,
             effect = string.IsNullOrWhiteSpace(unit.visual.DeathEffect) ? null : FrameAnimationManager.GetRes(ResourceConst.GetFrameAnimationPath(unit.visual.DeathEffect)),

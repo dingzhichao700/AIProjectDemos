@@ -16,6 +16,7 @@ public class LoginEntry : IGameModuleEntry {
         UnityEngine.Debug.Log("[Login] 业务程序集入口已启动。");
         ResourcePresentation.Install(new GameResourcePresentationPolicy());
         GameUIScreenRegions.Install();
+        GlobalToast.Shutdown();
         PersistentDataControl.ins.ReadUserSetting();
         SettingControl.ins.ApplyAllSettings();
         PanelMgr.ins.OpenPanel(UIEnum.OPENING_PANEL);

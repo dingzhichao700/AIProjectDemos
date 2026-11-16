@@ -34,8 +34,8 @@ public static class BattleSceneResources {
         result.Add(SpritePath(model.config.GroundResource));
         result.Add(SpritePath(model.config.GroundGridResource));
         foreach (var item in model.config.Appearances) {
-            if (item.ResourceType != BattleSceneResourceType.STATIC_IMAGE) {
-                throw new NotSupportedException("场景帧动画尚未接入：" + item.Resource);
+            if (item.ResourceType != BattleSceneResourceType.STATIC_IMAGE && item.ResourceType != BattleSceneResourceType.FRAME_ANIMATION) {
+                throw new NotSupportedException("未知场景外观类型：" + item.Resource);
             }
             if (model.GetCell(item.Anchor.Q, item.Anchor.K) == null) {
                 throw new InvalidOperationException("外观锚点格子不存在：" + item.Resource);
@@ -45,7 +45,10 @@ public static class BattleSceneResources {
                     throw new InvalidOperationException("外观关联格子不存在：" + item.Resource);
                 }
             }
-            result.Add(SpritePath(item.Resource));
+            string path = SpritePath(item.Resource);
+            if (item.ResourceType == BattleSceneResourceType.STATIC_IMAGE) {
+                result.Add(path);
+            }
         }
         foreach (var building in PredictableBuildings(model)) {
             bool hasMain = false;
@@ -65,13 +68,14 @@ public static class BattleSceneResources {
                 result.Add(SpritePath(CfgManager.tables.CardObj.Get(id).Image));
             }
         }
-        if (BattleConst.UnlockPulseSeconds <= 0 || BattleConst.UnlockMinAlpha < 0 || BattleConst.UnlockMinAlpha > 1 || BattleConst.InteractionHintSeconds <= 0) {
-            throw new InvalidOperationException("解锁表现常量非法。");
+        if (BattleConst.InteractionHintSeconds <= 0) {
+            throw new InvalidOperationException("Interaction hint duration must be positive.");
         }
         foreach (var rule in CfgManager.tables.CellUnlockObj.DataList) {
             result.Add(SpritePath(BattleConst.UnlockIconResource(rule.Id)));
         }
-        result.Add(SpritePath(BattleConst.UnlockGlowResource));
+        result.Add(SpritePath(BattleConst.FriendlyCoverageResource));
+        result.Add(SpritePath(BattleConst.EnemyCoverageResource));
         result.Add(SpritePath(BattleConst.UnlockCurrencyResource));
         result.Add(SpritePath(BattleConst.ProductionBackgroundResource));
         result.Add(SpritePath(BattleConst.ProductionFillResource));
@@ -106,7 +110,7 @@ public static class BattleSceneResources {
                 if (!(CfgManager.tables.CardObj.Get(cardId).Content is UnitCardContent card)) {
                     continue;
                 }
-                foreach (int skillId in CfgManager.tables.UnitObj.Get(card.UnitId).SkillIds) {
+                foreach (int skillId in CfgManager.tables.CardUnitLevelObj.Get(cardId, owner.cardLevels[cardId], card.UnitId).SkillIds) {
                     foreach (var effect in CfgManager.tables.SkillObj.Get(skillId).Effects.OfType<LaunchProjectileEffect>()) {
                         ids.Add(effect.ProjectileId);
                     }
@@ -118,6 +122,12 @@ public static class BattleSceneResources {
 
     public static HashSet<string> CollectAnimations(BattleSceneModel model) {
         var result = new HashSet<string>();
+        foreach (var appearance in model.config.Appearances) {
+            if (appearance.ResourceType == BattleSceneResourceType.FRAME_ANIMATION) {
+                SpritePath(appearance.Resource);
+                result.Add(ResourceConst.GetFrameAnimationPath(appearance.Resource));
+            }
+        }
         foreach (var owner in model.camps.Values) {
             foreach (int id in owner.cardIds) {
                 if (!(CfgManager.tables.CardObj.Get(id).Content is UnitCardContent card)) {
@@ -135,11 +145,17 @@ public static class BattleSceneResources {
                     SpritePath(visual.DeathEffect);
                     result.Add(ResourceConst.GetFrameAnimationPath(visual.DeathEffect));
                 }
-                foreach (var appearance in CfgManager.tables.UnitObj.Get(card.UnitId).Appearances) {
-                    // 与静态资源共用相同的相对路径检查，帧动画交由现有共享缓存持有。
-                    SpritePath(appearance.Resource);
-                    result.Add(ResourceConst.GetFrameAnimationPath(appearance.Resource));
-
+                var growth = CfgManager.tables.CardUnitLevelObj.Get(id, owner.cardLevels[id], card.UnitId);
+                var skillActions = growth.SkillIds.Select(skillId => CfgManager.tables.SkillObj.Get(skillId).Action);
+                var animations = new List<ResLoadInfo>();
+                string animationError = BattleCardResources.CollectRequiredUnitAnimations(unit, skillActions, animations);
+                if (!string.IsNullOrEmpty(animationError))
+                {
+                    throw new InvalidOperationException("单位预加载依赖不完整：" + unit.Id + "/" + animationError);
+                }
+                foreach (var animation in animations)
+                {
+                    result.Add(animation.path);
                 }
             }
         }

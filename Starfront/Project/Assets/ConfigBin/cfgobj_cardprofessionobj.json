@@ -1,0 +1,66 @@
+[
+  {
+    "cardId": 2101,
+    "profession": 1
+  },
+  {
+    "cardId": 2102,
+    "profession": 4
+  },
+  {
+    "cardId": 2103,
+    "profession": 3
+  },
+  {
+    "cardId": 2104,
+    "profession": 2
+  },
+  {
+    "cardId": 2105,
+    "profession": 1
+  },
+  {
+    "cardId": 2201,
+    "profession": 3
+  },
+  {
+    "cardId": 2202,
+    "profession": 2
+  },
+  {
+    "cardId": 2203,
+    "profession": 1
+  },
+  {
+    "cardId": 2204,
+    "profession": 4
+  },
+  {
+    "cardId": 2205,
+    "profession": 3
+  },
+  {
+    "cardId": 2301,
+    "profession": 2
+  },
+  {
+    "cardId": 2302,
+    "profession": 1
+  },
+  {
+    "cardId": 2303,
+    "profession": 4
+  },
+  {
+    "cardId": 2304,
+    "profession": 3
+  },
+  {
+    "cardId": 2305,
+    "profession": 2
+  },
+  {
+    "cardId": 2306,
+    "profession": 4
+  }
+]

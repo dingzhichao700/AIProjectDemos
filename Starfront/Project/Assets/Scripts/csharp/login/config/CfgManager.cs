@@ -43,6 +43,9 @@ public static class CfgManager {
         LoadTiming.Report("Config.TablesInit", watch);
     }
 
+    /**供配置加载前也可工作的表现组件判断就绪状态。*/
+    public static bool IsInitialized => _tables != null;
+
     public static Tables tables {
         get {
             if (_tables == null) {

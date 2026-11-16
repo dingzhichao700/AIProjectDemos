@@ -26,6 +26,14 @@ public sealed partial class CardResource : Luban.BeanBase
         { if(!_buf["content"].IsObject) { throw new SerializationException(); }  Content = global::cfg.bean.CardContent.DeserializeCardContent(_buf["content"]);  }
         { if(!_buf["fragmentItemId"].IsNumber) { throw new SerializationException(); }  FragmentItemId = _buf["fragmentItemId"]; }
         { if(!_buf["unlockWeight"].IsNumber) { throw new SerializationException(); }  UnlockWeight = _buf["unlockWeight"]; }
+        { if(!_buf["artId"].IsNumber) { throw new SerializationException(); }  ArtId = _buf["artId"]; }
+        { if(!_buf["tagId"].IsNumber) { throw new SerializationException(); }  TagId = _buf["tagId"]; }
+        { if(!_buf["maxLevel"].IsNumber) { throw new SerializationException(); }  MaxLevel = _buf["maxLevel"]; }
+        { if(!_buf["showInLibrary"].IsBoolean) { throw new SerializationException(); }  ShowInLibrary = _buf["showInLibrary"]; }
+        { if(!_buf["battleEnabled"].IsBoolean) { throw new SerializationException(); }  BattleEnabled = _buf["battleEnabled"]; }
+        { if(!_buf["qualityLabel"].IsString) { throw new SerializationException(); }  QualityLabel = _buf["qualityLabel"]; }
+        { if(!_buf["constructionCost"].IsNumber) { throw new SerializationException(); }  ConstructionCost = _buf["constructionCost"]; }
+        { if(!_buf["movementType"].IsNumber) { throw new SerializationException(); }  MovementType = (UnitMovementType)_buf["movementType"].AsInt; }
     }
 
     public static CardResource DeserializeCardResource(JSONNode _buf)
@@ -54,7 +62,7 @@ public sealed partial class CardResource : Luban.BeanBase
     /// </summary>
     public readonly Race Race;
     /// <summary>
-    /// 卡面资源
+    /// 旧战场反馈资源
     /// </summary>
     public readonly string Image;
     /// <summary>
@@ -66,9 +74,41 @@ public sealed partial class CardResource : Luban.BeanBase
     /// </summary>
     public readonly int FragmentItemId;
     /// <summary>
-    /// 同品质兵种卡解锁权重（正整数）
+    /// 战斗解锁权重
     /// </summary>
     public readonly int UnlockWeight;
+    /// <summary>
+    /// 美术条目ID
+    /// </summary>
+    public readonly int ArtId;
+    /// <summary>
+    /// 非功能标签ID
+    /// </summary>
+    public readonly int TagId;
+    /// <summary>
+    /// 独立最高等级
+    /// </summary>
+    public readonly int MaxLevel;
+    /// <summary>
+    /// 牌库展示
+    /// </summary>
+    public readonly bool ShowInLibrary;
+    /// <summary>
+    /// 战斗配置可用
+    /// </summary>
+    public readonly bool BattleEnabled;
+    /// <summary>
+    /// 显示品质名称
+    /// </summary>
+    public readonly string QualityLabel;
+    /// <summary>
+    /// 军事建筑建造费；可调初值，旧卡0=未配置
+    /// </summary>
+    public readonly int ConstructionCost;
+    /// <summary>
+    /// 设定移动类型；不自动开放战斗
+    /// </summary>
+    public readonly UnitMovementType MovementType;
    
     public const int __ID__ = -1218783938;
     public override int GetTypeId() => __ID__;
@@ -90,6 +130,14 @@ public sealed partial class CardResource : Luban.BeanBase
         + "content:" + Content + ","
         + "fragmentItemId:" + FragmentItemId + ","
         + "unlockWeight:" + UnlockWeight + ","
+        + "artId:" + ArtId + ","
+        + "tagId:" + TagId + ","
+        + "maxLevel:" + MaxLevel + ","
+        + "showInLibrary:" + ShowInLibrary + ","
+        + "battleEnabled:" + BattleEnabled + ","
+        + "qualityLabel:" + QualityLabel + ","
+        + "constructionCost:" + ConstructionCost + ","
+        + "movementType:" + MovementType + ","
         + "}";
     }
 }

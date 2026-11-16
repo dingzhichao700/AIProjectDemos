@@ -5,6 +5,8 @@ using TMPro;
 /// </summary>
 public class PerformanceMonitorView : BasePanel {
 
+    public override bool ReceivesPanelInput => false;
+
     /******************* UIComponent Define begin ************************/
     public TextMeshProUGUI txtInfo;
     /******************* UIComponent Define finish ************************/
@@ -14,6 +16,7 @@ public class PerformanceMonitorView : BasePanel {
     }
 
     override public void OnOpen() {
+        txtInfo.raycastTarget = false;
         AddLis();
     }
 

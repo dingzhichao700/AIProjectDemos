@@ -14,6 +14,7 @@ public class GameButtonEditor : Editor {
     SerializedProperty labelProp;
     SerializedProperty textProp;
     SerializedProperty enableHoverScaleProp;
+    SerializedProperty enablePressedScaleProp;
 
     void OnEnable() {
         interactableProp = serializedObject.FindProperty("_interactable");
@@ -23,6 +24,7 @@ public class GameButtonEditor : Editor {
         labelProp = serializedObject.FindProperty("label");
         textProp = serializedObject.FindProperty("text");
         enableHoverScaleProp = serializedObject.FindProperty("enableHoverScale");
+        enablePressedScaleProp = serializedObject.FindProperty("enablePressedScale");
     }
 
     public override void OnInspectorGUI() {
@@ -47,6 +49,7 @@ public class GameButtonEditor : Editor {
         // ==== 外观 ====
         EditorGUILayout.LabelField("外观", EditorStyles.boldLabel);
         EditorGUILayout.PropertyField(skinTypeProp, new GUIContent("按钮皮肤"));
+        EditorGUILayout.PropertyField(enablePressedScaleProp, new GUIContent("启用按下缩小效果"));
         if (enableHoverScaleProp != null) {
             EditorGUILayout.PropertyField(enableHoverScaleProp, new GUIContent("启用划过缩放效果"));
         }

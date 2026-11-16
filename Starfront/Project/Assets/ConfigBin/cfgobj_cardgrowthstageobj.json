@@ -1,0 +1,898 @@
+[
+  {
+    "cardId": 2101,
+    "id": 1,
+    "unlockLevel": 1,
+    "description": "单位生命值 +10",
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2101,
+    "id": 2,
+    "unlockLevel": 3,
+    "description": "建筑生命值 +30",
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2101,
+    "id": 3,
+    "unlockLevel": 5,
+    "description": "单位攻击力 +5%",
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2101,
+    "id": 4,
+    "unlockLevel": 7,
+    "description": "建筑生产时间 −5%",
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2101,
+    "id": 5,
+    "unlockLevel": 9,
+    "description": "单位移动速度 +1",
+    "sortOrder": 5
+  },
+  {
+    "cardId": 2101,
+    "id": 6,
+    "unlockLevel": 10,
+    "description": "单位攻击范围 +10",
+    "sortOrder": 6
+  },
+  {
+    "cardId": 2101,
+    "id": 7,
+    "unlockLevel": 10,
+    "description": "建筑生命值 +10%",
+    "sortOrder": 7
+  },
+  {
+    "cardId": 2101,
+    "id": 8,
+    "unlockLevel": 10,
+    "description": "单位攻击力 +10",
+    "sortOrder": 8
+  },
+  {
+    "cardId": 2102,
+    "id": 1,
+    "unlockLevel": 1,
+    "description": "单位生命值 +10",
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2102,
+    "id": 2,
+    "unlockLevel": 3,
+    "description": "建筑生命值 +30",
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2102,
+    "id": 3,
+    "unlockLevel": 5,
+    "description": "单位攻击力 +5%",
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2102,
+    "id": 4,
+    "unlockLevel": 7,
+    "description": "建筑生产时间 −5%",
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2102,
+    "id": 5,
+    "unlockLevel": 9,
+    "description": "单位移动速度 +1",
+    "sortOrder": 5
+  },
+  {
+    "cardId": 2102,
+    "id": 6,
+    "unlockLevel": 10,
+    "description": "单位攻击范围 +10",
+    "sortOrder": 6
+  },
+  {
+    "cardId": 2102,
+    "id": 7,
+    "unlockLevel": 10,
+    "description": "建筑生命值 +10%",
+    "sortOrder": 7
+  },
+  {
+    "cardId": 2102,
+    "id": 8,
+    "unlockLevel": 10,
+    "description": "单位攻击力 +10",
+    "sortOrder": 8
+  },
+  {
+    "cardId": 2103,
+    "id": 1,
+    "unlockLevel": 1,
+    "description": "单位生命值 +10",
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2103,
+    "id": 2,
+    "unlockLevel": 3,
+    "description": "建筑生命值 +30",
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2103,
+    "id": 3,
+    "unlockLevel": 5,
+    "description": "单位攻击力 +5%",
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2103,
+    "id": 4,
+    "unlockLevel": 7,
+    "description": "建筑生产时间 −5%",
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2103,
+    "id": 5,
+    "unlockLevel": 9,
+    "description": "单位移动速度 +1",
+    "sortOrder": 5
+  },
+  {
+    "cardId": 2103,
+    "id": 6,
+    "unlockLevel": 10,
+    "description": "单位攻击范围 +10",
+    "sortOrder": 6
+  },
+  {
+    "cardId": 2103,
+    "id": 7,
+    "unlockLevel": 10,
+    "description": "建筑生命值 +10%",
+    "sortOrder": 7
+  },
+  {
+    "cardId": 2103,
+    "id": 8,
+    "unlockLevel": 10,
+    "description": "单位攻击力 +10",
+    "sortOrder": 8
+  },
+  {
+    "cardId": 2104,
+    "id": 1,
+    "unlockLevel": 1,
+    "description": "单位生命值 +10",
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2104,
+    "id": 2,
+    "unlockLevel": 3,
+    "description": "建筑生命值 +30",
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2104,
+    "id": 3,
+    "unlockLevel": 5,
+    "description": "单位攻击力 +5%",
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2104,
+    "id": 4,
+    "unlockLevel": 7,
+    "description": "建筑生产时间 −5%",
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2104,
+    "id": 5,
+    "unlockLevel": 9,
+    "description": "单位移动速度 +1",
+    "sortOrder": 5
+  },
+  {
+    "cardId": 2104,
+    "id": 6,
+    "unlockLevel": 10,
+    "description": "单位攻击范围 +10",
+    "sortOrder": 6
+  },
+  {
+    "cardId": 2104,
+    "id": 7,
+    "unlockLevel": 10,
+    "description": "建筑生命值 +10%",
+    "sortOrder": 7
+  },
+  {
+    "cardId": 2104,
+    "id": 8,
+    "unlockLevel": 10,
+    "description": "单位攻击力 +10",
+    "sortOrder": 8
+  },
+  {
+    "cardId": 2105,
+    "id": 1,
+    "unlockLevel": 1,
+    "description": "单位生命值 +10",
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2105,
+    "id": 2,
+    "unlockLevel": 3,
+    "description": "建筑生命值 +30",
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2105,
+    "id": 3,
+    "unlockLevel": 5,
+    "description": "单位攻击力 +5%",
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2105,
+    "id": 4,
+    "unlockLevel": 7,
+    "description": "建筑生产时间 −5%",
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2105,
+    "id": 5,
+    "unlockLevel": 9,
+    "description": "单位移动速度 +1",
+    "sortOrder": 5
+  },
+  {
+    "cardId": 2105,
+    "id": 6,
+    "unlockLevel": 10,
+    "description": "单位攻击范围 +10",
+    "sortOrder": 6
+  },
+  {
+    "cardId": 2105,
+    "id": 7,
+    "unlockLevel": 10,
+    "description": "建筑生命值 +10%",
+    "sortOrder": 7
+  },
+  {
+    "cardId": 2105,
+    "id": 8,
+    "unlockLevel": 10,
+    "description": "单位攻击力 +10",
+    "sortOrder": 8
+  },
+  {
+    "cardId": 2201,
+    "id": 1,
+    "unlockLevel": 1,
+    "description": "单位生命值 +10",
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2201,
+    "id": 2,
+    "unlockLevel": 3,
+    "description": "建筑生命值 +30",
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2201,
+    "id": 3,
+    "unlockLevel": 5,
+    "description": "单位攻击力 +5%",
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2201,
+    "id": 4,
+    "unlockLevel": 7,
+    "description": "建筑生产时间 −5%",
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2201,
+    "id": 5,
+    "unlockLevel": 9,
+    "description": "单位移动速度 +1",
+    "sortOrder": 5
+  },
+  {
+    "cardId": 2201,
+    "id": 6,
+    "unlockLevel": 10,
+    "description": "单位攻击范围 +10",
+    "sortOrder": 6
+  },
+  {
+    "cardId": 2201,
+    "id": 7,
+    "unlockLevel": 10,
+    "description": "建筑生命值 +10%",
+    "sortOrder": 7
+  },
+  {
+    "cardId": 2201,
+    "id": 8,
+    "unlockLevel": 10,
+    "description": "单位攻击力 +10",
+    "sortOrder": 8
+  },
+  {
+    "cardId": 2202,
+    "id": 1,
+    "unlockLevel": 1,
+    "description": "单位生命值 +10",
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2202,
+    "id": 2,
+    "unlockLevel": 3,
+    "description": "建筑生命值 +30",
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2202,
+    "id": 3,
+    "unlockLevel": 5,
+    "description": "单位攻击力 +5%",
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2202,
+    "id": 4,
+    "unlockLevel": 7,
+    "description": "建筑生产时间 −5%",
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2202,
+    "id": 5,
+    "unlockLevel": 9,
+    "description": "单位移动速度 +1",
+    "sortOrder": 5
+  },
+  {
+    "cardId": 2202,
+    "id": 6,
+    "unlockLevel": 10,
+    "description": "单位攻击范围 +10",
+    "sortOrder": 6
+  },
+  {
+    "cardId": 2202,
+    "id": 7,
+    "unlockLevel": 10,
+    "description": "建筑生命值 +10%",
+    "sortOrder": 7
+  },
+  {
+    "cardId": 2202,
+    "id": 8,
+    "unlockLevel": 10,
+    "description": "单位攻击力 +10",
+    "sortOrder": 8
+  },
+  {
+    "cardId": 2203,
+    "id": 1,
+    "unlockLevel": 1,
+    "description": "单位生命值 +10",
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2203,
+    "id": 2,
+    "unlockLevel": 3,
+    "description": "建筑生命值 +30",
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2203,
+    "id": 3,
+    "unlockLevel": 5,
+    "description": "单位攻击力 +5%",
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2203,
+    "id": 4,
+    "unlockLevel": 7,
+    "description": "建筑生产时间 −5%",
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2203,
+    "id": 5,
+    "unlockLevel": 9,
+    "description": "单位移动速度 +1",
+    "sortOrder": 5
+  },
+  {
+    "cardId": 2203,
+    "id": 6,
+    "unlockLevel": 10,
+    "description": "单位攻击范围 +10",
+    "sortOrder": 6
+  },
+  {
+    "cardId": 2203,
+    "id": 7,
+    "unlockLevel": 10,
+    "description": "建筑生命值 +10%",
+    "sortOrder": 7
+  },
+  {
+    "cardId": 2203,
+    "id": 8,
+    "unlockLevel": 10,
+    "description": "单位攻击力 +10",
+    "sortOrder": 8
+  },
+  {
+    "cardId": 2204,
+    "id": 1,
+    "unlockLevel": 1,
+    "description": "单位生命值 +10",
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2204,
+    "id": 2,
+    "unlockLevel": 3,
+    "description": "建筑生命值 +30",
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2204,
+    "id": 3,
+    "unlockLevel": 5,
+    "description": "单位攻击力 +5%",
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2204,
+    "id": 4,
+    "unlockLevel": 7,
+    "description": "建筑生产时间 −5%",
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2204,
+    "id": 5,
+    "unlockLevel": 9,
+    "description": "单位移动速度 +1",
+    "sortOrder": 5
+  },
+  {
+    "cardId": 2204,
+    "id": 6,
+    "unlockLevel": 10,
+    "description": "单位攻击范围 +10",
+    "sortOrder": 6
+  },
+  {
+    "cardId": 2204,
+    "id": 7,
+    "unlockLevel": 10,
+    "description": "建筑生命值 +10%",
+    "sortOrder": 7
+  },
+  {
+    "cardId": 2204,
+    "id": 8,
+    "unlockLevel": 10,
+    "description": "单位攻击力 +10",
+    "sortOrder": 8
+  },
+  {
+    "cardId": 2205,
+    "id": 1,
+    "unlockLevel": 1,
+    "description": "单位生命值 +10",
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2205,
+    "id": 2,
+    "unlockLevel": 3,
+    "description": "建筑生命值 +30",
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2205,
+    "id": 3,
+    "unlockLevel": 5,
+    "description": "单位攻击力 +5%",
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2205,
+    "id": 4,
+    "unlockLevel": 7,
+    "description": "建筑生产时间 −5%",
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2205,
+    "id": 5,
+    "unlockLevel": 9,
+    "description": "单位移动速度 +1",
+    "sortOrder": 5
+  },
+  {
+    "cardId": 2205,
+    "id": 6,
+    "unlockLevel": 10,
+    "description": "单位攻击范围 +10",
+    "sortOrder": 6
+  },
+  {
+    "cardId": 2205,
+    "id": 7,
+    "unlockLevel": 10,
+    "description": "建筑生命值 +10%",
+    "sortOrder": 7
+  },
+  {
+    "cardId": 2205,
+    "id": 8,
+    "unlockLevel": 10,
+    "description": "单位攻击力 +10",
+    "sortOrder": 8
+  },
+  {
+    "cardId": 2301,
+    "id": 1,
+    "unlockLevel": 1,
+    "description": "单位生命值 +10",
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2301,
+    "id": 2,
+    "unlockLevel": 3,
+    "description": "建筑生命值 +30",
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2301,
+    "id": 3,
+    "unlockLevel": 5,
+    "description": "单位攻击力 +5%",
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2301,
+    "id": 4,
+    "unlockLevel": 7,
+    "description": "建筑生产时间 −5%",
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2301,
+    "id": 5,
+    "unlockLevel": 9,
+    "description": "单位移动速度 +1",
+    "sortOrder": 5
+  },
+  {
+    "cardId": 2301,
+    "id": 6,
+    "unlockLevel": 10,
+    "description": "单位攻击范围 +10",
+    "sortOrder": 6
+  },
+  {
+    "cardId": 2301,
+    "id": 7,
+    "unlockLevel": 10,
+    "description": "建筑生命值 +10%",
+    "sortOrder": 7
+  },
+  {
+    "cardId": 2301,
+    "id": 8,
+    "unlockLevel": 10,
+    "description": "单位攻击力 +10",
+    "sortOrder": 8
+  },
+  {
+    "cardId": 2302,
+    "id": 1,
+    "unlockLevel": 1,
+    "description": "单位生命值 +10",
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2302,
+    "id": 2,
+    "unlockLevel": 3,
+    "description": "建筑生命值 +30",
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2302,
+    "id": 3,
+    "unlockLevel": 5,
+    "description": "单位攻击力 +5%",
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2302,
+    "id": 4,
+    "unlockLevel": 7,
+    "description": "建筑生产时间 −5%",
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2302,
+    "id": 5,
+    "unlockLevel": 9,
+    "description": "单位移动速度 +1",
+    "sortOrder": 5
+  },
+  {
+    "cardId": 2302,
+    "id": 6,
+    "unlockLevel": 10,
+    "description": "单位攻击范围 +10",
+    "sortOrder": 6
+  },
+  {
+    "cardId": 2302,
+    "id": 7,
+    "unlockLevel": 10,
+    "description": "建筑生命值 +10%",
+    "sortOrder": 7
+  },
+  {
+    "cardId": 2302,
+    "id": 8,
+    "unlockLevel": 10,
+    "description": "单位攻击力 +10",
+    "sortOrder": 8
+  },
+  {
+    "cardId": 2303,
+    "id": 1,
+    "unlockLevel": 1,
+    "description": "单位生命值 +10",
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2303,
+    "id": 2,
+    "unlockLevel": 3,
+    "description": "建筑生命值 +30",
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2303,
+    "id": 3,
+    "unlockLevel": 5,
+    "description": "单位攻击力 +5%",
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2303,
+    "id": 4,
+    "unlockLevel": 7,
+    "description": "建筑生产时间 −5%",
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2303,
+    "id": 5,
+    "unlockLevel": 9,
+    "description": "单位移动速度 +1",
+    "sortOrder": 5
+  },
+  {
+    "cardId": 2303,
+    "id": 6,
+    "unlockLevel": 10,
+    "description": "单位攻击范围 +10",
+    "sortOrder": 6
+  },
+  {
+    "cardId": 2303,
+    "id": 7,
+    "unlockLevel": 10,
+    "description": "建筑生命值 +10%",
+    "sortOrder": 7
+  },
+  {
+    "cardId": 2303,
+    "id": 8,
+    "unlockLevel": 10,
+    "description": "单位攻击力 +10",
+    "sortOrder": 8
+  },
+  {
+    "cardId": 2304,
+    "id": 1,
+    "unlockLevel": 1,
+    "description": "单位生命值 +10",
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2304,
+    "id": 2,
+    "unlockLevel": 3,
+    "description": "建筑生命值 +30",
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2304,
+    "id": 3,
+    "unlockLevel": 5,
+    "description": "单位攻击力 +5%",
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2304,
+    "id": 4,
+    "unlockLevel": 7,
+    "description": "建筑生产时间 −5%",
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2304,
+    "id": 5,
+    "unlockLevel": 9,
+    "description": "单位移动速度 +1",
+    "sortOrder": 5
+  },
+  {
+    "cardId": 2304,
+    "id": 6,
+    "unlockLevel": 10,
+    "description": "单位攻击范围 +10",
+    "sortOrder": 6
+  },
+  {
+    "cardId": 2304,
+    "id": 7,
+    "unlockLevel": 10,
+    "description": "建筑生命值 +10%",
+    "sortOrder": 7
+  },
+  {
+    "cardId": 2304,
+    "id": 8,
+    "unlockLevel": 10,
+    "description": "单位攻击力 +10",
+    "sortOrder": 8
+  },
+  {
+    "cardId": 2305,
+    "id": 1,
+    "unlockLevel": 1,
+    "description": "单位生命值 +10",
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2305,
+    "id": 2,
+    "unlockLevel": 3,
+    "description": "建筑生命值 +30",
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2305,
+    "id": 3,
+    "unlockLevel": 5,
+    "description": "单位攻击力 +5%",
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2305,
+    "id": 4,
+    "unlockLevel": 7,
+    "description": "建筑生产时间 −5%",
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2305,
+    "id": 5,
+    "unlockLevel": 9,
+    "description": "单位移动速度 +1",
+    "sortOrder": 5
+  },
+  {
+    "cardId": 2305,
+    "id": 6,
+    "unlockLevel": 10,
+    "description": "单位攻击范围 +10",
+    "sortOrder": 6
+  },
+  {
+    "cardId": 2305,
+    "id": 7,
+    "unlockLevel": 10,
+    "description": "建筑生命值 +10%",
+    "sortOrder": 7
+  },
+  {
+    "cardId": 2305,
+    "id": 8,
+    "unlockLevel": 10,
+    "description": "单位攻击力 +10",
+    "sortOrder": 8
+  },
+  {
+    "cardId": 2306,
+    "id": 1,
+    "unlockLevel": 1,
+    "description": "单位生命值 +10",
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2306,
+    "id": 2,
+    "unlockLevel": 3,
+    "description": "建筑生命值 +30",
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2306,
+    "id": 3,
+    "unlockLevel": 5,
+    "description": "单位攻击力 +5%",
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2306,
+    "id": 4,
+    "unlockLevel": 7,
+    "description": "建筑生产时间 −5%",
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2306,
+    "id": 5,
+    "unlockLevel": 9,
+    "description": "单位移动速度 +1",
+    "sortOrder": 5
+  },
+  {
+    "cardId": 2306,
+    "id": 6,
+    "unlockLevel": 10,
+    "description": "单位攻击范围 +10",
+    "sortOrder": 6
+  },
+  {
+    "cardId": 2306,
+    "id": 7,
+    "unlockLevel": 10,
+    "description": "建筑生命值 +10%",
+    "sortOrder": 7
+  },
+  {
+    "cardId": 2306,
+    "id": 8,
+    "unlockLevel": 10,
+    "description": "单位攻击力 +10",
+    "sortOrder": 8
+  }
+]

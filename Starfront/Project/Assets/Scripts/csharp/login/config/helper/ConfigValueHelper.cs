@@ -12,18 +12,22 @@ using cfg;
 public static class ConfigValueHelper {
 
     private static readonly Dictionary<int, object> cache = new Dictionary<int, object>();
+    // Reuse static scalar parsers even on cache hits; method-group conversions allocate in this Unity compiler.
+    private static readonly Func<string, int> intParser = Parse<int>;
+    private static readonly Func<string, float> floatParser = Parse<float>;
+    private static readonly Func<string, string> stringParser = Parse<string>;
 
     /**按 ID 读取整数常量*/
     public static int GetInt(int id) {
-        return Read(id, ConfigValueType.NORMAL, Parse<int>);
+        return Read(id, ConfigValueType.NORMAL, intParser);
     }
     /**按 ID 读取浮点数常量*/
     public static float GetFloat(int id) {
-        return Read(id, ConfigValueType.NORMAL, Parse<float>);
+        return Read(id, ConfigValueType.NORMAL, floatParser);
     }
     /**按 ID 读取字符串常量*/
     public static string GetString(int id) {
-        return Read(id, ConfigValueType.NORMAL, Parse<string>);
+        return Read(id, ConfigValueType.NORMAL, stringParser);
     }
 
     /// <summary>

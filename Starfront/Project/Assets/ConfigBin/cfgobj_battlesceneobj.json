@@ -339,7 +339,7 @@
     "enemyBaseK": -10,
     "appearances": [
       {
-        "resourceType": 1,
+        "resourceType": 2,
         "resource": "scene/battle/1002/water_cluster_7",
         "layer": 2,
         "cells": [
@@ -382,7 +382,7 @@
         }
       },
       {
-        "resourceType": 1,
+        "resourceType": 2,
         "resource": "scene/battle/1002/water_single",
         "layer": 2,
         "cells": [
@@ -401,7 +401,7 @@
         }
       },
       {
-        "resourceType": 1,
+        "resourceType": 2,
         "resource": "scene/battle/1002/water_single",
         "layer": 2,
         "cells": [
@@ -420,7 +420,7 @@
         }
       },
       {
-        "resourceType": 1,
+        "resourceType": 2,
         "resource": "scene/battle/1002/water_cluster_7",
         "layer": 2,
         "cells": [
@@ -463,7 +463,7 @@
         }
       },
       {
-        "resourceType": 1,
+        "resourceType": 2,
         "resource": "scene/battle/1002/water_single",
         "layer": 2,
         "cells": [
@@ -497,7 +497,7 @@
         },
         "offset": {
           "x": 0,
-          "y": -10
+          "y": -6
         }
       },
       {
@@ -516,7 +516,7 @@
         },
         "offset": {
           "x": 0,
-          "y": -10
+          "y": -6
         }
       },
       {
@@ -535,7 +535,7 @@
         },
         "offset": {
           "x": 0,
-          "y": -10
+          "y": -6
         }
       },
       {
@@ -554,7 +554,7 @@
         },
         "offset": {
           "x": 0,
-          "y": -10
+          "y": -6
         }
       },
       {
@@ -573,7 +573,7 @@
         },
         "offset": {
           "x": 0,
-          "y": -10
+          "y": -6
         }
       },
       {
@@ -592,7 +592,7 @@
         },
         "offset": {
           "x": 0,
-          "y": -10
+          "y": -6
         }
       },
       {
@@ -611,7 +611,7 @@
         },
         "offset": {
           "x": 0,
-          "y": -10
+          "y": -6
         }
       },
       {
@@ -630,7 +630,7 @@
         },
         "offset": {
           "x": 0,
-          "y": -10
+          "y": -6
         }
       },
       {
@@ -649,7 +649,7 @@
         },
         "offset": {
           "x": 0,
-          "y": -10
+          "y": -6
         }
       },
       {
@@ -668,7 +668,7 @@
         },
         "offset": {
           "x": 0,
-          "y": -10
+          "y": -6
         }
       },
       {
@@ -687,7 +687,7 @@
         },
         "offset": {
           "x": 0,
-          "y": -10
+          "y": -6
         }
       },
       {
@@ -706,7 +706,7 @@
         },
         "offset": {
           "x": 0,
-          "y": -10
+          "y": -6
         }
       },
       {
@@ -725,7 +725,7 @@
         },
         "offset": {
           "x": 0,
-          "y": -10
+          "y": -6
         }
       },
       {
@@ -744,7 +744,7 @@
         },
         "offset": {
           "x": 0,
-          "y": -10
+          "y": -6
         }
       },
       {
@@ -763,7 +763,7 @@
         },
         "offset": {
           "x": 0,
-          "y": -10
+          "y": -6
         }
       },
       {
@@ -782,7 +782,7 @@
         },
         "offset": {
           "x": 0,
-          "y": -10
+          "y": -6
         }
       }
     ],
@@ -793,7 +793,7 @@
       "x": 0,
       "y": 0
     },
-    "groundThickness": 10,
+    "groundThickness": 6,
     "waterDepth": 18,
     "groundRed": "#AB5742",
     "groundBlue": "#527CA6",

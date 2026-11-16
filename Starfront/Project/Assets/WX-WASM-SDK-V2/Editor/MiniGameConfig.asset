@@ -19,8 +19,8 @@ MonoBehaviour:
     assetLoadType: 1
     compressDataPackage: 0
     VideoUrl: 
-    relativeDST: E:/UnityTemplateTest/Starfront/build/build_wechat_20261030150400374
-    DST: E:/UnityTemplateTest/Starfront/build/build_wechat_20261030150400374
+    relativeDST: E:/UnityTemplateTest/Starfront/build/build_wechat_20261117035600557
+    DST: E:/UnityTemplateTest/Starfront/build/build_wechat_20261117035600557
     StreamCDN: 
     bundleHashLength: 32
     bundlePathIdentifier: StreamingAssets;

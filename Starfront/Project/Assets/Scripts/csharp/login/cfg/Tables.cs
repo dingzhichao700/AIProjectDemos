@@ -94,6 +94,70 @@ public partial class Tables
     /// 单位共用形象参数
     /// </summary>
     public cfgObj.UnitVisualObj UnitVisualObj {get; }
+    /// <summary>
+    /// 卡牌美术显示资源；不创建业务卡牌
+    /// </summary>
+    public cfgObj.CardArtObj CardArtObj {get; }
+    /// <summary>
+    /// 卡牌非功能标签
+    /// </summary>
+    public cfgObj.CardTagObj CardTagObj {get; }
+    /// <summary>
+    /// 新玩家初始卡牌
+    /// </summary>
+    public cfgObj.PlayerInitialCardObj PlayerInitialCardObj {get; }
+    /// <summary>
+    /// 新玩家初始道具
+    /// </summary>
+    public cfgObj.PlayerInitialItemObj PlayerInitialItemObj {get; }
+    /// <summary>
+    /// 卡牌战斗等级参数
+    /// </summary>
+    public cfgObj.CardBuildingLevelObj CardBuildingLevelObj {get; }
+    /// <summary>
+    /// 卡牌战斗等级参数
+    /// </summary>
+    public cfgObj.CardUnitLevelObj CardUnitLevelObj {get; }
+    /// <summary>
+    /// 种族培养背景
+    /// </summary>
+    public cfgObj.CultivationRaceArtObj CultivationRaceArtObj {get; }
+    /// <summary>
+    /// 品质培养台座
+    /// </summary>
+    public cfgObj.CultivationQualityArtObj CultivationQualityArtObj {get; }
+    /// <summary>
+    /// 卡牌职业关联
+    /// </summary>
+    public cfgObj.CardProfessionObj CardProfessionObj {get; }
+    /// <summary>
+    /// 职业克制关系
+    /// </summary>
+    public cfgObj.CardProfessionCounterObj CardProfessionCounterObj {get; }
+    /// <summary>
+    /// 培养技能定义
+    /// </summary>
+    public cfgObj.CultivationSkillObj CultivationSkillObj {get; }
+    /// <summary>
+    /// 卡牌技能关联
+    /// </summary>
+    public cfgObj.CardSkillEntryObj CardSkillEntryObj {get; }
+    /// <summary>
+    /// 卡牌技能阶数
+    /// </summary>
+    public cfgObj.CardSkillRankObj CardSkillRankObj {get; }
+    /// <summary>
+    /// 卡牌成长阶段
+    /// </summary>
+    public cfgObj.CardGrowthStageObj CardGrowthStageObj {get; }
+    /// <summary>
+    /// 属性显示定义
+    /// </summary>
+    public cfgObj.AttributeDefinitionObj AttributeDefinitionObj {get; }
+    /// <summary>
+    /// 临时培养战力
+    /// </summary>
+    public cfgObj.CultivationPowerFormulaObj CultivationPowerFormulaObj {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
@@ -117,6 +181,22 @@ public partial class Tables
         ProjectileObj = new cfgObj.ProjectileObj(loader("cfgobj_projectileobj"));
         BattleAIProfileObj = new cfgObj.BattleAIProfileObj(loader("cfgobj_battleaiprofileobj"));
         UnitVisualObj = new cfgObj.UnitVisualObj(loader("cfgobj_unitvisualobj"));
+        CardArtObj = new cfgObj.CardArtObj(loader("cfgobj_cardartobj"));
+        CardTagObj = new cfgObj.CardTagObj(loader("cfgobj_cardtagobj"));
+        PlayerInitialCardObj = new cfgObj.PlayerInitialCardObj(loader("cfgobj_playerinitialcardobj"));
+        PlayerInitialItemObj = new cfgObj.PlayerInitialItemObj(loader("cfgobj_playerinitialitemobj"));
+        CardBuildingLevelObj = new cfgObj.CardBuildingLevelObj(loader("cfgobj_cardbuildinglevelobj"));
+        CardUnitLevelObj = new cfgObj.CardUnitLevelObj(loader("cfgobj_cardunitlevelobj"));
+        CultivationRaceArtObj = new cfgObj.CultivationRaceArtObj(loader("cfgobj_cultivationraceartobj"));
+        CultivationQualityArtObj = new cfgObj.CultivationQualityArtObj(loader("cfgobj_cultivationqualityartobj"));
+        CardProfessionObj = new cfgObj.CardProfessionObj(loader("cfgobj_cardprofessionobj"));
+        CardProfessionCounterObj = new cfgObj.CardProfessionCounterObj(loader("cfgobj_cardprofessioncounterobj"));
+        CultivationSkillObj = new cfgObj.CultivationSkillObj(loader("cfgobj_cultivationskillobj"));
+        CardSkillEntryObj = new cfgObj.CardSkillEntryObj(loader("cfgobj_cardskillentryobj"));
+        CardSkillRankObj = new cfgObj.CardSkillRankObj(loader("cfgobj_cardskillrankobj"));
+        CardGrowthStageObj = new cfgObj.CardGrowthStageObj(loader("cfgobj_cardgrowthstageobj"));
+        AttributeDefinitionObj = new cfgObj.AttributeDefinitionObj(loader("cfgobj_attributedefinitionobj"));
+        CultivationPowerFormulaObj = new cfgObj.CultivationPowerFormulaObj(loader("cfgobj_cultivationpowerformulaobj"));
         ResolveRef();
     }
     
@@ -142,6 +222,22 @@ public partial class Tables
         ProjectileObj.ResolveRef(this);
         BattleAIProfileObj.ResolveRef(this);
         UnitVisualObj.ResolveRef(this);
+        CardArtObj.ResolveRef(this);
+        CardTagObj.ResolveRef(this);
+        PlayerInitialCardObj.ResolveRef(this);
+        PlayerInitialItemObj.ResolveRef(this);
+        CardBuildingLevelObj.ResolveRef(this);
+        CardUnitLevelObj.ResolveRef(this);
+        CultivationRaceArtObj.ResolveRef(this);
+        CultivationQualityArtObj.ResolveRef(this);
+        CardProfessionObj.ResolveRef(this);
+        CardProfessionCounterObj.ResolveRef(this);
+        CultivationSkillObj.ResolveRef(this);
+        CardSkillEntryObj.ResolveRef(this);
+        CardSkillRankObj.ResolveRef(this);
+        CardGrowthStageObj.ResolveRef(this);
+        AttributeDefinitionObj.ResolveRef(this);
+        CultivationPowerFormulaObj.ResolveRef(this);
     }
 }
 

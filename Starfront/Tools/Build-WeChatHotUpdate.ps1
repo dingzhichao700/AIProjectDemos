@@ -2,6 +2,9 @@
 [CmdletBinding(SupportsShouldProcess = $true)]
 param(
     [ValidateSet('inspect', 'prepare', 'generate', 'export', 'content', 'publish')][string]$Action = 'content',
+    [string]$TransactionId,
+    [string]$Owner,
+    [string]$PythonExecutable = 'python',
     [string]$BuildReleaseSkillPath
 )
 $ErrorActionPreference = 'Stop'
@@ -12,4 +15,4 @@ if (!$BuildReleaseSkillPath) {
 $entry = Join-Path $BuildReleaseSkillPath 'scripts/Invoke-GameBuild.ps1'
 if (!(Test-Path -LiteralPath $entry)) { throw 'Install/link game-build-release or provide -BuildReleaseSkillPath. No request was submitted.' }
 $mapped = if ($Action -eq 'publish') { 'publish-local' } else { $Action }
-& $entry -ProjectPath (Join-Path $PSScriptRoot '../Project') -Action $mapped -WhatIf:$WhatIfPreference
+& $entry -ProjectPath (Join-Path $PSScriptRoot '../Project') -Action $mapped -TransactionId $TransactionId -Owner $Owner -PythonExecutable $PythonExecutable -WhatIf:$WhatIfPreference

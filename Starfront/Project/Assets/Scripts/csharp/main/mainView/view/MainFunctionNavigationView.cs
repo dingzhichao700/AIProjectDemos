@@ -16,17 +16,7 @@ public sealed class MainFunctionNavigationView {
 
     private readonly Dictionary<int, TMP_Text> labels = new Dictionary<int, TMP_Text>();
 
-    private readonly RectTransform root;
-
-    private readonly TMP_FontAsset font;
-
-    private GameObject hintBox;
-
-    private TMP_Text hintText;
-
     public MainFunctionNavigationView(MainPanel panel) {
-        root = panel.trans;
-        font = panel.txtNavBattleLabel.font;
         Image lockTemplate = panel.btnShop.transform.Find("imgShopLock").GetComponent<Image>();
         Bind(panel.btnShop, FunctionConst.Shop, "Shop", lockTemplate);
         Bind(panel.btnDeck, FunctionConst.Deck, "Deck", lockTemplate);
@@ -55,51 +45,17 @@ public sealed class MainFunctionNavigationView {
             bool unlocked = model.IsUnlocked(pair.Key);
             pair.Value.SetActive(!unlocked);
             icons[pair.Key].color = unlocked ? Color.white : new Color(0.55f, 0.55f, 0.55f, 1);
-            labels[pair.Key].text = model.GetConfig(pair.Key).Name;
+            labels[pair.Key].text = NavigationTitle(pair.Key, model.GetConfig(pair.Key).Name);
         }
     }
 
-    /**提示固定在导航上方；重复点击替换内容，切页或关闭时立即隐藏。*/
-    public void ShowHint(string message) {
-        if (hintBox == null) {
-            hintBox = new GameObject("boxFunctionHint", typeof(RectTransform), typeof(Image), typeof(Button));
-            RectTransform rect = (RectTransform)hintBox.transform;
-            rect.SetParent(root, false);
-            rect.anchorMin = new Vector2(0.5f, 0);
-            rect.anchorMax = rect.anchorMin;
-            rect.pivot = new Vector2(0.5f, 0);
-            rect.anchoredPosition = new Vector2(0, 170);
-            hintBox.GetComponent<Image>().color = new Color(0.025f, 0.06f, 0.09f, 0.97f);
-            hintBox.GetComponent<Button>().onClick.AddListener(HideHint);
-            GameObject textObject = new GameObject("txtFunctionHint", typeof(RectTransform), typeof(TextMeshProUGUI));
-            RectTransform textRect = (RectTransform)textObject.transform;
-            textRect.SetParent(rect, false);
-            textRect.anchorMin = Vector2.zero;
-            textRect.anchorMax = Vector2.one;
-            textRect.offsetMin = new Vector2(18, 14);
-            textRect.offsetMax = new Vector2(-18, -14);
-            hintText = textObject.GetComponent<TextMeshProUGUI>();
-            hintText.font = font;
-            hintText.fontSize = 24;
-            hintText.color = new Color(0.8f, 0.95f, 1);
-            hintText.alignment = TextAlignmentOptions.Center;
-            hintText.raycastTarget = false;
-            hintText.richText = false;
-        }
-        float width = Mathf.Min(540, root.rect.width - 40);
-        hintText.text = message;
-        float height = Mathf.Max(90, hintText.GetPreferredValues(message, width - 36, Mathf.Infinity).y + 28);
-        ((RectTransform)hintBox.transform).sizeDelta = new Vector2(width, Mathf.Ceil(height));
-        hintBox.transform.SetAsLastSibling();
-        hintBox.SetActive(true);
-        RookieEngine.timer.Clear(this, HideHint);
-        RookieEngine.timer.Once(this, 4000, HideHint);
-    }
-
-    public void HideHint() {
-        RookieEngine.timer.Clear(this, HideHint);
-        if (hintBox != null) {
-            hintBox.SetActive(false);
+    private static string NavigationTitle(int id, string fallback) {
+        switch (id) {
+            case FunctionConst.Deck: return "阵容";
+            case FunctionConst.Battle: return "竞技";
+            case FunctionConst.Territory: return "科技";
+            case FunctionConst.Ranking: return "联盟";
+            default: return fallback;
         }
     }
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.ObjectModel;
 
 /// <summary>Login 热更新模块拥有的配置预加载清单，与 Luban Tables 和数据同版本发布。</summary>
@@ -15,6 +15,10 @@ public static class ConfigManifest
         "cfgobj_battlesceneobj",
         "cfgobj_battlescenecellobj",
         "cfgobj_cardobj",
+        "cfgobj_cardartobj",
+        "cfgobj_cardtagobj",
+        "cfgobj_playerinitialcardobj",
+        "cfgobj_playerinitialitemobj",
         "cfgobj_buildingobj",
         "cfgobj_unitobj",
         "cfgobj_unitvisualobj",
@@ -22,10 +26,23 @@ public static class ConfigManifest
         "cfgobj_projectileobj",
         "cfgobj_unitproductionobj",
         "cfgobj_cardlevelobj",
+        "cfgobj_cardbuildinglevelobj",
+        "cfgobj_cardunitlevelobj",
         "cfgobj_battlestartobj",
         "cfgobj_battleaiprofileobj",
         "cfgobj_battledeckobj",
         "cfgobj_currencyproductionobj",
         "cfgobj_cellunlockobj",
+        "cfgobj_cultivationraceartobj",
+        "cfgobj_cultivationqualityartobj",
+        "cfgobj_cardprofessionobj",
+        "cfgobj_cardprofessioncounterobj",
+        "cfgobj_cultivationskillobj",
+        "cfgobj_cardskillentryobj",
+        "cfgobj_cardskillrankobj",
+        "cfgobj_cardgrowthstageobj",
+        "cfgobj_attributedefinitionobj",
+        "cfgobj_cultivationpowerformulaobj",
+
     });
 }

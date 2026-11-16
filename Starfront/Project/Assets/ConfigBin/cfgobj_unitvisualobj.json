@@ -8,11 +8,19 @@
     "deathEffect": ""
   },
   {
-    "id": 1201,
-    "name": "殖民军女妖战机",
-    "normalHeight": 44,
-    "deathHoldMs": 0,
-    "deathFadeMs": 0,
-    "deathEffect": "scene/battle/effect/GunshipAirExplosion"
+    "id": 2104,
+    "name": "幽灵（动作资源测试）",
+    "normalHeight": 48,
+    "deathHoldMs": 2000,
+    "deathFadeMs": 300,
+    "deathEffect": ""
+  },
+  {
+    "id": 2201,
+    "name": "蟑螂",
+    "normalHeight": 45.455006,
+    "deathHoldMs": 2000,
+    "deathFadeMs": 300,
+    "deathEffect": ""
   }
 ]

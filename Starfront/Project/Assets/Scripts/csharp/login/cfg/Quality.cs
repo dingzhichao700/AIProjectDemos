@@ -36,6 +36,10 @@ namespace cfg
         /// 传说
         /// </summary>
         LEGEND = 5,
+        /// <summary>
+        /// 参考图展示品质；本轮不赋予新单位战斗参数
+        /// </summary>
+        LEGEND_PLUS = 6,
     }
 
 } 

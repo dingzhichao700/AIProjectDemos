@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using TMPro;
 
@@ -51,7 +51,7 @@ public sealed class BattleSceneView : MonoBehaviour {
         sceneRoot.sizeDelta = new Vector2(scene.config.Width, scene.config.Height);
         ground = new BattleGroundView(scene, layers);
         presentation = new BattleScenePresentation(scene, layers);
-        unlockHints = new BattleUnlockView(scene, sceneRoot, lod, layers[(int)cfg.BattleSceneVisualLayer.GROUND_GUIDE - 1], hintFont);
+        unlockHints = new BattleUnlockView(scene, layers[(int)cfg.BattleSceneVisualLayer.GROUND_GUIDE - 1], hintFont);
         model.StructureChanged += OnStructureChanged;
         units = new BattleUnitView(scene, layers[(int)cfg.BattleSceneVisualLayer.ABOVE_GROUND - 1], layers[(int)cfg.BattleSceneVisualLayer.GROUND_SHADOW - 1]);
         projectiles = new BattleProjectileView(scene, layers[(int)cfg.BattleSceneVisualLayer.FOREGROUND - 1]);
@@ -72,6 +72,7 @@ public sealed class BattleSceneView : MonoBehaviour {
             input.ResetGesture();
             RefreshCamera();
         } else if (model != null) {
+            presentation.Refresh(sceneCamera.visibleRect);
             units.Refresh(sceneCamera.visibleRect);
         projectiles.Refresh(sceneCamera.visibleRect);
             health.Refresh(sceneCamera.visibleRect, zoom);
@@ -118,10 +119,6 @@ public sealed class BattleSceneView : MonoBehaviour {
         presentation.Dispose();
         presentation = new BattleScenePresentation(model, layers);
         RefreshCamera();
-    }
-
-    public void ShowInteractionHint(long cellId, string message) {
-        unlockHints?.ShowMessage(cellId, message);
     }
 
     public void Unbind() {

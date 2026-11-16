@@ -12,6 +12,9 @@ using UnityEngine;
 public sealed class FrameworkPlatformConfig {
 
     public string platform = "WeChat";
+
+    /**构建时固化到场景，开发测试须显式开启，缺省关闭。*/
+    public bool enableGM;
     public string bootstrapUrl;
     public string cdnRoot;
     public string appId;

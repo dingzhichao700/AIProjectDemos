@@ -9,11 +9,13 @@ using UnityEngine;
 /// <summary>电脑玩家只决定买哪格，通过公共业务入口提交；不预测抽卡或赠送货币。</summary>
 public sealed class BattleAIModel : IDisposable {
     private readonly BattleSceneModel scene;
+    private readonly Tables tables;
     private readonly Dictionary<BattleSceneCamp, BattleAIPlayerVO> players = new Dictionary<BattleSceneCamp, BattleAIPlayerVO>();
     public IReadOnlyDictionary<BattleSceneCamp, BattleAIPlayerVO> states { get; }
 
     internal BattleAIModel(BattleSceneModel scene, Tables tables) {
         this.scene = scene;
+        this.tables = tables;
         states = new ReadOnlyDictionary<BattleSceneCamp, BattleAIPlayerVO>(players);
         foreach (var owner in scene.camps.Values) {
             var start = owner.config;
@@ -89,8 +91,9 @@ public sealed class BattleAIModel : IDisposable {
                 collectors++;
             }
         }
-        bool needProducer = producers == 0 || collectors >= profile.TargetCollectors
-            || (collectors > 0 && producers < (long)collectors * profile.ProducersPerCollector);
+        bool hasUnits = state.owner.cardIds.Any(id => tables.CardObj.Get(id).Content is UnitCardContent);
+        bool needProducer = hasUnits && (producers == 0 || collectors >= profile.TargetCollectors
+            || (collectors > 0 && producers < (long)collectors * profile.ProducersPerCollector));
         var home = scene.buildings.Values.FirstOrDefault(b => b.alive && b.camp == camp && b.config.Type == BuildingType.BASE);
         var opponent = scene.buildings.Values.FirstOrDefault(b => b.alive && b.camp != camp && b.config.Type == BuildingType.BASE);
         if (home == null || opponent == null) {
@@ -100,7 +103,7 @@ public sealed class BattleAIModel : IDisposable {
         BattleCellVO selected = null;
         double best = double.NegativeInfinity;
         foreach (var cell in scene.cells.Values) {
-            if (!scene.unlocks.CanUnlock(cell.id, camp, out _) || state.owner.currency - cell.unlockConfig.Cost < profile.CurrencyReserve) {
+            if (!scene.unlocks.CanPlanUnlock(cell.id, camp, out _)) {
                 continue;
             }
             var rule = cell.unlockConfig;
@@ -117,11 +120,18 @@ public sealed class BattleAIModel : IDisposable {
             }
             double score = needChance * profile.NeedWeight + forward * profile.ForwardWeight
                 + expansion / (double)Math.Max(1, neighborCount) * profile.ExpansionWeight;
-            if (selected == null || score > best || (score == best && (rule.Cost < selected.unlockConfig.Cost
-                || (rule.Cost == selected.unlockConfig.Cost && cell.configId < selected.configId)))) {
+            if (selected == null || score > best || (score == best && (scene.unlocks.Cost(cell) < scene.unlocks.Cost(selected)
+                || (scene.unlocks.Cost(cell) == scene.unlocks.Cost(selected) && cell.configId < selected.configId)))) {
                 selected = cell;
                 best = score;
             }
+        }
+        // 先选目标再检查预算，避免便宜建筑不断消耗本应用来攒兵营的资金。
+        // 每次决策重新评估资格和分数，不锁住已失效的旧目标。
+        if (selected != null && (!scene.unlocks.CanUnlock(selected.id, camp, out _)
+            || state.owner.currency - scene.unlocks.Cost(selected) < profile.CurrencyReserve))
+        {
+            return null;
         }
         return selected;
     }

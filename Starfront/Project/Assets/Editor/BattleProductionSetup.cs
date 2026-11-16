@@ -38,7 +38,7 @@ public static class BattleProductionSetup {
                 throw new InvalidOperationException("Invalid request or editor PID.");
             }
             var settings = AddressableAssetSettingsDefaultObject.Settings;
-            var group = settings.FindGroup("scene");
+            var group = settings.DefaultGroup;
             foreach (string resource in new[] { BattleConst.ProductionBackgroundResource, BattleConst.ProductionFillResource }) {
                 string asset = BattleSceneResources.SpritePath(resource);
                 var importer = AssetImporter.GetAtPath(asset) as TextureImporter;
@@ -52,7 +52,7 @@ public static class BattleProductionSetup {
                 importer.SaveAndReimport();
                 var entry = settings.CreateOrMoveEntry(AssetDatabase.AssetPathToGUID(asset), group);
                 entry.address = asset;
-                entry.SetLabel("battle", true, true);
+                entry.SetLabel("main-content", true, true);
             }
             EditorUtility.SetDirty(group);
             EditorUtility.SetDirty(settings);

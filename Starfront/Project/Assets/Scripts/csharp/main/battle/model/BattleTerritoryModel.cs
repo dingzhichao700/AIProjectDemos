@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using cfg;
 using UnityEngine;
@@ -107,11 +107,36 @@ public sealed class BattleTerritoryModel {
         return low <= high;
     }
 
+    /**解锁只强占一圈，不递归；存活建筑、永久废墟与永久中立受保护。*/
+    internal void ExpandFrom(BattleCellVO origin, BattleSceneCamp camp) {
+        bool changed = false;
+        foreach (var cell in scene.GetNeighbors(origin)) {
+            if (!cell.capturable) {
+                continue;
+            }
+            bool protectedByEnemy = false;
+            foreach (var building in scene.buildings.Values) {
+                if (building.alive && building.cell == cell && building.camp != camp) {
+                    protectedByEnemy = true;
+                    break;
+                }
+            }
+            if (!protectedByEnemy) {
+                changed |= cell.TrySetCamp(camp);
+            }
+        }
+        if (changed) {
+            Changed?.Invoke();
+            scene.NotifyInformationChanged();
+        }
+    }
+
     internal void CaptureDestroyedBuilding(BattleBuildingVO building, BattleSceneCamp sourceCamp) {
         if (scene.expired || building.config.Type == BuildingType.BASE || building.hp > 0
-            || sourceCamp == building.camp || !building.cell.TrySetCamp(sourceCamp)) {
+            || sourceCamp == building.camp || building.cell.ruined) {
             return;
         }
+        building.cell.MarkRuined(building.config.Id, sourceCamp);
         Changed?.Invoke();
         scene.NotifyInformationChanged();
     }

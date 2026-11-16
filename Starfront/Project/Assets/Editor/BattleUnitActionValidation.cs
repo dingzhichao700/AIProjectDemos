@@ -25,13 +25,15 @@ public static class BattleUnitActionValidation {
 
     public static void RegisterAssets() {
         var settings = AddressableAssetSettingsDefaultObject.Settings;
-        var group = settings.FindGroup("scene");
+        var group = settings.DefaultGroup;
         foreach (string direction in new[] { "Up", "UpRight", "Right", "DownRight", "Down" }) {
-            string path = "Assets/Art/frameAnimation/scene/Colonial/Infantry/Idle_" + direction;
+            string path = "Assets/Art/frameAnimation/default/Colonial/Infantry/Idle_" + direction;
             foreach (string ext in new[] { ".png", ".json" }) {
                 AssetDatabase.ImportAsset(path + ext, ImportAssetOptions.ForceSynchronousImport);
                 Check(AssetDatabase.LoadMainAssetAtPath(path + ext) != null, "idle asset exists");
-                settings.CreateOrMoveEntry(AssetDatabase.AssetPathToGUID(path + ext), group).SetAddress(path + ext);
+                var combatEntry = settings.CreateOrMoveEntry(AssetDatabase.AssetPathToGUID(path + ext), group);
+                combatEntry.address = path + ext;
+                combatEntry.SetLabel("main-content", true, true);
             }
         }
         EditorUtility.SetDirty(settings);

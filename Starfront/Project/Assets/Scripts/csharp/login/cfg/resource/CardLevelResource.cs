@@ -19,7 +19,8 @@ public sealed partial class CardLevelResource : Luban.BeanBase
     {
         { if(!_buf["cardId"].IsNumber) { throw new SerializationException(); }  CardId = _buf["cardId"]; }
         { if(!_buf["level"].IsNumber) { throw new SerializationException(); }  Level = _buf["level"]; }
-        { var __json0 = _buf["upgradeCost"]; if(!__json0.IsArray) { throw new SerializationException(); } UpgradeCost = new System.Collections.Generic.List<bean.ItemCost>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { bean.ItemCost __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = global::cfg.bean.ItemCost.DeserializeItemCost(__e0);  }  UpgradeCost.Add(__v0); }   }
+        { if(!_buf["fragmentCount"].IsNumber) { throw new SerializationException(); }  FragmentCount = _buf["fragmentCount"]; }
+        { var __json0 = _buf["extraCosts"]; if(!__json0.IsArray) { throw new SerializationException(); } ExtraCosts = new System.Collections.Generic.List<bean.ItemCost>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { bean.ItemCost __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = global::cfg.bean.ItemCost.DeserializeItemCost(__e0);  }  ExtraCosts.Add(__v0); }   }
     }
 
     public static CardLevelResource DeserializeCardLevelResource(JSONNode _buf)
@@ -32,20 +33,24 @@ public sealed partial class CardLevelResource : Luban.BeanBase
     /// </summary>
     public readonly int CardId;
     /// <summary>
-    /// 当前等级
+    /// 升到的目标等级
     /// </summary>
     public readonly int Level;
     /// <summary>
-    /// 升至下一级消耗
+    /// 升到该级所需本卡碎片
     /// </summary>
-    public readonly System.Collections.Generic.List<bean.ItemCost> UpgradeCost;
+    public readonly int FragmentCount;
+    /// <summary>
+    /// 额外道具/局外货币消耗
+    /// </summary>
+    public readonly System.Collections.Generic.List<bean.ItemCost> ExtraCosts;
    
     public const int __ID__ = -1524487038;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        foreach (var _e in UpgradeCost) { _e?.ResolveRef(tables); }
+        foreach (var _e in ExtraCosts) { _e?.ResolveRef(tables); }
     }
 
     public override string ToString()
@@ -53,7 +58,8 @@ public sealed partial class CardLevelResource : Luban.BeanBase
         return "{ "
         + "cardId:" + CardId + ","
         + "level:" + Level + ","
-        + "upgradeCost:" + Luban.StringUtil.CollectionToString(UpgradeCost) + ","
+        + "fragmentCount:" + FragmentCount + ","
+        + "extraCosts:" + Luban.StringUtil.CollectionToString(ExtraCosts) + ","
         + "}";
     }
 }

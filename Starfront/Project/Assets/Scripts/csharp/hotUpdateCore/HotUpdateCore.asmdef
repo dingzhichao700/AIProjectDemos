@@ -1,0 +1,11 @@
+{
+  "name": "HotUpdateCore",
+  "references": [
+    "Foundation",
+    "Unity.TextMeshPro",
+    "Unity.ugui",
+    "DOTween.Modules"
+  ],
+  "includePlatforms": [],
+  "autoReferenced": false
+}

@@ -1,0 +1,985 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: default
+  m_EditorClassIdentifier: 
+  m_GroupName: default
+  m_Data:
+    m_SerializedData: []
+  m_GUID: b5340d4603609da4eaab34db6e750f47
+  m_SerializeEntries:
+  - m_GUID: 015c0b5f392c5286b71ff9def16e32bb
+    m_Address: Assets/Art/unpack/default/skillIcons/230603.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0611b6ecd0665dc48c051e0e6fc67664
+    m_Address: Assets/Art/unpack/default/skillIcons/230504.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 087ae3a62a2a74c41ab49abb76b30d71
+    m_Address: Assets/Art/unpack/default/sharedPower/power-missing.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_power
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d7fc8248622572a9ccc02028a38531e
+    m_Address: Assets/Art/unpack/default/skillIcons/230301.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 124319083b58583a8d344cc9f6ecd5bd
+    m_Address: Assets/Art/unpack/default/skillIcons/210203.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 128bfe2e95432b54cb28b74eeeffbe9b
+    m_Address: Assets/Art/unpack/default/playerMatching/ui-bitmap-identity-strip.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 144973bfe4725804083b78a722e16b78
+    m_Address: Assets/Art/unpack/default/playerMatching/avatar-portrait.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 14c99c607f1d5c709dc6e6f48d9b8d7a
+    m_Address: Assets/Art/unpack/default/skillIcons/230204.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 165e50e47846b9649a4e9d184a93dfbc
+    m_Address: Assets/Prefab/default/playerMatching/PlayerMatchingPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 17810cdfa503572fb730fc3f473cdc4e
+    m_Address: Assets/Art/unpack/default/skillIcons/210104.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 17ffa4d734f27b147baae11b06be8d02
+    m_Address: Assets/Prefab/default/playerMatching/components/Team_enemy_full.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c86561612879ed479c0fe88b0961abe
+    m_Address: Assets/Art/unpack/default/playerMatching/background-space.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e09e7e9d329f9e4684893a95148b35c
+    m_Address: Assets/Art/unpack/default/playerMatching/ui-bitmap-search-arc-42.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1fcc12081ac6cfa40b8fdff5c590364a
+    m_Address: Assets/Art/unpack/default/sharedPower/power-digit-1.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_power
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 217f14a524ab0b14fb92ce4df9dd2f69
+    m_Address: Assets/Art/unpack/default/playerMatching/cost-base.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 219c9d88540385d4fb8fb2e7abb1c011
+    m_Address: Assets/Art/unpack/default/itemIcons/12204.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22032f72ce7fcc8409db87e70e8734f0
+    m_Address: Assets/Prefab/default/playerMatching/components/Header.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23b78dde8e1559729fc2aa2d62bb5377
+    m_Address: Assets/Art/unpack/default/skillIcons/230201.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 261d8650dbd05a40841a817ce455b092
+    m_Address: Assets/Art/unpack/default/skillIcons/220202.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 269562b9d61b51cc89e09cd4e8db7ae9
+    m_Address: Assets/Art/unpack/default/skillIcons/230401.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 282f6abef55976645b57ebaa4f1ce39b
+    m_Address: Assets/Art/frameAnimation/default/mainView/formationEvents/frigate-rear.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_formationEvents
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2934ef970d0b54b8b8b0885bb75684c7
+    m_Address: Assets/Art/unpack/default/skillIcons/220504.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b892b85ecc74ca4a8b1ae155e7f4e58
+    m_Address: Assets/Art/frameAnimation/default/mainView/formationEvents/meteor.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_formationEvents
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2bec56f84aea8994b8be0281c8544558
+    m_Address: Assets/Art/unpack/default/playerMatching/ui-bitmap-progress-fill.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2cfee9bccb8a55e9a255530f409b58f1
+    m_Address: Assets/Art/unpack/default/skillIcons/210402.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e67eb4b5b5e7014aa84618393db5aec
+    m_Address: Assets/Art/unpack/default/itemIcons/12304.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f1dfc046bf452b7ba4514d3ca626fce
+    m_Address: Assets/Art/unpack/default/skillIcons/210403.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30c911dceac635348ae3954f6b0fa585
+    m_Address: Assets/Prefab/default/playerMatching/components/MatchContent_entering.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34d0127a37f25402a89c092192c3a643
+    m_Address: Assets/Art/unpack/default/skillIcons/230303.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35f387b9199757e5b225f9c9fc978629
+    m_Address: Assets/Art/unpack/default/skillIcons/220404.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 364e83cc8fd431244a1be014eb3d5148
+    m_Address: Assets/Prefab/default/playerMatching/components/MatchContent_search.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37d794c15f3f23c4794606a990f7db6a
+    m_Address: Assets/Prefab/default/playerMatching/components/MatchContent_empty.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 388051e24cc16f348bb3dffb284ba1cb
+    m_Address: Assets/Art/unpack/default/sharedPower/power-digit-9.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_power
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3988dd36496302043bff1615214b1ac5
+    m_Address: Assets/Art/unpack/default/sharedPower/power-digit-3.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_power
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39b2465584e753469701e3510cfbd4ba
+    m_Address: Assets/Art/unpack/default/skillIcons/230302.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a761d8cdc2157bcae1838fdf98e838c
+    m_Address: Assets/Art/unpack/default/skillIcons/210301.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ad91d8570ab5496ad9e99cb434bb44f
+    m_Address: Assets/Art/unpack/default/skillIcons/230202.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3bdf7909314ba794f93edcf5e6b8945c
+    m_Address: Assets/Art/unpack/default/sharedPower/power-digit-8.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_power
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d7f95b827aa30742b18a421a4aebcfb
+    m_Address: Assets/Prefab/default/playerMatching/components/MatchContent_partial.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e2e94b424a75ab08fdc191db332e310
+    m_Address: Assets/Art/unpack/default/skillIcons/210202.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41d28251afc259439dc404cedde54c3b
+    m_Address: Assets/Art/unpack/default/skillIcons/210302.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 448d00cac13acb84d9e23b787fc1710c
+    m_Address: Assets/Prefab/default/playerMatching/components/Card_Base.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4501ea12590c4734e82ed3b53be774f5
+    m_Address: Assets/Art/unpack/default/sharedPower/power-digit-5.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_power
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 481dcffbddfd71d49a308e0c67f8147d
+    m_Address: Assets/Prefab/default/playerMatching/components/MatchContent_countdown.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 489c6106461c5be6857c5a33af385cd8
+    m_Address: Assets/Art/unpack/default/skillIcons/220104.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a862bd1f5935a2d801d1d7d962e17b1
+    m_Address: Assets/Art/unpack/default/skillIcons/220201.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4af828efcd0a54899e7ce822baca6d02
+    m_Address: Assets/Art/unpack/default/skillIcons/220103.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b5268cec6d1f754d93b2fb906a16744
+    m_Address: Assets/Prefab/default/playerMatching/components/MatchContent_preparing.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b7e0d71499e10d4c8c39498fce8538d
+    m_Address: Assets/Art/unpack/default/sharedPower/power-digit-2.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_power
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4bd7df2ecfc398d43bff1c67dcd154ed
+    m_Address: Assets/Art/skeletalAnimation/default/cardDisplayAnimation/2102/display/body.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - display_2102_display
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4cf46e128a7df5841aa500eed3aaae3a
+    m_Address: Assets/Art/unpack/default/itemIcons/2003.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4dcc9663447611446988553442a1c5ed
+    m_Address: Assets/Art/unpack/default/sharedPower/power-digit-4.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_power
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f1bdbbb534fc8649938dc72fab5e94f
+    m_Address: Assets/Art/unpack/default/playerMatching/ui-bitmap-title-rule.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52b2918569645824a23a4ac00b3795e3
+    m_Address: Assets/Art/unpack/default/skillIcons/220101.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5526392789c458468806c672ab9fc4c9
+    m_Address: Assets/Art/unpack/default/skillIcons/210102.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 557c2d9cb79c5e6f9cc60e8b1617ce9b
+    m_Address: Assets/Art/unpack/default/skillIcons/230403.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 55f466aa03e559a7ae0a54a943acf8a3
+    m_Address: Assets/Art/unpack/default/skillControls/skillFrameSquareRim.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_skillControls
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58f7b2d98faa6b441898ad65580a40ea
+    m_Address: Assets/Prefab/default/playerMatching/components/MatchContent_excluded.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5916d6f2386c5fb782c94cea688f0365
+    m_Address: Assets/Art/unpack/default/skillIcons/210201.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a3fce80a1f8a384191c3b316fe5014f
+    m_Address: Assets/Art/unpack/default/sharedPower/ui-power-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_power
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ac9c5c038238a549a7d185d99eb7aa0
+    m_Address: Assets/Prefab/default/playerMatching/components/Team_friendly_full.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c7334d656fd16543932d3eeee60c2f9
+    m_Address: Assets/Art/unpack/default/playerMatching/button-base.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5dcd99c7c53a0f64f9c827e9b1bc58e0
+    m_Address: Assets/Art/unpack/default/playerMatching/ui-bitmap-progress-track-measured.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63b30689169bcf346b0abf0bb5bc7156
+    m_Address: Assets/Art/skeletalAnimation/default/cardDisplayAnimation/2102/display/thruster-left.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - display_2102_display
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 659cd3dcbda3fb242b221d38f8dc4da5
+    m_Address: Assets/Art/frameAnimation/default/mainView/formationEvents/meteor.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_formationEvents
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6661d49300773a241b94730dd2495fdf
+    m_Address: Assets/Art/unpack/default/playerMatching/card-information.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66f2ed6158573bc47abf37716a85320a
+    m_Address: Assets/Art/unpack/default/itemIcons/12303.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68c7fdc66ec30a543bc4a8fdbb57ecba
+    m_Address: Assets/Prefab/default/cardDisplayAnimation/2102/display/MedivacDisplayRig.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - display_2102_display
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69151e4ac3a4ab04481a679a92915788
+    m_Address: Assets/Art/frameAnimation/default/mainView/formationBackground/star.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_formationBackground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6ca65d2bd93553b5ac531cfd89dd064d
+    m_Address: Assets/Art/unpack/default/skillIcons/230103.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d0270f96263572b83edcef3dcbf4799
+    m_Address: Assets/Art/unpack/default/skillIcons/220304.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d0762a916605b72b3ffa15f8fe3f452
+    m_Address: Assets/Art/unpack/default/skillIcons/210204.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e29a9de146c50979866f779b948d117
+    m_Address: Assets/Art/unpack/default/skillIcons/220501.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 70fd202fa076533fb052b604e04e37fd
+    m_Address: Assets/Art/unpack/default/skillIcons/210501.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7171ca70f92e57e38df035062dc3671d
+    m_Address: Assets/Art/unpack/default/skillIcons/220402.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7626df840e3ccf54d9b0a0cc78bce248
+    m_Address: Assets/Art/unpack/default/playerMatching/ui-bitmap-title-accent.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 763dc8d96232542fa289e6f67829ea99
+    m_Address: Assets/Art/unpack/default/skillIcons/230104.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 788ba59efd165e278db1e619a9cb0616
+    m_Address: Assets/Art/unpack/default/skillIcons/230501.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 789d353859293ee4c972f3a16eb4c421
+    m_Address: Assets/Art/unpack/default/itemIcons/12202.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 796f495ce55c15e49b193cf16d486b43
+    m_Address: Assets/Art/unpack/default/sharedPower/power-digit-0.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_power
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79cc06ae47e28ef4eaed0ee130a45eb0
+    m_Address: Assets/Art/unpack/default/itemIcons/12306.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d2783e6492c13e4095a7e9fe9abe59e
+    m_Address: Assets/Art/unpack/default/itemIcons/12101.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d6158255f063c041b0af4f0ede7fca5
+    m_Address: Assets/Art/material/default/sharedRender/DeckLockedFrame.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_cardControls
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 818b585be76aced40b2f7d0031679310
+    m_Address: Assets/Art/unpack/default/itemIcons/12102.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 818f7c724c7f40d47af3657900732959
+    m_Address: Assets/Art/unpack/default/itemIcons/12301.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83958f96aff557ab97da305f22a196d1
+    m_Address: Assets/Art/unpack/default/skillIcons/210504.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 857485cc5ce4b9f4a88df471c5943be0
+    m_Address: Assets/Prefab/default/playerMatching/components/Team_enemy_excluded.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 85ea9ee90cdf57c591fee201b004bded
+    m_Address: Assets/Art/unpack/default/skillIcons/210303.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87382664f11219040bdc4a1b416e4342
+    m_Address: Assets/Prefab/default/playerMatching/components/MatchContent_failure.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c8772ee9b31aed42a4f67e1e562c1d0
+    m_Address: Assets/Art/unpack/default/playerMatching/avatar-frame.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e17682878921ff4d8cb003a55c49e39
+    m_Address: Assets/Art/unpack/default/itemIcons/2001.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e90af1d670c8a8479d1e9897fb92335
+    m_Address: Assets/Prefab/default/playerMatching/components/Team_enemy_search.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f5092396ef0db649a5324928f96a550
+    m_Address: Assets/Art/unpack/default/itemIcons/2002.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8faa08913b815a64c8f0bb32758bf2f5
+    m_Address: Assets/Art/unpack/default/sharedPower/power-title.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_power
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90f0c6f02d05b2a45a030ee1935311c2
+    m_Address: Assets/Art/frameAnimation/default/mainView/formationBackground/fog-b.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_formationBackground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91b400bb8cbf52f58bf9fae96fe1f2dd
+    m_Address: Assets/Art/unpack/default/skillControls/skillOpeningSquareMask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_skillControls
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96d13eae4f1e15a45b1342d87d1fe19b
+    m_Address: Assets/Art/unpack/default/playerMatching/ui-bitmap-search-arc-18.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97078e08a9735195a84a6fc13128063b
+    m_Address: Assets/Art/unpack/default/skillIcons/220204.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 976a60a335725014aa8200e8327aa1b7
+    m_Address: Assets/Art/unpack/default/skillIcons/210404.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9be9c42e09aea354d9193a96b1128446
+    m_Address: Assets/ResourceData/default/mainView/formationEvents/spawn-footprints.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_formationEvents
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e76fa863c7c52cca8c6d38c107a5fb0
+    m_Address: Assets/Art/unpack/default/skillIcons/210503.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9fbf1b54cf57d604891ce8eb17f723e4
+    m_Address: Assets/Art/skeletalAnimation/default/cardDisplayAnimation/2102/display/thruster-right.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - display_2102_display
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0b438e43e0747a45ae11ddb6db0dc75
+    m_Address: Assets/Art/frameAnimation/default/mainView/formationBackground/fog-a.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_formationBackground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a1413e989a0f5ad18f1dadb34ebedc15
+    m_Address: Assets/Art/unpack/default/skillIcons/220302.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a17281f7ef43545182bb726b4c3462ac
+    m_Address: Assets/Art/unpack/default/skillIcons/210103.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6634d21f361575ab6b3298506a6edf0
+    m_Address: Assets/Art/unpack/default/skillIcons/220502.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa81a279ea2f5f2db465634141196601
+    m_Address: Assets/Art/unpack/default/skillIcons/230602.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab7f37dc4c2208843b90cf8b189c35dc
+    m_Address: Assets/Prefab/default/playerMatching/components/Team_enemy_empty.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: acf72bfd83e9aa346a747099ba8b83f9
+    m_Address: Assets/Prefab/default/playerMatching/components/Team_friendly_excluded.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aea4c96706e74d64ba471ee0b421af07
+    m_Address: Assets/Prefab/default/playerMatching/components/Avatar_Base.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: af8729078ff741b40b4974d746e2207f
+    m_Address: Assets/Art/shader/default/DeckLockedFrame.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - render_DeckLockedFrame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b18644aca7b1b8f41beac96fa8a16a24
+    m_Address: Assets/Art/unpack/default/playerMatching/ui-bitmap-background-tint.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1a236d31188425408a9944afc43df0b
+    m_Address: Assets/Art/unpack/default/sharedPower/power-digit-6.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_power
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b35fd12173615789b43d939902dd9184
+    m_Address: Assets/Art/unpack/default/skillIcons/230604.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6693762af026ba4bb8798a2b5ef91cf
+    m_Address: Assets/Art/unpack/default/playerMatching/team-blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8a97b1d1ff7542db7c966daa4dba281
+    m_Address: Assets/Art/unpack/default/skillIcons/230402.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8d5111c3aeb4b64d909705873397d22
+    m_Address: Assets/Art/frameAnimation/default/mainView/formationBackground/fog-b.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_formationBackground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9243507145d5d246933464f4aa0d4ab
+    m_Address: Assets/Art/frameAnimation/default/cardDisplayAnimation/2101/burst/muzzle-flash.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - display_2101_burst
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb4bea2743055898a2028970a98f01c9
+    m_Address: Assets/Art/unpack/default/skillIcons/220503.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb5ec183e801f034da7e451103a9cd25
+    m_Address: Assets/Art/unpack/default/playerMatching/ui-bitmap-search-arc-30.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb7e74a714065d2a9daa36e3fcfcaaae
+    m_Address: Assets/Art/unpack/default/skillIcons/230601.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bbf9214ca82bd454d9affcb5644bbf19
+    m_Address: Assets/Prefab/default/playerMatching/components/Team_friendly_empty.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be7278425ce35d85bb1da20913cefea4
+    m_Address: Assets/Art/unpack/default/skillIcons/220102.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf0ad31070a58634984bd6e71b653b9f
+    m_Address: Assets/Art/unpack/default/itemIcons/12305.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf2b7d4d1fc25f969d0d986229ae0eb6
+    m_Address: Assets/Art/unpack/default/skillIcons/210401.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c05675d571e25032aa750d207a5dbe22
+    m_Address: Assets/Art/unpack/default/skillIcons/220203.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3d6b1a9fdf97e5469565a001fe9fca6
+    m_Address: Assets/Art/frameAnimation/default/mainView/formationBackground/star.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_formationBackground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4962ed0ddec5aa09f9226c72d6e67d9
+    m_Address: Assets/Art/unpack/default/skillIcons/220301.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c518d565a6dfa1b41afd2da6b653b9bc
+    m_Address: Assets/Art/unpack/default/itemIcons/12302.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c63969cb06085b88864dfb8ea6916099
+    m_Address: Assets/Art/unpack/default/skillIcons/230102.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c89018ca1c88508dadcf4302397329d1
+    m_Address: Assets/Art/unpack/default/skillIcons/230502.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8cdf060048e9da4b8bd74cdf9bd0c61
+    m_Address: Assets/Prefab/default/playerMatching/components/Team_enemy_partial.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb4e1ed243b70de41b9552f68a728797
+    m_Address: Assets/Art/frameAnimation/default/cardDisplayAnimation/2101/burst/muzzle-flash.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - display_2101_burst
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cca9784c616ea6b408e983f0dbd55ddb
+    m_Address: Assets/Art/unpack/default/itemIcons/12104.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd2c9ca32d295c0896c98e4143154c54
+    m_Address: Assets/Art/unpack/default/skillIcons/230404.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cfede77cf5d8a194b973be348f97d5f0
+    m_Address: Assets/Prefab/default/playerMatching/components/Team_friendly_partial.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0a2c8a91fdc55d699f8ebb1129c2ed0
+    m_Address: Assets/Art/unpack/default/skillIcons/220401.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d67ccba84c19aa449a7caaf78ca6e19c
+    m_Address: Assets/Art/frameAnimation/default/mainView/formationEvents/frigate-rear.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_formationEvents
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da15ae58271856c5a4a21afab3844538
+    m_Address: Assets/Art/unpack/default/skillIcons/230101.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da72b0f354ab514bb55054431bba0df8
+    m_Address: Assets/Art/unpack/default/skillIcons/220303.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da95ffb89f895f61aaf0c53847957dc1
+    m_Address: Assets/Art/unpack/default/skillIcons/210502.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dbcba51ef8fb8f04a87f699175cb2cfd
+    m_Address: Assets/Prefab/default/playerMatching/components/Progress_measured.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dce40c9694a72e6489bebecbcf0affca
+    m_Address: Assets/Art/frameAnimation/default/mainView/formationBackground/fog-a.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_formationBackground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de10c2ff85dafe94fa77304b0b14ad27
+    m_Address: Assets/Art/unpack/default/sharedPower/power-digit-7.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_power
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de8c844d0f8052a6ac6356d2e15d851a
+    m_Address: Assets/Art/unpack/default/skillIcons/230203.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df4bf66e50310b14fae84513f7eb6dec
+    m_Address: Assets/Art/unpack/default/itemIcons/12105.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df78a71dea99b074b99703f9aef7cccc
+    m_Address: Assets/Art/unpack/default/playerMatching/profession-base.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e22319457dcdce64e8edd398fad8d89f
+    m_Address: Assets/Art/unpack/default/itemIcons/12103.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3ba5a88c8fcede45a4d416897e374ee
+    m_Address: Assets/Prefab/default/playerMatching/components/Button_330.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e5c5385274edda44387153883abdc6f6
+    m_Address: Assets/Art/unpack/default/itemIcons/12203.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6c7167dd8cf5ae9807b6a11b3094c1a
+    m_Address: Assets/Art/unpack/default/skillIcons/230503.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ebbe5c9debea54ea984014357f7a1153
+    m_Address: Assets/Art/unpack/default/skillIcons/210304.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef49f4150fdf57643bf28cea82b04708
+    m_Address: Assets/Art/unpack/default/itemIcons/12205.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f35fdf21b22c9b44eabb820260f8593c
+    m_Address: Assets/Art/unpack/default/playerMatching/team-red.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4329448efd865942afedd4254c961e7
+    m_Address: Assets/Art/unpack/default/itemIcons/12201.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f605380928b07f94bb29d9202b6adea8
+    m_Address: Assets/Prefab/default/playerMatching/components/Button_260.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f6567488a23b507ca1b2eddee00ae9e2
+    m_Address: Assets/Art/unpack/default/skillIcons/220403.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9af8ace796558d29a99e4b12b3d666f
+    m_Address: Assets/Art/unpack/default/skillIcons/230304.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa71c3d686535fcca2cf5a53ecc6ab29
+    m_Address: Assets/Art/unpack/default/skillIcons/210101.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - icons_skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fed4dc0f9f598584bb1dba269e863919
+    m_Address: Assets/Prefab/default/playerMatching/components/Profession_vanguard.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ui_playerMatching
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: b1a0955dcd22fb34c834009bf4768d90, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: ea35d3e91dd906d43916d09c0ff79d2b, type: 2}
+    - {fileID: 11400000, guid: c3bfd8c2aa150f74d912c41fa15ab509, type: 2}

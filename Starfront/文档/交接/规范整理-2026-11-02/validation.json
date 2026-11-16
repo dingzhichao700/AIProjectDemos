@@ -1,0 +1,12 @@
+{
+  "files": 43,
+  "changed": 9,
+  "unchanged": 34,
+  "relativeLinksChecked": 238,
+  "brokenRelativeLinks": 0,
+  "beforeBytes": 338782.0,
+  "afterBytes": 321525.0,
+  "changes": 50,
+  "codeOrDataChanged": false,
+  "scope": "规范Markdown；未执行Unity或设备验收"
+}

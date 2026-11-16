@@ -1,0 +1,1282 @@
+[
+  {
+    "cardId": 2101,
+    "level": 1,
+    "buildingId": 2101,
+    "maxHp": 300,
+    "unitIntervalMs": 10000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2101,
+    "level": 2,
+    "buildingId": 2101,
+    "maxHp": 330,
+    "unitIntervalMs": 9500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2101,
+    "level": 3,
+    "buildingId": 2101,
+    "maxHp": 360,
+    "unitIntervalMs": 9000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2101,
+    "level": 4,
+    "buildingId": 2101,
+    "maxHp": 390,
+    "unitIntervalMs": 8500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2101,
+    "level": 5,
+    "buildingId": 2101,
+    "maxHp": 420,
+    "unitIntervalMs": 8000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2101,
+    "level": 6,
+    "buildingId": 2101,
+    "maxHp": 450,
+    "unitIntervalMs": 7500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2101,
+    "level": 7,
+    "buildingId": 2101,
+    "maxHp": 480,
+    "unitIntervalMs": 7000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2101,
+    "level": 8,
+    "buildingId": 2101,
+    "maxHp": 510,
+    "unitIntervalMs": 6500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2101,
+    "level": 9,
+    "buildingId": 2101,
+    "maxHp": 540,
+    "unitIntervalMs": 6000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2101,
+    "level": 10,
+    "buildingId": 2101,
+    "maxHp": 570,
+    "unitIntervalMs": 5500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2102,
+    "level": 1,
+    "buildingId": 2102,
+    "maxHp": 330,
+    "unitIntervalMs": 10500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2102,
+    "level": 2,
+    "buildingId": 2102,
+    "maxHp": 360,
+    "unitIntervalMs": 10250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2102,
+    "level": 3,
+    "buildingId": 2102,
+    "maxHp": 390,
+    "unitIntervalMs": 10000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2102,
+    "level": 4,
+    "buildingId": 2102,
+    "maxHp": 420,
+    "unitIntervalMs": 9750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2102,
+    "level": 5,
+    "buildingId": 2102,
+    "maxHp": 450,
+    "unitIntervalMs": 9500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2102,
+    "level": 6,
+    "buildingId": 2102,
+    "maxHp": 480,
+    "unitIntervalMs": 9250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2102,
+    "level": 7,
+    "buildingId": 2102,
+    "maxHp": 510,
+    "unitIntervalMs": 9000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2102,
+    "level": 8,
+    "buildingId": 2102,
+    "maxHp": 540,
+    "unitIntervalMs": 8750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2102,
+    "level": 9,
+    "buildingId": 2102,
+    "maxHp": 570,
+    "unitIntervalMs": 8500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2102,
+    "level": 10,
+    "buildingId": 2102,
+    "maxHp": 600,
+    "unitIntervalMs": 8250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2103,
+    "level": 1,
+    "buildingId": 2103,
+    "maxHp": 360,
+    "unitIntervalMs": 11000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2103,
+    "level": 2,
+    "buildingId": 2103,
+    "maxHp": 390,
+    "unitIntervalMs": 10750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2103,
+    "level": 3,
+    "buildingId": 2103,
+    "maxHp": 420,
+    "unitIntervalMs": 10500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2103,
+    "level": 4,
+    "buildingId": 2103,
+    "maxHp": 450,
+    "unitIntervalMs": 10250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2103,
+    "level": 5,
+    "buildingId": 2103,
+    "maxHp": 480,
+    "unitIntervalMs": 10000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2103,
+    "level": 6,
+    "buildingId": 2103,
+    "maxHp": 510,
+    "unitIntervalMs": 9750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2103,
+    "level": 7,
+    "buildingId": 2103,
+    "maxHp": 540,
+    "unitIntervalMs": 9500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2103,
+    "level": 8,
+    "buildingId": 2103,
+    "maxHp": 570,
+    "unitIntervalMs": 9250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2103,
+    "level": 9,
+    "buildingId": 2103,
+    "maxHp": 600,
+    "unitIntervalMs": 9000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2103,
+    "level": 10,
+    "buildingId": 2103,
+    "maxHp": 630,
+    "unitIntervalMs": 8750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2104,
+    "level": 1,
+    "buildingId": 2104,
+    "maxHp": 390,
+    "unitIntervalMs": 11500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2104,
+    "level": 2,
+    "buildingId": 2104,
+    "maxHp": 420,
+    "unitIntervalMs": 11250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2104,
+    "level": 3,
+    "buildingId": 2104,
+    "maxHp": 450,
+    "unitIntervalMs": 11000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2104,
+    "level": 4,
+    "buildingId": 2104,
+    "maxHp": 480,
+    "unitIntervalMs": 10750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2104,
+    "level": 5,
+    "buildingId": 2104,
+    "maxHp": 510,
+    "unitIntervalMs": 10500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2104,
+    "level": 6,
+    "buildingId": 2104,
+    "maxHp": 540,
+    "unitIntervalMs": 10250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2104,
+    "level": 7,
+    "buildingId": 2104,
+    "maxHp": 570,
+    "unitIntervalMs": 10000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2104,
+    "level": 8,
+    "buildingId": 2104,
+    "maxHp": 600,
+    "unitIntervalMs": 9750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2104,
+    "level": 9,
+    "buildingId": 2104,
+    "maxHp": 630,
+    "unitIntervalMs": 9500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2104,
+    "level": 10,
+    "buildingId": 2104,
+    "maxHp": 660,
+    "unitIntervalMs": 9250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2105,
+    "level": 1,
+    "buildingId": 2105,
+    "maxHp": 420,
+    "unitIntervalMs": 12000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2105,
+    "level": 2,
+    "buildingId": 2105,
+    "maxHp": 450,
+    "unitIntervalMs": 11750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2105,
+    "level": 3,
+    "buildingId": 2105,
+    "maxHp": 480,
+    "unitIntervalMs": 11500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2105,
+    "level": 4,
+    "buildingId": 2105,
+    "maxHp": 510,
+    "unitIntervalMs": 11250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2105,
+    "level": 5,
+    "buildingId": 2105,
+    "maxHp": 540,
+    "unitIntervalMs": 11000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2105,
+    "level": 6,
+    "buildingId": 2105,
+    "maxHp": 570,
+    "unitIntervalMs": 10750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2105,
+    "level": 7,
+    "buildingId": 2105,
+    "maxHp": 600,
+    "unitIntervalMs": 10500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2105,
+    "level": 8,
+    "buildingId": 2105,
+    "maxHp": 630,
+    "unitIntervalMs": 10250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2105,
+    "level": 9,
+    "buildingId": 2105,
+    "maxHp": 660,
+    "unitIntervalMs": 10000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2105,
+    "level": 10,
+    "buildingId": 2105,
+    "maxHp": 690,
+    "unitIntervalMs": 9750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2201,
+    "level": 1,
+    "buildingId": 2201,
+    "maxHp": 450,
+    "unitIntervalMs": 12500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2201,
+    "level": 2,
+    "buildingId": 2201,
+    "maxHp": 480,
+    "unitIntervalMs": 12250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2201,
+    "level": 3,
+    "buildingId": 2201,
+    "maxHp": 510,
+    "unitIntervalMs": 12000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2201,
+    "level": 4,
+    "buildingId": 2201,
+    "maxHp": 540,
+    "unitIntervalMs": 11750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2201,
+    "level": 5,
+    "buildingId": 2201,
+    "maxHp": 570,
+    "unitIntervalMs": 11500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2201,
+    "level": 6,
+    "buildingId": 2201,
+    "maxHp": 600,
+    "unitIntervalMs": 11250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2201,
+    "level": 7,
+    "buildingId": 2201,
+    "maxHp": 630,
+    "unitIntervalMs": 11000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2201,
+    "level": 8,
+    "buildingId": 2201,
+    "maxHp": 660,
+    "unitIntervalMs": 10750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2201,
+    "level": 9,
+    "buildingId": 2201,
+    "maxHp": 690,
+    "unitIntervalMs": 10500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2201,
+    "level": 10,
+    "buildingId": 2201,
+    "maxHp": 720,
+    "unitIntervalMs": 10250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2202,
+    "level": 1,
+    "buildingId": 2202,
+    "maxHp": 480,
+    "unitIntervalMs": 13000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2202,
+    "level": 2,
+    "buildingId": 2202,
+    "maxHp": 510,
+    "unitIntervalMs": 12750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2202,
+    "level": 3,
+    "buildingId": 2202,
+    "maxHp": 540,
+    "unitIntervalMs": 12500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2202,
+    "level": 4,
+    "buildingId": 2202,
+    "maxHp": 570,
+    "unitIntervalMs": 12250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2202,
+    "level": 5,
+    "buildingId": 2202,
+    "maxHp": 600,
+    "unitIntervalMs": 12000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2202,
+    "level": 6,
+    "buildingId": 2202,
+    "maxHp": 630,
+    "unitIntervalMs": 11750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2202,
+    "level": 7,
+    "buildingId": 2202,
+    "maxHp": 660,
+    "unitIntervalMs": 11500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2202,
+    "level": 8,
+    "buildingId": 2202,
+    "maxHp": 690,
+    "unitIntervalMs": 11250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2202,
+    "level": 9,
+    "buildingId": 2202,
+    "maxHp": 720,
+    "unitIntervalMs": 11000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2202,
+    "level": 10,
+    "buildingId": 2202,
+    "maxHp": 750,
+    "unitIntervalMs": 10750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2203,
+    "level": 1,
+    "buildingId": 2203,
+    "maxHp": 510,
+    "unitIntervalMs": 13500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2203,
+    "level": 2,
+    "buildingId": 2203,
+    "maxHp": 540,
+    "unitIntervalMs": 13250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2203,
+    "level": 3,
+    "buildingId": 2203,
+    "maxHp": 570,
+    "unitIntervalMs": 13000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2203,
+    "level": 4,
+    "buildingId": 2203,
+    "maxHp": 600,
+    "unitIntervalMs": 12750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2203,
+    "level": 5,
+    "buildingId": 2203,
+    "maxHp": 630,
+    "unitIntervalMs": 12500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2203,
+    "level": 6,
+    "buildingId": 2203,
+    "maxHp": 660,
+    "unitIntervalMs": 12250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2203,
+    "level": 7,
+    "buildingId": 2203,
+    "maxHp": 690,
+    "unitIntervalMs": 12000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2203,
+    "level": 8,
+    "buildingId": 2203,
+    "maxHp": 720,
+    "unitIntervalMs": 11750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2203,
+    "level": 9,
+    "buildingId": 2203,
+    "maxHp": 750,
+    "unitIntervalMs": 11500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2203,
+    "level": 10,
+    "buildingId": 2203,
+    "maxHp": 780,
+    "unitIntervalMs": 11250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2204,
+    "level": 1,
+    "buildingId": 2204,
+    "maxHp": 540,
+    "unitIntervalMs": 14000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2204,
+    "level": 2,
+    "buildingId": 2204,
+    "maxHp": 570,
+    "unitIntervalMs": 13750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2204,
+    "level": 3,
+    "buildingId": 2204,
+    "maxHp": 600,
+    "unitIntervalMs": 13500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2204,
+    "level": 4,
+    "buildingId": 2204,
+    "maxHp": 630,
+    "unitIntervalMs": 13250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2204,
+    "level": 5,
+    "buildingId": 2204,
+    "maxHp": 660,
+    "unitIntervalMs": 13000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2204,
+    "level": 6,
+    "buildingId": 2204,
+    "maxHp": 690,
+    "unitIntervalMs": 12750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2204,
+    "level": 7,
+    "buildingId": 2204,
+    "maxHp": 720,
+    "unitIntervalMs": 12500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2204,
+    "level": 8,
+    "buildingId": 2204,
+    "maxHp": 750,
+    "unitIntervalMs": 12250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2204,
+    "level": 9,
+    "buildingId": 2204,
+    "maxHp": 780,
+    "unitIntervalMs": 12000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2204,
+    "level": 10,
+    "buildingId": 2204,
+    "maxHp": 810,
+    "unitIntervalMs": 11750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2205,
+    "level": 1,
+    "buildingId": 2205,
+    "maxHp": 570,
+    "unitIntervalMs": 14500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2205,
+    "level": 2,
+    "buildingId": 2205,
+    "maxHp": 600,
+    "unitIntervalMs": 14250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2205,
+    "level": 3,
+    "buildingId": 2205,
+    "maxHp": 630,
+    "unitIntervalMs": 14000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2205,
+    "level": 4,
+    "buildingId": 2205,
+    "maxHp": 660,
+    "unitIntervalMs": 13750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2205,
+    "level": 5,
+    "buildingId": 2205,
+    "maxHp": 690,
+    "unitIntervalMs": 13500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2205,
+    "level": 6,
+    "buildingId": 2205,
+    "maxHp": 720,
+    "unitIntervalMs": 13250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2205,
+    "level": 7,
+    "buildingId": 2205,
+    "maxHp": 750,
+    "unitIntervalMs": 13000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2205,
+    "level": 8,
+    "buildingId": 2205,
+    "maxHp": 780,
+    "unitIntervalMs": 12750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2205,
+    "level": 9,
+    "buildingId": 2205,
+    "maxHp": 810,
+    "unitIntervalMs": 12500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2205,
+    "level": 10,
+    "buildingId": 2205,
+    "maxHp": 840,
+    "unitIntervalMs": 12250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2301,
+    "level": 1,
+    "buildingId": 2301,
+    "maxHp": 600,
+    "unitIntervalMs": 15000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2301,
+    "level": 2,
+    "buildingId": 2301,
+    "maxHp": 630,
+    "unitIntervalMs": 14750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2301,
+    "level": 3,
+    "buildingId": 2301,
+    "maxHp": 660,
+    "unitIntervalMs": 14500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2301,
+    "level": 4,
+    "buildingId": 2301,
+    "maxHp": 690,
+    "unitIntervalMs": 14250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2301,
+    "level": 5,
+    "buildingId": 2301,
+    "maxHp": 720,
+    "unitIntervalMs": 14000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2301,
+    "level": 6,
+    "buildingId": 2301,
+    "maxHp": 750,
+    "unitIntervalMs": 13750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2301,
+    "level": 7,
+    "buildingId": 2301,
+    "maxHp": 780,
+    "unitIntervalMs": 13500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2301,
+    "level": 8,
+    "buildingId": 2301,
+    "maxHp": 810,
+    "unitIntervalMs": 13250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2301,
+    "level": 9,
+    "buildingId": 2301,
+    "maxHp": 840,
+    "unitIntervalMs": 13000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2301,
+    "level": 10,
+    "buildingId": 2301,
+    "maxHp": 870,
+    "unitIntervalMs": 12750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2302,
+    "level": 1,
+    "buildingId": 2302,
+    "maxHp": 630,
+    "unitIntervalMs": 15500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2302,
+    "level": 2,
+    "buildingId": 2302,
+    "maxHp": 660,
+    "unitIntervalMs": 15250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2302,
+    "level": 3,
+    "buildingId": 2302,
+    "maxHp": 690,
+    "unitIntervalMs": 15000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2302,
+    "level": 4,
+    "buildingId": 2302,
+    "maxHp": 720,
+    "unitIntervalMs": 14750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2302,
+    "level": 5,
+    "buildingId": 2302,
+    "maxHp": 750,
+    "unitIntervalMs": 14500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2302,
+    "level": 6,
+    "buildingId": 2302,
+    "maxHp": 780,
+    "unitIntervalMs": 14250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2302,
+    "level": 7,
+    "buildingId": 2302,
+    "maxHp": 810,
+    "unitIntervalMs": 14000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2302,
+    "level": 8,
+    "buildingId": 2302,
+    "maxHp": 840,
+    "unitIntervalMs": 13750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2302,
+    "level": 9,
+    "buildingId": 2302,
+    "maxHp": 870,
+    "unitIntervalMs": 13500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2302,
+    "level": 10,
+    "buildingId": 2302,
+    "maxHp": 900,
+    "unitIntervalMs": 13250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2303,
+    "level": 1,
+    "buildingId": 2303,
+    "maxHp": 660,
+    "unitIntervalMs": 16000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2303,
+    "level": 2,
+    "buildingId": 2303,
+    "maxHp": 690,
+    "unitIntervalMs": 15750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2303,
+    "level": 3,
+    "buildingId": 2303,
+    "maxHp": 720,
+    "unitIntervalMs": 15500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2303,
+    "level": 4,
+    "buildingId": 2303,
+    "maxHp": 750,
+    "unitIntervalMs": 15250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2303,
+    "level": 5,
+    "buildingId": 2303,
+    "maxHp": 780,
+    "unitIntervalMs": 15000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2303,
+    "level": 6,
+    "buildingId": 2303,
+    "maxHp": 810,
+    "unitIntervalMs": 14750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2303,
+    "level": 7,
+    "buildingId": 2303,
+    "maxHp": 840,
+    "unitIntervalMs": 14500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2303,
+    "level": 8,
+    "buildingId": 2303,
+    "maxHp": 870,
+    "unitIntervalMs": 14250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2303,
+    "level": 9,
+    "buildingId": 2303,
+    "maxHp": 900,
+    "unitIntervalMs": 14000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2303,
+    "level": 10,
+    "buildingId": 2303,
+    "maxHp": 930,
+    "unitIntervalMs": 13750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2304,
+    "level": 1,
+    "buildingId": 2304,
+    "maxHp": 690,
+    "unitIntervalMs": 16500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2304,
+    "level": 2,
+    "buildingId": 2304,
+    "maxHp": 720,
+    "unitIntervalMs": 16250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2304,
+    "level": 3,
+    "buildingId": 2304,
+    "maxHp": 750,
+    "unitIntervalMs": 16000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2304,
+    "level": 4,
+    "buildingId": 2304,
+    "maxHp": 780,
+    "unitIntervalMs": 15750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2304,
+    "level": 5,
+    "buildingId": 2304,
+    "maxHp": 810,
+    "unitIntervalMs": 15500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2304,
+    "level": 6,
+    "buildingId": 2304,
+    "maxHp": 840,
+    "unitIntervalMs": 15250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2304,
+    "level": 7,
+    "buildingId": 2304,
+    "maxHp": 870,
+    "unitIntervalMs": 15000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2304,
+    "level": 8,
+    "buildingId": 2304,
+    "maxHp": 900,
+    "unitIntervalMs": 14750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2304,
+    "level": 9,
+    "buildingId": 2304,
+    "maxHp": 930,
+    "unitIntervalMs": 14500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2304,
+    "level": 10,
+    "buildingId": 2304,
+    "maxHp": 960,
+    "unitIntervalMs": 14250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2305,
+    "level": 1,
+    "buildingId": 2305,
+    "maxHp": 720,
+    "unitIntervalMs": 17000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2305,
+    "level": 2,
+    "buildingId": 2305,
+    "maxHp": 750,
+    "unitIntervalMs": 16750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2305,
+    "level": 3,
+    "buildingId": 2305,
+    "maxHp": 780,
+    "unitIntervalMs": 16500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2305,
+    "level": 4,
+    "buildingId": 2305,
+    "maxHp": 810,
+    "unitIntervalMs": 16250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2305,
+    "level": 5,
+    "buildingId": 2305,
+    "maxHp": 840,
+    "unitIntervalMs": 16000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2305,
+    "level": 6,
+    "buildingId": 2305,
+    "maxHp": 870,
+    "unitIntervalMs": 15750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2305,
+    "level": 7,
+    "buildingId": 2305,
+    "maxHp": 900,
+    "unitIntervalMs": 15500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2305,
+    "level": 8,
+    "buildingId": 2305,
+    "maxHp": 930,
+    "unitIntervalMs": 15250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2305,
+    "level": 9,
+    "buildingId": 2305,
+    "maxHp": 960,
+    "unitIntervalMs": 15000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2305,
+    "level": 10,
+    "buildingId": 2305,
+    "maxHp": 990,
+    "unitIntervalMs": 14750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2306,
+    "level": 1,
+    "buildingId": 2306,
+    "maxHp": 750,
+    "unitIntervalMs": 17500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2306,
+    "level": 2,
+    "buildingId": 2306,
+    "maxHp": 780,
+    "unitIntervalMs": 17250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2306,
+    "level": 3,
+    "buildingId": 2306,
+    "maxHp": 810,
+    "unitIntervalMs": 17000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2306,
+    "level": 4,
+    "buildingId": 2306,
+    "maxHp": 840,
+    "unitIntervalMs": 16750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2306,
+    "level": 5,
+    "buildingId": 2306,
+    "maxHp": 870,
+    "unitIntervalMs": 16500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2306,
+    "level": 6,
+    "buildingId": 2306,
+    "maxHp": 900,
+    "unitIntervalMs": 16250,
+    "skillIds": []
+  },
+  {
+    "cardId": 2306,
+    "level": 7,
+    "buildingId": 2306,
+    "maxHp": 930,
+    "unitIntervalMs": 16000,
+    "skillIds": []
+  },
+  {
+    "cardId": 2306,
+    "level": 8,
+    "buildingId": 2306,
+    "maxHp": 960,
+    "unitIntervalMs": 15750,
+    "skillIds": []
+  },
+  {
+    "cardId": 2306,
+    "level": 9,
+    "buildingId": 2306,
+    "maxHp": 990,
+    "unitIntervalMs": 15500,
+    "skillIds": []
+  },
+  {
+    "cardId": 2306,
+    "level": 10,
+    "buildingId": 2306,
+    "maxHp": 1020,
+    "unitIntervalMs": 15250,
+    "skillIds": []
+  }
+]

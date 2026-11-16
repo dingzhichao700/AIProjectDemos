@@ -17,6 +17,11 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 0f53b02237973744881f2a82d33f2b56
   m_SerializeEntries:
+  - m_GUID: 079569aaaf233bd4aa44b2c090ebb50a
+    m_Address: Assets/Art/font/fonts/material/playerMatchingProgressOutline.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2896a19fc5c6abb43badfbacc8486d94
     m_Address: Assets/Art/font/materialPreset/fontBodyCommon_OutlineMedium.mat
     m_ReadOnly: 0

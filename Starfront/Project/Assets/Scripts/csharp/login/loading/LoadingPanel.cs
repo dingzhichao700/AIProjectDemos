@@ -11,6 +11,10 @@ public class LoadingPanel : BasePanel {
 
     public override bool KeepOpenOnCloseAll => true;
 
+    public override bool UsesFullScreenViewport => true;
+
+    private Image inputBlocker;
+
     public TextMeshProUGUI txtProcess;
     public Image imgProcess;
     public CanvasGroup alphaContent;
@@ -24,6 +28,19 @@ public class LoadingPanel : BasePanel {
     }
 
     public override void OnOpen() {
+        trans.anchorMin = Vector2.zero;
+        trans.anchorMax = Vector2.one;
+        trans.offsetMin = trans.offsetMax = Vector2.zero;
+        if (inputBlocker == null) {
+            inputBlocker = new GameObject("imgLoadingInputBlocker", typeof(RectTransform), typeof(Image)).GetComponent<Image>();
+            inputBlocker.transform.SetParent(trans, false);
+            inputBlocker.color = Color.clear;
+            inputBlocker.raycastTarget = true;
+            inputBlocker.rectTransform.anchorMin = Vector2.zero;
+            inputBlocker.rectTransform.anchorMax = Vector2.one;
+            inputBlocker.rectTransform.offsetMin = inputBlocker.rectTransform.offsetMax = Vector2.zero;
+            inputBlocker.transform.SetAsLastSibling();
+        }
         alphaContent.alpha = 1f;
         var request = openParams != null && openParams.Length > 0 ? openParams[0] as LoadingRequest : null;
         if (request == null) {

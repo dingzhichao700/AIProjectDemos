@@ -1,0 +1,176 @@
+{
+  "version": "card-fragments-B-R2-plus-items-production-R1",
+  "mappingType": "presentation-only itemId -> approved sprite address; no gameplay schema or quality fallback",
+  "frame": "Assets/Art/unpack/default/item/cardFragmentsB/shared/complete-black-frame-97x101.png",
+  "mask": "Assets/Art/unpack/default/item/cardFragmentsB/shared/opening-mask-97x101.png",
+  "contentCanvas": [
+    97,
+    101
+  ],
+  "tightCanvas": [
+    81,
+    85
+  ],
+  "frameIn110Cell": [
+    6,
+    0,
+    97,
+    101
+  ],
+  "fullContentInFrame": [
+    0,
+    0
+  ],
+  "tightContentInFrame": [
+    8,
+    8
+  ],
+  "entries": [
+    {
+      "cardId": 2101,
+      "itemId": 12101,
+      "quality": 1,
+      "activeRoster": true,
+      "content": "Assets/Art/unpack/default/itemIcons/12101.png"
+    },
+    {
+      "cardId": 2102,
+      "itemId": 12102,
+      "quality": 1,
+      "activeRoster": true,
+      "content": "Assets/Art/unpack/default/itemIcons/12102.png"
+    },
+    {
+      "cardId": 2103,
+      "itemId": 12103,
+      "quality": 3,
+      "activeRoster": true,
+      "content": "Assets/Art/unpack/default/itemIcons/12103.png"
+    },
+    {
+      "cardId": 2104,
+      "itemId": 12104,
+      "quality": 4,
+      "activeRoster": true,
+      "content": "Assets/Art/unpack/default/itemIcons/12104.png"
+    },
+    {
+      "cardId": 2105,
+      "itemId": 12105,
+      "quality": 5,
+      "activeRoster": true,
+      "content": "Assets/Art/unpack/default/itemIcons/12105.png"
+    },
+    {
+      "cardId": 2201,
+      "itemId": 12201,
+      "quality": 1,
+      "activeRoster": true,
+      "content": "Assets/Art/unpack/default/itemIcons/12201.png"
+    },
+    {
+      "cardId": 2202,
+      "itemId": 12202,
+      "quality": 3,
+      "activeRoster": true,
+      "content": "Assets/Art/unpack/default/itemIcons/12202.png"
+    },
+    {
+      "cardId": 2203,
+      "itemId": 12203,
+      "quality": 4,
+      "activeRoster": true,
+      "content": "Assets/Art/unpack/default/itemIcons/12203.png"
+    },
+    {
+      "cardId": 2204,
+      "itemId": 12204,
+      "quality": 4,
+      "activeRoster": true,
+      "content": "Assets/Art/unpack/default/itemIcons/12204.png"
+    },
+    {
+      "cardId": 2205,
+      "itemId": 12205,
+      "quality": 5,
+      "activeRoster": true,
+      "content": "Assets/Art/unpack/default/itemIcons/12205.png"
+    },
+    {
+      "cardId": 2301,
+      "itemId": 12301,
+      "quality": 1,
+      "activeRoster": true,
+      "content": "Assets/Art/unpack/default/itemIcons/12301.png"
+    },
+    {
+      "cardId": 2302,
+      "itemId": 12302,
+      "quality": 3,
+      "activeRoster": true,
+      "content": "Assets/Art/unpack/default/itemIcons/12302.png"
+    },
+    {
+      "cardId": 2303,
+      "itemId": 12303,
+      "quality": 3,
+      "activeRoster": true,
+      "content": "Assets/Art/unpack/default/itemIcons/12303.png"
+    },
+    {
+      "cardId": 2304,
+      "itemId": 12304,
+      "quality": 4,
+      "activeRoster": true,
+      "content": "Assets/Art/unpack/default/itemIcons/12304.png"
+    },
+    {
+      "cardId": 2305,
+      "itemId": 12305,
+      "quality": 5,
+      "activeRoster": true,
+      "content": "Assets/Art/unpack/default/itemIcons/12305.png"
+    },
+    {
+      "cardId": 2306,
+      "itemId": 12306,
+      "quality": 5,
+      "activeRoster": true,
+      "content": "Assets/Art/unpack/default/itemIcons/12306.png"
+    },
+    {
+      "itemId": 2001,
+      "content": "Assets/Art/unpack/default/itemIcons/2001.png",
+      "qualityBackground": true
+    },
+    {
+      "itemId": 2002,
+      "content": "Assets/Art/unpack/default/itemIcons/2002.png",
+      "qualityBackground": true
+    },
+    {
+      "itemId": 2003,
+      "content": "Assets/Art/unpack/default/itemIcons/2003.png",
+      "qualityBackground": true
+    }
+  ],
+  "approvalScope": "B replaces the existing cultivation material blue frame only; no quality-selection change",
+  "qualityBackgrounds": [
+    {
+      "quality": 1,
+      "address": "Assets/Art/unpack/default/item/generalR5/green-background-97x101.png"
+    },
+    {
+      "quality": 3,
+      "address": "Assets/Art/unpack/default/item/generalR5/blue-background-97x101.png"
+    },
+    {
+      "quality": 4,
+      "address": "Assets/Art/unpack/default/item/generalR5/purple-background-97x101.png"
+    },
+    {
+      "quality": 5,
+      "address": "Assets/Art/unpack/default/item/generalR5/orange-background-97x101.png"
+    }
+  ]
+}

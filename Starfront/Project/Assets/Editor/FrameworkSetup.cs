@@ -34,12 +34,18 @@ public static class FrameworkSetup
         string[] bundleGroups = { "opening", "title", "default", "scene", "cutScene" };
         string[] artTypes = { "atlasSource", "atlas", "unpack", "frameAnimation", "audio", "material" };
 
-        foreach (string group in bundleGroups)
+        // Governed projects create resource folders only when actual approved assets need them.
+        // Keep the original template bootstrap for projects without a pack Manifest.
+        bool governed = ResourcePackRouting.Enabled;
+        if (!governed)
         {
-            EnsureFolder($"Assets/Prefab/{group}");
-            foreach (string artType in artTypes)
+            foreach (string group in bundleGroups)
             {
-                EnsureFolder($"Assets/Art/{artType}/{group}");
+                EnsureFolder($"Assets/Prefab/{group}");
+                foreach (string artType in artTypes)
+                {
+                    EnsureFolder($"Assets/Art/{artType}/{group}");
+                }
             }
         }
 
@@ -57,6 +63,8 @@ public static class FrameworkSetup
 
         foreach (string folder in extras)
         {
+            // The old rich-text source root lacks a declared Group/business atlas identity.
+            if (governed && folder == "Assets/Art/atlasSource/richTextImage") continue;
             EnsureFolder(folder);
         }
     }
@@ -121,18 +129,19 @@ public static class FrameworkSetup
             return;
         }
 
+        if(ResourcePackRouting.Enabled){ResourcePackRouting.Initialize(settings);return;}
         CreateBundledGroup(settings, "opening", BundledAssetGroupSchema.BundlePackingMode.PackTogether);
         CreateBundledGroup(settings, "title", BundledAssetGroupSchema.BundlePackingMode.PackTogether);
         CreateBundledGroup(settings, "scene", BundledAssetGroupSchema.BundlePackingMode.PackTogetherByLabel);
         CreateBundledGroup(settings, "cutScene", BundledAssetGroupSchema.BundlePackingMode.PackTogetherByLabel);
     }
 
-    /// <summary>仅初始化 Addressables Settings + 五组（供导出管线 / 菜单调用，不重建场景）。</summary>
+    /// <summary>仅初始化Addressables Settings及实际需要的已批准组（供导出管线 / 菜单调用，不重建场景）。</summary>
     public static void EnsureAddressablesOnly()
     {
         EnsureAddressables();
         AssetDatabase.SaveAssets();
-        Debug.Log("Addressables initialized (5 groups: opening/title/scene/cutScene + Default Local Group).");
+        Debug.Log("Addressables initialized using approved pack state; no empty business groups created.");
     }
 
     static void CreateBundledGroup(AddressableAssetSettings settings, string groupName,
@@ -171,10 +180,6 @@ public static class FrameworkSetup
         GameObject canvasScale = new GameObject("canvasScale");
         SetupCanvas(canvasScale, true);
 
-        // canvasConstantPixel: legacy pixel-fixed UI layer (RookieEngine.viewportConstant); baseline keeps node only
-        GameObject canvasConstantPixel = new GameObject("canvasConstantPixel");
-        SetupCanvas(canvasConstantPixel, true);
-
         GameObject uiPool = new GameObject("uiPool");
         SetupCanvas(uiPool, false);
 
@@ -195,7 +200,6 @@ public static class FrameworkSetup
 
         SerializedObject engineSo = new SerializedObject(engine);
         engineSo.FindProperty("viewportScale").objectReferenceValue = canvasScale.GetComponent<RectTransform>();
-        engineSo.FindProperty("viewportConstant").objectReferenceValue = canvasConstantPixel.GetComponent<RectTransform>();
         engineSo.FindProperty("uiPool").objectReferenceValue = uiPool.GetComponent<RectTransform>();
         engineSo.ApplyModifiedPropertiesWithoutUndo();
 

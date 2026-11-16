@@ -134,7 +134,7 @@ public static class BattleSceneRuntimeValidation {
                 Require(CfgManager.tables.BattleAIProfileObj.Get(1).DecisionIntervalMs == 2000, "AI config loaded through manifest");
                 UISafeAreaValidation.ValidateMain(main);
                 BattleEconomyValidation.ValidateLoadedConfiguration();
-                BattleGunshipValidation.Validate();
+                ColonialRosterValidation.ValidateTables(CfgManager.tables);
                 BattleInfoRuntimeValidation.ValidateLoadedState();
                 BattleUnlockValidation.ValidateLogic();
                 main.GetComponent<MainPanelLayout>().battleButton.GetComponent<Button>().onClick.Invoke();

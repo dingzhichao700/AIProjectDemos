@@ -1,7 +1,7 @@
 {
   "platform": "WeChat",
   "bootstrapUrl": "https://game-res-cdn-1518403929.cos.ap-guangzhou.myqcloud.com/Starfront/bootstrap.json",
-  "cdnRoot": "E:\\UnityTemplateTest\\Starfront\\build\\cos\\Starfront",
+  "cdnRoot": "E:\\GameResourceCDN\\Starfront",
   "appId": "wx1448519cc265ac08",
   "buildRelease": {
     "deployment": {
@@ -10,6 +10,12 @@
       "region": "ap-guangzhou",
       "projectSubdirectory": "Starfront",
       "publicRoot": "https://game-res-cdn-1518403929.cos.ap-guangzhou.myqcloud.com/Starfront/"
+    },
+    "releaseTransaction": {
+      "stateRoot": "E:/Codex_Projects/异星军团/outputs/release-transactions/production",
+      "projectId": "Starfront",
+      "environment": "production"
     }
-  }
+  },
+  "enableGM": true
 }

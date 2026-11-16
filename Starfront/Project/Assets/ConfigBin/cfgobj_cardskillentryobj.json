@@ -1,0 +1,322 @@
+[
+  {
+    "cardId": 2101,
+    "skillId": 210101,
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2101,
+    "skillId": 210103,
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2101,
+    "skillId": 210104,
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2101,
+    "skillId": 210102,
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2102,
+    "skillId": 210201,
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2102,
+    "skillId": 210202,
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2102,
+    "skillId": 210203,
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2102,
+    "skillId": 210204,
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2103,
+    "skillId": 210301,
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2103,
+    "skillId": 210302,
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2103,
+    "skillId": 210303,
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2103,
+    "skillId": 210304,
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2104,
+    "skillId": 210401,
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2104,
+    "skillId": 210402,
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2104,
+    "skillId": 210403,
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2104,
+    "skillId": 210404,
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2105,
+    "skillId": 210501,
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2105,
+    "skillId": 210502,
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2105,
+    "skillId": 210503,
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2105,
+    "skillId": 210504,
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2201,
+    "skillId": 220101,
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2201,
+    "skillId": 220102,
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2201,
+    "skillId": 220103,
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2201,
+    "skillId": 220104,
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2202,
+    "skillId": 220201,
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2202,
+    "skillId": 220202,
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2202,
+    "skillId": 220203,
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2202,
+    "skillId": 220204,
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2203,
+    "skillId": 220301,
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2203,
+    "skillId": 220302,
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2203,
+    "skillId": 220303,
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2203,
+    "skillId": 220304,
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2204,
+    "skillId": 220401,
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2204,
+    "skillId": 220402,
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2204,
+    "skillId": 220403,
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2204,
+    "skillId": 220404,
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2205,
+    "skillId": 220501,
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2205,
+    "skillId": 220502,
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2205,
+    "skillId": 220503,
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2205,
+    "skillId": 220504,
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2301,
+    "skillId": 230101,
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2301,
+    "skillId": 230102,
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2301,
+    "skillId": 230103,
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2301,
+    "skillId": 230104,
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2302,
+    "skillId": 230201,
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2302,
+    "skillId": 230202,
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2302,
+    "skillId": 230203,
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2302,
+    "skillId": 230204,
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2303,
+    "skillId": 230301,
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2303,
+    "skillId": 230302,
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2303,
+    "skillId": 230303,
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2303,
+    "skillId": 230304,
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2304,
+    "skillId": 230401,
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2304,
+    "skillId": 230402,
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2304,
+    "skillId": 230403,
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2304,
+    "skillId": 230404,
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2305,
+    "skillId": 230501,
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2305,
+    "skillId": 230502,
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2305,
+    "skillId": 230503,
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2305,
+    "skillId": 230504,
+    "sortOrder": 4
+  },
+  {
+    "cardId": 2306,
+    "skillId": 230601,
+    "sortOrder": 1
+  },
+  {
+    "cardId": 2306,
+    "skillId": 230602,
+    "sortOrder": 2
+  },
+  {
+    "cardId": 2306,
+    "skillId": 230603,
+    "sortOrder": 3
+  },
+  {
+    "cardId": 2306,
+    "skillId": 230604,
+    "sortOrder": 4
+  }
+]

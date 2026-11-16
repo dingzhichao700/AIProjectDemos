@@ -1,0 +1,22 @@
+[
+  {
+    "id": 101,
+    "name": "先锋",
+    "icon": "Assets/Art/unpack/default/card/professions/101.png"
+  },
+  {
+    "id": 102,
+    "name": "火力",
+    "icon": "Assets/Art/unpack/default/card/professions/102.png"
+  },
+  {
+    "id": 103,
+    "name": "重装",
+    "icon": "Assets/Art/unpack/default/card/professions/103.png"
+  },
+  {
+    "id": 104,
+    "name": "支援",
+    "icon": "Assets/Art/unpack/default/card/professions/104.png"
+  }
+]

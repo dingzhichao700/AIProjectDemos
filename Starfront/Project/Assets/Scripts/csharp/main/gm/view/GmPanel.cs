@@ -5,6 +5,10 @@ using System;
 /// </summary>
 public class GmPanel : BasePanel {
 
+    public override bool CanOpen => GMControl.ins.CanOpen;
+
+    public override bool UsesWindowTransition => true;
+
     /**局部弹窗尺寸独立于项目屏幕方向。*/
     public override UnityEngine.Vector2 SafeContentDesignSize => trans.rect.size;
 
@@ -48,18 +52,21 @@ public class GmPanel : BasePanel {
 
     /**GM 面板覆盖正式内容界面*/
     public GmPanel() {
-        layer = PanelLayer.SCALE_TOP_SECOND;
+        layer = PanelLayer.SCALE_TOOL;
     }
 
     /// <summary>
     /// 配置就绪后展示命令列表并注册关闭操作。
     /// </summary>
     public override void OnOpen() {
+        AddLis();
+    }
+
+    protected override void OnPrepareOpen() {
         if (CfgManager.tables == null) {
             throw new InvalidOperationException("GM 面板需要先初始化配置表。");
         }
         RefreshDiagnostics();
-        AddLis();
         listItem.array = CfgManager.tables.GmObj.DataList;
     }
 

@@ -1,0 +1,30 @@
+{
+  "scene1001Unchanged": true,
+  "onlyExpected1002Changes": true,
+  "staticAppearancesShifted": 16,
+  "groundThickness": 6,
+  "imageChecks": [
+    {
+      "name": "ground.png",
+      "size": [
+        2000,
+        2000
+      ],
+      "sha256": "b1200c48e3821e2f8f0849f6dc46d7401215f4d4d6cd7342b402593bbd93682c",
+      "metaUnchanged": true,
+      "transparentCorners": true
+    },
+    {
+      "name": "ground_grid.png",
+      "size": [
+        2000,
+        2000
+      ],
+      "sha256": "321f6f4594d64c5467653fc72bbe5883406391a3554ab640eb4910b612557423",
+      "metaUnchanged": true,
+      "transparentCorners": true
+    }
+  ],
+  "gridAlphaUnchanged": true,
+  "gridMaxRGBRoundingDifference": 1
+}

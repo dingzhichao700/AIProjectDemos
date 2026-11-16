@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +6,9 @@ using UnityEngine;
 /// 键盘管理
 /// </summary>
 public class KeyBoardControl {
+
+    /**固定键集合仅分配一次，强类型数组遍历避免 System.Array 枚举装箱。*/
+    private static readonly KeyCode[] allKeys = (KeyCode[])Enum.GetValues(typeof(KeyCode));
 
     /**指定按键按下回调map*/
     private Dictionary<KeyCode, List<Action>> keyDownActionMap;
@@ -33,7 +36,7 @@ public class KeyBoardControl {
 
     public void Update() {
         if (Input.anyKeyDown) { // 检测任意键被按下
-            foreach (KeyCode key in Enum.GetValues(typeof(KeyCode))) { // 如果想知道按下的是哪个键，可以遍历所有键
+            foreach (KeyCode key in allKeys) { // 如果想知道按下的是哪个键，可以遍历所有键
                                                                        //if (Input.GetKeyDown(key)) {
                 if (Input.GetKey(key)) {
 
@@ -52,7 +55,13 @@ public class KeyBoardControl {
             }
         }
 
-        foreach (KeyCode key in Enum.GetValues(typeof(KeyCode))) {
+        // 没有松开监听时，扫描不会产生任何业务效果；按下监听仍照常执行。
+        if ((keyUpActionMap == null || keyUpActionMap.Count == 0) &&
+            (anyKeyUpActionList == null || anyKeyUpActionList.Count == 0)) {
+            return;
+        }
+
+        foreach (KeyCode key in allKeys) {
             if (Input.GetKeyUp(key)) {
                 //Debug.Log("KeyUp:" + key.ToString());// 打印松开的键
                 KeyUpHandler(key);

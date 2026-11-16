@@ -24,6 +24,8 @@ public static class AddressablesPrefabDependencyChecker
             throw new InvalidOperationException("AddressableAssetSettings not found.");
         }
 
+        if(ResourcePackRouting.Enabled){ResourcePackRouting.ValidateDependencies(settings);return;}
+
         var roots = new HashSet<string>(AssetDatabase.FindAssets("t:Prefab", new[] { "Assets/Prefab" })
             .Select(AssetDatabase.GUIDToAssetPath));
         foreach (var group in settings.groups)

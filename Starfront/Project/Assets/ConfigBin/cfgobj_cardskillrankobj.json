@@ -1,0 +1,1496 @@
+[
+  {
+    "cardId": 2101,
+    "skillId": 210101,
+    "rank": 1,
+    "unlockLevel": 1,
+    "battleSkillId": 0,
+    "damageMultiplier": 1
+  },
+  {
+    "cardId": 2101,
+    "skillId": 210101,
+    "rank": 2,
+    "unlockLevel": 5,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.2
+  },
+  {
+    "cardId": 2101,
+    "skillId": 210101,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.4
+  },
+  {
+    "cardId": 2101,
+    "skillId": 210103,
+    "rank": 1,
+    "unlockLevel": 3,
+    "battleSkillId": 0,
+    "moveSpeedBonus": 0.5,
+    "attackSpeedBonus": 0.5,
+    "durationSeconds": 3
+  },
+  {
+    "cardId": 2101,
+    "skillId": 210103,
+    "rank": 2,
+    "unlockLevel": 7,
+    "battleSkillId": 0,
+    "moveSpeedBonus": 0.5,
+    "attackSpeedBonus": 0.5,
+    "durationSeconds": 4
+  },
+  {
+    "cardId": 2101,
+    "skillId": 210103,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "moveSpeedBonus": 0.5,
+    "attackSpeedBonus": 0.5,
+    "durationSeconds": 5
+  },
+  {
+    "cardId": 2101,
+    "skillId": 210104,
+    "rank": 1,
+    "unlockLevel": 4,
+    "battleSkillId": 0,
+    "attackBonus": 0.25,
+    "durationSeconds": 5
+  },
+  {
+    "cardId": 2101,
+    "skillId": 210104,
+    "rank": 2,
+    "unlockLevel": 8,
+    "battleSkillId": 0,
+    "attackBonus": 0.5,
+    "durationSeconds": 5
+  },
+  {
+    "cardId": 2101,
+    "skillId": 210102,
+    "rank": 1,
+    "unlockLevel": 2,
+    "battleSkillId": 0,
+    "maxHpBonus": 0.1
+  },
+  {
+    "cardId": 2101,
+    "skillId": 210102,
+    "rank": 2,
+    "unlockLevel": 6,
+    "battleSkillId": 0,
+    "maxHpBonus": 0.2
+  },
+  {
+    "cardId": 2101,
+    "skillId": 210102,
+    "rank": 3,
+    "unlockLevel": 9,
+    "battleSkillId": 0,
+    "maxHpBonus": 0.3
+  },
+  {
+    "cardId": 2102,
+    "skillId": 210201,
+    "rank": 1,
+    "unlockLevel": 1,
+    "battleSkillId": 0,
+    "healMaxHpRatio": 0.03,
+    "targetCount": 1
+  },
+  {
+    "cardId": 2102,
+    "skillId": 210201,
+    "rank": 2,
+    "unlockLevel": 5,
+    "battleSkillId": 0,
+    "healMaxHpRatio": 0.04,
+    "targetCount": 1
+  },
+  {
+    "cardId": 2102,
+    "skillId": 210201,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "healMaxHpRatio": 0.05,
+    "targetCount": 1
+  },
+  {
+    "cardId": 2102,
+    "skillId": 210202,
+    "rank": 1,
+    "unlockLevel": 2,
+    "battleSkillId": 0,
+    "healingBonus": 0.1
+  },
+  {
+    "cardId": 2102,
+    "skillId": 210202,
+    "rank": 2,
+    "unlockLevel": 6,
+    "battleSkillId": 0,
+    "healingBonus": 0.2
+  },
+  {
+    "cardId": 2102,
+    "skillId": 210202,
+    "rank": 3,
+    "unlockLevel": 9,
+    "battleSkillId": 0,
+    "healingBonus": 0.3
+  },
+  {
+    "cardId": 2102,
+    "skillId": 210203,
+    "rank": 1,
+    "unlockLevel": 3,
+    "battleSkillId": 0,
+    "moveSpeedBonus": 0.5,
+    "durationSeconds": 3
+  },
+  {
+    "cardId": 2102,
+    "skillId": 210203,
+    "rank": 2,
+    "unlockLevel": 7,
+    "battleSkillId": 0,
+    "moveSpeedBonus": 0.5,
+    "durationSeconds": 4
+  },
+  {
+    "cardId": 2102,
+    "skillId": 210203,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "moveSpeedBonus": 0.5,
+    "durationSeconds": 5
+  },
+  {
+    "cardId": 2102,
+    "skillId": 210204,
+    "rank": 1,
+    "unlockLevel": 4,
+    "battleSkillId": 0,
+    "healMaxHpRatio": 0.15,
+    "targetCount": 3
+  },
+  {
+    "cardId": 2102,
+    "skillId": 210204,
+    "rank": 2,
+    "unlockLevel": 8,
+    "battleSkillId": 0,
+    "healMaxHpRatio": 0.2,
+    "targetCount": 3
+  },
+  {
+    "cardId": 2103,
+    "skillId": 210301,
+    "rank": 1,
+    "unlockLevel": 1,
+    "battleSkillId": 0,
+    "damageMultiplier": 1
+  },
+  {
+    "cardId": 2103,
+    "skillId": 210301,
+    "rank": 2,
+    "unlockLevel": 5,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.2
+  },
+  {
+    "cardId": 2103,
+    "skillId": 210301,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.4
+  },
+  {
+    "cardId": 2103,
+    "skillId": 210302,
+    "rank": 1,
+    "unlockLevel": 2,
+    "battleSkillId": 0,
+    "maxHpBonus": 0.1
+  },
+  {
+    "cardId": 2103,
+    "skillId": 210302,
+    "rank": 2,
+    "unlockLevel": 6,
+    "battleSkillId": 0,
+    "maxHpBonus": 0.2
+  },
+  {
+    "cardId": 2103,
+    "skillId": 210302,
+    "rank": 3,
+    "unlockLevel": 9,
+    "battleSkillId": 0,
+    "maxHpBonus": 0.3
+  },
+  {
+    "cardId": 2103,
+    "skillId": 210303,
+    "rank": 1,
+    "unlockLevel": 3,
+    "battleSkillId": 0,
+    "attackBonus": 0.25,
+    "durationSeconds": 3
+  },
+  {
+    "cardId": 2103,
+    "skillId": 210303,
+    "rank": 2,
+    "unlockLevel": 7,
+    "battleSkillId": 0,
+    "attackBonus": 0.25,
+    "durationSeconds": 4
+  },
+  {
+    "cardId": 2103,
+    "skillId": 210303,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "attackBonus": 0.25,
+    "durationSeconds": 5
+  },
+  {
+    "cardId": 2103,
+    "skillId": 210304,
+    "rank": 1,
+    "unlockLevel": 4,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.5,
+    "targetCount": 3
+  },
+  {
+    "cardId": 2103,
+    "skillId": 210304,
+    "rank": 2,
+    "unlockLevel": 8,
+    "battleSkillId": 0,
+    "damageMultiplier": 2,
+    "targetCount": 3
+  },
+  {
+    "cardId": 2104,
+    "skillId": 210401,
+    "rank": 1,
+    "unlockLevel": 1,
+    "battleSkillId": 0,
+    "damageMultiplier": 1
+  },
+  {
+    "cardId": 2104,
+    "skillId": 210401,
+    "rank": 2,
+    "unlockLevel": 5,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.2
+  },
+  {
+    "cardId": 2104,
+    "skillId": 210401,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.4
+  },
+  {
+    "cardId": 2104,
+    "skillId": 210402,
+    "rank": 1,
+    "unlockLevel": 2,
+    "battleSkillId": 0,
+    "attackRangeBonus": 0.1
+  },
+  {
+    "cardId": 2104,
+    "skillId": 210402,
+    "rank": 2,
+    "unlockLevel": 6,
+    "battleSkillId": 0,
+    "attackRangeBonus": 0.15
+  },
+  {
+    "cardId": 2104,
+    "skillId": 210402,
+    "rank": 3,
+    "unlockLevel": 9,
+    "battleSkillId": 0,
+    "attackRangeBonus": 0.2
+  },
+  {
+    "cardId": 2104,
+    "skillId": 210403,
+    "rank": 1,
+    "unlockLevel": 3,
+    "battleSkillId": 0,
+    "moveSpeedBonus": 0.5,
+    "durationSeconds": 3
+  },
+  {
+    "cardId": 2104,
+    "skillId": 210403,
+    "rank": 2,
+    "unlockLevel": 7,
+    "battleSkillId": 0,
+    "moveSpeedBonus": 0.5,
+    "durationSeconds": 4
+  },
+  {
+    "cardId": 2104,
+    "skillId": 210403,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "moveSpeedBonus": 0.5,
+    "durationSeconds": 5
+  },
+  {
+    "cardId": 2104,
+    "skillId": 210404,
+    "rank": 1,
+    "unlockLevel": 4,
+    "battleSkillId": 0,
+    "damageMultiplier": 2,
+    "targetCount": 1
+  },
+  {
+    "cardId": 2104,
+    "skillId": 210404,
+    "rank": 2,
+    "unlockLevel": 8,
+    "battleSkillId": 0,
+    "damageMultiplier": 2.5,
+    "targetCount": 1
+  },
+  {
+    "cardId": 2105,
+    "skillId": 210501,
+    "rank": 1,
+    "unlockLevel": 1,
+    "battleSkillId": 0,
+    "damageMultiplier": 1
+  },
+  {
+    "cardId": 2105,
+    "skillId": 210501,
+    "rank": 2,
+    "unlockLevel": 5,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.2
+  },
+  {
+    "cardId": 2105,
+    "skillId": 210501,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.4
+  },
+  {
+    "cardId": 2105,
+    "skillId": 210502,
+    "rank": 1,
+    "unlockLevel": 2,
+    "battleSkillId": 0,
+    "attackBonus": 0.1
+  },
+  {
+    "cardId": 2105,
+    "skillId": 210502,
+    "rank": 2,
+    "unlockLevel": 6,
+    "battleSkillId": 0,
+    "attackBonus": 0.2
+  },
+  {
+    "cardId": 2105,
+    "skillId": 210502,
+    "rank": 3,
+    "unlockLevel": 9,
+    "battleSkillId": 0,
+    "attackBonus": 0.3
+  },
+  {
+    "cardId": 2105,
+    "skillId": 210503,
+    "rank": 1,
+    "unlockLevel": 3,
+    "battleSkillId": 0,
+    "attackSpeedBonus": 0.5,
+    "durationSeconds": 3
+  },
+  {
+    "cardId": 2105,
+    "skillId": 210503,
+    "rank": 2,
+    "unlockLevel": 7,
+    "battleSkillId": 0,
+    "attackSpeedBonus": 0.5,
+    "durationSeconds": 4
+  },
+  {
+    "cardId": 2105,
+    "skillId": 210503,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "attackSpeedBonus": 0.5,
+    "durationSeconds": 5
+  },
+  {
+    "cardId": 2105,
+    "skillId": 210504,
+    "rank": 1,
+    "unlockLevel": 4,
+    "battleSkillId": 0,
+    "damageMultiplier": 2.5,
+    "targetCount": 1
+  },
+  {
+    "cardId": 2105,
+    "skillId": 210504,
+    "rank": 2,
+    "unlockLevel": 8,
+    "battleSkillId": 0,
+    "damageMultiplier": 3,
+    "targetCount": 1
+  },
+  {
+    "cardId": 2201,
+    "skillId": 220101,
+    "rank": 1,
+    "unlockLevel": 1,
+    "battleSkillId": 0,
+    "damageMultiplier": 1
+  },
+  {
+    "cardId": 2201,
+    "skillId": 220101,
+    "rank": 2,
+    "unlockLevel": 5,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.2
+  },
+  {
+    "cardId": 2201,
+    "skillId": 220101,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.4
+  },
+  {
+    "cardId": 2201,
+    "skillId": 220102,
+    "rank": 1,
+    "unlockLevel": 2,
+    "battleSkillId": 0,
+    "maxHpBonus": 0.1
+  },
+  {
+    "cardId": 2201,
+    "skillId": 220102,
+    "rank": 2,
+    "unlockLevel": 6,
+    "battleSkillId": 0,
+    "maxHpBonus": 0.2
+  },
+  {
+    "cardId": 2201,
+    "skillId": 220102,
+    "rank": 3,
+    "unlockLevel": 9,
+    "battleSkillId": 0,
+    "maxHpBonus": 0.3
+  },
+  {
+    "cardId": 2201,
+    "skillId": 220103,
+    "rank": 1,
+    "unlockLevel": 3,
+    "battleSkillId": 0,
+    "moveSpeedBonus": 0.5,
+    "durationSeconds": 3
+  },
+  {
+    "cardId": 2201,
+    "skillId": 220103,
+    "rank": 2,
+    "unlockLevel": 7,
+    "battleSkillId": 0,
+    "moveSpeedBonus": 0.5,
+    "durationSeconds": 4
+  },
+  {
+    "cardId": 2201,
+    "skillId": 220103,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "moveSpeedBonus": 0.5,
+    "durationSeconds": 5
+  },
+  {
+    "cardId": 2201,
+    "skillId": 220104,
+    "rank": 1,
+    "unlockLevel": 4,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.5,
+    "targetCount": 3
+  },
+  {
+    "cardId": 2201,
+    "skillId": 220104,
+    "rank": 2,
+    "unlockLevel": 8,
+    "battleSkillId": 0,
+    "damageMultiplier": 2,
+    "targetCount": 3
+  },
+  {
+    "cardId": 2202,
+    "skillId": 220201,
+    "rank": 1,
+    "unlockLevel": 1,
+    "battleSkillId": 0,
+    "damageMultiplier": 1
+  },
+  {
+    "cardId": 2202,
+    "skillId": 220201,
+    "rank": 2,
+    "unlockLevel": 5,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.2
+  },
+  {
+    "cardId": 2202,
+    "skillId": 220201,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.4
+  },
+  {
+    "cardId": 2202,
+    "skillId": 220202,
+    "rank": 1,
+    "unlockLevel": 2,
+    "battleSkillId": 0,
+    "attackRangeBonus": 0.1
+  },
+  {
+    "cardId": 2202,
+    "skillId": 220202,
+    "rank": 2,
+    "unlockLevel": 6,
+    "battleSkillId": 0,
+    "attackRangeBonus": 0.15
+  },
+  {
+    "cardId": 2202,
+    "skillId": 220202,
+    "rank": 3,
+    "unlockLevel": 9,
+    "battleSkillId": 0,
+    "attackRangeBonus": 0.2
+  },
+  {
+    "cardId": 2202,
+    "skillId": 220203,
+    "rank": 1,
+    "unlockLevel": 3,
+    "battleSkillId": 0,
+    "attackSpeedBonus": 0.5,
+    "durationSeconds": 3
+  },
+  {
+    "cardId": 2202,
+    "skillId": 220203,
+    "rank": 2,
+    "unlockLevel": 7,
+    "battleSkillId": 0,
+    "attackSpeedBonus": 0.5,
+    "durationSeconds": 4
+  },
+  {
+    "cardId": 2202,
+    "skillId": 220203,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "attackSpeedBonus": 0.5,
+    "durationSeconds": 5
+  },
+  {
+    "cardId": 2202,
+    "skillId": 220204,
+    "rank": 1,
+    "unlockLevel": 4,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.5,
+    "targetCount": 3
+  },
+  {
+    "cardId": 2202,
+    "skillId": 220204,
+    "rank": 2,
+    "unlockLevel": 8,
+    "battleSkillId": 0,
+    "damageMultiplier": 2,
+    "targetCount": 3
+  },
+  {
+    "cardId": 2203,
+    "skillId": 220301,
+    "rank": 1,
+    "unlockLevel": 1,
+    "battleSkillId": 0,
+    "damageMultiplier": 1
+  },
+  {
+    "cardId": 2203,
+    "skillId": 220301,
+    "rank": 2,
+    "unlockLevel": 5,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.2
+  },
+  {
+    "cardId": 2203,
+    "skillId": 220301,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.4
+  },
+  {
+    "cardId": 2203,
+    "skillId": 220302,
+    "rank": 1,
+    "unlockLevel": 2,
+    "battleSkillId": 0,
+    "maxHpBonus": 0.1
+  },
+  {
+    "cardId": 2203,
+    "skillId": 220302,
+    "rank": 2,
+    "unlockLevel": 6,
+    "battleSkillId": 0,
+    "maxHpBonus": 0.2
+  },
+  {
+    "cardId": 2203,
+    "skillId": 220302,
+    "rank": 3,
+    "unlockLevel": 9,
+    "battleSkillId": 0,
+    "maxHpBonus": 0.3
+  },
+  {
+    "cardId": 2203,
+    "skillId": 220303,
+    "rank": 1,
+    "unlockLevel": 3,
+    "battleSkillId": 0,
+    "moveSpeedBonus": 0.5,
+    "durationSeconds": 3
+  },
+  {
+    "cardId": 2203,
+    "skillId": 220303,
+    "rank": 2,
+    "unlockLevel": 7,
+    "battleSkillId": 0,
+    "moveSpeedBonus": 0.5,
+    "durationSeconds": 4
+  },
+  {
+    "cardId": 2203,
+    "skillId": 220303,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "moveSpeedBonus": 0.5,
+    "durationSeconds": 5
+  },
+  {
+    "cardId": 2203,
+    "skillId": 220304,
+    "rank": 1,
+    "unlockLevel": 4,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.5,
+    "targetCount": 3
+  },
+  {
+    "cardId": 2203,
+    "skillId": 220304,
+    "rank": 2,
+    "unlockLevel": 8,
+    "battleSkillId": 0,
+    "damageMultiplier": 2,
+    "targetCount": 3
+  },
+  {
+    "cardId": 2204,
+    "skillId": 220401,
+    "rank": 1,
+    "unlockLevel": 1,
+    "battleSkillId": 0,
+    "damageMultiplier": 1
+  },
+  {
+    "cardId": 2204,
+    "skillId": 220401,
+    "rank": 2,
+    "unlockLevel": 5,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.2
+  },
+  {
+    "cardId": 2204,
+    "skillId": 220401,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.4
+  },
+  {
+    "cardId": 2204,
+    "skillId": 220402,
+    "rank": 1,
+    "unlockLevel": 2,
+    "battleSkillId": 0,
+    "healingBonus": 0.1
+  },
+  {
+    "cardId": 2204,
+    "skillId": 220402,
+    "rank": 2,
+    "unlockLevel": 6,
+    "battleSkillId": 0,
+    "healingBonus": 0.2
+  },
+  {
+    "cardId": 2204,
+    "skillId": 220402,
+    "rank": 3,
+    "unlockLevel": 9,
+    "battleSkillId": 0,
+    "healingBonus": 0.3
+  },
+  {
+    "cardId": 2204,
+    "skillId": 220403,
+    "rank": 1,
+    "unlockLevel": 3,
+    "battleSkillId": 0,
+    "attackBonus": 0.25,
+    "durationSeconds": 3
+  },
+  {
+    "cardId": 2204,
+    "skillId": 220403,
+    "rank": 2,
+    "unlockLevel": 7,
+    "battleSkillId": 0,
+    "attackBonus": 0.25,
+    "durationSeconds": 4
+  },
+  {
+    "cardId": 2204,
+    "skillId": 220403,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "attackBonus": 0.25,
+    "durationSeconds": 5
+  },
+  {
+    "cardId": 2204,
+    "skillId": 220404,
+    "rank": 1,
+    "unlockLevel": 4,
+    "battleSkillId": 0,
+    "healMaxHpRatio": 0.15,
+    "targetCount": 3
+  },
+  {
+    "cardId": 2204,
+    "skillId": 220404,
+    "rank": 2,
+    "unlockLevel": 8,
+    "battleSkillId": 0,
+    "healMaxHpRatio": 0.2,
+    "targetCount": 3
+  },
+  {
+    "cardId": 2205,
+    "skillId": 220501,
+    "rank": 1,
+    "unlockLevel": 1,
+    "battleSkillId": 0,
+    "damageMultiplier": 1
+  },
+  {
+    "cardId": 2205,
+    "skillId": 220501,
+    "rank": 2,
+    "unlockLevel": 5,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.2
+  },
+  {
+    "cardId": 2205,
+    "skillId": 220501,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.4
+  },
+  {
+    "cardId": 2205,
+    "skillId": 220502,
+    "rank": 1,
+    "unlockLevel": 2,
+    "battleSkillId": 0,
+    "maxHpBonus": 0.1
+  },
+  {
+    "cardId": 2205,
+    "skillId": 220502,
+    "rank": 2,
+    "unlockLevel": 6,
+    "battleSkillId": 0,
+    "maxHpBonus": 0.2
+  },
+  {
+    "cardId": 2205,
+    "skillId": 220502,
+    "rank": 3,
+    "unlockLevel": 9,
+    "battleSkillId": 0,
+    "maxHpBonus": 0.3
+  },
+  {
+    "cardId": 2205,
+    "skillId": 220503,
+    "rank": 1,
+    "unlockLevel": 3,
+    "battleSkillId": 0,
+    "attackBonus": 0.25,
+    "durationSeconds": 3
+  },
+  {
+    "cardId": 2205,
+    "skillId": 220503,
+    "rank": 2,
+    "unlockLevel": 7,
+    "battleSkillId": 0,
+    "attackBonus": 0.25,
+    "durationSeconds": 4
+  },
+  {
+    "cardId": 2205,
+    "skillId": 220503,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "attackBonus": 0.25,
+    "durationSeconds": 5
+  },
+  {
+    "cardId": 2205,
+    "skillId": 220504,
+    "rank": 1,
+    "unlockLevel": 4,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.75,
+    "targetCount": 3
+  },
+  {
+    "cardId": 2205,
+    "skillId": 220504,
+    "rank": 2,
+    "unlockLevel": 8,
+    "battleSkillId": 0,
+    "damageMultiplier": 2.25,
+    "targetCount": 3
+  },
+  {
+    "cardId": 2301,
+    "skillId": 230101,
+    "rank": 1,
+    "unlockLevel": 1,
+    "battleSkillId": 0,
+    "damageMultiplier": 1
+  },
+  {
+    "cardId": 2301,
+    "skillId": 230101,
+    "rank": 2,
+    "unlockLevel": 5,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.2
+  },
+  {
+    "cardId": 2301,
+    "skillId": 230101,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.4
+  },
+  {
+    "cardId": 2301,
+    "skillId": 230102,
+    "rank": 1,
+    "unlockLevel": 2,
+    "battleSkillId": 0,
+    "attackRangeBonus": 0.1
+  },
+  {
+    "cardId": 2301,
+    "skillId": 230102,
+    "rank": 2,
+    "unlockLevel": 6,
+    "battleSkillId": 0,
+    "attackRangeBonus": 0.15
+  },
+  {
+    "cardId": 2301,
+    "skillId": 230102,
+    "rank": 3,
+    "unlockLevel": 9,
+    "battleSkillId": 0,
+    "attackRangeBonus": 0.2
+  },
+  {
+    "cardId": 2301,
+    "skillId": 230103,
+    "rank": 1,
+    "unlockLevel": 3,
+    "battleSkillId": 0,
+    "moveSpeedBonus": 0.5,
+    "durationSeconds": 3
+  },
+  {
+    "cardId": 2301,
+    "skillId": 230103,
+    "rank": 2,
+    "unlockLevel": 7,
+    "battleSkillId": 0,
+    "moveSpeedBonus": 0.5,
+    "durationSeconds": 4
+  },
+  {
+    "cardId": 2301,
+    "skillId": 230103,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "moveSpeedBonus": 0.5,
+    "durationSeconds": 5
+  },
+  {
+    "cardId": 2301,
+    "skillId": 230104,
+    "rank": 1,
+    "unlockLevel": 4,
+    "battleSkillId": 0,
+    "damageMultiplier": 2,
+    "targetCount": 1
+  },
+  {
+    "cardId": 2301,
+    "skillId": 230104,
+    "rank": 2,
+    "unlockLevel": 8,
+    "battleSkillId": 0,
+    "damageMultiplier": 2.5,
+    "targetCount": 1
+  },
+  {
+    "cardId": 2302,
+    "skillId": 230201,
+    "rank": 1,
+    "unlockLevel": 1,
+    "battleSkillId": 0,
+    "damageMultiplier": 1
+  },
+  {
+    "cardId": 2302,
+    "skillId": 230201,
+    "rank": 2,
+    "unlockLevel": 5,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.2
+  },
+  {
+    "cardId": 2302,
+    "skillId": 230201,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.4
+  },
+  {
+    "cardId": 2302,
+    "skillId": 230202,
+    "rank": 1,
+    "unlockLevel": 2,
+    "battleSkillId": 0,
+    "maxHpBonus": 0.1
+  },
+  {
+    "cardId": 2302,
+    "skillId": 230202,
+    "rank": 2,
+    "unlockLevel": 6,
+    "battleSkillId": 0,
+    "maxHpBonus": 0.2
+  },
+  {
+    "cardId": 2302,
+    "skillId": 230202,
+    "rank": 3,
+    "unlockLevel": 9,
+    "battleSkillId": 0,
+    "maxHpBonus": 0.3
+  },
+  {
+    "cardId": 2302,
+    "skillId": 230203,
+    "rank": 1,
+    "unlockLevel": 3,
+    "battleSkillId": 0,
+    "moveSpeedBonus": 0.5,
+    "durationSeconds": 3
+  },
+  {
+    "cardId": 2302,
+    "skillId": 230203,
+    "rank": 2,
+    "unlockLevel": 7,
+    "battleSkillId": 0,
+    "moveSpeedBonus": 0.5,
+    "durationSeconds": 4
+  },
+  {
+    "cardId": 2302,
+    "skillId": 230203,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "moveSpeedBonus": 0.5,
+    "durationSeconds": 5
+  },
+  {
+    "cardId": 2302,
+    "skillId": 230204,
+    "rank": 1,
+    "unlockLevel": 4,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.5,
+    "targetCount": 3
+  },
+  {
+    "cardId": 2302,
+    "skillId": 230204,
+    "rank": 2,
+    "unlockLevel": 8,
+    "battleSkillId": 0,
+    "damageMultiplier": 2,
+    "targetCount": 3
+  },
+  {
+    "cardId": 2303,
+    "skillId": 230301,
+    "rank": 1,
+    "unlockLevel": 1,
+    "battleSkillId": 0,
+    "damageMultiplier": 1
+  },
+  {
+    "cardId": 2303,
+    "skillId": 230301,
+    "rank": 2,
+    "unlockLevel": 5,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.2
+  },
+  {
+    "cardId": 2303,
+    "skillId": 230301,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.4
+  },
+  {
+    "cardId": 2303,
+    "skillId": 230302,
+    "rank": 1,
+    "unlockLevel": 2,
+    "battleSkillId": 0,
+    "healingBonus": 0.1
+  },
+  {
+    "cardId": 2303,
+    "skillId": 230302,
+    "rank": 2,
+    "unlockLevel": 6,
+    "battleSkillId": 0,
+    "healingBonus": 0.2
+  },
+  {
+    "cardId": 2303,
+    "skillId": 230302,
+    "rank": 3,
+    "unlockLevel": 9,
+    "battleSkillId": 0,
+    "healingBonus": 0.3
+  },
+  {
+    "cardId": 2303,
+    "skillId": 230303,
+    "rank": 1,
+    "unlockLevel": 3,
+    "battleSkillId": 0,
+    "attackSpeedBonus": 0.5,
+    "durationSeconds": 3
+  },
+  {
+    "cardId": 2303,
+    "skillId": 230303,
+    "rank": 2,
+    "unlockLevel": 7,
+    "battleSkillId": 0,
+    "attackSpeedBonus": 0.5,
+    "durationSeconds": 4
+  },
+  {
+    "cardId": 2303,
+    "skillId": 230303,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "attackSpeedBonus": 0.5,
+    "durationSeconds": 5
+  },
+  {
+    "cardId": 2303,
+    "skillId": 230304,
+    "rank": 1,
+    "unlockLevel": 4,
+    "battleSkillId": 0,
+    "healMaxHpRatio": 0.15,
+    "targetCount": 3
+  },
+  {
+    "cardId": 2303,
+    "skillId": 230304,
+    "rank": 2,
+    "unlockLevel": 8,
+    "battleSkillId": 0,
+    "healMaxHpRatio": 0.2,
+    "targetCount": 3
+  },
+  {
+    "cardId": 2304,
+    "skillId": 230401,
+    "rank": 1,
+    "unlockLevel": 1,
+    "battleSkillId": 0,
+    "damageMultiplier": 1
+  },
+  {
+    "cardId": 2304,
+    "skillId": 230401,
+    "rank": 2,
+    "unlockLevel": 5,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.2
+  },
+  {
+    "cardId": 2304,
+    "skillId": 230401,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.4
+  },
+  {
+    "cardId": 2304,
+    "skillId": 230402,
+    "rank": 1,
+    "unlockLevel": 2,
+    "battleSkillId": 0,
+    "maxHpBonus": 0.1
+  },
+  {
+    "cardId": 2304,
+    "skillId": 230402,
+    "rank": 2,
+    "unlockLevel": 6,
+    "battleSkillId": 0,
+    "maxHpBonus": 0.2
+  },
+  {
+    "cardId": 2304,
+    "skillId": 230402,
+    "rank": 3,
+    "unlockLevel": 9,
+    "battleSkillId": 0,
+    "maxHpBonus": 0.3
+  },
+  {
+    "cardId": 2304,
+    "skillId": 230403,
+    "rank": 1,
+    "unlockLevel": 3,
+    "battleSkillId": 0,
+    "attackBonus": 0.25,
+    "durationSeconds": 3
+  },
+  {
+    "cardId": 2304,
+    "skillId": 230403,
+    "rank": 2,
+    "unlockLevel": 7,
+    "battleSkillId": 0,
+    "attackBonus": 0.25,
+    "durationSeconds": 4
+  },
+  {
+    "cardId": 2304,
+    "skillId": 230403,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "attackBonus": 0.25,
+    "durationSeconds": 5
+  },
+  {
+    "cardId": 2304,
+    "skillId": 230404,
+    "rank": 1,
+    "unlockLevel": 4,
+    "battleSkillId": 0,
+    "damageMultiplier": 2.25,
+    "targetCount": 1
+  },
+  {
+    "cardId": 2304,
+    "skillId": 230404,
+    "rank": 2,
+    "unlockLevel": 8,
+    "battleSkillId": 0,
+    "damageMultiplier": 2.75,
+    "targetCount": 1
+  },
+  {
+    "cardId": 2305,
+    "skillId": 230501,
+    "rank": 1,
+    "unlockLevel": 1,
+    "battleSkillId": 0,
+    "damageMultiplier": 1
+  },
+  {
+    "cardId": 2305,
+    "skillId": 230501,
+    "rank": 2,
+    "unlockLevel": 5,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.2
+  },
+  {
+    "cardId": 2305,
+    "skillId": 230501,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.4
+  },
+  {
+    "cardId": 2305,
+    "skillId": 230502,
+    "rank": 1,
+    "unlockLevel": 2,
+    "battleSkillId": 0,
+    "attackRangeBonus": 0.1
+  },
+  {
+    "cardId": 2305,
+    "skillId": 230502,
+    "rank": 2,
+    "unlockLevel": 6,
+    "battleSkillId": 0,
+    "attackRangeBonus": 0.15
+  },
+  {
+    "cardId": 2305,
+    "skillId": 230502,
+    "rank": 3,
+    "unlockLevel": 9,
+    "battleSkillId": 0,
+    "attackRangeBonus": 0.2
+  },
+  {
+    "cardId": 2305,
+    "skillId": 230503,
+    "rank": 1,
+    "unlockLevel": 3,
+    "battleSkillId": 0,
+    "attackBonus": 0.25,
+    "durationSeconds": 3
+  },
+  {
+    "cardId": 2305,
+    "skillId": 230503,
+    "rank": 2,
+    "unlockLevel": 7,
+    "battleSkillId": 0,
+    "attackBonus": 0.25,
+    "durationSeconds": 4
+  },
+  {
+    "cardId": 2305,
+    "skillId": 230503,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "attackBonus": 0.25,
+    "durationSeconds": 5
+  },
+  {
+    "cardId": 2305,
+    "skillId": 230504,
+    "rank": 1,
+    "unlockLevel": 4,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.75,
+    "targetCount": 3
+  },
+  {
+    "cardId": 2305,
+    "skillId": 230504,
+    "rank": 2,
+    "unlockLevel": 8,
+    "battleSkillId": 0,
+    "damageMultiplier": 2.25,
+    "targetCount": 3
+  },
+  {
+    "cardId": 2306,
+    "skillId": 230601,
+    "rank": 1,
+    "unlockLevel": 1,
+    "battleSkillId": 0,
+    "damageMultiplier": 1
+  },
+  {
+    "cardId": 2306,
+    "skillId": 230601,
+    "rank": 2,
+    "unlockLevel": 5,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.2
+  },
+  {
+    "cardId": 2306,
+    "skillId": 230601,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.4
+  },
+  {
+    "cardId": 2306,
+    "skillId": 230602,
+    "rank": 1,
+    "unlockLevel": 2,
+    "battleSkillId": 0,
+    "attackBonus": 0.1
+  },
+  {
+    "cardId": 2306,
+    "skillId": 230602,
+    "rank": 2,
+    "unlockLevel": 6,
+    "battleSkillId": 0,
+    "attackBonus": 0.2
+  },
+  {
+    "cardId": 2306,
+    "skillId": 230602,
+    "rank": 3,
+    "unlockLevel": 9,
+    "battleSkillId": 0,
+    "attackBonus": 0.3
+  },
+  {
+    "cardId": 2306,
+    "skillId": 230603,
+    "rank": 1,
+    "unlockLevel": 3,
+    "battleSkillId": 0,
+    "attackBonus": 0.25,
+    "durationSeconds": 3
+  },
+  {
+    "cardId": 2306,
+    "skillId": 230603,
+    "rank": 2,
+    "unlockLevel": 7,
+    "battleSkillId": 0,
+    "attackBonus": 0.25,
+    "durationSeconds": 4
+  },
+  {
+    "cardId": 2306,
+    "skillId": 230603,
+    "rank": 3,
+    "unlockLevel": 10,
+    "battleSkillId": 0,
+    "attackBonus": 0.25,
+    "durationSeconds": 5
+  },
+  {
+    "cardId": 2306,
+    "skillId": 230604,
+    "rank": 1,
+    "unlockLevel": 4,
+    "battleSkillId": 0,
+    "damageMultiplier": 1.75,
+    "targetCount": 3
+  },
+  {
+    "cardId": 2306,
+    "skillId": 230604,
+    "rank": 2,
+    "unlockLevel": 8,
+    "battleSkillId": 0,
+    "damageMultiplier": 2.25,
+    "targetCount": 3
+  }
+]

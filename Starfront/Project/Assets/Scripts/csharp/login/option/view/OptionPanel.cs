@@ -73,13 +73,11 @@ public class OptionPanel : BasePanel
         {
             case OptionEnum.NEWGAME:
                 enteringGame = true;
-                MainContentLoader.Enter(() => enteringGame = false, exception => {
-                    enteringGame = false;
-                    Debug.LogError("进入游戏失败，请重新选择新游戏重试：" + exception);
-                    if (!isOpened) {
-                        PanelMgr.ins.OpenPanel(UIEnum.OPTION_PANEL);
-                    }
-                });
+                try {
+                    MainContentLoader.Enter(() => enteringGame = false, OnEnterGameFailed);
+                } catch (System.Exception exception) {
+                    OnEnterGameFailed(exception);
+                }
                 break;
             case OptionEnum.SETTING:
                 PanelMgr.ins.OpenPanel(UIEnum.SETTING_PANEL);
@@ -87,6 +85,16 @@ public class OptionPanel : BasePanel
             case OptionEnum.EXIT:
                 RookieEngine.QuitGame();
                 break;
+        }
+    }
+
+    /**同步启动异常与异步加载失败共用恢复逻辑。*/
+    private void OnEnterGameFailed(System.Exception exception) {
+        enteringGame = false;
+        Debug.LogError("进入游戏失败，请重新选择新游戏重试：" + exception);
+        GlobalToast.Warn("进入游戏失败，请重试");
+        if (!isOpened) {
+            PanelMgr.ins.OpenPanel(UIEnum.OPTION_PANEL);
         }
     }
 

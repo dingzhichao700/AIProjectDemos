@@ -7,14 +7,18 @@ using cfg.resource;
 public sealed class BattleCampVO {
     public BattleStartResource config { get; }
     public IReadOnlyList<int> cardIds { get; }
+    public IReadOnlyDictionary<int, int> cardLevels { get; }
+    public IReadOnlyDictionary<int, string> ignoredCards { get; }
     public long currency { get; private set; }
     public BattleSceneCamp camp => config.Camp;
     public int unitLimit => config.UnitLimit;
     public event Action<BattleCampVO> CurrencyChanged;
 
-    internal BattleCampVO(BattleStartResource start, List<int> cards) {
+    internal BattleCampVO(BattleStartResource start, List<int> cards, Dictionary<int, int> levels, Dictionary<int, string> ignored = null) {
         config = start;
         cardIds = cards.AsReadOnly();
+        cardLevels = new System.Collections.ObjectModel.ReadOnlyDictionary<int, int>(new Dictionary<int, int>(levels));
+        ignoredCards = new System.Collections.ObjectModel.ReadOnlyDictionary<int, string>(ignored ?? new Dictionary<int, string>());
         currency = start.InitialCurrency;
     }
 

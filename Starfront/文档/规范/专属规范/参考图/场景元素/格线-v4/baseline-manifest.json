@@ -1,0 +1,111 @@
+{
+  "files": [
+    {
+      "bytes": 8494,
+      "path": "build.ps1",
+      "sha256": "01B20D74B20262E1446B05296921CF0B8BE3FEB011C9BDC495C5FD50E7794BF8"
+    },
+    {
+      "bytes": 19042,
+      "path": "cells.json",
+      "sha256": "15CEF2E81A9B2421E78FA358863B971D7D8FF4396AD98A8468B3CEF8CE02E067"
+    },
+    {
+      "bytes": 23279,
+      "path": "edges.json",
+      "sha256": "C3EA5F775ADD9BE65243015EFEEE345504FA078404C2EF6B209BEDA145D8B6E6"
+    },
+    {
+      "bytes": 1692,
+      "path": "geometry.json",
+      "sha256": "24215837C8DCC00E4C795C93D382D06DD22B1DE1A64323406F6FBEAEEB4A9F65"
+    },
+    {
+      "bytes": 8329,
+      "path": "scene.json",
+      "sha256": "EDB1EABB1F205FDD69683F918D867B49CC80100C2EFF2150A10EEF9370365C2F"
+    },
+    {
+      "bytes": 1607,
+      "path": "validate.py",
+      "sha256": "4556B8FC2389EE2D88ABFD94274B411A9904EB646BC8ACB7175E4048BAF7C39E"
+    },
+    {
+      "bytes": 339,
+      "path": "validation.json",
+      "sha256": "47D74415E4F41C85876D1D5ABDA247BA13DEFD30E6BE9CC1D8E5CDE67C33C663"
+    },
+    {
+      "bytes": 110005,
+      "path": "assets/grid-highlight.png",
+      "sha256": "374B396BAA9A73D5DECF964862E21644D9B369117DAD34677332CE6CAE5AFA78"
+    },
+    {
+      "bytes": 186569,
+      "path": "assets/grid-reusable.png",
+      "sha256": "21B1F155CBA07EA68A839462D0DD07DF4ED28C0B1ACF5B655114659A42A66D1E"
+    },
+    {
+      "bytes": 98789,
+      "path": "assets/grid-shadow.png",
+      "sha256": "B2822A04BCAE7D0B56290160497747569060B98337FC9A44D80D81B1FE4D97CA"
+    },
+    {
+      "bytes": 187663,
+      "path": "assets/ground_grid.png",
+      "sha256": "127A14B9DB4E0697111EACF7365E94E2B96657439DD48B3517127C3F0A7A0FC1"
+    },
+    {
+      "bytes": 2099550,
+      "path": "assets/ground.png",
+      "sha256": "9BF4367767525502249F964C272C65BCC11B9452BFF1B9733CC3F7E842038C45"
+    },
+    {
+      "bytes": 35871,
+      "path": "assets/land-top-mask.png",
+      "sha256": "913952A68FD903E8ADD6E546E7F5C6639D719FEAC77F124E5234F81EBCC45425"
+    },
+    {
+      "bytes": 96780,
+      "path": "assets/scene-occlusion-mask.png",
+      "sha256": "177EB17509C96BA2740D13D2938C4F9442ADAD445083E71ACC68C5C2427667AD"
+    },
+    {
+      "bytes": 2072442,
+      "path": "review/ground-grid-region-1x.png",
+      "sha256": "49B265C834569C5F3630D97CDAF5386393148B71CD8540F7A3B38C150E2D13A0"
+    },
+    {
+      "bytes": 371532,
+      "path": "review/local-1x.png",
+      "sha256": "3CE77DB541DE34C3E33AA1C6F63494A03BA8FCE7C677D783CA7D5649B21F34FE"
+    },
+    {
+      "bytes": 2647341,
+      "path": "review/scene-full-2000.png",
+      "sha256": "786D97F8177858E12E1CF2AE13D8A2D33F2CE0C5D92C8E699FB72F0128487E93"
+    },
+    {
+      "bytes": 2533975,
+      "path": "review/scene-region-1x.png",
+      "sha256": "8F1ED83BBABC83A6C9ED750C4117EF7750AF4102DE2B8384B7D2529078E55EDF"
+    },
+    {
+      "bytes": 1842136,
+      "path": "review/viewport-1x.png",
+      "sha256": "C3B5908BDEDB5E113C3E42C9BF15DF837563E5A5CBD411F73C44934E6942AADD"
+    },
+    {
+      "bytes": 2348615,
+      "path": "source/continuous-ground.png",
+      "sha256": "0909AC362250170B357C95DE18C5234E1397943E1E067ECDE71AF9DA1D68EF6E"
+    }
+  ],
+  "runtimeApproval": "未验证，未接入",
+  "supersamplingPerAxis": 8,
+  "approvalScope": "格线局部与完整地形离线组合视觉通过",
+  "parameterSource": "build.ps1",
+  "sourceRoot": "E:\\Codex_Projects\\异星军团\\outputs\\ground-standard-grid-v4",
+  "version": "ground-standard-grid-v4",
+  "approvedDate": "2026-11-03"
+}

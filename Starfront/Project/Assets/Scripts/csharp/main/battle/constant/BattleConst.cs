@@ -1,12 +1,14 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 /// <summary>已确认的标准格子几何；场景大小、原点、布局均读取配置。</summary>
 public static class BattleConst {
     // 已审核的场景生产圆环素材，尺寸读取Sprite，不参与玩法数值。
-    public const string ProductionBackgroundResource = "scene/battle/appearance/Production_BG";
-    public const string ProductionFillResource = "scene/battle/appearance/Production_Fill";
+    public const string ProductionBackgroundResource = "default/battle/appearance/Production_BG";
+    public const string ProductionFillResource = "default/battle/appearance/Production_Fill";
     /**对局倒计时时长，单位秒。*/
     public static int DurationSeconds => ConfigValueHelper.GetInt(1000);
+    /**每名玩家可携带的已激活兵种卡上限，不包含固定建筑。*/
+    public static int DeckCardLimit => ConfigValueHelper.GetInt(1014);
     /**首版己方显示名称。*/
     public static string FriendlyName => ConfigValueHelper.GetString(1001);
     /**首版敌方显示名称。*/
@@ -34,9 +36,13 @@ public static class BattleConst {
     /**样板品质色，键为Quality枚举名，Background为内底色。*/
     public static System.Collections.Generic.IReadOnlyDictionary<string, string> CardRevealColors => ConfigValueHelper.GetMap<string>(1010);
 
+    public static string FriendlyCoverageResource => ConfigValueHelper.GetString(1011);
+    public static string EnemyCoverageResource => ConfigValueHelper.GetString(1012);
+    public static string CoverageMaterialResource => ConfigValueHelper.GetString(1013);
+
     /**解锁提示图标共享固定目录，文件名由常量表映射。*/
     public static string UnlockIconResource(int configId) {
-        return "scene/battle/effects/" + UnlockIcons[configId.ToString(System.Globalization.CultureInfo.InvariantCulture)];
+        return "default/battle/effects/" + UnlockIcons[configId.ToString(System.Globalization.CultureInfo.InvariantCulture)];
     }
 
     /**索敌查询周期，毫秒。*/

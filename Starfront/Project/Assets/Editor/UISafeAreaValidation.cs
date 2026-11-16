@@ -17,10 +17,11 @@ public static class UISafeAreaValidation {
                 UIScreenRegions.EditorOverride = safe;
                 layout.ApplyLayout();
                 Canvas.ForceUpdateCanvases();
-                Inside(layout.contentViewport, UIScreenRegions.ContentArea, "main content");
+                Inside(layout.deckContent, UIScreenRegions.ContentArea, "formation body");
+                Inside(layout.powerHeader, UIScreenRegions.ContentArea, "formation power header");
                 Inside(layout.navigation, UIScreenRegions.ContentArea, "main navigation");
                 Require(layout.background.rect.size == background, "background must not shrink with safe area");
-                Require(Mathf.Abs(layout.deckContent.rect.width - 720) < .1f && Mathf.Abs(layout.deckContent.rect.height - 1130) < .1f, "deck design remains 720x1280 including navigation");
+                Require(Mathf.Abs(layout.deckContent.rect.width - 720) < .1f && Mathf.Abs(layout.deckContent.rect.height - 1136) < .1f, "formation body design is 720x1136");
             }
             // 普通窗口使用真实正式预制体，覆盖绑定、动态内容及重复打开。
             var prefab = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefab/default/gm/GmPanel.prefab");

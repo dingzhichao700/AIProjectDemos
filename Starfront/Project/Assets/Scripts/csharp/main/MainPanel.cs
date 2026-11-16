@@ -9,6 +9,8 @@ using UnityEngine.UI;
 /// <remarks>只处理视图切换与展示；功能开启由 FunctionControl 判定。</remarks>
 public sealed class MainPanel : BasePanel {
 
+    public override bool UsesFullScreenViewport => true;
+
     public override bool FitContentToSafeArea => false;
 
     /******************* UIComponent Define begin ************************/
@@ -39,6 +41,7 @@ public sealed class MainPanel : BasePanel {
 
     /**当前是否显示卡组视图*/
     private bool showingDeck;
+    private CanvasGroup deckVisibility;
 
     /**取消切换时同时回收两段补间，避免关闭后回调修改视图*/
     private Tween incomingTween;
@@ -60,8 +63,8 @@ public sealed class MainPanel : BasePanel {
         layout = GetComponent<MainPanelLayout>();
         layout.ActivateViewport();
         layout.LayoutChanged += OnLayoutChanged;
-        GMControl.ins.Init();
         LayerEffectTestGM.Init();
+        InventoryGM.Init();
         FunctionControl.ins.Init();
         if (functionNavigation == null) {
             functionNavigation = new MainFunctionNavigationView(this);
@@ -78,12 +81,12 @@ public sealed class MainPanel : BasePanel {
             enteringBattle = false;
         }
         RemoveLis();
-        functionNavigation.HideHint();
         SetViewImmediate(false);
+        viewDeck.gameObject.SetActive(false);
         layout.LayoutChanged -= OnLayoutChanged;
         layout.RestoreViewport();
+        InventoryGM.Shutdown();
         LayerEffectTestGM.Shutdown();
-        GMControl.ins.Shutdown();
     }
 
     /**视窗变化时取消旧宽度上的动画，并保持当前选择。*/
@@ -96,7 +99,6 @@ public sealed class MainPanel : BasePanel {
         } else {
             SetViewImmediate(showingDeck);
         }
-        functionNavigation?.HideHint();
     }
 
     private void AddLis() {
@@ -132,6 +134,10 @@ public sealed class MainPanel : BasePanel {
         if (enteringBattle || BattleControl.ins.preparing || !TryEnterFunction(FunctionConst.Battle)) {
             return;
         }
+        if (!BattleControl.ins.CanEnterSceneBattle(out string reason)) {
+            GlobalToast.Warn(reason);
+            return;
+        }
         int version = ++battleRequestVersion;
         enteringBattle = true;
         playBattleButton.interactable = false;
@@ -153,7 +159,7 @@ public sealed class MainPanel : BasePanel {
             BattleControl.ins.End();
             Debug.LogException(exception);
             if (version == battleRequestVersion && isOpened) {
-                functionNavigation.ShowHint("场景加载失败，请重试");
+                GlobalToast.Warn("场景加载失败，请重试");
             }
         } finally {
             if (version == battleRequestVersion) {
@@ -184,16 +190,15 @@ public sealed class MainPanel : BasePanel {
     /**未制作的页面不误认为功能仍锁定，保持当前视图并明确告知。*/
     private void ShowReservedFunction(int id) {
         if (TryEnterFunction(id)) {
-            functionNavigation.ShowHint(FunctionControl.ins.model.GetConfig(id).Name + "已解锁\n功能页面尚未开放");
+            GlobalToast.Warn(FunctionControl.ins.model.GetConfig(id).Name + "已解锁\n功能页面尚未开放");
         }
     }
 
     private bool TryEnterFunction(int id) {
         if (!FunctionControl.ins.TryEnter(id, out string hint)) {
-            functionNavigation.ShowHint(hint);
+            GlobalToast.Warn(hint);
             return false;
         }
-        functionNavigation.HideHint();
         return true;
     }
 
@@ -225,9 +230,25 @@ public sealed class MainPanel : BasePanel {
         showingDeck = deck;
         viewDeck.anchoredPosition = Vector2.zero;
         viewBattle.anchoredPosition = Vector2.zero;
-        viewDeck.gameObject.SetActive(deck);
+        SetDeckVisible(deck);
         viewBattle.gameObject.SetActive(!deck);
         RefreshNavigation();
+    }
+
+    // 切页保留已访问的阵容及卡面租用，关闭窗口仍走正常的禁用与释放流程。
+    private void SetDeckVisible(bool visible) {
+        if (deckVisibility == null) {
+            deckVisibility = viewDeck.GetComponent<CanvasGroup>();
+            if (!deckVisibility) deckVisibility = viewDeck.gameObject.AddComponent<CanvasGroup>();
+        }
+        deckVisibility.alpha = visible ? 1f : 0f;
+        deckVisibility.interactable = visible;
+        deckVisibility.blocksRaycasts = visible;
+        if (visible) {
+            viewDeck.gameObject.SetActive(true);
+        } else if (viewDeck.gameObject.activeInHierarchy) {
+            CardCultivationControl.CloseForSource(viewDeck.GetComponentInChildren<DeckPresentationView>(true));
+        }
     }
 
     /**导航保持不动，仅内容视图根据按钮顺序横向滑入。*/
@@ -241,12 +262,18 @@ public sealed class MainPanel : BasePanel {
         float direction = deck ? -1f : 1f;
         float width = incoming.rect.width;
         showingDeck = deck;
-        incoming.gameObject.SetActive(true);
+        if (deck) SetDeckVisible(true);
+        else {
+            deckVisibility.interactable = false;
+            deckVisibility.blocksRaycasts = false;
+            incoming.gameObject.SetActive(true);
+        }
         incoming.anchoredPosition = new Vector2(direction * width, 0);
         RefreshNavigation();
         incomingTween = incoming.DOAnchorPosX(0, 0.25f).SetEase(Ease.OutCubic);
         outgoingTween = outgoing.DOAnchorPosX(-direction * width, 0.25f).SetEase(Ease.OutCubic).OnComplete(() => {
-            outgoing.gameObject.SetActive(false);
+            if (deck) outgoing.gameObject.SetActive(false);
+            else SetDeckVisible(false);
             outgoing.anchoredPosition = Vector2.zero;
         });
     }
@@ -254,8 +281,11 @@ public sealed class MainPanel : BasePanel {
     private void RefreshNavigation() {
         imgDeckSelected.gameObject.SetActive(showingDeck);
         imgBattleSelected.gameObject.SetActive(!showingDeck);
-        txtNavDeckLabel.gameObject.SetActive(showingDeck);
-        txtNavBattleLabel.gameObject.SetActive(!showingDeck);
+        txtNavDeckLabel.gameObject.SetActive(true);
+        txtNavBattleLabel.gameObject.SetActive(true);
+        // 美术两态跟随已有视图选择，不改变功能解锁和导航业务。
+        GetComponent<MainPanelArtState>()?.SetNavigation(showingDeck ? 1 : 2);
     }
 
 }
+
