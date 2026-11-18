@@ -94,6 +94,7 @@ MonoBehaviour:
     m_ProfileVersion: 1
   m_LabelTable:
     m_LabelNames:
+    - scene_1003
     - default
     - main-content
     - Colonial

@@ -800,5 +800,482 @@
     "groundTintStrength": 1,
     "groundBrightness": 1,
     "groundContrast": 1
+  },
+  {
+    "id": 1003,
+    "name": "岩土地貌1003",
+    "width": 2000,
+    "height": 2000,
+    "originX": 1000,
+    "originY": 1000,
+    "cameraCenterX": 1000,
+    "cameraCenterY": 1000,
+    "friendlyBaseQ": 0,
+    "friendlyBaseK": 10,
+    "enemyBaseQ": 0,
+    "enemyBaseK": -10,
+    "appearances": [
+      {
+        "resourceType": 2,
+        "resource": "scene/battle/1002/water_cluster_7",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -3,
+            "k": -5
+          },
+          {
+            "q": -3,
+            "k": -3
+          },
+          {
+            "q": -2,
+            "k": -6
+          },
+          {
+            "q": -2,
+            "k": -4
+          },
+          {
+            "q": -2,
+            "k": -2
+          },
+          {
+            "q": -1,
+            "k": -5
+          },
+          {
+            "q": -1,
+            "k": -3
+          }
+        ],
+        "anchor": {
+          "q": -2,
+          "k": -4
+        },
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 2,
+        "resource": "scene/battle/1002/water_single",
+        "layer": 2,
+        "cells": [
+          {
+            "q": -3,
+            "k": 9
+          }
+        ],
+        "anchor": {
+          "q": -3,
+          "k": 9
+        },
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 2,
+        "resource": "scene/battle/1002/water_single",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 0,
+            "k": 0
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": 0
+        },
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 2,
+        "resource": "scene/battle/1002/water_cluster_7",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 1,
+            "k": 3
+          },
+          {
+            "q": 1,
+            "k": 5
+          },
+          {
+            "q": 2,
+            "k": 2
+          },
+          {
+            "q": 2,
+            "k": 4
+          },
+          {
+            "q": 2,
+            "k": 6
+          },
+          {
+            "q": 3,
+            "k": 3
+          },
+          {
+            "q": 3,
+            "k": 5
+          }
+        ],
+        "anchor": {
+          "q": 2,
+          "k": 4
+        },
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 2,
+        "resource": "scene/battle/1002/water_single",
+        "layer": 2,
+        "cells": [
+          {
+            "q": 3,
+            "k": -9
+          }
+        ],
+        "anchor": {
+          "q": 3,
+          "k": -9
+        },
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/1002/mountain_small",
+        "layer": 7,
+        "cells": [
+          {
+            "q": -4,
+            "k": -10
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": -10
+        },
+        "offset": {
+          "x": 0,
+          "y": -6
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/1002/mountain_small",
+        "layer": 7,
+        "cells": [
+          {
+            "q": -4,
+            "k": 4
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": 4
+        },
+        "offset": {
+          "x": 0,
+          "y": -6
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/1002/mountain",
+        "layer": 7,
+        "cells": [
+          {
+            "q": -2,
+            "k": 10
+          }
+        ],
+        "anchor": {
+          "q": -2,
+          "k": 10
+        },
+        "offset": {
+          "x": 0,
+          "y": -6
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/1002/mountain",
+        "layer": 7,
+        "cells": [
+          {
+            "q": 0,
+            "k": -6
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": -6
+        },
+        "offset": {
+          "x": 0,
+          "y": -6
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/1002/mountain",
+        "layer": 7,
+        "cells": [
+          {
+            "q": 0,
+            "k": 6
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": 6
+        },
+        "offset": {
+          "x": 0,
+          "y": -6
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/1002/mountain",
+        "layer": 7,
+        "cells": [
+          {
+            "q": 2,
+            "k": -10
+          }
+        ],
+        "anchor": {
+          "q": 2,
+          "k": -10
+        },
+        "offset": {
+          "x": 0,
+          "y": -6
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/1002/mountain_small",
+        "layer": 7,
+        "cells": [
+          {
+            "q": 4,
+            "k": -4
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": -4
+        },
+        "offset": {
+          "x": 0,
+          "y": -6
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/1002/mountain_small",
+        "layer": 7,
+        "cells": [
+          {
+            "q": 4,
+            "k": 10
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": 10
+        },
+        "offset": {
+          "x": 0,
+          "y": -6
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/1002/mountain_small_shadow",
+        "layer": 5,
+        "cells": [
+          {
+            "q": -4,
+            "k": -10
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": -10
+        },
+        "offset": {
+          "x": 0,
+          "y": -6
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/1002/mountain_small_shadow",
+        "layer": 5,
+        "cells": [
+          {
+            "q": -4,
+            "k": 4
+          }
+        ],
+        "anchor": {
+          "q": -4,
+          "k": 4
+        },
+        "offset": {
+          "x": 0,
+          "y": -6
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/1002/mountain_shadow",
+        "layer": 5,
+        "cells": [
+          {
+            "q": -2,
+            "k": 10
+          }
+        ],
+        "anchor": {
+          "q": -2,
+          "k": 10
+        },
+        "offset": {
+          "x": 0,
+          "y": -6
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/1002/mountain_shadow",
+        "layer": 5,
+        "cells": [
+          {
+            "q": 0,
+            "k": -6
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": -6
+        },
+        "offset": {
+          "x": 0,
+          "y": -6
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/1002/mountain_shadow",
+        "layer": 5,
+        "cells": [
+          {
+            "q": 0,
+            "k": 6
+          }
+        ],
+        "anchor": {
+          "q": 0,
+          "k": 6
+        },
+        "offset": {
+          "x": 0,
+          "y": -6
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/1002/mountain_shadow",
+        "layer": 5,
+        "cells": [
+          {
+            "q": 2,
+            "k": -10
+          }
+        ],
+        "anchor": {
+          "q": 2,
+          "k": -10
+        },
+        "offset": {
+          "x": 0,
+          "y": -6
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/1002/mountain_small_shadow",
+        "layer": 5,
+        "cells": [
+          {
+            "q": 4,
+            "k": -4
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": -4
+        },
+        "offset": {
+          "x": 0,
+          "y": -6
+        }
+      },
+      {
+        "resourceType": 1,
+        "resource": "scene/battle/1002/mountain_small_shadow",
+        "layer": 5,
+        "cells": [
+          {
+            "q": 4,
+            "k": 10
+          }
+        ],
+        "anchor": {
+          "q": 4,
+          "k": 10
+        },
+        "offset": {
+          "x": 0,
+          "y": -6
+        }
+      }
+    ],
+    "groundResource": "scene/1003/ground",
+    "groundGridResource": "scene/battle/1002/ground_grid",
+    "groundMaterialResource": "scene/battle/1002/ground",
+    "groundOffset": {
+      "x": 0,
+      "y": 0
+    },
+    "groundThickness": 6,
+    "waterDepth": 18,
+    "groundRed": "#AB5742",
+    "groundBlue": "#527CA6",
+    "groundTintStrength": 1,
+    "groundBrightness": 1,
+    "groundContrast": 1
   }
 ]

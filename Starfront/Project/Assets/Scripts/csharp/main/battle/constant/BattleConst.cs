@@ -74,7 +74,7 @@ public static class BattleConst {
     /**尸体及阴影同步淡出时长，单位毫秒。*/
     public static int DeathFadeMs => ConfigValueHelper.GetInt(1112);
 
-    public const int InitialSceneId = 1002;
+    public const int InitialSceneId = 1003;
     public const float CellWidth = 107f;
     public const float CellHeight = 93f;
     public const float ColumnStep = 80.25f;

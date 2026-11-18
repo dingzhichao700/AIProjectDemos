@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 81759b494abdd1b41b2579da118e6c14
   m_SerializeEntries:
+  - m_GUID: 31a58c2fda5daf443bf4cbf262230d2e
+    m_Address: Assets/Art/unpack/scene/1003/ground.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - scene_1003
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 04a7a0821aac49d419a7a350c4586361
     m_Address: Assets/Art/material/scene/battle/1002/ground.mat
     m_ReadOnly: 0
