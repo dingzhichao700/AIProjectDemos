@@ -18750,6 +18750,32 @@
       ],
       "transitionEvidence": "NINE-GROUPS-R31-03/b7e75d61c35653bfcd84d777cda6c33a352b3c5339dcf32e862c6af9227066c3",
       "gateEvidence": "Nine exact active Groups consolidated; existing runtime identity and latest approved visual data preserved"
+    },
+    {
+      "guid": "31a58c2fda5daf443bf4cbf262230d2e",
+      "state": "target",
+      "batch": "SCENE-1003-PATH-01-R1",
+      "migratable": true,
+      "basis": "Current scene1003 directory defect correction; user messages 01a1edb4-98b5-71f2-8982-fd959c77b4e9,01a1edc2-0378-73d3-9bf7-b82a4f20e6c4; no legacy admission",
+      "current": {
+        "path": "Assets/Art/unpack/scene/1003/ground.png",
+        "entries": [
+          {
+            "group": "scene",
+            "address": "Assets/Art/unpack/scene/1003/ground.png",
+            "labels": [
+              "scene_1003"
+            ]
+          }
+        ]
+      },
+      "target": {
+        "path": "Assets/Art/unpack/scene/battle/1003/ground.png",
+        "group": "scene",
+        "bundleKey": "scene_1003"
+      },
+      "assetSha256": "38b2b9647892f922c01a131ab802468845e8359262fe0244c5aaff102b014e9c",
+      "transitionEvidence": "SCENE-1003-PATH-01-R1-execute3/b04d23ac644436f77c9463e17cba73445c6295bcfed0316129152b4983bca27f"
     }
   ],
   "stageContract": {
@@ -19962,6 +19988,12 @@
       ],
       "kind": "exact-nine-group-consolidation",
       "approvalEvidence": "真人01a1e51f-5fd2-7461-9f50-180603a919a7：另有9个旧Group仍装着资源，需迁空后再删，未强删：执行吧。"
+    },
+    "scene1003-path": {
+      "allowedGuids": [
+        "31a58c2fda5daf443bf4cbf262230d2e"
+      ],
+      "basis": "User explicitly requested direct directory correction; single asset scope"
     }
   },
   "supplementRevision": "RESOURCE-PACK-NORM/R1",

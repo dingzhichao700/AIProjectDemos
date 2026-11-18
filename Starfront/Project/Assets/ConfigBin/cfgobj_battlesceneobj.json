@@ -1263,7 +1263,7 @@
         }
       }
     ],
-    "groundResource": "scene/1003/ground",
+    "groundResource": "scene/battle/1003/ground",
     "groundGridResource": "scene/battle/1002/ground_grid",
     "groundMaterialResource": "scene/battle/1002/ground",
     "groundOffset": {
